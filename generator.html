@@ -100,6 +100,9 @@
     </main>
 
     <script>
+        let lastBattleResult = null; // 'victory' or 'defeat'
+        let lastChoices = null; // Array der letzten Choices
+        let pendingTransformation = false; // Ob eine Transformation noch ausgewählt werden muss
         let lastChallengeTime = null;
         let transformationEndTime = null;
         let transformationDuration = 0;
@@ -272,7 +275,7 @@
                     "She screamed as the spell hit, the once proud kitsune goddess Celina thrown to her knees, her tails thrashing wildly as her body began to betray her, her flawless curves trembling, magic ripping through her form like barbed wire soaked in fire, 'W-what are you doing to me!?' she gasped, voice already thick with desperation and fear, but you only smirked, stepping over her, grabbing her hair, yanking her head back as her golden eyes burned with furious humiliation 'Turning you into something useful' you growl, shoving her face to the floor, her perfect ass in the air, tails twitching in helpless panic as her hips begin to melt inward, bones cracking, tightening, flesh sucking in on itself as her entire lower body began to compact, reshape, warp, 'No! NO! I am a goddess!' she sobbed, but her thighs were already fusing, fattening into a soft, bouncy, sleeve like mass, her sex stretching wide and glossy, lips puffing out unnaturally, slick and pink, her inner walls writhing as they reshaped into ribbed, pleasure-soaked ridges, her clit vanishing with a shiver, nerves rerouted into nothing but pure sensation, her stomach collapsing, organs melting away into squishy warmth, her waist folding inward as her upper body began to sink into herself, her arms flattening, fingers curling into soft rubbery grips at the sides of her forming onahole body, 'Please, no, don’t make me this, not this!' she whimpered, but her voice cracked, lips puffing and sticking into a soft, permanent O-shape, lined with silken rubber and drool, the last sounds of her words slurred into muffled wetness as her face deformed, her eyes wide and wet as they slid down inside her, leaving her empty, glossy, and fuckable, her once glorious hair pooling into a soft silicone frill around the base, her body now a twitching, blushing, magical onahole, glistening with goddess level sensitivity, twitching helplessly on the floor 'You’re mine now' you sneer, lifting her pathetic new body up, warm and trembling in your hands, her magic still pulsing faintly through the toy, her soul trapped deep inside, screaming and soaked, feeling everything as you slide your cock against her entrance, her whole body spasming with wet need, unable to resist, unable to deny, her every nerve wired to your pleasure now 'You thought you were divine? Now you're just my fucktoy' you hiss, thrusting deep inside her, her slick folds sucking you in with unnatural heat, her internal ridges tightening, her whole body rippling around your cock like it was made to worship you, because now it is, her inner voice moaning, begging, breaking 'Every thrust fucks your pride, every stroke drains your power' you growl, pounding into her harder, her slick walls milking you, 'I’ll cum in you, over and over, for hours, days, years, and you’ll feel all of it, from the inside, from your new place in the world wrapped around my cock, begging for release you’ll never get,' you groan, burying yourself to the base, her form shuddering with broken bliss, her soul soaked in cum and humiliation, her existence rewritten in thrusts and sweat, 'You were worshipped once....now you're nothing but a hole, a sleeve, a fuckable trophy to remind everyone what happens to bitches who think they're above me.'"
                 ]
             }
-        ];
+        ]; 
 
         // DOM Elements
         const challengeButton = document.getElementById('challengeButton');
@@ -527,13 +530,37 @@
                 return;
             }
             
+            const savedBattleResult = localStorage.getItem('kitsunePendingBattleResult');
+            const savedChoices = localStorage.getItem('kitsunePendingChoices');
+
+            // Show loading
+            loadingBattle.style.display = 'block';
+            challengeButton.style.display = 'none';
+            if (savedBattleResult && savedChoices) {
+                // Restore the previous battle result
+                lastBattleResult = savedBattleResult;
+                lastChoices = JSON.parse(savedChoices);
+                pendingTransformation = true;
+                
+                if (lastBattleResult === 'victory') {
+                    isVictory = true;
+                    gameState = 'victorious';
+                    displayVictoryWithChoices(lastChoices);
+                } else {
+                    isVictory = false;
+                    gameState = 'defeated';
+                    displayDefeatWithChoices(lastChoices);
+                }
+                return;
+            }
+
             challengeButton.style.display = 'none';
             challengeButton.classList.add('battle-flash');
             
             // Show loading
             loadingBattle.style.display = 'block';
             challengeButton.style.display = 'none';
-            
+
             // Hide result containers during loading
             victoryResult.style.display = 'none';
             victoryResult.classList.remove('active');
@@ -548,10 +575,37 @@
                 isVictory = Math.random() < 0.01; //was 0.01
                 
                 if (isVictory) {
-                    displayVictory();
+                    lastBattleResult = 'victory';
+                    const choices = getRandomElements(celinaTransformations, 3);
+                    choices.forEach(choice => {
+                        if (choice.images.length > 0 && !choice.previewImage) {
+                            choice.previewImage = choice.images[Math.floor(Math.random() * choice.images.length)];
+                        }
+                    });
+                    lastChoices = choices;
+                    pendingTransformation = true;
+                    // Save pending battle result
+                    localStorage.setItem('kitsunePendingBattleResult', 'victory');
+                    localStorage.setItem('kitsunePendingChoices', JSON.stringify(choices));
+
+                    displayVictoryWithChoices(choices);
                     gameState = 'victorious';
                 } else {
-                    displayDefeat();
+                    lastBattleResult = 'defeat';
+                    const choices = getRandomElements(possibleTransformations, 2);
+                    choices.forEach(choice => {
+                        if (choice.images.length > 0 && !choice.previewImage) {
+                            choice.previewImage = choice.images[Math.floor(Math.random() * choice.images.length)];
+                        }
+                    });
+                    lastChoices = choices;
+                    pendingTransformation = true;
+                    
+                    // Save pending battle result
+                    localStorage.setItem('kitsunePendingBattleResult', 'defeat');
+                    localStorage.setItem('kitsunePendingChoices', JSON.stringify(choices));
+                    
+                    displayDefeatWithChoices(choices);
                     gameState = 'defeated';
                 }
                 
@@ -759,6 +813,97 @@
             challengeButton.style.display = 'none';
         }
 
+        // Display victory with specific choices
+        function displayVictoryWithChoices(choices) {
+            defeatResult.style.display = 'none';
+            defeatResult.classList.remove('active');
+            loadingBattle.style.display = 'none';
+            
+            victoryResult.style.display = 'block';
+            victoryResult.classList.add('active');
+            choiceContainer.style.display = 'grid';
+            celinaTransformation.style.display = 'none';
+
+            challengeButton.style.display = 'none';
+            resetButtonVictory.style.display = 'none';
+            
+            // Generate transformation choices with the provided choices
+            choiceContainer.innerHTML = '';
+            
+            choices.forEach((item, index) => {
+                const choiceElement = document.createElement('div');
+                choiceElement.classList.add('choice-item');
+                choiceElement.setAttribute('data-index', index);
+                choiceElement.setAttribute('data-name', item.name);
+
+                let previewImage = '';
+                if (item.previewImage) {
+                    previewImage = item.previewImage;
+                } else if (item.images.length > 0) {
+                    previewImage = item.images[Math.floor(Math.random() * item.images.length)];
+                    item.previewImage = previewImage; // Store it
+                }
+
+                choiceElement.innerHTML = `
+                    <h3 class="choice-title">${item.name}</h3>
+                    ${previewImage ? `<img src="${previewImage}" alt="${item.name}" class="choice-img">` : '<div class="no-image">No image available</div>'}
+                    <p class="choice-description">Transform Celina into this for a limited time. Click to select.</p>
+                `;
+                
+                choiceElement.addEventListener('click', () => {
+                    selectCelinaTransformation(item); 
+                    choiceContainer.style.display = 'none';
+                });
+                choiceContainer.appendChild(choiceElement);
+            });
+            challengeButton.style.display = 'none';
+        }
+
+        // Display defeat with specific choices
+        function displayDefeatWithChoices(choices) {
+            victoryResult.style.display = 'none';
+            victoryResult.classList.remove('active');
+            loadingBattle.style.display = 'none';
+            
+            defeatResult.style.display = 'block';
+            defeatResult.classList.add('active');
+            defeatChoiceContainer.style.display = 'grid';
+            transformationResult.style.display = 'none';
+
+            challengeButton.style.display = 'none';
+            resetButtonDefeat.style.display = 'none';
+            
+            // Generate transformation choices with the provided choices
+            defeatChoiceContainer.innerHTML = '';
+            
+            choices.forEach((item, index) => {
+                const choiceElement = document.createElement('div');
+                choiceElement.classList.add('choice-item');
+                choiceElement.setAttribute('data-index', index);
+                choiceElement.setAttribute('data-name', item.name);
+
+                let previewImage = '';
+                if (item.previewImage) {
+                    previewImage = item.previewImage;
+                } else if (item.images.length > 0) {
+                    previewImage = item.images[Math.floor(Math.random() * item.images.length)];
+                    item.previewImage = previewImage; // Store it
+                }
+                choiceElement.innerHTML = `
+                    <h3 class="choice-title">${item.name}</h3>
+                    ${previewImage ? `<img src="${previewImage}" alt="${item.name}" class="choice-img">` : '<div class="no-image">No image available</div>'}
+                    <p class="choice-description">You beg for mercy. Celina allows you to choose this fate. Click to select.</p>
+                `;
+                
+                choiceElement.addEventListener('click', () => {
+                    selectPlayerTransformation(item); 
+                    defeatChoiceContainer.style.display = 'none';
+                });
+                defeatChoiceContainer.appendChild(choiceElement);
+            });
+            challengeButton.style.display = 'none';
+        }
+
         // Function to select a player transformation
         function selectPlayerTransformation(item) {
             defeatChoiceContainer.style.display = 'none';
@@ -813,6 +958,11 @@
             clearInterval(timerInterval);
             timerInterval = setInterval(updateTimerDisplay, 1000);
             updateTimerDisplay(); // Initial update
+            
+            // Clear pending battle result after selection
+            pendingTransformation = false;
+            localStorage.removeItem('kitsunePendingBattleResult');
+            localStorage.removeItem('kitsunePendingChoices');
         }
 
 
@@ -879,6 +1029,11 @@
             infoIcon.style.opacity = '0';
             infoIcon.style.transform = 'scale(0.5)';
             
+            // Clear pending battle result after selection
+            pendingTransformation = false;
+            localStorage.removeItem('kitsunePendingBattleResult');
+            localStorage.removeItem('kitsunePendingChoices');
+
             setTimeout(() => {
                 infoIcon.style.transition = 'all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
                 infoIcon.style.opacity = '1';
@@ -966,7 +1121,13 @@
                 showCooldownMessage(remainingTime);
                 return;
             }
-            
+            // Clear pending battle results
+            pendingTransformation = false;
+            lastBattleResult = null;
+            lastChoices = null;
+            localStorage.removeItem('kitsunePendingBattleResult');
+            localStorage.removeItem('kitsunePendingChoices');
+
             // Clear all game state
             clearInterval(timerInterval);
             gameState = 'initial';
@@ -1074,7 +1235,41 @@
                 gameState = 'initial';
                 isVictory = false;
                 selectedTransformation = null;
+
+                // Check for pending battle results
+                const savedBattleResult = localStorage.getItem('kitsunePendingBattleResult');
+                const savedChoices = localStorage.getItem('kitsunePendingChoices');
                 
+                // Handle pending battle results first
+                if (savedBattleResult && savedChoices && !savedEndTime) {
+                    lastBattleResult = savedBattleResult;
+                    lastChoices = JSON.parse(savedChoices);
+                    pendingTransformation = true;
+                    // Show info icon if in victory state with active transformation
+
+                    if (savedBattleResult === 'victory') {
+                        isVictory = true;
+                        gameState = 'victorious';
+                        
+                        setTimeout(() => {
+                            document.body.classList.remove('loading');
+                            if (loadingIndicator) loadingIndicator.classList.remove('active');
+                            displayVictoryWithChoices(lastChoices);
+                        }, 100);
+                        return;
+                    } else {
+                        isVictory = false;
+                        gameState = 'defeated';
+                        
+                        setTimeout(() => {
+                            document.body.classList.remove('loading');
+                            if (loadingIndicator) loadingIndicator.classList.remove('active');
+                            displayDefeatWithChoices(lastChoices);
+                        }, 100);
+                        return;
+                    }
+                }
+
                 if (savedEndTime && savedGameState) {
                     transformationEndTime = parseInt(savedEndTime);
                     transformationDuration = parseInt(savedDuration || 0);
@@ -1148,7 +1343,16 @@
                                 // Show the victory result
                                 victoryResult.style.display = 'block';
                                 victoryResult.classList.add('active');
-                                
+
+                                // Show info icon if in victory state with active transformation
+                                if (gameState === 'victorious' && selectedTransformation) {
+                                    setTimeout(() => {
+                                        const infoIcon = createInfoIcon();
+                                        infoIcon.style.display = 'flex';
+                                        infoIcon.style.opacity = '1';
+                                        infoIcon.style.transform = 'scale(1)';
+                                    }, 1000);
+                                }
                             } else if (gameState === 'defeated') {
                                 // Make sure the transformation object has all required fields
                                 if (!selectedTransformation || !selectedTransformation.name) {
