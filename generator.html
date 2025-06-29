@@ -29,7 +29,7 @@
             </div>
             <div class="kitsune-message">
                 <h2 class="kitsune-name">Celina</h2>
-                <p>"So, another foolish mortal seeks to challenge me? How amusing. You should know that 99% of challengers end up as my possessions - transformed into items that serve my whims. But perhaps... you believe you're special? That 1% chance of victory tempts you, doesn't it? Very well. Let us begin this dance of fate."</p>
+                <p>"So, another foolish mortal seeks to challenge me? How amusing. You should know that 97% of challengers end up as my possessions - transformed into items that serve my whims. But perhaps... you believe you're special? That 1% chance of victory tempts you, doesn't it? Very well. Let us begin this dance of fate."</p>
             </div>
         </section>
 
@@ -571,8 +571,8 @@
             setTimeout(() => {
                 loadingBattle.style.display = 'none';
                 
-                // Determine battle outcome (1% chance of victory)
-                isVictory = Math.random() < 0.01; //was 0.01
+                // Determine battle outcome (3% chance of victory)
+                isVictory = Math.random() < 0.03; //was 0.03
                 
                 if (isVictory) {
                     lastBattleResult = 'victory';
