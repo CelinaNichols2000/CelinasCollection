@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Celina’s Enchanted Farm</title>
+  <link rel="stylesheet" href="farm.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Farm Section -->
+  <section class="farm-section">
+    <div class="farm-overlay">
+      <h1 class="farm-title">Die Verzauberte Farm</h1>
+      <p class="farm-text">Wähle einen Ort, entdecke Begegnungen und erlebe magische Geschichten.</p>
+
+      <div class="farm-actions">
+        <button id="startFarm" class="farm-btn">🌾 Start</button>
+        <button id="randomEncounter" class="farm-btn">🎲 Zufall</button>
+        <button id="resetFarm" class="farm-btn">🔄 Reset</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Locations -->
+  <section class="farm-location-section">
+    <h2 class="farm-subtitle">Orte</h2>
+    <div class="farm-location-grid">
+      <div id="locationsGrid" class="farm-location-grid"></div>
+    </div>
+  </section>
+
+  <!-- Encounter Modal -->
+  <div id="farmModal" class="farm-modal">
+    <div class="farm-modal-content">
+      <button class="farm-close">&times;</button>
+      <div id="modalStageContainer"></div>
+    </div>
+  </div>
+
+  <script src="farm.js" defer></script>
+</body>
+</html>

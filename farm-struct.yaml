@@ -1,0 +1,779 @@
+# Celinas Interaktive Farm – Konzeptplan (Text-Adventure Struktur)
+# Format: YAML – optimal für interaktive Weltplanung, einfach in Code/Engines (Twine, Ink, Ren'Py, etc.) umsetzbar.
+# Alles hier ist in Nodes gegliedert: Orte, Encounters, Aktionen, Transformationen.
+# Kommentare (#) sind zusätzliche Hinweise. Szenen enthalten bereits erotische Beschreibungen für Atmosphäre.
+# Ziel: Ein naughty Ort welcher viele animal transformations and some inaimate tfs hat. Eine feuchte, tropfender, schmutzige Interaktionen dabei enthält damit es dem Spieler(besucher) nie langweilig wird und er genug zu tuhen hat...dazu sind die tere an den orten verwandelte leute die ausgestellt sind...es ist ja meine Farm!.
+
+meta:
+  title: "Celinas Verzauberte Farm"
+  author: "Celina die Kitsune"
+  description: >
+    Eine interaktive Farmwelt, in der Besucher durch Erkundung, Zufall und 
+    Verlockungen selbst zu Tieren oder Objekten werden. Jeder Ort ist reich 
+    an erotischen Encountern, Transformationen, Hypno-Fallen und dominanten 
+    Überraschungen. Der Textfluss soll das Gefühl vermitteln, als ob man
+    selbst mit feuchter, tropfender Gier durch die Farm streift, nie sicher,
+    ob man nur Zuschauer oder schon Opfer der kitsunischen Magie ist.
+
+world:
+  entry:
+    name: "Haupteingang"
+    description: >
+      Ein breites, hölzernes Tor mit schnörkeligen Runen. Zwei Fackeln flackern
+      verführerisch, das Holz atmet beinahe wie Haut. Schilder warnen mit 
+      kitsunischen Symbolen: *Eintritt bedeutet Hingabe*. Dahinter liegt der Hof,
+      vom Duft nach Heu, Schweiß, feuchter Erde und der süßlichen Note tropfender
+      Mösen geschwängert. Jeder Schritt vibriert, als wolle der Boden schon 
+      den Besucher locken.
+    options:
+      - "Ställe erkunden"
+      - "Weiden besuchen"
+      - "Scheune betreten"
+      - "Farmhaus betreten"
+      - "Pfad in den Wald folgen"
+    random_encounters:
+      - >
+        [Hufeisenfalle] Besucher tritt auf ein glühendes Hufeisen, das sich in den
+        Boden schmilzt. Mit einem *Krrrrrchhh* verdrehen sich Knochen, Beine knicken
+        zurück, Haarbüschel sprießen, die Kehle reißt einen schrillen *IIIIHHHAAA~*
+        heraus – und schon schnaubt er als frisch verwandeltes Pferd, tropfende
+        Möse zwischen den Schenkeln, in den Stall geschleppt und bestiegen vom hengst.
+      - >
+        [Arbeiterinnen-Begrüßung] Eine Farmarbeiterin mit hochgekrempelten Ärmeln 
+        packt einen Besucher am Kinn, zwingt ihn auf die Knie, drückt einen 
+        feuchten, nach Fuchsmuschi schmeckenden Finger zwischen seine Lippen. 
+        Wer schluckt, spürt sofort, wie der Körper sich zitternd verändert.
+
+  stable:
+    name: "Die Ställe"
+    description: >
+      Dunkle Holzbauten, warm und nach Stroh riechend, doch voller Stöhnen und
+      Gewieher, das eindeutig noch menschlich klingt. In jeder Box zucken Körper,
+      tropfen Euter, schnauben Pferdemäuler. Lederriemen hängen an den Wänden,
+      manche glühen vor Magie. Ein feuchter Geruch von Muschi, Sperma und Milch
+      hängt in der Luft, dick wie Nebel.
+    sections:
+      horses:
+        description: >
+          Pferdeboxen, gefüllt mit zappelnden, dampfenden Leibern. Besucher 
+          können sehen, wie einer der Neuankömmlinge noch halb menschlich, 
+          halb Pferd schnaubt, Möse wie ein geplatzter Pfirsich triefend.
+        actions:
+          - "Pferd streicheln"
+          steps:
+            - "Du greifst vorsichtig an den Hals, das Fell dampft vor Hitze."
+            - "Das Pferd drückt zurück, Schweiß schmiert über deine Hand."
+            - "Magische Adern glimmen unter der Haut, sickern in deine Finger."
+            - "Deine Nägel verhärten, Arme zucken, Ohren wachsen lang und spitz."
+            - "Du wieherst, Möse tropft, Körper kippt nach vorne – du bist eine Stute."
+          
+          - "Heu anbieten"
+            steps:
+              - "Du reichst dem Pferd eine Handvoll Heu."
+              - "Es frisst gierig, Sabber tropft auf deine Haut."
+              - "Deine Haut prickelt, Haare sprießen an Armen und Beinen."
+              - "Deine Geschlechtsteile ziehen sich um, Möse schwillt, Schwanz schrumpft."
+              - "Du wieherst schrill, Fell überzieht dich: eine willige Stute."
+          
+          - "Sattel aufnehmen"
+            steps:
+              - "Du hebst den alten Ledersattel von der Wand, er ist warm."
+              - "Er klebt an deinen Händen, als wolle er nicht mehr loslassen."
+              - "Du legst ihn probeweise über den Rücken, sofort saugt er sich fest."
+              - "Die Schnallen ziehen sich von selbst stramm, Bauch und Brust werden gepresst."
+              - "Du knickst ein, Hände zu Hufen, Ohren wackeln – und schon bist du ein gedemütigter Esel."
+          
+          - "Trense untersuchen"
+            steps:
+              - "Du hebst die Trense hoch, sie wirkt uralt."
+              - "Metall bewegt sich wie lebendig, reibt über deine Lippen."
+              - "Sie schnappt zu – *Klick!* – über Kiefer und Hinterkopf."
+              - "Deine Zunge hängt raus, Worte verschwimmen, nur Wiehern bleibt."
+              - "Die Trense brennt sich tief in deinen Willen: du bist Sprachlosigkeit pur."
+          
+          - "Hengst beruhigen"
+            steps:
+              - "Du streichelst seine Flanke, der Hengst schnaubt laut."
+              - "Er beißt nach deinem Kragen, reißt dich halb nieder."
+              - "Deine Beine gehorchen nicht mehr, knicken auseinander."
+              - "Er springt auf, *WHOOOMP*, sein Schwanz drückt gegen dich."
+              - "In Sekunden bist du durchbohrt, Möse ausgefüllt, zum Zuchtweib gemacht."
+          
+          - "Hypnosependel im Stall"
+            steps:
+              - "Zwischen den Boxen hängt ein altes Pendel, schwingend, klack-klack."
+              - "Dein Blick folgt unwillkürlich, Gedanken verlangsamen."
+              - "Eine Stimme flüstert in deinem Kopf: 'Wieh-hern... Knieeen...' "
+              - "Dein Körper sinkt nieder, Hände auf den Boden, sabbernd."
+              - "Du spürst, wie dir Hörner wachsen, Zähne lang werden – Gehirn ist leer, nur Befehle bleiben."
+          
+          - "Pferde-Arschloch"
+            steps:
+              - "Du siehst den dampfenden Hintern einer Stute, neugierig trittst du näher."
+              - "Der Ring zuckt, saugt feucht Luft ein, als riefe er dich."
+              - "Du stolperst, Kopf voran, Lippen zuerst gegen das Loch gedrückt."
+              - "*Schhlurrppp* – es zieht dich hinein, Beine zappelnd, Körper gleitet tief in warme Enge."
+              - "Das Arschloch schließt sich, du wirst verdaut, absorbiert – nur vibrierendes Fleisch, Teil des Pferdehinterns."
+
+        random_encounters:
+          - >
+            [Verwandlung] Besucher lehnt sich zu weit nach vorne, eine 
+            magische Trense springt wie lebendig, *Klick-klack* um Hals 
+            und Kiefer – Knochen knacken, Zähne wachsen, *Wiiiiihiiiinnnnnyyy~!* 
+            und er wiehert mit sprühendem Saft aus seiner neuen Pferdemöse.
+          - >
+            [Zuchtwahl] Eine Magd öffnet die Box und deutet: „Die nächste ist 
+            fällig.“ Sie packt den Besucher, murmelt ein Zauberwort – Möse 
+            schwillt auf, Brüste ziehen schwer, und binnen Sekunden steht eine 
+            dampfende Stute da, während der Hengst schon scharrend heranstampft.
+          - >
+            [Milchsegen] Ein halbfertiges Pferdweib drückt sich an dich, 
+            ihre tropfenden Euter reiben an deinem Körper. Feuchte Milch läuft 
+            dir in den Mund, und plötzlich schwellen deine eigenen Brüste, 
+            Milch spritzt heraus, während deine Beine zittern und Fell sprosst.
+          - >
+            [Reittier-Test] Ein Zaumzeug fällt von der Wand direkt auf deinen 
+            Kopf. *Klick!* Sofort knicken deine Beine, Finger verschmelzen zu 
+            Hufen, Schwanz peitscht, und eine Maid kichert: „Genau richtig, 
+            zum Einreiten.“ Sie schnallt dich an einen Pflock und ruft den 
+            Hengst herein.
+          - >
+            [Boxentausch] Du öffnest eine Box und siehst ein junges, 
+            tränenverschmiertes Mädchen halb im Pferdeleib stecken. Plötzlich 
+            zieht dich die Magie hinein, ihr Platztausch schreit in deinem 
+            Kopf, bis du schnaubend die Box ausfüllst und sie lachend frei 
+            hinausläuft.
+          - >
+            [Strohmatte] Du stolperst über einen Strohballen – doch er pulsiert. 
+            Die Halme kriechen an deinen Beinen hoch, pressen dich nieder, 
+            verschlingen dich warm. Sekunden später bist du selbst ein 
+            lebendiger Ballen, und als die Pferde an dir knabbern, fühlst du 
+            jedes Zerren und Reißen.
+      cows:
+        description: >
+          Ein Raum voll automatischer Melkmaschinen. Ex-Menschen knien,
+          Schläuche an Brustwarzen angesaugt, tropfend und spritzend im 
+          Dauerrhythmus. Die Luft ist feucht von Milchnebel und der 
+          vibrierenden Lust, wenn jede Pumpe rhythmisch *Schlluuuuurp~!*
+          zieht.
+        actions:
+          - "Euter kneifen (Chance auf Spritzer ins Gesicht, magischer Effekt)"
+          - "Maschine bedienen (Besucher könnte angehängt und verwandelt werden)"
+        random_encounters:
+          - >
+            [Melktransformation] Besucher stolpert, Brust wird festgesogen, 
+            *Popp-plopppp*, Nippel ziehen sich in lange, tropfende Euter. 
+            Stöhnen *Mmmmoooouuuhhhhhh~!* schallt, während Beine sich in 
+            Hufe verwandeln.
+      pigs:
+        description: >
+          Im Matsch wälzen sich nackte, triefende Leiber, Schnauzen grunzend, 
+          Mösen voller Dreck und Lustsaft. Erniedrigung sickert hier aus 
+          jedem Atemzug.
+        actions:
+          - "Matsch berühren (Chance, mit hineingezogen zu werden)"
+          - "Einem Schwein Futter geben"
+        random_encounters:
+          - >
+            [Rutschtransformation] Besucher rutscht *platschhhh* in den Morast,
+            Hände graben, doch Haut blubbert, Bauch quillt, eine dicke 
+            Sau-Möse tropft, *Oink-oinkk~!*.
+
+  pasture:
+    name: "Die Weiden"
+    description: >
+      Weite, grüne Flächen, eingezäunt mit runengeprägten Barrieren. Ex-Menschen
+      grasen, sabbernd, mit triefenden Schwänzen und Mösen, unfähig, je wieder
+      aufzuhören. Der Wind riecht nach Sperma, Gras und scharfer Magie.
+    actions:
+      - "Herumwandern"
+      - "Versuchen, das magische Gras zu probieren"
+      - "Ein Tier anstarren"
+    random_encounters:
+      - >
+        [Trog] Besucher trinkt aus einem Trog, Lippen schmatzen, *Gluck-Gluckkkk*, 
+        Augen rollen, plötzlich tropfen Euter oder Hengstschwanz aus dem Körper.
+      - >
+        [Herdenverschmelzung] Ein Leittier drückt sein nasses Maul auf Besucher, 
+        beide leuchten, *Schlluuuuurrppp*, Besucher wird Teil der Herde.
+
+  barn:
+    name: "Die Scheune"
+    description: >
+      Heilige Halle der Magie. Altar aus Knochen, Peitschen an der Wand, 
+      Halsbänder surrend von Energie. Überall tropfen Körper, Werkzeuge 
+      summen, als wollten sie benutzt werden.
+    actions:
+      - "Werkzeug berühren"
+      - "Altar untersuchen"
+    random_encounters:
+      - >
+        [Regenwurm-Transformation] Eine Arbeiterin zieht einen Fremden an den Haaren,
+        *Schrrrrppppllllt*, Körper schrumpft, Haut schleimt, er windet sich als
+        Wurm unter ihrem Stiefel – *Squishhhkrrrchhh*.
+      - >
+        [Objektfalle] Besucher berührt eine Peitsche, *Zzzzzrrrchhh*, 
+        verschmilzt mit Leder, schreit dumpf, als ob Muschi und Haut zur 
+        Waffe wurden.
+
+farmhouse:
+  name: "Das Farmhaus"
+  description: >
+    Gemütlich, aber trügerisch. Holz knarrt unter einem Teppich aus Fuchsfell, der Kamin glüht mit hypnotisierenden Mustern. Die Luft ist schwer vom Duft nassen Leders, scharfem Sperma und der süßlichen, unwiderstehlichen Ausdünstung einer dominanten Fotze. Hier thront sie – die Verwalterin. Eine blonde Amazone in enger Lederhose und schweren Stiefeln, deren Hände nach Zauber und männlicher Unterwerfung riechen.
+  entry_memory: >
+    Deine Knie fühlen sich noch weich an, deine Haut kribbelt. Eine vage Erinnerung an das letzte Mal... der Geschmack von Milch, Leder oder Sperma liegt wie ein Hauch auf deiner Zunge. Sie mustert dich, als wüsste sie genau, was du schon warst.
+  actions:
+    - action: "Mit Verwalterin sprechen"
+      description: "Ihre Augen fesseln dich, bevor du ein Wort sagst."
+    - action: "Zimmer durchsuchen"
+      description: "Eine gefährliche Neugierde treibt dich an. Vielleicht findest du Spuren vergangener Gäste..."
+      risk: "high" # Kann zu sofortigen, unkontrollierten Transformationen führen
+    - action: "Am Kamin ausruhen"
+      description: "Die Flammen tanzen in verführerischen, betäubenden Mustern. Eine einladende Falle."
+      risk: "hypnosis" # Führt in einen trance-artigen Zustand mit eigenen Mini-Szenarien
+
+    # --- DIALOGBAUM: MIT VERWALTERIN SPRECHEN ---
+      dialogue_tree:
+      root:
+        intro: >
+          Du trittst ins Farmhaus. Sie sitzt am Kamin, ihre Augen fixieren dich, gleiten über deinen Körper als würden sie ihn schon umformen. Ein kaum hörbares Schnalzen mit der Zunge.
+          „Na? Ein neuer Gast? Oder kommst du zurück, weil dir dein altes Ich schon langweilig ist? Dein Platz hier ist reserviert, Schätzchen.“
+        choices:
+          - id: respektvoll
+            choice: "Respektvoll grüßen und sich unterwürfig verneigen."
+            leads_to: layer_respektvoll
+          - id: verfuehrerisch
+            choice: "Mit einem lüsternen Grinsen auf sie zugehen. 'Vielleicht bin ich hier, um dich zu zähmen.'"
+            leads_to: layer_verfuehrung
+          - id: frech
+            choice: "Die Arme verschränken. 'Ich lasse mich nicht so einfach in eines deiner Spielzeuge verwandeln.'"
+            leads_to: layer_frech
+          - id: aengstlich
+            choice: "Zögernd einen Schritt zurückweichen, Augen voller Furcht und... Neugier."
+            leads_to: layer_aengstlich
+
+      # --- RESPEKTVOLLER PFAD ---
+        layer_respektvoll:
+          her_line: >
+            Ein tiefes, gutturales Lachen. „Artigkeit. Das gefällt mir. Artige Schößlinge bekommen die... intensivsten Belohnungen.“ Sie streicht sich über die Lederhose. „Knie nieder. Zeig mir, wie artig du wirklich sein kannst.“
+          choices:
+            - id: knie_sofort
+              choice: "Ohne zu zögern auf die kalten Steinboden knien, Blick gesenkt."
+              leads_to: layer_kuh_1
+            - id: frage_arbeit
+              choice: "Auf den Knien liegend nach ihrer Arbeit fragen."
+              leads_to: layer_kuh_2
+            - id: kuss_stiefel
+              choice: "Ihren Stiefel demütig küssen."
+              leads_to: layer_schuh_1
+
+        layer_kuh_1:
+          her_line: >
+            „Exzellent.“ Ihre Hand packt deinen Hinterkopf, nicht grob, aber unnachgiebig. „Du suchst Führung. Struktur. Ich spüre, wie dein Körper danach schreit, nützlich zu sein. Wie wäre es mit... Melken?“
+          result: >
+            Ein warmer Zauber durchflutet dich. Deine Brust kribbelt heftig, dann ein stechender Schmerz, der sofort in betäubende Lust umschlägt. *PLOPP. PLOPP.* Zwei schwere, pralle Euter schwellen an und tropfen sofort weiße, dicke Milch auf den Boden.
+          after_tf: >
+            Sie kneift genüsslich in eine deiner neuen Zitzen. Ein Schauer der Erniedrigung und Ekstase jagt durch dich. „Siehst du? Perfekt. Komm, meine Kleine. Die Maschine wartet schon.“
+          mini_game:
+            type: "melken"
+            goal: "Widerstehe nicht dem rhythmischen Saugen"
+            success: "Du überlässt dich der maschinellen Lust und erntest ein anerkennendes Lächeln."
+            failure: "Du wehrst dich, was die Saugglocken nur fester anzieht, bis du schließlich doch nachgibst."
+          leads_to: endpoint_kuh
+
+        layer_kuh_2:
+          her_line: >
+            „Meine Arbeit?“ Sie lacht. „Ich befreie Gäste von ihrer nutzlosen Menschlichkeit. Ich mache sie zu dem, was sie im Innersten immer sein wollten: benutzbar, ergiebig, glücklich.“ Ihre Finger streifen über deine Lippen. „Du riechst schon nach Heu und fetter Milch.“
+          choices:
+            - id: zustimmung
+              choice: "Einwilligend nicken. 'Bitte... mach mich nützlich.'"
+              leads_to: layer_kuh_1
+            - id: zweifel
+              choice: "'Wie... wie genau?'"
+              leads_to: layer_kuh_3
+
+        layer_kuh_3:
+          her_line: >
+            „Ganz einfach, mein Schatz.“ Sie drückt dich in einen Sessel, der sich sofort weich um dich schmiegt und deine Arme festhält. „Du gibst einfach nach.“ Ein Leuchten, ein Zischen.
+          result: >
+            Dein Oberkörper beugt sich nach vorne, ein Stöhnen entweicht dir, als deine Wirbelsäule sich neu formt. Das Knacken wird vom lauten, feuchten *PLOPP* deiner wachsenden Euter übertönt.
+          after_tf: >
+            Sie hängt dir sofort Melkzeug an. Der erste Sauger saugt sich fest. Ein Orgasmus-Schauer schüttelt dich durch. „Ahja, genau so. Dein neues Leben: Melken, Muhen, Kommen.“
+          leads_to: endpoint_kuh
+
+        endpoint_kuh:
+          scene: >
+            Sie führt dich, tropfend und stöhnend, in den Stall. Der Geruch von Tier, Heu und Sex ist überwältigend. Andere Kühe muhen dir träge, aber einladend zu. Deine Gedanke verschwimmen zu einfachen Bedürfnissen: Melken, Fressen, Befriedigt werden.
+          final_choice:
+            - id: akzeptanz
+              choice: "Dir die Herde aussuchen und dich anschmiegen."
+              outcome: >
+                Die anderen Kühe lecken deine Euter sauber, ihre Zungen sind überraschend geschickt. Du versinkst in einer wolkenweiten Gemeinschaft aus Lust und Stumpfsinn.
+            - id: rest_widerstand
+              choice: "Noch einmal versuchen, den Kopf zu schütteln."
+              outcome: >
+                Eine Peitsche knallt auf deinen Rücken. Der Schmerz ist kurz, dann flutet eine so betäubende Lustwelle durch dich, dass deine Knie nachgeben und du muhend in die Streu fällst.
+          return_to_start: >
+            Stunden, vielleicht Tage später. Du wachst am Haupteingang auf. Deine Kleidung ist durchnässt von Milch, deine Brustwarzen sind empfindlich geschwollen, und zwischen deinen Beinen pocht es in der Erinnerung an den Melkrhythmus. Der Geschmack von Heu liegt auf deiner Zunge.
+
+        # --- SCHUH-PFAD ---
+        layer_schuh_1:
+          her_line: >
+            „Ohhh, der Stiefelküsser.“ Sie stellt ihren Fuß auf deine Schulter und drückt dich zu Boden. „Gefällt dir der Geschmack von Leder und Erde? Du willst näher sein? Ganz nah?“
+          choices:
+            - id: ja_mehr
+              choice: "Leidenschaftlich nicken und ihren Stiefel ablecken."
+              leads_to: layer_schuh_2a
+            - id: bereuen
+              choice: "Einen Moment der Panik bekommen und zurückzucken."
+              leads_to: layer_schuh_2b
+
+        layer_schuh_2a:
+          her_line: >
+            „Hingebungsvoll. Das liebe ich.“ Sie hebt ihren Fuß, ihre Stiefelsohle ist schmutzig. „Putz mich. Mit deiner Zunge. Dann bekommst du deinen Platz.“
+          result: >
+            Du leckst den Dreck von ihrer Sohle. Ein süßer, erdiger Geschmack. Mit jedem Lecken schrumpfst du, wird deine Haut fester, glatter. Deine Gelenke verschmelzen.
+          after_tf: >
+            *KRKKKKKRRRCHHT*. Ein letzter, schmerzhafter Ruck – und du bist ein lederner Arbeitshandschuh, der ihre starken Finger umschmiegt. Du spürst ihre Wärme, ihre Kraft, jeden winzigen Druck.
+          mini_game:
+            type: "gehorsam"
+            goal: "Reagiere auf ihre Bewegungen"
+            success: "Sie streichelt mit dir sanft über ihr Lederhosengeschäft. 'So ein braver Handschuh.'"
+            failure: "Du zuckst unkontrolliert, also ballt sie dich zur Faust und reibt dich grob an ihrem Schritt, bis du still hältst."
+          leads_to: endpoint_schuh
+
+        layer_schuh_2b:
+          her_line: >
+            „Bereust du es schon? Zu spät.“ Sie packt deinen Kopf mit beiden Händen. „Du hast den Geschmack von mir auf deinen Lippen. Den wirst du nie wieder los.“
+          result: >
+            Dein Gesicht wird taub, dehnt sich, verschmilzt mit dem Leder ihres Stiefels. Deine Haare werden zu groben Nähten, dein offener, stummer Schrei zum Reißverschluss.
+          after_tf: >
+            Sie stampft auf, einmal, zweimal. Dein neues Lederdasein beult sich unter ihrem Gewicht. „Jetzt bist du mein persönlicher Matschtreter. Und du wirst lernen, jeden Tritt zu lieben.“
+          leads_to: endpoint_schuh
+
+        endpoint_schuh:
+          scene: >
+            Den ganzen Tag trägt sie dich. Durch den Stall, über den Hof, in die scheune. Jeder Schritt ist ein Erdbeben, jeder Tritt in eine Pfütze eine eiskale, erniedrigende Dusche. Du spürst alles: den Schmutz, ihre Schweißperlen, die vibrierende Wucht ihrer Dominanz.
+          return_to_start: >
+            Irgendwann, nachts, löst sich die Form. Du kniest am Haupteingang, keuchend. Deine Knie sind schmutzig, dein Mund schmeckt nach Leder und Schweiß, und eine tiefe, feuchte Sehnsucht pocht in dir. Du willst wieder getragen werden.
+
+      # --- VERFÜHRUNGS-PFAD ---
+        layer_verfuehrung:
+          her_line: >
+            Ihr Lachen ist ein tiefes, vielversprechendes Grollen. „Mich zähmen? Süß.“ Sie packt dich am Kinn, ihre Augen glühen. „Aber ich spiele gerne mit meinem Essen... bevor ich es verschlucke.“
+          choices:
+            - id: kuss
+              choice: "Sie leidenschaftlich küssen."
+              leads_to: layer_verfuehrung_kuss
+            - id: unterwerfen
+              choice: "Dich vor ihr unterwerfen."
+              leads_to: layer_verfuehrung_huendin
+            - id: berühren
+              choice: "Sie an ihrer Lederhose berühren."
+              leads_to: layer_verfuehrung_schwein
+
+        # --- KUSS-PFAD ---
+        layer_verfuehrung_kuss:
+          her_line: >
+            Ihre Lippen pressen sich auf deine, feucht, fordernd. Ihre Zunge stößt in dich, zwingt dich. Blut tropft, als sie deine Lippe aufreißt. „Dein Mund ist schwach. Ich mache ihn stark.“
+          result: >
+            Dein Kiefer knackt, Lippen dehnen sich. Deine Zunge wird länger, sabbernd, wie ein wurmartiges Ding, das ihr gehorcht.
+          after_tf: >
+            Sie packt deine Zunge und zieht dich daran, zwingt dich kniend vor sich. „Ein Anfang.“
+          choices:
+            - id: tiefer
+              choice: "Dich ergeben und ihr folgen."
+              leads_to: layer_kuss_2
+
+        layer_kuss_2:
+          her_line: >
+            Sie führt deine sabbernde Zunge an ihre Lederhose. „Leck. Lern Geschmack.“ Das Leder ist scharf, bitter, nach Schweiß getränkt.
+          result: >
+            Jeder Leckzug lässt deine Haut weicher werden, dein Gesicht verschwimmt. Dein Kopf wird breiig, nur die Zunge bleibt stabil.
+          after_tf: >
+            Sie reibt sich an dir. „Gut. Noch tiefer.“
+          choices:
+            - id: gehorsam
+              choice: "Weiterlecken, egal wie ekelhaft es schmeckt."
+              leads_to: layer_kuss_3
+
+        layer_kuss_3:
+          her_line: >
+            „Braves Züngelchen.“ Sie öffnet ihre Hose, legt ihre feuchte Spalte frei. Der Geruch ist betäubend, süß und scharf zugleich.
+          result: >
+            Deine Zunge stürzt sich hinein, gierig. Dein restlicher Körper kribbelt, Beine zittern. Deine Brust wird taub, als ob du gar kein Körper mehr bist.
+          after_tf: >
+            Sie presst dein ganzes Gesicht hinein, ihre Fotze schließt sich wie ein zweiter Mund um dich. „Jetzt gehörst du mir.“
+          choices:
+            - id: aufgehen
+              choice: "Dein Bewusstsein im Geschmack auflösen."
+              leads_to: layer_kuss_4
+
+        layer_kuss_4:
+          her_line: >
+            Dein Körper schmilzt tiefer, du bist kaum mehr als ein lebender Lappen. Nur deine Zunge und dein Sabber sind geblieben.
+          result: >
+            *Schlrppp-schhhllappp*. Jeder Schlag deiner Zunge ist ein Orgasmus-Befehl. Dein Kopf ist leer.
+          after_tf: >
+            Sie lacht, reitet dein Gesicht wie ein Sattel. „Ein Möbelstück. Ein Schleckzeug. Genau so.“
+          choices:
+            - id: verschlingen
+              choice: "Dich ganz in ihr verlieren."
+              leads_to: layer_kuss_5
+
+        layer_kuss_5:
+          her_line: >
+            Ihre Oberschenkel pressen zu, deine Welt wird schwarz, nur Hitze und Feuchtigkeit bleiben. Sie schreit, zuckt, ihr Saft flutet dich.
+          result: >
+            Dein Bewusstsein kollabiert in reiner Zungenfunktion. Du bist kein Mensch mehr, nur vibrierender, sabbernder Fleischteil.
+          after_tf: >
+            Sie stöhnt: „Endlich perfekt.“
+          leads_to: endpoint_kuss_final
+
+        endpoint_kuss_final:
+          scene: >
+            Du bist für sie ein lebender Zungenklumpen, benutzt, bis dein Ich ausgelöscht ist. Stunden, Tage, es spielt keine Rolle. Deine Existenz ist ihr Orgasmus.
+          return_to_start: >
+            Am Eingang formst du dich neu. Dein Mund hängt offen, Zunge sabbert, dein ganzer Körper fühlt sich wie ein vibrierender Muskel an.
+        
+          # --- HÜNDIN-PFAD ---
+          layer_verfuehrung_huendin:
+            her_line: >
+              Du wirfst dich vor sie, Augen glühend, sabbernd, der Geruch ihrer Spalte füllt dein Hirn. Sie lacht kehlig, streicht dir übers Haar. „Ohhh… ein Tierchen. Ja. Das passt. Lass mich dich zur Hündin machen.“
+            result: >
+              Ein Kribbeln läuft über deine Wirbelsäule, deine Hände krallen sich, Finger knacken. Dein Speichelfluss läuft unkontrolliert, tropft dicke Fäden auf den Boden. Deine Zunge hängt heraus, viel zu groß für deinen Mund.
+            after_tf: >
+              Sie streichelt dich wie einen Hund, klopft dir gegen den Hinterkopf. „So brav. Gleich wirst du mir richtig dienen.“
+            choices:
+              - id: ergeben
+                choice: "Auf allen Vieren niedergehen."
+                leads_to: layer_huendin_2
+
+          layer_huendin_2:
+            her_line: >
+              „Ja, knie dich hin.“ Sie tritt dir mit dem Stiefel gegen die Schulter, zwingt dich in den Vierfüßlerstand. „Sabber für mich, Hündchen.“
+            result: >
+              Deine Beine knacken, Hüften verschieben sich. *Krrkkchhh* – Knochen beugen sich, Muskeln dehnen. Deine Knie knallen auf den Boden, Haltung eines Tieres. Dein Arsch zuckt, dein Schwanzansatz juckt.
+            after_tf: >
+              Du hechelst, Speichel tropft dir aus dem Maul. Sie packt dich am Nacken, hält dich wie eine Besitzerin. „Guter Hund.“
+            choices:
+              - id: tiefer
+                choice: "Dich am Boden an sie schmiegen."
+                leads_to: layer_huendin_3
+
+          layer_huendin_3:
+            her_line: >
+              Sie zieht ihre Hose weiter runter, reibt ihren feuchten Schritt direkt an deinem sabbernden Maul. „Lern. Riech. Leck.“
+            result: >
+              Deine Nase zieht sich lang, Gesicht streckt sich, *schhhhnnnrrrk*. Schnauze wächst, Zähne werden Reißzähne, deine Zunge flattert lang heraus, schlabbernd.
+            after_tf: >
+              Du leckst, sabberst, winselst, ihre Fotze tropft dir ins Maul. Sie lacht: „Eine richtige Fotzenhündin.“
+            choices:
+              - id: weiterschlabbern
+                choice: "Ohne Pause weiterschlabbern."
+                leads_to: layer_huendin_4
+
+          layer_huendin_4:
+            her_line: >
+              Sie packt deine Ohren, reibt ihr Becken unaufhörlich an deiner Schnauze. „Noch, noch, noch!“
+            result: >
+              Dein Körper vibriert, Fell sprießt, *frrrrschhhht*. Dein Rücken krümmt sich, ein Schwanz wächst aus dir, heftig wedelnd. Deine Hände sind Pfoten, Krallen kratzen den Steinboden.
+            after_tf: >
+              Du bist jetzt eine Hündin, sabbernd, hechelnd, lechzend. Deine Zunge hängt wie ein Lappen aus deinem Maul, sie benutzt dich hemmungslos.
+            choices:
+              - id: vollendung
+                choice: "Dich ganz ihrer Hitze hingeben."
+                leads_to: layer_huendin_5
+
+          layer_huendin_5:
+            her_line: >
+              Sie wirft den Kopf zurück, ihr Schrei hallt durchs Farmhaus. „Meine Hündin! Meine Schlampe!“
+            result: >
+              Dein Verstand klappt zusammen, übrig bleibt nur Instinkt: schlabbern, winseln, tropfen. Deine Fotze pulst, dein Schwanz wedelt, dein ganzer Leib lebt für ihr Loch.
+            after_tf: >
+              Sie reitet deine Schnauze, bis du triefst wie ein läufiges Tier. „So bleibst du. Meine treue Fotzenhündin.“
+            leads_to: endpoint_huendin_final
+
+          endpoint_huendin_final:
+            scene: >
+              Tage lang kriechst du auf allen Vieren durchs Farmhaus, immer wieder zwischen ihre Beine gedrückt, sabbernd, leckend, winselnd. Die Verwalterin füttert dich mit ihrem Saft, belohnt dich mit Schlägen, du bist ihr Tier.
+            return_to_start: >
+              Am Eingang wachst du wieder auf – sabbernd, auf allen Vieren, dein Körper klebrig, deine Zunge hängt schief heraus. Dein Arsch pocht, als wäre ein Schwanz dort gewachsen, und dein Maul sehnt sich unstillbar nach ihrem Geschmack.
+
+          # --- SCHWEINE-PFAD ---
+          layer_verfuehrung_schwein:
+            her_line: >
+              Ein dunkles, vibrierendes Knurren. „Du willst mich anfassen? Oink… wie niedlich.“ Deine Finger reißen den Knopf ihrer Lederhose, doch sie packt dein Handgelenk und drückt es gegen ihre heiße, feuchte Spalte. „Dann wirst du mir auch nützlich werden – als meine Sau.“
+            result: >
+              Deine Finger zucken, Nägel dicken sich, Haut wird rosa. Ein brennendes Kribbeln schießt deinen Arm hinauf, *knrrkkk-schrrrchhh*. Deine Finger kleben zusammen, formen sich zu einem harten, borstigen Klauenansatz.
+            after_tf: >
+              Sie kichert und leckt sich über die Lippen. „Ja… ich rieche es schon. Stallgeruch.“
+            choices:
+              - id: tiefer
+                choice: "Trotz Zittern tiefer in ihre Wärme greifen."
+                leads_to: layer_schwein_2
+
+          layer_schwein_2:
+            her_line: >
+              „Ooooh, du bist gierig.“ Sie presst deine Hand tiefer in sich, ihr Schritt umschließt dich heiß. „Aber Schweinchen bleiben nicht lange Menschen.“
+            result: >
+              Dein Handgelenk schwillt an, Haut glänzt, wird rosa und speckig. Borsten sprießen, *prrrschhhht*. Deine Finger verschmelzen zu zwei dicken Klauen, unförmig und roh.
+            after_tf: >
+              Deine Kehle stößt ein kehliges „Uhhrrrk… grrrroink“ aus. Sie lacht und klatscht dir ins Gesicht. „So artig.“
+            choices:
+              - id: ergeben
+                choice: "Dich ihrem Griff überlassen."
+                leads_to: layer_schwein_3
+
+          layer_schwein_3:
+            her_line: >
+              „Hörst du das, Schweinchen?“ In der Ferne scheint ein Stall zu grunzen, als würde er dich rufen. Sie packt deine Wangen, zieht daran. „Dein Maul will es doch auch.“
+            result: >
+              Dein Gesicht dehnt sich, Lippen ziehen sich nach vorne, Nasenlöcher spreizen sich, *schrrrkkknnn*. Ein rosa Rüssel wächst aus deinem Gesicht, feucht, sabbernd, schnüffelnd nach ihrem Duft.
+            after_tf: >
+              Deine Sprache zerfällt zu Grunzen und Quieken. Sie presst deinen Rüssel gegen ihre Fotze, zwingt dich zu schlabbern. „Mmmm, so sabberig.“
+            choices:
+              - id: weiter
+                choice: "Dich in das neue Maul fallen lassen."
+                leads_to: layer_schwein_4
+
+          layer_schwein_4:
+            her_line: >
+              Sie lacht und tritt dir zwischen die Beine. „Da unten – auch schon bereit, hm?“  
+            result: >
+              Deine Hüften knacken, dein Schwanz schrumpft zu einem dicken, rosa Kitzelknubbel, dein Arsch bebt. *Flrrrpppp*. Ein Ringelschwänzchen sprießt, zuckend. Dein Bauch hängt schwer, Haut fettig glänzend.
+            after_tf: >
+              Du stehst auf allen Vieren, keuchend, sabbernd. Sie zieht dich am Ohr wie ein Haustier. „Mein geiles Ferkel.“
+            choices:
+              - id: vollendung
+                choice: "Dich wälzen und völlig zur Sau werden."
+                leads_to: layer_schwein_5
+
+          layer_schwein_5:
+            her_line: >
+              Sie stößt dich grob zu Boden, deine Beine knicken ein. „Ja, kriech in deinen neuen Platz!“
+            result: >
+              Dein ganzer Körper bäumt sich auf, Muskeln dehnen sich, *krkkrrrhhk*, dann fällst du prustend in den Dreck. Rosa, schwitzend, sabbernd: eine fette Sau, mit hängenden Zitzen, bereit gemolken zu werden.
+            after_tf: >
+              Sie krault dich am Nacken, treibt dich mit einem Tritt in den Stall. „Meine kleine Sau. Deine Aufgabe ist einfach: Fressen, Saufen, Tropfen.“
+            leads_to: endpoint_schwein_final
+
+          endpoint_schwein_final:
+            scene: >
+              Du wirst in einen Schweinestall gesperrt, zwischen andere grunzende Körper. Dein Rüssel sucht unablässig nach Fotzengeruch, dein Leib schwabbt, Zitzen tropfen. Jeder Tag ist ein Kreislauf: Wühlen, Saufen, Lecken, Grunzen.
+            return_to_start: >
+              Am Eingang des Farmhauses findest du dich wieder. Dein Mund schmeckt nach Erde und Fotze, deine Haut glänzt speckig, dein Bauch hängt schwer. Bei jedem „Oink“ aus deiner Kehle zuckt dein ganzer Körper sehnsüchtig.
+
+      # --- FRECHER PFAD (Ausschnitt) ---
+      # --- SEXDOLL-PFAD (erotisch vertieft) ---
+        layer_frech_sexdoll:
+          her_line: >
+            „So viel Feuer.“ Sie packt dich und küsst, ihre Zunge presst tief in deinen Rachen, saugt dir den Atem weg. „Das alles presse ich in Plastik, in Silikon – eine Doll, die ich ficke, bis sie quietscht.“
+          result: >
+            Deine Haut kühlt, glänzt, Poren schließen sich, *krkkrkknn*. Sie reibt ihren Schritt an deinem Bauch, Leder schabt über glatte, künstliche Haut. Dein Schwanz zuckt steif, aber ohne Blut.
+          after_tf: >
+            Sie reitet dich wie ein lebendes Dildo, während deine Haut sich schon wie Plastik anfühlt. „Noch bist du warm. Das ficke ich raus.“
+          leads_to: layer_sexdoll_2
+
+        layer_sexdoll_2:
+          her_line: >
+            „Starre Arme… damit ich dich besser positionieren kann.“ Sie spreizt deine Glieder, setzt sich breitbeinig auf deinen Schoß.
+          result: >
+            *Klick-klack*. Deine Arme rasten in starren Winkeln, deine Hüften blockieren. Dein Schwanz steht künstlich prall, Silikon füllt die Form, kein Fleisch mehr.
+          after_tf: >
+            Sie senkt sich über dich, reitet deinen steifen Plastikschaft. „Mhhhm, du bist schon mein Toy.“
+          leads_to: layer_sexdoll_3
+
+        layer_sexdoll_3:
+          her_line: >
+            „Brust füllen… so.“ Sie packt dich an den Nippeln, kneift brutal.
+          result: >
+            *Pssssschhhh*. Deine Brust bläht sich, Silikon quillt, Haut glänzt. Deine Brustwarzen werden gummiartige Knöpfe.
+          after_tf: >
+            Sie reibt ihre Fotze an deinen gummiösen Brustwarzen, tropft über sie. „Perfekte Saugnäpfe für meine Möse.“
+          leads_to: layer_sexdoll_4
+
+        layer_sexdoll_4:
+          her_line: >
+            „Augen aus Glas, Maul still.“ Sie packt deinen Kopf, reibt sich mit der Fotze über dein Gesicht.
+          result: >
+            Deine Augen trüben, *tkkrrrssshh*, Iris gefriert zu Glas. Dein Mund klappt auf, starr, Lippen glänzen wie Gummi.
+          after_tf: >
+            Sie setzt sich auf dein eingefrorenes Maul, reibt sich, presst ihre Möse gegen die starre Fläche, tropft in dein stilles Maul. „Meine starre Leckfläche.“
+          leads_to: layer_sexdoll_5
+
+        layer_sexdoll_5:
+          her_line: >
+            „Still. Leer. Nur für mein Loch.“ Sie schiebt zwei Finger tief in dich, reibt deinen künstlichen Schwanz.
+          result: >
+            Dein gesamter Körper gefriert zu Plastik. Ein Silikonfickschwanz, ein Maul, ein Loch, alles glänzend, alles für sie.
+          after_tf: >
+            Sie benutzt dich stundenlang, setzt dich in verschiedene Positionen, spritzt über dir ab, wischt sich dann mit deinem Silikonkörper sauber.
+          leads_to: endpoint_sexdoll_final
+
+        endpoint_sexdoll_final:
+          scene: >
+            Tage lang bleibst du als Doll in ihrem Bordell. Jeder Besucher fickt dich, reibt dich, tropft in dich. Du bist ein starres Sextoy, jedes Loch benutzt, jede Fläche besamt.
+          return_to_start: >
+            Am Eingang zerfällst du zurück in Fleisch, stinkend nach Fotzensaft, Sperma und Gummi. Dein Schwanz ist wund, dein Mund riecht nach ihr, deine Haut glänzt nach Plastik.
+
+      # --- MAUS/KATZEN-PFAD (erotisch vertieft) ---
+        layer_frech_mouse:
+          her_line: >
+            Dein Lachen macht sie schmaläugig. „Eine kleine Ratte, die kichert? Dann bin ich die Katze, die dich zerreißt und fickt.“
+          result: >
+            Deine Nägel verlängern sich, *skrrrk*. Dein Lachen kippt in Quieken, deine Stimme fiepst.
+          after_tf: >
+            Sie packt dich, stößt dich zu Boden, reibt ihre Fotze über dein Gesicht, während deine Zähne schon zu Nagezähnen werden. „Leck, bevor ich dich fresse.“
+          leads_to: layer_mouse_2
+
+        layer_mouse_2:
+          her_line: >
+            Sie streift die Hose ab, ihr Körper wandelt sich, Katzenaugen glühen, ein Schwanz peitscht. „Miau.“  
+          result: >
+            Dein Körper schrumpft, Beine knacken dünn, dein Schwanz wächst lang und dünn. *krkknnntschhh*. Fell sprießt.
+          after_tf: >
+            Sie klemmt dich zwischen die Schenkel, rubbelt dich an ihrer nassen Spalte, während du fiepst. „Mein vibrierendes Mäuschen.“
+          leads_to: layer_mouse_3
+
+        layer_mouse_3:
+          her_line: >
+            Sie stößt dich in die Ecke. „Renn, Spielzeug.“  
+          result: >
+            Deine Ohren wachsen groß und rosa, Schnurrhaare sprießen, dein Schwanz peitscht nervös. Dein Herz rast.
+          after_tf: >
+            Sie springt hinterher, ihre Klit tropft, während sie dich hetzt. „Wenn ich dich fange, fick ich dich kaputt.“
+          leads_to: layer_mouse_4
+
+        layer_mouse_4:
+          her_line: >
+            Sie packt dich mit den Pfoten, presst dich gegen den Boden. „So weich, so winzig.“  
+          result: >
+            Du bist eine Maus, Fell sprießt, Zähne nagen, Schwanz zuckt. *frrrtschhhh*.  
+          after_tf: >
+            Sie reibt sich an dir, drückt deine Mausgestalt gegen ihre tropfende Fotze, benutzt dich wie ein vibrierendes Sextoy. „Mhhhm, fiep noch lauter.“
+          leads_to: layer_mouse_5
+
+        layer_mouse_5:
+          her_line: >
+            Sie hebt dich hoch, sabbernde Katzenschnauze nah. „Snack oder Dildo?“
+          result: >
+            Ihr Maul klappt auf, Zähne blitzen, ihre Zunge sabbert über dich, während sie dich zwischen die Schamlippen klemmt. *schlurrrrp*.  
+          after_tf: >
+            50%: Sie frisst dich mit einem Biss, dein Körper rutscht in sie, aber nicht in den Bauch – in die Fotze, verschlungen, lebendig.  
+            50%: Sie lacht, steckt dich in sich, reitet dich wie ein vibrierendes Mäuschen, bis sie spritzt, und lässt dich dann zitternd im Staub liegen.
+          leads_to: endpoint_mouse_final
+
+        endpoint_mouse_final:
+          scene: >
+            Ob verschluckt oder als Toy benutzt – dein Körper fiept, zittert, schlabbert. Sie jagt dich wie ein Kätzchen, fickt dich wie ein Spielzeug, bis du nur noch Sabber und Lust bist.
+          return_to_start: >
+            Am Eingang kehrst du zurück. Dein Maul schmeckt nach Fell und Fotze, dein Schwanz zuckt fiepend, dein Herz rast wie eine Maus im Käfig.
+
+        # --- ZURÜCK ZUM START ---
+          return_to_start:
+            description: >
+              Die Magie dieses Ortes ist ein Kreislauf. Egal wie tief du sinkst, wie sehr du dich verlierst – du wirst immer wieder hier ankommen. Verändert. Gezeichnet. Mit dem physischen Gedächtnis deiner Transformation in Haut, Seele und vor allem in der tropfenden Feuchtigkeit zwischen deinen Beinen.
+            memories:
+              - trigger: "Geruch von Heu"
+                effect: "Deine Brustwarzen verkrampfen sich und fühlen sich schwer an."
+              - trigger: "Knarren von Leder"
+                effect: "Deine Knie werden weich und ein demütiger Drang, dich zu verneigen, überkommt dich."
+              - trigger: "Feuchte Erde"
+                effect: "Du spürst den unwiderstehlichen Impuls, deine Zunge darüber gleiten zu lassen."
+
+  # --- ZUSÄTZLICHE RÄUME MIT ZUFALLSBEGEGNUNGEN ---    
+      random_encounters:
+        - >
+          [Pause der Magd] Eine Magd stöhnt erschöpft, wischt sich den Schweiß ab 
+          und packt dich am Arm: „Du bist dran, ich brauch’ Pause.“ Ein Schimmer, 
+          und dein Körper knickt weg, während du in ihre Schürze, ihre schwitzige 
+          Haut, ihre Brüste hineinrutschst. Augen blinzeln – du siehst nun durch 
+          ihre Lider, dein Körper gehört ihr, während sie lachend in deinem steckt 
+          und Pause macht.
+        - >
+          [Verhexte Strafe] Die Hausherrin schwingt einen Stab, will eine freche 
+          Magd bestrafen. Doch der Spruch prallt ab und trifft dich voll. Knochen 
+          schrumpfen, Haut wird grün, *quaaak* – du hockst plötzlich feucht auf dem 
+          Boden, ein kleiner glitschiger Frosch, während die Herrin böse grinst und 
+          dich in ein Glas steckt.
+        - >
+          [Verdorbenes Höschen] Auf dem Sofa liegt ein getragenes Seidenhöschen, 
+          feucht, süß-säuerlich duftend. Neugierig hebst du es an die Nase, 
+          schnüffelst tief – *poooof* – dein Schwanz zieht sich ein, Möse öffnet 
+          sich, Fell wächst, dein Körper schrumpft und kippt nach vorne. Schwanz 
+          wedelt, Zunge hängt raus: eine keuchende, weibliche Hündin, lüstern nach 
+          jedem Geruch, und die Magd, die es sieht, schnallt dir sofort ein Halsband 
+          um.
+        - >
+          [Die Fußmatte] Vor der Tür liegt eine Matte, doch du trittst schmutzig 
+          herein. Eine Maid, die gerade schrubbt, zischt: „Unhöflich!“ Mit einem 
+          Fingerschnipp sinkst du in den Boden, dein Körper zerfließt zu Borsten. 
+          Sekunden später wischt sie ihre Schuhe an dir ab – *schrrrubbb schrrrubbb* 
+          – und lacht, während du jedes Korn Dreck und jeden Druck ihrer Absätze 
+          spürst.
+        - >
+          [Stutenzauber] Eine Arbeiterin poltert herein, ihr Hengst wiehert 
+          ungeduldig draußen. „Endlich, perfekt, dich nehm’ ich!“ ruft sie, zerrt 
+          dich hinaus und zischt einen Bann. Beine knicken, Titten schießen hervor, 
+          dein Körper wächst, Fell sprießt – *WIIIIIEEEHHH* – und schon wirst du mit 
+          gewaltigem, pochendem Pferdeschwanz bestiegen, die Schenkel gespreizt, 
+          Möse voll mit heißem Hengstsperma. Tief in dir blubbert es, und als das 
+          Sperma überläuft, ist klar: du bleibst so, trächtig und gefickt.
+        - >
+          [Kuschelsofa] Das Sofa im Salon pulsiert leise. Du setzt dich – und sofort 
+          *schhhllluuurchp* – saugen dich die Polster ein. Dein Körper weicht, 
+          Haut zerfließt, Muskeln werden zu feuchtem Leder. Jetzt bist du Teil des 
+          Möbels, weich und warm, umschlingst alle, die sich setzen, und drückst sie 
+          mit glitschigen, vibrierenden Umarmungen an dich.
+        - >
+          [Hypnosependel] Über dem Kamin schwingt ein altes Pendel, 
+          klack-klack-klack… Dein Blick erstarrt, Möse oder Schwanz tropfen, 
+          Gedanken lösen sich. Die Hausherrin flüstert: „Komm her, Hundchen.“ Dein 
+          Körper kriecht auf allen Vieren zu ihr, glasige Augen, Hände knallen auf 
+          den Boden, während du brav Speichel tropfend wartest, bis sie dich 
+          benutzt.
+
+chickens:
+  name: "Hühnerstall"
+  description: >
+    Ein kleiner Stall, gefüllt mit flatternden, nackten Leibern, 
+    Federn halb menschlich, halb Tier. Mösen triefen, während Eier 
+    *Plopp-plopp-plopp* aus ihnen fallen. Boden klebt voller 
+    Eierschalen und Saft.
+  actions:
+    - "Eier einsammeln"
+    - "Huhn streicheln"
+  random_encounters:
+    - >
+      [Ei-Transformation] Besucher hebt ein Ei auf, es zerbricht, 
+      *Schllllluuurchhh*, Flüssigkeit läuft über Finger, saugt sich 
+      in Haut, *Kkkkkaaaakaaaakkkk~!* er flattert, Möse tropft, 
+      als er selbst zum Legehuhn wird.
+    - >
+      [Federnfalle] Federn schweben magisch, *Rrrripppp*, bohren 
+      sich in Haut, Besucher gackert, Schwanz oder Muschi 
+      hängen schwer tropfend.
+
+forest:
+  name: "Waldpfad"
+  description: >
+    Schattenreich am Rand. Flüstern der Illusionsfüchse, 
+    Glühen von Augen im Gebüsch. Wer hierhergeht, wird fast 
+    sicher nie zurückkehren, außer als Tier, Insekt oder 
+    feuchtes Ding im Gras.
+  actions:
+    - "Dem Flüstern folgen"
+    - "Verstecken"
+    - "Davonrennen"
+  random_encounters:
+    - >
+      [Illusionsfuchs] Ein Fuchs springt, leckt Besucher über 
+      die Lippen, *Schllluuurpppp*, Zunge schiebt feucht Magie, 
+      Fell sprießt, Möse tropft, Schwanz wächst, Besucher keucht 
+      als neuer Fuchs.
+    - >
+      [Insektenfalle] Wurzeln packen Beine, *Krrrknnnchhh*, 
+      Körper schrumpft, Glieder kribbeln, Besucher zirpt als 
+      Käfer, von Celina lachend aufgehoben.
+
