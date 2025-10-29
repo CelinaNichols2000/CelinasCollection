@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hypno Visual — Immersive Page</title>
+  <style>
+    :root{
+      --bg:#0b0710;
+      --pink-1: #ff7ab6;
+      --pink-2: #ff5aa8;
+      --accent: #ffd1e8;
+    }
+    html,body{height:100%;margin:0;background:var(--bg);font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;color:#fff}
+    .stage{position:fixed;inset:0;overflow:hidden}
+
+    /* Spiral backdrop */
+    .spiral{position:absolute;inset:0;background:center/cover no-repeat url('https://i.ibb.co/5L5fZgV/spiral-abstract.png');opacity:0.28;filter:contrast(1.05) saturate(1.1) blur(2px);pointer-events:none}
+
+    /* soft throbbing overlay */
+    .throb{position:absolute;inset:0;pointer-events:none;mix-blend-mode:screen;opacity:0.8}
+    .throb .pulse{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%, rgba(255,140,190,0.25), rgba(255,100,170,0.12) 30%, transparent 60%), linear-gradient(180deg, rgba(255,90,170,0.08), transparent 60%);filter:blur(30px);animation:throb 2.2s infinite ease-in-out}
+    @keyframes throb{0%{transform:scale(1);opacity:0.9}50%{transform:scale(1.06);opacity:1}100%{transform:scale(1);opacity:0.9}}
+
+    /* intermittent flash */
+    .flash{position:absolute;inset:0;background:rgba(255,200,230,0.06);pointer-events:none;opacity:0;transition:opacity .12s ease-in-out}
+
+    /* center focal */
+    .center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;pointer-events:none;z-index:40}
+    .center h1{margin:0;font-size:clamp(28px,6vw,64px);letter-spacing:-0.02em;color:var(--accent);text-shadow:0 12px 40px rgba(255,120,180,0.12)}
+    .center p{margin-top:10px;color:rgba(255,255,255,0.55)}
+    .pulse-scale{display:inline-block;animation:pulseScale 1.6s ease-in-out infinite}
+    @keyframes pulseScale{0%{transform:scale(1)}50%{transform:scale(1.06)}100%{transform:scale(1)}}
+
+    /* floating words */
+    .floater{position:absolute;bottom:6%;pointer-events:none;will-change:transform,opacity;opacity:0;mix-blend-mode:screen}
+    .floater .text{font-weight:700;padding:6px 10px;border-radius:8px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.02));backdrop-filter: blur(2px)}
+
+    /* decorative blobs */
+    .blob{position:absolute;border-radius:50%;filter:blur(36px);opacity:0.6;pointer-events:none}
+
+    /* UI */
+    .ui{position:fixed;left:16px;top:16px;z-index:80;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:12px;padding:12px;border:1px solid rgba(255,255,255,0.04);backdrop-filter:blur(6px)}
+    .ui h3{margin:0 0 8px 0;font-size:14px}
+    .controls{display:flex;gap:8px;align-items:center}
+    .btn{background:linear-gradient(180deg,var(--pink-1),var(--pink-2));color:#2b0218;border:none;padding:8px 12px;border-radius:999px;font-weight:700;cursor:pointer;box-shadow:0 8px 26px rgba(255,80,160,0.12)}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:#fff;box-shadow:none}
+    .slider{width:160px}
+
+    .consent{font-size:12px;color:rgba(255,255,255,0.6);display:flex;gap:8px;align-items:center}
+
+    footer.info{position:fixed;right:16px;bottom:16px;padding:10px 14px;border-radius:12px;background:linear-gradient(180deg, rgba(0,0,0,0.45), rgba(0,0,0,0.22));border:1px solid rgba(255,255,255,0.03);font-size:12px}
+
+    /* subtle motion for decorative shapes */
+    @keyframes floaty{0%{transform:translateY(0)}50%{transform:translateY(-18px)}100%{transform:translateY(0)}}
+
+    /* small responsive tweaks */
+    @media (max-width:600px){ .ui{left:8px;top:8px;padding:8px} .slider{width:120px} }
+  </style>
+</head>
+<body>
+  <div class="stage" id="stage">
+    <div class="spiral" aria-hidden="true"></div>
+    <div class="throb" id="throb"><div class="pulse"></div></div>
+    <div class="flash" id="flash"></div>
+
+    <div class="center" aria-hidden="true">
+      <div class="pulse-scale"><h1 id="centerText">Ready</h1></div>
+      <p id="centerSub">A visual, consensual immersion — click Start to begin</p>
+    </div>
+
+    <!-- decorative blobs -->
+    <div class="blob" style="width:420px;height:420px;right:-120px;bottom:-160px;background:linear-gradient(135deg,#ff77b4, #b87eff);animation:floaty 8s ease-in-out infinite;opacity:0.5"></div>
+    <div class="blob" style="width:300px;height:300px;left:-100px;top:-120px;background:linear-gradient(135deg,#b87eff,#ff9ccf);animation:floaty 10s ease-in-out infinite;opacity:0.45"></div>
+
+    <!-- UI -->
+    <div class="ui" role="region" aria-label="Controls">
+      <h3>Hypno Visual — Controls</h3>
+      <div class="controls" style="margin-bottom:8px">
+        <button class="btn" id="startBtn">Start</button>
+        <button class="btn ghost" id="stopBtn">Stop</button>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <label style="font-size:12px;color:rgba(255,255,255,0.7)">Intensity</label>
+        <input id="intensity" type="range" min="0" max="1" step="0.01" value="0.7" class="slider">
+      </div>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+        <label style="font-size:12px;color:rgba(255,255,255,0.7)">Spawn rate</label>
+        <input id="spawn" type="range" min="300" max="1600" step="50" value="900" class="slider">
+      </div>
+      <label class="consent"><input id="consent" type="checkbox"> I confirm I am 18+ and consent to view non-sexual hypnotic visuals</label>
+    </div>
+
+    <footer class="info">Tip: reduce intensity for calmer motion. Stop clears all floating elements.</footer>
+  </div>
+
+  <script>
+    (function(){
+      // Config
+      const stage = document.getElementById('stage');
+      const startBtn = document.getElementById('startBtn');
+      const stopBtn = document.getElementById('stopBtn');
+      const intensityEl = document.getElementById('intensity');
+      const spawnEl = document.getElementById('spawn');
+      const consentEl = document.getElementById('consent');
+      const centerText = document.getElementById('centerText');
+      const centerSub = document.getElementById('centerSub');
+      const flash = document.getElementById('flash');
+      const throb = document.getElementById('throb');
+
+      let running = false;
+      let spawnTimer = null;
+      let flashTimer = null;
+      let floaters = {};
+      let idCounter = 1;
+
+      const words = [
+        'Breathe', 'Drift', 'Soft', 'Float', 'Surrender to calm', 'Warmth', 'Slow down', 'Sink', 'Let go', 'Glow', 'Pulse', 'Ease'
+      ];
+
+      function randomBetween(a,b){return a + Math.random()*(b-a)}
+
+      function createFloater(){
+        if(!running) return;
+        // must have consent
+        if(!consentEl.checked) return;
+        const id = 'f'+(idCounter++);
+        const el = document.createElement('div');
+        el.className = 'floater';
+        el.id = id;
+
+        const txtWrap = document.createElement('div');
+        txtWrap.className = 'text';
+        const text = words[Math.floor(Math.random()*words.length)];
+        txtWrap.textContent = text;
+
+        // random styling
+        const size = Math.floor(randomBetween(16, 44));
+        txtWrap.style.fontSize = size + 'px';
+        const hue = Math.floor(randomBetween(300, 360));
+        txtWrap.style.color = 'hsl('+hue+' 80% '+(40 + intensityEl.value*20)+'%)';
+        txtWrap.style.textShadow = '0 8px 28px rgba(0,0,0,0.45), 0 0 '+(8 + intensityEl.value*12)+'px rgba(255,150,190,'+(0.12+intensityEl.value*0.2)+')';
+
+        el.appendChild(txtWrap);
+
+        const leftPct = randomBetween(6, 86);
+        el.style.left = leftPct + '%';
+        el.style.bottom = '-8%';
+        el.style.opacity = '0';
+
+        stage.appendChild(el);
+        floaters[id] = el;
+
+        // trigger animation via requestAnimationFrame for smoother start
+        requestAnimationFrame(()=>{
+          const travel = randomBetween(3800, 7200) - intensityEl.value*1200; // ms
+          const xOffset = randomBetween(-14,14);
+          const rotate = randomBetween(-24,24);
+          el.style.transition = 'transform '+(travel/1000)+'s cubic-bezier(.2,.8,.2,1), opacity 0.8s linear';
+          el.style.opacity = '0.95';
+          el.style.transform = 'translateY(-' + randomBetween(48, 82) + '%) translateX(' + xOffset + 'px) rotate('+rotate+'deg)';
+
+          // schedule removal
+          setTimeout(()=>{
+            if(el && el.parentNode) el.parentNode.removeChild(el);
+            delete floaters[id];
+          }, travel + 800);
+        });
+      }
+
+      function start(){
+        if(!consentEl.checked){
+          alert('Please confirm you are 18+ and consent to view these visuals.');
+          return;
+        }
+        if(running) return;
+        running = true;
+        centerText.textContent = 'Surrender to calm';
+        centerSub.textContent = 'Use responsibly — click Stop to clear visuals.';
+        // spawn interval
+        const base = parseInt(spawnEl.value,10);
+        spawnTimer = setInterval(createFloater, Math.max(120, base * (1 - intensityEl.value*0.6)));
+        // intermittent flash
+        flashTimer = setInterval(()=>{
+          if(Math.random() < 0.28){
+            flash.style.opacity = '0.82';
+            setTimeout(()=>{ flash.style.opacity = '0'}, 110);
+            setTimeout(()=>{ flash.style.opacity = '0.82'}, 220);
+            setTimeout(()=>{ flash.style.opacity = '0'}, 340);
+          }
+        }, 8500);
+        // subtle throb speed changes by intensity
+        throb.style.opacity = 0.9;
+        throb.firstElementChild.style.animationDuration = (1.6 - intensityEl.value*0.8) + 's';
+      }
+
+      function stop(){
+        running = false;
+        centerText.textContent = 'Ready';
+        centerSub.textContent = 'A visual, consensual immersion — click Start to begin';
+        if(spawnTimer){ clearInterval(spawnTimer); spawnTimer = null; }
+        if(flashTimer){ clearInterval(flashTimer); flashTimer = null; }
+        // remove floaters
+        Object.keys(floaters).forEach(k=>{
+          const el = floaters[k]; if(el && el.parentNode) el.parentNode.removeChild(el);
+          delete floaters[k];
+        });
+        // gentle throb reset
+        throb.style.opacity = 0.8;
+      }
+
+      startBtn.addEventListener('click', start);
+      stopBtn.addEventListener('click', stop);
+
+      // live update intensity to existing floaters (visual tweak only)
+      intensityEl.addEventListener('input', ()=>{
+        // adjust throb speed/strength
+        throb.firstElementChild.style.animationDuration = (1.6 - intensityEl.value*0.8) + 's';
+      });
+
+      // keyboard quick keys: s start, x stop
+      window.addEventListener('keydown', (e)=>{
+        if(e.key === 's') start();
+        if(e.key === 'x') stop();
+      });
+
+      // initialize small sample to illustrate if consent already checked
+      // (no spawn until user clicks start)
+    })();
+  </script>
+</body>
+</html>

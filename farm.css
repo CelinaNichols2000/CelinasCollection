@@ -68,13 +68,14 @@ body {
 /* Locations */
 
 .farm-location-section {
-    padding: 70px 30px;
+    padding: 70px 15px;
     background: rgba(10, 0, 20, 0.6);
     text-align: center;
     position: relative;
     border-top: 2px solid rgba(255, 0, 202, 0.3);
     border-bottom: 2px solid rgba(255, 0, 202, 0.3);
     overflow: hidden;
+    box-sizing: border-box;
 }    
 
 .farm-location-section::before {
@@ -115,13 +116,14 @@ body {
 
 .farm-location-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
     justify-content: center;
-    padding: 0 20px;
+    max-width: 100%;
     margin: 0 auto;
-    max-width: 1400px;
+    box-sizing: border-box;
 }
+
 
 .farm-location-link {
     text-decoration: none;
@@ -149,9 +151,11 @@ body {
     transform-style: preserve-3d;
     perspective: 1000px;
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     position: relative;
+    box-sizing: border-box
 }
 
 .farm-location-info {
@@ -254,6 +258,7 @@ body {
   opacity: 0;
   transition: .3s;
   z-index: 999;
+  padding: 20px; /* prevents content from touching edges on small screens */
 }
 .farm-modal.active {
   visibility: visible;
@@ -265,10 +270,13 @@ body {
   border-radius: 20px;
   max-width: 800px;
   width: 90%;
+  max-height: 90vh; /* prevent overflowing screen */
   padding: 30px;
   position: relative;
   box-shadow: 0 0 40px rgba(255,0,202,.5);
+  overflow-y: auto; /* scroll inside if too tall */
 }
+
 .farm-close {
   position: absolute;
   top: 15px;
@@ -285,11 +293,15 @@ body {
 .stage h3 {
   color: #FF00CA;
   margin-bottom: 15px;
+  text-align: center;
 }
 .stage img {
-  max-width: 100%;
+  width: 100%;       /* scale image to modal width */
+  height: auto;      /* keep aspect ratio */
+  max-height: 50vh;  /* never taller than half the screen */
   border-radius: 12px;
   margin-bottom: 15px;
+  object-fit: contain; /* image fits inside without cropping */
 }
 .choice-buttons {
   display: flex;

@@ -3,47 +3,79 @@ const qs  = (s, r=document) => r.querySelector(s);
 // Beispiel-Daten
 const farmData = {
   entry: {
-    name: "Farmtor",
+    name: "Farm Gate",
     image: "https://i.ibb.co/N6x330cW/farm-entrance.jpg",
-    description: "Ein mystisches Tor, das den Eingang markiert.",
+    description: "A weathered iron gate marks the edge of the farm, its hinges groaning low at night, and sometimes you can glimpse pale shapes moving beyond the posts.",
     encounters: [
       {
         stages: [
           {
-            title: "Unheimliches Flüstern",
+            title: "Entrance to the Farm",
             image: "https://i.ibb.co/N6x330cW/farm-entrance.jpg",
-            text: "Ein Flüstern erfüllt die Luft. Willst du weitergehen?",
+            text: "A weathered iron gate stands before you, its hinges creaking softly in the night. Pale shapes flicker in the shadows beyond. Do you dare to enter the farm through this gate?",
             choices: [
-              { text: "Mutig weiter", next: 1 },
-              { text: "Umkehren", next: "end" }
+              { text: "Enter the farm", next: "/farm/farmGate.html" },
+              { text: "Step back", next: "end" }
             ]
           },
+        ]
+      }
+    ]
+  },
+  stable: {
+    name: "Stables",
+    image: "https://i.ibb.co/h18gRSsg/Stable.jpg",
+    description: "An ancient timber stable leans against the hill, its doors creaking softly in the wind, and sometimes you can hear the whisper of hooves in the shadows.",
+    encounters: [
+      {
+        stages: [
           {
-            title: "Das Tor öffnet sich",
-            image: "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429",
-            text: "Das Tor knarrt auf und enthüllt den Hof.",
+            title: "Entrance to the Stables",
+            image: "https://i.ibb.co/h18gRSsg/Stable.jpg",
+            text: "An ancient timber stable leans against the hill. The scent of hay and the faint sound of hooves drift through the air. Will you step inside and see what awaits?",
             choices: [
-              { text: "Eintreten", next: "end" }
+              { text: "Enter the stables", next: "/farm/stables.html" },
+              { text: "Step back", next: "end" }
             ]
           }
         ]
       }
     ]
   },
-  stable: {
-    name: "Ställe",
-    image: "https://i.ibb.co/h18gRSsg/Stable.jpg",
-    description: "Pferde schnauben, Heu liegt in der Luft.",
+  farmhouse: {
+    name: "Farmhouse",
+    image: "https://i.ibb.co/5XhNVcnJ/farmhouse.webp",
+    description: "A huge old farmhouse stands by the roadside, its windows glowing faintly in the dusk, and sometimes you can catch a shadow slipping behind the curtains.",
     encounters: [
       {
         stages: [
           {
-            title: "Neugieriges Pferd",
-            image: "https://i.ibb.co/h18gRSsg/Stable.jpg",
-            text: "Ein Pferd stupst dich neugierig an.",
+            title: "Entrance to the Farmhouse",
+            image: "https://i.ibb.co/5XhNVcnJ/farmhouse.webp",
+            text: "The farmhouse glows warmly in the fading light, and shadows flicker behind its windows. A sense of comfort mixed with mystery draws you near. Do you enter the house?",
             choices: [
-              { text: "Hand ausstrecken", next: "end" },
-              { text: "Zurücktreten", next: "end" }
+              { text: "Enter the farmhouse", next: "/farm/farmhouse.html" },
+              { text: "Keep walking", next: "end" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  barn: {
+    name: "Barn",
+    image: "https://i.ibb.co/W42HhDXK/barn.jpg",
+    description: "A rickety old barn leans precariously on the hillside, its doors creaking in the wind, and sometimes you can hear the rustle of hay and the soft lowing of unseen animals.",
+    encounters: [
+      {
+        stages: [
+          {
+            title: "Entrance to the Barn",
+            image: "https://i.ibb.co/W42HhDXK/barn.jpg",
+            text: "A rickety old barn creaks on the hillside. The rustle of hay and soft lowing of unseen animals echo faintly. Do you venture inside to explore?",
+            choices: [
+              { text: "Enter the barn", next: "/farm/barn.html" },
+              { text: "Step back", next: "end" }
             ]
           }
         ]
@@ -110,7 +142,11 @@ function openEncounter(enc) {
         const choice = stage.choices[idx];
         if (choice.next === "end") {
           closeModal();
-        } else {
+        }
+        else if (choice.next.endsWith(".html")) {
+          window.location.href = choice.next; 
+        }
+        else {
           renderStage(choice.next);
         }
       });

@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celina's Farm Gate</title>
+    <link rel="icon" type="image/x-icon" href="../celinaIcon.ico">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../valata.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <style>
+            /* Hide header when modal is active */
+            body:has(.valata-modal.active) header {
+                display: none;
+            }
+            
+            /* Prevent valata.css from overriding Nami's image container */
+            #nami .image-container {
+                width: 45% !important;
+                min-width: 300px !important;
+                height: auto !important;
+                border: none !important;
+                background: none !important;
+                box-shadow: none !important;
+                position: relative !important;
+            }
+            
+            #nami .item-main-image-container {
+                width: 100% !important;
+                max-width: 400px !important;
+                border-radius: 14px !important;
+                overflow: hidden !important;
+                background: none !important;
+                box-shadow: 0 8px 30px rgba(0,0,0,0.5) !important;
+            }
+
+            /* Remove annoying pulse effect around Nami text box */
+            #nami .text-content::before {
+                display: none !important;
+            }
+                
+            #forest {
+                background: url("https://i.ibb.co/Q2QPxrW/6a4a77b0af43267a4a268ce587e5752c.jpg") no-repeat center/cover !important;
+            }
+        </style>
+
+        <nav>
+            <ul>
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="#nami">Nami</a></li>
+                <li><a href="#doghouse">Dog House</a></li>
+                <li><a href="#forest">To Forest</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Nami Hero Section -->
+    <section id="nami" class="content-section" style="margin-top:60px;">
+        <div class="image-container">
+            <div class="item-main-image-container">
+                <img src="https://i.ibb.co/F4gVQtcn/cca9360832724a5a9f5f9.jpg" 
+                    alt="Nami the Huntress" 
+                    class="item-detail-image">
+            </div>
+        </div>
+        <div class="text-content">
+            <h1 class="celina-title">Nami the Huntress</h1>
+            <div class="magical-divider"></div>
+            <p class="celina-intro">
+                Halt! Who approaches Celina's farm? I'm Nami, the huntress and guardian of these lands. Only those with good intentions may pass.
+            </p>
+            <p class="celina-description">
+                My eyes see everything. If you're here to cause trouble, you'll be sent away. If you behave, perhaps I'll let you through.
+            </p>
+            <button id="talkToNami" class="challenge-button" style="margin-top:30px; margin-left: 23%;">
+                <span class="challenge-button-text">Speak to Nami</span>
+                <span class="challenge-button-glow"></span>
+            </button>
+        </div>
+    </section>
+
+    <div id="namiModal" class="valata-modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="sequence-container">
+                <!-- Stage 0: Initial Greeting -->
+                <div class="sequence-stage stage-0">
+                    <div class="alert-banner">
+                        <span class="alert-icon"></span>
+                        <span class="alert-text">NAMI THE HUNTRESS</span>
+                    </div>
+                    <div class="message-content">
+                        <div class="image-container">
+                            <img src="https://i.ibb.co/cKZ7tWpL/copyy.jpg" alt="Nami">
+                        </div>
+                        <div class="message-box">
+                            <p class="message-text">
+                                <em>*A fierce woman with a bow steps out from the shadows*</em>
+                                <br><br>
+                                Halt! Who approaches Celina's farm? I'm Nami, the huntress and guardian of these lands. My eyes see everything that happens here.
+                                <br><br>
+                                Before you may pass, I need to know... Are you a worshipper of Celina?
+                            </p>
+                        </div>
+                        <div class="hex-decoration hex-top-right"></div>
+                        <div class="hex-decoration hex-bottom-left"></div>
+                    </div>
+                    <div class="choice-buttons">
+                        <button class="sequence-next" data-next="stage-1">Yes, I worship Celina</button>
+                        <button class="sequence-next" data-next="stage-2">No, I'm not</button>
+                    </div>
+                </div>
+
+                <!-- Stage 1: Quiz -->
+                <div class="sequence-stage stage-1">
+                    <div class="alert-banner">
+                        <span class="alert-icon"></span>
+                        <span class="alert-text">NAMI'S TEST</span>
+                    </div>
+                    <div class="message-content">
+                        <div class="image-container">
+                            <img src="https://i.ibb.co/cKZ7tWpL/copyy.jpg" alt="Nami thinking">
+                        </div>
+                        <div class="message-box">
+                            <p class="message-text">
+                                <em>*Nami crosses her arms, studying you carefully*</em>
+                                <br><br>
+                                Good. A true worshipper should know their goddess well. Tell me then... Who is one of Celina's most loyal maidens and pets?
+                                <br><br>
+                                Choose carefully.
+                            </p>
+                        </div>
+                        <div class="hex-decoration hex-top-right"></div>
+                        <div class="hex-decoration hex-bottom-left"></div>
+                    </div>
+                    <div class="choice-buttons">
+                        <button class="sequence-next" data-next="stage-4">Emma Lanstar</button>
+                        <button class="sequence-next" data-next="stage-3">Sarah Moonfield</button>
+                        <button class="sequence-next" data-next="stage-3">Luna Darkwood</button>
+                    </div>
+                </div>
+
+                <!-- Stage 2: Dog Transformation -->
+                <div class="sequence-stage stage-2">
+                    <div class="alert-banner danger">
+                        <span class="alert-icon"></span>
+                        <span class="alert-text">On your fours Bitch!</span>
+                    </div>
+                    <div class="message-content">
+                        <div class="image-container">
+                            <img src="https://i.ibb.co/RT7GmD7d/d4.jpg" alt="Transformation">
+                        </div>
+                        <div class="message-box danger">
+                            <p class="message-text">
+                                <em>*Nami's eyes glow with magic as she raises her hand*</em>
+                                <br><br>
+                                Not a worshipper? How unfortunate. Perhaps some time as a loyal dog will teach you proper devotion to the goddess.
+                                <br><br>
+                                <em>*You feel your body changing, fur sprouting as you drop to all fours*</em>
+                                <br><br>
+                                Don't worry, you'll learn to be obedient soon enough.
+                            </p>
+                        </div>
+                        <div class="hex-decoration hex-top-right"></div>
+                        <div class="hex-decoration hex-bottom-left"></div>
+                    </div>
+                    <div class="choice-buttons">
+                        <button class="sequence-next" data-next="stage-5">Whimper and accept...</button>
+                    </div>
+                </div>
+
+                <!-- Stage 3: Donkey Transformation -->
+                <div class="sequence-stage stage-3">
+                    <div class="alert-banner feral-pink">
+                        <span class="alert-icon"></span>
+                        <span class="alert-text">Your as dumb as a donkey!</span>
+                    </div>
+                    <div class="message-content">
+                        <div class="image-container">
+                            <img src="https://i.ibb.co/M5pC99VS/cmsn-red-brays-by-wrenzephyr2-dcf53ur-414w-2wx.png" alt="Donkey">
+                        </div>
+                        <div class="message-box feral-pink">
+                            <p class="message-text">
+                                <em>*Nami's face darkens with anger*</em>
+                                <br><br>
+                                Wrong! What kind of worshipper doesn't even know Celina's closest companions? You're such an idiot!
+                                <br><br>
+                                <em>*She snaps her fingers and you feel your body morphing*</em>
+                                <br><br>
+                                I think some time as a donkey will suit you perfectly. Now off you go, beast!
+                            </p>
+                        </div>
+                        <div class="hex-decoration hex-top-right"></div>
+                        <div class="hex-decoration hex-bottom-left"></div>
+                    </div>
+                    <div class="choice-buttons">
+                        <button class="reset-sequence">Accept your fate</button>
+                    </div>
+                </div>
+
+                <!-- Stage 4: Final Test -->
+                <div class="sequence-stage stage-4">
+                    <div class="alert-banner seductive-pink">
+                        <span class="alert-icon"></span>
+                        <span class="alert-text">NAMI'S OFFER</span>
+                    </div>
+                    <div class="message-content">
+                        <div class="image-container">
+                            <img src="https://i.ibb.co/MC6pPMJ/R-8.gif" alt="Nami smirking">
+                        </div>
+                        <div class="message-box seductive-pink">
+                            <p class="message-text">
+                                <em>*Nami nods approvingly*</em>
+                                <br><br>
+                                Impressive! You know your facts. But there's one more thing...
+                                <br><br>
+                                <em>*She turns around, presenting her rear with a smirk*</em>
+                                <br><br>
+                                I could let you pass right now, or I could offer you free entrance if you show proper respect and kiss my ass. What will it be?
+                            </p>
+                        </div>
+                        <div class="hex-decoration hex-top-right"></div>
+                        <div class="hex-decoration hex-bottom-left"></div>
+                    </div>
+                    <div class="choice-buttons">
+                        <button class="sequence-next" data-next="stage-6">Kiss her ass (Obey)</button>
+                        <button class="sequence-next" data-next="stage-7">Resist and pass</button>
+                    </div>
+                </div>
+
+                <!-- Stage 5: Dog Petting -->
+                <div class="sequence-stage stage-5">
+                    <div class="alert-banner intense-pink">
+                        <span class="alert-icon"></span>
+                        <span class="alert-text">GOOD DOG</span>
+                    </div>
+                    <div class="message-content">
+                        <div class="image-container">
+                            <img src="https://i.ibb.co/Z12mwjCN/d14.jpg" alt="Petting">
+                        </div>
+                        <div class="message-box intense-pink">
+                            <p class="message-text">
+                                <em>*Nami crouches down and pats you on the head, your tail wagging involuntarily*</em>
+                                <br><br>
+                                Good boy! You're learning already. Such a cute little pup.
+                                <br><br>
+                                <em>*She scratches behind your ears*</em>
+                                <br><br>
+                                Now stay here like a good dog while the real worshippers enter the farm.
+                            </p>
+                        </div>
+                        <div class="hex-decoration hex-top-right"></div>
+                        <div class="hex-decoration hex-bottom-left"></div>
+                    </div>
+                    <div class="choice-buttons">
+                        <button class="reset-sequence">Whimper and accept</button>
+                    </div>
+                </div>
+
+                <!-- Stage 6: Facesit -->
+                <div class="sequence-stage stage-6">
+                    <div class="alert-banner intense-red">
+                        <span class="alert-icon"></span>
+                        <span class="alert-text">PROPER WORSHIP</span>
+                    </div>
+                    <div class="message-content">
+                        <div class="image-container">
+                            <img src="https://i.ibb.co/21wgPJpY/37256-1.gif" alt="Facesit">
+                        </div>
+                        <div class="message-box intense-red">
+                            <p class="message-text">
+                                <em>*Nami turns around and presses her rear firmly against your face, smothering you completely*</em>
+                                <br><br>
+                                That's right, worship properly. This is the respect all visitors should show.
+                                <br><br>
+                                <em>*You feel her weight, smell her scent, completely overwhelmed*</em>
+                                <br><br>
+                                <em>*After a long moment, she finally releases you, letting you gasp for air*</em>
+                                <br><br>
+                                You may pass now. Welcome to the farm.
+                            </p>
+                        </div>
+                        <div class="hex-decoration hex-top-right"></div>
+                        <div class="hex-decoration hex-bottom-left"></div>
+                    </div>
+                </div>
+
+                <!-- Stage 7: Direct Entry -->
+                <div class="sequence-stage stage-7">
+                    <div class="alert-banner seductive-pink">
+                        <span class="alert-icon">✨</span>
+                        <span class="alert-text">WORTHY VISITOR</span>
+                    </div>
+                    <div class="message-content">
+                        <div class="image-container">
+                            <img src="https://i.ibb.co/cKZ7tWpL/copyy.jpg" alt="Impressed Nami">
+                        </div>
+                        <div class="message-box seductive-pink">
+                            <p class="message-text">
+                                <em>*Nami smirks and steps aside*</em>
+                                <br><br>
+                                Hmm, you're not as pathetic as most visitors. I like someone with a spine.
+                                <br><br>
+                                <em>*She gestures toward the path ahead*</em>
+                                <br><br>
+                                Very well, you've earned your passage. Enter freely.
+                            </p>
+                        </div>
+                        <div class="hex-decoration hex-top-right"></div>
+                        <div class="hex-decoration hex-bottom-left"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dog House Section -->
+    <section id="doghouse" class="family-section" style="margin-top:40px;">
+        <h2>Dog House</h2>
+        <div class="family-grid">
+            <!-- Dog Card 1 -->
+            <div class="family-member">
+                <div class="family-image-container">
+                    <img src="https://i.ibb.co/6b6cK8q/dog1.jpg" alt="Dog 1" class="family-image">
+                </div>
+                <div class="family-info">
+                    <h3 class="family-name">Bella</h3>
+                    <p class="family-type">Formerly: Emily</p>
+                    <p class="family-description">Once a city dweller, now a loyal companion who loves to play fetch in the fields.</p>
+                </div>
+            </div>
+            <!-- Dog Card 2 -->
+            <div class="family-member">
+                <div class="family-image-container">
+                    <img src="https://i.ibb.co/9wY6n2K/dog2.jpg" alt="Dog 2" class="family-image">
+                </div>
+                <div class="family-info">
+                    <h3 class="family-name">Max</h3>
+                    <p class="family-type">Formerly: Oliver</p>
+                    <p class="family-description">A cheerful spirit, always ready to greet visitors with a wagging tail.</p>
+                </div>
+            </div>
+            <!-- Dog Card 3 -->
+            <div class="family-member">
+                <div class="family-image-container">
+                    <img src="https://i.ibb.co/0jQw1vB/dog3.jpg" alt="Dog 3" class="family-image">
+                </div>
+                <div class="family-info">
+                    <h3 class="family-name">Luna</h3>
+                    <p class="family-type">Formerly: Mia</p>
+                    <p class="family-description">Gentle and wise, Luna keeps watch over the younger pups and helps Nami guard the gate.</p>
+                </div>
+            </div>
+            <!-- Add more dog cards as needed -->
+        </div>
+    </section>
+
+    <!-- Continue to Forest Section -->
+    <section id="forest" class="farm-section" style="padding:120px 30px 120px 30px;">
+        <div class="farm-overlay">
+            <h2 class="farm-title">Enter the Forest</h2>
+            <p class="farm-text">
+                Beyond the gate lies Celina's sacred forest. Dense trees whisper secrets, and transformation magic lingers in the air. Only those who have passed Nami's test may enter.
+            </p>
+            <div class="farm-button-container">
+                <button id="moveToForest" class="challenge-button">
+                    <span class="challenge-button-text">Enter the Forest</span>
+                    <span class="challenge-button-glow"></span>
+            </button>
+                </button>
+            </div>
+        </div>
+    </section>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const namiModal = document.getElementById('namiModal');
+    const closeModal = document.querySelector('.close-modal');
+    
+    // Initialize: Make sure stage-0 is ready but modal is closed
+    document.querySelector('.sequence-stage.stage-0')?.classList.add('active');
+    namiModal.classList.remove('active'); 
+
+    // Talk to Nami Button - ALWAYS works, no restrictions
+    document.getElementById('talkToNami')?.addEventListener('click', () => {
+        // Reset to stage 0 if needed
+        resetSequence();
+        namiModal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    });
+    
+    // Close Modal
+    closeModal?.addEventListener('click', () => {
+        namiModal.classList.remove('active');
+        document.body.style.overflow = '';
+        resetSequence();
+    });
+    
+    // Close on outside click
+    namiModal?.addEventListener('click', (e) => {
+        if (e.target === namiModal) {
+            namiModal.classList.remove('active');
+            document.body.style.overflow = '';
+            resetSequence();
+        }
+    });
+    
+    // Stage Navigation
+    document.querySelectorAll('.sequence-next').forEach(button => {
+        button.addEventListener('click', function() {
+            const currentStage = this.closest('.sequence-stage');
+            const targetStage = this.getAttribute('data-next');
+            const nextStage = document.querySelector(`.sequence-stage.${targetStage}`);
+            
+            if (nextStage) {
+                currentStage.classList.remove('active');
+                nextStage.classList.add('active');
+                document.querySelector('.modal-content').scrollTo({ top: 0, behavior: 'smooth' });
+                
+                // Check if we reached success stages (6 or 7)
+                if (targetStage === 'stage-6' || targetStage === 'stage-7') {
+                    // Set localStorage for forest access
+                    localStorage.setItem('forestUnlocked', 'true');
+                    
+                    // Auto-close after 3 seconds
+                    setTimeout(() => {
+                        namiModal.classList.remove('active');
+                        document.body.style.overflow = '';
+                        resetSequence();
+                    }, 3000);
+                }
+            }
+        });
+    });
+    
+    // Reset Sequence (for bad endings)
+    document.querySelectorAll('.reset-sequence').forEach(button => {
+        button.addEventListener('click', () => {
+            namiModal.classList.remove('active');
+            document.body.style.overflow = '';
+            setTimeout(resetSequence, 500);
+        });
+    });
+    
+    // Remove old unlock-forest buttons since we don't need them anymore
+    // Stages 6 & 7 auto-close now
+    
+    // Move to Forest Button
+    document.getElementById('moveToForest')?.addEventListener('click', () => {
+        const forestUnlocked = localStorage.getItem('forestUnlocked') === 'true';
+        
+        if (forestUnlocked) {
+            // Direct access
+            window.location.href = '/farm/forest.html';
+        } else {
+            // Show info modal
+            namiModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            // Hide all stages
+            document.querySelectorAll('.sequence-stage').forEach(stage => {
+                stage.classList.remove('active');
+            });
+            
+            // Create temporary locked stage
+            let lockedStage = document.querySelector('.locked-stage-temp');
+            if (!lockedStage) {
+                lockedStage = document.createElement('div');
+                lockedStage.className = 'sequence-stage locked-stage-temp active';
+                lockedStage.innerHTML = `
+                    <div class="alert-banner warning">
+                        <span class="alert-icon">🔒</span>
+                        <span class="alert-text">PATH BLOCKED</span>
+                    </div>
+                    <div class="message-content">
+                        <div class="image-container">
+                            <img src="https://i.ibb.co/Q2QPxrW/6a4a77b0af43267a4a268ce587e5752c.jpg" alt="Blocked">
+                        </div>
+                        <div class="message-box warning">
+                            <p class="message-text">
+                                <em>*You approach the forest path, but Nami steps in front of you, blocking your way*</em>
+                                <br><br>
+                                Not so fast! You need to speak with me first before entering the sacred forest.
+                                <br><br>
+                                Close this message and speak to Nami using the button above.
+                            </p>
+                        </div>
+                        <div class="hex-decoration hex-top-right"></div>
+                        <div class="hex-decoration hex-bottom-left"></div>
+                    </div>
+                `;
+                document.querySelector('.sequence-container').appendChild(lockedStage);
+            } else {
+                lockedStage.classList.add('active');
+            }
+        }
+    });
+
+    function resetSequence() {
+        document.querySelectorAll('.sequence-stage').forEach(stage => {
+            stage.classList.remove('active');
+        });
+        // Remove locked stage if exists
+        document.querySelector('.locked-stage-temp')?.classList.remove('active');
+        // Reactivate stage-0
+        setTimeout(() => {
+            document.querySelector('.sequence-stage.stage-0')?.classList.add('active');
+        }, 100);
+    }
+});
+</script>
+
+</body>
+</html>

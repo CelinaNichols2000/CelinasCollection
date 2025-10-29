@@ -289,6 +289,39 @@ nav ul li a:hover::after {
     transform: scale(1.01);
 }
 
+/* Nami section hero image */
+#nami .image-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    width: 45%;              
+    min-width: 300px;
+}
+
+#nami .item-main-image-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    width: 100%;
+    max-width: 400px;        
+    border-radius: 14px;
+    overflow: hidden;
+    position: relative;
+    background: none;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+}
+
+#nami .item-detail-image {
+    display: block;
+    width: 100%;
+    height: auto;            /* keeps natural aspect ratio */
+    object-fit: cover;       /* only relevant if container height is fixed */
+}
+
+#nami .item-main-image-container:hover {
+    transform: scale(1.01);
+}
+
 .item-detail-image {
     width: 100%;
     display: block;
