@@ -49,5 +49,5 @@ function loadMyCharacters() {
   ch1.firstChild.style.backgroundImage = "url(https://i.ibb.co/svHrWrfv/celi1.png)";
   ch1.style.transform = "scale(0.9,0.9) translateY(-11%)";
 
-  GAME_MANAGER.instance.SendChatMessage(texts[i]);
+  GAME_MANAGER.instance.Send("LocalChat", {channel: 0, message: texts[i]});
 }
