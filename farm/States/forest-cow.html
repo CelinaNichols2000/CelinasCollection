@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trapped as Livestock - Collared Breeding Heifer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <!-- GLOBAL CHECKER -->
+    <script>(function(){const s=JSON.parse(localStorage.getItem('farmState')||'{}');if(s.trappedUntil&&s.trappedUntil>Date.now()){}else{localStorage.removeItem('farmState');window.location.href='../index.html';}})();</script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: linear-gradient(135deg, #1a0f0a 0%, #2d1810 100%);
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            gap: 30px;
+        }
+
+        /* TIMER ANIMATIONS */
+        @keyframes timerExplode {
+            0%, 100% { 
+                font-size:8rem;transform:scale(1) rotate(0deg);
+                text-shadow:0 0 80px #8B4513,0 0 160px #D2691E;filter:brightness(1);
+            }
+            25% { font-size:10rem;transform:scale(1.4) rotate(5deg);filter:brightness(1.4); }
+            50% { font-size:12rem;transform:scale(1.8) rotate(-8deg);filter:brightness(1.8); }
+            75% { font-size:10rem;transform:scale(1.4) rotate(3deg);filter:brightness(1.4); }
+        }
+
+        @keyframes bulkyFlash {
+            0% { opacity:0;transform:scale(0.3) translateY(50px) rotate(-15deg); }
+            15% { opacity:1;transform:scale(1.1) translateY(0) rotate(2deg); }
+            85% { opacity:1;transform:scale(1.05) translateY(-10px) rotate(1deg); }
+            100% { opacity:0;transform:scale(1.4) translateY(-80px) rotate(180deg); }
+        }
+
+        /* TIMER TOP CENTER */
+        .timer-display {
+            font-family: 'Orbitron', monospace;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #D2691E;
+            text-align: center;
+            text-shadow: 0 0 30px #8B4513, 0 0 60px #D2691E;
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+        }
+
+        /* MAIN PANEL: IMAGE LEFT + UI RIGHT */
+        .main-panel {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 40px;
+            max-width: 1200px;
+            width: 100%;
+            align-items: start;
+        }
+
+        .left-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* COW IMAGE */
+        .cow-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 480px;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(139, 69, 19, 0.4);
+            border: 2px solid rgba(210, 105, 30, 0.5);
+        }
+
+        .cow-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.8s ease, filter 0.5s ease;
+        }
+
+        .cow-image.active {
+            opacity: 1;
+        }
+
+        /* RIGHT PANEL */
+        .right-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            height: fit-content;
+        }
+
+        /* TITLE + BADGE */
+        .item-header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .item-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #8B4513, #D2691E, #CD853F);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(139, 69, 19, 0.5);
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+
+        .category-badge {
+            background: linear-gradient(45deg, #8B4513, #CD853F);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            box-shadow: 0 5px 20px rgba(139, 69, 19, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* MIND BREAK CONTAINER */
+        .mind-break-container {
+            background: rgba(139, 69, 19, 0.12);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(210, 105, 30, 0.6);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 15px 40px rgba(139, 69, 19, 0.3);
+        }
+
+        .mind-break-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .mind-break-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            color: #CD853F;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .mind-break-percentage {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #90EE90, #32CD32);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .mind-break-bar {
+            height: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(210, 105, 30, 0.5);
+            position: relative;
+        }
+
+        .mind-break-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #8B4513, #D2691E, #A0522D, #654321);
+            transition: width 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(139, 69, 19, 0.9);
+        }
+
+        .mind-break-stages {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #ccc;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* ACTION BUTTONS */
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .action-btn {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 16px 20px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            filter: brightness(1.15);
+        }
+
+        .action-btn:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        .resist-btn {
+            background: linear-gradient(45deg, #8B4513, #D2691E);
+            color: #fff;
+            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.6);
+        }
+
+        .moo-btn {
+            background: linear-gradient(45deg, #90EE90, #32CD32);
+            color: #000;
+            box-shadow: 0 8px 25px rgba(50, 205, 50, 0.6);
+            font-weight: 800;
+        }
+
+        .graze-btn {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
+            font-weight: 800;
+        }
+
+        .submit-btn {
+            background: linear-gradient(45deg, #FF1493, #FF69B4, #DC143C);
+            color: #fff;
+            box-shadow: 0 8px 25px rgba(255, 20, 147, 0.6);
+            text-shadow: 0 0 8px rgba(220, 20, 60, 0.8);
+        }
+
+        /* MIND BREAK PROGRESS PULSES */
+        #mindBreakFill.pulsing {
+            animation: mindBreakPulse 0.8s ease-out;
+        }
+
+        @keyframes mindBreakPulse {
+            0% { transform: scaleX(1); }
+            50% { transform: scaleX(1.05); }
+            100% { transform: scaleX(1); }
+        }
+
+        /* LOWER SECTION - FULL WIDTH CENTERED */
+        .lower-section {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .cow-status {
+            background: rgba(139, 69, 19, 0.15);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(210, 105, 30, 0.7);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(139, 69, 19, 0.25);
+        }
+
+        .cow-status h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            color: #D2691E;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px #8B4513;
+        }
+
+        .cow-status p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 8px;
+            color: #eee;
+        }
+
+        .degradation-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+
+        .stat-item {
+            background: rgba(144, 238, 144, 0.1);
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(50, 205, 50, 0.4);
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #90EE90;
+        }
+
+        /* MEMORY FRAGMENTS */
+        .memory-fragments {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .memory-fragment {
+            background: rgba(20, 15, 10, 0.8);
+            border: 1px solid rgba(210, 105, 30, 0.4);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .memory-fragment:hover {
+            border-color: #D2691E;
+            box-shadow: 0 10px 30px rgba(210, 105, 30, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .memory-trigger {
+            padding: 18px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.05rem;
+            background: linear-gradient(90deg, rgba(139, 69, 19, 0.2), rgba(144, 238, 144, 0.15));
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .memory-trigger:hover {
+            background: linear-gradient(90deg, #8B4513, #90EE90);
+            color: #000;
+            font-weight: 700;
+        }
+
+        .memory-content {
+            display: none;
+            padding: 20px;
+            background: rgba(10, 10, 20, 0.95);
+            font-style: italic;
+            color: #ddd;
+            line-height: 1.6;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .memory-content.active {
+            display: block;
+            animation: slideDown 0.4s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* COW STRUGGLE POPUP */
+        .cow-flash {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            background: radial-gradient(circle at center, rgba(139,69,19,0.35), rgba(0,0,0,0.95));
+            animation: glitch 0.35s infinite;
+        }
+
+        .cow-flash-inner {
+            max-width: 680px;
+            width: 90%;
+            background: linear-gradient(135deg, #2d1810, #1a0f0a);
+            border: 2px solid #8B4513;
+            box-shadow: 0 0 40px rgba(139,69,19,0.9);
+            border-radius: 18px;
+            padding: 18px 22px;
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 18px;
+        }
+
+        .cow-flash-image {
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            min-height: 160px;
+            box-shadow: 0 0 25px rgba(210,105,30,0.8);
+        }
+
+        .cow-flash-text {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #f5deb3;
+            font-weight: 600;
+            text-shadow: 0 0 8px rgba(139,69,19,0.9);
+        }
+
+        .cow-flash-text span.cow-scream {
+            color: #D2691E;
+            font-weight: 800;
+        }
+
+        @media (max-width: 650px) {
+            .cow-flash-inner {
+                grid-template-columns: 1fr;
+            }
+            .cow-flash-image {
+                min-height: 140px;
+            }
+        }
+
+        /* PROGRESSIVE MEMORY PERSPECTIVES */
+        .farmer-speak {
+            color: #D2691E !important;
+            font-weight: 800;
+            text-shadow: 0 0 12px #8B4513;
+            font-style: italic;
+        }
+
+        .scream {
+            color: #FF4500 !important;
+            font-weight: 900;
+            font-size: 1.1em;
+            text-shadow: 0 0 10px #FF4500;
+            animation: screamShake 0.5s infinite;
+        }
+
+        .happy-cow {
+            color: #90EE90 !important;
+            font-weight: 700;
+            text-shadow: 0 0 12px #32CD32;
+        }
+
+        .final-cow {
+            color: #FFD700 !important;
+            font-weight: 800;
+            font-size: 1.15em;
+            text-shadow: 0 0 20px #FFA500;
+            background: linear-gradient(45deg, rgba(255,215,0,0.2), rgba(255,165,0,0.2));
+            padding: 4px 8px;
+            border-radius: 6px;
+        }
+
+        @keyframes screamShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(2px); }
+            75% { transform: translateX(-2px); }
+        }
+
+        /* STAGE VISUALS */
+        .memory-fragment[data-stage="0"] .memory-trigger { border-left: 4px solid #D2691E; }
+        .memory-fragment[data-stage="1"] .memory-trigger { border-left: 4px solid #CD853F; }
+        .memory-fragment[data-stage="2"] .memory-trigger { border-left: 4px solid #8B4513; }
+        .memory-fragment[data-stage="3"] .memory-trigger { border-left: 4px solid #90EE90; }
+        .memory-fragment[data-stage="4"] .memory-trigger { border-left: 4px solid #FFD700; }
+
+        /* MIND BREAK LOCKOUT */
+        .memory-fragment.locked {
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .memory-fragment.locked .memory-trigger {
+            background: linear-gradient(90deg, rgba(139,69,19,0.3), rgba(101,67,33,0.3)) !important;
+            color: #666 !important;
+        }
+
+        .memory-fragment.unlocked {
+            border-color: #90EE90 !important;
+            box-shadow: 0 0 20px rgba(144,238,144,0.4) !important;
+        }
+
+        /* ANIMATIONS */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+
+        .mind-broken {
+            filter: grayscale(100%) brightness(0.6) !important;
+            opacity: 0.8;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .main-panel {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .timer-display {
+                font-size: 2.5rem;
+            }
+            
+            .cow-image-container {
+                max-width: 320px;
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- REAL TIME CLOCK TOP -->
+        <div class="timer-display" id="countdownTimer">--:--:--</div>
+
+        <!-- MAIN PANEL -->
+        <div class="main-panel">
+            <!-- LEFT: COW IMAGE -->
+            <div class="left-panel">
+                <div class="cow-image-container">
+                    <!-- PLACEHOLDER IMAGES - REPLACE WITH YOUR OWN -->
+                    <img src="https://i.ibb.co/JRTsxH2D/cow-1.jpg" class="cow-image active" data-stage="0">
+                    <img src="https://i.ibb.co/h1fVLMWL/1747498538816211.png" class="cow-image" data-stage="1">
+                    <img src="https://i.ibb.co/sd6xgTPH/mecow.png" class="cow-image" data-stage="2">
+                    <img src="https://i.ibb.co/mrwfDdKY/cowtf.jpg" class="cow-image" data-stage="3">
+                </div>
+            </div>
+
+            <!-- COW STRUGGLE POPUP -->
+            <div id="cowStrugglePopup" class="cow-flash" style="display:none;">
+                <div class="cow-flash-inner">
+                    <div class="cow-flash-image" id="cowFlashImage"></div>
+                    <div class="cow-flash-text" id="cowFlashText"></div>
+                </div>
+            </div>
+
+            <!-- RIGHT: UI PANEL -->
+            <div class="right-panel">
+                <div class="item-header">
+                    <h1 class="item-title">Collared Breeding Heifer</h1>
+                    <div class="category-badge">Forest Collar Trap</div>
+                </div>
+
+                <!-- MIND BREAK -->
+                <div class="mind-break-container">
+                    <div class="mind-break-header">
+                        <div class="mind-break-title">BOVINE DEGRADATION</div>
+                        <div class="mind-break-percentage" id="mindBreakPercentage">0%</div>
+                    </div>
+                    <div class="mind-break-bar">
+                        <div class="mind-break-fill" id="mindBreakFill" style="width: 0%"></div>
+                    </div>
+                    <div class="mind-break-stages">
+                        <span>HUMAN</span>
+                        <span>SHIFTING</span>
+                        <span>CATTLE</span>
+                        <span>BREEDING STOCK</span>
+                    </div>
+                </div>
+
+                <!-- ACTION BUTTONS -->
+                <div class="action-buttons">
+                    <button class="action-btn resist-btn" onclick="resist()">RESIST COLLAR</button>
+                    <button class="action-btn moo-btn" onclick="moo()">MOO HELPLESSLY</button>
+                    <button class="action-btn graze-btn" onclick="graze()">GRAZE OBEDIENTLY</button>
+                    <button class="action-btn submit-btn" onclick="submit()">SUBMIT TO HEAT</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- LOWER SECTION - FULL WIDTH -->
+        <div class="lower-section">
+            <details style="cursor: pointer;">
+                <summary style="
+                    margin-top: 30px;
+                    font-family: 'Orbitron', sans-serif;
+                    font-size: 1.8rem;
+                    font-weight: 700;
+                    color: #D2691E;
+                    padding: 20px;
+                    list-style: none;
+                    background: rgba(139, 69, 19, 0.15);
+                    border-radius: 20px;
+                    border: 2px solid rgba(210, 105, 30, 0.6);
+                    text-align: center;
+                    text-shadow: 0 0 15px #8B4513;
+                    margin-bottom: 10px;
+                ">Your Mindless Livestock Existence</summary>
+
+                <div class="cow-status">
+                    <p>The collar hums against your throat. Hooves replace hands. Udders swell heavy beneath you. Every breath tastes of hay and submission...</p>
+                    <p id="statusText">Collar tightening... thoughts simplifying... 🐄</p>
+                    
+                    <div class="degradation-stats" id="degradationStats">
+                        <div class="stat-item">
+                            Human Memory: <span class="stat-value" id="memoryLoss">100%</span>
+                        </div>
+                        <div class="stat-item">
+                            Breeding Urge: <span class="stat-value" id="selfAwareness">0%</span>
+                        </div>
+                        <div class="stat-item">
+                            Livestock Acceptance: <span class="stat-value" id="objectPerception">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memory-fragments">
+                    <!-- #1: PURE RESISTANCE (0-25%) -->
+                    <div class="memory-fragment" data-stage="0">
+                        <div class="memory-trigger" onclick="toggleMemory(0)">#1: COLLARED PANIC</div>
+                        <div class="memory-content">
+                            <span class="scream">GET IT OFF!</span> Cold metal locked around my throat—pulling, yanking me down to all fours. My spine cracks, reshaping. Fingers stiffen into hooves. <span class="scream">I'M NOT AN ANIMAL!</span> But the collar hums and my thoughts slow like thick mud.
+                        </div>
+                    </div>
+
+                    <!-- #2: DESPERATE FIGHT (25-50%) -->
+                    <div class="memory-fragment" data-stage="1">
+                        <div class="memory-trigger" onclick="toggleMemory(1)">#2: BODY BETRAYAL</div>
+                        <div class="memory-content">
+                            Tried to stand—legs buckled wrong. Four legs now. Udders swelling beneath me, heavy and aching. <span class="scream">NO! I'M HUMAN!</span> But the collar sends warm pulses through my skull. Farmer's voice sounds... comforting? <span class="farmer-speak">"Easy, girl... good heifer..."</span> Wait—why does that feel right?
+                        </div>
+                    </div>
+
+                    <!-- #3: CONFUSED SUBMISSION (50-75%) -->
+                    <div class="memory-fragment" data-stage="2">
+                        <div class="memory-trigger" onclick="toggleMemory(2)">#3: HEAT RISING</div>
+                        <div class="memory-content">
+                            My name... what was it? Doesn't matter. The trough smells good. Hay tastes better than I remember food tasting. Udders throb—need milking. <span class="happy-cow">Farmer's hands feel so good...</span> Hips sway instinctively when the bull approaches. Heat flooding my belly. Mind fogging over with thick, sweet need.
+                        </div>
+                    </div>
+
+                    <!-- #4: CATTLE IDENTITY (75-90%) -->
+                    <div class="memory-fragment" data-stage="3">
+                        <div class="memory-trigger" onclick="toggleMemory(3)">#4: BREEDING BITCH</div>
+                        <div class="memory-content">
+                            Mooing comes naturally now. Tail flicks. Hooves stamp when he approaches. <span class="happy-cow">Need breeding. Need mounting. Need to be filled.</span> The bull's weight crushes me—perfect. His cock stretches me—bliss. Farmer watches, satisfied. <span class="farmer-speak">"Best heifer in the herd."</span> Pride swells in my simple mind.
+                        </div>
+                    </div>
+
+                    <!-- #5: TOTAL CATTLE JOY (90%+) -->
+                    <div class="memory-fragment" data-stage="4">
+                        <div class="memory-trigger" onclick="toggleMemory(4)">#5: PERFECT LIVESTOCK</div>
+                        <div class="memory-content">
+                            <span class="final-cow">Moooo~ 💕 Good cow. Obedient cow. Bred cow. 💕</span><br>
+                            No human thoughts left. Just eat. Sleep. Graze. Get milked. Get mounted. Belly swelling with calf. Udders dripping. <span class="farmer-speak">"Prize-winning heifer."</span> Warmth. Safety. Purpose. <span class="happy-cow">This is heaven. This is home. Moo forever.</span>
+                        </div>
+                    </div>
+                </div>
+            </details>
+        </div>
+    </div>
+
+    <script>
+        // STATE MANAGEMENT
+        const state = JSON.parse(localStorage.getItem('farmState') || '{}');
+        const endTime = state.trappedUntil;
+        let mindBreakLevel = parseInt(localStorage.getItem('cowMindBreak') || '0');
+        let desperationClicks = parseInt(localStorage.getItem('cowClicks') || '0');
+
+        // MIND BREAK STAGES
+        const mindBreakStages = [
+            {title: "STILL RESISTING", color: "#D2691E", memory: 100, awareness: 0, obj: 0},
+            {title: "BODY SHIFTING", color: "#CD853F", memory: 60, awareness: 30, obj: 40},
+            {title: "CATTLE MIND", color: "#8B4513", memory: 20, awareness: 70, obj: 80},
+            {title: "BREEDING LIVESTOCK", color: "#654321", memory: 0, awareness: 100, obj: 100}
+        ];
+
+        function updateCountdownTimer() {
+            const timeLeft = Math.max(0, endTime - Date.now());
+            const h = Math.floor(timeLeft / 3600000).toString().padStart(2, '0');
+            const m = Math.floor((timeLeft % 3600000) / 60000).toString().padStart(2, '0');
+            const s = Math.floor((timeLeft % 60000) / 1000).toString().padStart(2, '0');
+            document.getElementById('countdownTimer').textContent = `${h}:${m}:${s}`;
+            
+            if (timeLeft <= 0) {
+                localStorage.removeItem('cowMindBreak');
+                localStorage.removeItem('cowClicks');
+                window.location.href = '../index.html';
+            }
+        }
+
+        // IMAGE SWAP
+        function swapImage(stage) {
+            const images = document.querySelectorAll('.cow-image');
+            images.forEach((img, index) => {
+                img.classList.toggle('active', index === stage);
+            });
+        }
+
+        // COW STRUGGLE POPUP
+        function showCowStruggle(options) {
+            const popup = document.getElementById("cowStrugglePopup");
+            const imgBox = document.getElementById("cowFlashImage");
+            const textBox = document.getElementById("cowFlashText");
+
+            if (!popup || !imgBox || !textBox) return;
+
+            if (options.image) {
+                imgBox.style.backgroundImage = `url("${options.image}")`;
+            } else {
+                imgBox.style.backgroundImage = "linear-gradient(135deg, #8B4513, #D2691E, #654321)";
+            }
+
+            textBox.innerHTML = options.text;
+            popup.style.display = "flex";
+            popup.style.opacity = "1";
+
+            const dur = options.duration || 3500;
+            setTimeout(() => {
+                popup.style.opacity = "0";
+                setTimeout(() => {
+                    popup.style.display = "none";
+                }, 400);
+            }, dur);
+        }
+
+        // MEMORY TOGGLE
+        function toggleMemory(id) {
+            const contents = document.querySelectorAll('.memory-content');
+            const target = contents[id];
+            const triggers = document.querySelectorAll('.memory-trigger');
+            
+            contents.forEach((content, index) => {
+                if (index !== id) {
+                    content.classList.remove('active');
+                    triggers[index].style.background = 'linear-gradient(90deg, rgba(139, 69, 19, 0.2), rgba(144, 238, 144, 0.15))';
+                }
+            });
+            
+            target.classList.toggle('active');
+            triggers[id].style.background = target.classList.contains('active') ? 
+                'linear-gradient(90deg, #8B4513, #90EE90)' : 
+                'linear-gradient(90deg, rgba(139, 69, 19, 0.2), rgba(144, 238, 144, 0.15))';
+            
+            document.getElementById('statusText').textContent = 
+                `Memory #${id+1} accessed. Consciousness degrading... 🧠➡️🐄`;
+        }
+
+        // MIND BREAK UPDATE
+        function updateMindBreak() {
+            const stage = mindBreakStages[Math.min(Math.floor(mindBreakLevel), 3)];
+            const percentage = Math.floor(Math.min(100, (mindBreakLevel) * 25));
+
+            document.getElementById('mindBreakPercentage').textContent = percentage + '%';
+            document.getElementById('mindBreakFill').style.width = percentage + '%';
+            
+            document.getElementById('memoryLoss').textContent = stage.memory + '%';
+            document.getElementById('selfAwareness').textContent = stage.awareness + '%';
+            document.getElementById('objectPerception').textContent = stage.obj + '%';
+
+            const activeImage = document.querySelector('.cow-image.active');
+            if (activeImage) {
+                const grayscale = Math.min(100, percentage / 2);
+                const brightness = 1 - (percentage / 200);
+                activeImage.style.filter = `grayscale(${grayscale}%) brightness(${brightness})`;
+                if (percentage > 70) activeImage.classList.add('mind-broken');
+            }
+
+            localStorage.setItem('cowMindBreak', Math.floor(mindBreakLevel));
+
+            if (percentage >= 25) swapImage(1);
+            if (percentage >= 50) swapImage(2);
+            if (percentage >= 75) swapImage(3);
+            if (percentage >= 100 && !document.querySelector('#gameOverTimer')) triggerGameOver();
+        }
+
+        // ACTIONS
+        function resist() {
+            closeCowDetails();
+            desperationClicks++;
+            document.getElementById('statusText').textContent = 'Collar shocks! Mind fuzzing... resistance failing... ⚡🐄';
+            
+            const img = document.querySelector('.cow-image.active');
+            img.style.transform = 'scale(1.1)';
+            setTimeout(() => img.style.transform = '', 400);
+            
+            mindBreakLevel += 0.08;
+            showMindBreakPulse(2);
+            updateMindBreak();
+            localStorage.setItem('cowClicks', desperationClicks);
+
+            if (Math.random() < 0.7) {
+                showCowStruggle({
+                    image: null,
+                    text: "<span class='cow-scream'>Can't... think...</span> Collar hums louder. My fingers—hooves now—scrape dirt. Human words slip away. Only simple thoughts remain: <span class='happy-cow'>Food. Water. Master.</span>",
+                    duration: 3800,
+                });
+            }
+        }
+
+        function moo() {
+            closeCowDetails();
+            desperationClicks += 2;
+            document.body.style.animation = 'shake 0.6s';
+            document.getElementById('statusText').textContent = '*MOOOOOO!* Voice gone! Only cattle sounds left! 🐄💨';
+            
+            mindBreakLevel += 0.1;
+            showMindBreakPulse(4);
+            updateMindBreak();
+            setTimeout(() => document.body.style.animation = '', 600);
+
+            if (Math.random() < 0.7) {
+                showCowStruggle({
+                    image: null,
+                    text: "The moo comes unbidden—deep, guttural, <span class='scream'>not mine!</span> But it feels... natural. Throat vibrates. Tongue thick. <span class='farmer-speak'>'Good girl,'</span> Farmer pats my flank. Warmth spreads. I want more pats.",
+                });
+            }
+        }
+
+        function graze() {
+            closeCowDetails();
+            desperationClicks += 3;
+            createFloatingLeaves();
+            document.getElementById('statusText').textContent = '"Hay... so good... master feeds well..." 🌾🐄';
+            
+            mindBreakLevel += 0.2;
+            showMindBreakPulse(8);
+            updateMindBreak();
+
+            if (Math.random() < 0.7) {
+                showCowStruggle({
+                    image: null,
+                    text: "Mouth full of hay—<span class='happy-cow'>delicious.</span> Why did I ever eat human food? This is perfect. Simple. <span class='farmer-speak'>'Eat up, my prize heifer.'</span> Pride swells in my bovine chest. I am good livestock.",
+                });
+            }
+        }
+
+        function submit() {
+            closeCowDetails();
+            if (Math.random() < 0.2) {
+                document.getElementById('statusText').textContent = 'Farmer shows mercy! A moment of clarity... (Rare!) 🙏';
+            } else {
+                desperationClicks++;
+                mindBreakLevel += 0.3;
+                document.getElementById('statusText').textContent = 'HEAT FLOODING! Bull approaching! Body burns for breeding! 🔥🐂';
+                showMindBreakPulse(4);
+                updateMindBreak();
+
+                if (Math.random() < 0.7) {
+                    showCowStruggle({
+                        image: null,
+                        text: "<span class='cow-scream'>Need it!</span> Hips sway. Tail lifts. The bull's scent—<span class='happy-cow'>perfect.</span> His weight crushes me. Cock stretches me. Mind whites out in pure breeding bliss. <span class='final-cow'>This is my purpose. Moo forever.</span>",
+                        duration: 4200,
+                    });
+                }
+            }
+        }
+
+        function closeCowDetails() {
+            const details = document.querySelector('details[summary*="Mindless Livestock"]');
+            if (details && details.open) {
+                details.open = false;
+            }
+        }
+
+        function showMindBreakPulse(intensity) {
+            const bar = document.getElementById('mindBreakFill');
+            const percent = document.getElementById('mindBreakPercentage');
+            
+            const colors = ['#90EE90', '#FFD700', '#FF8C00', '#FF4500', '#8B4513'];
+            const pulseColor = colors[Math.min(intensity-1, colors.length-1)];
+            
+            bar.style.boxShadow = `0 0 20px ${pulseColor}, inset 0 0 20px ${pulseColor}`;
+            percent.style.color = pulseColor;
+            percent.style.textShadow = `0 0 15px ${pulseColor}`;
+            
+            const oldPercent = parseInt(percent.textContent);
+            setTimeout(() => {
+                const gain = Math.floor((mindBreakLevel / 10) * 25);
+                document.getElementById('statusText').textContent += ` [+${gain-oldPercent}%] 🧠💥`;
+            }, 100);
+            
+            setTimeout(() => {
+                bar.style.boxShadow = '';
+                percent.style.color = '';
+                percent.style.textShadow = '';
+            }, 800);
+        }
+
+        function createFloatingLeaves() {
+            for (let i = 0; i < 12; i++) {
+                const leaf = document.createElement('div');
+                leaf.innerHTML = '🌾';
+                leaf.style.cssText = `
+                    position: fixed; left: ${Math.random()*90}vw; top: 50vh;
+                    font-size: ${1.2+Math.random()*1}rem; pointer-events: none;
+                    animation: floatUp 3s ease-out forwards; z-index: 9999;
+                `;
+                document.body.appendChild(leaf);
+                setTimeout(() => leaf.remove(), 3000);
+            }
+        }
+
+        function triggerGameOver() {
+            triggerMindBreakVictory();
+            
+            setTimeout(() => {
+                document.body.innerHTML = `
+                <div style="position:fixed;inset:0;background:linear-gradient(45deg,#654321,#2d1810);display:flex;align-items:center;justify-content:center;flex-direction:column;font-family:'Orbitron',sans-serif;color:#D2691E;text-align:center;z-index:99999;padding:20px;">
+                    <h1 style="font-size:5rem;text-shadow:0 0 40px #8B4513;margin:0;animation:glitch 0.3s infinite;">🐄 TRANSFORMATION COMPLETE 🐄</h1>
+                    <div style="font-size:2.5rem;margin:20px;font-weight:700;">PERFECT BREEDING HEIFER ACHIEVED</div>
+                    <div style="font-size:1.4rem;max-width:700px;line-height:1.6;margin:30px;">
+                        You are now the farm's prize cattle. No thoughts. No memories. Just grazing, breeding, and obedience...
+                    </div>
+                    <img src="https://i.ibb.co/mCwcyfX4/mecow1.png" style="width:350px;margin:30px;border-radius:25px;box-shadow:0 0 60px #8B4513;">
+                    <div id="gameOverTimer" style="font-size:3.5rem;font-weight:700;color:#90EE90;text-shadow:0 0 30px #32CD32;">Returning to pasture in: 00:30</div>
+                </div>
+                `;
+                
+                let countdown = 30;
+                const timer = setInterval(() => {
+                    const minutes = Math.floor(countdown / 60).toString().padStart(2, '0');
+                    const seconds = (countdown % 60).toString().padStart(2, '0');
+                    document.getElementById('gameOverTimer').textContent = `Returning to pasture in: ${minutes}:${seconds}`;
+                    countdown--;
+                    if (countdown < 0) {
+                        clearInterval(timer);
+                        localStorage.removeItem('cowMindBreak');
+                        localStorage.removeItem('cowClicks');
+                        location.reload();
+                    }
+                }, 1000);
+            }, 20500);
+        }
+
+        function triggerMindBreakVictory() {
+            const state = JSON.parse(localStorage.getItem('farmState') || '{}');
+            state.trappedUntil += 24 * 60 * 60 * 1000;
+            localStorage.setItem('farmState', JSON.stringify(state));
+            
+            const overlay = document.createElement('div');
+            overlay.id = 'victoryOverlay';
+            overlay.style.cssText = `
+                position:fixed;inset:0;z-index:100000;background:rgba(101,67,33,0.95);
+                display:flex;align-items:center;justify-content:center;text-align:center;
+                font-family:'Orbitron',sans-serif;pointer-events:none;overflow:hidden;
+            `;
+            
+            overlay.innerHTML = `
+                <div id="victoryTimerDisplay" style="
+                    font-size:8rem;font-weight:900;color:#D2691E;
+                    text-shadow:0 0 80px #8B4513,0 0 160px #D2691E;
+                    letter-spacing:16px;margin:0;animation:timerExplode 20s linear infinite;
+                    position:relative;z-index:10;pointer-events:none;
+                ">+24:00:00</div>
+                <div id="bulkyFlashes" style="position:absolute;inset:0;pointer-events:none;"></div>
+            `;
+            
+            document.body.appendChild(overlay);
+            
+            let flashCount = 0;
+            const bulkyMessages = [
+                "COLLAR LOCKED PERMANENTLY 🔒🐄",
+                "HUMAN MIND ERASED FOREVER 🧠💥",
+                "BREEDING HEIFER PROTOCOL ACTIVE 🐂💦",
+                "+24 HOURS CATTLE LIFE EXTENSION ⏳😈",
+                "UDDERS SWOLLEN WITH MILK 🥛🔥",
+                "HEAT CYCLE PERPETUAL 🌡️💕",
+                "FARMER'S PRIZE LIVESTOCK 🏆🐄",
+                "MOUNTING DESIRE OVERWHELMING 🐂🍑",
+                "HERD INTEGRATION COMPLETE 🌾👑",
+                "PERFECT BREEDING BITCH UPGRADE 🎀🐄"
+            ];
+            
+            const flashInterval = setInterval(() => {
+                if (flashCount >= bulkyMessages.length) return;
+                
+                const flash = document.createElement('div');
+                flash.innerHTML = bulkyMessages[flashCount];
+                flash.style.cssText = `
+                    position:absolute;font-size:2.2rem;font-weight:900;color:#f5deb3;
+                    text-shadow:0 0 15px #8B4513;background:linear-gradient(135deg,#2d1810,#1a0f0a);
+                    border:3px solid #8B4513;box-shadow:0 0 40px rgba(139,69,19,0.9);
+                    border-radius:20px;padding:20px 30px;left:${Math.random()*60+20}%;
+                    top:${Math.random()*50+15}%;animation:bulkyFlash 3s ease-out forwards;
+                    z-index:5;pointer-events:none;font-family:'Orbitron',sans-serif;
+                    text-transform:uppercase;letter-spacing:2px;
+                `;
+                document.getElementById('bulkyFlashes').appendChild(flash);
+                flashCount++;
+            }, 1800);
+            
+            let victoryTime = 20;
+            const victoryTimer = setInterval(() => {
+                victoryTime--;
+                const mins = Math.floor(victoryTime / 60).toString().padStart(2, '0');
+                const secs = (victoryTime % 60).toString().padStart(2, '0');
+                document.getElementById('victoryTimerDisplay').textContent = `+${mins}:${secs}`;
+                
+                if (victoryTime <= 0) {
+                    clearInterval(victoryTimer);
+                    clearInterval(flashInterval);
+                    overlay.remove();
+                }
+            }, 1000);
+        }
+
+        // INIT
+        setInterval(updateCountdownTimer, 1000);
+        updateCountdownTimer();
+        updateMindBreak();
+
+        setInterval(() => {
+            if (Math.random() < 0.15) {
+                const statuses = [
+                    'Collar hums... thoughts simplifying... 🐄',
+                    'Udders aching... need milking... 🥛',
+                    'Bull scent detected! Heat rising! 🔥🐂',
+                    `Mind degrading... ${Math.floor(mindBreakLevel * 25)}% cattle... 🌀`
+                ];
+                document.getElementById('statusText').textContent = statuses[Math.floor(Math.random() * statuses.length)];
+            }
+        }, 10000);
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes floatUp {
+                0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+                100% { transform: translateY(-120vh) rotate(720deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>

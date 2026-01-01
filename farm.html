@@ -39,5 +39,21 @@
   </div>
 
   <script src="farm.js" defer></script>
+  <script>
+    // GLOBAL TRANSFORMATION STATE CHECKER
+    (function() {
+        const state = JSON.parse(localStorage.getItem('farmState') || '{}');
+        if (state.trappedUntil && state.trappedUntil > Date.now()) {
+            // IMMEDIATELY redirect to transformation page
+            const formMap = {
+                'foxfire_mistress': 'farm/States/forest-panties.html',
+                'living_grove': 'farm/States/forest-artifact.html', 
+                'hungry_moss': 'farm/States/forest-frog.html'
+            };
+            const transformPage = formMap[state.currentForm] || 'generic-trapped.html';
+            window.location.href = transformPage;
+        }
+    })();
+</script>
 </body>
 </html>

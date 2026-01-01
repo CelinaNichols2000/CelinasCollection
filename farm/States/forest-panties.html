@@ -1,0 +1,1199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trapped as Panties - Kitsune's Forest Fuckthong</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <!-- GLOBAL CHECKER -->
+    <script>(function(){const s=JSON.parse(localStorage.getItem('farmState')||'{}');if(s.trappedUntil&&s.trappedUntil>Date.now()){}else{localStorage.removeItem('farmState');window.location.href='../index.html';}})();</script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: linear-gradient(135deg, #2a0a2a 0%, #0a1a1a 100%);
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            gap: 30px;
+        }
+
+        /* VICTORY TIMER & BULKY FLASHES */
+        @keyframes timerExplode {
+        0%, 100% { 
+            font-size:8rem;transform:scale(1) rotate(0deg);
+            text-shadow:0 0 80px #FF0040,0 0 160px #FF69B4;filter:brightness(1);
+        }
+        25% { font-size:10rem;transform:scale(1.4) rotate(5deg);filter:brightness(1.4); }
+        50% { font-size:12rem;transform:scale(1.8) rotate(-8deg);filter:brightness(1.8); }
+        75% { font-size:10rem;transform:scale(1.4) rotate(3deg);filter:brightness(1.4); }
+        }
+
+        @keyframes bulkyFlash {
+        0% { opacity:0;transform:scale(0.3) translateY(50px) rotate(-15deg); }
+        15% { opacity:1;transform:scale(1.1) translateY(0) rotate(2deg); }
+        85% { opacity:1;transform:scale(1.05) translateY(-10px) rotate(1deg); }
+        100% { opacity:0;transform:scale(1.4) translateY(-80px) rotate(180deg); }
+        }
+
+        /* TIMER TOP CENTER - REAL CLOCK */
+        .timer-display {
+            font-family: 'Orbitron', monospace;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #FF00CA;
+            text-align: center;
+            text-shadow: 0 0 30px #FF00CA, 0 0 60px #FF00CA;
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+        }
+
+        /* MAIN PANEL: IMAGE LEFT + UI RIGHT */
+        .main-panel {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 40px;
+            max-width: 1200px;
+            width: 100%;
+            align-items: start;
+        }
+
+        .left-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* PANTIES IMAGE */
+        .panties-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 480px;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(255, 0, 202, 0.3);
+            border: 2px solid rgba(255, 0, 202, 0.5);
+        }
+
+        .panties-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.8s ease, filter 0.5s ease;
+        }
+
+        .panties-image.active {
+            opacity: 1;
+        }
+
+        /* RIGHT PANEL */
+        .right-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            height: fit-content;
+        }
+
+        /* TITLE + BADGE */
+        .item-header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .item-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #FF00CA, #FF69B4, #00FF88);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(255, 0, 202, 0.5);
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+
+        .category-badge {
+            background: linear-gradient(45deg, #FF00CA, #00FF88);
+            color: #000;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            box-shadow: 0 5px 20px rgba(255, 0, 202, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* MIND BREAK CONTAINER */
+        .mind-break-container {
+            background: rgba(255, 0, 202, 0.12);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 0, 202, 0.6);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 15px 40px rgba(255, 0, 202, 0.2);
+        }
+
+        .mind-break-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .mind-break-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            color: #FF80DA;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .mind-break-percentage {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #00FF88, #00CC66);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .mind-break-bar {
+            height: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 0, 202, 0.5);
+            position: relative;
+        }
+
+        .mind-break-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #FF00CA, #FF69B4, #C71585, #8B008B);
+            transition: width 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(255, 0, 202, 0.8);
+        }
+
+        .mind-break-stages {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #ccc;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* ACTION BUTTONS */
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .action-btn {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 16px 20px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            filter: brightness(1.15);
+        }
+
+        .action-btn:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        .squirm-btn {
+            background: linear-gradient(45deg, #FF00CA, #FF69B4);
+            color: #fff;
+            box-shadow: 0 8px 25px rgba(255, 0, 202, 0.6);
+        }
+
+        .moan-btn {
+            background: linear-gradient(45deg, #00FF88, #00CC66);
+            color: #000;
+            box-shadow: 0 8px 25px rgba(0, 255, 136, 0.6);
+            font-weight: 800;
+        }
+
+        .worship-btn {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
+            font-weight: 800;
+        }
+
+        .beg-btn {
+        background: linear-gradient(45deg, #8B008B, #00CED1, #483D8B);
+        color: #fff;
+        box-shadow: 0 8px 25px rgba(139, 0, 139, 0.6);
+        text-shadow: 0 0 8px rgba(0, 206, 209, 0.8);
+        }
+
+        /* MIND BREAK PROGRESS PULSES */
+        #mindBreakFill.pulsing {
+        animation: mindBreakPulse 0.8s ease-out;
+        }
+
+        @keyframes mindBreakPulse {
+        0% { transform: scaleX(1); }
+        50% { transform: scaleX(1.05); }
+        100% { transform: scaleX(1); }
+        }
+
+        /* Progress sound effect */
+        body {
+        --progress-sound: 0;
+        }
+
+        /* LOWER SECTION - FULL WIDTH CENTERED */
+        .lower-section {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .panties-status {
+            background: rgba(255, 0, 202, 0.15);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 0, 202, 0.7);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(255, 0, 202, 0.25);
+        }
+
+        .panties-status h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            color: #FF00CA;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px #FF00CA;
+        }
+
+        .panties-status p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 8px;
+            color: #eee;
+        }
+
+        .degradation-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+
+        /* MIND BREAK VICTORY ANIMATIONS */
+        @keyframes victoryExplode {
+        0% { 
+            font-size: 6rem; 
+            transform: scale(1) rotate(0deg);
+            text-shadow: 0 0 60px #FF00CA, 0 0 120px #FF00CA;
+            filter: hue-rotate(0deg) brightness(1);
+        }
+        25% { 
+            font-size: 7.5rem; 
+            transform: scale(1.3) rotate(2deg);
+            text-shadow: 0 0 80px #FF69B4, 0 0 160px #FF00CA;
+            filter: hue-rotate(30deg) brightness(1.3);
+        }
+        50% { 
+            font-size: 9rem; 
+            transform: scale(1.6) rotate(-3deg);
+            text-shadow: 0 0 100px #00FF88, 0 0 200px #FF00CA;
+            filter: hue-rotate(60deg) brightness(1.6);
+        }
+        75% { 
+            font-size: 7.5rem; 
+            transform: scale(1.3) rotate(1deg);
+            text-shadow: 0 0 80px #FF1493, 0 0 160px #00FF88;
+            filter: hue-rotate(90deg) brightness(1.3);
+        }
+        100% { 
+            font-size: 6rem; 
+            transform: scale(1) rotate(0deg);
+            text-shadow: 0 0 60px #FF00CA, 0 0 120px #FF00CA;
+            filter: hue-rotate(120deg) brightness(1);
+        }
+        }
+
+        @keyframes dominationFlash {
+        0% { opacity: 0; transform: scale(0.3) rotate(-180deg); }
+        10% { opacity: 1; transform: scale(1.2) rotate(0deg); }
+        90% { opacity: 1; transform: scale(1.05) rotate(5deg); }
+        100% { opacity: 0; transform: scale(1.5) rotate(180deg); }
+        }
+
+        @keyframes floatUp {
+        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+        }
+
+        @keyframes pantyFloat {
+        0%, 100% { transform: translateX(0) translateY(0) rotate(0deg); }
+        33% { transform: translateX(-5%) translateY(-3%) rotate(-2deg); }
+        66% { transform: translateX(3%) translateY(2%) rotate(1deg); }
+        }
+
+        @keyframes fadeInOut {
+        0%, 100% { opacity: 0; transform: scale(0.8); }
+        10%, 90% { opacity: 1; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.1); }
+        }
+
+
+        .stat-item {
+            background: rgba(0, 255, 136, 0.1);
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 255, 136, 0.4);
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #00FF88;
+        }
+
+        /* MEMORY FRAGMENTS */
+        .memory-fragments {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .memory-fragment {
+            background: rgba(10, 20, 50, 0.8);
+            border: 1px solid rgba(255, 0, 202, 0.4);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .memory-fragment:hover {
+            border-color: #FF00CA;
+            box-shadow: 0 10px 30px rgba(255, 0, 202, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .memory-trigger {
+            padding: 18px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.05rem;
+            background: linear-gradient(90deg, rgba(255, 0, 202, 0.2), rgba(0, 255, 136, 0.15));
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .memory-trigger:hover {
+            background: linear-gradient(90deg, #FF00CA, #00FF88);
+            color: #000;
+            font-weight: 700;
+        }
+
+        .memory-content {
+            display: none;
+            padding: 20px;
+            background: rgba(10, 10, 20, 0.95);
+            font-style: italic;
+            color: #ddd;
+            line-height: 1.6;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .memory-content.active {
+            display: block;
+            animation: slideDown 0.4s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .main-panel {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .timer-display {
+                font-size: 2.5rem;
+            }
+            
+            .panties-image-container {
+                max-width: 320px;
+                height: 400px;
+            }
+        }
+
+        /* PANTY MIND STRUGGLE POPUP */
+        .panty-flash {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 99999;
+        background: radial-gradient(circle at center, rgba(255,0,80,0.35), rgba(0,0,0,0.95));
+        animation: glitch 0.35s infinite;
+        }
+
+        .panty-flash-inner {
+        max-width: 680px;
+        width: 90%;
+        background: linear-gradient(135deg, #3a0010, #150010);
+        border: 2px solid #ff0044;
+        box-shadow: 0 0 40px rgba(255,0,80,0.9);
+        border-radius: 18px;
+        padding: 18px 22px;
+        display: grid;
+        grid-template-columns: 160px 1fr;
+        gap: 18px;
+        }
+
+        .panty-flash-image {
+        background-size: cover;
+        background-position: center;
+        border-radius: 12px;
+        min-height: 160px;
+        box-shadow: 0 0 25px rgba(255,0,150,0.8);
+        }
+
+        .panty-flash-text {
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #ffdde8;
+        font-weight: 600;
+        text-shadow: 0 0 8px rgba(255,0,120,0.9);
+        }
+
+        .panty-flash-text span.panty-scream {
+        color: #ff4b7a;
+        font-weight: 800;
+        }
+
+        @media (max-width: 650px) {
+        .panty-flash-inner {
+            grid-template-columns: 1fr;
+        }
+        .panty-flash-image {
+            min-height: 140px;
+        }
+        }
+
+        /* PROGRESSIVE MEMORY PERSPECTIVES */
+        .kitsu-speak {
+        color: #FF69B4 !important;
+        font-weight: 800;
+        text-shadow: 0 0 12px #FF1493;
+        font-style: italic;
+        }
+
+        .scream {
+        color: #FF0040 !important;
+        font-weight: 900;
+        font-size: 1.1em;
+        text-shadow: 0 0 10px #FF0040;
+        animation: screamShake 0.5s infinite;
+        }
+
+        .happy-panty {
+        color: #FFAA00 !important;
+        font-weight: 700;
+        text-shadow: 0 0 12px #FFAA00;
+        }
+
+        .final-panty {
+        color: #00FF88 !important;
+        font-weight: 800;
+        font-size: 1.15em;
+        text-shadow: 0 0 20px #00FF88;
+        background: linear-gradient(45deg, rgba(0,255,136,0.2), rgba(255,170,0,0.2));
+        padding: 4px 8px;
+        border-radius: 6px;
+        }
+
+        @keyframes screamShake {
+        0%, 100% { transform: translateX(0); }
+        25% { transform: translateX(2px); }
+        75% { transform: translateX(-2px); }
+        }
+
+        /* STAGE VISUALS */
+        .memory-fragment[data-stage="0"] .memory-trigger { border-left: 4px solid #FF69B4; }
+        .memory-fragment[data-stage="1"] .memory-trigger { border-left: 4px solid #FF1493; }
+        .memory-fragment[data-stage="2"] .memory-trigger { border-left: 4px solid #C71585; }
+        .memory-fragment[data-stage="3"] .memory-trigger { border-left: 4px solid #FFAA00; }
+        .memory-fragment[data-stage="4"] .memory-trigger { border-left: 4px solid #00FF88; }
+
+
+        /* MIND BREAK LOCKOUT */
+        .memory-fragment.locked {
+        opacity: 0.4;
+        pointer-events: none;
+        }
+
+        .memory-fragment.locked .memory-trigger {
+        background: linear-gradient(90deg, rgba(139,0,139,0.3), rgba(128,0,128,0.3)) !important;
+        color: #666 !important;
+        }
+
+        .memory-fragment.unlocked {
+        border-color: #00FF88 !important;
+        box-shadow: 0 0 20px rgba(0,255,136,0.4) !important;
+        }
+
+        /* ANIMATIONS */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+
+        .mind-broken {
+            filter: grayscale(100%) brightness(0.6) !important;
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <!-- REAL TIME CLOCK TOP -->
+        <div class="timer-display" id="countdownTimer">--:--:--</div>
+    </div>
+
+        <!-- MAIN PANEL -->
+        <div class="main-panel">
+            <!-- LEFT: PANTIES IMAGE -->
+            <div class="left-panel">
+                <div class="panties-image-container">
+                    <img src="https://i.ibb.co/j95jx3db/celina-panty-spell.jpg" class="panties-image active" data-stage="0">
+                    <img src="https://i.ibb.co/cKWFq7G1/gifcandy-panties-55.gif" class="panties-image" data-stage="1">
+                    <img src="https://i.ibb.co/KcqZnPZR/image0-1.gif" class="panties-image" data-stage="2">
+                    <img src="https://i.ibb.co/DP67HZzv/tap.jpg" class="panties-image" data-stage="3">
+                </div>
+            </div>
+
+            <!-- MIND STRUGGLE POPUP -->
+            <div id="pantyStrugglePopup" class="consciousness-flash panty-flash" style="display:none;">
+            <div class="panty-flash-inner">
+                <div class="panty-flash-image" id="pantyFlashImage"></div>
+                <div class="panty-flash-text" id="pantyFlashText"></div>
+            </div>
+            </div>
+
+            <!-- RIGHT: UI PANEL -->
+            <div class="right-panel">
+                <div class="item-header">
+                    <h1 class="item-title">Kitsune's Forest Fuckthong</h1>
+                    <div class="category-badge">Forest Transformation</div>
+                </div>
+
+                <!-- MIND BREAK -->
+                <div class="mind-break-container">
+                    <div class="mind-break-header">
+                        <div class="mind-break-title">MIND BREAK PROGRESS</div>
+                        <div class="mind-break-percentage" id="mindBreakPercentage">0%</div>
+                    </div>
+                    <div class="mind-break-bar">
+                        <div class="mind-break-fill" id="mindBreakFill" style="width: 0%"></div>
+                    </div>
+                    <div class="mind-break-stages">
+                        <span>RESISTANT</span>
+                        <span>CRACKING</span>
+                        <span>BROKEN</span>
+                        <span>OBJECT</span>
+                    </div>
+                </div>
+
+                <!-- ACTION BUTTONS -->
+                <div class="action-buttons">
+                    <button class="action-btn squirm-btn" onclick="squirm()">SQUIRM 😩</button>
+                    <button class="action-btn moan-btn" onclick="moan()">MOAN AHHH 🥵</button>
+                    <button class="action-btn worship-btn" onclick="worship()">WORSHIP 💕</button>
+                    <button class="action-btn beg-btn" onclick="beg()">BEG FOR MERCY 🙏</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- LOWER SECTION - FULL WIDTH -->
+        <div class="lower-section">
+            <details style="cursor: pointer;">
+                <summary style="
+                    margin-top: 30px;
+                    font-family: 'Orbitron', sans-serif;
+                    font-size: 1.8rem;
+                    font-weight: 700;
+                    color: #FF00CA;
+                    padding: 20px;
+                    list-style: none;
+                    background: rgba(255, 0, 202, 0.15);
+                    border-radius: 20px;
+                    border: 2px solid rgba(255, 0, 202, 0.6);
+                    text-align: center;
+                    text-shadow: 0 0 15px #FF00CA;
+                    margin-bottom: 10px;
+                ">Your Pathetic Panties Life</summary>
+
+                <div class="panties-status">
+                    <p>Every step grinds you deeper into her heat. Every throb soaks you through. You feel her laugh vibrate through your fabric...</p>
+                    <p id="statusText">Waiting for her next move... 💦</p>
+                    
+                    <div class="degradation-stats" id="degradationStats">
+                        <div class="stat-item">
+                            Memory Loss: <span class="stat-value" id="memoryLoss">0%</span>
+                        </div>
+                        <div class="stat-item">
+                            Self-Awareness: <span class="stat-value" id="selfAwareness">100%</span>
+                        </div>
+                        <div class="stat-item">
+                            Object Perception: <span class="stat-value" id="objectPerception">0%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="memory-fragments">
+                <!-- #1: PURE RESISTANCE (0-25%) -->
+                <div class="memory-fragment" data-stage="0">
+                    <div class="memory-trigger" onclick="toggleMemory(0)">#1: HUMAN PRIDE</div>
+                    <div class="memory-content">
+                    "Get this fox demon OFF me!" My skirt melted into elastic hell while she laughed. Legs fusing, body shrinking—<span class="scream">I'M NOT CLOTH!</span> 
+                    Clawing at hardening fabric as it snapped into thong shape against her dripping heat. Pure rage, pure denial.
+                    </div>
+                </div>
+
+                <!-- #2: DESPERATE FIGHT (25-50%) -->
+                <div class="memory-fragment" data-stage="1">
+                    <div class="memory-trigger" onclick="toggleMemory(1)">#2: CRUSHED RESISTANCE</div>
+                    <div class="memory-content">
+                    First thigh-crush—<span class="scream">FLATTENED ALIVE</span>. "Can't breathe! Her musk everywhere!" Every step grinds my face deeper into kitsune pussy. 
+                    Still screaming internally but fabric nerves fire unwanted pleasure signals. Fight fading, humiliation rising.
+                    </div>
+                </div>
+
+                <!-- #3: CONFUSED SUBMISSION (50-75%) -->
+                <div class="memory-fragment" data-stage="2">
+                    <div class="memory-trigger" onclick="toggleMemory(2)">#3: MUSK ADDICTION</div>
+                    <div class="memory-content">
+                    Her sweat soaks me constantly now. <span class="kitsu-speak">"Good panty~"</span> Wait—did that feel... good? No! Yes? Her scent imprints my threads. 
+                    Thighs = safety. Pussy heat = home? Mind cracking but body already surrendered.
+                    </div>
+                </div>
+
+                <!-- #4: PANTY IDENTITY (75-90%) -->
+                <div class="memory-fragment" data-stage="3">
+                    <div class="memory-trigger" onclick="toggleMemory(3)">#4: THREAD THOUGHTS</div>
+                    <div class="memory-content">
+                    Don't remember my name anymore. Just "Kitsune's fuckthong." Her pussy lips mold my fabric-face perfectly. 
+                    Every throb = bliss. Every step = purpose. <span class="happy-panty">Soft, stretchy, obedient... this feels right.</span>
+                    </div>
+                </div>
+
+                <!-- #5: TOTAL PANTY JOY (90%+) -->
+                <div class="memory-fragment" data-stage="4">
+                    <div class="memory-trigger" onclick="toggleMemory(4)">#5: PERFECT SERVICE</div>
+                    <div class="memory-content">
+                    <span class="final-panty">💕 Thank you Mistress~ Your divine pussy owns this worthless fabric completely! 💕</span><br>
+                    No human thoughts left. Just soft hug around perfect heat. Her arousal = my joy. Her walk = my massage. 
+                    <span class="kitsu-speak">"Eternal fuckthong perfection~"</span> Pure panty happiness forever.
+                    </div>
+                </div>
+                </div>
+
+
+            </details>
+        </div>
+    </div>
+
+
+      <script>
+        // STATE MANAGEMENT
+        const state = JSON.parse(localStorage.getItem('farmState') || '{}');
+        const endTime = state.trappedUntil;
+        let mindBreakLevel = parseInt(localStorage.getItem('pantiesMindBreak') || '0');
+        let desperationClicks = parseInt(localStorage.getItem('pantiesClicks') || '0');
+
+        // MIND BREAK STAGES
+        const mindBreakStages = [
+            {title: "STILL RESISTING", color: "#FF69B4", memory: 10, awareness: 90, obj: 10},
+            {title: "MIND CRACKING", color: "#FF1493", memory: 40, awareness: 60, obj: 35},
+            {title: "DESPERATELY BROKEN", color: "#C71585", memory: 70, awareness: 30, obj: 65},
+            {title: "PERFECT PANTY OBJECT", color: "#8B008B", memory: 95, awareness: 5, obj: 95}
+        ];
+
+        function updateCountdownTimer() {
+            const timeLeft = Math.max(0, endTime - Date.now());
+            const h = Math.floor(timeLeft / 3600000).toString().padStart(2, '0');
+            const m = Math.floor((timeLeft % 3600000) / 60000).toString().padStart(2, '0');
+            const s = Math.floor((timeLeft % 60000) / 1000).toString().padStart(2, '0');
+            document.getElementById('countdownTimer').textContent = `${h}:${m}:${s}`;
+            
+            if (timeLeft <= 0) {
+                // AUTO RESET TO NORMAL
+                localStorage.removeItem('pantiesMindBreak');
+                localStorage.removeItem('pantiesClicks');
+                window.location.href = '../index.html';
+            }
+        }
+
+        // IMAGE SWAP
+        function swapImage(stage) {
+            const images = document.querySelectorAll('.panties-image');
+            images.forEach((img, index) => {
+                img.classList.toggle('active', index === stage);
+            });
+        }
+
+        // PANTY MIND STRUGGLE POPUP (similar vibe to Darkwolf consciousness flashes)
+        function showPantyStruggle(options) {
+        const popup = document.getElementById("pantyStrugglePopup");
+        const imgBox = document.getElementById("pantyFlashImage");
+        const textBox = document.getElementById("pantyFlashText");
+
+        if (!popup || !imgBox || !textBox) return;
+
+        // Set image if given, otherwise show abstract "static"
+        if (options.image) {
+            imgBox.style.backgroundImage = `url("${options.image}")`;
+        } else {
+            imgBox.style.backgroundImage =
+            "linear-gradient(135deg, #ff0044, #ff7ab8, #330010)";
+        }
+
+        // Text content
+        textBox.innerHTML = options.text;
+
+        popup.style.display = "flex";
+        popup.style.opacity = "1";
+
+        // Auto hide after N ms (default 3.5s)
+        const dur = options.duration || 3500;
+        setTimeout(() => {
+            popup.style.opacity = "0";
+            setTimeout(() => {
+            popup.style.display = "none";
+            }, 400);
+        }, dur);
+        }
+
+        // MEMORY TOGGLE - NO MIND DAMAGE, PURE PROGRESSIVE NARRATIVE
+        function toggleMemory(id) {
+        const contents = document.querySelectorAll('.memory-content');
+        const target = contents[id];
+        const triggers = document.querySelectorAll('.memory-trigger');
+        
+        // Close all others
+        contents.forEach((content, index) => {
+            if (index !== id) {
+            content.classList.remove('active');
+            triggers[index].style.background = 'linear-gradient(90deg, rgba(255, 0, 202, 0.2), rgba(0, 255, 136, 0.15))';
+            }
+        });
+        
+        // Toggle target
+        target.classList.toggle('active');
+        triggers[id].style.background = target.classList.contains('active') ? 
+            'linear-gradient(90deg, #FF00CA, #00FF88)' : 
+            'linear-gradient(90deg, rgba(255, 0, 202, 0.2), rgba(0, 255, 136, 0.15))';
+        
+        // Flavor text only - NO mind break progression
+        document.getElementById('statusText').textContent = 
+            `Memory #${id+1} accessed. Perspective shift detected... 🧠➡️👙`;
+        }
+
+        // MIND BREAK UPDATE
+        function updateMindBreak() {
+            const stage = mindBreakStages[Math.min(Math.floor(mindBreakLevel), 3)];
+            const percentage = Math.floor(Math.min(100, (mindBreakLevel) * 25)); 
+
+            document.getElementById('mindBreakPercentage').textContent = percentage + '%';
+            document.getElementById('mindBreakFill').style.width = percentage + '%';
+            
+            // Update stats
+            document.getElementById('memoryLoss').textContent = stage.memory + '%';
+            document.getElementById('selfAwareness').textContent = stage.awareness + '%';
+            document.getElementById('objectPerception').textContent = stage.obj + '%';
+
+            // Image effects
+            const activeImage = document.querySelector('.panties-image.active');
+            if (activeImage) {
+                const grayscale = Math.min(100, percentage / 2);
+                const brightness = 1 - (percentage / 200);
+                activeImage.style.filter = `grayscale(${grayscale}%) brightness(${brightness})`;
+                if (percentage > 70) activeImage.classList.add('mind-broken');
+            }
+
+            localStorage.setItem('pantiesMindBreak', Math.floor(mindBreakLevel));
+
+            // Milestones
+            if (percentage >= 25) swapImage(1);
+            if (percentage >= 50) swapImage(2);
+            if (percentage >= 75) swapImage(3);
+            if (percentage >= 100 && !document.querySelector('#gameOverTimer')) triggerGameOver();
+        }
+
+        // ACTIONS
+        function squirm() {
+            closePantiesDetails();
+            desperationClicks++;
+            document.getElementById('statusText').textContent = 'SQUIRMING! She giggles "Naughty panties~" 💦';
+            
+            const img = document.querySelector('.panties-image.active');
+            img.style.transform = 'scale(1.1)';
+            setTimeout(() => img.style.transform = '', 400);
+            
+            // 10x SLOWER - +0.02 per squirm (was 0.2)
+            mindBreakLevel += 0.08;
+            
+            // VISUAL FEEDBACK EVERY TIME
+            showMindBreakPulse(2); // Small green pulse
+            updateMindBreak();
+            
+            localStorage.setItem('pantiesClicks', desperationClicks);
+
+            if (Math.random() < 0.7) {
+                showPantyStruggle({
+                image: "https://i.ibb.co/DP67HZz/vtap.jpg",
+                text: "<span class='panty-scream'>N-no!</span> Her thighs are crushing me! Every squirm just grinds me deeper into her heat... I can feel my thoughts smearing into sweat and musk...",
+                duration: 3800,
+                });
+            }
+            }
+
+            function moan() {
+            closePantiesDetails();
+            desperationClicks += 2;
+            document.body.style.animation = 'shake 0.6s';
+            document.getElementById('statusText').textContent = '*MOOOOAAAANNNN* HER HEAT! CRUSHING! 🥵🔥💦';
+            
+            // 10x SLOWER - +0.03 per moan (was 0.3)
+            mindBreakLevel += 0.1;
+            
+            // VISUAL FEEDBACK EVERY TIME
+            showMindBreakPulse(4); // Medium orange pulse
+            updateMindBreak();
+            
+            setTimeout(() => document.body.style.animation = '', 600);
+
+            if (Math.random() < 0.7) {
+                showPantyStruggle({
+                image: "https://i.ibb.co/j95jx3db/celina-panty-spell.jpg",
+                text: "The moan echoes inside my threads—she cant hear it, but I do.<br><span class='panty-scream'>Im just fabric!</span> Why does it feel so good every time her heat throbs through me?",
+                });
+            }
+            }
+
+            function worship() {
+            closePantiesDetails();
+            desperationClicks += 3;
+            createFloatingHearts();
+            document.getElementById('statusText').textContent = '"Thank you Mistress~ 💕 Your scent... divine..."';
+            
+            // 10x SLOWER - +0.08 per worship (was 0.8)
+            mindBreakLevel += 0.2;
+            
+            // VISUAL FEEDBACK EVERY TIME
+            showMindBreakPulse(8); // Big gold pulse
+            updateMindBreak();
+
+            if (Math.random() < 0.7) {
+                showPantyStruggle({
+                    image: "https://i.ibb.co/cKWFq7G/1gifcandy-panties-55.gif",
+                    text: "Her scent is everywhere inside me, imprinted into every fiber.<br>Threads that used to be a person now <span class='panty-scream'>worship</span> every drop of sweat like holy oil.",
+                });
+            }
+            }
+
+            function beg() {
+            closePantiesDetails();
+            if (Math.random() < 0.2) {
+                document.getElementById('statusText').textContent = 'Mercy granted! Pressure lightens... (Rare!) 🙏';
+            } else {
+                desperationClicks++;
+                
+                // 10x SLOWER - +0.04 per failed beg (was 0.4)
+                mindBreakLevel += 0.3;
+                
+                document.getElementById('statusText').textContent = 'BEGGING MAKES IT WORSE! "Pathetic panty!" 😈';
+                
+                // VISUAL FEEDBACK EVERY TIME
+                showMindBreakPulse(4); // Medium purple pulse
+                updateMindBreak();
+
+                if (Math.random() < 0.7) {
+                showPantyStruggle({
+                    image: null,
+                    text: "<span class='panty-scream'>PLEASE!</span> Just a little air! Her thighs slam together instead—darkness, heat, heartbeat, and my last human thoughts squished flat between her legs...",
+                    duration: 4200,
+                });
+                }
+            }
+            }
+
+
+        // AUTO-CLOSE PANTIES DETAILS ON BUTTON CLICK
+        function closePantiesDetails() {
+        const details = document.querySelector('details[summary*="Pathetic Panties Life"]');
+        if (details && details.open) {
+            details.open = false;
+        }
+        }
+
+        // MIND BREAK VISUAL FEEDBACK - SHOWS PROGRESS EVERY CLICK
+        function showMindBreakPulse(intensity) {
+            const bar = document.getElementById('mindBreakFill');
+            const percent = document.getElementById('mindBreakPercentage');
+            
+            // Color-coded pulse based on intensity
+            const colors = ['#00FF88', '#FFAA00', '#FF6600', '#FF0040', '#8B008B'];
+            const pulseColor = colors[Math.min(intensity-1, colors.length-1)];
+            
+            // PULSE ANIMATION
+            bar.style.boxShadow = `0 0 20px ${pulseColor}, inset 0 0 20px ${pulseColor}`;
+            percent.style.color = pulseColor;
+            percent.style.textShadow = `0 0 15px ${pulseColor}`;
+            
+            // Progress sound effect (visual)
+            document.body.style.setProperty('--progress-sound', intensity.toString());
+            
+            // Show exact progress gained
+            const oldPercent = parseInt(percent.textContent);
+            setTimeout(() => {
+                const gain = Math.floor((mindBreakLevel / 10) * 25);
+                document.getElementById('statusText').textContent += ` [+${gain-oldPercent}%] 🧠💥`;
+            }, 100);
+            
+            // Fade pulse after 800ms
+            setTimeout(() => {
+                bar.style.boxShadow = '';
+                percent.style.color = '';
+                percent.style.textShadow = '';
+            }, 800);
+        }
+
+        // EFFECTS
+        function createFloatingHearts() {
+            for (let i = 0; i < 12; i++) {
+                const heart = document.createElement('div');
+                heart.innerHTML = '💕';
+                heart.style.cssText = `
+                    position: fixed; left: ${Math.random()*90}vw; top: 50vh;
+                    font-size: ${1.2+Math.random()*1}rem; pointer-events: none;
+                    animation: floatUp 3s ease-out forwards; z-index: 9999;
+                `;
+                document.body.appendChild(heart);
+                setTimeout(() => heart.remove(), 3000);
+            }
+        }
+
+        function triggerGameOver() {
+            // NEW: EXTEND TIME + SHOW FLASHES FIRST
+            triggerMindBreakVictory();
+            
+            // THEN OLD OVERLAY (after 20s delay)
+            setTimeout(() => {
+                document.body.innerHTML = `
+                <div style="position:fixed;inset:0;background:linear-gradient(45deg,#8B008B,#2a0a2a);display:flex;align-items:center;justify-content:center;flex-direction:column;font-family:'Orbitron',sans-serif;color:#FF00CA;text-align:center;z-index:99999;padding:20px;">
+                    <h1 style="font-size:5rem;text-shadow:0 0 40px #FF00CA;margin:0;animation:glitch 0.3s infinite;">🏆 MIND BREAK COMPLETE 🏆</h1>
+                    <div style="font-size:2.5rem;margin:20px;font-weight:700;">PERFECT PANTY OBJECT ACHIEVED</div>
+                    <div style="font-size:1.4rem;max-width:700px;line-height:1.6;margin:30px;">
+                    You are now the Kitsune's perfect forest fuckthong. No thoughts. No memories. Just eternal service...
+                    </div>
+                    <img src="https://i.ibb.co/DP67HZzv/tap.jpg" style="width:350px;margin:30px;border-radius:25px;box-shadow:0 0 60px #FF00CA;">
+                    <div id="gameOverTimer" style="font-size:3.5rem;font-weight:700;color:#00FF88;text-shadow:0 0 30px #00FF88;">Resuming service in: 00:30</div>
+                </div>
+                `;
+                
+                // OLD COUNTDOWN
+                let countdown = 30;
+                const timer = setInterval(() => {
+                const minutes = Math.floor(countdown / 60).toString().padStart(2, '0');
+                const seconds = (countdown % 60).toString().padStart(2, '0');
+                document.getElementById('gameOverTimer').textContent = `Resuming service in: ${minutes}:${seconds}`;
+                countdown--;
+                if (countdown < 0) {
+                    clearInterval(timer);
+                    localStorage.removeItem('pantiesMindBreak');
+                    localStorage.removeItem('pantiesClicks');
+                    location.reload();
+                }
+                }, 1000);
+            }, 20500); // 20.5s delay
+            }
+
+        
+        // MIND BREAK VICTORY - ADD 1 DAY + RED BULKY FLASH ANIMATION
+        function triggerMindBreakVictory() {
+        // ADD 1 FULL DAY TO EXISTING TIME
+        const state = JSON.parse(localStorage.getItem('farmState') || '{}');
+        state.trappedUntil += 24 * 60 * 60 * 1000; // += 24 hours to EXISTING time
+        localStorage.setItem('farmState', JSON.stringify(state));
+        
+        // CREATE RED BULKY FLASH OVERLAY (above existing game over)
+        const overlay = document.createElement('div');
+        overlay.id = 'victoryOverlay';
+        overlay.style.cssText = `
+            position:fixed;inset:0;z-index:100000;background:rgba(139,0,139,0.95);
+            display:flex;align-items:center;justify-content:center;text-align:center;
+            font-family:'Orbitron',sans-serif;pointer-events:none;overflow:hidden;
+        `;
+        
+        overlay.innerHTML = `
+            <!-- CENTRAL EXPLODING TIMER -->
+            <div id="victoryTimerDisplay" style="
+            font-size:8rem;font-weight:900;color:#FF0040;
+            text-shadow:0 0 80px #FF0040,0 0 160px #FF69B4;
+            letter-spacing:16px;margin:0;animation:timerExplode 20s linear infinite;
+            position:relative;z-index:10;pointer-events:none;
+            ">+24:00:00</div>
+            
+            <!-- BULKY FLASH CONTAINER -->
+            <div id="bulkyFlashes" style="position:absolute;inset:0;pointer-events:none;"></div>
+        `;
+        
+        document.body.appendChild(overlay);
+        
+        // 20-SECOND SEQUENCE
+        let flashCount = 0;
+        const bulkyMessages = [
+            "HORNY PUSSY PANTY ACTIVATED 🩲💦",
+            "ASS-CLAMPING SLAVE FABRIC 🐺🍑🔒",
+            "HUMAN BRAIN = GONE FOREVER 🧠💥🧵",
+            "+24 HOURS TRAP EXTENDED ⏳😈",
+            "KITSUNE CUNT = YOUR UNIVERSE 🦊🔥",
+            "SWEAT-SUCKING THREAD WHORE 🧽🥵",
+            "THIGH-CRUSHED MINDLESS RAG 🦵💀",
+            "AROUSAL SPONGE FOR ETERNITY 😵‍💫💕",
+            "MISTRESS ASS = YOUR HEAVEN 👑🍑",
+            "PERFECT FUCKTHONG UPGRADE 🏆🩲"
+        ];
+        
+        // RED BULKY FLASHES EVERY 1.8s
+        const flashInterval = setInterval(() => {
+            if (flashCount >= bulkyMessages.length) return;
+            
+            const flash = document.createElement('div');
+            flash.innerHTML = bulkyMessages[flashCount];
+            flash.style.cssText = `
+            position:absolute;font-size:2.2rem;font-weight:900;color:#FFdde8;
+            text-shadow:0 0 15px #FF0040;background:linear-gradient(135deg,#3a0010,#150010);
+            border:3px solid #FF0040;box-shadow:0 0 40px rgba(255,0,64,0.9);
+            border-radius:20px;padding:20px 30px;left:${Math.random()*60+20}%;
+            top:${Math.random()*50+15}%;animation:bulkyFlash 3s ease-out forwards;
+            z-index:5;pointer-events:none;font-family:'Orbitron',sans-serif;
+            text-transform:uppercase;letter-spacing:2px;
+            `;
+            document.getElementById('bulkyFlashes').appendChild(flash);
+            flashCount++;
+        }, 1800);
+        
+        // 20s COUNTDOWN
+        let victoryTime = 20;
+        const victoryTimer = setInterval(() => {
+            victoryTime--;
+            const mins = Math.floor(victoryTime / 60).toString().padStart(2, '0');
+            const secs = (victoryTime % 60).toString().padStart(2, '0');
+            document.getElementById('victoryTimerDisplay').textContent = `+${mins}:${secs}`;
+            
+            if (victoryTime <= 0) {
+            clearInterval(victoryTimer);
+            clearInterval(flashInterval);
+            overlay.remove();
+            }
+        }, 1000);
+        }
+
+
+
+        // INIT
+        setInterval(updateCountdownTimer, 1000);
+        updateCountdownTimer();
+        updateMindBreak();
+
+        // AUTO STATUS UPDATES
+        setInterval(() => {
+            if (Math.random() < 0.15) {
+                const statuses = [
+                    'Thighs crushing... pulse... pulse... 💓',
+                    'Sweat soaking through... delicious degradation... 😵‍💫',
+                    'She bends over! FLATTENED! 🥵',
+                    `Mind crumbling... ${Math.floor(mindBreakLevel * 25)}% broken... 🌀`
+                ];
+                document.getElementById('statusText').textContent = statuses[Math.floor(Math.random() * statuses.length)];
+            }
+        }, 10000);
+
+        // ANIMATIONS
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes floatUp {
+                0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+                100% { transform: translateY(-120vh) rotate(720deg); opacity: 0; }
+            }
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-8px); }
+                75% { transform: translateX(8px); }
+            }
+            @keyframes glitch {
+                0%, 100% { transform: translate(0); }
+                20% { transform: translate(-2px, 2px); }
+                40% { transform: translate(-2px, -2px); }
+                60% { transform: translate(2px, 2px); }
+                80% { transform: translate(2px, -2px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
