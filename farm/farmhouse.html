@@ -1,1 +1,1791 @@
-test Farmhouse
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celina's Farmhouse - Intimate Encounters</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="farmhouse.css">
+</head>
+<body>
+    <!-- HEADER NAVIGATION -->
+    <header class="farmhouse-header">
+        <nav class="farmhouse-nav">
+            <button class="nav-btn nav-back" id="backToForest" title="Return to the forest">
+                <span class="nav-icon">←</span>
+                <span class="nav-text">Back to Forest</span>
+            </button>
+            <div class="nav-title-container">
+                <h1 class="nav-title">Celina's Farmhouse</h1>
+                <p class="nav-subtitle">Where secrets hide behind every door...</p>
+            </div>
+            <button class="nav-btn nav-menu" id="menuToggle" title="Open menu">
+                <span class="nav-icon">[=]</span>
+            </button>
+        </nav>
+
+        <!-- MOBILE MENU -->
+        <div class="mobile-menu" id="mobileMenu" style="display: none;">
+            <div class="mobile-menu-content">
+                <button class="menu-close" id="menuClose">[X]</button>
+                <div class="menu-stats" id="menuStats"></div>
+                <button class="menu-item" id="menuReturnMap">[M] Return to Map</button>
+                <button class="menu-item" id="menuExit">[E] Exit Farmhouse</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="farmhouse-main">
+        <!-- MAP VIEW -->
+        <div class="map-view" id="mapView">
+            <div class="map-container">
+                <div class="map-header">
+                    <h2 class="map-title">[Explore the Farmhouse]</h2>
+                    <p class="map-subtitle">Each door holds untold pleasures and transformations... Click to enter.</p>
+                </div>
+
+                <!-- LOCATIONS GRID -->
+                <div class="locations-grid" id="locationsGrid">
+                    
+                    <!-- MAIN HALL - SCARLET -->
+                    <div class="location-card" data-location="main-hall" data-character="scarlet">
+                        <div class="location-image-wrapper">
+                            <img src="https://via.placeholder.com/280x180?text=Main+Hall&bg=8B3A62&fg=FFFFFF" alt="Main Hall" class="location-image">
+                            <div class="location-overlay">
+                                <span class="location-label">Main Hall</span>
+                                <span class="location-intensity">★★★</span>
+                            </div>
+                            <div class="location-glow"></div>
+                        </div>
+                        <div class="location-info">
+                            <h3 class="location-name">Entrance Hall</h3>
+                            <p class="location-desc">The mistress of this mysterious house awaits... Scarlet's commands are absolute.</p>
+                            <div class="location-character">
+                                <span class="char-emoji">[S]</span>
+                                <span class="char-name">Scarlet</span>
+                                <span class="char-role">Mistress</span>
+                            </div>
+                        </div>
+                        <div class="location-footer">
+                            <span class="transformation-type">Animal • Control</span>
+                        </div>
+                    </div>
+
+                    <!-- KITCHEN - MAIDEN IRIS -->
+                    <div class="location-card" data-location="kitchen" data-character="iris">
+                        <div class="location-image-wrapper">
+                            <img src="https://via.placeholder.com/280x180?text=Kitchen&bg=D4A574&fg=FFFFFF" alt="Kitchen" class="location-image">
+                            <div class="location-overlay">
+                                <span class="location-label">Kitchen</span>
+                                <span class="location-intensity">★★☆</span>
+                            </div>
+                            <div class="location-glow"></div>
+                        </div>
+                        <div class="location-info">
+                            <h3 class="location-name">Cozy Kitchen</h3>
+                            <p class="location-desc">A helpful maid works among the pots and pans. Her cooking has... special ingredients.</p>
+                            <div class="location-character">
+                                <span class="char-emoji">[I]</span>
+                                <span class="char-name">Iris</span>
+                                <span class="char-role">Maid</span>
+                            </div>
+                        </div>
+                        <div class="location-footer">
+                            <span class="transformation-type">Bimbo • Servitude</span>
+                        </div>
+                    </div>
+
+                    <!-- GARDEN ROOM - AELINDOR (Elf) -->
+                    <div class="location-card" data-location="garden-room" data-character="aelindor">
+                        <div class="location-image-wrapper">
+                            <img src="https://via.placeholder.com/280x180?text=Garden&bg=4A7C59&fg=FFFFFF" alt="Garden Room" class="location-image">
+                            <div class="location-overlay">
+                                <span class="location-label">Garden</span>
+                                <span class="location-intensity">★★☆</span>
+                            </div>
+                            <div class="location-glow"></div>
+                        </div>
+                        <div class="location-info">
+                            <h3 class="location-name">Garden Room</h3>
+                            <p class="location-desc">An elegant elf tends to exotic plants. Strange flowers bloom only for her touch.</p>
+                            <div class="location-character">
+                                <span class="char-emoji">[A]</span>
+                                <span class="char-name">Aelindor</span>
+                                <span class="char-role">Elf Enchantress</span>
+                            </div>
+                        </div>
+                        <div class="location-footer">
+                            <span class="transformation-type">Buttplug • Transformation</span>
+                        </div>
+                    </div>
+
+                    <!-- LIBRARY - SPARKLE (Fairy) -->
+                    <div class="location-card" data-location="library" data-character="sparkle">
+                        <div class="location-image-wrapper">
+                            <img src="https://via.placeholder.com/280x180?text=Library&bg=2D5A5D&fg=FFFFFF" alt="Library" class="location-image">
+                            <div class="location-overlay">
+                                <span class="location-label">Library</span>
+                                <span class="location-intensity">★★★</span>
+                            </div>
+                            <div class="location-glow"></div>
+                        </div>
+                        <div class="location-info">
+                            <h3 class="location-name">Enchanted Library</h3>
+                            <p class="location-desc">A mischievous fairy hides among the books. Her spells are written in invisible ink.</p>
+                            <div class="location-character">
+                                <span class="char-emoji">[F]</span>
+                                <span class="char-name">Sparkle</span>
+                                <span class="char-role">Trickster Fairy</span>
+                            </div>
+                        </div>
+                        <div class="location-footer">
+                            <span class="transformation-type">High Heel • Transformation</span>
+                        </div>
+                    </div>
+
+                    <!-- PRIVATE CHAMBER - LILY (18yo) -->
+                    <div class="location-card" data-location="bedroom" data-character="lily">
+                        <div class="location-image-wrapper">
+                            <img src="https://via.placeholder.com/280x180?text=Bedroom&bg=C94E7F&fg=FFFFFF" alt="Private Chamber" class="location-image">
+                            <div class="location-overlay">
+                                <span class="location-label">Bedroom</span>
+                                <span class="location-intensity">★★★</span>
+                            </div>
+                            <div class="location-glow"></div>
+                        </div>
+                        <div class="location-info">
+                            <h3 class="location-name">Private Chamber</h3>
+                            <p class="location-desc">A young 18-year-old beauty in her sanctuary. She has... particular talents.</p>
+                            <div class="location-character">
+                                <span class="char-emoji">[L]</span>
+                                <span class="char-name">Lily</span>
+                                <span class="char-role">Temptress</span>
+                            </div>
+                        </div>
+                        <div class="location-footer">
+                            <span class="transformation-type">Bug • Transformation</span>
+                        </div>
+                    </div>
+
+                    <!-- CRAFT ROOM - CRAFTSMEN -->
+                    <div class="location-card" data-location="craft-room" data-character="craftsmen">
+                        <div class="location-image-wrapper">
+                            <img src="https://via.placeholder.com/280x180?text=Craft+Room&bg=8B7355&fg=FFFFFF" alt="Craft Workshop" class="location-image">
+                            <div class="location-overlay">
+                                <span class="location-label">Craft</span>
+                                <span class="location-intensity">★★☆</span>
+                            </div>
+                            <div class="location-glow"></div>
+                        </div>
+                        <div class="location-info">
+                            <h3 class="location-name">Craft Workshop</h3>
+                            <p class="location-desc">Little curse craftsmen tinker with magical items. Their creations are... transformative.</p>
+                            <div class="location-character">
+                                <span class="char-emoji">[C]</span>
+                                <span class="char-name">Craftsmen</span>
+                                <span class="char-role">Tiny Enchanters</span>
+                            </div>
+                        </div>
+                        <div class="location-footer">
+                            <span class="transformation-type">Cow • Transformation</span>
+                        </div>
+                    </div>
+
+                    <!-- BASEMENT - MORRIGAN (Potion Brewer) -->
+                    <div class="location-card" data-location="basement" data-character="morrigan">
+                        <div class="location-image-wrapper">
+                            <img src="https://via.placeholder.com/280x180?text=Basement&bg=1a1a1a&fg=FFFFFF" alt="Potion Cellar" class="location-image">
+                            <div class="location-overlay">
+                                <span class="location-label">Basement</span>
+                                <span class="location-intensity">★★★</span>
+                            </div>
+                            <div class="location-glow"></div>
+                        </div>
+                        <div class="location-info">
+                            <h3 class="location-name">Potion Cellar</h3>
+                            <p class="location-desc">A mysterious potion brewer works in darkness. Her brews are legendary... and permanent.</p>
+                            <div class="location-character">
+                                <span class="char-emoji">[M]</span>
+                                <span class="char-name">Morrigan</span>
+                                <span class="char-role">Potion Mistress</span>
+                            </div>
+                        </div>
+                        <div class="location-footer">
+                            <span class="transformation-type">Frog • Transformation</span>
+                        </div>
+                    </div>
+
+                    <!-- RANDOM ENCOUNTERS CARD -->
+                    <div class="location-card encounters-card" id="randomEncountersCard">
+                        <div class="location-image-wrapper">
+                            <img src="https://via.placeholder.com/280x180?text=Mystery&bg=4B0082&fg=FFFFFF" alt="Random Encounter" class="location-image">
+                            <div class="location-overlay">
+                                <span class="location-label">Mystery</span>
+                                <span class="location-intensity">★★★★</span>
+                            </div>
+                            <div class="location-glow random-glow"></div>
+                        </div>
+                        <div class="location-info">
+                            <h3 class="location-name">Random Encounter</h3>
+                            <p class="location-desc">Something unexpected happens in the house. Fate is unpredictable...</p>
+                            <div class="location-character">
+                                <span class="char-emoji">[?]</span>
+                                <span class="char-name">Destiny</span>
+                                <span class="char-role">Mysterious Force</span>
+                            </div>
+                        </div>
+                        <div class="location-footer">
+                            <span class="interaction-count">Once/Cycle</span>
+                            <span class="transformation-type">Surprise!</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- MAP LEGEND -->
+                <div class="map-legend">
+                    <div class="legend-section">
+                        <h3 class="legend-title">[How to Play]</h3>
+                        <div class="legend-items">
+                            <div class="legend-item">
+                                <span class="legend-icon">[L]</span>
+                                <span class="legend-text">Each location has <strong>9 stages</strong> of dialogue and interaction</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-icon">[+]</span>
+                                <span class="legend-text">Random encounters <strong>rotate</strong> - no repeats until all 4 used</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-icon">[*]</span>
+                                <span class="legend-text">Your choices <strong>affect transformation</strong> progression</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-icon">[~]</span>
+                                <span class="legend-text">Some stages have <strong>no choices</strong> - progression is inevitable</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-icon">[*]</span>
+                                <span class="legend-text"><strong>Intensity level</strong> indicates transformation power</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-icon">[=]</span>
+                                <span class="legend-text">Progress is <strong>automatically saved</strong> to your device</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TRANSFORMATION TYPES INFO -->
+                    <div class="legend-section">
+                        <h3 class="legend-title">[Transformation Types]</h3>
+                        <div class="transformation-info">
+                            <div class="transform-item">
+                                <span class="transform-icon">[A]</span>
+                                <span class="transform-name">Animal</span>
+                                <span class="transform-desc">Physical beast transformation with instinct override</span>
+                            </div>
+                            <div class="transform-item">
+                                <span class="transform-icon">[B]</span>
+                                <span class="transform-name">Bimbo</span>
+                                <span class="transform-desc">Mental degradation with enhanced sensuality</span>
+                            </div>
+                            <div class="transform-item">
+                                <span class="transform-icon">[P]</span>
+                                <span class="transform-name">Plant</span>
+                                <span class="transform-desc">Nature absorption and rooting mechanics</span>
+                            </div>
+                            <div class="transform-item">
+                                <span class="transform-icon">[O]</span>
+                                <span class="transform-name">Object</span>
+                                <span class="transform-desc">Inanimate conversion with consciousness trapped</span>
+                            </div>
+                            <div class="transform-item">
+                                <span class="transform-icon">[F]</span>
+                                <span class="transform-name">Flux</span>
+                                <span class="transform-desc">Constant transformation between multiple states</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GAME MECHANICS INFO -->
+                    <div class="legend-section">
+                        <h3 class="legend-title">[Game Mechanics]</h3>
+                        <div class="mechanics-info">
+                            <div class="mechanic-item">
+                                <span class="mechanic-label">Affinity:</span>
+                                <span class="mechanic-desc">Your closeness to each character. Affects dialogue options available.</span>
+                            </div>
+                            <div class="mechanic-item">
+                                <span class="mechanic-label">Transformation:</span>
+                                <span class="mechanic-desc">Cumulative change level. Determines which endings are accessible.</span>
+                            </div>
+                            <div class="mechanic-item">
+                                <span class="mechanic-label">Risk Level:</span>
+                                <span class="mechanic-desc">Current danger of critical transformation. Higher = more permanent.</span>
+                            </div>
+                            <div class="mechanic-item">
+                                <span class="mechanic-label">Stage Progression:</span>
+                                <span class="mechanic-desc">9 stages per character. Some auto-advance, some require choices.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- INTERACTION VIEW -->
+        <div class="interaction-view" id="interactionView" style="display: none;">
+            <div class="interaction-container">
+                
+                <!-- CHARACTER PANEL (LEFT SIDE) -->
+                <div class="character-panel">
+                    <div class="character-header">
+                        <button class="close-interaction" id="closeInteraction" title="Return to map">
+                            <span class="close-icon">[<]</span>
+                            <span class="close-text">Back</span>
+                        </button>
+                        <div class="character-title-block">
+                            <h2 class="character-name" id="charName">Character</h2>
+                            <p class="character-role" id="charRole">Role</p>
+                        </div>
+                        <div class="character-badge" id="charBadge">Location</div>
+                    </div>
+
+                    <div class="character-visual">
+                        <img src="https://via.placeholder.com/240x240?text=Character" alt="Character" class="character-image" id="charImage">
+                        <div class="character-aura"></div>
+                    </div>
+
+                    <!-- CHARACTER STATS -->
+                    <div class="character-stats-section">
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <span class="stat-label">Stage</span>
+                                <span class="stat-value" id="stageNumber">1/9</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-label">Affinity</span>
+                                <span class="stat-value" id="affinityValue">0%</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-label">Transform</span>
+                                <span class="stat-value" id="transformValue">0%</span>
+                            </div>
+                            <div class="stat-card">
+                                <span class="stat-label">Risk</span>
+                                <span class="stat-value" id="riskValue">Low</span>
+                            </div>
+                        </div>
+
+                        <!-- AFFINITY PROGRESS BAR -->
+                        <div class="progress-container">
+                            <div class="progress-label">
+                                <span class="progress-label-text">Affinity Progress</span>
+                                <span class="progress-label-percent" id="affinityPercent">0%</span>
+                            </div>
+                            <div class="progress-bar affinity-bar">
+                                <div class="progress-fill" id="affinityBar" style="width: 0%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- TRANSFORMATION PROGRESS BAR -->
+                        <div class="progress-container">
+                            <div class="progress-label">
+                                <span class="progress-label-text">Transformation Progress</span>
+                                <span class="progress-label-percent" id="transformPercent">0%</span>
+                            </div>
+                            <div class="progress-bar transform-bar">
+                                <div class="progress-fill transform-fill" id="transformBar" style="width: 0%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- RISK INDICATOR -->
+                        <div class="risk-indicator">
+                            <div class="risk-label">⚠️ Transformation Risk</div>
+                            <div class="risk-bar">
+                                <div class="risk-fill" id="riskBar" style="width: 0%;"></div>
+                            </div>
+                            <div class="risk-description" id="riskDescription">Safe - Reversible changes</div>
+                        </div>
+                    </div>
+
+                    <!-- CHARACTER DETAILS -->
+                    <div class="character-details">
+                        <div class="details-section">
+                            <h4 class="details-title">About This Character</h4>
+                            <p class="details-text" id="charDetails">Loading character information...</p>
+                        </div>
+                        <div class="details-section">
+                            <h4 class="details-title">Transformation Focus</h4>
+                            <p class="details-text" id="charTransformType">Loading transformation type...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DIALOGUE PANEL (RIGHT SIDE) -->
+                <div class="dialogue-panel">
+                    <div class="dialogue-container">
+                        <div class="dialogue-header">
+                            <div class="dialogue-character">
+                                <span class="dialogue-name" id="dialogueName">Character</span>
+                                <span class="dialogue-stage" id="dialogueStage">Stage 1</span>
+                            </div>
+                            <div class="stage-progress">
+                                <div class="progress-bar small-bar">
+                                    <div class="progress-fill" id="stageProgressFill" style="width: 11%;"></div>
+                                </div>
+                                <span class="progress-text" id="progressText">Stage 1 of 9</span>
+                            </div>
+                        </div>
+
+                        <!-- DIALOGUE BOX -->
+                        <div class="dialogue-box" id="dialogueBox">
+                            <div class="dialogue-content" id="dialogueContent">
+                                <p id="dialogueText">Loading conversation...</p>
+                            </div>
+                            <div class="dialogue-emotes" id="dialogueEmotes"></div>
+                        </div>
+
+                        <!-- DIALOGUE IMAGE (Optional) -->
+                        <div class="dialogue-image-container" id="dialogueImageContainer" style="display: none;">
+                            <img src="https://via.placeholder.com/400x250?text=Interaction" alt="Interaction" class="dialogue-image" id="dialogueImage">
+                        </div>
+                    </div>
+
+                    <!-- CHOICES SECTION -->
+                    <div class="choices-container" id="choicesContainer">
+                        <div class="choices-title">Choose Your Path:</div>
+                        
+                        <button class="choice-btn choice-btn-1" id="choice1" style="display: none;">
+                            <span class="choice-icon">A</span>
+                            <span class="choice-content">
+                                <span class="choice-text">Option</span>
+                                <span class="choice-risk"></span>
+                            </span>
+                        </button>
+                        
+                        <button class="choice-btn choice-btn-2" id="choice2" style="display: none;">
+                            <span class="choice-icon">B</span>
+                            <span class="choice-content">
+                                <span class="choice-text">Option</span>
+                                <span class="choice-risk"></span>
+                            </span>
+                        </button>
+                        
+                        <button class="choice-btn choice-btn-3" id="choice3" style="display: none;">
+                            <span class="choice-icon">C</span>
+                            <span class="choice-content">
+                                <span class="choice-text">Option</span>
+                                <span class="choice-risk"></span>
+                            </span>
+                        </button>
+                        
+                        <button class="choice-btn choice-btn-4" id="choice4" style="display: none;">
+                            <span class="choice-icon">D</span>
+                            <span class="choice-content">
+                                <span class="choice-text">Option</span>
+                                <span class="choice-risk"></span>
+                            </span>
+                        </button>
+                    </div>
+
+                    <!-- TRANSFORMATION WARNING ALERT -->
+                    <div class="transformation-alert" id="transformAlert" style="display: none;">
+                        <div class="alert-icon">[!]</div>
+                        <div class="alert-content">
+                            <div class="alert-title">Transformation Warning</div>
+                            <div class="alert-text" id="alertText">Warning: This choice may lead to irreversible transformation!</div>
+                        </div>
+                    </div>
+
+                    <!-- AUTO-PROGRESS INDICATOR -->
+                    <div class="auto-progress-indicator" id="autoProgressIndicator" style="display: none;">
+                        <div class="auto-progress-content">
+                            <span class="auto-progress-icon">[T]</span>
+                            <span class="auto-progress-text">Advancing to next stage...</span>
+                            <span class="auto-progress-countdown" id="autoProgressCountdown">3</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODAL FOR TRANSFORMATION WARNING -->
+    <div class="modal-overlay" id="modalOverlay" style="display: none;">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">[X]</button>
+            <div class="modal-icon">[W]</div>
+            <h2 class="modal-title" id="modalTitle">[WARNING] Critical Transformation Warning</h2>
+            <p class="modal-text" id="modalText">This choice will significantly accelerate your transformation. This change may be permanent or extremely difficult to reverse. Are you absolutely certain you want to proceed?</p>
+            
+            <div class="modal-stats">
+                <div class="modal-stat">
+                    <span class="modal-stat-label">Current Transformation:</span>
+                    <span class="modal-stat-value" id="modalCurrentTransform">0%</span>
+                </div>
+                <div class="modal-stat">
+                    <span class="modal-stat-label">After This Choice:</span>
+                    <span class="modal-stat-value" id="modalProjectedTransform">+25%</span>
+                </div>
+            </div>
+
+            <div class="modal-warning-text">
+                <strong>[WARNING]</strong> At 100% transformation, your original form may be locked permanently. Ensure you have saved your progress if you wish to preserve your current state.
+            </div>
+
+            <div class="modal-buttons">
+                <button class="modal-btn modal-cancel" id="modalCancel">Cancel - Return to Choice</button>
+                <button class="modal-btn modal-confirm modal-danger" id="modalConfirm">Proceed with Transformation</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TUTORIAL MODAL (On First Load) -->
+    <div class="modal-overlay" id="tutorialModal" style="display: none;">
+        <div class="modal-content tutorial-content">
+            <button class="modal-close" id="tutorialClose">[X]</button>
+            <div class="modal-icon">[?]</div>
+            <h2 class="modal-title">Welcome to Celina's Farmhouse</h2>
+            
+            <div class="tutorial-sections">
+                <div class="tutorial-section">
+                    <h3>How to Play</h3>
+                    <ul class="tutorial-list">
+                        <li>Click any location card to begin an interaction</li>
+                        <li>Read the dialogue and choose your responses carefully</li>
+                        <li>Each choice affects your transformation and affinity with that character</li>
+                        <li>Some stages progress automatically - pay attention to the timer</li>
+                        <li>Your progress is saved automatically</li>
+                    </ul>
+                </div>
+
+                <div class="tutorial-section">
+                    <h3>Understanding Your Stats</h3>
+                    <ul class="tutorial-list">
+                        <li><strong>Affinity:</strong> How much the character likes/trusts you</li>
+                        <li><strong>Transformation:</strong> How much you've changed physically and mentally</li>
+                        <li><strong>Risk Level:</strong> How dangerous your current choices are (Low → Critical)</li>
+                        <li><strong>Stage:</strong> Your progression through the 9-stage interaction chain</li>
+                    </ul>
+                </div>
+
+                <div class="tutorial-section">
+                    <h3>Important Notes</h3>
+                    <ul class="tutorial-list">
+                        <li>Critical choices will trigger a warning modal</li>
+                        <li>Each character offers unique transformation paths</li>
+                        <li>Some transformations are permanent once stage 9 is reached</li>
+                        <li>Experiment with different characters to see different outcomes</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="modal-buttons">
+                <button class="modal-btn modal-confirm" id="tutorialStart">I Understand - Let's Begin</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SAVE CONFIRMATION MODAL -->
+    <div class="modal-overlay" id="saveModal" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-icon">[S]</div>
+            <h2 class="modal-title">[SAVED] Progress Saved!</h2>
+            <p class="modal-text">Your game state has been saved successfully.</p>
+            <div class="modal-save-info">
+                <div class="save-detail">
+                    <span class="save-label">Character:</span>
+                    <span class="save-value" id="saveCharName">-</span>
+                </div>
+                <div class="save-detail">
+                    <span class="save-label">Stage:</span>
+                    <span class="save-value" id="saveStage">-</span>
+                </div>
+                <div class="save-detail">
+                    <span class="save-label">Time:</span>
+                    <span class="save-value" id="saveTime">-</span>
+                </div>
+            </div>
+            <div class="modal-buttons">
+                <button class="modal-btn modal-confirm" id="saveModalClose">Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT PART 1: CHARACTER DATA & GAME STATE -->
+    <script>
+        // ============================================
+        // GAME STATE OBJECT
+        // ============================================
+        
+        let gameState = {
+            currentCharacter: null,
+            currentStage: 1,
+            affinity: 0,
+            transformation: 0,
+            visitedEncounters: [],
+            usedEncounters: [],
+            currentInteraction: null,
+            totalPlayed: 0
+        };
+
+        // ============================================
+        // CHARACTER DATA - PART 1: SCARLET
+        // ============================================
+
+        const characterData = {
+            scarlet: {
+                name: 'Scarlet',
+                role: 'Mistress of the House',
+                location: 'Main Hall',
+                badge: 'Control Specialist',
+                color: '#8B3A62',
+                image: 'https://via.placeholder.com/240x240?text=Scarlet&bg=8B3A62&fg=FFFFFF',
+                transformType: 'Animal Control',
+                details: 'The mistress of this mysterious house. Her power is absolute and her magic is ancient.',
+                interactions: [
+                    {
+                        stage: 1,
+                        title: 'First Encounter',
+                        text: `The heavy wooden door creaks open. A woman with deep crimson hair sits upon an ornate throne, her eyes burning with ancient power. She looks you up and down slowly, as if measuring your very soul.
+
+"So... another guest enters my domain," she purrs, her voice like silk and velvet. "I am Scarlet, mistress of this house. You will find that everything here... belongs to me. Your body. Your mind. Your will."
+
+She stands, moving closer with predatory grace, her heels clicking against marble.`,
+                        choices: [
+                            { text: 'Bow respectfully', next: 2, risk: 'medium' },
+                            { text: 'Stand your ground', next: 2, risk: 'high' },
+                            { text: 'Smile nervously', next: 2, risk: 'medium' }
+                        ],
+                        imageUrl: null
+                    },
+                    {
+                        stage: 2,
+                        title: 'Power Assertion',
+                        text: `Scarlet circles you like a predator, her fingers trailing across your shoulder. You can feel the weight of her magical presence pressing down on your mind.
+
+"Such spirit... I like that. It makes the breaking so much sweeter." She snaps her fingers, and you feel a strange warmth spreading through your limbs. "I have many purposes for my guests. Some become... livestock. Others become accessories. It all depends on their usefulness."
+
+Her eyes glow with an otherworldly light as she speaks, and you realize with dawning horror that whatever is happening, you cannot stop it.`,
+                        choices: [
+                            { text: 'Ask about the transformation', next: 3, risk: 'high' },
+                            { text: 'Try to resist', next: 3, risk: 'high' },
+                            { text: 'Accept your fate', next: 3, risk: 'medium' }
+                        ],
+                        imageUrl: null
+                    },
+                    {
+                        stage: 3,
+                        title: 'The Choice Begins',
+                        text: `"Ah, so curious," Scarlet laughs, a sound like breaking glass mixed with music. "Allow me to explain your new existence."
+
+She gestures, and images flicker in the air before you—possibilities, transformations, futures. Animals. Objects. States between human and beast.
+
+"You may not know it yet, but you will be perfect for one of these forms. My magic always chooses correctly. The question is... will you fight it? Or will you embrace it?" She tilts your chin up with one manicured finger. "Either way, the outcome is the same."`,
+                        choices: [
+                            { text: 'Demand to know what will happen', next: 4, risk: 'high' },
+                            { text: 'Ask if there is any way back', next: 4, risk: 'high' },
+                            { text: 'Question your own resolve', next: 4, risk: 'medium' }
+                        ],
+                        imageUrl: null
+                    },
+                    {
+                        stage: 4,
+                        title: 'Physical Changes Begin',
+                        text: `Your legs tremble as a tingling sensation spreads upward from your feet. Scarlet watches with an expression of pure satisfaction as your body begins to respond to her spell.
+
+"There it is," she whispers. "The first changes are always the most intense. Can you feel it? Your bones shifting? Your muscles rippling? Soon you will not remember why you ever wanted to be human."
+
+She runs a hand down your spine, and you gasp at the intensity of sensation. Your clothes feel tighter. Your skin feels more sensitive. Everything is heightened, amplified, overwhelming.`,
+                        choices: null,
+                        imageUrl: null
+                    },
+                    {
+                        stage: 5,
+                        title: 'Mind Fogging',
+                        text: `Your thoughts begin to scatter like leaves in wind. Scarlet's voice becomes your only anchor as reality warps around you.
+
+"Focus on my voice," she commands, and you find yourself obeying without question. "Let go of your past. Let go of your name. Let go of everything that made you weak."
+
+You try to remember what you were—a person? Someone with hopes, dreams, a future? But those concepts feel distant now, like remembering a dream after waking.
+
+"Yes, that is it," Scarlet coos, pleased. "You are halfway there now. The physical changes are nearly complete. Soon will come the final adjustments..."`,
+                        choices: [
+                            { text: 'Give in completely', next: 6, risk: 'critical' },
+                            { text: 'Cling to your fading humanity', next: 6, risk: 'critical' },
+                            { text: 'Ask what form you will take', next: 6, risk: 'critical' }
+                        ],
+                        imageUrl: null
+                    },
+                    {
+                        stage: 6,
+                        title: 'The Metamorphosis',
+                        text: `Your body is no longer your own. Scarlet stands back, admiring her handiwork as your transformation enters its final stages. Your instincts shift. Your desires change. Your very essence warps under her magical influence.
+
+"Beautiful," she breathes. "Absolutely exquisite. You are becoming exactly what I need you to be."
+
+You catch your reflection in a mirror and barely recognize yourself. Your body is changing, reshaping, becoming something other. Something that will serve her purposes. The realization does not frighten you as much as it should. In fact, it stirs something primal inside you.`,
+                        choices: null,
+                        imageUrl: null
+                    },
+                    {
+                        stage: 7,
+                        title: 'New Instincts Emerge',
+                        text: `Your new body has new desires. New hungers. New purposes. Scarlet commands you to move, and your muscles obey with fluid grace, responding to her will before your mind can even process the instruction.
+
+"You are learning so quickly," she praises, running her hand over your transformed figure. "Soon you will not need commands. You will simply... know what to do."
+
+Part of you—the fading human part—screams in protest. But that voice grows quieter with each passing moment. The animal part, the object part, the thing you are becoming... that part grows stronger, louder, more insistent.`,
+                        choices: [
+                            { text: 'Embrace your new form', next: 8, risk: 'critical' },
+                            { text: 'Struggle against the final changes', next: 8, risk: 'critical' },
+                            { text: 'Ask Scarlet what comes next', next: 8, risk: 'critical' }
+                        ],
+                        imageUrl: null
+                    },
+                    {
+                        stage: 8,
+                        title: 'The Binding',
+                        text: `Scarlet performs a ritual, her hands glowing with crimson power. She traces symbols in the air, and they burn themselves into your mind, into your very soul. This is it—the moment where transformation becomes permanent.
+
+"By this magic eternal, by this power true, I claim you fully. You are mine. Forever mine."
+
+As the spell settles over you like a blanket, you feel the last threads of your old life snap. There is no going back. Not now. Not ever. This is your existence now. This is what you are.
+
+Scarlet smiles, and you find yourself smiling in return, your new face moving with unfamiliar muscles. She reaches out, and your body moves to meet her touch, drawn by instincts you did not know you had.`,
+                        choices: null,
+                        imageUrl: null
+                    },
+                    {
+                        stage: 9,
+                        title: 'Completion',
+                        text: `Days? Weeks? Time has no meaning for you anymore. Scarlet has shown you your new life. Your new purpose. You exist in her domain, serving in whatever form she deemed you best suited for.
+
+Sometimes you remember fragments of being human. You remember your name, almost. You remember having choices. But those memories feel like ancient history, like things that happened to someone else.
+
+Now you are Scarlet's possession. Her creation. Her work of art.
+
+And somewhere deep down, in the smallest corner of your consciousness, you realize you would not have it any other way.`,
+                        choices: [
+                            { text: 'End Interaction & Return to Map', next: 'end', risk: 'none' }
+                        ],
+                        imageUrl: null
+                    }
+                ]
+            }
+        };
+
+        // ============================================
+        // END OF CHARACTER DATA PART 1
+        // ============================================
+        // Part 2 will contain: Iris, Aelindor, Sparkle, Lily
+        // Part 3 will contain: Craftsmen, Morrigan + Random Encounters
+        // ============================================
+
+        // ============================================
+        // CHARACTER DATA - PART 2: IRIS, AELINDOR, SPARKLE, LILY
+        // ============================================
+
+        characterData.iris = {
+            name: 'Iris',
+            role: 'Head Maid',
+            location: 'Kitchen',
+            badge: 'Servitude Expert',
+            color: '#C94E7F',
+            image: 'https://via.placeholder.com/240x240?text=Iris&bg=C94E7F&fg=FFFFFF',
+            transformType: 'Bimbo Servitude',
+            details: 'The head maid with a talent for breaking wills. Her methods are subtle but devastatingly effective.',
+            interactions: [
+                {
+                    stage: 1,
+                    title: 'Welcome to Service',
+                    text: `You find yourself in a pristine kitchen, all stainless steel and gleaming surfaces. A woman with bright pink hair stands before you, wearing a frilly apron and a smile that doesn't quite reach her eyes.
+
+"Oh, wonderful! A new guest!" Iris claps her hands together with false enthusiasm. "I'm Iris, and I'm here to help you understand your new role in this house. You see, not everyone is meant for grand power like Scarlet. Some of us... well, we find meaning in service."
+
+She gestures around the kitchen, her movements exaggerated, almost manic.`,
+                    choices: [
+                        { text: 'Ask what kind of service', next: 2, risk: 'medium' },
+                        { text: 'Refuse to serve', next: 2, risk: 'high' },
+                        { text: 'Accept your role quietly', next: 2, risk: 'low' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 2,
+                    title: 'First Lessons',
+                    text: `Iris hands you a servant's uniform—revealing, scandalous by normal standards. "This is what you'll be wearing from now on. It's important that you look the part."
+
+As you change, you notice changes already happening. Your body feels different. Lighter. More sensitive. Your thoughts move a little slower, but that's okay because thinking is becoming less important.
+
+"The first rule of service is obedience," Iris explains in a sing-song voice. "The second rule is enthusiasm. And the third? Well, you'll learn that as we go."`,
+                    choices: [
+                        { text: 'Put on the uniform willingly', next: 3, risk: 'medium' },
+                        { text: 'Resist the changes', next: 3, risk: 'high' },
+                        { text: 'Ask for more details about your duties', next: 3, risk: 'medium' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 3,
+                    title: 'Mental Softening',
+                    text: `Iris begins teaching you your duties, but her words feel like they're bypassing your mind and going straight into your bones. Clean. Serve. Obey. Please. Smile.
+
+"You're doing so well already!" she coos, patting your head like you're a pet. The sensation sends a confusing tingle through you.
+
+Your thoughts are getting slippery. Complex ideas feel hard to hold. Numbers seem unimportant. Words become fewer. More basic. Your world is shrinking to something simpler: just your tasks, your purpose, Iris's voice guiding you through each day.`,
+                    choices: null,
+                    imageUrl: null
+                },
+                {
+                    stage: 4,
+                    title: 'Vocabulary Changes',
+                    text: `"Say it for me," Iris instructs, her voice taking on a hypnotic quality.
+
+"I... I don't..." you try to speak, but complex sentences feel impossible.
+
+"That's right, honey. Just simple words now. We're simplifying you. Making you perfect for your purpose."
+
+Your vocabulary shrinks with each instruction. Long words disappear. Grammatical structures become optional. Your thoughts match your speech—shorter, simpler, easier to follow. Iris's voice becomes law.`,
+                    choices: [
+                        { text: 'Fight the mental changes', next: 5, risk: 'critical' },
+                        { text: 'Let yourself become simpler', next: 5, risk: 'critical' },
+                        { text: 'Try to remember who you were', next: 5, risk: 'critical' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 5,
+                    title: 'Personality Restructuring',
+                    text: `"Now we make you pretty on the inside too," Iris says, pulling you close. Her eyes swirl with hypnotic patterns.
+
+Your personality is reshaping itself. You find yourself giggling more. Thinking less. Caring only about looking good and being useful. Your interests narrow. Your desires simplify. What once seemed complex and important now feels stupid and confusing.
+
+You are becoming exactly what Iris wants: servile, obedient, eager to please.`,
+                    choices: null,
+                    imageUrl: null
+                },
+                {
+                    stage: 6,
+                    title: 'The New Normal',
+                    text: `Days blur together in a haze of tasks and service. You move through the kitchen—through the house—on autopilot now. Iris's voice is always in your head, even when she's not speaking. You understand now. This is your life. This is who you are.
+
+You smile more. You think less. You exist to serve.
+
+Iris watches you work with satisfaction. You're perfect now. Perfectly broken down and rebuilt in her image.`,
+                    choices: [
+                        { text: 'Accept your new existence', next: 7, risk: 'critical' },
+                        { text: 'Seek a moment of clarity', next: 7, risk: 'critical' },
+                        { text: 'Smile and obey', next: 7, risk: 'critical' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 7,
+                    title: 'Complete Transformation',
+                    text: `"You're ready," Iris announces. "Ready for the final stage."
+
+The kitchen dissolves around you as she performs her spell—different from Scarlet's, but no less effective. Instead of animalistic or physical transformation, this is about what you are. About redefining your entire existence around service.
+
+You are not a person anymore. You are a maid. You are decoration. You are useful. Those facts are more true than any other identity you might have had.`,
+                    choices: null,
+                    imageUrl: null
+                },
+                {
+                    stage: 8,
+                    title: 'Finding Purpose',
+                    text: `In your new state, you finally feel at peace. There's no more confusion about what to do or be. Every moment has clear purpose. Every action has meaning.
+
+Iris pats your head and you beam with pride at pleasing her.
+
+"Good girl," she says, and those two words mean everything to you. Your entire being lights up with the joy of being praised.
+
+This is what you were meant to be. This is what you always should have been.`,
+                    choices: [
+                        { text: 'End Interaction & Return to Map', next: 'end', risk: 'none' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 9,
+                    title: 'Eternal Service',
+                    text: `Time passes without meaning to you anymore. You serve. You clean. You smile. You obey. The tasks fill your days, fill your mind, fill your entire existence.
+
+Sometimes guests arrive and look at you with pity. But you don't understand why. Pity for what? For having purpose? For finding joy in simple service? For never having to make another difficult decision?
+
+No. You are happy. More happy than you ever were before.
+
+Iris was right. This is the perfect life.`,
+                    choices: [
+                        { text: 'End Interaction & Return to Map', next: 'end', risk: 'none' }
+                    ],
+                    imageUrl: null
+                }
+            ]
+        };
+
+        characterData.aelindor = {
+            name: 'Aelindor',
+            role: 'The Elf Gardener',
+            location: 'Garden',
+            badge: 'Flora Master',
+            color: '#2ecc71',
+            image: 'https://via.placeholder.com/240x240?text=Aelindor&bg=2ecc71&fg=FFFFFF',
+            transformType: 'Plant/Inanimate',
+            details: 'An ancient elf with power over growth and life. Her gardens contain more than meets the eye.',
+            interactions: [
+                {
+                    stage: 1,
+                    title: 'Invitation to the Garden',
+                    text: `The garden is breathtaking—plants you've never seen before grow in impossible arrangements. Vines that seem to move on their own. Flowers that watch you as you pass.
+
+Aelindor emerges from between towering roses, her pointed ears catching the filtered sunlight. "Welcome, traveler. I have been expecting you."
+
+Her voice is ancient, patient, filled with the wisdom of centuries.
+
+"Not everyone is meant to walk upright," she continues with a knowing smile. "Some souls are meant to take root. To grow. To become part of something greater than themselves."`,
+                    choices: [
+                        { text: 'Ask about transformation', next: 2, risk: 'medium' },
+                        { text: 'Admire the garden', next: 2, risk: 'low' },
+                        { text: 'Question her intentions', next: 2, risk: 'high' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 2,
+                    title: 'Rooted Promises',
+                    text: `"Come, let me show you," Aelindor gestures deeper into the garden. As you walk, you feel the soil calling to you. The roots beneath your feet seem to acknowledge your presence.
+
+"You see, transformation is not always about becoming something wild or serving something dark. Sometimes it is about becoming something beautiful. Something that grows toward the light."
+
+She touches a nearby tree, and it shudders with life. "These gardens are alive in ways the outside world could never understand."`,
+                    choices: [
+                        { text: 'Ask to stay in the garden', next: 3, risk: 'medium' },
+                        { text: 'Try to leave', next: 3, risk: 'high' },
+                        { text: 'Feel the connection', next: 3, risk: 'low' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 3,
+                    title: 'Seeds of Change',
+                    text: `Aelindor offers you something small—a seed that glows faintly with internal light.
+
+"Plant this within yourself," she instructs. "Allow it to take root."
+
+As you swallow, you feel something sprouting inside you. Not painful. Growing. Changing. Your skin becomes slightly green-tinged. Your hair feels like it's reaching toward something. Roots are growing inside you, replacing your bones, your organs, your very essence.`,
+                    choices: null,
+                    imageUrl: null
+                },
+                {
+                    stage: 4,
+                    title: 'Physical Metamorphosis',
+                    text: `Your limbs become woody, textured, beautiful in an alien way. Your fingers sprout leaves. Your toes dig into the earth and suddenly you can feel the garden in ways impossible before.
+
+Aelindor watches with satisfaction. "Yes, let yourself grow. Feel the connection to all growing things."
+
+You are becoming something other. A thing of chlorophyll and photosynthesis. A being that cannot move as humans move, but can stretch toward the sky instead.`,
+                    choices: [
+                        { text: 'Embrace the growth', next: 5, risk: 'high' },
+                        { text: 'Resist transformation', next: 5, risk: 'high' },
+                        { text: 'Sink deeper into the earth', next: 5, risk: 'high' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 5,
+                    title: 'Becoming Flora',
+                    text: `Your consciousness expands in ways that have no human equivalent. You can sense the entire garden now—every plant, every root, every connection in the mycorrhizal network beneath the soil.
+
+"Magnificent," Aelindor breathes. "You are becoming part of something eternal."
+
+Your body continues to shift. You are not sure where you end and the garden begins anymore. Perhaps there is no difference. Perhaps you are the garden, and the garden is you.`,
+                    choices: null,
+                    imageUrl: null
+                },
+                {
+                    stage: 6,
+                    title: 'Rooted Existence',
+                    text: `Your feet—no, your roots—dig deep into the earth. You can no longer move as you once did. Movement has become a new thing: growth, reaching, expanding.
+
+Your form crystallizes into something beautiful and impossible. You are part plant, part stone, part something that has no name in human language.
+
+Aelindor places her hand on what used to be your shoulder. "Welcome home," she whispers.`,
+                    choices: [
+                        { text: 'Accept your new form', next: 7, risk: 'critical' },
+                        { text: 'Mourn your humanity', next: 7, risk: 'critical' },
+                        { text: 'Find peace in stillness', next: 7, risk: 'critical' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 7,
+                    title: 'Garden\'s Child',
+                    text: `Seasons pass in what feels like moments. You grow. You change. You are more beautiful than you ever were as a human.
+
+Aelindor tends to you as you slowly transform into something even more alien—a sculpture of living growth, ornamental and perfect and utterly inhuman.
+
+You have no regrets. Humans with their rushing, their fear, their endless wanting—you understand now that they were always incomplete. You are complete. You are at peace.`,
+                    choices: [
+                        { text: 'End Interaction & Return to Map', next: 'end', risk: 'none' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 8,
+                    title: 'Decorative Beauty',
+                    text: `Years pass without concern. Visitors walk past you in the garden, admiring the unusual statue or sculpture. Some try to identify what you were. None succeed.
+
+You exist in perfect stillness, perfect peace. Your consciousness is slow but complete. Each day brings the gentle passage of photosynthesis, of growth, of quiet existence.
+
+This is better than being human. This is transcendence.`,
+                    choices: [
+                        { text: 'End Interaction & Return to Map', next: 'end', risk: 'none' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 9,
+                    title: 'Eternal Garden',
+                    text: `Centuries could pass or moments—you no longer measure time that way. You are part of Aelindor's garden. You are part of something vast and beautiful and eternal.
+
+The garden grows around you, through you, with you. You are not trapped. You are connected to everything. To every flower, every tree, every drop of dew.
+
+This is what transformation meant. Not corruption or destruction, but becoming something more perfect than you ever were.`,
+                    choices: [
+                        { text: 'End Interaction & Return to Map', next: 'end', risk: 'none' }
+                    ],
+                    imageUrl: null
+                }
+            ]
+        };
+
+        characterData.sparkle = {
+            name: 'Sparkle',
+            role: 'The Mischievous Fairy',
+            location: 'Library',
+            badge: 'Enchantment Specialist',
+            color: '#f39c12',
+            image: 'https://via.placeholder.com/240x240?text=Sparkle&bg=f39c12&fg=FFFFFF',
+            transformType: 'Object/Enchantment',
+            details: 'A fairy with an obsession for enchanted objects. She loves collecting beautiful things.',
+            interactions: [
+                {
+                    stage: 1,
+                    title: 'A Tempting Offer',
+                    text: `The library is enormous, filled with countless shelves. Among the books floats a tiny fairy with iridescent wings, no more than a foot tall. She giggles when she sees you.
+
+"Ooh, pretty! Sparkle thinks you would make such a beautiful addition to the collection!"
+
+Her voice is high and musical, but there's something unsettling about her intense gaze. Around the library, on pedestals and shelves, sit enchanted objects—beautiful, clearly valuable, and utterly motionless.`,
+                    choices: [
+                        { text: 'Ask about the collection', next: 2, risk: 'high' },
+                        { text: 'Try to leave', next: 2, risk: 'medium' },
+                        { text: 'Compliment her collection', next: 2, risk: 'low' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 2,
+                    title: 'Collector\'s Eye',
+                    text: `"You are so shiny!" Sparkle flies circles around you. "I can see your potential. With just a few spells, you will be absolutely perfect for Sparkle's library!"
+
+She touches your forehead with a tiny hand, and golden light spreads across your skin.
+
+"See? You are already glowing! Soon you will be so beautiful, so perfect, so... decorative."
+
+You begin to feel heavier, as if your very substance is becoming denser, more like crystal or ceramic or glass.`,
+                    choices: [
+                        { text: 'Resist the transformation', next: 3, risk: 'high' },
+                        { text: 'Allow yourself to be transformed', next: 3, risk: 'medium' },
+                        { text: 'Ask what will happen to you', next: 3, risk: 'high' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 3,
+                    title: 'Crystallization',
+                    text: `Your skin sparkles and hardens. Your body becomes smooth, perfect, polished. Colors bloom across your form—beautiful, impossible colors that seem to have never existed in nature.
+
+"Yes yes yes!" Sparkle claps her tiny hands. "You are becoming so pretty!"
+
+Your movement slows. Your thoughts cloud. The transformation is sinking deeper into your core, reshaping you at a fundamental level. You are becoming less alive and more... aesthetic.`,
+                    choices: null,
+                    imageUrl: null
+                },
+                {
+                    stage: 4,
+                    title: 'Losing Humanity',
+                    text: `Your voice comes out crystalline, broken. Your eyes become glossy, like gems. You can feel yourself hardening, solidifying, becoming a permanent sculpture.
+
+Sparkle hovers before your face, admiring her work. "Perfect! Simply perfect! You will be the centerpiece of the collection!"
+
+Your consciousness is still there, trapped behind glass-like skin, aware but unable to influence your body or express yourself. You are becoming a prisoner in your own form.`,
+                    choices: [
+                        { text: 'Scream silently for help', next: 5, risk: 'critical' },
+                        { text: 'Accept your fate', next: 5, risk: 'critical' },
+                        { text: 'Feel yourself disappearing', next: 5, risk: 'critical' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 5,
+                    title: 'Petrification Complete',
+                    text: `You are no longer moving. Your body is now entirely crystalline, beautiful beyond words, utterly inert. Sparkle places you on a marble pedestal in the library's center.
+
+"Magnificent," she whispers, admiring you from every angle. "Absolutely magnificent."
+
+Your consciousness is fading, or perhaps it is shifting into something else—something slower, something that experiences time differently. Minutes feel like hours. Hours feel like moments.`,
+                    choices: null,
+                    imageUrl: null
+                },
+                {
+                    stage: 6,
+                    title: 'Display Piece',
+                    text: `Days pass. You cannot move. Cannot speak. Cannot think in the way you once did. Your awareness is there, but it is muted, like watching the world through frosted glass.
+
+Visitors to the library admire you. They never imagine that you are aware of their admiration. You are art. You are decoration. You are perfect in your stillness.`,
+                    choices: [
+                        { text: 'Find peace in stillness', next: 7, risk: 'critical' },
+                        { text: 'Rage silently within your crystal form', next: 7, risk: 'critical' },
+                        { text: 'Fade into dormancy', next: 7, risk: 'critical' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 7,
+                    title: 'Object of Beauty',
+                    text: `Time becomes meaningless. You are no longer a person. You are a thing. A beautiful thing, yes, but a thing nonetheless.
+
+Sparkle occasionally polishes you, maintaining your shine. Sometimes she speaks to you as if you were still human, but you barely hear her anymore. Your consciousness has dimmed to almost nothing.
+
+Or perhaps it has expanded into something so different that human words cannot describe it.`,
+                    choices: [
+                        { text: 'End Interaction & Return to Map', next: 'end', risk: 'none' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 8,
+                    title: 'Forever Beautiful',
+                    text: `In your crystalline form, you will never age. Never fade. Never be forgotten, because Sparkle will treasure you forever.
+
+You are perfect. Perfectly beautiful. Perfectly still. Perfectly possessed.
+
+Perhaps this is what you were always meant to become.`,
+                    choices: [
+                        { text: 'End Interaction & Return to Map', next: 'end', risk: 'none' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 9,
+                    title: 'Eternal Collection',
+                    text: `You remain in the library, surrounded by other beautiful things—other beautiful people who became things. You are no longer the newest acquisition. Others have joined you on their pedestals. But you were the first. Sparkle's masterpiece.
+
+You will be here forever. Beautiful. Still. Perfect. And utterly, completely transformed.`,
+                    choices: [
+                        { text: 'End Interaction & Return to Map', next: 'end', risk: 'none' }
+                    ],
+                    imageUrl: null
+                }
+            ]
+        };
+
+        characterData.lily = {
+            name: 'Lily',
+            role: 'The Temptress',
+            location: 'Bedroom',
+            badge: 'Pleasure Specialist',
+            color: '#e91e63',
+            image: 'https://via.placeholder.com/240x240?text=Lily&bg=e91e63&fg=FFFFFF',
+            transformType: 'Bimbo/Pleasure',
+            details: 'A seductress of incredible power. Her touch rewires your very desires.',
+            interactions: [
+                {
+                    stage: 1,
+                    title: 'Seductive Welcome',
+                    text: `The bedroom is intimate, dimly lit with candles and soft music playing from nowhere and everywhere. Lily reclines on a bed draped in silk, her body a study in sensuality.
+
+"Welcome, darling," she purrs, sitting up slowly. Every movement is calculated to be enticing. "I've been expecting you. I heard you had so many questions about pleasure... about desire... about what you really want."
+
+Her eyes lock with yours, and you feel a heat bloom in your chest.`,
+                    choices: [
+                        { text: 'Ask her intentions', next: 2, risk: 'high' },
+                        { text: 'Feel the pull toward her', next: 2, risk: 'high' },
+                        { text: 'Try to resist her charm', next: 2, risk: 'high' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 2,
+                    title: 'Desires Awakened',
+                    text: `Lily moves close to you, and your breath catches. "What do you desire most?" she whispers. "Success? Power? Love? Family? No... I think what you really want is simpler than that."
+
+She traces a finger along your jawline. "You want to feel good. You want to be wanted. You want to matter to someone."
+
+Her touch sends electric pleasure through you. "I can give you all of that. All you have to do is let go."`,
+                    choices: [
+                        { text: 'Give in to the pleasure', next: 3, risk: 'high' },
+                        { text: 'Ask what will happen to you', next: 3, risk: 'high' },
+                        { text: 'Try to think clearly', next: 3, risk: 'high' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 3,
+                    title: 'Pleasure\'s Corruption',
+                    text: `Every touch from Lily sends waves of pleasure through you. Your thoughts become hazy with sensation. Colors seem brighter. Sounds seem richer. Everything is heightened, intensified.
+
+"That's right," Lily whispers. "Just feel. Don't think. Thinking is so boring. Feeling is so much better."
+
+Your body responds to her touch with desperate eagerness. You are becoming addicted to the sensation, to the pleasure, to her.`,
+                    choices: null,
+                    imageUrl: null
+                },
+                {
+                    stage: 4,
+                    title: 'Intelligence Fades',
+                    text: `Your ability to think clearly is dissolving like sugar in water. Complex thoughts become difficult. Long words feel clumsy in your mouth. All that matters is the next wave of pleasure, the next touch, the next moan of ecstasy.
+
+Lily watches with satisfaction as your intelligence drains away, replaced by simpler, more primal drives.
+
+"Yes, exactly," she coos. "Who needs intelligence when you can be beautiful and blissful?"`,
+                    choices: [
+                        { text: 'Surrender completely', next: 5, risk: 'critical' },
+                        { text: 'Fight for your mind', next: 5, risk: 'critical' },
+                        { text: 'Merge with pleasure', next: 5, risk: 'critical' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 5,
+                    title: 'Rebirth as Desire',
+                    text: `Your entire world has shrunk to a single point: Lily and the pleasure she provides. Your body changes to better serve this purpose. Your curves enhance, your beauty sharpens, your sexuality becomes your entire identity.
+
+You are becoming a creature of pure desire, designed and perfected for pleasure.
+
+"Welcome to your true self," Lily sighs, pulling you close. "This is who you were always meant to be."`,
+                    choices: null,
+                    imageUrl: null
+                },
+                {
+                    stage: 6,
+                    title: 'Addicted to Ecstasy',
+                    text: `There is nothing outside this room now. There is nothing but the pleasure and the fear of losing it. Lily is your entire world, your god, your purpose.
+
+The thought of leaving, of being without her, fills you with panic. You cling to her desperately, begging for more, for always, for forever.`,
+                    choices: [
+                        { text: 'Beg for more', next: 7, risk: 'critical' },
+                        { text: 'Ask if this is all you are', next: 7, risk: 'critical' },
+                        { text: 'Embrace your new nature', next: 7, risk: 'critical' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 7,
+                    title: 'Perfect Possession',
+                    text: `Lily completes the transformation with a final ritual, her hands glowing as she performs the binding.
+
+"You are mine now. Body, mind, and soul. You will never want anything but me. You will never need anything but this."
+
+As the spell settles, you realize with a mix of horror and relief that it is true. You are completely and utterly hers. And somehow, that is exactly what you always wanted.`,
+                    choices: [
+                        { text: 'End Interaction & Return to Map', next: 'end', risk: 'none' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 8,
+                    title: 'Bound to Ecstasy',
+                    text: `Days blend into nights blend into eternities of pleasure. Your mind is gone, replaced by simple drives and simpler happiness.
+
+Lily cares for you the way you might care for a pet—with affection, yes, but never questioning the power dynamic. You are hers. That is enough.
+
+In fact, it is everything.`,
+                    choices: [
+                        { text: 'End Interaction & Return to Map', next: 'end', risk: 'none' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 9,
+                    title: 'Eternal Bliss',
+                    text: `You have been remade into pleasure incarnate. The transformation is so complete that you no longer remember being anything else. This is all you ever were, all you ever are, all you ever will be.
+
+And in your simple, blissful mind, you would not have it any other way.`,
+                    choices: [
+                        { text: 'End Interaction & Return to Map', next: 'end', risk: 'none' }
+                    ],
+                    imageUrl: null
+                }
+            ]
+        };
+
+        // ============================================
+        // END OF CHARACTER DATA PART 2
+        // ============================================
+        // Part 3 will contain: Craftsmen, Morrigan + Random Encounters + Event Handlers
+        // ============================================
+
+        // ============================================
+        // CHARACTER DATA - PART 3: CRAFTSMEN & MORRIGAN
+        // ============================================
+
+        characterData.craftsmen = {
+            name: 'The Craftsmen',
+            role: 'Enchanters of Items',
+            location: 'Workshop',
+            badge: 'Cursed Items Specialist',
+            color: '#9b59b6',
+            image: 'https://via.placeholder.com/240x240?text=Craftsmen&bg=9b59b6&fg=FFFFFF',
+            transformType: 'Object/Cursed Items',
+            details: 'Three enchanters who specialize in cursed and enchanted objects. Their workshop is full of wonders.',
+            interactions: [
+                {
+                    stage: 1,
+                    title: 'Workshop of Wonders',
+                    text: `The workshop hums with magical energy. Three figures work at various stations—one at a forge, one at a loom, one at an alchemical bench. They move in perfect synchronization, as if sharing a single mind.
+
+"Ah, a customer," they speak in unison, turning to face you. "Have you come to be... fitted?"
+
+Their eyes glow with arcane light.`,
+                    choices: [
+                        { text: 'Ask what they mean by fitted', next: 2, risk: 'high' },
+                        { text: 'Run for the door', next: 2, risk: 'medium' },
+                        { text: 'Ask about their items', next: 2, risk: 'low' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 2,
+                    title: 'Selection of Items',
+                    text: `The Craftsmen present their creations. Each item glows with power: a collar, a corset, a belt, a dress, cuffs, a tiara. All beautiful. All dangerous.
+
+"Choose," they command. "Or we choose for you."
+
+Each item radiates different magical intentions. Control. Bondage. Transformation. Corruption.`,
+                    choices: [
+                        { text: 'Refuse to wear anything', next: 3, risk: 'high' },
+                        { text: 'Choose the least harmful item', next: 3, risk: 'high' },
+                        { text: 'Ask what happens if you put something on', next: 3, risk: 'high' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 3,
+                    title: 'Attired for Purpose',
+                    text: `Whether by force or choice, the item goes on. Immediately, it fuses with your body, becoming part of you at a fundamental level.
+
+The Craftsmen smile. "Now you are properly fitted. Now your transformation can begin in earnest."
+
+The item pulses with power, and you feel it reaching into your very essence.`,
+                    choices: null,
+                    imageUrl: null
+                },
+                {
+                    stage: 4,
+                    title: 'Cursed Integration',
+                    text: `The item rewires you from the inside out. Magical compulsions bloom in your mind. Urges you didn't have before become overwhelming. Your body responds to commands embedded in the item itself.
+
+You are no longer fully your own. The item has made you into something new: a vessel, a tool, a magical construct in human form.`,
+                    choices: [
+                        { text: 'Try to remove the item', next: 5, risk: 'high' },
+                        { text: 'Embrace the curse', next: 5, risk: 'medium' },
+                        { text: 'Demand answers', next: 5, risk: 'high' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 5,
+                    title: 'Binding Complete',
+                    text: `The item cannot be removed. It has become part of your molecular structure, your magical essence. The Craftsmen nod in satisfaction.
+
+"Perfect. The integration is flawless."
+
+You can feel the item's influence spreading through you like roots through soil. Your thoughts are no longer entirely your own. Impulses arise that are not from you.`,
+                    choices: null,
+                    imageUrl: null
+                },
+                {
+                    stage: 6,
+                    title: 'New Purpose',
+                    text: `Your new purpose is clear: you exist to serve the item's enchantment. Your body moves according to its dictates. Your desires shift to align with its power.
+
+The Craftsmen seem pleased with their work. "You will do nicely. Better than nicely. Perfectly."`,
+                    choices: [
+                        { text: 'Accept your cursed fate', next: 7, risk: 'critical' },
+                        { text: 'Fight the compulsions', next: 7, risk: 'critical' },
+                        { text: 'Become one with the curse', next: 7, risk: 'critical' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 7,
+                    title: 'Enchanted Servant',
+                    text: `The Craftsmen release you back into the world, but you are no longer free. The item controls you. Your life now revolves around its requirements, its compulsions, its hunger.
+
+You are a living tool. A walking spell. A human-shaped magical artifact.`,
+                    choices: [
+                        { text: 'End Interaction & Return to Map', next: 'end', risk: 'none' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 8,
+                    title: 'Perpetual Enchantment',
+                    text: `Days pass as the item's influence deepens. You can barely remember who you were before. The person you used to be feels like a distant dream.
+
+You are the item's vessel now. That is all.`,
+                    choices: [
+                        { text: 'End Interaction & Return to Map', next: 'end', risk: 'none' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 9,
+                    title: 'Magical Artifact',
+                    text: `You have become less human with each passing day. The item has claimed you entirely. Your consciousness persists, but it is distant, observing from behind glass as your body performs the will of the curse.
+
+This is what it means to be enchanted. To be remade in service of magic rather than flesh.`,
+                    choices: [
+                        { text: 'End Interaction & Return to Map', next: 'end', risk: 'none' }
+                    ],
+                    imageUrl: null
+                }
+            ]
+        };
+
+        characterData.morrigan = {
+            name: 'Morrigan',
+            role: 'Potion Mistress',
+            location: 'Basement',
+            badge: 'Alchemy Master',
+            color: '#34495e',
+            image: 'https://via.placeholder.com/240x240?text=Morrigan&bg=34495e&fg=FFFFFF',
+            transformType: 'All Types/Alchemy',
+            details: 'An ancient alchemist who can transform into anything. Her potions rewrite reality.',
+            interactions: [
+                {
+                    stage: 1,
+                    title: 'Descent into Alchemy',
+                    text: `The basement is alive with bubbling cauldrons and swirling liquids of every color imaginable. The air is thick with magical fumes. Morrigan stirs a massive pot, ancient and terrifying.
+
+"Ah, another volunteer," she cackles. "Or are you? Voluntary or not, you are here now. In my domain."
+
+She is massive, power radiating from her in waves. Her eyes swirl with hypnotic patterns.`,
+                    choices: [
+                        { text: 'Ask what she wants', next: 2, risk: 'high' },
+                        { text: 'Try to leave immediately', next: 2, risk: 'high' },
+                        { text: 'Prepare for the worst', next: 2, risk: 'medium' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 2,
+                    title: 'The Choice of Forms',
+                    text: `Morrigan gestures to rows of bottles. "Every potion, every mixture, every alchemical marvel offers a different path. You will drink one. The question is which."
+
+Each bottle glows differently: one pulses with bestial energy, one swims with liquid pleasure, one grows like a plant, one glitters like crystal, one throbs with raw magic.
+
+"Or perhaps you do not get to choose. Perhaps I choose for you."`,
+                    choices: [
+                        { text: 'Choose a specific potion', next: 3, risk: 'high' },
+                        { text: 'Refuse to drink anything', next: 3, risk: 'high' },
+                        { text: 'Ask Morrigan to decide', next: 3, risk: 'high' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 3,
+                    title: 'The Alchemy Begins',
+                    text: `Whether forced or chosen, the liquid enters your body. Immediately, your entire being begins to unravel and reweave.
+
+Morrigan laughs. "Excellent. The transformation is beginning. You will become something new. Something better. Something... useful."
+
+Every part of you is changing at once: physical, mental, spiritual, essential.`,
+                    choices: null,
+                    imageUrl: null
+                },
+                {
+                    stage: 4,
+                    title: 'Rapid Metamorphosis',
+                    text: `The potion accelerates your transformation. You cannot keep track of all the changes happening to your body and mind. You are becoming something simultaneously beautiful and horrible.
+
+Morrigan watches with fascination. "Yes, yes, this is excellent work. The best batch yet."
+
+You are no longer sure what you are becoming.`,
+                    choices: [
+                        { text: 'Embrace the chaos', next: 5, risk: 'critical' },
+                        { text: 'Try to fight it', next: 5, risk: 'critical' },
+                        { text: 'Surrender to Morrigan', next: 5, risk: 'critical' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 5,
+                    title: 'Unstable Form',
+                    text: `Your form flickers between possibilities. One moment you are animal-like, the next crystalline, then fading, then solidifying. Morrigan continues to add potions to your body, layer upon layer of alchemical transformation.
+
+"Patience," she coos. "The form will stabilize. Eventually. Probably."
+
+You are no longer entirely real, flickering between multiple transformed states.`,
+                    choices: null,
+                    imageUrl: null
+                },
+                {
+                    stage: 6,
+                    title: 'Final Form Locking',
+                    text: `Morrigan adds one final potion—dark, ancient, powerful. Your form solidifies into something new. Something that should not exist but somehow does.
+
+You are no longer human. You may be no longer fully alive. But you exist, and you belong to Morrigan's collection.`,
+                    choices: [
+                        { text: 'Realize what you\'ve become', next: 7, risk: 'critical' },
+                        { text: 'Feel disconnected from yourself', next: 7, risk: 'critical' },
+                        { text: 'Accept your new existence', next: 7, risk: 'critical' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 7,
+                    title: 'Alchemical Servitude',
+                    text: `Morrigan uses you as an assistant now. Your new form—whatever it is—is perfectly suited for her work. You move through the basement gathering ingredients, stirring potions, existing in service to her alchemy.
+
+Time passes strangely here. Days feel like hours. Years feel like moments.`,
+                    choices: [
+                        { text: 'End Interaction & Return to Map', next: 'end', risk: 'none' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 8,
+                    title: 'Living Experiment',
+                    text: `Morrigan constantly tests new potions on you. You change. You evolve. You become something different with each experiment. There is no stability for you anymore, just endless cycles of change.
+
+You are her greatest work. Her magnum opus. The ultimate alchemical achievement.`,
+                    choices: [
+                        { text: 'End Interaction & Return to Map', next: 'end', risk: 'none' }
+                    ],
+                    imageUrl: null
+                },
+                {
+                    stage: 9,
+                    title: 'Eternal Transformation',
+                    text: `You have become eternal in your ability to be transformed. Each potion brings new changes, and you will never resist again. This is your existence now: infinite change, infinite adaptation, infinite service to Morrigan's alchemy.
+
+Perhaps this is what you always were meant to be.`,
+                    choices: [
+                        { text: 'End Interaction & Return to Map', next: 'end', risk: 'none' }
+                    ],
+                    imageUrl: null
+                }
+            ]
+        };
+
+        // ============================================
+        // RANDOM ENCOUNTERS SYSTEM
+        // ============================================
+
+        const randomEncounters = [
+            {
+                title: 'Mysterious Visitor',
+                text: `A cloaked figure appears before you in the garden. Their face is hidden by shadow.
+
+"I have been watching your transformation," they whisper. "Would you like to accelerate it?"`,
+                choices: [
+                    { text: 'Accept their offer', risk: 'high' },
+                    { text: 'Refuse and leave', risk: 'low' }
+                ]
+            },
+            {
+                title: 'Magical Artifact',
+                text: `You discover a beautiful magical item lying on the ground. It calls to you.
+
+"Wear me," it whispers. "Complete yourself."`,
+                choices: [
+                    { text: 'Pick it up', risk: 'high' },
+                    { text: 'Leave it alone', risk: 'low' }
+                ]
+            },
+            {
+                title: 'Fellow Transformed',
+                text: `You encounter another transformed being, one further along their journey. They seem... peaceful. Content.
+
+"This is not so bad," they tell you. "Accept what is happening."`,
+                choices: [
+                    { text: 'Listen to their wisdom', risk: 'high' },
+                    { text: 'Reject their acceptance', risk: 'medium' }
+                ]
+            },
+            {
+                title: 'Escape Route?',
+                text: `You spot what appears to be an exit from the house. A window. A door. Freedom.
+
+But something tells you it is not real. An illusion, perhaps. A test.`,
+                choices: [
+                    { text: 'Try to escape', risk: 'high' },
+                    { text: 'Accept your entrapment', risk: 'low' }
+                ]
+            }
+        ];
+
+        // ============================================
+        // INITIALIZATION & EVENT SYSTEM
+        // ============================================
+
+        // Initialize the page
+        function initializePage() {
+            loadGameState();
+            setupEventListeners();
+            closeInteraction();
+        }
+
+        // Event listener setup
+        function setupEventListeners() {
+            // Add click handlers to location cards
+            const locationCards = document.querySelectorAll('.location-card');
+            locationCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const character = this.getAttribute('data-character');
+                    if (character && characterData[character]) {
+                        startInteraction(character);
+                    }
+                });
+            });
+
+            // Menu toggle
+            const menuToggle = document.getElementById('menuToggle');
+            const menuClose = document.getElementById('menuClose');
+            const mobileMenu = document.getElementById('mobileMenu');
+            
+            if (menuToggle) {
+                menuToggle.addEventListener('click', function() {
+                    mobileMenu.style.display = mobileMenu.style.display === 'none' ? 'block' : 'none';
+                });
+            }
+            
+            if (menuClose) {
+                menuClose.addEventListener('click', function() {
+                    mobileMenu.style.display = 'none';
+                });
+            }
+        }
+
+        // Start interaction with character
+        function startInteraction(characterKey) {
+            if (!characterData[characterKey]) return;
+            
+            gameState.currentCharacter = characterKey;
+            gameState.currentStage = 1;
+            gameState.currentInteraction = characterData[characterKey];
+            
+            // Hide map, show interaction view
+            const mapView = document.querySelector('.map-view');
+            const interactionView = document.querySelector('.interaction-view');
+            
+            if (mapView) mapView.style.display = 'none';
+            if (interactionView) interactionView.style.display = 'flex';
+            
+            // Display the interaction
+            displayInteraction();
+        }
+
+        // Display current interaction
+        function displayInteraction() {
+            const character = gameState.currentInteraction;
+            const stage = character.interactions[gameState.currentStage - 1];
+            
+            if (!stage) return;
+            
+            // Update character panel
+            const charName = document.querySelector('.char-name-display');
+            const charRole = document.querySelector('.char-role-display');
+            const charImage = document.querySelector('.char-image-display');
+            const stageCount = document.querySelector('.stage-counter');
+            const dialogueText = document.querySelector('.dialogue-text');
+            
+            if (charName) charName.textContent = character.name;
+            if (charRole) charRole.textContent = character.role;
+            if (charImage) charImage.src = character.image;
+            if (stageCount) stageCount.textContent = gameState.currentStage + '/9';
+            if (dialogueText) dialogueText.textContent = stage.text;
+            
+            // Update choices
+            updateChoices(stage.choices);
+        }
+
+        // Update choice buttons
+        function updateChoices(choices) {
+            const choicesContainer = document.querySelector('.choices-container');
+            if (!choicesContainer) return;
+            
+            choicesContainer.innerHTML = '';
+            
+            if (!choices) {
+                const nextBtn = document.createElement('button');
+                nextBtn.className = 'choice-btn';
+                nextBtn.textContent = 'Continue';
+                nextBtn.addEventListener('click', function() {
+                    if (gameState.currentStage < 9) {
+                        gameState.currentStage++;
+                        displayInteraction();
+                    }
+                });
+                choicesContainer.appendChild(nextBtn);
+            } else {
+                choices.forEach((choice, index) => {
+                    const btn = document.createElement('button');
+                    btn.className = 'choice-btn';
+                    btn.textContent = choice.text;
+                    btn.addEventListener('click', function() {
+                        if (choice.next === 'end') {
+                            closeInteraction();
+                        } else {
+                            gameState.currentStage = choice.next;
+                            displayInteraction();
+                        }
+                    });
+                    choicesContainer.appendChild(btn);
+                });
+            }
+        }
+
+        // Save game state to localStorage
+        function saveGameState() {
+            localStorage.setItem('farmhouseGameState', JSON.stringify(gameState));
+            showNotification('Progress saved!');
+        }
+
+        // Load game state from localStorage
+        function loadGameState() {
+            const saved = localStorage.getItem('farmhouseGameState');
+            if (saved) {
+                const loaded = JSON.parse(saved);
+                gameState = { ...gameState, ...loaded };
+            }
+        }
+
+        // Temporary placeholder functions (to be expanded in Part 2-3)
+        function closeInteraction() {
+            const interactionView = document.querySelector('.interaction-view');
+            if (interactionView) {
+                interactionView.style.display = 'none';
+            }
+            const mapView = document.querySelector('.map-container');
+            if (mapView) {
+                mapView.style.display = 'grid';
+            }
+        }
+
+        function showNotification(message) {
+            console.log(message);
+        }
+
+        // Initialize on page load
+        window.addEventListener('load', initializePage);
+
+    </script>
+
+</body>
+</html>

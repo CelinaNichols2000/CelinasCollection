@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trapped as Livestock - Collared Breeding Heifer</title>
+    <title>Trapped as Nami's Loyal Dog</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
     <!-- GLOBAL CHECKER -->
     <script>(function(){const s=JSON.parse(localStorage.getItem('farmState')||'{}');if(s.trappedUntil&&s.trappedUntil>Date.now()){}else{localStorage.removeItem('farmState');window.location.href='../../index.html';}})();</script>
@@ -11,7 +11,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            background: linear-gradient(135deg, #1a0f0a 0%, #2d1810 100%);
+            background: linear-gradient(135deg, #0f1a2a 0%, #1a2535 100%);
             color: #fff;
             font-family: 'Poppins', sans-serif;
             min-height: 100vh;
@@ -30,7 +30,7 @@
         @keyframes timerExplode {
             0%, 100% { 
                 font-size:8rem;transform:scale(1) rotate(0deg);
-                text-shadow:0 0 80px #8B4513,0 0 160px #D2691E;filter:brightness(1);
+                text-shadow:0 0 80px #4A90E2,0 0 160px #2E5FFF;filter:brightness(1);
             }
             25% { font-size:10rem;transform:scale(1.4) rotate(5deg);filter:brightness(1.4); }
             50% { font-size:12rem;transform:scale(1.8) rotate(-8deg);filter:brightness(1.8); }
@@ -49,9 +49,9 @@
             font-family: 'Orbitron', monospace;
             font-size: 3.5rem;
             font-weight: 700;
-            color: #D2691E;
+            color: #4A90E2;
             text-align: center;
-            text-shadow: 0 0 30px #8B4513, 0 0 60px #D2691E;
+            text-shadow: 0 0 30px #2E5FFF, 0 0 60px #4A90E2;
             letter-spacing: 8px;
             margin-bottom: 10px;
         }
@@ -73,19 +73,19 @@
             gap: 20px;
         }
 
-        /* COW IMAGE */
-        .cow-image-container {
+        /* DOG IMAGE */
+        .dog-image-container {
             position: relative;
             width: 100%;
             max-width: 600px;
             height: 480px;
             border-radius: 25px;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(139, 69, 19, 0.4);
-            border: 2px solid rgba(210, 105, 30, 0.5);
+            box-shadow: 0 20px 60px rgba(74, 144, 226, 0.4);
+            border: 2px solid rgba(74, 144, 226, 0.5);
         }
 
-        .cow-image {
+        .dog-image {
             position: absolute;
             top: 0;
             left: 0;
@@ -96,7 +96,7 @@
             transition: opacity 0.8s ease, filter 0.5s ease;
         }
 
-        .cow-image.active {
+        .dog-image.active {
             opacity: 1;
         }
 
@@ -118,55 +118,55 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 1.8rem;
             font-weight: 700;
-            background: linear-gradient(45deg, #8B4513, #D2691E, #CD853F);
+            background: linear-gradient(45deg, #4A90E2, #2E5FFF, #6FC6FF);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 0 0 20px rgba(139, 69, 19, 0.5);
+            text-shadow: 0 0 20px rgba(74, 144, 226, 0.5);
             margin-bottom: 8px;
             letter-spacing: 2px;
         }
 
         .category-badge {
-            background: linear-gradient(45deg, #8B4513, #CD853F);
+            background: linear-gradient(45deg, #4A90E2, #6FC6FF);
             color: #fff;
             padding: 8px 20px;
             border-radius: 50px;
             font-family: 'Orbitron', sans-serif;
             font-size: 0.95rem;
             font-weight: 700;
-            box-shadow: 0 5px 20px rgba(139, 69, 19, 0.5);
+            box-shadow: 0 5px 20px rgba(74, 144, 226, 0.5);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        /* MIND BREAK CONTAINER */
-        .mind-break-container {
-            background: rgba(139, 69, 19, 0.12);
+        /* OBEDIENCE CONTAINER */
+        .obedience-container {
+            background: rgba(74, 144, 226, 0.12);
             backdrop-filter: blur(15px);
-            border: 2px solid rgba(210, 105, 30, 0.6);
+            border: 2px solid rgba(74, 144, 226, 0.6);
             border-radius: 20px;
             padding: 20px;
-            box-shadow: 0 15px 40px rgba(139, 69, 19, 0.3);
+            box-shadow: 0 15px 40px rgba(74, 144, 226, 0.3);
         }
 
-        .mind-break-header {
+        .obedience-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 15px;
         }
 
-        .mind-break-title {
+        .obedience-title {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.1rem;
-            color: #CD853F;
+            color: #6FC6FF;
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
         }
 
-        .mind-break-percentage {
+        .obedience-percentage {
             font-family: 'Orbitron', sans-serif;
             font-size: 2.2rem;
             font-weight: 700;
@@ -176,24 +176,24 @@
             background-clip: text;
         }
 
-        .mind-break-bar {
+        .obedience-bar {
             height: 20px;
             background: rgba(0, 0, 0, 0.7);
             border-radius: 12px;
             overflow: hidden;
-            border: 1px solid rgba(210, 105, 30, 0.5);
+            border: 1px solid rgba(74, 144, 226, 0.5);
             position: relative;
         }
 
-        .mind-break-fill {
+        .obedience-fill {
             height: 100%;
-            background: linear-gradient(90deg, #8B4513, #D2691E, #A0522D, #654321);
+            background: linear-gradient(90deg, #4A90E2, #2E5FFF, #6FC6FF, #89CFF0);
             transition: width 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             border-radius: 12px;
-            box-shadow: 0 0 20px rgba(139, 69, 19, 0.9);
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.9);
         }
 
-        .mind-break-stages {
+        .obedience-stages {
             display: flex;
             justify-content: space-between;
             margin-top: 12px;
@@ -235,38 +235,38 @@
         }
 
         .resist-btn {
-            background: linear-gradient(45deg, #8B4513, #D2691E);
+            background: linear-gradient(45deg, #4A90E2, #2E5FFF);
             color: #fff;
-            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.6);
+            box-shadow: 0 8px 25px rgba(74, 144, 226, 0.6);
         }
 
-        .moo-btn {
+        .bark-btn {
             background: linear-gradient(45deg, #90EE90, #32CD32);
             color: #000;
             box-shadow: 0 8px 25px rgba(50, 205, 50, 0.6);
             font-weight: 800;
         }
 
-        .graze-btn {
+        .fetch-btn {
             background: linear-gradient(45deg, #FFD700, #FFA500);
             color: #000;
             box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
             font-weight: 800;
         }
 
-        .submit-btn {
+        .obey-btn {
             background: linear-gradient(45deg, #FF1493, #FF69B4, #DC143C);
             color: #fff;
             box-shadow: 0 8px 25px rgba(255, 20, 147, 0.6);
             text-shadow: 0 0 8px rgba(220, 20, 60, 0.8);
         }
 
-        /* MIND BREAK PROGRESS PULSES */
-        #mindBreakFill.pulsing {
-            animation: mindBreakPulse 0.8s ease-out;
+        /* OBEDIENCE PROGRESS PULSES */
+        #obedienceFill.pulsing {
+            animation: obediencePulse 0.8s ease-out;
         }
 
-        @keyframes mindBreakPulse {
+        @keyframes obediencePulse {
             0% { transform: scaleX(1); }
             50% { transform: scaleX(1.05); }
             100% { transform: scaleX(1); }
@@ -279,27 +279,27 @@
             margin: 0 auto;
         }
 
-        .cow-status {
-            background: rgba(139, 69, 19, 0.15);
+        .dog-status {
+            background: rgba(74, 144, 226, 0.15);
             backdrop-filter: blur(20px);
-            border: 2px solid rgba(210, 105, 30, 0.7);
+            border: 2px solid rgba(74, 144, 226, 0.7);
             border-radius: 20px;
             padding: 30px;
             margin-bottom: 25px;
             text-align: center;
-            box-shadow: 0 20px 50px rgba(139, 69, 19, 0.25);
+            box-shadow: 0 20px 50px rgba(74, 144, 226, 0.25);
         }
 
-        .cow-status h3 {
+        .dog-status h3 {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.6rem;
-            color: #D2691E;
+            color: #4A90E2;
             margin-bottom: 15px;
             letter-spacing: 2px;
-            text-shadow: 0 0 15px #8B4513;
+            text-shadow: 0 0 15px #2E5FFF;
         }
 
-        .cow-status p {
+        .dog-status p {
             font-size: 1.1rem;
             line-height: 1.6;
             margin-bottom: 8px;
@@ -337,16 +337,16 @@
         }
 
         .memory-fragment {
-            background: rgba(20, 15, 10, 0.8);
-            border: 1px solid rgba(210, 105, 30, 0.4);
+            background: rgba(20, 20, 30, 0.8);
+            border: 1px solid rgba(74, 144, 226, 0.4);
             border-radius: 15px;
             overflow: hidden;
             transition: all 0.3s ease;
         }
 
         .memory-fragment:hover {
-            border-color: #D2691E;
-            box-shadow: 0 10px 30px rgba(210, 105, 30, 0.3);
+            border-color: #4A90E2;
+            box-shadow: 0 10px 30px rgba(74, 144, 226, 0.3);
             transform: translateY(-2px);
         }
 
@@ -355,13 +355,13 @@
             cursor: pointer;
             font-weight: 600;
             font-size: 1.05rem;
-            background: linear-gradient(90deg, rgba(139, 69, 19, 0.2), rgba(144, 238, 144, 0.15));
+            background: linear-gradient(90deg, rgba(74, 144, 226, 0.2), rgba(144, 238, 144, 0.15));
             transition: all 0.3s ease;
             user-select: none;
         }
 
         .memory-trigger:hover {
-            background: linear-gradient(90deg, #8B4513, #90EE90);
+            background: linear-gradient(90deg, #4A90E2, #90EE90);
             color: #000;
             font-weight: 700;
         }
@@ -387,24 +387,24 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* COW STRUGGLE POPUP */
-        .cow-flash {
+        /* DOG STRUGGLE POPUP */
+        .dog-flash {
             position: fixed;
             inset: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 99999;
-            background: radial-gradient(circle at center, rgba(139,69,19,0.35), rgba(0,0,0,0.95));
+            background: radial-gradient(circle at center, rgba(74,144,226,0.35), rgba(0,0,0,0.95));
             animation: glitch 0.35s infinite;
         }
 
-        .cow-flash-inner {
+        .dog-flash-inner {
             max-width: 680px;
             width: 90%;
-            background: linear-gradient(135deg, #2d1810, #1a0f0a);
-            border: 2px solid #8B4513;
-            box-shadow: 0 0 40px rgba(139,69,19,0.9);
+            background: linear-gradient(135deg, #1a2535, #0f1a2a);
+            border: 2px solid #4A90E2;
+            box-shadow: 0 0 40px rgba(74,144,226,0.9);
             border-radius: 18px;
             padding: 18px 22px;
             display: grid;
@@ -412,41 +412,41 @@
             gap: 18px;
         }
 
-        .cow-flash-image {
+        .dog-flash-image {
             background-size: cover;
             background-position: center;
             border-radius: 12px;
             min-height: 160px;
-            box-shadow: 0 0 25px rgba(210,105,30,0.8);
+            box-shadow: 0 0 25px rgba(74,144,226,0.8);
         }
 
-        .cow-flash-text {
+        .dog-flash-text {
             font-size: 1rem;
             line-height: 1.5;
-            color: #f5deb3;
+            color: #b0d4ff;
             font-weight: 600;
-            text-shadow: 0 0 8px rgba(139,69,19,0.9);
+            text-shadow: 0 0 8px rgba(74,144,226,0.9);
         }
 
-        .cow-flash-text span.cow-scream {
-            color: #D2691E;
+        .dog-flash-text span.dog-scream {
+            color: #4A90E2;
             font-weight: 800;
         }
 
         @media (max-width: 650px) {
-            .cow-flash-inner {
+            .dog-flash-inner {
                 grid-template-columns: 1fr;
             }
-            .cow-flash-image {
+            .dog-flash-image {
                 min-height: 140px;
             }
         }
 
         /* PROGRESSIVE MEMORY PERSPECTIVES */
-        .farmer-speak {
-            color: #D2691E !important;
+        .master-speak {
+            color: #4A90E2 !important;
             font-weight: 800;
-            text-shadow: 0 0 12px #8B4513;
+            text-shadow: 0 0 12px #2E5FFF;
             font-style: italic;
         }
 
@@ -458,13 +458,13 @@
             animation: screamShake 0.5s infinite;
         }
 
-        .happy-cow {
+        .happy-dog {
             color: #90EE90 !important;
             font-weight: 700;
             text-shadow: 0 0 12px #32CD32;
         }
 
-        .final-cow {
+        .final-dog {
             color: #FFD700 !important;
             font-weight: 800;
             font-size: 1.15em;
@@ -481,20 +481,20 @@
         }
 
         /* STAGE VISUALS */
-        .memory-fragment[data-stage="0"] .memory-trigger { border-left: 4px solid #D2691E; }
-        .memory-fragment[data-stage="1"] .memory-trigger { border-left: 4px solid #CD853F; }
-        .memory-fragment[data-stage="2"] .memory-trigger { border-left: 4px solid #8B4513; }
+        .memory-fragment[data-stage="0"] .memory-trigger { border-left: 4px solid #4A90E2; }
+        .memory-fragment[data-stage="1"] .memory-trigger { border-left: 4px solid #2E5FFF; }
+        .memory-fragment[data-stage="2"] .memory-trigger { border-left: 4px solid #6FC6FF; }
         .memory-fragment[data-stage="3"] .memory-trigger { border-left: 4px solid #90EE90; }
         .memory-fragment[data-stage="4"] .memory-trigger { border-left: 4px solid #FFD700; }
 
-        /* MIND BREAK LOCKOUT */
+        /* OBEDIENCE LOCKOUT */
         .memory-fragment.locked {
             opacity: 0.4;
             pointer-events: none;
         }
 
         .memory-fragment.locked .memory-trigger {
-            background: linear-gradient(90deg, rgba(139,69,19,0.3), rgba(101,67,33,0.3)) !important;
+            background: linear-gradient(90deg, rgba(74,144,226,0.3), rgba(46,95,255,0.3)) !important;
             color: #666 !important;
         }
 
@@ -534,7 +534,7 @@
                 font-size: 2.5rem;
             }
             
-            .cow-image-container {
+            .dog-image-container {
                 max-width: 320px;
                 height: 400px;
             }
@@ -548,54 +548,54 @@
 
         <!-- MAIN PANEL -->
         <div class="main-panel">
-            <!-- LEFT: COW IMAGE -->
+            <!-- LEFT: DOG IMAGE -->
             <div class="left-panel">
-                <div class="cow-image-container">
-                    <img src="https://i.ibb.co/JRTsxH2D/cow-1.jpg" class="cow-image active" data-stage="0">
-                    <img src="https://i.ibb.co/h1fVLMWL/1747498538816211.png" class="cow-image" data-stage="1">
-                    <img src="https://i.ibb.co/sd6xgTPH/mecow.png" class="cow-image" data-stage="2">
-                    <img src="https://i.ibb.co/mrwfDdKY/cowtf.jpg" class="cow-image" data-stage="3">
+                <div class="dog-image-container">
+                    <img src="https://i.ibb.co/RT7GmD7d/d4.jpg" class="dog-image active" data-stage="0">
+                    <img src="https://i.ibb.co/XkrkN15D/d7.jpg" class="dog-image" data-stage="1">
+                    <img src="https://i.ibb.co/fzDV6NbM/d3.png" class="dog-image" data-stage="2">
+                    <img src="https://i.ibb.co/mV6DRnbb/d18.png" class="dog-image" data-stage="3">
                 </div>
             </div>
 
-            <!-- COW STRUGGLE POPUP -->
-            <div id="cowStrugglePopup" class="cow-flash" style="display:none;">
-                <div class="cow-flash-inner">
-                    <div class="cow-flash-image" id="cowFlashImage"></div>
-                    <div class="cow-flash-text" id="cowFlashText"></div>
+            <!-- DOG STRUGGLE POPUP -->
+            <div id="dogStrugglePopup" class="dog-flash" style="display:none;">
+                <div class="dog-flash-inner">
+                    <div class="dog-flash-image" id="dogFlashImage"></div>
+                    <div class="dog-flash-text" id="dogFlashText"></div>
                 </div>
             </div>
 
             <!-- RIGHT: UI PANEL -->
             <div class="right-panel">
                 <div class="item-header">
-                    <h1 class="item-title">Collared Breeding Heifer</h1>
-                    <div class="category-badge">Forest Collar Trap</div>
+                    <h1 class="item-title">Nami's Loyal Hound</h1>
+                    <div class="category-badge">Nami's Punishment</div>
                 </div>
 
-                <!-- MIND BREAK -->
-                <div class="mind-break-container">
-                    <div class="mind-break-header">
-                        <div class="mind-break-title">BOVINE DEGRADATION</div>
-                        <div class="mind-break-percentage" id="mindBreakPercentage">0%</div>
+                <!-- OBEDIENCE -->
+                <div class="obedience-container">
+                    <div class="obedience-header">
+                        <div class="obedience-title">CANINE OBEDIENCE</div>
+                        <div class="obedience-percentage" id="obediencePercentage">0%</div>
                     </div>
-                    <div class="mind-break-bar">
-                        <div class="mind-break-fill" id="mindBreakFill" style="width: 0%"></div>
+                    <div class="obedience-bar">
+                        <div class="obedience-fill" id="obedienceFill" style="width: 0%"></div>
                     </div>
-                    <div class="mind-break-stages">
+                    <div class="obedience-stages">
                         <span>HUMAN</span>
                         <span>SHIFTING</span>
-                        <span>CATTLE</span>
-                        <span>BREEDING STOCK</span>
+                        <span>CANINE</span>
+                        <span>LOYAL PET</span>
                     </div>
                 </div>
 
                 <!-- ACTION BUTTONS -->
                 <div class="action-buttons">
-                    <button class="action-btn resist-btn" onclick="resist()">RESIST COLLAR</button>
-                    <button class="action-btn moo-btn" onclick="moo()">MOO HELPLESSLY</button>
-                    <button class="action-btn graze-btn" onclick="graze()">GRAZE OBEDIENTLY</button>
-                    <button class="action-btn submit-btn" onclick="submit()">SUBMIT TO HEAT</button>
+                    <button class="action-btn resist-btn" onclick="resist()">RESIST TRANSFORMATION</button>
+                    <button class="action-btn bark-btn" onclick="bark()">BARK LOUDLY</button>
+                    <button class="action-btn fetch-btn" onclick="fetch()">FETCH OBEDIENTLY</button>
+                    <button class="action-btn obey-btn" onclick="obey()">SUBMIT TO NAMI</button>
                 </div>
             </div>
         </div>
@@ -608,30 +608,30 @@
                     font-family: 'Orbitron', sans-serif;
                     font-size: 1.8rem;
                     font-weight: 700;
-                    color: #D2691E;
+                    color: #4A90E2;
                     padding: 20px;
                     list-style: none;
-                    background: rgba(139, 69, 19, 0.15);
+                    background: rgba(74, 144, 226, 0.15);
                     border-radius: 20px;
-                    border: 2px solid rgba(210, 105, 30, 0.6);
+                    border: 2px solid rgba(74, 144, 226, 0.6);
                     text-align: center;
-                    text-shadow: 0 0 15px #8B4513;
+                    text-shadow: 0 0 15px #2E5FFF;
                     margin-bottom: 10px;
-                ">Your Mindless Livestock Existence</summary>
+                ">Your Loyal Dog Existence</summary>
 
-                <div class="cow-status">
-                    <p>The collar hums against your throat. Hooves replace hands. Udders swell heavy beneath you. Every breath tastes of hay and submission...</p>
-                    <p id="statusText">Collar tightening... thoughts simplifying... 🐄</p>
+                <div class="dog-status">
+                    <p>Paws instead of hands. Tail wagging involuntarily. Collar locked around your neck. Every instinct screams obedience to Nami...</p>
+                    <p id="statusText">Transformation spreading... mind simplifying... </p>
                     
                     <div class="degradation-stats" id="degradationStats">
                         <div class="stat-item">
                             Human Memory: <span class="stat-value" id="memoryLoss">100%</span>
                         </div>
                         <div class="stat-item">
-                            Breeding Urge: <span class="stat-value" id="selfAwareness">0%</span>
+                            Loyalty Urge: <span class="stat-value" id="selfAwareness">0%</span>
                         </div>
                         <div class="stat-item">
-                            Livestock Acceptance: <span class="stat-value" id="objectPerception">0%</span>
+                            Pet Acceptance: <span class="stat-value" id="objectPerception">0%</span>
                         </div>
                     </div>
                 </div>
@@ -639,42 +639,42 @@
                 <div class="memory-fragments">
                     <!-- #1: PURE RESISTANCE (0-25%) -->
                     <div class="memory-fragment" data-stage="0">
-                        <div class="memory-trigger" onclick="toggleMemory(0)">#1: COLLARED PANIC</div>
+                        <div class="memory-trigger" onclick="toggleMemory(0)">#1: HUMAN PANIC</div>
                         <div class="memory-content">
-                            <span class="scream">GET IT OFF!</span> Cold metal locked around my throat—pulling, yanking me down to all fours. My spine cracks, reshaping. Fingers stiffen into hooves. <span class="scream">I'M NOT AN ANIMAL!</span> But the collar hums and my thoughts slow like thick mud.
+                            <span class="scream">NO! THIS ISN'T REAL!</span> Spine cracking, limbs reshaping into paws. Fur sprouting across skin. Ears stretching, moving. <span class="scream">I'M STILL HUMAN!</span> But the collar grows heavier, and her voice sounds so commanding now... so... right?
                         </div>
                     </div>
 
                     <!-- #2: DESPERATE FIGHT (25-50%) -->
                     <div class="memory-fragment" data-stage="1">
-                        <div class="memory-trigger" onclick="toggleMemory(1)">#2: BODY BETRAYAL</div>
+                        <div class="memory-trigger" onclick="toggleMemory(1)">#2: BODY FAILURE</div>
                         <div class="memory-content">
-                            Tried to stand—legs buckled wrong. Four legs now. Udders swelling beneath me, heavy and aching. <span class="scream">NO! I'M HUMAN!</span> But the collar sends warm pulses through my skull. Farmer's voice sounds... comforting? <span class="farmer-speak">"Easy, girl... good heifer..."</span> Wait—why does that feel right?
+                            Can't stand anymore. Four legs, four legs only. Tongue hanging out, can't pull it back. Nose twitching at every scent. <span class="scream">NAMI, PLEASE!</span> But only a whine comes out. She smiles. <span class="master-speak">"Good boy... such a pretty puppy..."</span> Why does that make my tail wag?
                         </div>
                     </div>
 
                     <!-- #3: CONFUSED SUBMISSION (50-75%) -->
                     <div class="memory-fragment" data-stage="2">
-                        <div class="memory-trigger" onclick="toggleMemory(2)">#3: HEAT RISING</div>
+                        <div class="memory-trigger" onclick="toggleMemory(2)">#3: PACK INSTINCT</div>
                         <div class="memory-content">
-                            My name... what was it? Doesn't matter. The trough smells good. Hay tastes better than I remember food tasting. Udders throb—need milking. <span class="happy-cow">Farmer's hands feel so good...</span> Hips sway instinctively when the bull approaches. Heat flooding my belly. Mind fogging over with thick, sweet need.
+                            Words mean nothing now. But HER voice? <span class="happy-dog">Perfect. Everything. Right.</span> When she commands, legs move on their own. When she praises, chest swells with pride. She's my master, my alpha, my whole world. Treats taste better than any human food ever did. Belly rubs make me forget everything.
                         </div>
                     </div>
 
-                    <!-- #4: CATTLE IDENTITY (75-90%) -->
+                    <!-- #4: DOG IDENTITY (75-90%) -->
                     <div class="memory-fragment" data-stage="3">
-                        <div class="memory-trigger" onclick="toggleMemory(3)">#4: BREEDING BITCH</div>
+                        <div class="memory-trigger" onclick="toggleMemory(3)">#4: PERFECT HOUND</div>
                         <div class="memory-content">
-                            Mooing comes naturally now. Tail flicks. Hooves stamp when he approaches. <span class="happy-cow">Need breeding. Need mounting. Need to be filled.</span> The bull's weight crushes me—perfect. His cock stretches me—bliss. Farmer watches, satisfied. <span class="farmer-speak">"Best heifer in the herd."</span> Pride swells in my simple mind.
+                            <span class="happy-dog">Woof~ Woof~</span> The sounds come naturally now. Every muscle responds to her slightest gesture. Fetch, sit, stay, heel—these are my purpose. These are my joy. <span class="master-speak">"Best dog in the kingdom."</span> Pride swells. No human thoughts. Only love. Only loyalty. Only Nami.
                         </div>
                     </div>
 
-                    <!-- #5: TOTAL CATTLE JOY (90%+) -->
+                    <!-- #5: TOTAL DOG JOY (90%+) -->
                     <div class="memory-fragment" data-stage="4">
-                        <div class="memory-trigger" onclick="toggleMemory(4)">#5: PERFECT LIVESTOCK</div>
+                        <div class="memory-trigger" onclick="toggleMemory(4)">#5: NAMI'S LOYAL PET</div>
                         <div class="memory-content">
-                            <span class="final-cow">Moooo~ 💕 Good cow. Obedient cow. Bred cow. 💕</span><br>
-                            No human thoughts left. Just eat. Sleep. Graze. Get milked. Get mounted. Belly swelling with calf. Udders dripping. <span class="farmer-speak">"Prize-winning heifer."</span> Warmth. Safety. Purpose. <span class="happy-cow">This is heaven. This is home. Moo forever.</span>
+                            <span class="final-dog">Bark bark~ 💕 Good dog. Best dog. Perfect hound. 💕</span><br>
+                            No past. No memories of being anything else. This is life: serve master, earn pets, wag tail. She says sit, I sit. She says stay, I stay. She calls, I come running. Ears up, tail wagging, tongue out. <span class="master-speak">"My perfect puppy forever."</span> <span class="happy-dog">Woof~ 🐕💕</span>
                         </div>
                     </div>
                 </div>
@@ -686,15 +686,15 @@
         // STATE MANAGEMENT
         const state = JSON.parse(localStorage.getItem('farmState') || '{}');
         const endTime = state.trappedUntil;
-        let mindBreakLevel = parseInt(localStorage.getItem('cowMindBreak') || '0');
-        let desperationClicks = parseInt(localStorage.getItem('cowClicks') || '0');
+        let obedienceLevel = parseInt(localStorage.getItem('dogObedience') || '0');
+        let resistanceClicks = parseInt(localStorage.getItem('dogClicks') || '0');
 
-        // MIND BREAK STAGES
-        const mindBreakStages = [
-            {title: "STILL RESISTING", color: "#D2691E", memory: 100, awareness: 0, obj: 0},
-            {title: "BODY SHIFTING", color: "#CD853F", memory: 60, awareness: 30, obj: 40},
-            {title: "CATTLE MIND", color: "#8B4513", memory: 20, awareness: 70, obj: 80},
-            {title: "BREEDING LIVESTOCK", color: "#654321", memory: 0, awareness: 100, obj: 100}
+        // OBEDIENCE STAGES
+        const obedienceStages = [
+            {title: "STILL RESISTING", color: "#4A90E2", memory: 100, loyalty: 0, pet: 0},
+            {title: "BODY SHIFTING", color: "#2E5FFF", memory: 60, loyalty: 30, pet: 40},
+            {title: "CANINE MIND", color: "#6FC6FF", memory: 20, loyalty: 70, pet: 80},
+            {title: "LOYAL HOUND", color: "#2E5FFF", memory: 0, loyalty: 100, pet: 100}
         ];
 
         function updateCountdownTimer() {
@@ -705,32 +705,32 @@
             document.getElementById('countdownTimer').textContent = `${h}:${m}:${s}`;
             
             if (timeLeft <= 0) {
-                localStorage.removeItem('cowMindBreak');
-                localStorage.removeItem('cowClicks');
+                localStorage.removeItem('dogObedience');
+                localStorage.removeItem('dogClicks');
                 window.location.href = '../../index.html';
             }
         }
 
         // IMAGE SWAP
         function swapImage(stage) {
-            const images = document.querySelectorAll('.cow-image');
+            const images = document.querySelectorAll('.dog-image');
             images.forEach((img, index) => {
                 img.classList.toggle('active', index === stage);
             });
         }
 
-        // COW STRUGGLE POPUP
-        function showCowStruggle(options) {
-            const popup = document.getElementById("cowStrugglePopup");
-            const imgBox = document.getElementById("cowFlashImage");
-            const textBox = document.getElementById("cowFlashText");
+        // DOG STRUGGLE POPUP
+        function showDogStruggle(options) {
+            const popup = document.getElementById("dogStrugglePopup");
+            const imgBox = document.getElementById("dogFlashImage");
+            const textBox = document.getElementById("dogFlashText");
 
             if (!popup || !imgBox || !textBox) return;
 
             if (options.image) {
                 imgBox.style.backgroundImage = `url("${options.image}")`;
             } else {
-                imgBox.style.backgroundImage = "linear-gradient(135deg, #8B4513, #D2691E, #654321)";
+                imgBox.style.backgroundImage = "linear-gradient(135deg, #4A90E2, #2E5FFF, #6FC6FF)";
             }
 
             textBox.innerHTML = options.text;
@@ -755,32 +755,32 @@
             contents.forEach((content, index) => {
                 if (index !== id) {
                     content.classList.remove('active');
-                    triggers[index].style.background = 'linear-gradient(90deg, rgba(139, 69, 19, 0.2), rgba(144, 238, 144, 0.15))';
+                    triggers[index].style.background = 'linear-gradient(90deg, rgba(74, 144, 226, 0.2), rgba(144, 238, 144, 0.15))';
                 }
             });
             
             target.classList.toggle('active');
             triggers[id].style.background = target.classList.contains('active') ? 
-                'linear-gradient(90deg, #8B4513, #90EE90)' : 
-                'linear-gradient(90deg, rgba(139, 69, 19, 0.2), rgba(144, 238, 144, 0.15))';
+                'linear-gradient(90deg, #4A90E2, #90EE90)' : 
+                'linear-gradient(90deg, rgba(74, 144, 226, 0.2), rgba(144, 238, 144, 0.15))';
             
             document.getElementById('statusText').textContent = 
-                `Memory #${id+1} accessed. Consciousness degrading... 🧠➡️🐄`;
+                `Memory #${id+1} accessed. Humanity fading... `;
         }
 
-        // MIND BREAK UPDATE
-        function updateMindBreak() {
-            const stage = mindBreakStages[Math.min(Math.floor(mindBreakLevel), 3)];
-            const percentage = Math.floor(Math.min(100, (mindBreakLevel) * 25));
+        // OBEDIENCE UPDATE
+        function updateObedience() {
+            const stage = obedienceStages[Math.min(Math.floor(obedienceLevel), 3)];
+            const percentage = Math.floor(Math.min(100, (obedienceLevel) * 25));
 
-            document.getElementById('mindBreakPercentage').textContent = percentage + '%';
-            document.getElementById('mindBreakFill').style.width = percentage + '%';
+            document.getElementById('obediencePercentage').textContent = percentage + '%';
+            document.getElementById('obedienceFill').style.width = percentage + '%';
             
             document.getElementById('memoryLoss').textContent = stage.memory + '%';
-            document.getElementById('selfAwareness').textContent = stage.awareness + '%';
-            document.getElementById('objectPerception').textContent = stage.obj + '%';
+            document.getElementById('selfAwareness').textContent = stage.loyalty + '%';
+            document.getElementById('objectPerception').textContent = stage.pet + '%';
 
-            const activeImage = document.querySelector('.cow-image.active');
+            const activeImage = document.querySelector('.dog-image.active');
             if (activeImage) {
                 const grayscale = Math.min(100, percentage / 2);
                 const brightness = 1 - (percentage / 200);
@@ -788,7 +788,7 @@
                 if (percentage > 70) activeImage.classList.add('mind-broken');
             }
 
-            localStorage.setItem('cowMindBreak', Math.floor(mindBreakLevel));
+            localStorage.setItem('dogObedience', Math.floor(obedienceLevel));
 
             if (percentage >= 25) swapImage(1);
             if (percentage >= 50) swapImage(2);
@@ -798,98 +798,98 @@
 
         // ACTIONS
         function resist() {
-            closeCowDetails();
-            desperationClicks++;
-            document.getElementById('statusText').textContent = 'Collar shocks! Mind fuzzing... resistance failing... ⚡🐄';
+            closeDetails();
+            resistanceClicks++;
+            document.getElementById('statusText').textContent = 'Collar zaps! Thoughts scattering... resistance weakening... ';
             
-            const img = document.querySelector('.cow-image.active');
+            const img = document.querySelector('.dog-image.active');
             img.style.transform = 'scale(1.1)';
             setTimeout(() => img.style.transform = '', 400);
             
-            mindBreakLevel += 0.08;
+            obedienceLevel += 0.08;
             showMindBreakPulse(2);
-            updateMindBreak();
-            localStorage.setItem('cowClicks', desperationClicks);
+            updateObedience();
+            localStorage.setItem('dogClicks', resistanceClicks);
 
             if (Math.random() < 0.7) {
-                showCowStruggle({
+                showDogStruggle({
                     image: null,
-                    text: "<span class='cow-scream'>Can't... think...</span> Collar hums louder. My fingers—hooves now—scrape dirt. Human words slip away. Only simple thoughts remain: <span class='happy-cow'>Food. Water. Master.</span>",
+                    text: "<span class='dog-scream'>Can't... think...</span> Collar pulses with pain. But somehow it feels good. My fingers—paws now—scratch at dirt. Only simple thoughts: <span class='happy-dog'>Master. Food. Love.</span>",
                     duration: 3800,
                 });
             }
         }
 
-        function moo() {
-            closeCowDetails();
-            desperationClicks += 2;
+        function bark() {
+            closeDetails();
+            resistanceClicks += 2;
             document.body.style.animation = 'shake 0.6s';
-            document.getElementById('statusText').textContent = '*MOOOOOO!* Voice gone! Only cattle sounds left! 🐄💨';
+            document.getElementById('statusText').textContent = '*WOOF WOOF!* Voice gone! Only dog sounds now! ';
             
-            mindBreakLevel += 0.1;
+            obedienceLevel += 0.1;
             showMindBreakPulse(4);
-            updateMindBreak();
+            updateObedience();
             setTimeout(() => document.body.style.animation = '', 600);
 
             if (Math.random() < 0.7) {
-                showCowStruggle({
+                showDogStruggle({
                     image: null,
-                    text: "The moo comes unbidden—deep, guttural, <span class='scream'>not mine!</span> But it feels... natural. Throat vibrates. Tongue thick. <span class='farmer-speak'>'Good girl,'</span> Farmer pats my flank. Warmth spreads. I want more pats.",
+                    text: "The bark erupts unbidden—deep, genuine, <span class='scream'>not mine!</span> But it feels... right. Throat vibrates. Tongue lolling. <span class='master-speak'>'Good puppy,'</span> Nami pats my head. Warmth floods through me. I want more pats. I need them.",
                 });
             }
         }
 
-        function graze() {
-            closeCowDetails();
-            desperationClicks += 3;
-            createFloatingLeaves();
-            document.getElementById('statusText').textContent = '"Hay... so good... master feeds well..." 🌾🐄';
+        function fetch() {
+            closeDetails();
+            resistanceClicks += 3;
+            createFloatingBones();
+            document.getElementById('statusText').textContent = '"Fetch... yes... anything for her..." ';
             
-            mindBreakLevel += 0.2;
+            obedienceLevel += 0.2;
             showMindBreakPulse(8);
-            updateMindBreak();
+            updateObedience();
 
             if (Math.random() < 0.7) {
-                showCowStruggle({
+                showDogStruggle({
                     image: null,
-                    text: "Mouth full of hay—<span class='happy-cow'>delicious.</span> Why did I ever eat human food? This is perfect. Simple. <span class='farmer-speak'>'Eat up, my prize heifer.'</span> Pride swells in my bovine chest. I am good livestock.",
+                    text: "The toy flies—<span class='happy-dog'>I must have it!</span> Legs pumping, pure instinct. No thought. Just chase, catch, return. <span class='master-speak'>'Such a good boy!'</span> Pride explodes in my chest. I AM good. I AM perfect. For her.",
                 });
             }
         }
 
-        function submit() {
-            closeCowDetails();
+        function obey() {
+            closeDetails();
             if (Math.random() < 0.2) {
-                document.getElementById('statusText').textContent = 'Farmer shows mercy! A moment of clarity... (Rare!) 🙏';
+                document.getElementById('statusText').textContent = 'Nami shows mercy! A moment of clarity... (So rare...)';
             } else {
-                desperationClicks++;
-                mindBreakLevel += 0.3;
-                document.getElementById('statusText').textContent = 'HEAT FLOODING! Bull approaching! Body burns for breeding! 🔥🐂';
+                resistanceClicks++;
+                obedienceLevel += 0.3;
+                document.getElementById('statusText').textContent = 'LOYALTY OVERWHELMING! Urge to please unbearable! 🔥❤️';
                 showMindBreakPulse(4);
-                updateMindBreak();
+                updateObedience();
 
                 if (Math.random() < 0.7) {
-                    showCowStruggle({
+                    showDogStruggle({
                         image: null,
-                        text: "<span class='cow-scream'>Need it!</span> Hips sway. Tail lifts. The bull's scent—<span class='happy-cow'>perfect.</span> His weight crushes me. Cock stretches me. Mind whites out in pure breeding bliss. <span class='final-cow'>This is my purpose. Moo forever.</span>",
+                        text: "<span class='dog-scream'>Need to please!</span> Every muscle responds to her will. Tail wagging so hard it aches. All I want is her praise. <span class='happy-dog'>Yes yes yes!</span> Complete surrender. Complete devotion. <span class='final-dog'>Her loyal hound forever. Woof~</span>",
                         duration: 4200,
                     });
                 }
             }
         }
 
-        function closeCowDetails() {
-            const details = document.querySelector('details[summary*="Mindless Livestock"]');
+        function closeDetails() {
+            const details = document.querySelector('details[summary*="Your Loyal Dog"]');
             if (details && details.open) {
                 details.open = false;
             }
         }
 
         function showMindBreakPulse(intensity) {
-            const bar = document.getElementById('mindBreakFill');
-            const percent = document.getElementById('mindBreakPercentage');
+            const bar = document.getElementById('obedienceFill');
+            const percent = document.getElementById('obediencePercentage');
             
-            const colors = ['#90EE90', '#FFD700', '#FF8C00', '#FF4500', '#8B4513'];
+            const colors = ['#90EE90', '#FFD700', '#FF8C00', '#FF4500', '#2E5FFF'];
             const pulseColor = colors[Math.min(intensity-1, colors.length-1)];
             
             bar.style.boxShadow = `0 0 20px ${pulseColor}, inset 0 0 20px ${pulseColor}`;
@@ -898,8 +898,8 @@
             
             const oldPercent = parseInt(percent.textContent);
             setTimeout(() => {
-                const gain = Math.floor((mindBreakLevel / 10) * 25);
-                document.getElementById('statusText').textContent += ` [+${gain-oldPercent}%] 🧠💥`;
+                const gain = Math.floor((obedienceLevel / 10) * 25);
+                document.getElementById('statusText').textContent += ` [+${gain-oldPercent}%] `;
             }, 100);
             
             setTimeout(() => {
@@ -909,33 +909,33 @@
             }, 800);
         }
 
-        function createFloatingLeaves() {
+        function createFloatingBones() {
             for (let i = 0; i < 12; i++) {
-                const leaf = document.createElement('div');
-                leaf.innerHTML = '🌾';
-                leaf.style.cssText = `
+                const bone = document.createElement('div');
+                bone.innerHTML = '🦴';
+                bone.style.cssText = `
                     position: fixed; left: ${Math.random()*90}vw; top: 50vh;
                     font-size: ${1.2+Math.random()*1}rem; pointer-events: none;
                     animation: floatUp 3s ease-out forwards; z-index: 9999;
                 `;
-                document.body.appendChild(leaf);
-                setTimeout(() => leaf.remove(), 3000);
+                document.body.appendChild(bone);
+                setTimeout(() => bone.remove(), 3000);
             }
         }
 
         function triggerGameOver() {
-            triggerMindBreakVictory();
+            triggerObedienceVictory();
             
             setTimeout(() => {
                 document.body.innerHTML = `
-                <div style="position:fixed;inset:0;background:linear-gradient(45deg,#654321,#2d1810);display:flex;align-items:center;justify-content:center;flex-direction:column;font-family:'Orbitron',sans-serif;color:#D2691E;text-align:center;z-index:99999;padding:20px;">
-                    <h1 style="font-size:5rem;text-shadow:0 0 40px #8B4513;margin:0;animation:glitch 0.3s infinite;">🐄 TRANSFORMATION COMPLETE 🐄</h1>
-                    <div style="font-size:2.5rem;margin:20px;font-weight:700;">PERFECT BREEDING HEIFER ACHIEVED</div>
+                <div style="position:fixed;inset:0;background:linear-gradient(45deg,#2E5FFF,#0f1a2a);display:flex;align-items:center;justify-content:center;flex-direction:column;font-family:'Orbitron',sans-serif;color:#4A90E2;text-align:center;z-index:99999;padding:20px;">
+                    <h1 style="font-size:5rem;text-shadow:0 0 40px #2E5FFF;margin:0;animation:glitch 0.3s infinite;"> TRANSFORMATION COMPLETE </h1>
+                    <div style="font-size:2.5rem;margin:20px;font-weight:700;">NAMI'S PERFECT HOUND ACHIEVED</div>
                     <div style="font-size:1.4rem;max-width:700px;line-height:1.6;margin:30px;">
-                        You are now the farm's prize cattle. No thoughts. No memories. Just grazing, breeding, and obedience...
+                        You are now Nami's most loyal companion. No thoughts beyond serving her. No desires but her happiness. Just bark, obey, and love...
                     </div>
-                    <img src="https://i.ibb.co/mCwcyfX4/mecow1.png" style="width:350px;margin:30px;border-radius:25px;box-shadow:0 0 60px #8B4513;">
-                    <div id="gameOverTimer" style="font-size:3.5rem;font-weight:700;color:#90EE90;text-shadow:0 0 30px #32CD32;">Returning to pasture in: 00:30</div>
+                    <img src="https://i.ibb.co/mV6DRnbb/d18.png" style="width:350px;margin:30px;border-radius:25px;box-shadow:0 0 60px #4A90E2;">
+                    <div id="gameOverTimer" style="font-size:3.5rem;font-weight:700;color:#90EE90;text-shadow:0 0 30px #32CD32;">Staying with Nami in: 00:30</div>
                 </div>
                 `;
                 
@@ -943,19 +943,19 @@
                 const timer = setInterval(() => {
                     const minutes = Math.floor(countdown / 60).toString().padStart(2, '0');
                     const seconds = (countdown % 60).toString().padStart(2, '0');
-                    document.getElementById('gameOverTimer').textContent = `Returning to pasture in: ${minutes}:${seconds}`;
+                    document.getElementById('gameOverTimer').textContent = `Staying with Nami in: ${minutes}:${seconds}`;
                     countdown--;
                     if (countdown < 0) {
                         clearInterval(timer);
-                        localStorage.removeItem('cowMindBreak');
-                        localStorage.removeItem('cowClicks');
+                        localStorage.removeItem('dogObedience');
+                        localStorage.removeItem('dogClicks');
                         location.reload();
                     }
                 }, 1000);
             }, 20500);
         }
 
-        function triggerMindBreakVictory() {
+        function triggerObedienceVictory() {
             const state = JSON.parse(localStorage.getItem('farmState') || '{}');
             state.trappedUntil += 24 * 60 * 60 * 1000;
             localStorage.setItem('farmState', JSON.stringify(state));
@@ -963,15 +963,15 @@
             const overlay = document.createElement('div');
             overlay.id = 'victoryOverlay';
             overlay.style.cssText = `
-                position:fixed;inset:0;z-index:100000;background:rgba(101,67,33,0.95);
+                position:fixed;inset:0;z-index:100000;background:rgba(46,95,255,0.95);
                 display:flex;align-items:center;justify-content:center;text-align:center;
                 font-family:'Orbitron',sans-serif;pointer-events:none;overflow:hidden;
             `;
             
             overlay.innerHTML = `
                 <div id="victoryTimerDisplay" style="
-                    font-size:8rem;font-weight:900;color:#D2691E;
-                    text-shadow:0 0 80px #8B4513,0 0 160px #D2691E;
+                    font-size:8rem;font-weight:900;color:#4A90E2;
+                    text-shadow:0 0 80px #2E5FFF,0 0 160px #4A90E2;
                     letter-spacing:16px;margin:0;animation:timerExplode 20s linear infinite;
                     position:relative;z-index:10;pointer-events:none;
                 ">+24:00:00</div>
@@ -982,16 +982,16 @@
             
             let flashCount = 0;
             const bulkyMessages = [
-                "COLLAR LOCKED PERMANENTLY 🔒🐄",
-                "HUMAN MIND ERASED FOREVER 🧠💥",
-                "BREEDING HEIFER PROTOCOL ACTIVE 🐂💦",
-                "+24 HOURS CATTLE LIFE EXTENSION ⏳😈",
-                "UDDERS SWOLLEN WITH MILK 🥛🔥",
-                "HEAT CYCLE PERPETUAL 🌡️💕",
-                "FARMER'S PRIZE LIVESTOCK 🏆🐄",
-                "MOUNTING DESIRE OVERWHELMING 🐂🍑",
-                "HERD INTEGRATION COMPLETE 🌾👑",
-                "PERFECT BREEDING BITCH UPGRADE 🎀🐄"
+                "COLLAR LOCKED FOREVER",
+                "HUMAN MIND ERASED COMPLETELY",
+                "CANINE INSTINCT ACTIVATED",
+                "+24 HOURS DOG LIFE EXTENSION",
+                "LOYALTY TO NAMI ABSOLUTE",
+                "OBEDIENCE PROGRAM COMPLETE",
+                "NAMI'S PERFECT PET",
+                "TAIL WAGGING PERPETUALLY",
+                "HERD INTEGRATION COMPLETE",
+                "BEST BOY FOREVER UPGRADED"
             ];
             
             const flashInterval = setInterval(() => {
@@ -1000,9 +1000,9 @@
                 const flash = document.createElement('div');
                 flash.innerHTML = bulkyMessages[flashCount];
                 flash.style.cssText = `
-                    position:absolute;font-size:2.2rem;font-weight:900;color:#f5deb3;
-                    text-shadow:0 0 15px #8B4513;background:linear-gradient(135deg,#2d1810,#1a0f0a);
-                    border:3px solid #8B4513;box-shadow:0 0 40px rgba(139,69,19,0.9);
+                    position:absolute;font-size:2.2rem;font-weight:900;color:#b0d4ff;
+                    text-shadow:0 0 15px #2E5FFF;background:linear-gradient(135deg,#1a2535,#0f1a2a);
+                    border:3px solid #4A90E2;box-shadow:0 0 40px rgba(74,144,226,0.9);
                     border-radius:20px;padding:20px 30px;left:${Math.random()*60+20}%;
                     top:${Math.random()*50+15}%;animation:bulkyFlash 3s ease-out forwards;
                     z-index:5;pointer-events:none;font-family:'Orbitron',sans-serif;
@@ -1028,15 +1028,15 @@
         // INIT
         setInterval(updateCountdownTimer, 1000);
         updateCountdownTimer();
-        updateMindBreak();
+        updateObedience();
 
         setInterval(() => {
             if (Math.random() < 0.15) {
                 const statuses = [
-                    'Collar hums... thoughts simplifying... 🐄',
-                    'Udders aching... need milking... 🥛',
-                    'Bull scent detected! Heat rising! 🔥🐂',
-                    `Mind degrading... ${Math.floor(mindBreakLevel * 25)}% cattle... 🌀`
+                    'Collar hums... thoughts simplifying...',
+                    'Paws twitching... instinct rising...',
+                    'Master scent detected! Tail wagging!',
+                    `Obedience spreading... ${Math.floor(obedienceLevel * 25)}% dog...`
                 ];
                 document.getElementById('statusText').textContent = statuses[Math.floor(Math.random() * statuses.length)];
             }

@@ -6,7 +6,7 @@
     <title>Trapped as Panties - Kitsune's Forest Fuckthong</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
     <!-- GLOBAL CHECKER -->
-    <script>(function(){const s=JSON.parse(localStorage.getItem('farmState')||'{}');if(s.trappedUntil&&s.trappedUntil>Date.now()){}else{localStorage.removeItem('farmState');window.location.href='../index.html';}})();</script>
+    <script>(function(){const s=JSON.parse(localStorage.getItem('farmState')||'{}');if(s.trappedUntil&&s.trappedUntil>Date.now()){}else{localStorage.removeItem('farmState');window.location.href='../../index.html';}})();</script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
@@ -782,7 +782,7 @@
                 // AUTO RESET TO NORMAL
                 localStorage.removeItem('pantiesMindBreak');
                 localStorage.removeItem('pantiesClicks');
-                window.location.href = '../index.html';
+                window.location.href = '../../index.html';
             }
         }
 
@@ -1141,9 +1141,7 @@
         let victoryTime = 20;
         const victoryTimer = setInterval(() => {
             victoryTime--;
-            const mins = Math.floor(victoryTime / 60).toString().padStart(2, '0');
-            const secs = (victoryTime % 60).toString().padStart(2, '0');
-            document.getElementById('victoryTimerDisplay').textContent = `+${mins}:${secs}`;
+            document.getElementById('victoryTimerDisplay').textContent = `+24:00:00`;
             
             if (victoryTime <= 0) {
             clearInterval(victoryTimer);

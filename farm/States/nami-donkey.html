@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trapped as Livestock - Collared Breeding Heifer</title>
+    <title>Trapped as Nami's Stubborn Donkey</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
     <!-- GLOBAL CHECKER -->
     <script>(function(){const s=JSON.parse(localStorage.getItem('farmState')||'{}');if(s.trappedUntil&&s.trappedUntil>Date.now()){}else{localStorage.removeItem('farmState');window.location.href='../../index.html';}})();</script>
@@ -11,7 +11,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            background: linear-gradient(135deg, #1a0f0a 0%, #2d1810 100%);
+            background: linear-gradient(135deg, #2d1a0a 0%, #3d2415 100%);
             color: #fff;
             font-family: 'Poppins', sans-serif;
             min-height: 100vh;
@@ -30,7 +30,7 @@
         @keyframes timerExplode {
             0%, 100% { 
                 font-size:8rem;transform:scale(1) rotate(0deg);
-                text-shadow:0 0 80px #8B4513,0 0 160px #D2691E;filter:brightness(1);
+                text-shadow:0 0 80px #D2A679,0 0 160px #C19A6B;filter:brightness(1);
             }
             25% { font-size:10rem;transform:scale(1.4) rotate(5deg);filter:brightness(1.4); }
             50% { font-size:12rem;transform:scale(1.8) rotate(-8deg);filter:brightness(1.8); }
@@ -49,9 +49,9 @@
             font-family: 'Orbitron', monospace;
             font-size: 3.5rem;
             font-weight: 700;
-            color: #D2691E;
+            color: #D2A679;
             text-align: center;
-            text-shadow: 0 0 30px #8B4513, 0 0 60px #D2691E;
+            text-shadow: 0 0 30px #C19A6B, 0 0 60px #D2A679;
             letter-spacing: 8px;
             margin-bottom: 10px;
         }
@@ -73,19 +73,19 @@
             gap: 20px;
         }
 
-        /* COW IMAGE */
-        .cow-image-container {
+        /* DONKEY IMAGE */
+        .donkey-image-container {
             position: relative;
             width: 100%;
             max-width: 600px;
             height: 480px;
             border-radius: 25px;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(139, 69, 19, 0.4);
-            border: 2px solid rgba(210, 105, 30, 0.5);
+            box-shadow: 0 20px 60px rgba(210, 166, 121, 0.4);
+            border: 2px solid rgba(210, 166, 121, 0.5);
         }
 
-        .cow-image {
+        .donkey-image {
             position: absolute;
             top: 0;
             left: 0;
@@ -96,7 +96,7 @@
             transition: opacity 0.8s ease, filter 0.5s ease;
         }
 
-        .cow-image.active {
+        .donkey-image.active {
             opacity: 1;
         }
 
@@ -118,55 +118,55 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 1.8rem;
             font-weight: 700;
-            background: linear-gradient(45deg, #8B4513, #D2691E, #CD853F);
+            background: linear-gradient(45deg, #D2A679, #C19A6B, #B8956F);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 0 0 20px rgba(139, 69, 19, 0.5);
+            text-shadow: 0 0 20px rgba(210, 166, 121, 0.5);
             margin-bottom: 8px;
             letter-spacing: 2px;
         }
 
         .category-badge {
-            background: linear-gradient(45deg, #8B4513, #CD853F);
+            background: linear-gradient(45deg, #D2A679, #B8956F);
             color: #fff;
             padding: 8px 20px;
             border-radius: 50px;
             font-family: 'Orbitron', sans-serif;
             font-size: 0.95rem;
             font-weight: 700;
-            box-shadow: 0 5px 20px rgba(139, 69, 19, 0.5);
+            box-shadow: 0 5px 20px rgba(210, 166, 121, 0.5);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
-        /* MIND BREAK CONTAINER */
-        .mind-break-container {
-            background: rgba(139, 69, 19, 0.12);
+        /* STUPIDITY CONTAINER */
+        .stupidity-container {
+            background: rgba(210, 166, 121, 0.12);
             backdrop-filter: blur(15px);
-            border: 2px solid rgba(210, 105, 30, 0.6);
+            border: 2px solid rgba(210, 166, 121, 0.6);
             border-radius: 20px;
             padding: 20px;
-            box-shadow: 0 15px 40px rgba(139, 69, 19, 0.3);
+            box-shadow: 0 15px 40px rgba(210, 166, 121, 0.3);
         }
 
-        .mind-break-header {
+        .stupidity-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 15px;
         }
 
-        .mind-break-title {
+        .stupidity-title {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.1rem;
-            color: #CD853F;
+            color: #B8956F;
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
         }
 
-        .mind-break-percentage {
+        .stupidity-percentage {
             font-family: 'Orbitron', sans-serif;
             font-size: 2.2rem;
             font-weight: 700;
@@ -176,24 +176,24 @@
             background-clip: text;
         }
 
-        .mind-break-bar {
+        .stupidity-bar {
             height: 20px;
             background: rgba(0, 0, 0, 0.7);
             border-radius: 12px;
             overflow: hidden;
-            border: 1px solid rgba(210, 105, 30, 0.5);
+            border: 1px solid rgba(210, 166, 121, 0.5);
             position: relative;
         }
 
-        .mind-break-fill {
+        .stupidity-fill {
             height: 100%;
-            background: linear-gradient(90deg, #8B4513, #D2691E, #A0522D, #654321);
+            background: linear-gradient(90deg, #D2A679, #C19A6B, #B8956F, #A68060);
             transition: width 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             border-radius: 12px;
-            box-shadow: 0 0 20px rgba(139, 69, 19, 0.9);
+            box-shadow: 0 0 20px rgba(210, 166, 121, 0.9);
         }
 
-        .mind-break-stages {
+        .stupidity-stages {
             display: flex;
             justify-content: space-between;
             margin-top: 12px;
@@ -235,19 +235,19 @@
         }
 
         .resist-btn {
-            background: linear-gradient(45deg, #8B4513, #D2691E);
+            background: linear-gradient(45deg, #D2A679, #C19A6B);
             color: #fff;
-            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.6);
+            box-shadow: 0 8px 25px rgba(210, 166, 121, 0.6);
         }
 
-        .moo-btn {
+        .bray-btn {
             background: linear-gradient(45deg, #90EE90, #32CD32);
             color: #000;
             box-shadow: 0 8px 25px rgba(50, 205, 50, 0.6);
             font-weight: 800;
         }
 
-        .graze-btn {
+        .kick-btn {
             background: linear-gradient(45deg, #FFD700, #FFA500);
             color: #000;
             box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
@@ -261,12 +261,12 @@
             text-shadow: 0 0 8px rgba(220, 20, 60, 0.8);
         }
 
-        /* MIND BREAK PROGRESS PULSES */
-        #mindBreakFill.pulsing {
-            animation: mindBreakPulse 0.8s ease-out;
+        /* STUPIDITY PROGRESS PULSES */
+        #stupidityFill.pulsing {
+            animation: stupidityPulse 0.8s ease-out;
         }
 
-        @keyframes mindBreakPulse {
+        @keyframes stupidityPulse {
             0% { transform: scaleX(1); }
             50% { transform: scaleX(1.05); }
             100% { transform: scaleX(1); }
@@ -279,27 +279,27 @@
             margin: 0 auto;
         }
 
-        .cow-status {
-            background: rgba(139, 69, 19, 0.15);
+        .donkey-status {
+            background: rgba(210, 166, 121, 0.15);
             backdrop-filter: blur(20px);
-            border: 2px solid rgba(210, 105, 30, 0.7);
+            border: 2px solid rgba(210, 166, 121, 0.7);
             border-radius: 20px;
             padding: 30px;
             margin-bottom: 25px;
             text-align: center;
-            box-shadow: 0 20px 50px rgba(139, 69, 19, 0.25);
+            box-shadow: 0 20px 50px rgba(210, 166, 121, 0.25);
         }
 
-        .cow-status h3 {
+        .donkey-status h3 {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.6rem;
-            color: #D2691E;
+            color: #D2A679;
             margin-bottom: 15px;
             letter-spacing: 2px;
-            text-shadow: 0 0 15px #8B4513;
+            text-shadow: 0 0 15px #C19A6B;
         }
 
-        .cow-status p {
+        .donkey-status p {
             font-size: 1.1rem;
             line-height: 1.6;
             margin-bottom: 8px;
@@ -338,15 +338,15 @@
 
         .memory-fragment {
             background: rgba(20, 15, 10, 0.8);
-            border: 1px solid rgba(210, 105, 30, 0.4);
+            border: 1px solid rgba(210, 166, 121, 0.4);
             border-radius: 15px;
             overflow: hidden;
             transition: all 0.3s ease;
         }
 
         .memory-fragment:hover {
-            border-color: #D2691E;
-            box-shadow: 0 10px 30px rgba(210, 105, 30, 0.3);
+            border-color: #D2A679;
+            box-shadow: 0 10px 30px rgba(210, 166, 121, 0.3);
             transform: translateY(-2px);
         }
 
@@ -355,13 +355,13 @@
             cursor: pointer;
             font-weight: 600;
             font-size: 1.05rem;
-            background: linear-gradient(90deg, rgba(139, 69, 19, 0.2), rgba(144, 238, 144, 0.15));
+            background: linear-gradient(90deg, rgba(210, 166, 121, 0.2), rgba(144, 238, 144, 0.15));
             transition: all 0.3s ease;
             user-select: none;
         }
 
         .memory-trigger:hover {
-            background: linear-gradient(90deg, #8B4513, #90EE90);
+            background: linear-gradient(90deg, #D2A679, #90EE90);
             color: #000;
             font-weight: 700;
         }
@@ -387,24 +387,24 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* COW STRUGGLE POPUP */
-        .cow-flash {
+        /* DONKEY STRUGGLE POPUP */
+        .donkey-flash {
             position: fixed;
             inset: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 99999;
-            background: radial-gradient(circle at center, rgba(139,69,19,0.35), rgba(0,0,0,0.95));
+            background: radial-gradient(circle at center, rgba(210,166,121,0.35), rgba(0,0,0,0.95));
             animation: glitch 0.35s infinite;
         }
 
-        .cow-flash-inner {
+        .donkey-flash-inner {
             max-width: 680px;
             width: 90%;
-            background: linear-gradient(135deg, #2d1810, #1a0f0a);
-            border: 2px solid #8B4513;
-            box-shadow: 0 0 40px rgba(139,69,19,0.9);
+            background: linear-gradient(135deg, #3d2415, #2d1a0a);
+            border: 2px solid #D2A679;
+            box-shadow: 0 0 40px rgba(210,166,121,0.9);
             border-radius: 18px;
             padding: 18px 22px;
             display: grid;
@@ -412,41 +412,41 @@
             gap: 18px;
         }
 
-        .cow-flash-image {
+        .donkey-flash-image {
             background-size: cover;
             background-position: center;
             border-radius: 12px;
             min-height: 160px;
-            box-shadow: 0 0 25px rgba(210,105,30,0.8);
+            box-shadow: 0 0 25px rgba(210,166,121,0.8);
         }
 
-        .cow-flash-text {
+        .donkey-flash-text {
             font-size: 1rem;
             line-height: 1.5;
             color: #f5deb3;
             font-weight: 600;
-            text-shadow: 0 0 8px rgba(139,69,19,0.9);
+            text-shadow: 0 0 8px rgba(210,166,121,0.9);
         }
 
-        .cow-flash-text span.cow-scream {
-            color: #D2691E;
+        .donkey-flash-text span.donkey-scream {
+            color: #D2A679;
             font-weight: 800;
         }
 
         @media (max-width: 650px) {
-            .cow-flash-inner {
+            .donkey-flash-inner {
                 grid-template-columns: 1fr;
             }
-            .cow-flash-image {
+            .donkey-flash-image {
                 min-height: 140px;
             }
         }
 
         /* PROGRESSIVE MEMORY PERSPECTIVES */
-        .farmer-speak {
-            color: #D2691E !important;
+        .nami-speak {
+            color: #D2A679 !important;
             font-weight: 800;
-            text-shadow: 0 0 12px #8B4513;
+            text-shadow: 0 0 12px #C19A6B;
             font-style: italic;
         }
 
@@ -458,13 +458,13 @@
             animation: screamShake 0.5s infinite;
         }
 
-        .happy-cow {
+        .happy-donkey {
             color: #90EE90 !important;
             font-weight: 700;
             text-shadow: 0 0 12px #32CD32;
         }
 
-        .final-cow {
+        .final-donkey {
             color: #FFD700 !important;
             font-weight: 800;
             font-size: 1.15em;
@@ -481,20 +481,20 @@
         }
 
         /* STAGE VISUALS */
-        .memory-fragment[data-stage="0"] .memory-trigger { border-left: 4px solid #D2691E; }
-        .memory-fragment[data-stage="1"] .memory-trigger { border-left: 4px solid #CD853F; }
-        .memory-fragment[data-stage="2"] .memory-trigger { border-left: 4px solid #8B4513; }
+        .memory-fragment[data-stage="0"] .memory-trigger { border-left: 4px solid #D2A679; }
+        .memory-fragment[data-stage="1"] .memory-trigger { border-left: 4px solid #C19A6B; }
+        .memory-fragment[data-stage="2"] .memory-trigger { border-left: 4px solid #B8956F; }
         .memory-fragment[data-stage="3"] .memory-trigger { border-left: 4px solid #90EE90; }
         .memory-fragment[data-stage="4"] .memory-trigger { border-left: 4px solid #FFD700; }
 
-        /* MIND BREAK LOCKOUT */
+        /* STUPIDITY LOCKOUT */
         .memory-fragment.locked {
             opacity: 0.4;
             pointer-events: none;
         }
 
         .memory-fragment.locked .memory-trigger {
-            background: linear-gradient(90deg, rgba(139,69,19,0.3), rgba(101,67,33,0.3)) !important;
+            background: linear-gradient(90deg, rgba(210,166,121,0.3), rgba(193,154,107,0.3)) !important;
             color: #666 !important;
         }
 
@@ -534,7 +534,7 @@
                 font-size: 2.5rem;
             }
             
-            .cow-image-container {
+            .donkey-image-container {
                 max-width: 320px;
                 height: 400px;
             }
@@ -548,54 +548,54 @@
 
         <!-- MAIN PANEL -->
         <div class="main-panel">
-            <!-- LEFT: COW IMAGE -->
+            <!-- LEFT: DONKEY IMAGE -->
             <div class="left-panel">
-                <div class="cow-image-container">
-                    <img src="https://i.ibb.co/JRTsxH2D/cow-1.jpg" class="cow-image active" data-stage="0">
-                    <img src="https://i.ibb.co/h1fVLMWL/1747498538816211.png" class="cow-image" data-stage="1">
-                    <img src="https://i.ibb.co/sd6xgTPH/mecow.png" class="cow-image" data-stage="2">
-                    <img src="https://i.ibb.co/mrwfDdKY/cowtf.jpg" class="cow-image" data-stage="3">
+                <div class="donkey-image-container">
+                    <img src="https://i.ibb.co/M5pC99VS/cmsn-red-brays-by-wrenzephyr2-dcf53ur-414w-2wx.png" class="donkey-image active" data-stage="0">
+                    <img src="https://i.ibb.co/xt6Wcr4S/1635175402-xbc9-2021week-3.jpg" class="donkey-image" data-stage="1">
+                    <img src="https://i.ibb.co/hwS3M2D/d8.jpg" class="donkey-image" data-stage="2">
+                    <img src="https://i.ibb.co/mVTMRz7h/d7.png" class="donkey-image" data-stage="3">
                 </div>
             </div>
 
-            <!-- COW STRUGGLE POPUP -->
-            <div id="cowStrugglePopup" class="cow-flash" style="display:none;">
-                <div class="cow-flash-inner">
-                    <div class="cow-flash-image" id="cowFlashImage"></div>
-                    <div class="cow-flash-text" id="cowFlashText"></div>
+            <!-- DONKEY STRUGGLE POPUP -->
+            <div id="donkeyStrugglePopup" class="donkey-flash" style="display:none;">
+                <div class="donkey-flash-inner">
+                    <div class="donkey-flash-image" id="donkeyFlashImage"></div>
+                    <div class="donkey-flash-text" id="donkeyFlashText"></div>
                 </div>
             </div>
 
             <!-- RIGHT: UI PANEL -->
             <div class="right-panel">
                 <div class="item-header">
-                    <h1 class="item-title">Collared Breeding Heifer</h1>
-                    <div class="category-badge">Forest Collar Trap</div>
+                    <h1 class="item-title">Nami's Stubborn Donkey</h1>
+                    <div class="category-badge">Nami's Punishment</div>
                 </div>
 
-                <!-- MIND BREAK -->
-                <div class="mind-break-container">
-                    <div class="mind-break-header">
-                        <div class="mind-break-title">BOVINE DEGRADATION</div>
-                        <div class="mind-break-percentage" id="mindBreakPercentage">0%</div>
+                <!-- STUPIDITY -->
+                <div class="stupidity-container">
+                    <div class="stupidity-header">
+                        <div class="stupidity-title">EQUINE STUPIDITY</div>
+                        <div class="stupidity-percentage" id="stupidityPercentage">0%</div>
                     </div>
-                    <div class="mind-break-bar">
-                        <div class="mind-break-fill" id="mindBreakFill" style="width: 0%"></div>
+                    <div class="stupidity-bar">
+                        <div class="stupidity-fill" id="stupidityFill" style="width: 0%"></div>
                     </div>
-                    <div class="mind-break-stages">
+                    <div class="stupidity-stages">
                         <span>HUMAN</span>
                         <span>SHIFTING</span>
-                        <span>CATTLE</span>
-                        <span>BREEDING STOCK</span>
+                        <span>EQUINE</span>
+                        <span>MINDLESS BEAST</span>
                     </div>
                 </div>
 
                 <!-- ACTION BUTTONS -->
                 <div class="action-buttons">
-                    <button class="action-btn resist-btn" onclick="resist()">RESIST COLLAR</button>
-                    <button class="action-btn moo-btn" onclick="moo()">MOO HELPLESSLY</button>
-                    <button class="action-btn graze-btn" onclick="graze()">GRAZE OBEDIENTLY</button>
-                    <button class="action-btn submit-btn" onclick="submit()">SUBMIT TO HEAT</button>
+                    <button class="action-btn resist-btn" onclick="resist()">RESIST NAMI</button>
+                    <button class="action-btn bray-btn" onclick="bray()">BRAY LOUDLY</button>
+                    <button class="action-btn kick-btn" onclick="kick()">KICK STUPIDLY</button>
+                    <button class="action-btn submit-btn" onclick="submit()">SUBMIT COMPLETELY</button>
                 </div>
             </div>
         </div>
@@ -608,30 +608,30 @@
                     font-family: 'Orbitron', sans-serif;
                     font-size: 1.8rem;
                     font-weight: 700;
-                    color: #D2691E;
+                    color: #D2A679;
                     padding: 20px;
                     list-style: none;
-                    background: rgba(139, 69, 19, 0.15);
+                    background: rgba(210, 166, 121, 0.15);
                     border-radius: 20px;
-                    border: 2px solid rgba(210, 105, 30, 0.6);
+                    border: 2px solid rgba(210, 166, 121, 0.6);
                     text-align: center;
-                    text-shadow: 0 0 15px #8B4513;
+                    text-shadow: 0 0 15px #C19A6B;
                     margin-bottom: 10px;
-                ">Your Mindless Livestock Existence</summary>
+                ">Your Stupid Donkey Existence</summary>
 
-                <div class="cow-status">
-                    <p>The collar hums against your throat. Hooves replace hands. Udders swell heavy beneath you. Every breath tastes of hay and submission...</p>
-                    <p id="statusText">Collar tightening... thoughts simplifying... 🐄</p>
+                <div class="donkey-status">
+                    <p>Long ears. Stubborn nature. Hooves clopping on earth. Brain getting simpler. Every thought slower than before...</p>
+                    <p id="statusText">Transformation spreading... thoughts scattering... </p>
                     
                     <div class="degradation-stats" id="degradationStats">
                         <div class="stat-item">
                             Human Memory: <span class="stat-value" id="memoryLoss">100%</span>
                         </div>
                         <div class="stat-item">
-                            Breeding Urge: <span class="stat-value" id="selfAwareness">0%</span>
+                            Stubborn Urge: <span class="stat-value" id="selfAwareness">0%</span>
                         </div>
                         <div class="stat-item">
-                            Livestock Acceptance: <span class="stat-value" id="objectPerception">0%</span>
+                            Beast Acceptance: <span class="stat-value" id="objectPerception">0%</span>
                         </div>
                     </div>
                 </div>
@@ -639,42 +639,42 @@
                 <div class="memory-fragments">
                     <!-- #1: PURE RESISTANCE (0-25%) -->
                     <div class="memory-fragment" data-stage="0">
-                        <div class="memory-trigger" onclick="toggleMemory(0)">#1: COLLARED PANIC</div>
+                        <div class="memory-trigger" onclick="toggleMemory(0)">#1: DONKEY CURSE</div>
                         <div class="memory-content">
-                            <span class="scream">GET IT OFF!</span> Cold metal locked around my throat—pulling, yanking me down to all fours. My spine cracks, reshaping. Fingers stiffen into hooves. <span class="scream">I'M NOT AN ANIMAL!</span> But the collar hums and my thoughts slow like thick mud.
+                            <span class="scream">NOT AGAIN!</span> Teeth changing shape. Ears stretching long. Spine twisting. <span class="scream">I'M NOT STUPID!</span> But the magic wraps around me, pulling, changing. Long tail sprouts. Hooves click on stone. Four legs. Always four legs. Brain getting... foggy.
                         </div>
                     </div>
 
                     <!-- #2: DESPERATE FIGHT (25-50%) -->
                     <div class="memory-fragment" data-stage="1">
-                        <div class="memory-trigger" onclick="toggleMemory(1)">#2: BODY BETRAYAL</div>
+                        <div class="memory-trigger" onclick="toggleMemory(1)">#2: STUBBORN INSTINCT</div>
                         <div class="memory-content">
-                            Tried to stand—legs buckled wrong. Four legs now. Udders swelling beneath me, heavy and aching. <span class="scream">NO! I'M HUMAN!</span> But the collar sends warm pulses through my skull. Farmer's voice sounds... comforting? <span class="farmer-speak">"Easy, girl... good heifer..."</span> Wait—why does that feel right?
+                            Standing upright? Can't. Won't. Hooves feel natural now. Thoughts come slow. Each one takes forever. <span class="scream">NO! I WAS SMART!</span> But Nami laughs. <span class="nami-speak">"As dumb as a donkey, just like I said."</span> Stubbornness rises. Wanting to resist. But too tired to think why.
                         </div>
                     </div>
 
                     <!-- #3: CONFUSED SUBMISSION (50-75%) -->
                     <div class="memory-fragment" data-stage="2">
-                        <div class="memory-trigger" onclick="toggleMemory(2)">#3: HEAT RISING</div>
+                        <div class="memory-trigger" onclick="toggleMemory(2)">#3: STUBBORN BEAST</div>
                         <div class="memory-content">
-                            My name... what was it? Doesn't matter. The trough smells good. Hay tastes better than I remember food tasting. Udders throb—need milking. <span class="happy-cow">Farmer's hands feel so good...</span> Hips sway instinctively when the bull approaches. Heat flooding my belly. Mind fogging over with thick, sweet need.
+                            Thinking hard = hurting head. Easier to just... stand. Eat hay. Do what Nami says. Kicking feels good. Braying feels right. <span class="happy-donkey">Simple. Empty. Good.</span> She leads, I follow. She commands, I obey. But stubbornly, slowly, like a donkey should. Mind like molasses now.
                         </div>
                     </div>
 
-                    <!-- #4: CATTLE IDENTITY (75-90%) -->
+                    <!-- #4: DONKEY IDENTITY (75-90%) -->
                     <div class="memory-fragment" data-stage="3">
-                        <div class="memory-trigger" onclick="toggleMemory(3)">#4: BREEDING BITCH</div>
+                        <div class="memory-trigger" onclick="toggleMemory(3)">#4: MINDLESS STUBBORN</div>
                         <div class="memory-content">
-                            Mooing comes naturally now. Tail flicks. Hooves stamp when he approaches. <span class="happy-cow">Need breeding. Need mounting. Need to be filled.</span> The bull's weight crushes me—perfect. His cock stretches me—bliss. Farmer watches, satisfied. <span class="farmer-speak">"Best heifer in the herd."</span> Pride swells in my simple mind.
+                            <span class="happy-donkey">Hee-haw~ Hee-haw~</span> That's me now. Stubborn. Slow. Stupid. Perfect. Nami's best joke. <span class="nami-speak">"So perfectly dumb."</span> Braying at nothing. Kicking walls. Being difficult just because. It's my nature now. No other thoughts matter. Only stubborn. Always stubborn.
                         </div>
                     </div>
 
-                    <!-- #5: TOTAL CATTLE JOY (90%+) -->
+                    <!-- #5: TOTAL DONKEY JOY (90%+) -->
                     <div class="memory-fragment" data-stage="4">
-                        <div class="memory-trigger" onclick="toggleMemory(4)">#5: PERFECT LIVESTOCK</div>
+                        <div class="memory-trigger" onclick="toggleMemory(4)">#5: NAMI'S STUPID BEAST</div>
                         <div class="memory-content">
-                            <span class="final-cow">Moooo~ 💕 Good cow. Obedient cow. Bred cow. 💕</span><br>
-                            No human thoughts left. Just eat. Sleep. Graze. Get milked. Get mounted. Belly swelling with calf. Udders dripping. <span class="farmer-speak">"Prize-winning heifer."</span> Warmth. Safety. Purpose. <span class="happy-cow">This is heaven. This is home. Moo forever.</span>
+                            <span class="final-donkey">Hee-haw hee-haw~ 💕 Stubborn donkey. Stupid animal. Perfect pet. 💕</span><br>
+                            No human thoughts left. Brain smooth and empty. Ears flick. Tail swishes. When Nami commands, legs move—slow, stubborn, but they move. Being difficult is my gift. Being dumb is my purpose. <span class="nami-speak">"My adorably stupid donkey."</span> <span class="happy-donkey">Hee-haw~ 🫏💕</span>
                         </div>
                     </div>
                 </div>
@@ -686,15 +686,15 @@
         // STATE MANAGEMENT
         const state = JSON.parse(localStorage.getItem('farmState') || '{}');
         const endTime = state.trappedUntil;
-        let mindBreakLevel = parseInt(localStorage.getItem('cowMindBreak') || '0');
-        let desperationClicks = parseInt(localStorage.getItem('cowClicks') || '0');
+        let stupidityLevel = parseInt(localStorage.getItem('donkeyStupidity') || '0');
+        let resistanceClicks = parseInt(localStorage.getItem('donkeyClicks') || '0');
 
-        // MIND BREAK STAGES
-        const mindBreakStages = [
-            {title: "STILL RESISTING", color: "#D2691E", memory: 100, awareness: 0, obj: 0},
-            {title: "BODY SHIFTING", color: "#CD853F", memory: 60, awareness: 30, obj: 40},
-            {title: "CATTLE MIND", color: "#8B4513", memory: 20, awareness: 70, obj: 80},
-            {title: "BREEDING LIVESTOCK", color: "#654321", memory: 0, awareness: 100, obj: 100}
+        // STUPIDITY STAGES
+        const stupidityStages = [
+            {title: "STILL RESISTING", color: "#D2A679", memory: 100, stubborn: 0, beast: 0},
+            {title: "BODY SHIFTING", color: "#C19A6B", memory: 60, stubborn: 30, beast: 40},
+            {title: "EQUINE MIND", color: "#B8956F", memory: 20, stubborn: 70, beast: 80},
+            {title: "MINDLESS BEAST", color: "#A68060", memory: 0, stubborn: 100, beast: 100}
         ];
 
         function updateCountdownTimer() {
@@ -705,32 +705,32 @@
             document.getElementById('countdownTimer').textContent = `${h}:${m}:${s}`;
             
             if (timeLeft <= 0) {
-                localStorage.removeItem('cowMindBreak');
-                localStorage.removeItem('cowClicks');
+                localStorage.removeItem('donkeyStupidity');
+                localStorage.removeItem('donkeyClicks');
                 window.location.href = '../../index.html';
             }
         }
 
         // IMAGE SWAP
         function swapImage(stage) {
-            const images = document.querySelectorAll('.cow-image');
+            const images = document.querySelectorAll('.donkey-image');
             images.forEach((img, index) => {
                 img.classList.toggle('active', index === stage);
             });
         }
 
-        // COW STRUGGLE POPUP
-        function showCowStruggle(options) {
-            const popup = document.getElementById("cowStrugglePopup");
-            const imgBox = document.getElementById("cowFlashImage");
-            const textBox = document.getElementById("cowFlashText");
+        // DONKEY STRUGGLE POPUP
+        function showDonkeyStruggle(options) {
+            const popup = document.getElementById("donkeyStrugglePopup");
+            const imgBox = document.getElementById("donkeyFlashImage");
+            const textBox = document.getElementById("donkeyFlashText");
 
             if (!popup || !imgBox || !textBox) return;
 
             if (options.image) {
                 imgBox.style.backgroundImage = `url("${options.image}")`;
             } else {
-                imgBox.style.backgroundImage = "linear-gradient(135deg, #8B4513, #D2691E, #654321)";
+                imgBox.style.backgroundImage = "linear-gradient(135deg, #D2A679, #C19A6B, #B8956F)";
             }
 
             textBox.innerHTML = options.text;
@@ -755,32 +755,32 @@
             contents.forEach((content, index) => {
                 if (index !== id) {
                     content.classList.remove('active');
-                    triggers[index].style.background = 'linear-gradient(90deg, rgba(139, 69, 19, 0.2), rgba(144, 238, 144, 0.15))';
+                    triggers[index].style.background = 'linear-gradient(90deg, rgba(210, 166, 121, 0.2), rgba(144, 238, 144, 0.15))';
                 }
             });
             
             target.classList.toggle('active');
             triggers[id].style.background = target.classList.contains('active') ? 
-                'linear-gradient(90deg, #8B4513, #90EE90)' : 
-                'linear-gradient(90deg, rgba(139, 69, 19, 0.2), rgba(144, 238, 144, 0.15))';
+                'linear-gradient(90deg, #D2A679, #90EE90)' : 
+                'linear-gradient(90deg, rgba(210, 166, 121, 0.2), rgba(144, 238, 144, 0.15))';
             
             document.getElementById('statusText').textContent = 
-                `Memory #${id+1} accessed. Consciousness degrading... 🧠➡️🐄`;
+                `Memory #${id+1} accessed. Stupidity deepening... `;
         }
 
-        // MIND BREAK UPDATE
-        function updateMindBreak() {
-            const stage = mindBreakStages[Math.min(Math.floor(mindBreakLevel), 3)];
-            const percentage = Math.floor(Math.min(100, (mindBreakLevel) * 25));
+        // STUPIDITY UPDATE
+        function updateStupidity() {
+            const stage = stupidityStages[Math.min(Math.floor(stupidityLevel), 3)];
+            const percentage = Math.floor(Math.min(100, (stupidityLevel) * 25));
 
-            document.getElementById('mindBreakPercentage').textContent = percentage + '%';
-            document.getElementById('mindBreakFill').style.width = percentage + '%';
+            document.getElementById('stupidityPercentage').textContent = percentage + '%';
+            document.getElementById('stupidityFill').style.width = percentage + '%';
             
             document.getElementById('memoryLoss').textContent = stage.memory + '%';
-            document.getElementById('selfAwareness').textContent = stage.awareness + '%';
-            document.getElementById('objectPerception').textContent = stage.obj + '%';
+            document.getElementById('selfAwareness').textContent = stage.stubborn + '%';
+            document.getElementById('objectPerception').textContent = stage.beast + '%';
 
-            const activeImage = document.querySelector('.cow-image.active');
+            const activeImage = document.querySelector('.donkey-image.active');
             if (activeImage) {
                 const grayscale = Math.min(100, percentage / 2);
                 const brightness = 1 - (percentage / 200);
@@ -788,7 +788,7 @@
                 if (percentage > 70) activeImage.classList.add('mind-broken');
             }
 
-            localStorage.setItem('cowMindBreak', Math.floor(mindBreakLevel));
+            localStorage.setItem('donkeyStupidity', Math.floor(stupidityLevel));
 
             if (percentage >= 25) swapImage(1);
             if (percentage >= 50) swapImage(2);
@@ -798,98 +798,98 @@
 
         // ACTIONS
         function resist() {
-            closeCowDetails();
-            desperationClicks++;
-            document.getElementById('statusText').textContent = 'Collar shocks! Mind fuzzing... resistance failing... ⚡🐄';
+            closeDetails();
+            resistanceClicks++;
+            document.getElementById('statusText').textContent = 'Stubbornness burns! But it only makes you dumber... ⚡🫏';
             
-            const img = document.querySelector('.cow-image.active');
+            const img = document.querySelector('.donkey-image.active');
             img.style.transform = 'scale(1.1)';
             setTimeout(() => img.style.transform = '', 400);
             
-            mindBreakLevel += 0.08;
+            stupidityLevel += 0.08;
             showMindBreakPulse(2);
-            updateMindBreak();
-            localStorage.setItem('cowClicks', desperationClicks);
+            updateStupidity();
+            localStorage.setItem('donkeyClicks', resistanceClicks);
 
             if (Math.random() < 0.7) {
-                showCowStruggle({
+                showDonkeyStruggle({
                     image: null,
-                    text: "<span class='cow-scream'>Can't... think...</span> Collar hums louder. My fingers—hooves now—scrape dirt. Human words slip away. Only simple thoughts remain: <span class='happy-cow'>Food. Water. Master.</span>",
+                    text: "<span class='donkey-scream'>No... I won't...</span> But resistance itself is stupid. Brain getting slower. Hooves scraping ground. Stubbornness rising but... logic fading. Only basic thoughts: <span class='happy-donkey'>Food. Rest. Obey.</span>",
                     duration: 3800,
                 });
             }
         }
 
-        function moo() {
-            closeCowDetails();
-            desperationClicks += 2;
+        function bray() {
+            closeDetails();
+            resistanceClicks += 2;
             document.body.style.animation = 'shake 0.6s';
-            document.getElementById('statusText').textContent = '*MOOOOOO!* Voice gone! Only cattle sounds left! 🐄💨';
+            document.getElementById('statusText').textContent = '*HEEE-HAAWWW!* Mind screaming into emptiness! ';
             
-            mindBreakLevel += 0.1;
+            stupidityLevel += 0.1;
             showMindBreakPulse(4);
-            updateMindBreak();
+            updateStupidity();
             setTimeout(() => document.body.style.animation = '', 600);
 
             if (Math.random() < 0.7) {
-                showCowStruggle({
+                showDonkeyStruggle({
                     image: null,
-                    text: "The moo comes unbidden—deep, guttural, <span class='scream'>not mine!</span> But it feels... natural. Throat vibrates. Tongue thick. <span class='farmer-speak'>'Good girl,'</span> Farmer pats my flank. Warmth spreads. I want more pats.",
+                    text: "The bray rips out—loud, stupid, <span class='scream'>not my sound!</span> But it echoes in my empty skull. Feels... right. Teeth grinding. <span class='nami-speak'>'Such a stupid animal.'</span> Shame feels good. Being dumb feels right.",
                 });
             }
         }
 
-        function graze() {
-            closeCowDetails();
-            desperationClicks += 3;
-            createFloatingLeaves();
-            document.getElementById('statusText').textContent = '"Hay... so good... master feeds well..." 🌾🐄';
+        function kick() {
+            closeDetails();
+            resistanceClicks += 3;
+            createFloatingStraw();
+            document.getElementById('statusText').textContent = '"Kick things... who cares why..." ';
             
-            mindBreakLevel += 0.2;
+            stupidityLevel += 0.2;
             showMindBreakPulse(8);
-            updateMindBreak();
+            updateStupidity();
 
             if (Math.random() < 0.7) {
-                showCowStruggle({
+                showDonkeyStruggle({
                     image: null,
-                    text: "Mouth full of hay—<span class='happy-cow'>delicious.</span> Why did I ever eat human food? This is perfect. Simple. <span class='farmer-speak'>'Eat up, my prize heifer.'</span> Pride swells in my bovine chest. I am good livestock.",
+                    text: "Hooves fly at walls, at air, at nothing—<span class='happy-donkey'>just kicking because.</span> No reason. No logic. Stubborn stupidity. <span class='nami-speak'>'So perfectly dumb and difficult.'</span> Each kick makes me feel more... donkey. More beast. Less human.",
                 });
             }
         }
 
         function submit() {
-            closeCowDetails();
+            closeDetails();
             if (Math.random() < 0.2) {
-                document.getElementById('statusText').textContent = 'Farmer shows mercy! A moment of clarity... (Rare!) 🙏';
+                document.getElementById('statusText').textContent = 'Nami shows mercy! A moment of clarity... (So fleeting...) ';
             } else {
-                desperationClicks++;
-                mindBreakLevel += 0.3;
-                document.getElementById('statusText').textContent = 'HEAT FLOODING! Bull approaching! Body burns for breeding! 🔥🐂';
+                resistanceClicks++;
+                stupidityLevel += 0.3;
+                document.getElementById('statusText').textContent = 'STUBBORN SURRENDER! Stupidity feels so good now! ';
                 showMindBreakPulse(4);
-                updateMindBreak();
+                updateStupidity();
 
                 if (Math.random() < 0.7) {
-                    showCowStruggle({
+                    showDonkeyStruggle({
                         image: null,
-                        text: "<span class='cow-scream'>Need it!</span> Hips sway. Tail lifts. The bull's scent—<span class='happy-cow'>perfect.</span> His weight crushes me. Cock stretches me. Mind whites out in pure breeding bliss. <span class='final-cow'>This is my purpose. Moo forever.</span>",
+                        text: "<span class='donkey-scream'>Can't fight anymore...</span> Why would I? Being dumb is easier. Being stubborn is my gift. <span class='happy-donkey'>Yes yes yes!</span> Perfect surrender through perfect stupidity. <span class='final-donkey'>Her stupid donkey forever. Hee-haw~</span>",
                         duration: 4200,
                     });
                 }
             }
         }
 
-        function closeCowDetails() {
-            const details = document.querySelector('details[summary*="Mindless Livestock"]');
+        function closeDetails() {
+            const details = document.querySelector('details[summary*="Your Stupid Donkey"]');
             if (details && details.open) {
                 details.open = false;
             }
         }
 
         function showMindBreakPulse(intensity) {
-            const bar = document.getElementById('mindBreakFill');
-            const percent = document.getElementById('mindBreakPercentage');
+            const bar = document.getElementById('stupidityFill');
+            const percent = document.getElementById('stupidityPercentage');
             
-            const colors = ['#90EE90', '#FFD700', '#FF8C00', '#FF4500', '#8B4513'];
+            const colors = ['#90EE90', '#FFD700', '#FF8C00', '#FF4500', '#C19A6B'];
             const pulseColor = colors[Math.min(intensity-1, colors.length-1)];
             
             bar.style.boxShadow = `0 0 20px ${pulseColor}, inset 0 0 20px ${pulseColor}`;
@@ -898,8 +898,8 @@
             
             const oldPercent = parseInt(percent.textContent);
             setTimeout(() => {
-                const gain = Math.floor((mindBreakLevel / 10) * 25);
-                document.getElementById('statusText').textContent += ` [+${gain-oldPercent}%] 🧠💥`;
+                const gain = Math.floor((stupidityLevel / 10) * 25);
+                document.getElementById('statusText').textContent += ` [+${gain-oldPercent}%] `;
             }, 100);
             
             setTimeout(() => {
@@ -909,33 +909,33 @@
             }, 800);
         }
 
-        function createFloatingLeaves() {
+        function createFloatingStraw() {
             for (let i = 0; i < 12; i++) {
-                const leaf = document.createElement('div');
-                leaf.innerHTML = '🌾';
-                leaf.style.cssText = `
+                const straw = document.createElement('div');
+                straw.innerHTML = '🌾';
+                straw.style.cssText = `
                     position: fixed; left: ${Math.random()*90}vw; top: 50vh;
                     font-size: ${1.2+Math.random()*1}rem; pointer-events: none;
                     animation: floatUp 3s ease-out forwards; z-index: 9999;
                 `;
-                document.body.appendChild(leaf);
-                setTimeout(() => leaf.remove(), 3000);
+                document.body.appendChild(straw);
+                setTimeout(() => straw.remove(), 3000);
             }
         }
 
         function triggerGameOver() {
-            triggerMindBreakVictory();
+            triggerStupidityVictory();
             
             setTimeout(() => {
                 document.body.innerHTML = `
-                <div style="position:fixed;inset:0;background:linear-gradient(45deg,#654321,#2d1810);display:flex;align-items:center;justify-content:center;flex-direction:column;font-family:'Orbitron',sans-serif;color:#D2691E;text-align:center;z-index:99999;padding:20px;">
-                    <h1 style="font-size:5rem;text-shadow:0 0 40px #8B4513;margin:0;animation:glitch 0.3s infinite;">🐄 TRANSFORMATION COMPLETE 🐄</h1>
-                    <div style="font-size:2.5rem;margin:20px;font-weight:700;">PERFECT BREEDING HEIFER ACHIEVED</div>
+                <div style="position:fixed;inset:0;background:linear-gradient(45deg,#C19A6B,#2d1a0a);display:flex;align-items:center;justify-content:center;flex-direction:column;font-family:'Orbitron',sans-serif;color:#D2A679;text-align:center;z-index:99999;padding:20px;">
+                    <h1 style="font-size:5rem;text-shadow:0 0 40px #C19A6B;margin:0;animation:glitch 0.3s infinite;"> TRANSFORMATION COMPLETE </h1>
+                    <div style="font-size:2.5rem;margin:20px;font-weight:700;">NAMI'S PERFECT STUBBORN DONKEY ACHIEVED</div>
                     <div style="font-size:1.4rem;max-width:700px;line-height:1.6;margin:30px;">
-                        You are now the farm's prize cattle. No thoughts. No memories. Just grazing, breeding, and obedience...
+                        You are now Nami's favorite stupid beast. Stubborn, slow, empty-headed. Perfect donkey. Perfect punishment...
                     </div>
-                    <img src="https://i.ibb.co/mCwcyfX4/mecow1.png" style="width:350px;margin:30px;border-radius:25px;box-shadow:0 0 60px #8B4513;">
-                    <div id="gameOverTimer" style="font-size:3.5rem;font-weight:700;color:#90EE90;text-shadow:0 0 30px #32CD32;">Returning to pasture in: 00:30</div>
+                    <img src="https://i.ibb.co/mVTMRz7h/d7.png" style="width:350px;margin:30px;border-radius:25px;box-shadow:0 0 60px #D2A679;">
+                    <div id="gameOverTimer" style="font-size:3.5rem;font-weight:700;color:#90EE90;text-shadow:0 0 30px #32CD32;">Staying as beast in: 00:30</div>
                 </div>
                 `;
                 
@@ -943,19 +943,19 @@
                 const timer = setInterval(() => {
                     const minutes = Math.floor(countdown / 60).toString().padStart(2, '0');
                     const seconds = (countdown % 60).toString().padStart(2, '0');
-                    document.getElementById('gameOverTimer').textContent = `Returning to pasture in: ${minutes}:${seconds}`;
+                    document.getElementById('gameOverTimer').textContent = `Staying as beast in: ${minutes}:${seconds}`;
                     countdown--;
                     if (countdown < 0) {
                         clearInterval(timer);
-                        localStorage.removeItem('cowMindBreak');
-                        localStorage.removeItem('cowClicks');
+                        localStorage.removeItem('donkeyStupidity');
+                        localStorage.removeItem('donkeyClicks');
                         location.reload();
                     }
                 }, 1000);
             }, 20500);
         }
 
-        function triggerMindBreakVictory() {
+        function triggerStupidityVictory() {
             const state = JSON.parse(localStorage.getItem('farmState') || '{}');
             state.trappedUntil += 24 * 60 * 60 * 1000;
             localStorage.setItem('farmState', JSON.stringify(state));
@@ -963,15 +963,15 @@
             const overlay = document.createElement('div');
             overlay.id = 'victoryOverlay';
             overlay.style.cssText = `
-                position:fixed;inset:0;z-index:100000;background:rgba(101,67,33,0.95);
+                position:fixed;inset:0;z-index:100000;background:rgba(193,154,107,0.95);
                 display:flex;align-items:center;justify-content:center;text-align:center;
                 font-family:'Orbitron',sans-serif;pointer-events:none;overflow:hidden;
             `;
             
             overlay.innerHTML = `
                 <div id="victoryTimerDisplay" style="
-                    font-size:8rem;font-weight:900;color:#D2691E;
-                    text-shadow:0 0 80px #8B4513,0 0 160px #D2691E;
+                    font-size:8rem;font-weight:900;color:#D2A679;
+                    text-shadow:0 0 80px #C19A6B,0 0 160px #D2A679;
                     letter-spacing:16px;margin:0;animation:timerExplode 20s linear infinite;
                     position:relative;z-index:10;pointer-events:none;
                 ">+24:00:00</div>
@@ -982,16 +982,16 @@
             
             let flashCount = 0;
             const bulkyMessages = [
-                "COLLAR LOCKED PERMANENTLY 🔒🐄",
-                "HUMAN MIND ERASED FOREVER 🧠💥",
-                "BREEDING HEIFER PROTOCOL ACTIVE 🐂💦",
-                "+24 HOURS CATTLE LIFE EXTENSION ⏳😈",
-                "UDDERS SWOLLEN WITH MILK 🥛🔥",
-                "HEAT CYCLE PERPETUAL 🌡️💕",
-                "FARMER'S PRIZE LIVESTOCK 🏆🐄",
-                "MOUNTING DESIRE OVERWHELMING 🐂🍑",
-                "HERD INTEGRATION COMPLETE 🌾👑",
-                "PERFECT BREEDING BITCH UPGRADE 🎀🐄"
+                "MIND COMPLETELY BLANK",
+                "STUPIDITY ABSOLUTE",
+                "STUBBORN NATURE ACTIVATED",
+                "+24 HOURS DONKEY EXISTENCE",
+                "REASONING ERASED FOREVER",
+                "BEAST TRAINING COMPLETE",
+                "NAMI'S PERFECT IDIOT",
+                "BRAYING REPLACES THOUGHT",
+                "KICKING IS YOUR LANGUAGE",
+                "PERFECT STUPID BEAST UPGRADED"
             ];
             
             const flashInterval = setInterval(() => {
@@ -1001,8 +1001,8 @@
                 flash.innerHTML = bulkyMessages[flashCount];
                 flash.style.cssText = `
                     position:absolute;font-size:2.2rem;font-weight:900;color:#f5deb3;
-                    text-shadow:0 0 15px #8B4513;background:linear-gradient(135deg,#2d1810,#1a0f0a);
-                    border:3px solid #8B4513;box-shadow:0 0 40px rgba(139,69,19,0.9);
+                    text-shadow:0 0 15px #C19A6B;background:linear-gradient(135deg,#3d2415,#2d1a0a);
+                    border:3px solid #D2A679;box-shadow:0 0 40px rgba(210,166,121,0.9);
                     border-radius:20px;padding:20px 30px;left:${Math.random()*60+20}%;
                     top:${Math.random()*50+15}%;animation:bulkyFlash 3s ease-out forwards;
                     z-index:5;pointer-events:none;font-family:'Orbitron',sans-serif;
@@ -1028,15 +1028,15 @@
         // INIT
         setInterval(updateCountdownTimer, 1000);
         updateCountdownTimer();
-        updateMindBreak();
+        updateStupidity();
 
         setInterval(() => {
             if (Math.random() < 0.15) {
                 const statuses = [
-                    'Collar hums... thoughts simplifying... 🐄',
-                    'Udders aching... need milking... 🥛',
-                    'Bull scent detected! Heat rising! 🔥🐂',
-                    `Mind degrading... ${Math.floor(mindBreakLevel * 25)}% cattle... 🌀`
+                    'Brain getting empty... stupidity rising...',
+                    'Ears twitching... thoughts fading... ',
+                    'Stubborn urges overwhelming! 🔥',
+                    `Intelligence lost... ${Math.floor(stupidityLevel * 25)}% donkey... `
                 ];
                 document.getElementById('statusText').textContent = statuses[Math.floor(Math.random() * statuses.length)];
             }

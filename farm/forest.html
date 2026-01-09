@@ -146,10 +146,6 @@
             <button id="wanderButton" class="forest-wander-button">
                 Wander through the forest
             </button>
-
-            <p class="forest-info-text" id="wanderInfo">
-                Each path reveals one encounter. Choices matter. Fail, and you're trapped as that fate until time releases you.
-            </p>
         </div>
     </div>
 </section>
@@ -184,12 +180,11 @@
         if (state.trappedUntil && state.trappedUntil > Date.now()) {
             // IMMEDIATELY redirect to transformation page
             const formMap = {
-                'foxfire_panties': 'States/forest-panties.html',
-                'foxfire_collar': 'States/forest-collar.html',
-                'grove_doll': 'States/forest-artifact.html',
-                'grove_fleshlight': 'States/forest-artifact.html',
-                'hog_cow': 'States/forest-cow.html',
-                'hog_pig': 'States/forest-pig.html'
+                'foxfire_panties': 'States/forest-panties.html', //yes
+                'witch_horse': 'States/forest-horse.html',      //yes
+                'druid_rabbit': 'States/forest-rabbit.html',
+                'cow': 'States/forest-cow.html',            //yes
+                'fairy_donkey': 'States/forest-donkey.html'     //yes
             };
             const transformPage = formMap[state.currentForm] || 'generic-trapped.html';
             window.location.href = transformPage;
@@ -208,8 +203,7 @@
                     image: "https://i.ibb.co/Nn6DLLgj/kitsune1.webp",
                     choices: [
                         { label: "Seduce her", next: "seduce" },
-                        { label: "Dash away", next: "escape" },
-                        { label: "Play coy", next: "coy" }
+                        { label: "Dash away", next: "escape" }
                     ]
                 },
                 seduce: {
@@ -219,19 +213,10 @@
                         { label: "Return her kiss", nextEnding: "panties" },
                         { label: "Pull back and run", nextEnding: "escape" }
                     ]
-                },
-                coy: {
-                    body: `You feign indifference. She narrows her eyes, amused, and flicks a tail. The air thickens around you.`,
-                    image: "https://https://i.ibb.co/Nn6DLLgj/kitsune1.webp",
-                    choices: [
-                        { label: "Laugh it off and leave", nextEnding: "escape" },
-                        { label: "Bow to her and tease", nextEnding: "collar" }
-                    ]
                 }
             },
             endings: {
-                panties: { title: "Melted into Panties", acceptLabel: "Become Her Velvet Panties", body: `A warm ripple overtakes you; your flesh relaxes and flattens until you're a soft panel of silk and lace. You sense everything, muffled and intimate... a permanent, intimate garment for her nights.`, image: "https://i.ibb.co/VY43P2Tz/bfd54da8-cf7a-41ca-864a-bb48876decf1.png", trapForm: "foxfire_panties", trapRedirect: "States/forest-panties.html" },
-                collar: { title: "Living Collar", acceptLabel: "Submit To Her Collar", body: `She fastens a living collar around your throat. It hums with her heartbeat and tightens with every possessive thought. You exist to please her will.`, image: "https://i.ibb.co/pvSLKBbP/victem2-1.png", trapForm: "foxfire_collar", trapRedirect: "States/forest-collar.html" },
+                panties: { title: "Melted into Panties", acceptLabel: "Become Her Velvet Panties", body: `A warm ripple overtakes you; your flesh relaxes and flattens until you're a soft panel of silk and lace. You sense everything, muffled and intimate... a permanent, intimate garment for her nights.`, image: "https://i.ibb.co/j95jx3db/celina-panty-spell.jpg", trapForm: "foxfire_panties", trapRedirect: "States/forest-panties.html" },
                 escape: { title: "Narrow Escape", acceptLabel: "Return To The Trail", body: `https://i.ibb.co/GvBgtFRy/3de2ec55-6230-4128-871d-bcc0484c63ba.png`, trapForm: null }
             }
         },
@@ -259,7 +244,7 @@
             },
             endings: {
                 cow: { title: "Sealed To The Herd", acceptLabel: "Accept Becoming A Cow", body: `The collar hums and completes the shift. Your body and thoughts settle into the broad, patient form of a cow. Warm, slow days by the trough stretch ahead.`, image: "https://i.ibb.co/sd6xgTPH/mecow.png", trapForm: "cow", trapRedirect: "States/forest-cow.html" },
-                escape: { title: "Startled Retreat", acceptLabel: "Step Back To The Path", body: `You step away from the pen, unsettled but safe, and the laughs fade behind the trees as you return to the familiar trail.`, image: "https://via.placeholder.com/640x360/88FFAA/000?text=Escape", trapForm: null }
+                escape: { title: "Startled Retreat", acceptLabel: "Step Back To The Path", body: `You step away from the pen, unsettled but safe, and the laughs fade behind the trees as you return to the familiar trail.`, image: "https://i.ibb.co/jZqFs8bf/d1deb62a-94c9-4ac8-8524-349a7e29d58b.png", trapForm: null }
             }
         },
         {
@@ -337,8 +322,7 @@
                     body: `You stumble back but roots coil around your ankles. The witch kneels, whispering into your ear: "Don't worry, sweet thing. You will *love* carrying me. Horses are so much simpler than people..."`,
                     image: "https://i.ibb.co/rRNKyHM4/659eadbe-ca0b-4988-8d6c-e7ae528f347c.png",
                     choices: [
-                        { label: "Beg them to stop", nextEnding: "horse" },
-                        { label: "Bite her hand", nextEnding: "escape" }
+                        { label: "Beg them to stop", nextEnding: "horse" }
                     ]
                 }
             },
@@ -355,7 +339,7 @@
                     title: "Narrow Escape",
                     acceptLabel: "Flee Into The Underbrush",
                     body: `You wrench free and bolt into the thorns. The witchs laughter echoes behind you, but they dont follow. Your heart hammers as you collapse on safe ground, still human...barely.`,
-                    image: "https://i.ibb.co/placeholder-escape.png",
+                    image: "https://i.ibb.co/23wcKhVq/aed58760-33ee-48a7-8617-518df1ebf67f.png",
                     trapForm: null
                 }
             }
@@ -364,11 +348,11 @@
             id: "druid_rabbit",
             title: "Druid's Fertile Pet",
             tag: "Breeding Stock • Infantilization",
-            image: "https://i.ibb.co/placeholder-druid.png",
+            image: "https://i.ibb.co/KcRNFncN/8e478510-c2f8-4cab-80fc-6b664548200e.png",
             stages: {
                 start: {
                     body: `An ancient druid kneels in a flower-filled grove, stroking a white rabbit. She looks up at you with gentle, tired eyes. "My dear Snowdrop passed last moon. I've been so lonely..." She extends a hand. "Would you stay? Just for a little while?"`,
-                    image: "https://i.ibb.co/placeholder-druid-grove.png",
+                    image: "https://i.ibb.co/KcRNFncN/8e478510-c2f8-4cab-80fc-6b664548200e.png",
                     choices: [
                         { label: "Politely decline and leave", nextEnding: "escape" },
                         { label: "Sit with her for a moment", next: "comfort" }
@@ -376,9 +360,8 @@
                 },
                 comfort: {
                     body: `She smiles and pats your head. Her touch is warm, *too* warm. Your ears tingle. "You're so kind... just like Snowdrop. So soft. So... *small*." Your limbs feel heavy. She's still petting you. Why does it feel so *good*?`,
-                    image: "https://i.ibb.co/placeholder-druid-pet.png",
+                    image: "https://i.ibb.co/XZ1CN8pz/OIP-1.webp",
                     choices: [
-                        { label: "Pull away before it's too late", nextEnding: "escape" },
                         { label: "Lean into her touch", nextEnding: "rabbit" }
                     ]
                 }
@@ -388,7 +371,7 @@
                     title: "Garden Breeding Bunny",
                     acceptLabel: "Become Her Pet",
                     body: `Your body compresses, limbs shrinking into soft paws. White fur blooms across shrinking skin. Your nose twitches—whiskers sprouting. The druid lifts you gently into her lap, now a small, trembling rabbit. "There we go... my new Snowdrop." She strokes your ears and you *melt*, mind simplifying into pure comfort and *need*. She carries you to a hutch where a virile buck waits. "Now, little one... it's time to fill my garden with babies~" He mounts you immediately, and all you can do is squirm and squeak as instinct drowns thought, breeding and being bred endlessly in her enchanted garden.`,
-                    image: "https://i.ibb.co/placeholder-rabbit-tf.png",
+                    image: "https://i.ibb.co/zWCzBvcz/remove-comments.jpg",
                     trapForm: "druid_rabbit",
                     trapRedirect: "States/forest-rabbit.html"
                 },
@@ -396,7 +379,7 @@
                     title: "Gentle Farewell",
                     acceptLabel: "Leave The Grove",
                     body: `You pull back, apologizing. She smiles sadly but doesn't stop you. As you leave, you swear you hear phantom *thump-thump-thumping* in your chest—the echo of a rabbit's frantic heartbeat.`,
-                    image: "https://i.ibb.co/placeholder-druid-farewell.png",
+                    image: "https://i.ibb.co/dw0NQBSh/f9f24d50-4aaf-4814-af21-e4bff2cbcffc.png",
                     trapForm: null
                 }
             }
@@ -423,7 +406,6 @@
     const encounterBody = document.getElementById('forestEncounterBody');
     const encounterChoices = document.getElementById('forestEncounterChoices');
     const encounterImage = document.getElementById('forestEncounterImage');
-    const wanderInfo = document.getElementById('wanderInfo');
 
     // === MAIN LOOP ===
     function saveState() {
@@ -597,9 +579,6 @@ function checkTrappedState() {
     // === INIT ===
     window.addEventListener('load', () => {
         checkTrappedState();
-        wanderInfo.textContent = gameState.remainingEncounters.length === 3 
-            ? "Fresh paths await. All encounters available." 
-            : `${gameState.remainingEncounters.length}/3 paths remaining this cycle.`;
         saveState();
     });
 </script>

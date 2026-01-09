@@ -171,7 +171,7 @@
                         <div class="hex-decoration hex-bottom-left"></div>
                     </div>
                     <div class="choice-buttons">
-                        <button class="sequence-next" data-next="stage-5">Whimper and accept...</button>
+                        <button class="sequence-next" data-next="stage-5" onclick="setDogTransformation()">Whimper and accept...</button>
                     </div>
                 </div>
 
@@ -200,7 +200,7 @@
                         <div class="hex-decoration hex-bottom-left"></div>
                     </div>
                     <div class="choice-buttons">
-                        <button class="reset-sequence">Accept your fate</button>
+                        <button class="reset-sequence" onclick="setDonkeyTransformation()">Accept your fate</button>
                     </div>
                 </div>
 
@@ -385,14 +385,43 @@
         if (state.trappedUntil && state.trappedUntil > Date.now()) {
             // IMMEDIATELY redirect to transformation page
             const formMap = {
-                'foxfire_mistress': 'States/forest-panties.html',
-                'living_grove': 'States/forest-artifact.html', 
-                'hungry_moss': 'States/forest-frog.html'
+                'foxfire_panties': 'States/forest-panties.html', //yes
+                'witch_horse': 'States/forest-horse.html',      //yes
+                'druid_rabbit': 'States/forest-rabbit.html',
+                'cow': 'States/forest-cow.html',            //yes
+                'fairy_donkey': 'States/forest-donkey.html',     //yes
+                'nami_dog': 'States/nami-dog.html',
+                'nami_donkey': 'States/nami-donkey.html'
             };
             const transformPage = formMap[state.currentForm] || 'generic-trapped.html';
             window.location.href = transformPage;
         }
     })();
+
+    // Transformation setters
+    function setDogTransformation() {
+        const duration = [15*60*1000, 2*60*60*1000, 8*60*60*1000, 3*24*60*60*1000][Math.floor(Math.random()*4)];
+        const state = JSON.parse(localStorage.getItem('farmState') || '{}');
+        state.trappedUntil = Date.now() + duration;
+        state.currentForm = 'nami_dog';
+        localStorage.setItem('farmState', JSON.stringify(state));
+        // Redirect will happen after a brief delay
+        setTimeout(() => {
+            window.location.href = 'States/nami-dog.html';
+        }, 800);
+    }
+
+    function setDonkeyTransformation() {
+        const duration = [15*60*1000, 2*60*60*1000, 8*60*60*1000, 3*24*60*60*1000][Math.floor(Math.random()*4)];
+        const state = JSON.parse(localStorage.getItem('farmState') || '{}');
+        state.trappedUntil = Date.now() + duration;
+        state.currentForm = 'nami_donkey';
+        localStorage.setItem('farmState', JSON.stringify(state));
+        // Redirect will happen after a brief delay
+        setTimeout(() => {
+            window.location.href = 'States/nami-donkey.html';
+        }, 800);
+    }
 
     document.addEventListener("DOMContentLoaded", () => {
     const namiModal = document.getElementById('namiModal');

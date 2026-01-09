@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trapped as Livestock - Collared Breeding Heifer</title>
+    <title>Trapped as Livestock - Coven's Riding Mare</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
     <!-- GLOBAL CHECKER -->
     <script>(function(){const s=JSON.parse(localStorage.getItem('farmState')||'{}');if(s.trappedUntil&&s.trappedUntil>Date.now()){}else{localStorage.removeItem('farmState');window.location.href='../../index.html';}})();</script>
@@ -11,7 +11,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body {
-            background: linear-gradient(135deg, #1a0f0a 0%, #2d1810 100%);
+            background: linear-gradient(135deg, #1a0f2a 0%, #2d1040 100%);
             color: #fff;
             font-family: 'Poppins', sans-serif;
             min-height: 100vh;
@@ -30,7 +30,7 @@
         @keyframes timerExplode {
             0%, 100% { 
                 font-size:8rem;transform:scale(1) rotate(0deg);
-                text-shadow:0 0 80px #8B4513,0 0 160px #D2691E;filter:brightness(1);
+                text-shadow:0 0 80px #8A2BE2,0 0 160px #9370DB;filter:brightness(1);
             }
             25% { font-size:10rem;transform:scale(1.4) rotate(5deg);filter:brightness(1.4); }
             50% { font-size:12rem;transform:scale(1.8) rotate(-8deg);filter:brightness(1.8); }
@@ -49,9 +49,9 @@
             font-family: 'Orbitron', monospace;
             font-size: 3.5rem;
             font-weight: 700;
-            color: #D2691E;
+            color: #8A2BE2;
             text-align: center;
-            text-shadow: 0 0 30px #8B4513, 0 0 60px #D2691E;
+            text-shadow: 0 0 30px #9370DB, 0 0 60px #8A2BE2;
             letter-spacing: 8px;
             margin-bottom: 10px;
         }
@@ -73,19 +73,19 @@
             gap: 20px;
         }
 
-        /* COW IMAGE */
-        .cow-image-container {
+        /* HORSE IMAGE */
+        .horse-image-container {
             position: relative;
             width: 100%;
             max-width: 600px;
             height: 480px;
             border-radius: 25px;
             overflow: hidden;
-            box-shadow: 0 20px 60px rgba(139, 69, 19, 0.4);
-            border: 2px solid rgba(210, 105, 30, 0.5);
+            box-shadow: 0 20px 60px rgba(138, 43, 226, 0.4);
+            border: 2px solid rgba(147, 112, 219, 0.5);
         }
 
-        .cow-image {
+        .horse-image {
             position: absolute;
             top: 0;
             left: 0;
@@ -96,7 +96,7 @@
             transition: opacity 0.8s ease, filter 0.5s ease;
         }
 
-        .cow-image.active {
+        .horse-image.active {
             opacity: 1;
         }
 
@@ -118,36 +118,36 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 1.8rem;
             font-weight: 700;
-            background: linear-gradient(45deg, #8B4513, #D2691E, #CD853F);
+            background: linear-gradient(45deg, #8A2BE2, #9370DB, #DDA0DD);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-            text-shadow: 0 0 20px rgba(139, 69, 19, 0.5);
+            text-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
             margin-bottom: 8px;
             letter-spacing: 2px;
         }
 
         .category-badge {
-            background: linear-gradient(45deg, #8B4513, #CD853F);
+            background: linear-gradient(45deg, #8A2BE2, #DDA0DD);
             color: #fff;
             padding: 8px 20px;
             border-radius: 50px;
             font-family: 'Orbitron', sans-serif;
             font-size: 0.95rem;
             font-weight: 700;
-            box-shadow: 0 5px 20px rgba(139, 69, 19, 0.5);
+            box-shadow: 0 5px 20px rgba(138, 43, 226, 0.5);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
 
         /* MIND BREAK CONTAINER */
         .mind-break-container {
-            background: rgba(139, 69, 19, 0.12);
+            background: rgba(138, 43, 226, 0.12);
             backdrop-filter: blur(15px);
-            border: 2px solid rgba(210, 105, 30, 0.6);
+            border: 2px solid rgba(147, 112, 219, 0.6);
             border-radius: 20px;
             padding: 20px;
-            box-shadow: 0 15px 40px rgba(139, 69, 19, 0.3);
+            box-shadow: 0 15px 40px rgba(138, 43, 226, 0.3);
         }
 
         .mind-break-header {
@@ -160,7 +160,7 @@
         .mind-break-title {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.1rem;
-            color: #CD853F;
+            color: #DDA0DD;
             font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
@@ -170,7 +170,7 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 2.2rem;
             font-weight: 700;
-            background: linear-gradient(45deg, #90EE90, #32CD32);
+            background: linear-gradient(45deg, #9370DB, #8A2BE2);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -181,16 +181,16 @@
             background: rgba(0, 0, 0, 0.7);
             border-radius: 12px;
             overflow: hidden;
-            border: 1px solid rgba(210, 105, 30, 0.5);
+            border: 1px solid rgba(147, 112, 219, 0.5);
             position: relative;
         }
 
         .mind-break-fill {
             height: 100%;
-            background: linear-gradient(90deg, #8B4513, #D2691E, #A0522D, #654321);
+            background: linear-gradient(90deg, #8A2BE2, #9370DB, #DDA0DD, #EE82EE);
             transition: width 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             border-radius: 12px;
-            box-shadow: 0 0 20px rgba(139, 69, 19, 0.9);
+            box-shadow: 0 0 20px rgba(138, 43, 226, 0.9);
         }
 
         .mind-break-stages {
@@ -235,30 +235,30 @@
         }
 
         .resist-btn {
-            background: linear-gradient(45deg, #8B4513, #D2691E);
+            background: linear-gradient(45deg, #8A2BE2, #9370DB);
             color: #fff;
-            box-shadow: 0 8px 25px rgba(139, 69, 19, 0.6);
+            box-shadow: 0 8px 25px rgba(138, 43, 226, 0.6);
         }
 
-        .moo-btn {
-            background: linear-gradient(45deg, #90EE90, #32CD32);
+        .whinny-btn {
+            background: linear-gradient(45deg, #DDA0DD, #EE82EE);
             color: #000;
-            box-shadow: 0 8px 25px rgba(50, 205, 50, 0.6);
+            box-shadow: 0 8px 25px rgba(221, 160, 221, 0.6);
             font-weight: 800;
         }
 
-        .graze-btn {
+        .trot-btn {
             background: linear-gradient(45deg, #FFD700, #FFA500);
             color: #000;
             box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
             font-weight: 800;
         }
 
-        .submit-btn {
-            background: linear-gradient(45deg, #FF1493, #FF69B4, #DC143C);
+        .mount-btn {
+            background: linear-gradient(45deg, #FF1493, #8A2BE2, #4B0082);
             color: #fff;
             box-shadow: 0 8px 25px rgba(255, 20, 147, 0.6);
-            text-shadow: 0 0 8px rgba(220, 20, 60, 0.8);
+            text-shadow: 0 0 8px rgba(75, 0, 130, 0.8);
         }
 
         /* MIND BREAK PROGRESS PULSES */
@@ -279,27 +279,27 @@
             margin: 0 auto;
         }
 
-        .cow-status {
-            background: rgba(139, 69, 19, 0.15);
+        .horse-status {
+            background: rgba(138, 43, 226, 0.15);
             backdrop-filter: blur(20px);
-            border: 2px solid rgba(210, 105, 30, 0.7);
+            border: 2px solid rgba(147, 112, 219, 0.7);
             border-radius: 20px;
             padding: 30px;
             margin-bottom: 25px;
             text-align: center;
-            box-shadow: 0 20px 50px rgba(139, 69, 19, 0.25);
+            box-shadow: 0 20px 50px rgba(138, 43, 226, 0.25);
         }
 
-        .cow-status h3 {
+        .horse-status h3 {
             font-family: 'Orbitron', sans-serif;
             font-size: 1.6rem;
-            color: #D2691E;
+            color: #9370DB;
             margin-bottom: 15px;
             letter-spacing: 2px;
-            text-shadow: 0 0 15px #8B4513;
+            text-shadow: 0 0 15px #8A2BE2;
         }
 
-        .cow-status p {
+        .horse-status p {
             font-size: 1.1rem;
             line-height: 1.6;
             margin-bottom: 8px;
@@ -315,10 +315,10 @@
         }
 
         .stat-item {
-            background: rgba(144, 238, 144, 0.1);
+            background: rgba(147, 112, 219, 0.1);
             padding: 12px;
             border-radius: 12px;
-            border: 1px solid rgba(50, 205, 50, 0.4);
+            border: 1px solid rgba(138, 43, 226, 0.4);
             text-align: center;
         }
 
@@ -326,7 +326,7 @@
             font-family: 'Orbitron', sans-serif;
             font-size: 1.3rem;
             font-weight: 700;
-            color: #90EE90;
+            color: #9370DB;
         }
 
         /* MEMORY FRAGMENTS */
@@ -337,16 +337,16 @@
         }
 
         .memory-fragment {
-            background: rgba(20, 15, 10, 0.8);
-            border: 1px solid rgba(210, 105, 30, 0.4);
+            background: rgba(20, 10, 40, 0.8);
+            border: 1px solid rgba(147, 112, 219, 0.4);
             border-radius: 15px;
             overflow: hidden;
             transition: all 0.3s ease;
         }
 
         .memory-fragment:hover {
-            border-color: #D2691E;
-            box-shadow: 0 10px 30px rgba(210, 105, 30, 0.3);
+            border-color: #9370DB;
+            box-shadow: 0 10px 30px rgba(147, 112, 219, 0.3);
             transform: translateY(-2px);
         }
 
@@ -355,13 +355,13 @@
             cursor: pointer;
             font-weight: 600;
             font-size: 1.05rem;
-            background: linear-gradient(90deg, rgba(139, 69, 19, 0.2), rgba(144, 238, 144, 0.15));
+            background: linear-gradient(90deg, rgba(138, 43, 226, 0.2), rgba(147, 112, 219, 0.15));
             transition: all 0.3s ease;
             user-select: none;
         }
 
         .memory-trigger:hover {
-            background: linear-gradient(90deg, #8B4513, #90EE90);
+            background: linear-gradient(90deg, #8A2BE2, #9370DB);
             color: #000;
             font-weight: 700;
         }
@@ -369,7 +369,7 @@
         .memory-content {
             display: none;
             padding: 20px;
-            background: rgba(10, 10, 20, 0.95);
+            background: rgba(10, 5, 20, 0.95);
             font-style: italic;
             color: #ddd;
             line-height: 1.6;
@@ -387,24 +387,24 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* COW STRUGGLE POPUP */
-        .cow-flash {
+        /* HORSE STRUGGLE POPUP */
+        .horse-flash {
             position: fixed;
             inset: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 99999;
-            background: radial-gradient(circle at center, rgba(139,69,19,0.35), rgba(0,0,0,0.95));
+            background: radial-gradient(circle at center, rgba(138,43,226,0.35), rgba(0,0,0,0.95));
             animation: glitch 0.35s infinite;
         }
 
-        .cow-flash-inner {
+        .horse-flash-inner {
             max-width: 680px;
             width: 90%;
-            background: linear-gradient(135deg, #2d1810, #1a0f0a);
-            border: 2px solid #8B4513;
-            box-shadow: 0 0 40px rgba(139,69,19,0.9);
+            background: linear-gradient(135deg, #2d1040, #1a0a1f);
+            border: 2px solid #8A2BE2;
+            box-shadow: 0 0 40px rgba(138,43,226,0.9);
             border-radius: 18px;
             padding: 18px 22px;
             display: grid;
@@ -412,41 +412,41 @@
             gap: 18px;
         }
 
-        .cow-flash-image {
+        .horse-flash-image {
             background-size: cover;
             background-position: center;
             border-radius: 12px;
             min-height: 160px;
-            box-shadow: 0 0 25px rgba(210,105,30,0.8);
+            box-shadow: 0 0 25px rgba(147,112,219,0.8);
         }
 
-        .cow-flash-text {
+        .horse-flash-text {
             font-size: 1rem;
             line-height: 1.5;
-            color: #f5deb3;
+            color: #DDA0DD;
             font-weight: 600;
-            text-shadow: 0 0 8px rgba(139,69,19,0.9);
+            text-shadow: 0 0 8px rgba(138,43,226,0.9);
         }
 
-        .cow-flash-text span.cow-scream {
-            color: #D2691E;
+        .horse-flash-text span.horse-scream {
+            color: #FF1493;
             font-weight: 800;
         }
 
         @media (max-width: 650px) {
-            .cow-flash-inner {
+            .horse-flash-inner {
                 grid-template-columns: 1fr;
             }
-            .cow-flash-image {
+            .horse-flash-image {
                 min-height: 140px;
             }
         }
 
         /* PROGRESSIVE MEMORY PERSPECTIVES */
-        .farmer-speak {
-            color: #D2691E !important;
+        .witch-speak {
+            color: #9370DB !important;
             font-weight: 800;
-            text-shadow: 0 0 12px #8B4513;
+            text-shadow: 0 0 12px #8A2BE2;
             font-style: italic;
         }
 
@@ -458,13 +458,13 @@
             animation: screamShake 0.5s infinite;
         }
 
-        .happy-cow {
-            color: #90EE90 !important;
+        .happy-horse {
+            color: #DDA0DD !important;
             font-weight: 700;
-            text-shadow: 0 0 12px #32CD32;
+            text-shadow: 0 0 12px #9370DB;
         }
 
-        .final-cow {
+        .final-horse {
             color: #FFD700 !important;
             font-weight: 800;
             font-size: 1.15em;
@@ -481,10 +481,10 @@
         }
 
         /* STAGE VISUALS */
-        .memory-fragment[data-stage="0"] .memory-trigger { border-left: 4px solid #D2691E; }
-        .memory-fragment[data-stage="1"] .memory-trigger { border-left: 4px solid #CD853F; }
-        .memory-fragment[data-stage="2"] .memory-trigger { border-left: 4px solid #8B4513; }
-        .memory-fragment[data-stage="3"] .memory-trigger { border-left: 4px solid #90EE90; }
+        .memory-fragment[data-stage="0"] .memory-trigger { border-left: 4px solid #8A2BE2; }
+        .memory-fragment[data-stage="1"] .memory-trigger { border-left: 4px solid #9370DB; }
+        .memory-fragment[data-stage="2"] .memory-trigger { border-left: 4px solid #DDA0DD; }
+        .memory-fragment[data-stage="3"] .memory-trigger { border-left: 4px solid #FFA500; }
         .memory-fragment[data-stage="4"] .memory-trigger { border-left: 4px solid #FFD700; }
 
         /* MIND BREAK LOCKOUT */
@@ -494,13 +494,13 @@
         }
 
         .memory-fragment.locked .memory-trigger {
-            background: linear-gradient(90deg, rgba(139,69,19,0.3), rgba(101,67,33,0.3)) !important;
+            background: linear-gradient(90deg, rgba(138,43,226,0.3), rgba(75,0,130,0.3)) !important;
             color: #666 !important;
         }
 
         .memory-fragment.unlocked {
-            border-color: #90EE90 !important;
-            box-shadow: 0 0 20px rgba(144,238,144,0.4) !important;
+            border-color: #9370DB !important;
+            box-shadow: 0 0 20px rgba(147,112,219,0.4) !important;
         }
 
         /* ANIMATIONS */
@@ -534,7 +534,7 @@
                 font-size: 2.5rem;
             }
             
-            .cow-image-container {
+            .horse-image-container {
                 max-width: 320px;
                 height: 400px;
             }
@@ -548,35 +548,36 @@
 
         <!-- MAIN PANEL -->
         <div class="main-panel">
-            <!-- LEFT: COW IMAGE -->
+            <!-- LEFT: HORSE IMAGE -->
             <div class="left-panel">
-                <div class="cow-image-container">
-                    <img src="https://i.ibb.co/JRTsxH2D/cow-1.jpg" class="cow-image active" data-stage="0">
-                    <img src="https://i.ibb.co/h1fVLMWL/1747498538816211.png" class="cow-image" data-stage="1">
-                    <img src="https://i.ibb.co/sd6xgTPH/mecow.png" class="cow-image" data-stage="2">
-                    <img src="https://i.ibb.co/mrwfDdKY/cowtf.jpg" class="cow-image" data-stage="3">
+                <div class="horse-image-container">
+                    <!-- Placeholder images - replace with actual horse transformation images -->
+                    <img src="https://i.ibb.co/xSrBqdqy/Horse-2.jpg" class="horse-image active" data-stage="0">
+                    <img src="https://i.ibb.co/0yLp9QpW/horse-transformation-by-inksgirls-dd3rgsd-pre.jpg" class="horse-image" data-stage="1">
+                    <img src="https://i.ibb.co/yFvpgxCW/horse-13.jpg" class="horse-image" data-stage="2">
+                    <img src="https://i.ibb.co/FkspVXtJ/becoming-a-massive-horse-by-dastanprince-djbtwap-pre.jpg" class="horse-image" data-stage="3">
                 </div>
             </div>
 
-            <!-- COW STRUGGLE POPUP -->
-            <div id="cowStrugglePopup" class="cow-flash" style="display:none;">
-                <div class="cow-flash-inner">
-                    <div class="cow-flash-image" id="cowFlashImage"></div>
-                    <div class="cow-flash-text" id="cowFlashText"></div>
+            <!-- HORSE STRUGGLE POPUP -->
+            <div id="horseStrugglePopup" class="horse-flash" style="display:none;">
+                <div class="horse-flash-inner">
+                    <div class="horse-flash-image" id="horseFlashImage"></div>
+                    <div class="horse-flash-text" id="horseFlashText"></div>
                 </div>
             </div>
 
             <!-- RIGHT: UI PANEL -->
             <div class="right-panel">
                 <div class="item-header">
-                    <h1 class="item-title">Collared Breeding Heifer</h1>
-                    <div class="category-badge">Forest Collar Trap</div>
+                    <h1 class="item-title">Coven's Riding Mare</h1>
+                    <div class="category-badge">Witch Coven Trap</div>
                 </div>
 
                 <!-- MIND BREAK -->
                 <div class="mind-break-container">
                     <div class="mind-break-header">
-                        <div class="mind-break-title">BOVINE DEGRADATION</div>
+                        <div class="mind-break-title">EQUINE DEGRADATION</div>
                         <div class="mind-break-percentage" id="mindBreakPercentage">0%</div>
                     </div>
                     <div class="mind-break-bar">
@@ -585,17 +586,17 @@
                     <div class="mind-break-stages">
                         <span>HUMAN</span>
                         <span>SHIFTING</span>
-                        <span>CATTLE</span>
-                        <span>BREEDING STOCK</span>
+                        <span>MARE</span>
+                        <span>MOUNT</span>
                     </div>
                 </div>
 
                 <!-- ACTION BUTTONS -->
                 <div class="action-buttons">
-                    <button class="action-btn resist-btn" onclick="resist()">RESIST COLLAR</button>
-                    <button class="action-btn moo-btn" onclick="moo()">MOO HELPLESSLY</button>
-                    <button class="action-btn graze-btn" onclick="graze()">GRAZE OBEDIENTLY</button>
-                    <button class="action-btn submit-btn" onclick="submit()">SUBMIT TO HEAT</button>
+                    <button class="action-btn resist-btn" onclick="resist()">RESIST SPELL</button>
+                    <button class="action-btn whinny-btn" onclick="whinny()">WHINNY HELPLESSLY</button>
+                    <button class="action-btn trot-btn" onclick="trot()">TROT OBEDIENTLY</button>
+                    <button class="action-btn mount-btn" onclick="mount()">PRESENT FOR RIDING</button>
                 </div>
             </div>
         </div>
@@ -608,30 +609,30 @@
                     font-family: 'Orbitron', sans-serif;
                     font-size: 1.8rem;
                     font-weight: 700;
-                    color: #D2691E;
+                    color: #9370DB;
                     padding: 20px;
                     list-style: none;
-                    background: rgba(139, 69, 19, 0.15);
+                    background: rgba(138, 43, 226, 0.15);
                     border-radius: 20px;
-                    border: 2px solid rgba(210, 105, 30, 0.6);
+                    border: 2px solid rgba(147, 112, 219, 0.6);
                     text-align: center;
-                    text-shadow: 0 0 15px #8B4513;
+                    text-shadow: 0 0 15px #8A2BE2;
                     margin-bottom: 10px;
-                ">Your Mindless Livestock Existence</summary>
+                ">Your Obedient Mount Existence</summary>
 
-                <div class="cow-status">
-                    <p>The collar hums against your throat. Hooves replace hands. Udders swell heavy beneath you. Every breath tastes of hay and submission...</p>
-                    <p id="statusText">Collar tightening... thoughts simplifying... 🐄</p>
+                <div class="horse-status">
+                    <p>The witch's spell burns through your spine. Hands harden into hooves. A tail sprouts from your growing rump. The bridle feels natural on your face...</p>
+                    <p id="statusText">Spell tightening... posture shifting... </p>
                     
                     <div class="degradation-stats" id="degradationStats">
                         <div class="stat-item">
                             Human Memory: <span class="stat-value" id="memoryLoss">100%</span>
                         </div>
                         <div class="stat-item">
-                            Breeding Urge: <span class="stat-value" id="selfAwareness">0%</span>
+                            Obedience Urge: <span class="stat-value" id="selfAwareness">0%</span>
                         </div>
                         <div class="stat-item">
-                            Livestock Acceptance: <span class="stat-value" id="objectPerception">0%</span>
+                            Mount Acceptance: <span class="stat-value" id="objectPerception">0%</span>
                         </div>
                     </div>
                 </div>
@@ -639,9 +640,9 @@
                 <div class="memory-fragments">
                     <!-- #1: PURE RESISTANCE (0-25%) -->
                     <div class="memory-fragment" data-stage="0">
-                        <div class="memory-trigger" onclick="toggleMemory(0)">#1: COLLARED PANIC</div>
+                        <div class="memory-trigger" onclick="toggleMemory(0)">#1: WITCH'S SPELL</div>
                         <div class="memory-content">
-                            <span class="scream">GET IT OFF!</span> Cold metal locked around my throat—pulling, yanking me down to all fours. My spine cracks, reshaping. Fingers stiffen into hooves. <span class="scream">I'M NOT AN ANIMAL!</span> But the collar hums and my thoughts slow like thick mud.
+                            <span class="scream">NO! GET AWAY!</span> The witch's fingers trace sigils on my skin—heat floods my limbs. My spine cracks, lengthens. <span class="scream">I'M NOT A HORSE!</span> But she just smiles, whispering ancient words. <span class="witch-speak">"Shh~ You'll make such a beautiful mare for us~"</span> My hands ache—fingers fusing into hooves.
                         </div>
                     </div>
 
@@ -649,32 +650,32 @@
                     <div class="memory-fragment" data-stage="1">
                         <div class="memory-trigger" onclick="toggleMemory(1)">#2: BODY BETRAYAL</div>
                         <div class="memory-content">
-                            Tried to stand—legs buckled wrong. Four legs now. Udders swelling beneath me, heavy and aching. <span class="scream">NO! I'M HUMAN!</span> But the collar sends warm pulses through my skull. Farmer's voice sounds... comforting? <span class="farmer-speak">"Easy, girl... good heifer..."</span> Wait—why does that feel right?
+                            Tried to run—legs buckled wrong. Four legs now. A tail sprouts from my growing rump. <span class="scream">I CAN'T STAND!</span> The witch clicks her tongue. <span class="witch-speak">"Easy, girl. You'll learn."</span> A bridle appears in her hands—cold leather against my muzzle. Why does it feel... right? My hips sway instinctively.
                         </div>
                     </div>
 
                     <!-- #3: CONFUSED SUBMISSION (50-75%) -->
                     <div class="memory-fragment" data-stage="2">
-                        <div class="memory-trigger" onclick="toggleMemory(2)">#3: HEAT RISING</div>
+                        <div class="memory-trigger" onclick="toggleMemory(2)">#3: RIDING DESIRE</div>
                         <div class="memory-content">
-                            My name... what was it? Doesn't matter. The trough smells good. Hay tastes better than I remember food tasting. Udders throb—need milking. <span class="happy-cow">Farmer's hands feel so good...</span> Hips sway instinctively when the bull approaches. Heat flooding my belly. Mind fogging over with thick, sweet need.
+                            My name... what was it? Doesn't matter. The saddle smells of leather and magic. <span class="happy-horse">Witch's weight feels good...</span> Hips move naturally when she mounts. The reins guide me—I obey without thought. <span class="witch-speak">"Good mare. So obedient."</span> Warmth spreads through my simple mind. Want to please. Want to carry.
                         </div>
                     </div>
 
-                    <!-- #4: CATTLE IDENTITY (75-90%) -->
+                    <!-- #4: MARE IDENTITY (75-90%) -->
                     <div class="memory-fragment" data-stage="3">
-                        <div class="memory-trigger" onclick="toggleMemory(3)">#4: BREEDING BITCH</div>
+                        <div class="memory-trigger" onclick="toggleMemory(3)">#4: COVEN'S MOUNT</div>
                         <div class="memory-content">
-                            Mooing comes naturally now. Tail flicks. Hooves stamp when he approaches. <span class="happy-cow">Need breeding. Need mounting. Need to be filled.</span> The bull's weight crushes me—perfect. His cock stretches me—bliss. Farmer watches, satisfied. <span class="farmer-speak">"Best heifer in the herd."</span> Pride swells in my simple mind.
+                            Whinnying comes naturally now. Hooves stamp when they approach. <span class="happy-horse">Need to be ridden. Need to carry.</span> The witch's thighs squeeze my sides—perfect. Her weight settles—bliss. The other witches pet my neck, admiring. <span class="witch-speak">"Our finest mare."</span> Pride swells in my simple mind.
                         </div>
                     </div>
 
-                    <!-- #5: TOTAL CATTLE JOY (90%+) -->
+                    <!-- #5: TOTAL MARE JOY (90%+) -->
                     <div class="memory-fragment" data-stage="4">
-                        <div class="memory-trigger" onclick="toggleMemory(4)">#5: PERFECT LIVESTOCK</div>
+                        <div class="memory-trigger" onclick="toggleMemory(4)">#5: PERFECT MOUNT</div>
                         <div class="memory-content">
-                            <span class="final-cow">Moooo~ 💕 Good cow. Obedient cow. Bred cow. 💕</span><br>
-                            No human thoughts left. Just eat. Sleep. Graze. Get milked. Get mounted. Belly swelling with calf. Udders dripping. <span class="farmer-speak">"Prize-winning heifer."</span> Warmth. Safety. Purpose. <span class="happy-cow">This is heaven. This is home. Moo forever.</span>
+                            <span class="final-horse">Neighhh~ 💕 Good mare. Obedient mare. Ridden mare. 💕</span><br>
+                            No human thoughts left. Just trot. Canter. Carry. Feel their weight. Get brushed. <span class="witch-speak">"Prize-winning mount."</span> Warmth. Safety. Purpose. <span class="happy-horse">This is heaven. This is home. Neigh forever.</span>
                         </div>
                     </div>
                 </div>
@@ -686,15 +687,15 @@
         // STATE MANAGEMENT
         const state = JSON.parse(localStorage.getItem('farmState') || '{}');
         const endTime = state.trappedUntil;
-        let mindBreakLevel = parseInt(localStorage.getItem('cowMindBreak') || '0');
-        let desperationClicks = parseInt(localStorage.getItem('cowClicks') || '0');
+        let mindBreakLevel = parseInt(localStorage.getItem('horseMindBreak') || '0');
+        let desperationClicks = parseInt(localStorage.getItem('horseClicks') || '0');
 
         // MIND BREAK STAGES
         const mindBreakStages = [
-            {title: "STILL RESISTING", color: "#D2691E", memory: 100, awareness: 0, obj: 0},
-            {title: "BODY SHIFTING", color: "#CD853F", memory: 60, awareness: 30, obj: 40},
-            {title: "CATTLE MIND", color: "#8B4513", memory: 20, awareness: 70, obj: 80},
-            {title: "BREEDING LIVESTOCK", color: "#654321", memory: 0, awareness: 100, obj: 100}
+            {title: "STILL RESISTING", color: "#8A2BE2", memory: 100, awareness: 0, obj: 0},
+            {title: "BODY SHIFTING", color: "#9370DB", memory: 60, awareness: 30, obj: 40},
+            {title: "EQUINE MIND", color: "#DDA0DD", memory: 20, awareness: 70, obj: 80},
+            {title: "OBEDIENT MOUNT", color: "#4B0082", memory: 0, awareness: 100, obj: 100}
         ];
 
         function updateCountdownTimer() {
@@ -705,32 +706,32 @@
             document.getElementById('countdownTimer').textContent = `${h}:${m}:${s}`;
             
             if (timeLeft <= 0) {
-                localStorage.removeItem('cowMindBreak');
-                localStorage.removeItem('cowClicks');
+                localStorage.removeItem('horseMindBreak');
+                localStorage.removeItem('horseClicks');
                 window.location.href = '../../index.html';
             }
         }
 
         // IMAGE SWAP
         function swapImage(stage) {
-            const images = document.querySelectorAll('.cow-image');
+            const images = document.querySelectorAll('.horse-image');
             images.forEach((img, index) => {
                 img.classList.toggle('active', index === stage);
             });
         }
 
-        // COW STRUGGLE POPUP
-        function showCowStruggle(options) {
-            const popup = document.getElementById("cowStrugglePopup");
-            const imgBox = document.getElementById("cowFlashImage");
-            const textBox = document.getElementById("cowFlashText");
+        // HORSE STRUGGLE POPUP
+        function showHorseStruggle(options) {
+            const popup = document.getElementById("horseStrugglePopup");
+            const imgBox = document.getElementById("horseFlashImage");
+            const textBox = document.getElementById("horseFlashText");
 
             if (!popup || !imgBox || !textBox) return;
 
             if (options.image) {
                 imgBox.style.backgroundImage = `url("${options.image}")`;
             } else {
-                imgBox.style.backgroundImage = "linear-gradient(135deg, #8B4513, #D2691E, #654321)";
+                imgBox.style.backgroundImage = "linear-gradient(135deg, #8A2BE2, #9370DB, #DDA0DD)";
             }
 
             textBox.innerHTML = options.text;
@@ -755,17 +756,17 @@
             contents.forEach((content, index) => {
                 if (index !== id) {
                     content.classList.remove('active');
-                    triggers[index].style.background = 'linear-gradient(90deg, rgba(139, 69, 19, 0.2), rgba(144, 238, 144, 0.15))';
+                    triggers[index].style.background = 'linear-gradient(90deg, rgba(138, 43, 226, 0.2), rgba(147, 112, 219, 0.15))';
                 }
             });
             
             target.classList.toggle('active');
             triggers[id].style.background = target.classList.contains('active') ? 
-                'linear-gradient(90deg, #8B4513, #90EE90)' : 
-                'linear-gradient(90deg, rgba(139, 69, 19, 0.2), rgba(144, 238, 144, 0.15))';
+                'linear-gradient(90deg, #8A2BE2, #9370DB)' : 
+                'linear-gradient(90deg, rgba(138, 43, 226, 0.2), rgba(147, 112, 219, 0.15))';
             
             document.getElementById('statusText').textContent = 
-                `Memory #${id+1} accessed. Consciousness degrading... 🧠➡️🐄`;
+                `Memory #${id+1} accessed. Consciousness shifting... `;
         }
 
         // MIND BREAK UPDATE
@@ -780,7 +781,7 @@
             document.getElementById('selfAwareness').textContent = stage.awareness + '%';
             document.getElementById('objectPerception').textContent = stage.obj + '%';
 
-            const activeImage = document.querySelector('.cow-image.active');
+            const activeImage = document.querySelector('.horse-image.active');
             if (activeImage) {
                 const grayscale = Math.min(100, percentage / 2);
                 const brightness = 1 - (percentage / 200);
@@ -788,7 +789,7 @@
                 if (percentage > 70) activeImage.classList.add('mind-broken');
             }
 
-            localStorage.setItem('cowMindBreak', Math.floor(mindBreakLevel));
+            localStorage.setItem('horseMindBreak', Math.floor(mindBreakLevel));
 
             if (percentage >= 25) swapImage(1);
             if (percentage >= 50) swapImage(2);
@@ -798,33 +799,33 @@
 
         // ACTIONS
         function resist() {
-            closeCowDetails();
+            closeHorseDetails();
             desperationClicks++;
-            document.getElementById('statusText').textContent = 'Collar shocks! Mind fuzzing... resistance failing... ⚡🐄';
+            document.getElementById('statusText').textContent = 'Spell burns! Spine cracking! Hooves forming! ';
             
-            const img = document.querySelector('.cow-image.active');
+            const img = document.querySelector('.horse-image.active');
             img.style.transform = 'scale(1.1)';
             setTimeout(() => img.style.transform = '', 400);
             
             mindBreakLevel += 0.08;
             showMindBreakPulse(2);
             updateMindBreak();
-            localStorage.setItem('cowClicks', desperationClicks);
+            localStorage.setItem('horseClicks', desperationClicks);
 
             if (Math.random() < 0.7) {
-                showCowStruggle({
+                showHorseStruggle({
                     image: null,
-                    text: "<span class='cow-scream'>Can't... think...</span> Collar hums louder. My fingers—hooves now—scrape dirt. Human words slip away. Only simple thoughts remain: <span class='happy-cow'>Food. Water. Master.</span>",
+                    text: "<span class='horse-scream'>Can't... think straight...</span> The spell burns through my skull. Thoughts simplifying. <span class='witch-speak'>'That's it~ Let your pretty little brain become a mare's simple mind~'</span> My legs ache—hooves forming. <span class='happy-horse'>Harder to remember why I'm fighting...</span>",
                     duration: 3800,
                 });
             }
         }
 
-        function moo() {
-            closeCowDetails();
+        function whinny() {
+            closeHorseDetails();
             desperationClicks += 2;
             document.body.style.animation = 'shake 0.6s';
-            document.getElementById('statusText').textContent = '*MOOOOOO!* Voice gone! Only cattle sounds left! 🐄💨';
+            document.getElementById('statusText').textContent = '*NEIGHHH!* Voice gone! Only horse sounds left! ';
             
             mindBreakLevel += 0.1;
             showMindBreakPulse(4);
@@ -832,54 +833,54 @@
             setTimeout(() => document.body.style.animation = '', 600);
 
             if (Math.random() < 0.7) {
-                showCowStruggle({
+                showHorseStruggle({
                     image: null,
-                    text: "The moo comes unbidden—deep, guttural, <span class='scream'>not mine!</span> But it feels... natural. Throat vibrates. Tongue thick. <span class='farmer-speak'>'Good girl,'</span> Farmer pats my flank. Warmth spreads. I want more pats.",
+                    text: "The whinny erupts from my throat—high, equine, <span class='scream'>not mine!</span> But it feels natural. Right. <span class='witch-speak'>'Good girl! Such a beautiful mare now~'</span> She strokes my neck. I nuzzle her hand, whinnying again. <span class='happy-horse'>Want more pats...</span>",
                 });
             }
         }
 
-        function graze() {
-            closeCowDetails();
+        function trot() {
+            closeHorseDetails();
             desperationClicks += 3;
-            createFloatingLeaves();
-            document.getElementById('statusText').textContent = '"Hay... so good... master feeds well..." 🌾🐄';
+            createFloatingSparkles();
+            document.getElementById('statusText').textContent = '"Trotting... feels good... witch rides well..." ';
             
             mindBreakLevel += 0.2;
             showMindBreakPulse(8);
             updateMindBreak();
 
             if (Math.random() < 0.7) {
-                showCowStruggle({
+                showHorseStruggle({
                     image: null,
-                    text: "Mouth full of hay—<span class='happy-cow'>delicious.</span> Why did I ever eat human food? This is perfect. Simple. <span class='farmer-speak'>'Eat up, my prize heifer.'</span> Pride swells in my bovine chest. I am good livestock.",
+                    text: "My hooves move in perfect rhythm—trot, canter, gallop. <span class='happy-horse'>Feels so right. So natural.</span> The witch's weight guides me. <span class='witch-speak'>'Such an obedient mount~'</span> My heart swells with pride. <span class='happy-horse'>Good mare. Best mare.</span>",
                 });
             }
         }
 
-        function submit() {
-            closeCowDetails();
+        function mount() {
+            closeHorseDetails();
             if (Math.random() < 0.2) {
-                document.getElementById('statusText').textContent = 'Farmer shows mercy! A moment of clarity... (Rare!) 🙏';
+                document.getElementById('statusText').textContent = 'Witch shows mercy! A moment of clarity... (Rare!) 🙏';
             } else {
                 desperationClicks++;
                 mindBreakLevel += 0.3;
-                document.getElementById('statusText').textContent = 'HEAT FLOODING! Bull approaching! Body burns for breeding! 🔥🐂';
+                document.getElementById('statusText').textContent = 'RIDING OVERWHELMING! Saddle tightening! Hips swaying! Need weight!';
                 showMindBreakPulse(4);
                 updateMindBreak();
 
                 if (Math.random() < 0.7) {
-                    showCowStruggle({
+                    showHorseStruggle({
                         image: null,
-                        text: "<span class='cow-scream'>Need it!</span> Hips sway. Tail lifts. The bull's scent—<span class='happy-cow'>perfect.</span> His weight crushes me. Cock stretches me. Mind whites out in pure breeding bliss. <span class='final-cow'>This is my purpose. Moo forever.</span>",
+                        text: "<span class='horse-scream'>NEED RIDER!</span> Hips sway. Tail lifts. The witch's saddle appears—<span class='happy-horse'>perfect.</span> She mounts me, thighs squeezing. Mind whites out in pure riding bliss. <span class='final-horse'>This is purpose. Carry forever. NEIGHHH!</span>",
                         duration: 4200,
                     });
                 }
             }
         }
 
-        function closeCowDetails() {
-            const details = document.querySelector('details[summary*="Mindless Livestock"]');
+        function closeHorseDetails() {
+            const details = document.querySelector('details[summary*="Obedient Mount"]');
             if (details && details.open) {
                 details.open = false;
             }
@@ -889,7 +890,7 @@
             const bar = document.getElementById('mindBreakFill');
             const percent = document.getElementById('mindBreakPercentage');
             
-            const colors = ['#90EE90', '#FFD700', '#FF8C00', '#FF4500', '#8B4513'];
+            const colors = ['#9370DB', '#FFD700', '#FF8C00', '#FF4500', '#8A2BE2'];
             const pulseColor = colors[Math.min(intensity-1, colors.length-1)];
             
             bar.style.boxShadow = `0 0 20px ${pulseColor}, inset 0 0 20px ${pulseColor}`;
@@ -909,17 +910,17 @@
             }, 800);
         }
 
-        function createFloatingLeaves() {
+        function createFloatingSparkles() {
             for (let i = 0; i < 12; i++) {
-                const leaf = document.createElement('div');
-                leaf.innerHTML = '🌾';
-                leaf.style.cssText = `
+                const sparkle = document.createElement('div');
+                sparkle.innerHTML = '✨';
+                sparkle.style.cssText = `
                     position: fixed; left: ${Math.random()*90}vw; top: 50vh;
                     font-size: ${1.2+Math.random()*1}rem; pointer-events: none;
                     animation: floatUp 3s ease-out forwards; z-index: 9999;
                 `;
-                document.body.appendChild(leaf);
-                setTimeout(() => leaf.remove(), 3000);
+                document.body.appendChild(sparkle);
+                setTimeout(() => sparkle.remove(), 3000);
             }
         }
 
@@ -928,14 +929,14 @@
             
             setTimeout(() => {
                 document.body.innerHTML = `
-                <div style="position:fixed;inset:0;background:linear-gradient(45deg,#654321,#2d1810);display:flex;align-items:center;justify-content:center;flex-direction:column;font-family:'Orbitron',sans-serif;color:#D2691E;text-align:center;z-index:99999;padding:20px;">
-                    <h1 style="font-size:5rem;text-shadow:0 0 40px #8B4513;margin:0;animation:glitch 0.3s infinite;">🐄 TRANSFORMATION COMPLETE 🐄</h1>
-                    <div style="font-size:2.5rem;margin:20px;font-weight:700;">PERFECT BREEDING HEIFER ACHIEVED</div>
+                <div style="position:fixed;inset:0;background:linear-gradient(45deg,#2d1040,#1a0a1f);display:flex;align-items:center;justify-content:center;flex-direction:column;font-family:'Orbitron',sans-serif;color:#9370DB;text-align:center;z-index:99999;padding:20px;">
+                    <h1 style="font-size:5rem;text-shadow:0 0 40px #8A2BE2;margin:0;animation:glitch 0.3s infinite;">TRANSFORMATION COMPLETE</h1>
+                    <div style="font-size:2.5rem;margin:20px;font-weight:700;">PERFECT RIDING MARE ACHIEVED</div>
                     <div style="font-size:1.4rem;max-width:700px;line-height:1.6;margin:30px;">
-                        You are now the farm's prize cattle. No thoughts. No memories. Just grazing, breeding, and obedience...
+                        You are now the coven's perfect mount. No thoughts. No memories. Just trotting, carrying, and obedience...
                     </div>
-                    <img src="https://i.ibb.co/mCwcyfX4/mecow1.png" style="width:350px;margin:30px;border-radius:25px;box-shadow:0 0 60px #8B4513;">
-                    <div id="gameOverTimer" style="font-size:3.5rem;font-weight:700;color:#90EE90;text-shadow:0 0 30px #32CD32;">Returning to pasture in: 00:30</div>
+                    <img src="https://i.ibb.co/FkspVXtJ/becoming-a-massive-horse-by-dastanprince-djbtwap-pre.jpg" style="width:350px;margin:30px;border-radius:25px;box-shadow:0 0 60px #8A2BE2;">
+                    <div id="gameOverTimer" style="font-size:3.5rem;font-weight:700;color:#DDA0DD;text-shadow:0 0 30px #9370DB;">Returning to stable in: 00:30</div>
                 </div>
                 `;
                 
@@ -943,12 +944,12 @@
                 const timer = setInterval(() => {
                     const minutes = Math.floor(countdown / 60).toString().padStart(2, '0');
                     const seconds = (countdown % 60).toString().padStart(2, '0');
-                    document.getElementById('gameOverTimer').textContent = `Returning to pasture in: ${minutes}:${seconds}`;
+                    document.getElementById('gameOverTimer').textContent = `Returning to stable in: ${minutes}:${seconds}`;
                     countdown--;
                     if (countdown < 0) {
                         clearInterval(timer);
-                        localStorage.removeItem('cowMindBreak');
-                        localStorage.removeItem('cowClicks');
+                        localStorage.removeItem('horseMindBreak');
+                        localStorage.removeItem('horseClicks');
                         location.reload();
                     }
                 }, 1000);
@@ -963,15 +964,15 @@
             const overlay = document.createElement('div');
             overlay.id = 'victoryOverlay';
             overlay.style.cssText = `
-                position:fixed;inset:0;z-index:100000;background:rgba(101,67,33,0.95);
+                position:fixed;inset:0;z-index:100000;background:rgba(45,16,64,0.95);
                 display:flex;align-items:center;justify-content:center;text-align:center;
                 font-family:'Orbitron',sans-serif;pointer-events:none;overflow:hidden;
             `;
             
             overlay.innerHTML = `
                 <div id="victoryTimerDisplay" style="
-                    font-size:8rem;font-weight:900;color:#D2691E;
-                    text-shadow:0 0 80px #8B4513,0 0 160px #D2691E;
+                    font-size:8rem;font-weight:900;color:#9370DB;
+                    text-shadow:0 0 80px #8A2BE2,0 0 160px #9370DB;
                     letter-spacing:16px;margin:0;animation:timerExplode 20s linear infinite;
                     position:relative;z-index:10;pointer-events:none;
                 ">+24:00:00</div>
@@ -982,16 +983,16 @@
             
             let flashCount = 0;
             const bulkyMessages = [
-                "COLLAR LOCKED PERMANENTLY 🔒🐄",
-                "HUMAN MIND ERASED FOREVER 🧠💥",
-                "BREEDING HEIFER PROTOCOL ACTIVE 🐂💦",
-                "+24 HOURS CATTLE LIFE EXTENSION ⏳😈",
-                "UDDERS SWOLLEN WITH MILK 🥛🔥",
-                "HEAT CYCLE PERPETUAL 🌡️💕",
-                "FARMER'S PRIZE LIVESTOCK 🏆🐄",
-                "MOUNTING DESIRE OVERWHELMING 🐂🍑",
-                "HERD INTEGRATION COMPLETE 🌾👑",
-                "PERFECT BREEDING BITCH UPGRADE 🎀🐄"
+                "WITCH SPELL LOCKED PERMANENTLY",
+                "HUMAN MIND ERASED FOREVER",
+                "RIDING MARE PROTOCOL ACTIVE",
+                "+24 HOURS EQUINE LIFE EXTENSION",
+                "SADDLE BOUND FOR ETERNITY",
+                "OBEDIENCE DESIRE PERPETUAL",
+                "COVEN'S PERFECT MOUNT",
+                "CARRYING COMPULSION OVERWHELMING",
+                "STABLE INTEGRATION COMPLETE",
+                "PERFECT OBEDIENT MARE UPGRADE"
             ];
             
             const flashInterval = setInterval(() => {
@@ -1000,9 +1001,9 @@
                 const flash = document.createElement('div');
                 flash.innerHTML = bulkyMessages[flashCount];
                 flash.style.cssText = `
-                    position:absolute;font-size:2.2rem;font-weight:900;color:#f5deb3;
-                    text-shadow:0 0 15px #8B4513;background:linear-gradient(135deg,#2d1810,#1a0f0a);
-                    border:3px solid #8B4513;box-shadow:0 0 40px rgba(139,69,19,0.9);
+                    position:absolute;font-size:2.2rem;font-weight:900;color:#DDA0DD;
+                    text-shadow:0 0 15px #8A2BE2;background:linear-gradient(135deg,#2d1040,#1a0a1f);
+                    border:3px solid #8A2BE2;box-shadow:0 0 40px rgba(138,43,226,0.9);
                     border-radius:20px;padding:20px 30px;left:${Math.random()*60+20}%;
                     top:${Math.random()*50+15}%;animation:bulkyFlash 3s ease-out forwards;
                     z-index:5;pointer-events:none;font-family:'Orbitron',sans-serif;
@@ -1033,10 +1034,10 @@
         setInterval(() => {
             if (Math.random() < 0.15) {
                 const statuses = [
-                    'Collar hums... thoughts simplifying... 🐄',
-                    'Udders aching... need milking... 🥛',
-                    'Bull scent detected! Heat rising! 🔥🐂',
-                    `Mind degrading... ${Math.floor(mindBreakLevel * 25)}% cattle... 🌀`
+                    'Spell humming... posture shifting... ',
+                    'Saddle tightening... need rider...',
+                    'Hooves clip-clop! Mind simplifying!',
+                    `Consciousness fading... ${Math.floor(mindBreakLevel * 25)}% mare...`
                 ];
                 document.getElementById('statusText').textContent = statuses[Math.floor(Math.random() * statuses.length)];
             }
