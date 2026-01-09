@@ -236,35 +236,6 @@
             }
         },
         {
-            id: "living_grove",
-            title: "Grove of Living Artifacts",
-            tag: "Corrupted Items",
-            image: "https://via.placeholder.com/360x360/228B22/FFF?text=Living+Grove",
-            stages: {
-                start: {
-                    body: `Artifacts hang like lewd fruit. A glossy onahole whispers your name. Branches twitch with intent.`,
-                    image: "https://via.placeholder.com/640x360/228B22/FFF?text=Artifacts",
-                    choices: [
-                        { label: "Burn the vines", next: "burn" },
-                        { label: "Smash and run", nextEnding: "doll" }
-                    ]
-                },
-                burn: {
-                    body: `You strike a match; smoke and sap hiss. The grove recoils, but something slips free and clamps onto you.`,
-                    image: "https://via.placeholder.com/640x360/FFAA33/000?text=Burning",
-                    choices: [
-                        { label: "Push through the smoke", nextEnding: "escape" },
-                        { label: "Succumb to the sap", nextEnding: "fleshlight" }
-                    ]
-                }
-            },
-            endings: {
-                doll: { title: "Display Doll", acceptLabel: "Become The Display Doll", body: `Lithe branches braid and tighten, polishing you into a flawless display figure. You stand perfect and silent, an object of endless desire.`, image: "https://via.placeholder.com/640x360/AAFFAA/000?text=Display+Girl", trapForm: "grove_doll", trapRedirect: "States/forest-artifact.html" },
-                fleshlight: { title: "Living Fleshlight", acceptLabel: "Become A Living Sleeve", body: `Your limbs smooth and reshape into a glossy, eager sleeve; you are mounted and used, endlessly responsive to touch.`, image: "https://via.placeholder.com/640x360/FF8888/000?text=Fleshlight", trapForm: "grove_fleshlight", trapRedirect: "States/forest-artifact.html" },
-                escape: { title: "Scorched Escape", acceptLabel: "Stumble Back To Safety", body: `Coughing and blinking, you wrench free from the vines and stagger back into the sunlight, shaken but whole.`, image: "https://via.placeholder.com/640x360/88FFAA/000?text=Scorched", trapForm: null }
-            }
-        },
-        {
             id: "collar_trap",
             title: "Collar Trap",
             tag: "Sudden Transformation",
@@ -289,6 +260,145 @@
             endings: {
                 cow: { title: "Sealed To The Herd", acceptLabel: "Accept Becoming A Cow", body: `The collar hums and completes the shift. Your body and thoughts settle into the broad, patient form of a cow. Warm, slow days by the trough stretch ahead.`, image: "https://i.ibb.co/sd6xgTPH/mecow.png", trapForm: "cow", trapRedirect: "States/forest-cow.html" },
                 escape: { title: "Startled Retreat", acceptLabel: "Step Back To The Path", body: `You step away from the pen, unsettled but safe, and the laughs fade behind the trees as you return to the familiar trail.`, image: "https://via.placeholder.com/640x360/88FFAA/000?text=Escape", trapForm: null }
+            }
+        },
+        {
+            id: "fairy_donkey",
+            title: "Fairy's Dumb Donkey",
+            tag: "Mind Drain • Breeding",
+            image: "https://i.ibb.co/ZzbBrXtH/Ellie-Gotti-Fairy.jpg",
+            stages: {
+                start: {
+                    body: `A mischievous fairy flutters down, no bigger than your hand. She circles you, giggling. "You're so *serious*! So *smart*! Ugh, boring~" She taps your forehead with a wand that smells like honeysuckle and lust. "Let's fix that!"`,
+                    image: "https://i.ibb.co/ZzbBrXtH/Ellie-Gotti-Fairy.jpg",
+                    choices: [
+                        { label: "Swat her away", next: "anger" },
+                        { label: "Ask what she means", next: "curious" }
+                    ]
+                },
+                anger: {
+                    body: `She pouts, dodging your hand. "Rude! Okay, no more *asking*." She snaps her fingers and warmth floods your skull. Your thoughts... slow. Simplify. *Feels good*. She grins. "Better already!"`,
+                    image: "https://i.ibb.co/ZzbBrXtH/Ellie-Gotti-Fairy.jpg",
+                    choices: [
+                        { label: "Shake your head to clear it", nextEnding: "escape" },
+                        { label: "Let the warmth spread", nextEnding: "donkey" }
+                    ]
+                },
+                curious: {
+                    body: `"Oh good, you're *interested*!" She boops your nose. Your ears tingle and stretch. "See, I need a big, dumb, *horny* donkey to play with. And you're just *so* perfect for it..." Your groin throbs as she trails sparkles down your chest.`,
+                    image: "https://i.ibb.co/tMtPN6Sy/victem10.png",
+                    choices: [
+                        { label: "Back away before it's too late", nextEnding: "escape" },
+                        { label: "Lean into her touch", nextEnding: "donkey" }
+                    ]
+                }
+            },
+            endings: {
+                donkey: {
+                    title: "Fairy's Breeding Donkey",
+                    acceptLabel: "Embrace The Simplicity",
+                    body: `Your spine cracks and curves as you drop onto thickening limbs. Fur sprouts—coarse and grey—across your expanding body. Your cock swells enormous between hind legs, already dripping. The fairy claps her hands. "Perfect! Now you don't have to *think*—just breed and bray and be my good, dumb stud~" Your mind clouds with overwhelming *need*. She floats beneath you, stroking your massive shaft, and all you can do is buck and grunt and *obey*, drowning in animal lust and her delighted giggles.`,
+                    image: "https://i.ibb.co/CphZH3D1/cmsn-red-brays-by-wrenzephyr2-dcf53ur-414w-2x.png",
+                    trapForm: "fairy_donkey",
+                    trapRedirect: "States/forest-donkey.html"
+                },
+                escape: {
+                    title: "Clear-Headed Flight",
+                    acceptLabel: "Resist The Glamour",
+                    body: `You stumble back, shaking your head violently. The sparkles fade. The fairy pouts but flits away with a huff. You're left panting, still human, ears ringing with phantom brays.`,
+                    image: "https://i.ibb.co/vCmvX2Vs/a9c31fd4-8945-4e82-bec6-eb283f6d428b.png",
+                    trapForm: null
+                }
+            }
+        },
+        {
+            id: "witch_horse",
+            title: "Witch Coven's Mount",
+            tag: "Service Animal • Humiliation",
+            image: "https://i.ibb.co/yFKvmCRY/jingyu-wen-mag16x-20.jpg",
+            stages: {
+                start: {
+                    body: `A witch emerges from the mist, her heeled boots clicking on stone. She sighs, "My feet are *killing* me. We need transport." Her eyes lock onto you. "Perfect."`,
+                    image: "https://i.ibb.co/yFKvmCRY/jingyu-wen-mag16x-20.jpg",
+                    choices: [
+                        { label: "Offer to carry their bags instead", next: "negotiate" },
+                        { label: "Back away slowly", next: "resist" }
+                    ]
+                },
+                negotiate: {
+                    body: `The witch giggles. "How sweet! But we don't need a *servant*..." She traces a finger down your spine and you feel your vertebrae shift. "We need something with four legs and a strong back."`,
+                    image: "https://i.ibb.co/yFKvmCRY/jingyu-wen-mag16x-20.jpg",
+                    choices: [
+                        { label: "Try to run", nextEnding: "escape" },
+                        { label: "Stand still in shock", nextEnding: "horse" }
+                    ]
+                },
+                resist: {
+                    body: `You stumble back but roots coil around your ankles. The witch kneels, whispering into your ear: "Don't worry, sweet thing. You will *love* carrying me. Horses are so much simpler than people..."`,
+                    image: "https://i.ibb.co/rRNKyHM4/659eadbe-ca0b-4988-8d6c-e7ae528f347c.png",
+                    choices: [
+                        { label: "Beg them to stop", nextEnding: "horse" },
+                        { label: "Bite her hand", nextEnding: "escape" }
+                    ]
+                }
+            },
+            endings: {
+                horse: {
+                    title: "Coven's Riding Mare",
+                    acceptLabel: "Accept Your Bridle",
+                    body: `Heat floods your limbs as they stretch and thicken. Your hands harden into hooves, your spine lengthens, and a cascade of coarse hair sprouts down your neck. The witch grins with delight as you sink onto all fours...no, all *fours hooves*. A bridle slips over your muzzle. You whinny helplessly as she mounts your back, her thighs clamping around your ribs. "Good girl," she purrs, and you trot obediently into the forest, mind already simplifying into obedience and the mindless pleasure of being *ridden*.`,
+                    image: "https://i.ibb.co/xSrBqdqy/Horse-2.jpg",
+                    trapForm: "witch_horse",
+                    trapRedirect: "States/forest-horse.html"
+                },
+                escape: {
+                    title: "Narrow Escape",
+                    acceptLabel: "Flee Into The Underbrush",
+                    body: `You wrench free and bolt into the thorns. The witchs laughter echoes behind you, but they dont follow. Your heart hammers as you collapse on safe ground, still human...barely.`,
+                    image: "https://i.ibb.co/placeholder-escape.png",
+                    trapForm: null
+                }
+            }
+        },
+        {
+            id: "druid_rabbit",
+            title: "Druid's Fertile Pet",
+            tag: "Breeding Stock • Infantilization",
+            image: "https://i.ibb.co/placeholder-druid.png",
+            stages: {
+                start: {
+                    body: `An ancient druid kneels in a flower-filled grove, stroking a white rabbit. She looks up at you with gentle, tired eyes. "My dear Snowdrop passed last moon. I've been so lonely..." She extends a hand. "Would you stay? Just for a little while?"`,
+                    image: "https://i.ibb.co/placeholder-druid-grove.png",
+                    choices: [
+                        { label: "Politely decline and leave", nextEnding: "escape" },
+                        { label: "Sit with her for a moment", next: "comfort" }
+                    ]
+                },
+                comfort: {
+                    body: `She smiles and pats your head. Her touch is warm, *too* warm. Your ears tingle. "You're so kind... just like Snowdrop. So soft. So... *small*." Your limbs feel heavy. She's still petting you. Why does it feel so *good*?`,
+                    image: "https://i.ibb.co/placeholder-druid-pet.png",
+                    choices: [
+                        { label: "Pull away before it's too late", nextEnding: "escape" },
+                        { label: "Lean into her touch", nextEnding: "rabbit" }
+                    ]
+                }
+            },
+            endings: {
+                rabbit: {
+                    title: "Garden Breeding Bunny",
+                    acceptLabel: "Become Her Pet",
+                    body: `Your body compresses, limbs shrinking into soft paws. White fur blooms across shrinking skin. Your nose twitches—whiskers sprouting. The druid lifts you gently into her lap, now a small, trembling rabbit. "There we go... my new Snowdrop." She strokes your ears and you *melt*, mind simplifying into pure comfort and *need*. She carries you to a hutch where a virile buck waits. "Now, little one... it's time to fill my garden with babies~" He mounts you immediately, and all you can do is squirm and squeak as instinct drowns thought, breeding and being bred endlessly in her enchanted garden.`,
+                    image: "https://i.ibb.co/placeholder-rabbit-tf.png",
+                    trapForm: "druid_rabbit",
+                    trapRedirect: "States/forest-rabbit.html"
+                },
+                escape: {
+                    title: "Gentle Farewell",
+                    acceptLabel: "Leave The Grove",
+                    body: `You pull back, apologizing. She smiles sadly but doesn't stop you. As you leave, you swear you hear phantom *thump-thump-thumping* in your chest—the echo of a rabbit's frantic heartbeat.`,
+                    image: "https://i.ibb.co/placeholder-druid-farewell.png",
+                    trapForm: null
+                }
             }
         }
     ];
