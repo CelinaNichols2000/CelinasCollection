@@ -1,0 +1,452 @@
+// ============================================
+// EXPANDED SCARLET DATA - 18 STAGES WITH 5 FORMS
+// ============================================
+// Replace lines 640-850 with this structure
+// Each form gets 3-stage slow transformation (4-6, 7-9, 10-12, 13-15, 16-18)
+// All forms start at stage 1-3
+
+scarlet: {
+    name: 'Scarlet',
+    role: 'Stable Master',
+    location: 'Stable',
+    badge: 'Animal Transformation',
+    color: '#8B3A62',
+    image: 'https://via.placeholder.com/240x240?text=Scarlet&bg=8B3A62&fg=FFFFFF',
+    transformType: 'Animal',
+    details: 'A cruel stable master who specializes in turning people into animals. Her transformations are physical, brutal, and permanent. She breaks spirits like she breaks wild horses.',
+    interactions: [
+        // STAGES 1-3: INTRO & CHOICE (All paths)
+        {
+            stage: 1,
+            title: 'Welcome to the Stable',
+            text: `You walk into a musty stable. Scarlet's standing there in riding boots and leather, a crop in her hand. She watches you enter with a cold smirk.
+
+"So, another guest," she says, tapping the crop against her leg. "You're wondering why you're here, in a stable, with a woman like me. Good. You're curious. That's going to make this so much fun."
+
+She circles around you slowly, examining you like livestock at an auction.
+
+"I specialize in a very particular kind of magic. I remake people into animals. Horses. Cows. Dogs. Whatever suits them best." She stops in front of you, her eyes boring into yours. "And I think you're going to make a beautiful addition to my collection."`,
+            choices: [
+                { text: 'Tell her you\'re leaving right now', next: 2, risk: 'low' },
+                { text: 'Ask what she means by animals', next: 2, risk: 'medium' },
+                { text: 'Say nothing and try to walk past her', next: 2, risk: 'medium' }
+            ],
+            imageUrl: null
+        },
+        {
+            stage: 2,
+            title: 'The Trap Closes',
+            text: `You move toward the door, but Scarlet's faster. She touches your shoulder with one hand, and you feel a jolt run through your entire body. Your legs suddenly feel weak. Heavy. The sensation spreads down your spine.
+
+"Trying to leave?" She laughs. "Too late, sweetie. The spell's already inside you. You feel that tingling? That's the start of it. Your body's already beginning to shift."
+
+She forces you down onto a wooden bench. You try to resist, but your limbs aren't responding right anymore. They feel different. Longer. Your skin is changing texture.
+
+"I'll give you a choice," she says, leaning close so you can smell the sweat and leather on her. "You can let it happen naturally. Or I can speed it up. Either way, you're becoming one of my animals."`,
+            choices: [
+                { text: 'Beg her to stop the spell', next: 3, risk: 'high' },
+                { text: 'Tell her to go fuck herself', next: 3, risk: 'critical' },
+                { text: 'Ask her what form you\'ll take', next: 3, risk: 'medium' }
+            ],
+            imageUrl: null
+        },
+        {
+            stage: 3,
+            title: 'Choosing Your Form',
+            text: `Scarlet pulls up a chair and sits across from you, swinging her crop back and forth.
+
+"So, what'll it be? I'm thinking... maybe a horse? Strong, beautiful, meant to be ridden. Or a cow? Docile and plump and perfect for milking." She leans back. "There's also donkey, rabbit, dog... what speaks to your spirit?"
+
+The tingling in your limbs is getting worse. Your muscles are starting to ache from the inside out. You can feel something fundamental shifting in your body.
+
+"You've got maybe a few more stages before the change becomes permanent. After that, it doesn't matter what you want—you'll be what the magic decided you are."`,
+            choices: [
+                { text: 'Choose to become a horse', next: 4, risk: 'critical', variant: 'horse' },
+                { text: 'Choose to become a cow', next: 4, risk: 'critical', variant: 'cow' },
+                { text: 'Choose to become a donkey', next: 4, risk: 'critical', variant: 'donkey' },
+                { text: 'Choose to become a rabbit', next: 4, risk: 'critical', variant: 'rabbit' },
+                { text: 'Choose to become a dog', next: 4, risk: 'critical', variant: 'dog' }
+            ],
+            imageUrl: null
+        },
+        
+        // HORSE PATH: Stages 4-6
+        {
+            stage: 4,
+            stageVariant: 'horse',
+            title: 'Horse Form Awakening',
+            text: `"A horse..." Scarlet purrs, running her hands over your changing body. "How perfect. Your frame is already adapting—your bones are lengthening, becoming graceful but strong. Feel that spine arching? That's the spine of an equine."
+
+Your body is transforming visibly now. Your legs are lengthening. Your torso is stretching and broadening. Your fingers are beginning to merge and harden at the tips. The pain is intense, mixed with something almost... arousing.
+
+"Your face is starting to change too," Scarlet whispers, stroking what's becoming your muzzle. "See how your jaw is elongating? How your teeth are shifting? Soon you'll have the noble face of a mare. A beautiful, spirited mare who will serve me perfectly."
+
+You try to speak but your voice comes out as an anguished whinny.`,
+            choices: null,
+            imageUrl: null
+        },
+        {
+            stage: 5,
+            stageVariant: 'horse',
+            title: 'Half-Equine Horror',
+            text: `You're halfway there now—caught between human and horse in the most agonizing way. Your upper body is still mostly human but covered in fine chestnut fur. Your lower body is fully equine—powerful, muscular hind legs with hooves instead of feet. Your face is a horrifying blend: human eyes in a lengthening muzzle, human consciousness trapped in an increasingly animal form.
+
+Scarlet walks around you in circles, admiring her work.
+
+"Look at you..." she breathes. "Still got that human intelligence in your eyes. You can still think, still understand what's happening to you. That's what makes this so delicious. You'll remember being human even after you're completely transformed."
+
+She touches your new flank and you feel a surge of animal sensation, of instinct that's not quite yours yet but is becoming irresistible.
+
+"Just a bit more," she whispers, "and you'll cross the threshold. After the next stage, there's no going back. You'll be hers—MY horse, MY property, MY beast."`,
+            choices: null,
+            imageUrl: null
+        },
+        {
+            stage: 6,
+            stageVariant: 'horse',
+            title: 'Becoming Equine',
+            text: `The transformation is nearly complete. Your entire body is now covered in glossy chestnut fur. Your arms have become front legs with perfect hooves. Your face has fully transformed into a beautiful mare's head, though those terrified human eyes still stare out from your new form. Your mind is fracturing—human thoughts becoming slower, simpler, increasingly dominated by animal instinct.
+
+You can no longer stand upright. You move on all fours with surprising grace, your powerful new muscles responding to instincts you can't control. The world looks different from this height. Smells are overwhelming. Sounds are sharper.
+
+Scarlet leads a bridle toward you, and before you can even think to resist, some instinct inside you makes you lower your head for her to slip it on. The moment the leather touches your muzzle, something breaks inside. The last bits of resistance crumble.
+
+"There," she coos, "my beautiful horse is almost ready. One more stage and you'll be completely mine. Your mind will go soft. Your body will obey. Everything you were will become just a distant dream."
+
+She leads you toward the final transformation stage.`,
+            choices: [
+                { text: 'Accept your new form and continue', next: 7, risk: 'critical' }
+            ],
+            imageUrl: null,
+            onComplete: {
+                action: 'redirect',
+                page: 'States/transformation-trapped.html',
+                duration: 3*60*60*1000
+            }
+        },
+
+        // COW PATH: Stages 4-6 (duplicate structure with cow-specific text)
+        {
+            stage: 4,
+            stageVariant: 'cow',
+            title: 'Cow Form Awakening',
+            text: `"A cow..." Scarlet purrs, her hands exploring your rapidly changing body. "I like that choice. Docile, peaceful, meant to be milked and used. Your body is already responding beautifully—your bones are thickening, becoming sturdy and wide."
+
+Your body restructures itself. Your frame broadens dramatically. Your legs thicken into powerful columns. Your chest expands—enormous now, built for the lactation magic Scarlet will impose on you. Your fingers are hardening, beginning their transformation to hooves.
+
+"Your udders are starting to form already," Scarlet coos, running her hands over your swelling chest. "See? Your body knows what you're becoming. A beautiful cow. Perfect for milking. Perfect for breeding."
+
+You try to scream but your voice comes out as a pathetic moo.`,
+            choices: null,
+            imageUrl: null
+        },
+        {
+            stage: 5,
+            stageVariant: 'cow',
+            title: 'Bovine Metamorphosis',
+            text: `You're halfway transformed—a grotesque hybrid of human and cow. Your upper body is still partially human but your chest has swollen into a cow's udder. Your lower body is fully bovine with powerful rear legs and hooves. Your face is elongating into a bovine snout, with human eyes that still hold terrified consciousness.
+
+Scarlet milks you experimentally and you feel waves of pleasure and shame crash through you simultaneously. Your body is responding on instinct, producing milk, becoming more cow with every moment.
+
+"You're perfect," she whispers. "Soon you won't even remember how to feel shame. You'll just exist to be milked, to graze, to serve. Your human mind will fade into nothing."
+
+She leads you to a stall where you can see other cows—were they human once? You can't quite remember...`,
+            choices: null,
+            imageUrl: null
+        },
+        {
+            stage: 6,
+            stageVariant: 'cow',
+            title: 'Bovine Completion',
+            text: `You are now a full cow—black and white spotted, heavy, built entirely for milk production and breeding. Your udder is enormous and hypersensitive. Your mind is nearly gone, replaced by simple bovine thoughts about grass, water, and the occasional pleasure of being milked.
+
+Scarlet attaches milking cups to your udders and the relief and pleasure is almost overwhelming. Your human consciousness is almost completely submerged now, just a tiny voice screaming from deep inside a cow's body.
+
+"Perfect," Scarlet sighs, "you're going to make such a beautiful addition to my dairy. Soon you won't even remember being human. You'll just be my perfect cow, producing milk, being used, living in simple bovine contentment."
+
+She leads you to the final stage of transformation, where you'll become completely hers.`,
+            choices: [
+                { text: 'Accept your udder-form and continue', next: 7, risk: 'critical' }
+            ],
+            imageUrl: null,
+            onComplete: {
+                action: 'redirect',
+                page: 'States/transformation-trapped.html',
+                duration: 3*60*60*1000
+            }
+        },
+
+        // DONKEY PATH: Stages 4-6
+        {
+            stage: 4,
+            stageVariant: 'donkey',
+            title: 'Donkey Transformation Begins',
+            text: `"A donkey," Scarlet laughs. "A fine choice. Stubborn, strong, meant for hard work and breeding. Your body is already adapting—I can see the stubbornness settling into your features, the strength building in your limbs."
+
+Your body begins its grotesque transformation. Your legs become powerful and stocky. Your torso develops the compact, muscular form of a work animal. Your face is pushing out into a long snout. Worst of all, you feel your cock starting to swell into the enormous donkey proportions you've heard so much about—it's growing painfully, visibly, becoming something monstrous and undeniable.
+
+"Mmm, yes," Scarlet coos, watching your new member emerge, "a prime studs, ready to breed anything I put you with. You're going to be so useful..."
+
+Your voice cracks as you try to protest, coming out as a donkey's bray.`,
+            choices: null,
+            imageUrl: null
+        },
+        {
+            stage: 5,
+            stageVariant: 'donkey',
+            title: 'Stubborn Beast Emerging',
+            text: `You're now a grotesque mix—human torso on powerful donkey legs, a donkey's head with human eyes, and a massive erect cock that's painfully, obscenely oversized. Every instinct screams at you to breed, to mount, to thrust, but your human mind is still present enough to be horrified.
+
+Scarlet leads you to a breeding mount—another animal form, maybe, or maybe a human woman she's restrained. Your new donkey instincts are overwhelming, making your massive shaft throb uncontrollably.
+
+"Look at you," Scarlet whispers, stroking your enormous member, "bred for one purpose only—to mount and breed endlessly. Soon your human consciousness will fade completely and all you'll want to do is follow your cock's demands."
+
+She guides you toward your breeding partner and your body moves on pure animal instinct.`,
+            choices: null,
+            imageUrl: null
+        },
+        {
+            stage: 6,
+            stageVariant: 'donkey',
+            title: 'Complete Stud',
+            text: `The transformation is complete. You are now a magnificent donkey—powerful, muscular, oversized in all the important ways. Your enormous cock is the centerpiece of your existence now. Your mind is almost completely consumed by breeding imperatives.
+
+You've already mounted and bred twice in the past hour. Scarlet watches with satisfaction as you're led to a breeding stand, where another form (human? animal?) is positioned beneath you. Your body responds before your mind even registers—mounting, thrusting, breeding with mindless intensity.
+
+"Perfect," Scarlet purrs. "My beautiful stud. You'll breed constantly, produce perfect offspring, and never think about anything beyond your next mounting. This is your entire purpose now."
+
+She leads you to the final transformation—the last stage where you'll become completely hers.`,
+            choices: [
+                { text: 'Accept your role as breeding stud', next: 7, risk: 'critical' }
+            ],
+            imageUrl: null,
+            onComplete: {
+                action: 'redirect',
+                page: 'States/transformation-trapped.html',
+                duration: 3*60*60*1000
+            }
+        },
+
+        // RABBIT PATH: Stages 4-6
+        {
+            stage: 4,
+            stageVariant: 'rabbit',
+            title: 'Rabbit Enchantment',
+            text: `"A rabbit," Scarlet giggles. "So small, so cute, so perfect for... intimate purposes. Your body is shrinking already—becoming tiny, lightweight, delicate."
+
+Your body compresses. Everything is getting smaller. Your limbs become thin and delicate. Your body is shrinking rapidly—the room becomes huge around you as you diminish. Your fur is starting to grow in white and brown patches. Your ears are elongating, becoming long and sensitive.
+
+Scarlet lifts you easily in her hands now. You're no larger than a large hare. Your human consciousness is fighting the cuteness that's consuming you, fighting the part of you that now feels safe and loved in her large hands.
+
+"My perfect little rabbit," she coos. "Soon you won't remember being anything else. You'll just want to hop around, to breed, to be held in loving hands and used for pleasure."
+
+She strokes your fur and you can't help but lean into it, despite yourself.`,
+            choices: null,
+            imageUrl: null
+        },
+        {
+            stage: 5,
+            stageVariant: 'rabbit',
+            title: 'Pocket-Sized Beast',
+            text: `You're now barely the size of a house cat—a perfect little rabbit, mostly white with brown patches, with long sensitive ears and a powerful hind quarter built entirely for breeding. Your tiny human consciousness is drowning in cuteness, in the pleasure of being petted, in the breeding urges that now dominate your animal mind.
+
+Scarlet holds you against her chest, and the warmth and comfort is almost overwhelming. Part of your human consciousness screams that you should escape, but the overwhelming rabbit urge to stay, to be safe, to trust is drowning out any resistance.
+
+"Soon you won't even remember human thought," Scarlet whispers. "You'll just be my cute little rabbit, happy to be held, happy to breed when I decide, happy to live in a comfortable hutch and love me completely."
+
+You feel her carrying you toward something—a hutch? A breeding chamber? Your rabbit mind doesn't much care. Whatever happens next will be fine. Scarlet has you now.`,
+            choices: null,
+            imageUrl: null
+        },
+        {
+            stage: 6,
+            stageVariant: 'rabbit',
+            title: 'Perfect Pocket Bunny',
+            text: `You are now a perfectly adorable rabbit—small enough to fit in Scarlet's hand, soft white fur, perfect pink nose, long ears that twitch at every sound. Your human consciousness has almost completely dissolved into contented rabbit instinct.
+
+You're placed in a large hutch with another rabbit (human once? you can't remember) and breeding is immediate and overwhelming—your rabbit body bred to be constantly fertile and eager. The pleasure is intense and simple, without any of the complication of human thought.
+
+Scarlet feeds you treats and pets your ears and your rabbit mind goes absolutely ecstatic. This is everything you need. Her affection, breeding, treats, safety. Nothing more complicated than that.
+
+"My perfect little rabbit," she croons. "Happy, simple, designed for just one thing—to breed and be loved. You've found your true form."
+
+She leads you to the final stage—complete transformation into the simple mind of a breeding bunny.`,
+            choices: [
+                { text: 'Accept your role as breeding rabbit', next: 7, risk: 'critical' }
+            ],
+            imageUrl: null,
+            onComplete: {
+                action: 'redirect',
+                page: 'States/transformation-trapped.html',
+                duration: 3*60*60*1000
+            }
+        },
+
+        // DOG PATH: Stages 4-6
+        {
+            stage: 4,
+            stageVariant: 'dog',
+            title: 'Dog Transformation Begins',
+            text: `"A dog," Scarlet smiles wickedly. "Loyal, obedient, eager to please. Your body is already responding—becoming compact, muscular, perfect for a canine form."
+
+Your transformation accelerates. Your body compacts and strengthens. Fur sprouts across your skin—golden like a golden retriever. Your face pushes out into a snout. Your hands become paws with sharp claws. Your sensitive nose can now smell things you never imagined—emotions, arousal, dominance, submission.
+
+Most disturbingly, your cock is changing too—becoming a knot, becoming shaped for canine breeding. Your animal mind is already starting to surge forward, the part of you that wants to please, wants to submit, wants to obey your mistress.
+
+Scarlet snaps her fingers and your body immediately sits, without you making a conscious choice. You've already begun to obey before you know what's happening.
+
+"Good girl," she coos. "Such a smart dog. Soon you'll be nothing but obedience."`,
+            choices: null,
+            imageUrl: null
+        },
+        {
+            stage: 5,
+            stageVariant: 'dog',
+            title: 'Canine Submission',
+            text: `You're now a beautiful golden retriever—fully canine, powerful but obviously submissive to Scarlet. Your human consciousness is drowning in canine instinct. All you want is to please her, to obey her, to feel her touch.
+
+When she commands, your body moves without question. When she snaps her fingers, you're instantly at her feet. When she pets you, the pleasure is overwhelming—pure dog joy, pure submission, pure love.
+
+She attaches a leash to your collar and leads you around. Other people are watching, and instead of feeling shame, your dog mind feels only pride in being such a perfect, obedient girl for your mistress.
+
+"Such a perfect dog," Scarlet coos, petting your ears. "Soon you won't remember being anything else. You'll just want to serve me, obey me, love me with the pure loyalty only a dog can feel."
+
+Your dog body presses against her leg in complete devotion.`,
+            choices: null,
+            imageUrl: null
+        },
+        {
+            stage: 6,
+            stageVariant: 'dog',
+            title: 'Complete Obedience',
+            text: `You are now a perfect dog—a beautiful golden retriever whose only purpose is to obey and please Scarlet. Your human mind is almost completely gone, replaced by pure canine devotion. Your tail wags uncontrollably when she enters the room. Your only thoughts are about pleasing her, serving her, loving her.
+
+She commands and you obey instantly—sit, lay down, come, fetch, anything. The pleasure you feel from obeying is overwhelming. She's your entire world now. Nothing matters but being a good girl for her.
+
+Sometimes she breeds you with other dogs, sometimes with other animals she's transformed, and your dog body responds with the pure instinct of a fertile female in heat. It's perfect. It's simple. It's everything.
+
+Scarlet pets your head and you lean into it completely, your tail wagging so hard your whole body shakes.
+
+"My perfect girl," she whispers. "So obedient, so loyal, so completely mine. One more stage and your human mind will be locked away forever. You'll never even remember wanting to be anything else."
+
+She leads you to your final transformation.`,
+            choices: [
+                { text: 'Accept your life as a loyal dog', next: 7, risk: 'critical' }
+            ],
+            imageUrl: null,
+            onComplete: {
+                action: 'redirect',
+                page: 'States/transformation-trapped.html',
+                duration: 3*60*60*1000
+            }
+        },
+
+        // STAGE 7: FINAL THRESHOLD (All paths converge here - but text varies by variant)
+        {
+            stage: 7,
+            title: 'The Last Moment of Consciousness',
+            text: `You stand at the absolute threshold. Your entire body is now 100% animal. Your mind is fragmented—your human consciousness is just a tiny spark in the depths of your animal brain, screaming silently as it gets crushed under the weight of pure animal instinct.
+
+Scarlet stands before you, and somehow—impossibly—your animal form still understands her words perfectly.
+
+"This is it," she says softly. "The moment where your human mind completely sinks beneath the animal. After this, you'll be fully, completely, irreversibly what you've become. No more memories of being human. No more fighting. Just pure animal existence."
+
+She reaches out and touches your transformed body—wherever you are in your new shape—and that touch sends the final nail into your consciousness's coffin. The human you were is drowning in animal instinct, and it feels so good to just... let go.
+
+This is the last moment you'll ever fully understand words. The last moment you'll consciously think a complex thought. The last moment you'll remember what you were.
+
+Everything else will be pure animal.`,
+            choices: null,
+            imageUrl: null,
+            onComplete: {
+                action: 'redirect',
+                page: 'States/transformation-trapped.html',
+                duration: 3*60*60*1000
+            }
+        },
+
+        // STAGES 8-13: Post-Transformation (All paths converge—animal-specific but generic narratives)
+        {
+            stage: 8,
+            title: 'Complete Animal Existence',
+            text: `You are no longer human. You are fully, completely, irrevocably an animal. Your human consciousness is locked deep inside—aware but unable to communicate, unable to resist, unable to control anything your animal body does.
+
+Scarlet leads you to your new home—a stall, a hutch, a kennel, depending on your form. The space is comfortable. Clean. Safe. Part of you remembers that you should find this horrifying, but that part of you is so deeply buried that it might as well not exist.
+
+All you know now is your new existence. Food when you're hungry. Water when you're thirsty. The presence of Scarlet, who is everything. Your purpose—whatever it is—whether breeding or work or simple companionship.
+
+The person you were is gone. But somehow, in the depths of your locked consciousness, you're not entirely sure that's a bad thing.`,
+            choices: null,
+            imageUrl: null
+        },
+        {
+            stage: 9,
+            title: 'Days of Adjustment',
+            text: `Days pass. Weeks. Your animal body settles into routines. You eat, you sleep, you exist according to your new nature. The tiny fragment of human consciousness that still exists within you is fading rapidly—each day it screams less, fights less, accepts more.
+
+Scarlet visits your space regularly. Sometimes to ride you (if you're a horse), to milk you (if you're a cow), to breed with you or others, to pet and reward you. Every interaction with her triggers pure joy in your animal mind—she is the center of your entire world.
+
+That trapped human consciousness wonders if it will ever escape. But the wondering is becoming quieter. Fainter. Less urgent.
+
+Maybe this is what you were always meant to be.`,
+            choices: null,
+            imageUrl: null
+        },
+        {
+            stage: 10,
+            title: 'New Residents Arrive',
+            text: `There are other animals here now. Sometimes Scarlet brings new guests to the stable or habitat. Some of them are animals—real ones, born that way. But some of them... some of them have that spark in their eyes. That tiny point of human consciousness screaming from inside an animal form.
+
+You recognize that spark because you see it when you look at your reflection in water. But even as you recognize it in them, you realize it's fading in you. Your awareness of being human is diluting. Dissolving. Becoming a memory of a memory.
+
+One of the new arrivals seems to be screaming internally, fighting their transformation desperately. You remember being like that. But now...
+
+Now you just want to eat and sleep and serve Scarlet.`,
+            choices: null,
+            imageUrl: null
+        },
+        {
+            stage: 11,
+            title: 'Animal Instinct Ascendant',
+            text: `Your human consciousness is barely a whisper now. It still exists somewhere in the depths of your animal brain, but it's so faint you can barely hear its protests anymore. Everything you do is pure instinct. Pure animal response.
+
+You breed when the urge takes you or when Scarlet positions you to breed. You eat when you're hungry. You rest when you're tired. Your world is simple now—no complexity, no regret, no desire for anything beyond what your animal body needs.
+
+Sometimes you feel a flutter of something that might be memory—a flash of human thought, a word you almost remember—but it passes so quickly, and then it's back to simple existence.
+
+The person you were might have wanted freedom. But the animal you are? The animal you are wants only to exist, to serve Scarlet, to be happy in the way only simple animals can be.`,
+            choices: null,
+            imageUrl: null
+        },
+        {
+            stage: 12,
+            title: 'Scarlet's Perfect Collection',
+            text: `You're now one of Scarlet's perfect creatures. Sometimes she brings visitors to look at her transformed animals. You see them pointing, laughing, making bets about your origins. Do they know you used to be human? Does it matter?
+
+You don't think so anymore. Scarlet is proud of you. She shows you off. She pets you, feeds you treats, treats you with affection. And in return, you exist exactly as she's made you. 
+
+That human consciousness that used to scream from inside you is almost completely silent now. You think you can feel it, barely, like a ghost. But it doesn't matter. It doesn't control you. Doesn't fight you. Doesn't want anything anymore.
+
+You are Scarlet's perfect animal. And for the first time since your transformation began, you're completely content with that.`,
+            choices: null,
+            imageUrl: null
+        },
+        {
+            stage: 13,
+            title: 'Permanent Fixture',
+            text: `Months have passed. Maybe years—time is strange now, meaningless. You're a permanent resident here. Scarlet has cycled through new guests, new transformations, new animals. But you remain, a fixture of her stable or habitat.
+
+Your human consciousness is gone now. Completely. There's no screaming inside anymore. No fighting. No resistance. No memory of being human, or if there is, it's so distant and irrelevant that it might as well not exist.
+
+You are what you were always meant to be. The person you were—that false, limited, complicated human—is gone, and you don't mourn it. How could you mourn the loss of a cage?
+
+You're free now. Free to be exactly what you are. Free to serve your mistress. Free to exist without thought or worry or regret.
+
+And that's truly enough.`,
+            choices: [
+                { text: 'End Interaction & Return to Map', next: 'end', risk: 'none' }
+            ],
+            imageUrl: null
+        }
+    ]
+}

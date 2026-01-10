@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trapped as Lily's monkey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+    (function() {
+        const s = JSON.parse(localStorage.getItem('farmState') || '{}');
+        if (!s.trappedUntil || s.trappedUntil <= Date.now()) {
+            localStorage.removeItem('farmState');
+            window.location.href = '../../index.html';
+        }
+    })();
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: linear-gradient(135deg, #CD853F 0%, #DEB887 100%); color: #fff; font-family: 'Poppins', sans-serif; min-height: 100vh; }
+        .main-container { display: flex; flex-direction: column; align-items: center; padding: 20px; gap: 30px; }
+        @keyframes timerPulse { 0%, 100% { transform: scale(1); text-shadow: 0 0 30px #CD853F; } 50% { transform: scale(1.05); text-shadow: 0 0 50px #DEB887; } }
+        .timer-display { font-family: 'Orbitron', monospace; font-size: 3.5rem; font-weight: 700; color: #CD853F; text-align: center; animation: timerPulse 2s ease-in-out infinite; letter-spacing: 8px; }
+        .main-panel { display: grid; grid-template-columns: 1fr 380px; gap: 40px; max-width: 1200px; width: 100%; align-items: start; }
+        .left-panel { display: flex; flex-direction: column; align-items: center; gap: 20px; }
+        .image-container { position: relative; width: 100%; max-width: 600px; height: 480px; border-radius: 25px; overflow: hidden; box-shadow: 0 20px 60px rgba(205, 133, 63, 0.4); }
+        .image-container img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; }
+        .image-container img.active { opacity: 1; }
+        .right-panel { display: flex; flex-direction: column; gap: 20px; height: fit-content; }
+        .item-header { text-align: center; }
+        .item-title { font-family: 'Orbitron', sans-serif; font-size: 1.8rem; font-weight: 700; color: #CD853F; margin-bottom: 8px; }
+        .category-badge { background: linear-gradient(45deg, #CD853F, #DEB887); padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+        .mind-break-container { background: rgba(205, 133, 63, 0.15); backdrop-filter: blur(20px); border: 2px solid rgba(205, 133, 63, 0.6); border-radius: 15px; padding: 20px; }
+        .mind-break-header { display: flex; justify-content: space-between; margin-bottom: 10px; }
+        .mind-break-title { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; font-weight: 700; color: #CD853F; }
+        .mind-break-percentage { font-size: 1.1rem; font-weight: 700; color: #DEB887; }
+        .mind-break-bar { width: 100%; height: 12px; background: rgba(0, 0, 0, 0.4); border-radius: 10px; overflow: hidden; margin-bottom: 10px; }
+        .mind-break-fill { height: 100%; background: linear-gradient(90deg, #CD853F, #DEB887); border-radius: 10px; width: 0%; }
+        .mind-break-stages { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; font-size: 0.75rem; text-align: center; }
+        .action-buttons { display: grid; grid-template-columns: 1fr; gap: 12px; }
+        .action-btn { font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 700; padding: 16px 20px; border-radius: 50px; border: none; cursor: pointer; color: #fff; }
+        .action-btn:hover { transform: translateY(-3px); filter: brightness(1.15); }
+        .lower-section { max-width: 1000px; width: 100%; }
+        .status-box { background: rgba(205, 133, 63, 0.15); border: 2px solid rgba(205, 133, 63, 0.7); border-radius: 20px; padding: 30px; margin-bottom: 25px; text-align: center; }
+        .status-box h3 { font-family: 'Orbitron', sans-serif; font-size: 1.6rem; color: #CD853F; margin-bottom: 15px; }
+        .memory-fragment { background: rgba(0, 0, 0, 0.4); border-left: 4px solid #CD853F; border-radius: 12px; overflow: hidden; margin-bottom: 15px; }
+        .memory-trigger { padding: 15px; background: rgba(205, 133, 63, 0.2); cursor: pointer; font-weight: 600; }
+        .memory-trigger:hover { background: rgba(205, 133, 63, 0.35); }
+        .memory-content { padding: 15px; display: none; }
+        .memory-content.active { display: block; }
+        details summary { margin-top: 30px; font-family: 'Orbitron', sans-serif; font-size: 1.8rem; font-weight: 700; color: #CD853F; padding: 20px; list-style: none; background: rgba(205, 133, 63, 0.15); border-radius: 20px; cursor: pointer; }
+        @media (max-width: 900px) { .main-panel { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="timer-display" id="countdownTimer">--:--:--</div>
+        <div class="main-panel">
+            <div class="left-panel">
+                <div class="image-container">
+                    <img src="https://via.placeholder.com/600x480/CD853F?text=monkey+Form" class="active">
+                </div>
+            </div>
+            <div class="right-panel">
+                <div class="item-header">
+                    <h1 class="item-title">Lily's Perfect Monkey</h1>
+                    <div class="category-badge">Primate Transformation</div>
+                </div>
+                <div class="mind-break-container">
+                    <div class="mind-break-header">
+                        <div class="mind-break-title">INTELLIGENT SLAVERY</div>
+                        <div class="mind-break-percentage" id="mindBreakPercentage">0%</div>
+                    </div>
+                    <div class="mind-break-bar"><div class="mind-break-fill" id="mindBreakFill"></div></div>
+                    <div class="mind-break-stages">
+                        <span>HUMAN</span>
+                        <span>PRIMATE_FORM</span>
+                        <span>RESPONSIVE</span>
+                        <span>OWNED_APE</span>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <button class="action-btn" style="background: linear-gradient(45deg, #CD853F, #DEB887); box-shadow: 0 8px 25px rgba(205, 133, 63, 0.6);" onclick="resist()">RESIST</button>
+                    <button class="action-btn" style="background: linear-gradient(45deg, #DEB887, #CD853F); box-shadow: 0 8px 25px rgba(205, 133, 63, 0.6);" onclick="accept()">ACCEPT FORM</button>
+                </div>
+            </div>
+        </div>
+        <div class="lower-section">
+            <details>
+                <summary>Your Complete Existence</summary>
+                <div class="status-box">
+                    <h3>Transformation Complete</h3>
+                    <p>You have been completely transformed. Your consciousness has changed. This is what you are now.</p>
+                </div>
+                <div>
+                    <div class="memory-fragment">
+                        <div class="memory-trigger" onclick="toggleMemory(0)">#1: BECOMING SIMIAN</div>
+                        <div class="memory-content">Your body becomes compact and powerful. Fur covers your new form. Your mind simplifies but retains enough intelligence to understand your bondage to Lily.</div>
+                    </div>
+                    <div class="memory-fragment">
+                        <div class="memory-trigger" onclick="toggleMemory(1)">#2: TRAINER RESPONSIVE</div>
+                        <div class="memory-content">You learn to respond to Lily's commands perfectly. You perform tricks for her amusement. You are intelligent enough to obey complex commands but not smart enough to resist.</div>
+                    </div>
+                    <div class="memory-fragment">
+                        <div class="memory-trigger" onclick="toggleMemory(2)">#3: OWNED PRIMATE</div>
+                        <div class="memory-content">You understand that you are her owned primate. You belong to her completely. Your intelligence makes you aware of your slavery but unable to escape. This is your purpose.</div>
+                    </div>
+                    <div class="memory-fragment">
+                        <div class="memory-trigger" onclick="toggleMemory(3)">#4: PERFECT OWNED APE</div>
+                        <div class="memory-content">You are Lily's perfect monkey now. Intelligent enough to understand your bondage but too simple to resist. You exist only to perform for her and respond to her commands.</div>
+                    </div>
+                </div>
+            </details>
+        </div>
+    </div>
+    <script>
+        const state = JSON.parse(localStorage.getItem('farmState') || '{}');
+        const endTime = state.trappedUntil;
+        let mindBreakLevel = parseInt(localStorage.getItem('LilymonkeyMindBreak') || '0');
+        function updateCountdownTimer() {
+            const timeLeft = Math.max(0, endTime - Date.now());
+            const h = Math.floor(timeLeft / 3600000).toString().padStart(2, '0');
+            const m = Math.floor((timeLeft % 3600000) / 60000).toString().padStart(2, '0');
+            const s = Math.floor((timeLeft % 60000) / 1000).toString().padStart(2, '0');
+            document.getElementById('countdownTimer').textContent = h + ':' + m + ':' + s;
+            if (timeLeft <= 0) { localStorage.removeItem('farmState'); window.location.href = '../../index.html'; }
+        }
+        function toggleMemory(stage) { document.querySelectorAll('.memory-content')[stage].classList.toggle('active'); }
+        function resist() { mindBreakLevel = Math.min(100, mindBreakLevel + 5); updateMindBreak(); }
+        function accept() { mindBreakLevel = Math.min(100, mindBreakLevel + 10); updateMindBreak(); }
+        function updateMindBreak() {
+            document.getElementById('mindBreakPercentage').textContent = mindBreakLevel + '%';
+            document.getElementById('mindBreakFill').style.width = mindBreakLevel + '%';
+            localStorage.setItem('LilymonkeyMindBreak', mindBreakLevel);
+        }
+        setInterval(updateCountdownTimer, 1000);
+        updateCountdownTimer();
+        updateMindBreak();
+    </script>
+</body>
+</html>

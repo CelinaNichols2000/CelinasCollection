@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformation Complete - Trapped</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <!-- GLOBAL CHECKER - Auto-redirect if timer expired -->
+    <script>(function(){const s=JSON.parse(localStorage.getItem('farmState')||'{}');if(s.trappedUntil&&s.trappedUntil>Date.now()){}else{localStorage.removeItem('farmState');window.location.href='../../farm.html';}})();</script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            background: linear-gradient(135deg, #1a0a2a 0%, #0a1a0a 100%);
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .timer {
+            font-family: 'Orbitron', monospace;
+            font-size: 4rem;
+            font-weight: 700;
+            color: #FF00CA;
+            text-shadow: 0 0 20px #FF00CA, 0 0 40px #FF00CA;
+            letter-spacing: 4px;
+        }
+
+        .title {
+            font-size: 2.5rem;
+            color: #00ffd5;
+            text-shadow: 0 0 15px #00ffd5;
+            margin: 20px 0;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            color: #ddd;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 20px auto;
+        }
+
+        .status-box {
+            background: rgba(255, 0, 202, 0.1);
+            border: 2px solid rgba(255, 0, 202, 0.5);
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 600px;
+        }
+
+        .status-box h3 {
+            color: #FF00CA;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .status-box p {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .instruction {
+            color: #999;
+            font-style: italic;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .timer.pulsing {
+            animation: pulse 1s ease-in-out infinite;
+        }
+
+        @media (max-width: 600px) {
+            .timer {
+                font-size: 3rem;
+            }
+            .title {
+                font-size: 1.8rem;
+            }
+            .description {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="timer" id="countdown">00:00:00</div>
+        
+        <div class="title" id="transformTitle">You Are Trapped</div>
+        
+        <div class="description" id="transformDescription">
+            Your transformation is complete. You are bound here until the timer expires...
+        </div>
+
+        <div class="status-box">
+            <h3>Current State</h3>
+            <p id="currentState">Waiting for information...</p>
+        </div>
+
+        <div class="instruction">
+            The timer counts down. When it reaches zero, you may return to the farmhouse.
+        </div>
+    </div>
+
+    <script>
+        // Get transformation info from farmState
+        const state = JSON.parse(localStorage.getItem('farmState') || '{}');
+        const endTime = state.trappedUntil || Date.now();
+        const currentForm = state.currentForm || 'unknown';
+
+        // Transformation info mapping
+        const transformInfo = {
+            // Scarlet forms
+            'scarlet-horse': { title: 'Become A Horse', desc: 'Your new equine form is complete. You are bound to your stall...' },
+            'scarlet-cow': { title: 'Become A Cow', desc: 'Your transformation to cow is final. You await your purpose...' },
+            'scarlet-donkey': { title: 'Become A Donkey', desc: 'As a donkey, you are trapped. Work awaits you...' },
+            'scarlet-rabbit': { title: 'Become A Rabbit', desc: 'Small, vulnerable, and trapped. Your new life begins...' },
+            'scarlet-dog': { title: 'Become A Dog', desc: 'A loyal animal. Your human mind fades with each moment...' },
+            
+            // Iris forms
+            'iris-maid': { title: 'Servile Maid', desc: 'Your mind has become a maid\'s. You exist only to serve...' },
+            'iris-bimbo': { title: 'Mindless Bimbo', desc: 'Your thoughts are shallow. You love being pretty and dumb...' },
+            'iris-sex-slave': { title: 'Sexual Slave', desc: 'Your body and mind are now instruments of pleasure...' },
+            
+            // Aelindor forms
+            'aelindor-pussy': { title: 'Absorbed as Pussy', desc: 'You are now part of her. Your form is her most intimate...' },
+            'aelindor-boobs': { title: 'Absorbed as Breasts', desc: 'Forever merged. You exist as curves and pleasure...' },
+            'aelindor-ass': { title: 'Absorbed as Ass', desc: 'You are her perfect curves. Merged eternally...' },
+            'aelindor-anus': { title: 'Absorbed as Orifice', desc: 'The deepest merger. You are function and sensation...' },
+            'aelindor-cock': { title: 'Absorbed as Shaft', desc: 'Hard, throbbing, and merged. Eternal pleasure...' },
+            
+            // Sparkle forms
+            'sparkle-dildo': { title: 'Transformed to Dildo', desc: 'Hard, functional, and beautiful. You are her favorite toy...' },
+            'sparkle-fleshlight': { title: 'Transformed to Fleshlight', desc: 'A sleeve of sensation. Used endlessly and loved...' },
+            'sparkle-buttplug': { title: 'Transformed to Buttplug', desc: 'Small, intimate, and permanent. Always inside her...' },
+            
+            // Lily forms
+            'lily-worm': { title: 'Become A Worm', desc: 'Tiny, simple, and hers. Crawling in soil forever...' },
+            'lily-bug': { title: 'Become An Insect', desc: 'Small wings, simple mind. You exist only to please her...' },
+            'lily-monkey': { title: 'Become A Monkey', desc: 'Playful and caged. Your human memory is almost gone...' },
+            'lily-frog': { title: 'Become A Frog', desc: 'Sitting in her garden. Ribbiting without thought...' },
+            
+            // Amy forms
+            'amy-horse': { title: 'Become Her Horse', desc: 'A beast of burden. Ridden and used daily...' },
+            'amy-cow': { title: 'Become Her Cow', desc: 'Patient, docile, exploited. Your purpose is clear...' },
+            'amy-bird': { title: 'Become A Bird', desc: 'Caged and singing. Your wings beat in golden light...' },
+            'amy-snail': { title: 'Become A Snail', desc: 'Slow and trapped in your shell. Time moves differently now...' },
+            
+            // Morrigan forms
+            'morrigan-pig': { title: 'Become A Pig', desc: 'In a pen, covered in mud. Her perfect experiment...' },
+            'morrigan-mouse': { title: 'Become A Mouse', desc: 'Tiny and watched. Running through her maze...' },
+            'morrigan-cat': { title: 'Become A Cat', desc: 'Independent yet controlled. Purring in her care...' },
+            'morrigan-guinea-pig': { title: 'Become A Guinea Pig', desc: 'Docile test subject. Forever her laboratory pet...' }
+        };
+
+        const info = transformInfo[currentForm] || { 
+            title: 'Transformation Complete',
+            desc: 'Your form has changed. You are trapped here...'
+        };
+
+        // Set display text
+        document.getElementById('transformTitle').textContent = info.title;
+        document.getElementById('transformDescription').textContent = info.desc;
+        document.getElementById('currentState').textContent = `Form: ${currentForm.split('-').pop() || 'Unknown'}`;
+
+        // Timer function
+        function updateTimer() {
+            const now = Date.now();
+            const remaining = Math.max(0, endTime - now);
+
+            if (remaining <= 0) {
+                localStorage.removeItem('farmState');
+                window.location.href = '../../farm.html';
+                return;
+            }
+
+            const hours = Math.floor(remaining / 3600000);
+            const minutes = Math.floor((remaining % 3600000) / 60000);
+            const seconds = Math.floor((remaining % 60000) / 1000);
+
+            const display = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            document.getElementById('countdown').textContent = display;
+
+            // Add pulsing animation when close to end
+            const timer = document.getElementById('countdown');
+            if (remaining < 60000) {
+                timer.classList.add('pulsing');
+            } else {
+                timer.classList.remove('pulsing');
+            }
+        }
+
+        // Update every second
+        updateTimer();
+        setInterval(updateTimer, 1000);
+    </script>
+</body>
+</html>
