@@ -1,0 +1,1385 @@
+Script Testing
+
+${GUI.instance.DisplayMessage("=== STEP 1 ===");GUI.instance.DisplayMessage("Inanimate: "+GAME_MANAGER.instance.inanimate);}
+
+
+${GUI.instance.DisplayMessage("=== STEP 2 ===");GUI.instance.DisplayMessage("Character.item: "+(GAME_MANAGER.instance.character?.item?JSON.stringify(GAME_MANAGER.instance.character.item):"null"));}
+
+
+${GUI.instance.DisplayMessage("=== STEP 3 ===");GUI.instance.DisplayMessage("Owner: "+(GAME_MANAGER.instance.owner?GAME_MANAGER.instance.owner.username:"null"));}
+
+${ACTION.GetInanimateActionAsSpell(24); MENU.Spells.CastSpell(null, ACTION.GetInanimateActionAsSpell(24), 13);}
+
+GAME_MANAGER.instance.Send("Form", { giveIn: true });
+GAME_MANAGER.instance.Send("Form", { turnBack: true });
+                                
+GAME_MANAGER.instance.Send("Form", { escape: true });
+
+${(() => {  const s = LOCATION.instance.GetSpecialActions();  if (!s || !Array.isArray(s.options)) return '';  const inanimate = s.options.filter(a => a.type === 1);  if (!inanimate.length) {    TEXT_LOG.instance.CombatMessage({ message: 'No special transformations.' });    return '';  }  const names = inanimate    .map(a => a.actionname || a.label || ('#' + a.id))    .join(', ');  TEXT_LOG.instance.CombatMessage({ message: 'Special transformations: ' + names });  return '';})()} 
+
+visual only (sealed and locked)
+${(()=>{const i=GAME_MANAGER.instance.character.item;i.character.permanent=true;i.character.sealed=true;GUI.instance.DisplayMessage('permanent+sealed clientseitig gesetzt');return'';})()}
+
+
+
+for console!: (websocket)
+const wsSym = Object.getOwnPropertySymbols(GAME_MANAGER)
+  .find(s => s.description === 'ws');
+const ws = wsSym ? GAME_MANAGER[wsSym] : null;
+console.log('[WS Hook] ws =', ws);
+
+if (ws) {
+  const origSend = ws.send.bind(ws);
+  ws.send = function(data) {
+    console.log('[WS OUT]', data);
+    return origSend(data);
+  };
+
+  const origOnMessage = ws.onmessage;
+  ws.onmessage = async function(ev) {
+    console.log('[WS IN]', ev.data);
+    return origOnMessage ? origOnMessage.call(this, ev) : undefined;
+  };
+  console.log('[WS Hook] installed');
+} else {
+  console.log('[WS Hook] no ws found');
+}
+
+npc unlock:
+${(()=>{GAME_MANAGER.instance.Send("Crafting",{  itemId:7404302,  optionId:29,  npc:true});return'';})()}
+
+npc seal:
+${(()=>{GAME_MANAGER.instance.Send("Crafting",{  itemId:7404302,  optionId:28,  npc:true});return'';})()}
+
+
+
+${(()=>{GAME_MANAGER.instance.Send("Item",{  itemId:7404324,  itemAction:"Use",  target:"item",  targetId:7404302});return'';})()}  itemId:7404324,  itemAction:"Use",  target:"item",  targetId:7404302});return'';})()}  itemId:7404324,  itemAction:"Use",  target:"item",  targetId:7404302});return'';})()}
+
+
+grafical inanimate tf with owner 
+${(() => {  const ws = Object.getOwnPropertySymbols(GAME_MANAGER).find(s => s.description === 'ws');  if (!GAME_MANAGER[ws]) return '';  const sock = GAME_MANAGER[ws];  const msg = {    action: "GiveItemTo",    itemId: 7404302,    token: "037095834745f61d3aa66090769b1de283823a18",  };  sock.send(JSON.stringify(msg));  return '';})()}
+
+
+═══════════════════════════════════════════════════════════════
+ENCOUNTER/INVITE PROTOCOL (CAPTURED FROM REAL ACCEPTANCE)
+═══════════════════════════════════════════════════════════════
+
+SERVER → CLIENT (Invite Notification):
+{
+  "notification": {
+    "type": "Meetup",
+    "timestamp": 1769448048013,
+    "request": false,
+    "username": "Hatice",
+    "username_color": null,
+    "character": "Mindfucked-Skintight",
+    "nature": "pure"
+  }
+}
+
+CLIENT → SERVER (Accept Invite):
+{
+  "user": "Hatice",
+  "request": false,
+  "accepted": true,
+  "response": true,
+  "action": "Invite"
+}
+
+SERVER → CLIENT (Encounter Start Sequence):
+1. ArrayBuffer (1008 bytes) - Your character data
+2. ArrayBuffer (286 bytes) - Location/encounter state
+3. ArrayBuffer (1514 bytes) - Opponent character data
+4. ["47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77", {"actions": {}}]
+5. ["47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77", [462,0,462,541,0,541,0,0,0,3.23,0.05383333333333333,3.23,3.37,0.05616666666666667,3.37,0,0,0,0]]
+6. ["307ba0f777d90b53159d6da436e1dcecadd921e8", [500,0,500,500,0,500,0,0,0]]
+
+KEY INSIGHT:
+- Server sends ArrayBuffers first (compressed character/location data)
+- Then sends stats arrays for both players
+- First token = YOUR token (with full 19-element stats array - encounter mode)
+- Second token = OPPONENT token (with 9-element stats array - non-encounter mode)
+
+TO FORCE ENCOUNTER WITHOUT ACCEPTANCE:
+Method 1: Send fake acceptance for offline player
+Method 2: Simulate the ArrayBuffer responses locally
+Method 3: Directly set gm.opponent and gm.encounter with synthetic data
+
+REAL ACCEPTANCE MESSAGE FORMAT:
+{
+  "user": "TargetUsername",
+  "request": false,
+  "accepted": true,
+  "response": true,
+  "action": "Invite"
+}
+
+═══════════════════════════════════════════════════════════════
+// ====================================================================
+// SELFTF - Auto Inanimate Transformation for Amy Smith
+// One simple, direct script that transforms you into an inanimate item
+// STATIC OWNER - No dependencies on gm.owner being loaded
+// ====================================================================
+
+(() => {
+  console.log('╔════════════════════════════════════════════════╗');
+  console.log('║           SELFTF - Inanimate Mode             ║');
+  console.log('║          Amy Smith Transformation             ║');
+  console.log('║         With STATIC OWNER (Sakura)            ║');
+  console.log('╚════════════════════════════════════════════════╝');
+  
+  const gm = GAME_MANAGER.instance;
+  const gui = GUI.instance;
+  
+  // ============ CONFIGURATION ============
+  const CONFIG = {
+    sakuraToken: '709781bac744b9e05b50c5eb4dbe66c11e5b01b6',           // Sakura Moone (owner)
+    yourToken: '47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77',             // YOUR CHARACTER (Amy Smith)
+    inanimateName: 'Amy\'s Transform Item',
+    baseId: 137,
+    color: 'Purple',
+    permanent: true,
+    sealed: false
+  };
+  
+  // ============ STATIC OWNER OBJECT - SAKURA MOONE ============
+  // This is created from real game data so it doesn't depend on gm.owner
+  const STATIC_OWNER = {
+    background: 0,
+    effects: [],
+    physique: [255, 0, 0],
+    skin: [0, 0],
+    skin_color: 0,
+    head: [0, 0, 8, 0, 0],
+    head_flags: 0,
+    body: [0, 0, 8, 0],
+    height: 0,
+    body_flags: 0,
+    hair: [0, 0, 0, 0, 0, 0],
+    hair_flags: 0,
+    genitalia: 2,
+    genitalia_size: 0,
+    breasts: [4, 0, 0, 0],
+    training: [0, 0, 0],
+    lip_size: 0,
+    makeup: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    names: "Sakura Moone",
+    nature: "sexy",
+    token: CONFIG.sakuraToken,
+    abilities: [],
+    cards: [],
+    passives: [],
+    username: "Max_The_Catgirl",
+    username_color: "#3498DB",
+    tier: 2,
+    equipment: [],
+    filter: {
+      absorption: true,
+      animal: true,
+      anthro: true,
+      inanimate: true,
+      monster: true,
+      sissification: true,
+      transgender: true
+    },
+    sexuality: 7,
+    desires: {},
+    stats: {
+      strength: 10,
+      dexterity: 10.67,
+      intelligence: 10.77,
+      willpower: 13.77,
+      body: 0,
+      mind: 0,
+      action: 0,
+      spell: 0.23,
+      hit: 0.67,
+      evasion: 0,
+      penetration: 3.52,
+      resistance: 0
+    },
+    status: {
+      body: 500,
+      maxBody: 500,
+      mind: 538,
+      maxMind: 538,
+      lust: 0,
+      roleplaying: true,
+      effects: []
+    }
+  };
+  
+  // ============ STATE TRACKING ============
+  let enabled = false;
+  let currentOwner = null;
+  
+  // ============ HARDCODED BASE ITEM - Vinyl Leotard (137) ============
+  const BASE_ITEM = {
+    id: 137,
+    item_name: "Vinyl Leotard",
+    image_url: "https://battlemageserotica.com/game/assets/items/leotard_vinyl.png",
+    type: "equipment",
+    singular: "a",
+    group: 18,
+    width: 2,
+    height: 3,
+    color_variants: ["*"],
+    accessory_variants: ["*"],
+    slots: ["shirt", "undershirt"],
+    types: ["equipment"],
+    flags: [],
+    stack: 1,
+    nsfw: false
+  };
+  
+  // ============ CORE ENABLE LOGIC - DIRECT AND SIMPLE ============
+  function enableInanimateMode(ownerChar) {
+    if (!ownerChar) {
+      console.error('✗ ERROR: No owner character provided');
+      gui.DisplayMessage('SelfTF: Error - no owner');
+      return false;
+    }
+    
+    if (!gm.character) {
+      console.error('✗ ERROR: No character');
+      return false;
+    }
+    
+    console.log('\n┌─ ENABLING INANIMATE MODE ─┐');
+    console.log('  Owner:', ownerChar.names || ownerChar.name);
+    console.log('  You:', gm.character.names || gm.character.name);
+    console.log('  Your token:', gm.character.token.substring(0, 16) + '...');
+    
+    // STEP 1: Install Proxy FIRST (before setting character.item)
+    currentOwner = ownerChar;
+    enabled = true;
+    installOwnerFallbackHook();
+    installSceneControllerPatch();
+    
+    // GET THE BASE ITEM OBJECT (hardcoded, doesn't depend on game loading it)
+    const baseItem = BASE_ITEM;
+    console.log('  ✓ Using base item:', baseItem.item_name);
+    
+    // CREATE THE INANIMATE ITEM
+    const itemId = Math.floor(Math.random() * 10000000);
+    const inanimateItem = {
+      id: itemId,
+      stack: 0,
+      base: baseItem,  // FULL OBJECT, not just ID!
+      flags: 0,
+      character: {
+        permanent: CONFIG.permanent,
+        sealed: CONFIG.sealed,
+        name: CONFIG.inanimateName,
+        nature: gm.character.nature || 'sexy',
+        id_token: gm.character.token  // YOUR ACTUAL TOKEN
+      },
+      enchantments: [],
+      attributes: 0,
+      variant_color: CONFIG.color,
+      variant_accessory: null,
+      inanimate_actions: [
+        { id: 23, action_name: "Excited", tags: ["Inanimate"], description: "Wiggle and shiver excitedly.", action_cost: 1 },
+        { id: 24, action_name: "Submit", tags: ["Inanimate"], description: "Embrace your owner submissively.", action_cost: 1 },
+        { id: 25, action_name: "Affectionate", tags: ["Inanimate"], description: "Embrace your owner affectionately.", action_cost: 1 },
+        { id: 26, action_name: "Reluctant", tags: ["Inanimate"], description: "Embrace your owner reluctantly.", action_cost: 1 },
+        { id: 27, action_name: "Defiant", tags: ["Inanimate"], description: "Writhe and struggle defiantly.", action_cost: 1 },
+        { id: 28, action_name: "Indignant", tags: ["Inanimate"], description: "Writhe and wriggle indignantly.", action_cost: 1 },
+        { id: 29, action_name: "Bewildered", tags: ["Inanimate"], description: "Writhe and wriggle bewilderedly.", action_cost: 1 },
+        { id: 30, action_name: "Apprehension", tags: ["Inanimate"], description: "Cower and quiver anxiously.", action_cost: 1 }
+      ]
+    };
+    
+    console.log('  ✓ Created inanimate item');
+    
+    // ENSURE EQUIPMENT ARRAY
+    if (!ownerChar.equipment) {
+      ownerChar.equipment = [];
+      console.log('  ✓ Created equipment array');
+    }
+    
+    // REMOVE DUPLICATES
+    ownerChar.equipment = ownerChar.equipment.filter(item => 
+      !(item?.character?.id_token === gm.character.token)
+    );
+    
+    // ADD YOURSELF
+    ownerChar.equipment.push(inanimateItem);
+    console.log('  ✓ Added to owner.equipment (now has', ownerChar.equipment.length, 'items)');
+    
+    // SET YOURSELF AS ITEM
+    gm.character.item = inanimateItem;
+    console.log('  ✓ Set gm.character.item');
+    
+    // Ensure item.base always returns full object (not just ID)
+    fixInanimateItemBase();
+    
+    console.log('└──────────────────────────────┘');
+    console.log('\n✓✓✓ INANIMATE MODE ENABLED ✓✓✓');
+    console.log('Status:');
+    console.log('  gm.inanimate:', gm.inanimate);
+    console.log('  IsEquippedInanimate():', gm.IsEquippedInanimate?.());
+    console.log('  In owner.equipment:', !!ownerChar.equipment.find(i => i?.character?.id_token === gm.character.token));
+    console.log('  Item name:', gm.character.item?.character?.name);
+    console.log('');
+        
+    // Install remaining hooks
+    installGetBaseItemHook();
+    installSetStateHook();
+    installErrorHandler();
+    provideSyntheticOwner();
+    attemptServerSync();
+    
+    return true;
+  }
+  
+  // ============ PATCH SCENE CONTROLLER - SHOW OWNER AVATAR ============
+  function installSceneControllerPatch() {
+    if (window.__sceneControllerPatched) return;
+    
+    console.log('[SCENE] Patching SCENE.instance.ShowCharacter to show owner avatar');
+    
+    // Wait for SCENE to be available
+    const patchWhenReady = () => {
+      if (!window.SCENE?.instance?.ShowCharacter) {
+        setTimeout(patchWhenReady, 100);
+        return;
+      }
+      
+      const origShowChar = SCENE.instance.ShowCharacter.bind(SCENE.instance);
+      
+      SCENE.instance.ShowCharacter = async function(character, position, enter) {
+        // If showing YOUR character while inanimate, show OWNER instead
+        if (enabled && currentOwner && character && character.token === gm.character.token && gm.character.item) {
+          console.log('[SCENE] Intercepted your character → showing owner (Sakura)');
+          return origShowChar(currentOwner, position, enter);
+        }
+        
+        return origShowChar(character, position, enter);
+      };
+      
+      console.log('✓ SCENE.instance.ShowCharacter patched successfully');
+      
+      // FORCE IMMEDIATE UPDATE - show owner now
+      setTimeout(() => {
+        if (enabled && currentOwner) {
+          console.log('[SCENE] Forcing owner display at position 0');
+          SCENE.instance.ShowCharacter(currentOwner, 0, false);
+        }
+      }, 500);
+      
+      // MONITOR for location changes and re-show owner
+      const checkInterval = setInterval(() => {
+        if (!enabled) {
+          clearInterval(checkInterval);
+          return;
+        }
+        
+        // If current displayed character is not the owner, force it back
+        const displayedChar = SCENE.instance?.GetDisplayedCharacter?.(0);
+        if (displayedChar && displayedChar.token !== currentOwner.token) {
+          console.log('[SCENE] Location changed - restoring owner avatar');
+          SCENE.instance.ShowCharacter(currentOwner, 0, false);
+        }
+      }, 1000);
+    };
+    
+    patchWhenReady();
+    window.__sceneControllerPatched = true;
+  }
+  
+  // ============ NUCLEAR OPTION - REPLACE ENTIRE GAME_MANAGER ============
+  function installOwnerFallbackHook() {
+    if (window.__ownerFallbackHooked) return;
+    
+    console.log('[NUCLEAR] Replacing GAME_MANAGER with owner proxy');
+    
+    // Save the original GAME_MANAGER
+    const originalGM = window.GAME_MANAGER;
+    
+    // Create a Proxy for the GAME_MANAGER object itself
+    const proxyGM = new Proxy(originalGM, {
+      get(target, prop) {
+        if (prop === 'instance') {
+          // Return a Proxy for the instance that intercepts .owner AND .Send
+          const realInstance = target.instance;
+          
+          return new Proxy(realInstance, {
+            get(instanceTarget, instanceProp) {
+              // ONLY intercept owner - return currentOwner instead of null
+              if (instanceProp === 'owner' && enabled && currentOwner) {
+                return currentOwner;
+              }
+              
+              // Intercept Send to block location changes and chat
+              if (instanceProp === 'Send' && enabled) {
+                const origSend = instanceTarget.Send.bind(instanceTarget);
+                
+                return function(type, data) {
+                  // Block location changes
+                  if (type === 'Location') {
+                    gui.DisplayMessage("You are inanimate");
+                    console.log('[BLOCKED] Location change prevented - you are inanimate');
+                    return;
+                  }
+                  
+                  // Block chat messages
+                  if (type === 'LocalChat' || type === 'Chat') {
+                    gui.DisplayMessage("You are inanimate");
+                    console.log('[BLOCKED] Chat message prevented - you are inanimate');
+                    return;
+                  }
+                  
+                  // Allow everything else
+                  return origSend(type, data);
+                };
+              }
+              
+              // Everything else unchanged - INCLUDING character.item
+              return instanceTarget[instanceProp];
+            }
+          });
+        }
+        
+        return target[prop];
+      }
+    });
+    
+    // REPLACE the global
+    try {
+      window.GAME_MANAGER = proxyGM;
+      console.log('✓ window.GAME_MANAGER replaced with Proxy');
+      console.log('✓ Owner proxy installed - actions will work');
+      console.log('✓ Location/chat blocking installed');
+      
+      // Block chat input field from being focused/typed in
+      setTimeout(() => {
+        const blockChatInput = () => {
+          // Try multiple selectors to find chat input
+          const chatInput = document.querySelector('input[type="text"]') || 
+                           document.querySelector('textarea') ||
+                           document.querySelector('input[placeholder*="chat" i]') ||
+                           document.querySelector('[id*="chat" i]');
+          
+          if (chatInput && enabled) {
+            // Make it readonly and disabled
+            chatInput.readOnly = true;
+            chatInput.disabled = true;
+            chatInput.style.pointerEvents = 'none';
+            chatInput.style.opacity = '0.5';
+            
+            // Remove any existing listeners by cloning
+            const newInput = chatInput.cloneNode(true);
+            chatInput.parentNode?.replaceChild(newInput, chatInput);
+            
+            // Add blocking listeners with capture phase
+            newInput.addEventListener('focus', (e) => {
+              if (enabled) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.target.blur();
+                gui.DisplayMessage("You are inanimate");
+                console.log('[BLOCKED] Chat focus prevented');
+              }
+            }, true);
+            
+            newInput.addEventListener('keydown', (e) => {
+              if (enabled) {
+                e.preventDefault();
+                e.stopPropagation();
+                gui.DisplayMessage("You are inanimate");
+                console.log('[BLOCKED] Chat keydown prevented');
+              }
+            }, true);
+            
+            newInput.addEventListener('input', (e) => {
+              if (enabled) {
+                e.preventDefault();
+                e.stopPropagation();
+                e.target.value = '';
+                gui.DisplayMessage("You are inanimate");
+                console.log('[BLOCKED] Chat input prevented');
+              }
+            }, true);
+            
+            newInput.addEventListener('click', (e) => {
+              if (enabled) {
+                e.preventDefault();
+                e.stopPropagation();
+                gui.DisplayMessage("You are inanimate");
+                console.log('[BLOCKED] Chat click prevented');
+              }
+            }, true);
+          }
+        };
+        
+        blockChatInput();
+        // Re-check periodically in case chat UI is recreated
+        setInterval(blockChatInput, 500);
+      }, 1000);
+      
+    } catch (e) {
+      console.error('[NUCLEAR] Failed:', e.message);
+    }
+    
+    window.__ownerFallbackHooked = true;
+  }
+  
+  // ============ ATTEMPT SERVER SYNC ============
+  // Try to tell the server about the transformation
+  function attemptServerSync() {
+    if (window.__serverSyncAttempted) return;
+    
+    // Try to find and call any transformation or inanimate API
+    console.log('[Server Sync] Attempting to notify server of transformation...');
+    
+    // Method 1: Try direct API call if available
+    if (typeof window.API !== 'undefined' && API.TransformInanimate) {
+      try {
+        API.TransformInanimate(CONFIG.yourToken, CONFIG.sakuraToken, {
+          permanent: CONFIG.permanent,
+          sealed: CONFIG.sealed,
+          itemBase: CONFIG.baseId
+        });
+        console.log('✓ Server API call attempted');
+        return;
+      } catch (e) {
+        console.log('[Server Sync] API call unavailable:', e.message);
+      }
+    }
+    
+    // Method 2: Try to trigger a SaveCharacter/SetState to server
+    if (typeof gm.SaveCharacter === 'function') {
+      try {
+        gm.SaveCharacter({
+          character: {
+            item: gm.character.item,
+            token: CONFIG.yourToken
+          }
+        });
+        console.log('✓ SaveCharacter called');
+      } catch (e) {
+        console.log('[Server Sync] SaveCharacter unavailable');
+      }
+    }
+    
+    // Method 3: Send WebSocket message to server
+    if (window.ws && window.ws.readyState === 1) {
+      try {
+        const msg = JSON.stringify({
+          type: 'transformation',
+          character_token: CONFIG.yourToken,
+          owner_token: CONFIG.sakuraToken,
+          item_base: CONFIG.baseId,
+          permanent: CONFIG.permanent,
+          sealed: CONFIG.sealed
+        });
+        window.ws.send(msg);
+        console.log('✓ WebSocket sync sent');
+      } catch (e) {
+        console.log('[Server Sync] WebSocket unavailable');
+      }
+    }
+    
+    console.log('[Server Sync] Note: Server persistence may require manual intervention');
+    window.__serverSyncAttempted = true;
+  }
+  
+  // ============ OWNER PROPERTY NOTE ============
+  // The game's gm.owner is read-only and non-configurable, so we can't override it
+  // Instead, we maintain the inanimate state through gm.character.item
+  function installOwnerPropertyHook(ownerChar) {
+    // Not needed - focus on keeping item.base intact instead
+    if (window.__ownerPropertyHooked) return;
+    window.__ownerPropertyHooked = true;
+  }
+  
+  // ============ PROVIDE SYNTHETIC OWNER ============
+  // Create a synthetic owner object that mimics gm.owner when it's null
+  // This prevents crashes when actions try to access owner.token
+  function provideSyntheticOwner() {
+    if (window.__syntheticOwnerProvided) return;
+    
+    // Create a synthetic owner object with minimal required properties
+    const syntheticOwner = {
+      names: currentOwner?.names || 'Owner',
+      token: currentOwner?.token || CONFIG.sakuraToken,
+      username: currentOwner?.username || 'unknown',
+      nature: currentOwner?.nature || 'sexy',
+      equipment: currentOwner?.equipment || []
+    };
+    
+    // Try to set it as a fallback property on gm
+    try {
+      // This might not work due to non-configurability, but try it
+      Object.defineProperty(gm, 'owner', {
+        get() {
+          // Check if real owner exists, if not return synthetic
+          const proto = Object.getPrototypeOf(gm);
+          const descriptor = Object.getOwnPropertyDescriptor(proto, 'owner');
+          if (descriptor?.get) {
+            const realOwner = descriptor.get.call(this);
+            if (realOwner) return realOwner;
+          }
+          return syntheticOwner;
+        },
+        configurable: true
+      });
+      console.log('✓ Synthetic owner provided as fallback');
+    } catch (e) {
+      console.log('✓ Synthetic owner ready (non-configurable, will use currentOwner as fallback)');
+    }
+    
+    window.__syntheticOwnerProvided = true;
+  }
+  // When game serializes items, the base becomes just ID 137
+  // We need to hook GetBaseItem so it returns our full object
+  function installGetBaseItemHook() {
+    if (window.__getBaseItemHooked) return;
+    
+    const originalGetBaseItem = gm.GetBaseItem?.bind(gm) || function() { return null; };
+    
+    gm.GetBaseItem = function(itemOrId) {
+      // If it's our item object (has character with our token)
+      if (itemOrId && typeof itemOrId === 'object' && itemOrId.character?.id_token === CONFIG.yourToken) {
+        // If base is just a number, replace with our BASE_ITEM
+        if (typeof itemOrId.base === 'number' && itemOrId.base === CONFIG.baseId) {
+          itemOrId.base = BASE_ITEM;
+          return BASE_ITEM;
+        }
+        // Otherwise return what's there
+        return itemOrId.base;
+      }
+      
+      // If asking by ID and it's our item ID
+      if ((itemOrId === CONFIG.baseId || itemOrId === 137) && typeof itemOrId === 'number') {
+        return BASE_ITEM;
+      }
+      
+      // Otherwise use original game function
+      return originalGetBaseItem(itemOrId);
+    };
+    
+    window.__getBaseItemHooked = true;
+    console.log('✓ GetBaseItem hook installed - intercepts inanimate item and returns BASE_ITEM');
+  }
+  
+  // ============ PROXY ITEM BASE - AUTO-RESTORE ============
+  // Intercept any access to character.item and ensure base is the full object
+  function fixInanimateItemBase() {
+    if (!gm.character?.item) return;
+    
+    const item = gm.character.item;
+    
+    // Store original or use BASE_ITEM
+    let _baseValue = (typeof item.base === 'object' && item.base) ? item.base : BASE_ITEM;
+    
+    // Override the base property with a getter/setter
+    try {
+      Object.defineProperty(item, 'base', {
+        get() {
+          // ALWAYS return full object if base is a number
+          if (typeof _baseValue === 'number' && (_baseValue === CONFIG.baseId || _baseValue === 137)) {
+            console.log('[item.base getter] Converting ID to full object');
+            return BASE_ITEM;
+          }
+          if (!_baseValue || typeof _baseValue !== 'object') {
+            console.log('[item.base getter] Base was invalid, returning BASE_ITEM');
+            return BASE_ITEM;
+          }
+          return _baseValue;
+        },
+        set(value) {
+          // If server sends just ID, replace with full object
+          if (typeof value === 'number' && (value === CONFIG.baseId || value === 137)) {
+            console.log('[item.base setter] Received ID, storing as BASE_ITEM');
+            _baseValue = BASE_ITEM;
+          } else if (value && typeof value === 'object') {
+            _baseValue = value;
+          } else if (!value) {
+            console.log('[item.base setter] Received null/undefined, using BASE_ITEM');
+            _baseValue = BASE_ITEM;
+          }
+        },
+        configurable: true
+      });
+    } catch (e) {
+      console.log('[fixInanimateItemBase] Could not override base:', e.message);
+    }
+  }
+  function installSetStateHook() {
+    if (window.__setStateHooked) return;
+    
+    const originalSetState = gm.SetState?.bind(gm) || function() { return null; };
+    
+    gm.SetState = function(data) {
+      // BEFORE calling original, check if item exists
+      const hadItem = !!gm.character?.item;
+      
+      // Call original
+      const result = originalSetState(data);
+      
+      // AFTER original call, if we were inanimate, fix the item
+      if (enabled && hadItem && gm.character?.item) {
+        // Item still exists, but base might be corrupted
+        if (typeof gm.character.item.base === 'number' || !gm.character.item.base) {
+          console.log('[SetState] Fixing corrupted item.base');
+          gm.character.item.base = BASE_ITEM;
+          fixInanimateItemBase();
+        }
+      }
+      
+      // CRITICAL: If server sent us as ANIMATE but we're enabled, re-apply inanimate
+      if (enabled && !gm.character?.item && currentOwner) {
+        console.log('[SetState] SERVER REVERTED US TO ANIMATE! Re-applying inanimate state...');
+        // Re-create the item
+        const itemId = Math.floor(Math.random() * 10000000);
+        const inanimateItem = {
+          id: itemId,
+          stack: 0,
+          base: BASE_ITEM,
+          flags: 0,
+          character: {
+            permanent: CONFIG.permanent,
+            sealed: CONFIG.sealed,
+            name: CONFIG.inanimateName,
+            nature: gm.character.nature || 'sexy',
+            id_token: gm.character.token
+          },
+          enchantments: [],
+          attributes: 0,
+          variant_color: CONFIG.color,
+          variant_accessory: null,
+          inanimate_actions: [
+            { id: 23, action_name: "Excited", tags: ["Inanimate"], description: "Wiggle and shiver excitedly.", action_cost: 1 },
+            { id: 24, action_name: "Submit", tags: ["Inanimate"], description: "Embrace your owner submissively.", action_cost: 1 },
+            { id: 25, action_name: "Affectionate", tags: ["Inanimate"], description: "Embrace your owner affectionately.", action_cost: 1 },
+            { id: 26, action_name: "Reluctant", tags: ["Inanimate"], description: "Embrace your owner reluctantly.", action_cost: 1 },
+            { id: 27, action_name: "Defiant", tags: ["Inanimate"], description: "Writhe and struggle defiantly.", action_cost: 1 },
+            { id: 28, action_name: "Indignant", tags: ["Inanimate"], description: "Writhe and wriggle indignantly.", action_cost: 1 },
+            { id: 29, action_name: "Bewildered", tags: ["Inanimate"], description: "Writhe and wriggle bewilderedly.", action_cost: 1 },
+            { id: 30, action_name: "Apprehension", tags: ["Inanimate"], description: "Cower and quiver anxiously.", action_cost: 1 }
+          ]
+        };
+        
+        gm.character.item = inanimateItem;
+        if (!currentOwner.equipment) currentOwner.equipment = [];
+        currentOwner.equipment = currentOwner.equipment.filter(i => 
+          !(i?.character?.id_token === gm.character.token)
+        );
+        currentOwner.equipment.push(inanimateItem);
+        
+        fixInanimateItemBase();
+        console.log('[SetState] ✓ Inanimate state re-applied');
+      }
+      
+      // If server sends owner, sync it
+      if (enabled && data && data.owner) {
+        if (!data.owner.equipment) data.owner.equipment = [];
+        
+        const hasItem = data.owner.equipment.some(i => 
+          i?.character?.id_token === gm.character.token
+        );
+        
+        if (!hasItem && gm.character?.item) {
+          console.log('[SetState] Adding item to server owner data');
+          data.owner.equipment.push(gm.character.item);
+        }
+      }
+      
+      // If server detected us as inanimate, auto-enable
+      if (!enabled && data?.character?.item && data.character.token === gm.character.token) {
+        if (data.owner) {
+          console.log('[SetState] Server sent you as inanimate! Auto-enabling...');
+          enableInanimateMode(data.owner);
+          return result;
+        }
+      }
+      
+      return result;
+    };
+    
+    window.__setStateHooked = true;
+    console.log('✓ SetState hook installed - will auto-reapply if server reverts');
+  }
+  
+  // ============ GLOBAL ERROR HANDLER - CATCH NULL OWNER CRASHES ============
+  function installErrorHandler() {
+    if (window.__inanimateErrorHandlerInstalled) return;
+    
+    const originalError = window.onerror;
+    
+    window.onerror = function(msg, url, lineNo, columnNo, error) {
+      // If it's a null owner error during inanimate action
+      if (enabled && msg && msg.includes('Cannot read properties of null') && msg.includes('token')) {
+        console.log('[ERROR HANDLER] Caught null owner error during inanimate action');
+        console.log('[ERROR HANDLER] Attempting owner injection...');
+        
+        // Try to set owner in the GameManager
+        if (currentOwner && gm) {
+          try {
+            gm._owner = currentOwner;
+            console.log('[ERROR HANDLER] Owner injected successfully');
+            return true; // Suppress the error
+          } catch (e) {
+            console.log('[ERROR HANDLER] Injection failed:', e.message);
+          }
+        }
+      }
+      
+      // Call original error handler if it exists
+      if (originalError) {
+        return originalError.call(this, msg, url, lineNo, columnNo, error);
+      }
+    };
+    
+    window.__inanimateErrorHandlerInstalled = true;
+    console.log('✓ Global error handler installed for null owner crashes');
+  }
+  function disableInanimateMode() {
+    if (!enabled) return;
+    
+    console.log('Disabling inanimate mode...');
+    
+    if (currentOwner?.equipment) {
+      currentOwner.equipment = currentOwner.equipment.filter(i =>
+        !(i?.character?.id_token === gm.character?.token)
+      );
+    }
+    
+    if (gm._owner?.equipment) {
+      gm._owner.equipment = gm._owner.equipment.filter(i =>
+        !(i?.character?.id_token === gm.character?.token)
+      );
+    }
+    
+    if (gm.character?.item?.character?.id_token === gm.character.token) {
+      delete gm.character.item;
+    }
+    
+    gm._owner = null;
+    currentOwner = null;
+    enabled = false;
+    
+    gui.DisplayMessage('✓ Back to normal');
+    console.log('✓ Disabled');
+  }
+  
+  // ============ PUBLIC API ============
+  window.SELFTF = {
+    // MAIN: Enable inanimate mode with static owner
+    enableWithStaticOwner() {
+      console.log('✓ Using STATIC OWNER (Sakura Moone)');
+      return enableInanimateMode(STATIC_OWNER);
+    },
+    
+    // Enable with custom owner
+    enable(owner) {
+      if (!owner) {
+        console.error('✗ ERROR: Please provide owner');
+        console.log('Use: SELFTF.enableWithStaticOwner() for built-in Sakura');
+        return false;
+      }
+      
+      if (!owner.names && !owner.name) {
+        console.error('✗ ERROR: Invalid owner object');
+        return false;
+      }
+      
+      return enableInanimateMode(owner);
+    },
+    
+    // Disable
+    disable() {
+      disableInanimateMode();
+    },
+    
+    // Check status
+    status() {
+      console.log('\n╔════ SELFTF STATUS ════╗');
+      console.log('Enabled:', enabled);
+      console.log('You:', gm.character?.names || gm.character?.name);
+      console.log('Owner:', currentOwner?.names || currentOwner?.name || gm._owner?.names || 'None');
+      console.log('\nGameManager:');
+      console.log('  gm.inanimate:', gm.inanimate);
+      console.log('  IsEquippedInanimate():', gm.IsEquippedInanimate?.());
+      console.log('  character.item:', !!gm.character?.item);
+      
+      const owner = currentOwner || gm._owner;
+      if (owner?.equipment) {
+        const myItem = owner.equipment.find(i => i?.character?.id_token === gm.character?.token);
+        console.log('  In owner.equipment:', !!myItem);
+        if (myItem) console.log('    Item name:', myItem.character?.name);
+      }
+      console.log('╚═══════════════════════╝\n');
+    },
+    
+    isEnabled() {
+      return enabled;
+    },
+    
+    // Get owner info
+    getOwnerInfo() {
+      console.log('\n╔════ OWNER INFO ════╗');
+      console.log('Static Owner (Sakura Moone):');
+      console.log('  Name:', STATIC_OWNER.names);
+      console.log('  Token:', STATIC_OWNER.token.substring(0, 16) + '...');
+      console.log('  Equipment slots:', STATIC_OWNER.equipment.length);
+      console.log('\nCurrent Owner:');
+      const owner = currentOwner || gm._owner;
+      if (owner) {
+        console.log('  Name:', owner.names || owner.name);
+        console.log('  Token:', owner.token?.substring(0, 16) + '...');
+        console.log('  Equipment slots:', owner.equipment?.length || 0);
+      } else {
+        console.log('  Not set yet');
+      }
+      console.log('╚═══════════════════╝\n');
+    }
+  };
+  
+  // ============ AUTO-START ============
+  console.log(`
+╔═══════════════════════════════════════════╗
+║  SELFTF Ready - STATIC OWNER MODE         ║
+╚═══════════════════════════════════════════╝
+
+✓ BUILT-IN SAKURA (Static Owner)
+  SELFTF.enableWithStaticOwner()   ← EASY! Uses Sakura data
+  
+MANUAL:
+  SELFTF.enable(owner)            ← Custom owner
+  
+STATUS:
+  SELFTF.status()                 ← Check status
+  SELFTF.getOwnerInfo()           ← Owner details
+  SELFTF.isEnabled()              ← Boolean
+
+DISABLE:
+  SELFTF.disable()                ← Turn off
+  `);
+  
+})();
+
+
+grafical inanimate tf
+(async () => {
+  const gm = GAME_MANAGER.instance;
+  const gui = GUI.instance;
+  const scene = SCENE.instance;
+  const loc = LOCATION.instance;
+
+  // ---- SETTINGS YOU CAN CHANGE ----
+  const wantedName = "Cursed Ring";     // name shown on the item tooltip
+  const wantedNature = "sexy";         // affects styling/hub look
+  const color = "Indian Red";          // tint/color label
+
+  // Pick a baseId that exists (you can replace this with a known id later)
+  let baseId = null;
+  for (let id = 1; id <= 5000; id++) {
+    const b = gm.GetBaseItem(id);
+    if (!b) continue;
+    // prefer ring-ish names if present
+    const n = String(b.itemname || "").toLowerCase();
+    if (!baseId) baseId = id;
+    if (n.includes("ring")) { baseId = id; break; }
+  }
+  if (!baseId) return gui.DisplayMessage("No base items loaded.");
+
+  // ---- helper: fix bad URLs (https//...) + relative paths ----
+  function normalizeUrl(u) {
+    if (!u) return null;
+    u = String(u).trim();
+    u = u.replace(/^https\/\//i, "https://").replace(/^http\/\//i, "http://");
+    if (u.startsWith("http://") || u.startsWith("https://")) return u;
+    if (u.startsWith("/")) return "https://battlemageserotica.com" + u;
+    return "https://battlemageserotica.com/" + u;
+  }
+
+  // ---- apply inanimate state locally ----
+  const token = gm.character.token;
+  gm.character.item = {
+    base: baseId,
+    variant_color: color,
+    character: {
+      id_token: token,
+      name: wantedName,       // <-- rename here (tooltip shows this) [file:5]
+      nature: wantedNature,
+      permanent: true,
+      sealed: true,
+      tier: 0
+    },
+    enchantments: [],
+    flags: 0,
+    id: Date.now(),
+    inanimate_actions: [
+      { id: 23, action_name: "Excited",      tags: ["Emote"], action_cost: 1 },
+      { id: 24, action_name: "Submit",       tags: ["Emote"], action_cost: 1 },
+      { id: 25, action_name: "Affectionate", tags: ["Emote"], action_cost: 1 },
+      { id: 26, action_name: "Reluctant",    tags: ["Emote"], action_cost: 1 }
+    ],
+    stack: 0
+  };
+
+  // ---- force a full refresh so state is applied immediately ----
+  await scene.UpdateLocation(loc); // this is the “moving location fixes it” step, but done now [file:3]
+
+  // ---- render item-form WITHOUT breaking GUI click handler ----
+  const li = document.getElementById("characters")?.getElementsByTagName("li")?.[0];
+  if (!li) return;
+
+  // Keep the div that GUI's click handler expects [file:11]
+  const div = li.getElementsByTagName("div")?.[0] || document.createElement("div");
+  if (!div.parentNode) li.appendChild(div);
+
+  // Remove existing canvases only (don’t nuke the whole li)
+  Array.from(li.getElementsByTagName("canvas")).forEach(c => c.remove());
+
+  const base = gm.GetBaseItem(baseId);
+  const raw = base?.image_url || base?.imageurl;
+  const imgUrl = normalizeUrl(raw) || "https://battlemageserotica.com/game/assets/items/panties_dotted.png";
+
+  // Draw using official SetItemForm (hover detection etc.) [file:11]
+  gui.SetItemForm(li, base, imgUrl, false);
+
+  gui.DisplayMessage(`Inanimate applied: ${wantedName} (baseId=${baseId})`);
+})();
+
+speak over websocket:
+open the websocket:
+const wsSym = Object.getOwnPropertySymbols(GAME_MANAGER)
+  .find(s => s.description === 'ws');
+const ws = wsSym ? GAME_MANAGER[wsSym] : null;
+console.log('ws =', ws, 'readyState=', ws?.readyState);
+
+setup new attributes:
+//token is the user id…(from the profilelink)
+//const [
+  body, bodyPerSecond, maxBody,
+  mind, mindPerSecond, maxMind,
+  lust, lustPerSecond, minLust,
+  actions, actionsPerSecond, maxActions,
+  spells, spellsPerSecond, maxSpells,
+  actionConversion,
+  plugSize, gagSize, dildoSize
+] = data;
+
+
+Use this:
+
+const token = "982fb8f63161d7003e2e1c1435e51b68cfb10923";
+const data  = [0,0,500,0,0,500,0,0,0,1,0.016666666666666666,1,0.33000000000000007,0,1,0,0,0,0];
+
+ws.onmessage({ data: JSON.stringify([token, data]) });
+
+
+setup to show item colors in the inventory as non pateron:(best)
+// Nuclear patch - intercept ALL image URL generation
+(() => {
+    // Save original formatMediaURL
+    const originalFormatMediaURL = window.formatMediaURL;
+    
+    // Override it to always add color when available
+    window.formatMediaURL = function(url, size, color) {
+        console.log("formatMediaURL called with:", { url, size, color });
+        
+        // If color is explicitly false or undefined, don't add it
+        if (color === false || color === undefined || color === null) {
+            return originalFormatMediaURL(url, size, color);
+        }
+        
+        // Otherwise, always add the color
+        return originalFormatMediaURL(url, size, color);
+    };
+    
+    // Also patch the specific check in getWornItemImage
+    const originalGetWornItemImage = IMAGE_PROCESSING.getWornItemImage;
+    IMAGE_PROCESSING.getWornItemImage = function(item, tier = 0, sprite = null, size = 0, scale = 0, pixelated = false) {
+        // Force the tier check to pass
+        const forcedColor = item.base.color_variants && item.variant_color ? nameToRef(item.variant_color) : undefined;
+        
+        return formatMediaURL(
+            sprite || item.base.worn_image_url || item.base.image_url,
+            pixelated ? 16 : powCeil(size * (scale || getMediaScale())),
+            forcedColor
+        );
+    };
+    
+    // Same for getItemImage
+    const originalGetItemImage = IMAGE_PROCESSING.getItemImage;
+    IMAGE_PROCESSING.getItemImage = function(item, tier = 0, size = 0, scale = 0, pixelated = false) {
+        const forcedColor = item.base.color_variants && item.variant_color ? nameToRef(item.variant_color) : undefined;
+        
+        return formatMediaURL(
+            item.base.image_url,
+            pixelated ? 16 : powCeil(size * (scale || getMediaScale())),
+            forcedColor
+        );
+    };
+    
+    console.log("✓ ALL image URL generation patched - colors will always be added when available");
+    
+    // Force refresh of all visible items
+    setTimeout(() => {
+        if (MENU?.Inventory?.Redraw) MENU.Inventory.Redraw();
+        if (MENU?.Spells?.Redraw) MENU.Spells.Redraw();
+        if (SCENE?.instance?.UpdateLocation) SCENE.instance.UpdateLocation(LOCATION.instance);
+        console.log("UI refreshed with forced colors");
+    }, 500);
+})();
+
+
+
+
+
+setup to show worn clothes in colors without patreon:
+// Simple fix: Always use variant_color if it exists
+(() => {
+    // Patch getWornItemImage to always use variant_color
+    const originalGetWornItemImage = IMAGE_PROCESSING.getWornItemImage;
+    
+    IMAGE_PROCESSING.getWornItemImage = function(item, tier = 0, sprite = null, size = 0, scale = 0, pixelated = false) {
+        // Always use variant_color if it exists
+        const color = item.base.color_variants && item.variant_color ? 
+            nameToRef(item.variant_color) : undefined;
+        
+        return formatMediaURL(
+            sprite || item.base.worn_image_url || item.base.image_url,
+            pixelated ? 16 : powCeil(size * (scale || getMediaScale())),
+            color
+        );
+    };
+    
+    console.log("✓ getWornItemImage patched to always use variant_color");
+    
+    // Refresh inventory to see changes
+    if (MENU?.Inventory?.Redraw) {
+        MENU.Inventory.Redraw();
+        console.log("Inventory refreshed");
+    }
+})();
+
+
+set the support api to true: battlemageserotica.com/api/user/getsupporttier.php 
+(() => {
+  const gm = GAME_MANAGER.instance;
+  const realRequest = gm.Request.bind(gm);
+
+  gm.Request = async (url, params = null, symbol = false) => {
+    if (String(url).includes("/api/user/getsupporttier.php")) {
+      return {tier: 2, username: 'Celina2000', success: true};
+    }
+    return realRequest(url, params, symbol);
+  };
+})();
+
+
+checkup:
+await GAME_MANAGER.instance.Api("user/getsupporttier.php");
+
+
+Transformation Morph with colors if you used the support api and made the tier 2:
+
+(async () => {
+  const char = LOCATION.instance.player; // or the same char object you saw in the args
+  await GUI.instance.MorphCharacter(
+    char,
+    "https://battlemageserotica.com/game/assets/items/panties2.png",
+    { scale: 0.67 },
+    "Black",
+    false,
+    false
+  );
+})();
+
+
+
+Morph the ingame char like an inanimate Object:
+(async () => {
+  // Pick which character to morph: left (your character) or right (opponent)
+  const char = LOCATION.instance.player; // or: LOCATION.instance.opponent
+
+  // These must match what your server/gui normally supplies:
+  const imageURL = "https://i.ibb.co/Y7xtqX3j/panties-thong.png"; // morph source image
+  const morph = { details: {}, image: imageURL };   // must at least have .details used by Animator
+  const color = "#ffffff";                          // tint
+  const nsfw = true;
+  const flipped = false;
+
+  await GUI.instance.MorphCharacter(char, imageURL, morph, color, nsfw, flipped);
+})();
+
+
+________________________________
+VM5158:15 [WS IN] {"scenario":true}
+VM5063:15 [WS IN] {"scenario":true}
+VM5158:15 [WS IN] {"gui":{"action":"SetTextParameters","params":[false,null,null,0]}}
+VM5063:15 [WS IN] {"gui":{"action":"SetTextParameters","params":[false,null,null,0]}}
+VM5158:9 [WS OUT] {"action":"Scenario"}
+VM5063:9 [WS OUT] {"action":"Scenario"}
+VM5158:15 [WS IN] ArrayBuffer(223)
+VM5063:15 [WS IN] ArrayBuffer(223)
+VM5158:9 [WS OUT] {"action":"Scenario","callbackId":1}
+VM5063:9 [WS OUT] {"action":"Scenario","callbackId":1}
+VM5158:15 [WS IN] ArrayBuffer(334)
+VM5063:15 [WS IN] ArrayBuffer(334)
+VM5158:9 [WS OUT] {"action":"Scenario","response":false,"callbackId":2}
+VM5063:9 [WS OUT] {"action":"Scenario","response":false,"callbackId":2}
+VM5158:15 [WS IN] ArrayBuffer(314)
+VM5063:15 [WS IN] ArrayBuffer(314)
+VM5158:9 [WS OUT] {"action":"Scenario","response":false,"callbackId":3}
+VM5063:9 [WS OUT] {"action":"Scenario","response":false,"callbackId":3}
+VM5158:15 [WS IN] ["d97387afa03b7445dc56f588be3269314ab0019f",[0,0,500,0,0,500,0,0,0,3.33,0.0555,3.33,0.33000000000000007,0,3.33,0,0,0,0]]
+VM5063:15 [WS IN] ["d97387afa03b7445dc56f588be3269314ab0019f",[0,0,500,0,0,500,0,0,0,3.33,0.0555,3.33,0.33000000000000007,0,3.33,0,0,0,0]]
+VM5158:15 [WS IN] {"menu":{"refresh":"yourself"}}
+VM5063:15 [WS IN] {"menu":{"refresh":"yourself"}}
+VM5158:15 [WS IN] ArrayBuffer(3520)
+VM5063:15 [WS IN] ArrayBuffer(3520)
+VM5158:15 [WS IN] ["d97387afa03b7445dc56f588be3269314ab0019f",{"countdowns":["recentlyDefeated",0]}]
+VM5063:15 [WS IN] ["d97387afa03b7445dc56f588be3269314ab0019f",{"countdowns":["recentlyDefeated",0]}]
+VM5158:15 [WS IN] ["d97387afa03b7445dc56f588be3269314ab0019f",{"countdowns":["recentlyTransformed",900000]}]
+VM5063:15 [WS IN] ["d97387afa03b7445dc56f588be3269314ab0019f",{"countdowns":["recentlyTransformed",900000]}]
+VM5158:15 [WS IN] ArrayBuffer(819)
+VM5063:15 [WS IN] ArrayBuffer(819)
+VM5158:15 [WS IN] {"location":{"specialActions":{"options":[],"token":"d97387afa03b7445dc56f588be3269314ab0019f","tier":0}}}
+VM5063:15 [WS IN] {"location":{"specialActions":{"options":[],"token":"d97387afa03b7445dc56f588be3269314ab0019f","tier":0}}}
+VM5158:15 [WS IN] ["d97387afa03b7445dc56f588be3269314ab0019f",[0,0,500,0,0,500,0,0,0,1,0.016666666666666666,1,0.33000000000000007,0,1,0,0,0,0]]
+VM5063:15 [WS IN] ["d97387afa03b7445dc56f588be3269314ab0019f",[0,0,500,0,0,500,0,0,0,1,0.016666666666666666,1,0.33000000000000007,0,1,0,0,0,0]]
+VM5158:15 [WS IN] ArrayBuffer(405)
+VM5063:15 [WS IN] ArrayBuffer(405)
+GameManager.1748712111.js:1919 Fetch finished loading: POST "https://battlemageserotica.com/api/user/getsupporttier.php".
+GameManager.Request @ GameManager.1748712111.js:1919
+GameManager.Api @ GameManager.1748712111.js:1913
+SceneController.MorphCharacter @ SceneController.1755030562.js:295
+await in SceneController.MorphCharacter
+Gui.MorphCharacter @ GUI.1748712111.js:498
+onGUI @ GameManager.1748712111.js:1050
+await in onGUI
+processData @ GameManager.1748712111.js:996
+onMessage @ GameManager.1748712111.js:377
+await in onMessage
+ws.onmessage @ VM5063:16
+ws.onmessage @ VM5158:16
+VM5158:9 [WS OUT] {"action":"Scenario","callbackId":4}
+VM5063:9 [WS OUT] {"action":"Scenario","callbackId":4}
+VM5158:15 [WS IN] {"gui":{"action":"ShowText","params":["You were turned into Leggings"]},"callbackId":5}
+VM5063:15 [WS IN] {"gui":{"action":"ShowText","params":["You were turned into Leggings"]},"callbackId":5}
+Dialog.1748712111.js:167 [Violation] Added non-passive event listener to a scroll-blocking 'touchstart' event. Consider marking event handler as 'passive' to make the page more responsive. See https://www.chromestatus.com/feature/5745543795965952
+Dialog @ Dialog.1748712111.js:167
+(anonymous) @ GUI.1748712111.js:597
+Gui.ShowText @ GUI.1748712111.js:597
+await in Gui.ShowText
+onGUI @ GameManager.1748712111.js:1050
+await in onGUI
+processData @ GameManager.1748712111.js:996
+onMessage @ GameManager.1748712111.js:377
+await in onMessage
+ws.onmessage @ VM5063:16
+ws.onmessage @ VM5158:16
+VM5158:15 [WS IN] ArrayBuffer(1874)
+VM5063:15 [WS IN] ArrayBuffer(1874)
+VM5158:9 [WS OUT] {"action":"Scenario","callbackId":5}
+VM5063:9 [WS OUT] {"action":"Scenario","callbackId":5}
+VM5158:15 [WS IN] ArrayBuffer(248)
+VM5063:15 [WS IN] ArrayBuffer(248)
+VM5158:15 [WS IN] ArrayBuffer(4339)
+VM5063:15 [WS IN] ArrayBuffer(4339)
+VM5158:15 [WS IN] ["d97387afa03b7445dc56f588be3269314ab0019f",[0,0,500,0,0,500,0,0,0,1,0.016666666666666666,1,0.33000000000000007,0,1,0,0,0,0]]
+VM5063:15 [WS IN] ["d97387afa03b7445dc56f588be3269314ab0019f",[0,0,500,0,0,500,0,0,0,1,0.016666666666666666,1,0.33000000000000007,0,1,0,0,0,0]]
+VM5158:15 [WS IN] {"chat":{"combat":{"message":"Megan has put you on","firstPerson":true}},"message_id":105}
+VM5158:15 [WS IN] {"menu":{"refresh":"inspect","token":"8635c99f94ab518c2c9cc127f259ba4865f23738"}}
+
+VM5063:15 [WS IN] {"menu":{"refresh":"inspect","token":"8635c99f94ab518c2c9cc127f259ba4865f23738"}}
+
+
+—----------------------------------------------------------------------------
+
+VM7790:22 [WS OUT] wss://battlemages-app-live-27f368751fc2.herokuapp.com/
+VM7790:23 raw: {"action":"Scenario"}
+VM7790:24 json: {action: 'Scenario'}action: "Scenario"[[Prototype]]: Objectconstructor: ƒ Object()assign: ƒ assign()create: ƒ create()defineProperties: ƒ defineProperties()defineProperty: ƒ defineProperty()entries: ƒ entries()freeze: ƒ freeze()fromEntries: ƒ fromEntries()getOwnPropertyDescriptor: ƒ getOwnPropertyDescriptor()length: 2name: "getOwnPropertyDescriptor"arguments: (...)caller: (...)[[Prototype]]: ƒ ()apply: ƒ apply()arguments: (...)bind: ƒ bind()call: ƒ call()caller: (...)constructor: ƒ Function()length: 0name: ""toString: ƒ toString()Symbol(Symbol.hasInstance): ƒ [Symbol.hasInstance]()get arguments: ƒ arguments()set arguments: ƒ arguments()get caller: ƒ caller()set caller: ƒ caller()[[FunctionLocation]]: [[Prototype]]: Object[[Scopes]]: Scopes[0][[Scopes]]: Scopes[0]No propertiesgetOwnPropertyDescriptors: ƒ getOwnPropertyDescriptors()getOwnPropertyNames: ƒ getOwnPropertyNames()getOwnPropertySymbols: ƒ getOwnPropertySymbols()getPrototypeOf: ƒ getPrototypeOf()groupBy: ƒ groupBy()hasOwn: ƒ hasOwn()length: 2name: "hasOwn"arguments: (...)caller: (...)[[Prototype]]: ƒ ()[[Scopes]]: Scopes[0]is: ƒ is()isExtensible: ƒ isExtensible()isFrozen: ƒ isFrozen()isSealed: ƒ isSealed()length: 1name: "isSealed"arguments: (...)caller: (...)[[Prototype]]: ƒ ()[[Scopes]]: Scopes[0]keys: ƒ keys()length: 1name: "Object"preventExtensions: ƒ preventExtensions()prototype: {__defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, __lookupSetter__: ƒ, …}seal: ƒ seal()length: 1name: "seal"arguments: (...)caller: (...)[[Prototype]]: ƒ ()[[Scopes]]: Scopes[0]setPrototypeOf: ƒ setPrototypeOf()values: ƒ values()arguments: (...)caller: (...)[[Prototype]]: ƒ ()apply: ƒ apply()arguments: (...)bind: ƒ bind()call: ƒ call()caller: (...)constructor: ƒ Function()length: 0name: ""toString: ƒ toString()Symbol(Symbol.hasInstance): ƒ [Symbol.hasInstance]()get arguments: ƒ arguments()set arguments: ƒ arguments()get caller: ƒ caller()set caller: ƒ caller()[[FunctionLocation]]: [[Prototype]]: Object[[Scopes]]: Scopes[0][[Scopes]]: Scopes[0]hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()__proto__: (...)get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()
+VM7790:25 stack
+WebSocket.send @ VM7790:25
+next @ GameManager.1748712111.js:1072
+await in next
+onGUI @ GameManager.1748712111.js:1059
+await in onGUI
+processData @ GameManager.1748712111.js:996
+onMessage @ GameManager.1748712111.js:377
+VM7790:81 [GUI] SetLocation
+VM7790:82 args: [{…}]0: {name: 'Dormitory', title: 'The Dormitory', type: 'campus', resting: true, background: 'https://battlemageserotica.com/game/assets/backgrounds/locations/dorm_room_morning.jpg', …}length: 1[[Prototype]]: Array(0)
+VM7790:83 stack
+wrapped @ VM7790:83
+onGUI @ GameManager.1748712111.js:1050
+await in onGUI
+processData @ GameManager.1748712111.js:996
+onMessage @ GameManager.1748712111.js:377
+VM7790:22 [WS OUT] wss://battlemages-app-live-27f368751fc2.herokuapp.com/
+VM7790:23 raw: {"action":"Scenario","callbackId":1}
+VM7790:24 json: {action: 'Scenario', callbackId: 1}action: "Scenario"callbackId: 1[[Prototype]]: Object
+VM7790:25 stack
+WebSocket.send @ VM7790:25
+next @ GameManager.1748712111.js:1072
+await in next
+onGUI @ GameManager.1748712111.js:1059
+await in onGUI
+processData @ GameManager.1748712111.js:996
+onMessage @ GameManager.1748712111.js:377
+VM7790:81 [GUI] ShowCharacter
+VM7790:82 args: (3) [{…}, 0, false]0: {name: 'Amy', surname: 'Smith', names: 'Amy Smith', nature: 'pure', token: '47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77', …}1: 02: falselength: 3[[Prototype]]: Array(0)
+VM7790:83 stack
+wrapped @ VM7790:83
+onGUI @ GameManager.1748712111.js:1050
+await in onGUI
+processData @ GameManager.1748712111.js:996
+onMessage @ GameManager.1748712111.js:377
+VM7790:22 [WS OUT] wss://battlemages-app-live-27f368751fc2.herokuapp.com/
+VM7790:23 raw: {"action":"Scenario","response":false,"callbackId":2}
+VM7790:24 json: {action: 'Scenario', response: false, callbackId: 2}action: "Scenario"callbackId: 2response: false[[Prototype]]: Object
+VM7790:25 stack
+WebSocket.send @ VM7790:25
+next @ GameManager.1748712111.js:1072
+await in next
+onGUI @ GameManager.1748712111.js:1059
+await in onGUI
+processData @ GameManager.1748712111.js:996
+onMessage @ GameManager.1748712111.js:377
+VM7790:81 [GUI] ShowCharacter
+VM7790:82 args: (3) [{…}, 1, false]0: {name: 'Azalea', names: 'Azalea', nature: 'sexy', token: '037095834745f61d3aa66090769b1de283823a18', username: 'Celina2000', …}1: 12: falselength: 3[[Prototype]]: Array(0)
+VM7790:83 stack
+wrapped @ VM7790:83
+onGUI @ GameManager.1748712111.js:1050
+await in onGUI
+processData @ GameManager.1748712111.js:996
+onMessage @ GameManager.1748712111.js:377
+VM7790:22 [WS OUT] wss://battlemages-app-live-27f368751fc2.herokuapp.com/
+VM7790:23 raw: {"action":"Scenario","response":false,"callbackId":3}
+VM7790:24 json: {action: 'Scenario', response: false, callbackId: 3}action: "Scenario"callbackId: 3response: false[[Prototype]]: Object
+VM7790:25 stack
+WebSocket.send @ VM7790:25
+next @ GameManager.1748712111.js:1072
+await in next
+onGUI @ GameManager.1748712111.js:1059
+await in onGUI
+processData @ GameManager.1748712111.js:996
+onMessage @ GameManager.1748712111.js:377
+VM7790:81 [GUI] MorphCharacter
+VM7790:82 args: (6) [{…}, 'https://battlemageserotica.com/game/assets/items/panties2.png', {…}, 'Yellow', false, false]0: {name: 'Amy', surname: 'Smith', names: 'Amy Smith', nature: 'pure', token: '47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77', …}1: "https://battlemageserotica.com/game/assets/items/panties2.png"2: {scale: 0.67}3: "Yellow"4: false5: falselength: 6[[Prototype]]: Array(0)
+VM7790:83 stack
+wrapped @ VM7790:83
+onGUI @ GameManager.1748712111.js:1050
+await in onGUI
+processData @ GameManager.1748712111.js:996
+onMessage @ GameManager.1748712111.js:377
+VM7790:22 [WS OUT] wss://battlemages-app-live-27f368751fc2.herokuapp.com/
+VM7790:23 raw: {"action":"Scenario","callbackId":4}
+VM7790:24 json: {action: 'Scenario', callbackId: 4}action: "Scenario"callbackId: 4[[Prototype]]: Objectconstructor: ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()__proto__: (...)get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()
+VM7790:25 stack
+WebSocket.send @ VM7790:25
+next @ GameManager.1748712111.js:1072
+await in next
+onGUI @ GameManager.1748712111.js:1059
+await in onGUI
+processData @ GameManager.1748712111.js:996
+onMessage @ GameManager.1748712111.js:377
+
+

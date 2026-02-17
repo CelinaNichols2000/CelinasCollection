@@ -179,6 +179,10 @@
         const state = JSON.parse(localStorage.getItem('farmState') || '{}');
         if (state.trappedUntil && state.trappedUntil > Date.now()) {
             // IMMEDIATELY redirect to transformation page
+            if (state.currentForm && state.currentForm.startsWith('farmhouse-')) {
+                window.location.href = `States/${state.currentForm}.html`;
+                return;
+            }
             const formMap = {
                 'foxfire_panties': 'States/forest-panties.html', //yes
                 'witch_horse': 'States/forest-horse.html',      //yes
@@ -415,6 +419,10 @@
 function checkTrappedState() {
     const now = Date.now();
     if (gameState.trappedUntil > now) {
+        if (gameState.currentForm && gameState.currentForm.startsWith('farmhouse-')) {
+            window.location.href = `States/${gameState.currentForm}.html`;
+            return true;
+        }
         // Redirect to dedicated transformation page
         const formMap = {
             'foxfire_panties': 'States/forest-panties.html',

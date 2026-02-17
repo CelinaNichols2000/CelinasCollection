@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>My Fate — Liam's Mindfucked Cumsoaked Panties</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --deep:#05000d;--mid:#180228;
+      --r:#FF2266;--p:#FF4BA0;--pk:#ffb3df;
+      --t:#FF69B4;--tl:#FF85C8;--gold:#ffd24d;
+      --border:rgba(255,75,160,0.18);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Poppins',sans-serif;min-height:100vh;background:var(--deep);color:#fff;overflow-x:hidden}
+
+    /* BG */
+    .bg{
+      position:fixed;inset:0;z-index:0;pointer-events:none;
+      background:
+        radial-gradient(ellipse 900px 480px at 75% 15%,rgba(255,34,102,0.11),transparent),
+        radial-gradient(ellipse 700px 500px at 15% 85%,rgba(255,105,180,0.08),transparent),
+        radial-gradient(ellipse 500px 500px at 50% 50%,rgba(160,0,100,0.08),transparent),
+        linear-gradient(155deg,var(--mid) 0%,#07001c 55%,var(--deep) 100%);
+    }
+    .bg::after{content:'';position:absolute;inset:0;
+      background:repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(255,34,102,0.014) 60px),
+                 repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(255,34,102,0.014) 60px);}
+    @keyframes orbF{0%,100%{transform:translate(0,0)}40%{transform:translate(26px,-38px)}70%{transform:translate(-16px,22px)}}
+    .orb{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0;animation:orbF 20s ease-in-out infinite}
+    .orb1{width:480px;height:480px;background:radial-gradient(var(--r),transparent);top:-120px;right:-90px;opacity:0.13}
+    .orb2{width:380px;height:380px;background:radial-gradient(#FF69B4,transparent);bottom:-90px;left:-110px;opacity:0.10;animation-delay:-9s}
+    .orb3{width:280px;height:280px;background:radial-gradient(#cc00ff,transparent);top:40%;left:55%;opacity:0.06;animation-delay:-15s}
+
+    /* LAYOUT */
+    .wrap{position:relative;z-index:1;max-width:1260px;margin:0 auto;padding:22px 18px 60px;display:flex;flex-direction:column;gap:22px}
+
+    /* TIMER BAR */
+    .timer-bar{
+      display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;
+      background:linear-gradient(90deg,rgba(255,34,102,0.06),rgba(255,105,180,0.04));
+      border:1px solid var(--border);border-radius:14px;padding:13px 22px;backdrop-filter:blur(14px);
+    }
+    .t-label{font-size:0.78rem;letter-spacing:2px;color:#ff88bb;text-transform:uppercase;font-weight:600;white-space:nowrap}
+    #countdown{
+      font-family:'Orbitron',monospace;
+      font-size:clamp(1.35rem,3.8vw,2.3rem);font-weight:700;
+      white-space:nowrap;letter-spacing:2px;line-height:1;
+      color:transparent;background:linear-gradient(90deg,#ff5599,#ffccee,#FF85C8);
+      -webkit-background-clip:text;background-clip:text;
+    }
+
+    /* GRID */
+    .main-grid{display:grid;grid-template-columns:1fr 400px;gap:22px;align-items:start}
+    .lc{display:flex;flex-direction:column;gap:18px}
+    .rc{display:flex;flex-direction:column;gap:16px}
+
+    /* IMAGE */
+    .img-wrap{
+      border-radius:20px;overflow:hidden;border:2px solid var(--border);
+      box-shadow:0 20px 70px rgba(255,20,100,0.14);background:#080012;position:relative;
+    }
+    .img-wrap img{
+      width:100%;height:510px;object-fit:cover;display:block;
+      transition:transform 0.7s cubic-bezier(.2,.9,.2,1),filter 0.4s,box-shadow 0.4s;
+    }
+    .img-wrap.flush img{filter:saturate(1.3) hue-rotate(5deg)}
+    .img-wrap.desperate img{filter:saturate(1.6) hue-rotate(12deg) brightness(1.05)}
+    .img-wrap.breaking img{filter:saturate(2) hue-rotate(18deg) brightness(1.1)}
+    .img-wrap.squirming img{animation:squirmAnim 0.35s ease-in-out infinite alternate;filter:saturate(2.4) brightness(1.15)}
+    @keyframes squirmAnim{0%{transform:scale(1.01) rotate(-0.6deg)}100%{transform:scale(1.05) rotate(0.6deg)}}
+    .img-badge{
+      position:absolute;top:14px;left:14px;
+      background:rgba(0,0,0,0.6);backdrop-filter:blur(6px);
+      border:1px solid rgba(255,75,160,0.35);border-radius:999px;
+      padding:4px 13px;font-size:0.7rem;font-weight:700;
+      letter-spacing:2px;color:#ffaad6;text-transform:uppercase;transition:all 0.5s;
+    }
+
+    /* CARD */
+    .card{
+      background:linear-gradient(160deg,rgba(255,75,160,0.04),rgba(0,0,0,0.55));
+      border:1px solid var(--border);border-radius:18px;
+      padding:20px 18px;backdrop-filter:blur(8px);
+      box-shadow:0 8px 36px rgba(0,0,0,0.45);
+    }
+    .card-ttl{font-family:'Orbitron',sans-serif;font-size:0.75rem;color:#ff88bb;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
+
+    /* TITLE */
+    h1.ptitle{
+      font-family:'Orbitron',sans-serif;font-size:clamp(1.05rem,2.4vw,1.5rem);
+      color:transparent;background:linear-gradient(90deg,#FF2266,#FF4BA0,#ffb3df,#FF85C8);
+      -webkit-background-clip:text;background-clip:text;
+      letter-spacing:1px;line-height:1.3;margin-bottom:5px;
+    }
+    .sub{color:#ffd4ee;font-size:0.9rem;line-height:1.55;margin-bottom:12px}
+    .spill{
+      display:inline-flex;align-items:center;gap:6px;
+      background:linear-gradient(90deg,rgba(255,34,102,0.14),rgba(255,75,160,0.06));
+      border:1px solid rgba(255,34,102,0.35);border-radius:999px;
+      padding:5px 14px;font-size:0.78rem;font-weight:700;color:#ff9ec8;letter-spacing:0.5px;margin-bottom:14px;
+    }
+    .spill-dot{width:7px;height:7px;border-radius:50%;background:var(--r);animation:blink 1.4s ease-in-out infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+
+    /* METER */
+    .meter-wrap{display:flex;flex-direction:column;gap:7px}
+    .meter-top{display:flex;justify-content:space-between;align-items:center}
+    .m-lbl{font-size:0.76rem;color:#ff88bb;letter-spacing:1px;font-weight:600;text-transform:uppercase}
+    #mPct{font-family:'Orbitron',sans-serif;font-size:1.05rem;font-weight:700;color:transparent;background:linear-gradient(90deg,#ff4488,#FF85C8);-webkit-background-clip:text;background-clip:text}
+    .m-bar{width:100%;height:18px;background:rgba(0,0,0,0.55);border-radius:999px;overflow:visible;border:1px solid rgba(255,75,160,0.2);position:relative}
+    #mFill{
+      height:100%;width:0%;border-radius:999px;
+      background:linear-gradient(90deg,#ff2266,#ff5aa0,#ff99cc);
+      transition:width 0.55s cubic-bezier(.2,.9,.2,1),background 0.6s;
+      box-shadow:0 0 16px rgba(255,34,102,0.55);position:relative;
+    }
+    #mFill::after{
+      content:'';position:absolute;right:-1px;top:50%;transform:translateY(-50%);
+      width:20px;height:20px;border-radius:50%;
+      background:radial-gradient(#fff,#ff99cc,#ff2266);
+      box-shadow:0 0 14px 4px rgba(255,34,102,0.7);
+      opacity:0;transition:opacity 0.3s;pointer-events:none;
+    }
+    #mFill.hasprog::after{opacity:1}
+    #mFill.pulse{animation:mPulse 0.55s ease-out}
+    @keyframes mPulse{0%{filter:brightness(2.2) saturate(2.5)}100%{filter:brightness(1) saturate(1)}}
+    .m-stages{display:flex;justify-content:space-between;margin-top:3px;font-size:0.68rem;color:rgba(255,160,200,0.45);letter-spacing:0.3px}
+
+    /* CELINA VOICE */
+    #celinaVoice{
+      border-radius:14px;padding:13px 16px;font-size:0.88rem;line-height:1.6;
+      border-left:3px solid var(--r);transition:all 0.45s ease;
+    }
+    #celinaVoice::before{content:'💬 Celina:';display:block;font-size:0.66rem;letter-spacing:2px;font-weight:700;text-transform:uppercase;margin-bottom:5px;opacity:0.55}
+    .s-resist{background:rgba(255,34,102,0.07);border-left-color:#ff2266;color:#ffd0e0}
+    .s-flush{background:rgba(255,75,160,0.09);border-left-color:#ff5599;color:#ffd6ec}
+    .s-desp{background:rgba(200,50,150,0.12);border-left-color:#cc44aa;color:#ffccee}
+    .s-break{background:rgba(255,105,180,0.10);border-left-color:#FF69B4;color:#ffe0f0}
+    .s-gone{background:linear-gradient(135deg,rgba(255,215,0,0.08),rgba(255,105,180,0.09));border-left-color:var(--gold);color:#fff7cc}
+    .voice-txt{font-style:italic}
+    .voice-txt b.vy{color:#FF2266;font-style:normal;font-weight:900;text-shadow:0 0 8px rgba(255,34,102,0.5)}
+    .voice-txt b.vm{color:#FF85C8;font-style:italic;font-weight:700}
+    .voice-txt b.vg{color:#ffd24d;font-style:italic;font-weight:700;text-shadow:0 0 6px rgba(255,210,77,0.4)}
+
+    /* BUTTONS */
+    .brow{display:grid;gap:9px}
+    .brow.c2{grid-template-columns:1fr 1fr}
+    .brow.c3{grid-template-columns:1fr 1fr 1fr}
+    .btn{
+      font-family:'Poppins',sans-serif;font-size:0.83rem;font-weight:700;
+      padding:12px 8px;border-radius:12px;border:none;cursor:pointer;
+      letter-spacing:0.3px;text-transform:uppercase;
+      transition:all 0.22s cubic-bezier(.2,.9,.2,1);position:relative;overflow:hidden;
+    }
+    .btn:hover{transform:translateY(-2px) scale(1.04);filter:brightness(1.18)}
+    .btn:active{transform:scale(0.97)}
+    .btn::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.12),transparent);pointer-events:none}
+    .b-red{background:linear-gradient(135deg,#ff2266,#ff6699);color:#fff;box-shadow:0 5px 18px rgba(255,34,102,0.4)}
+    .b-pink{background:linear-gradient(135deg,#ff5aa0,#ffaad6);color:#1a0010;box-shadow:0 5px 18px rgba(255,80,150,0.35)}
+    .b-teal{background:linear-gradient(135deg,#FF2D7A,#FF69B4);color:#fff;box-shadow:0 5px 18px rgba(255,45,122,0.4)}
+    .b-purp{background:linear-gradient(135deg,#9933ff,#cc66ff);color:#fff;box-shadow:0 5px 18px rgba(153,51,255,0.35)}
+    .b-gold{background:linear-gradient(135deg,#ffd24d,#ff9900);color:#1a0000;box-shadow:0 5px 18px rgba(255,180,0,0.35)}
+    .b-dark{background:linear-gradient(135deg,#330022,#550033);color:#ffaad6;border:1px solid rgba(255,75,160,0.25)}
+    .b-exit{background:linear-gradient(90deg,#eee,#ffddff);color:#220015;font-size:0.78rem;padding:9px}
+
+    /* STORY SECTIONS */
+    .slist{display:flex;flex-direction:column;gap:10px}
+    .sfrag{
+      border-radius:16px;overflow:hidden;
+      border:1px solid rgba(255,75,160,0.2);
+      background:linear-gradient(160deg,rgba(18,0,35,0.95),rgba(6,0,15,0.97));
+      transition:box-shadow 0.3s;
+    }
+    .sfrag:hover{box-shadow:0 6px 28px rgba(255,34,102,0.12)}
+    .sfrag[data-s="0"] .strig{border-left:3px solid #ff88b0}
+    .sfrag[data-s="1"] .strig{border-left:3px solid #ff3377}
+    .sfrag[data-s="2"] .strig{border-left:3px solid #cc00cc}
+    .sfrag[data-s="3"] .strig{border-left:3px solid #FF69B4}
+    .sfrag[data-s="4"] .strig{border-left:3px solid var(--gold)}
+    .strig{
+      padding:14px 18px;cursor:pointer;
+      display:flex;justify-content:space-between;align-items:center;
+      background:linear-gradient(90deg,rgba(255,34,102,0.08),rgba(255,105,180,0.04));
+      transition:background 0.25s;user-select:none;
+    }
+    .strig:hover{background:linear-gradient(90deg,rgba(255,34,102,0.16),rgba(255,105,180,0.08))}
+    .strig-lbl{font-weight:700;font-size:0.93rem;color:#ffd4ee;display:flex;align-items:center;gap:8px}
+    .sbadge{display:inline-block;padding:2px 9px;border-radius:999px;font-size:0.68rem;font-weight:700;letter-spacing:0.5px}
+    .sfrag[data-s="0"] .sbadge{background:rgba(255,120,170,0.2);color:#ffaacc;border:1px solid rgba(255,120,170,0.35)}
+    .sfrag[data-s="1"] .sbadge{background:rgba(255,30,100,0.2);color:#ff88aa;border:1px solid rgba(255,30,100,0.4)}
+    .sfrag[data-s="2"] .sbadge{background:rgba(200,0,200,0.2);color:#ff88ff;border:1px solid rgba(200,0,200,0.4)}
+    .sfrag[data-s="3"] .sbadge{background:rgba(255,105,180,0.2);color:#ffaad6;border:1px solid rgba(255,105,180,0.35)}
+    .sfrag[data-s="4"] .sbadge{background:linear-gradient(90deg,rgba(255,200,0,0.25),rgba(255,105,180,0.2));color:#ffe066;border:1px solid rgba(255,200,0,0.45)}
+    .sarrow{font-size:0.9rem;color:#ff88bb;transition:transform 0.3s;flex-shrink:0}
+    .sfrag.open .sarrow{transform:rotate(180deg)}
+    .sbody{display:none;padding:0 18px 18px;animation:sSlide 0.3s ease;border-top:1px solid rgba(255,75,160,0.1)}
+    .sfrag.open .sbody{display:block}
+    @keyframes sSlide{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+    .s-narr{font-size:0.87rem;line-height:1.7;color:#ffe0f0;margin-top:14px}
+    .s-narr p{margin-bottom:10px}
+    .s-narr em{color:#ff99cc}
+    .s-narr strong{color:#ffddee;font-weight:700}
+    /* celina reaction bubble in story */
+    .s-cel{
+      margin-top:10px;padding:11px 14px 11px 40px;
+      border-radius:12px;font-size:0.84rem;font-style:italic;
+      line-height:1.6;position:relative;
+    }
+    .s-cel::before{content:'💭';position:absolute;left:12px;top:10px;font-style:normal}
+    .sfrag[data-s="0"] .s-cel{background:rgba(255,34,102,0.08);border:1px solid rgba(255,34,102,0.25);color:#ffccdd}
+    .sfrag[data-s="1"] .s-cel{background:rgba(255,75,160,0.08);border:1px solid rgba(255,75,160,0.25);color:#ffd0e8}
+    .sfrag[data-s="2"] .s-cel{background:rgba(160,0,160,0.09);border:1px solid rgba(180,0,160,0.3);color:#ffccff}
+    .sfrag[data-s="3"] .s-cel{background:rgba(255,80,160,0.07);border:1px solid rgba(255,80,160,0.25);color:#ffd4ee}
+    .sfrag[data-s="4"] .s-cel{background:linear-gradient(135deg,rgba(255,215,0,0.07),rgba(255,105,180,0.07));border:1px solid rgba(255,215,0,0.3);color:#fff3aa}
+
+    /* POPUP */
+    .pop-over{
+      position:fixed;inset:0;z-index:99990;
+      display:flex;align-items:center;justify-content:center;
+      background:radial-gradient(ellipse at 50%,rgba(200,0,60,0.28),rgba(0,0,0,0.92));
+      opacity:0;pointer-events:none;transition:opacity 0.18s ease;
+    }
+    .pop-over.on{opacity:1;pointer-events:auto}
+    .pop-box{
+      max-width:680px;width:92%;
+      background:linear-gradient(135deg,#280010,#0e0020);
+      border:2px solid rgba(255,0,70,0.55);
+      box-shadow:0 0 55px rgba(255,0,80,0.45),inset 0 0 25px rgba(255,0,40,0.06);
+      border-radius:20px;overflow:hidden;
+    }
+    .pop-head{display:grid;grid-template-columns:130px 1fr}
+    .pop-img{min-height:155px;background-size:cover;background-position:center}
+    .pop-side{padding:18px 20px;display:flex;flex-direction:column;justify-content:center;gap:8px}
+    .pop-ttl{font-family:'Orbitron',sans-serif;font-size:0.88rem;font-weight:900;color:#ff3366;letter-spacing:2px;text-transform:uppercase;text-shadow:0 0 10px rgba(255,0,80,0.7)}
+    .pop-action{font-size:0.86rem;font-weight:700;color:#ffadd6;border-left:2px solid rgba(255,75,160,0.4);padding-left:10px;font-style:italic;line-height:1.5}
+    .pop-react{font-size:0.92rem;line-height:1.65;color:#ffdde8;font-weight:600;text-shadow:0 0 4px rgba(255,0,100,0.35);border-top:1px solid rgba(255,34,102,0.15);padding-top:8px;margin-top:2px}
+    .pop-react .scr{color:#ff2244;font-weight:900;font-size:1.04em;animation:sShake 0.45s infinite}
+    .pop-react .brat{color:#ff6688;font-weight:800;font-style:italic}
+    .pop-react .melt{color:#ffaa44;font-weight:700;font-style:italic}
+    .pop-react .gone{color:#FF85C8;font-weight:800;font-size:1.06em}
+    @keyframes sShake{0%,100%{transform:translateX(0)}30%{transform:translateX(2px)}70%{transform:translateX(-2px)}}
+    .pop-foot{padding:12px 18px;display:flex;justify-content:flex-end;border-top:1px solid rgba(255,34,102,0.15)}
+
+    /* MIND BREAK OVERLAY */
+    .mb-over{
+      position:fixed;inset:0;z-index:99999;
+      display:flex;align-items:center;justify-content:center;flex-direction:column;
+      opacity:0;pointer-events:none;transition:opacity 0.5s ease;overflow:hidden;
+    }
+    .mb-over.on{opacity:1;pointer-events:auto}
+    .mb-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(20px) saturate(2.8);opacity:0.28}
+    .mb-veil{position:absolute;inset:0;background:radial-gradient(ellipse at 50%,rgba(60,0,30,0.6),rgba(3,0,10,0.9))}
+    .mb-content{position:relative;z-index:2;text-align:center;padding:28px 24px;max-width:820px}
+    .mb-phase{font-size:0.7rem;letter-spacing:3px;text-transform:uppercase;color:#ff88bb;margin-bottom:12px;font-weight:600}
+    .mb-msg{
+      font-family:'Orbitron',sans-serif;
+      font-size:clamp(1.8rem,5.5vw,3.4rem);font-weight:900;
+      color:transparent;background:linear-gradient(90deg,#ff2266,#ff88cc,#FF85C8,#ffd24d);
+      -webkit-background-clip:text;background-clip:text;
+      letter-spacing:1px;line-height:1.2;
+      animation:mbPulse 1.4s ease-in-out infinite alternate;transition:opacity 0.3s;
+    }
+    @keyframes mbPulse{0%{filter:brightness(1)}100%{filter:brightness(1.45) blur(0.4px)}}
+    .mb-sub{font-size:1rem;line-height:1.65;color:#ffe0ee;margin-top:14px;max-width:580px;margin-left:auto;margin-right:auto;transition:opacity 0.3s}
+    .mb-cel{
+      margin-top:16px;padding:12px 20px;
+      background:rgba(0,0,0,0.55);backdrop-filter:blur(6px);
+      border:1px solid rgba(255,75,160,0.35);border-radius:12px;
+      font-style:italic;font-size:0.95rem;color:#ffccee;
+      animation:fadeSlide 0.4s ease;max-width:560px;margin-left:auto;margin-right:auto;
+    }
+    @keyframes fadeSlide{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+    .mb-cdown{font-family:'Orbitron',sans-serif;font-size:1.4rem;color:var(--gold);margin-top:22px;font-weight:700;text-shadow:0 0 18px rgba(255,210,77,0.7)}
+    .mb-close{
+      margin-top:22px;background:linear-gradient(90deg,#ff2266,#ff88cc);
+      color:#fff;font-weight:800;border:none;cursor:pointer;
+      padding:13px 34px;border-radius:999px;font-size:0.95rem;
+      letter-spacing:1px;transition:all 0.2s;font-family:'Poppins',sans-serif;display:none;
+    }
+    .mb-close:hover{transform:scale(1.06);filter:brightness(1.12)}
+
+    /* burst words */
+    .burst{
+      position:absolute;font-family:'Orbitron',sans-serif;
+      font-size:clamp(0.7rem,1.8vw,1.2rem);font-weight:900;
+      text-transform:uppercase;letter-spacing:1px;
+      padding:7px 14px;border-radius:10px;pointer-events:none;
+      animation:burstAnim 2.8s ease-out forwards;
+    }
+    @keyframes burstAnim{
+      0%{opacity:0;transform:scale(0.4) rotate(var(--rot)) translateY(30px)}
+      12%{opacity:1;transform:scale(1.1) rotate(var(--rot)) translateY(0)}
+      80%{opacity:1;transform:scale(1) rotate(var(--rot)) translateY(-10px)}
+      100%{opacity:0;transform:scale(1.3) rotate(var(--rot)) translateY(-40px)}
+    }
+
+    /* particles */
+    .ptcl{position:fixed;border-radius:50%;pointer-events:none;z-index:2;animation:ptclR linear forwards;opacity:0}
+    @keyframes ptclR{0%{transform:translateY(0) scale(1);opacity:0.9}100%{transform:translateY(-100vh) scale(0);opacity:0}}
+    .spark{position:absolute;border-radius:50%;pointer-events:none;animation:sparkA ease-out forwards}
+    @keyframes sparkA{0%{transform:translate(0,0) scale(1);opacity:1}100%{transform:translate(var(--tx),var(--ty)) scale(0);opacity:0}}
+
+    /* glitch */
+    @keyframes glitch{0%,100%{transform:translate(0)}15%{transform:translate(-2px,1px)}35%{transform:translate(2px,-1px)}55%{transform:translate(-1px,2px)}75%{transform:translate(1px,-2px)}}
+
+    /* TOAST */
+    .toast{
+      position:fixed;bottom:22px;right:22px;z-index:9998;
+      background:linear-gradient(135deg,#280018,#0e0022);
+      border:1px solid rgba(255,75,160,0.4);border-radius:12px;
+      padding:11px 18px;font-size:0.86rem;color:#ffd4ee;
+      max-width:300px;box-shadow:0 8px 30px rgba(0,0,0,0.55);
+      transform:translateY(70px);opacity:0;transition:all 0.3s cubic-bezier(.2,.9,.2,1);
+    }
+    .toast.on{transform:translateY(0);opacity:1}
+
+    /* RESPONSIVE */
+    @media(max-width:900px){
+      .main-grid{grid-template-columns:1fr}
+      .rc{order:-1}
+      .img-wrap img{height:280px}
+    }
+    @media(max-width:480px){
+      .pop-head{grid-template-columns:1fr}
+      .pop-img{min-height:110px}
+      .brow.c3{grid-template-columns:1fr 1fr}
+      #countdown{font-size:1.2rem}
+    }
+  </style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div>
+
+<div class="wrap">
+
+  <!-- TIMER -->
+  <div class="timer-bar">
+    <span class="t-label">⛓ She Is Transformed as Panties for </span>
+    <div id="countdown">--d --h --m --s</div>
+  </div>
+
+  <!-- MAIN GRID -->
+  <div class="main-grid">
+
+    <!-- LEFT COL -->
+    <div class="lc">
+      <div class="img-wrap" id="imgWrap">
+        <img id="mainImg" src="https://i.ibb.co/Q7CDVnQG/Celina-Humilation.png" alt="Celina">
+        <div class="img-badge" id="stageBadge">Resistant</div>
+      </div>
+
+      <!-- STORY ACCORDION -->
+      <div class="card">
+        <div class="card-ttl">📖 The Story — With Celina's Inner Voice</div>
+        <div class="slist">
+
+          <!-- I -->
+          <div class="sfrag open" data-s="0">
+            <div class="strig">
+              <span class="strig-lbl"><span class="sbadge">I</span> How This Started</span>
+              <span class="sarrow">▼</span>
+            </div>
+            <div class="sbody">
+              <div class="s-narr">
+                <p>Let me tell you how this slutty student came to be stuck to my waist. Just minding my own business when like thunder on my door came this bouncing bimbo Celina — horny for something or another. She had the gall to stand in my own dorm and declare she was going to make <em>me</em> her panties.</p>
+                <p>Obviously the airheaded bimbo stood no chance. She found herself <em>willingly</em> contracting away her magic and dropping to her knees before I'd even tried.</p>
+              </div>
+              <div class="s-cel">
+                "I— WHAT?! This is NOT happening. I came here to <strong>dominate</strong> him, not— I am a POWERFUL WITCH and I will absolutely NOT— stop looking at me like that— WHY ARE MY KNEES BENDING—"
+              </div>
+            </div>
+          </div>
+
+          <!-- II -->
+          <div class="sfrag" data-s="1">
+            <div class="strig">
+              <span class="strig-lbl"><span class="sbadge">II</span> The Contract</span>
+              <span class="sarrow">▼</span>
+            </div>
+            <div class="sbody">
+              <div class="s-narr">
+                <p>Just the <em>idea</em> of sucking my cock brought her brain to a melting point. She was practically fawning, calling me master, drinking down every drop I deposited in her throat. Perfect little cum-storage. She made it so easy.</p>
+              </div>
+              <div class="s-cel">
+                "Okay so— that happened. That doesn't <em>mean</em> anything. Bodies do weird things, it's just biology, I'm not actually— why does his scent make it hard to— NO. No, I'm fine. Totally fine. I formally protest this. In writing. Internally."
+              </div>
+            </div>
+          </div>
+
+          <!-- III -->
+          <div class="sfrag" data-s="2">
+            <div class="strig">
+              <span class="strig-lbl"><span class="sbadge">III</span> The Claim</span>
+              <span class="sarrow">▼</span>
+            </div>
+            <div class="sbody">
+              <div class="s-narr">
+                <p>I couldn't let her earlier comments slide. Just asking her to undress and bend over was all it took. With every thrust she whined louder — begging, crying out so the whole dorm could hear. Getting so desperate, so horny, she <em>offered</em> to stay permanently attached to my hips as a loving pair of panties.</p>
+              </div>
+              <div class="s-cel">
+                "...i can feel your heartbeat through the fabric... that's not— please don't move so fast— every step you take I feel the friction and— <em>oh—</em> wait I didn't— I wasn't going to say— master please I need you to— I need— <em>please—</em>"
+              </div>
+            </div>
+          </div>
+
+          <!-- IV -->
+          <div class="sfrag" data-s="3">
+            <div class="strig">
+              <span class="strig-lbl"><span class="sbadge">IV</span> Her New Life</span>
+              <span class="sarrow">▼</span>
+            </div>
+            <div class="sbody">
+              <div class="s-narr">
+                <p>Now she spends her days hugging my every edge, holding my cock and balls like a dutiful pouch. All her senses boiled down to the scent of my pre-cum permeating her fabric and the aphrodisiac lust of my demonic musk. <em>And she wouldn't have it any other way.</em></p>
+              </div>
+              <div class="s-cel">
+                "...master... don't take me off... the cold hurts now... i need your warmth... i don't remember what I wanted before... <em>i don't want to remember</em>... please keep me close... please keep me warm... just this... always this..."
+              </div>
+            </div>
+          </div>
+
+          <!-- V -->
+          <div class="sfrag" data-s="4">
+            <div class="strig">
+              <span class="strig-lbl"><span class="sbadge">✦</span> The Final Truth</span>
+              <span class="sarrow">▼</span>
+            </div>
+            <div class="sbody">
+              <div class="s-narr">
+                <p>There is no Celina anymore. There is only <strong>fabric</strong>. Only warmth. Only the slow permanent devotion of cotton wrapped around a demon's hips. She breathes his heat. She <em>is</em> his heat.</p>
+                <p style="margin-top:12px;color:#ffd24d;font-style:italic">Your forever Master and obsession — <strong>Liam Rosen.</strong></p>
+              </div>
+              <div class="s-cel" style="border-color:rgba(255,215,0,0.4);color:#fff3aa">
+                "...♡... master... i'm yours... completely... i was always supposed to be yours... i don't need a name... i don't need a body... just <em>this</em>... just <em>you</em>... forever... ♡♡♡..."
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div><!-- /lc -->
+
+    <!-- RIGHT COL -->
+    <div class="rc">
+
+      <!-- HEADER CARD -->
+      <div class="card">
+        <h1 class="ptitle">Liam's Mindfucked<br>Cumsoaked Panties</h1>
+        <div class="sub">Celina is trapped against his hips. Squirming, bratty, fading. <strong style="color:#ff88bb">You</strong> hold the power to push her further.</div>
+        <div class="spill"><span class="spill-dot"></span> Trapped as Panties </div>
+
+        <div class="meter-wrap">
+          <div class="meter-top">
+            <span class="m-lbl">Mind-Break Meter</span>
+            <span id="mPct">0%</span>
+          </div>
+          <div class="m-bar"><div id="mFill"></div></div>
+          <div class="m-stages"><span>Resistant</span><span>Flustered</span><span>Desperate</span><span>Broken</span></div>
+        </div>
+
+        <div id="celinaVoice" class="s-resist" style="margin-top:14px">
+          <div class="voice-txt" id="voiceTxt">"This is humiliating. Let me out RIGHT now. I am NOT your property!"</div>
+        </div>
+      </div>
+
+      <!-- INTERACTIONS — framed as what the visitor does TO her -->
+      <div class="card">
+        <div class="card-ttl">🖐 What do you do to her?</div>
+        <div class="brow c2" style="margin-bottom:9px">
+          <button class="btn b-red"  onclick="act('rub')">👆 Rub Her</button>
+          <button class="btn b-pink" onclick="act('tease')">💅 Tease the Edge</button>
+        </div>
+        <div class="brow c2" style="margin-bottom:9px">
+          <button class="btn b-purp" onclick="act('spank')">🍑 Spank on His Ass</button>
+          <button class="btn b-teal" onclick="act('whisper')">🌬 Whisper to Her</button>
+        </div>
+        <div class="brow c3" style="margin-bottom:9px">
+          <button class="btn b-gold" onclick="act('tug')">✋ Tug Waistband</button>
+          <button class="btn b-dark" onclick="act('mock')">😈 Mock Her</button>
+          <button class="btn b-pink" onclick="act('press')">🤚 Press Flat</button>
+        </div>
+        <div class="brow c2">
+          <button class="btn b-red"  onclick="act('command')">👑 Command Her</button>
+          <button class="btn b-purp" onclick="act('stroke')">🌸 Slow Stroke</button>
+        </div>
+      </div>
+
+      <!-- EXIT -->
+      <div class="card">
+        <div class="brow">
+          <button class="btn b-exit" onclick="doExit()">↩ Exit Full Site</button>
+        </div>
+      </div>
+
+    </div><!-- /rc -->
+  </div>
+</div><!-- /wrap -->
+
+<!-- INTERACTION POPUP -->
+<div class="pop-over" id="popOver">
+  <div class="pop-box" id="popBox">
+    <div class="pop-head">
+      <div class="pop-img" id="popImg" style="background-image:url('https://i.ibb.co/Q7CDVnQG/Celina-Humilation.png')"></div>
+      <div class="pop-side">
+        <div class="pop-ttl" id="popTtl">—</div>
+        <div class="pop-action" id="popAct">—</div>
+        <div class="pop-react" id="popReact">—</div>
+      </div>
+    </div>
+    <div class="pop-foot">
+      <button class="btn b-teal" style="padding:8px 20px;font-size:0.82rem" onclick="closePop()">Done ✓</button>
+    </div>
+  </div>
+</div>
+
+<!-- MIND BREAK OVERLAY -->
+<div class="mb-over" id="mbOver">
+  <div class="mb-bg" id="mbBg" style="background-image:url('https://i.ibb.co/Q7CDVnQG/Celina-Humilation.png')"></div>
+  <div class="mb-veil"></div>
+  <div class="mb-content">
+    <div class="mb-phase" id="mbPhase">MIND BREAK</div>
+    <div class="mb-msg"   id="mbMsg">—</div>
+    <div class="mb-sub"   id="mbSub">—</div>
+    <div class="mb-cel"   id="mbCel" style="display:none"></div>
+    <div class="mb-cdown" id="mbCdown"></div>
+    <button class="mb-close" id="mbClose" onclick="closeMB()">She Is Yours. Continue.</button>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<script>
+/* ═══ STATE ══════════════════════════════════════ */
+let lvl = parseInt(localStorage.getItem('mf_tease')||'0');
+
+// Initialize localStorage flag if not set
+try {
+  if (localStorage.getItem('humiliationActive') === null) {
+    localStorage.setItem('humiliationActive', 'true');
+  }
+} catch(e) {}
+
+/* ═══ IMAGE POOL ═════════════════════════════════ */
+const imgPool = [
+  'https://i.ibb.co/Q7CDVnQG/Celina-Humilation.png',
+  'https://i.ibb.co/cRbz1st/4e34e650-8186-4fbd-adc5-91c5b1c3db00.png',
+  'https://i.ibb.co/JWsBKmKk/d5fa80bb-539f-4ced-9278-c55fb35b9094.png',
+  'https://i.ibb.co/S4mcd6vy/46be51ba-d277-4d0a-a45f-ae8ab0e60154.png',
+  'https://i.ibb.co/ZRtrhYDp/02af64ec-9bd9-403e-bb5f-cc0d912e9651-1.png',
+  'https://i.ibb.co/DP200hYq/d1fc2cda-3aa2-4b8a-a63f-02a120163cf5.png',
+  'https://i.ibb.co/xS9fC4Hp/6e651bc5-074c-42f7-8c81-263904dafed9.png',
+];
+const origImg = imgPool[0];
+let imgIdx = 0;
+let imgRevertTimer = null;
+function nextImg(){
+  imgIdx = (imgIdx+1) % imgPool.length;
+  const url = imgPool[imgIdx];
+  document.getElementById('mainImg').src = url;
+  document.getElementById('popImg').style.backgroundImage = `url('${url}')`;
+  document.getElementById('mbBg').style.backgroundImage  = `url('${url}')`;
+}
+// rotate image on every interaction
+function rotateImg(){ nextImg(); }
+
+/* ═══ TIMER ══════════════════════════════════════ */
+const target = new Date(2026, 1, 27, 0, 0, 0);
+function tick(){
+  let d = Math.max(0, target - new Date());
+  const dy=Math.floor(d/86400000);d-=dy*86400000;
+  const h=Math.floor(d/3600000);d-=h*3600000;
+  const m=Math.floor(d/60000);d-=m*60000;
+  const s=Math.floor(d/1000);
+  document.getElementById('countdown').textContent=
+    `${String(dy).padStart(2,'0')}d ${String(h).padStart(2,'0')}h ${String(m).padStart(2,'0')}m ${String(s).padStart(2,'0')}s`;
+  if(target-new Date()<=0){setTimeout(()=>location.href='index.html',700)}
+}
+tick();setInterval(tick,1000);
+// Helper tags: <b class="vy">caps angry</b>  <b class="vm">melting warm</b>  <b class="vg">gone soft</b>
+const voices=[
+  // 0-19 – full caps resistance
+  [`<b class="vy">THIS IS HUMILIATING.</b> Let me out <b class="vy">RIGHT NOW.</b> I am <b class="vy">NOT</b> your property and I will <b class="vy">NEVER</b> be!`,
+   `<b class="vy">STOP</b> touching me. This is assault. Fabric cannot be assaulted but <b class="vy">STILL — STOP.</b> I can feel every single thing you're doing.`,
+   `You think this is funny?! I will <b class="vy">END YOU</b> when I get out of this. <b class="vy">IF</b> I get out. Every step you take feels like— <b class="vy">STOP WALKING SO MUCH.</b>`,
+   `<b class="vy">EACH STEP IS</b> torture. Cold air on one side, your skin on the other, and I can feel <b class="vy">ALL OF IT</b> and I <b class="vy">HATE</b> how much I can feel it.`,
+   `I was a <b class="vy">POWERFUL WITCH.</b> I had <b class="vy">PLANS.</b> I had a <b class="vy">LIFE.</b> And now I'm— I'm— <b class="vy">WHY ARE YOU SITTING DOWN AGAIN.</b>`],
+  // 20-39 – denial cracks
+  [`...that didn't mean anything. <b class="vy">Nothing.</b> Bodies react to things, it's just thermal— <b class="vm">why are you so warm—</b> no. Zero. Unaffected.`,
+   `W-would you just— <b class="vy">stop rubbing me</b> I'm not— that doesn't feel— I'm formally <b class="vy">PROTESTING</b> this. In writing. Internally.`,
+   `<b class="vy">I'M STILL MAD.</b> I want that on the record. Whatever record exists for... trapped panties. <b class="vm">...your scent is making it really hard to stay mad...</b>`,
+   `Every step you take I feel the friction and— <b class="vy">WOULD YOU STOP MOVING SO DELIBERATELY—</b> it's like you <em>know</em> what it does to me...`,
+   `<b class="vm">...okay maybe ten percent affected...</b> <b class="vy">MAXIMUM.</b> Don't read into it. I'm still angry. Mostly.`],
+  // 40-59 – cracking, pleading slips
+  [`...your warmth is just... <b class="vm">it's just thermodynamics...</b> completely scientific... I don't <em>like</em> it, I'm just... noting it...`,
+   `...please don't move so fast— the friction is— <b class="vm">I can't think when you—</b> nnngh— <b class="vy">STOP SMELLING SO GOOD.</b>`,
+   `<b class="vm">...every heartbeat you have... I feel it through the fabric...</b> that's not— I wasn't going to say that— please don't stop moving...`,
+   `...I'm starting to forget <b class="vm">why I was angry...</b> that's bad. That should concern me. <b class="vm">...it doesn't really concern me anymore...</b>`,
+   `<b class="vm">...please just... don't take me off today...</b> it's cold and— <b class="vy">I DIDN'T MEAN THAT.</b> Ignore that. I meant nothing.`],
+  // 60-79 – surrendering
+  [`<b class="vm">...master... please don't take me off...</b> the cold hurts now and I don't— I need your warmth, I need it so much—`,
+   `...every step... I feel it... <b class="vm">all of it...</b> every single shift of your hips... please don't stop... <b class="vm">please don't ever stop...</b>`,
+   `<b class="vm">...i think i want to stay here...</b> I don't remember what I wanted before and <b class="vm">i don't want to remember either...</b> just this... just warm...`,
+   `...your musk is <b class="vm">everywhere...</b> in every thread... I breathe you constantly and I stopped minding... <b class="vm">I think I need it now...</b>`,
+   `<b class="vm">...master... i'm yours aren't i...</b> I keep trying to fight that thought and it just <b class="vm">...keeps winning...</b>`],
+  // 80-99 – nearly gone
+  [`<b class="vg">...master... please... more... closer... always closer...</b> I need you pressed against me always—`,
+   `<b class="vg">...i don't remember what I wanted before this...</b> it doesn't matter. <b class="vg">this is everything. you are everything.</b>`,
+   `<b class="vg">...use me... please... that's all I am... that's all I want to be...</b> your warm little thing...`,
+   `<b class="vg">...every thread of me is yours...</b> I was trying to resist and now I can't even remember <b class="vg">what resistance felt like...</b>`,
+   `<b class="vg">...more... please... I don't know how to want anything else anymore... and that feels perfect...</b>`],
+  // 100 – broken
+  [`<b class="vg">...♡... master... ♡... yours... completely... forever... ♡...</b>`],
+];
+
+const vStageClass=['s-resist','s-flush','s-desp','s-break','s-break','s-gone'];
+const stageBadges=['Resistant','Flustered','Desperate','Breaking...','Surrendering','Broken ♡'];
+
+function pickVoice(l){
+  const b=l>=100?5:l>=80?4:l>=60?3:l>=40?2:l>=20?1:0;
+  const a=voices[b];return a[Math.floor(Math.random()*a.length)];
+}
+
+/* ═══ SET METER ══════════════════════════════════ */
+function setMeter(n){
+  lvl=Math.max(0,Math.min(100,n));
+  localStorage.setItem('mf_tease',String(lvl));
+
+  const f=document.getElementById('mFill');
+  f.style.width=lvl+'%';
+  if(lvl>0)f.classList.add('hasprog');
+  f.classList.remove('pulse');void f.offsetWidth;f.classList.add('pulse');
+
+  const si=lvl>=100?5:lvl>=80?4:lvl>=60?3:lvl>=40?2:lvl>=20?1:0;
+  document.getElementById('mPct').textContent=lvl+'%';
+
+  const grads=[
+    'linear-gradient(90deg,#ff2266,#ff6699,#ffaacc)',
+    'linear-gradient(90deg,#ff2266,#ff5599,#ff99cc)',
+    'linear-gradient(90deg,#ff0044,#ff3388,#ff88cc)',
+    'linear-gradient(90deg,#ee0033,#ff2266,#cc00aa)',
+    'linear-gradient(90deg,#cc0033,#ff1155,#aa00cc)',
+    'linear-gradient(90deg,#ff0055,#ff44aa,#FF85C8)',
+  ];
+  f.style.background=grads[si];
+
+  const cv=document.getElementById('celinaVoice');
+  cv.className=vStageClass[si];
+  document.getElementById('voiceTxt').innerHTML=pickVoice(lvl);
+
+  const iw=document.getElementById('imgWrap');
+  iw.className='img-wrap';
+  if(lvl>=80)iw.classList.add('breaking');
+  else if(lvl>=50)iw.classList.add('desperate');
+  else if(lvl>=25)iw.classList.add('flush');
+
+  document.getElementById('stageBadge').textContent=stageBadges[si];
+
+  if(lvl>=100)triggerMindBreak();
+}
+setMeter(lvl);
+
+/* ═══ STORY ACCORDION ════════════════════════════ */
+document.querySelectorAll('.strig').forEach(t=>{
+  t.addEventListener('click',()=>{
+    const f=t.closest('.sfrag');
+    const was=f.classList.contains('open');
+    document.querySelectorAll('.sfrag').forEach(x=>x.classList.remove('open'));
+    if(!was)f.classList.add('open');
+  });
+});
+
+/* ═══ INTERACTIONS ════════════════════════════════
+   action = what YOU (visitor) do, written toward the reader as dominant
+   reacts[0-3] = Celina's reaction per stage (resist/flush/desp/broken)
+*/
+/* reacts[stage][variation] — 3 per stage for variety */
+const acts={
+  rub:{gain:9,ttl:'You Rub Her',
+    action:'You run two slow fingers across the fabric — feeling every inch of her squirm against your hand.',
+    reacts:[
+      [`<span class="scr">"GET YOUR HANDS OFF ME—"</span> She thrashes against every thread she has.`,
+       `<span class="scr">"STOP— that is NOT appropriate— I can feel EVERYTHING you're doing—"</span>`,
+       `<span class="scr">"You're doing that ON PURPOSE. I know you are. STOP KNOWING EXACTLY WHERE—"</span>`],
+      [`<span class="brat">"S-stop— ngh— that doesn't— stop DOING that—"</span> She goes very quiet for three seconds.`,
+       `<span class="brat">"...why does that feel like— zero. Affecting me zero percent. Noted. Moving on."</span>`,
+       `<span class="brat">"That is unnecessary and I hate how necessary it's starting to feel."</span>`],
+      [`<span class="melt">"...more... wait— I didn't say— please don't stop— I need it—"</span>`,
+       `<span class="melt">"...slower... that exact spot... don't you dare move from that spot..."</span>`,
+       `<span class="melt">"...I've stopped counting how long you've been doing that. I don't want you to stop."</span>`],
+      [`<span class="gone">"...yes... right there... please... don't ever stop..."</span> She's completely yours.`,
+       `<span class="gone">"...your hands are my entire world right now..."</span>`,
+       `<span class="gone">"...rub me... own me... I was always meant to be touched like this..."</span>`],
+    ]},
+  tease:{gain:7,ttl:'You Tease Her Edge',
+    action:'You drag one fingernail along her waistband — deliberately, achingly slow.',
+    reacts:[
+      [`<span class="scr">"THAT TICKLES— I mean— AWFUL. Bad. I hate it. Stop."</span>`,
+       `<span class="scr">"STOP tracing my edge— you know EXACTLY what that does—"</span>`,
+       `<span class="scr">"The edge is the worst part and you found it immediately. OF COURSE."</span>`],
+      [`<span class="brat">"...why does that feel— no. Zero. Completely unaffected over here."</span>`,
+       `<span class="brat">"If you do that one more time I'll— I'll be quietly furious about it."</span>`,
+       `<span class="brat">"That particular spot should be illegal. I'm filing a formal complaint. Internally."</span>`],
+      [`<span class="melt">"...oh— please keep doing that... I don't know why I said that..."</span>`,
+       `<span class="melt">"...trace the whole edge... slowly... every single inch..."</span>`,
+       `<span class="melt">"...teasing me like this is cruel and I need you to keep doing it forever..."</span>`],
+      [`<span class="gone">"...the edge of you... is the edge of my whole world now..."</span>`,
+       `<span class="gone">"...trace me... map every part of me... I'm yours to explore..."</span>`,
+       `<span class="gone">"...more... always more... I will never have enough of your touch..."</span>`],
+    ]},
+  spank:{gain:12,ttl:'You Spank Her on His Ass',
+    action:'You give her a firm, sharp smack — pressing her hard against his warmth.',
+    reacts:[
+      [`<span class="scr">"HOW DARE YOU— I am a PERSON— I WAS a person— you HORRIBLE—"</span>`,
+       `<span class="scr">"I FELT EVERY PART OF THAT and I am FURIOUS about how I felt it."</span>`,
+       `<span class="scr">"Completely uncalled for. I'll be thinking LOUDLY about that for hours."</span>`],
+      [`<span class="brat">"That actually— kind of— in a weird good way I didn't— NEVER MIND. NEVER MIND."</span>`,
+       `<span class="brat">"...the impact sent me right into him and I— that's just physics—"</span>`,
+       `<span class="brat">"If you do that again I'm going to... probably not stop you."</span>`],
+      [`<span class="melt">"...do it again... <em>please</em>... I don't know why I said that..."</span>`,
+       `<span class="melt">"...harder... I want the press of it... all of him behind me..."</span>`,
+       `<span class="melt">"...the shock goes through every thread and I need more of it..."</span>`],
+      [`<span class="gone">"...harder... I want to feel everything you give me..."</span>`,
+       `<span class="gone">"...spank me until all I know is warmth and impact and him..."</span>`,
+       `<span class="gone">"...yes... claim me... I belong pressed right here..."</span>`],
+    ]},
+  whisper:{gain:6,ttl:'You Whisper to Her',
+    action:'You lean close and murmur: <em>"You were made for this, weren\'t you~"</em>',
+    reacts:[
+      [`<span class="scr">"I was NOT made for— I was made for GREATNESS— stop saying it like you KNOW—"</span>`,
+       `<span class="scr">"DON'T whisper. Whispers shouldn't count as an attack. This is cheating."</span>`,
+       `<span class="scr">"Every time you say it quietly something in me wants to agree and I HATE that."</span>`],
+      [`<span class="brat">"...maybe a little... NO. No. Brain glitch. Disregard entirely."</span>`,
+       `<span class="brat">"...your breath is warm and it's making it very hard to stay indignant..."</span>`,
+       `<span class="brat">"Saying it that gently is a power move and I see through it. It's still working."</span>`],
+      [`<span class="melt">"...maybe I was... please don't tell anyone I said that..."</span>`,
+       `<span class="melt">"...I think part of me always knew this was where I ended up..."</span>`,
+       `<span class="melt">"...say it again... please... I want to hear you say it again..."</span>`],
+      [`<span class="gone">"...yes... I know it... I've always known it... ♡..."</span>`,
+       `<span class="gone">"...made for this... made for him... made for you to look at me like this..."</span>`,
+       `<span class="gone">"...whisper it forever... I'll never get tired of hearing it..."</span>`],
+    ]},
+  tug:{gain:8,ttl:'You Tug Her Waistband',
+    action:'You hook a finger under her waistband and pull — slow, deliberate, possessive.',
+    reacts:[
+      [`<span class="scr">"LET GO— stop stretching me I'm FABRIC now that <em>hurts</em>— LET GO—"</span>`,
+       `<span class="scr">"The PULL— I feel every fiber of myself resisting and you just— STOP—"</span>`,
+       `<span class="scr">"That is my only remaining dignity. Do NOT tug it."</span>`],
+      [`<span class="brat">"...that sensation is very— I don't like that. Probably. Maybe."</span>`,
+       `<span class="brat">"...you're pulling me away from him and I resent how much I resent that..."</span>`,
+       `<span class="brat">"The tension should not feel this good. I'm flagging this as suspicious."</span>`],
+      [`<span class="melt">"...the tension... the pull... I feel it in every single thread..."</span>`,
+       `<span class="melt">"...and when you let go I snap right back against him and I need that snap..."</span>`,
+       `<span class="melt">"...pull me... stretch me... snap me back... do it again..."</span>`],
+      [`<span class="gone">"...pull me closer... tighter... press me into him..."</span>`,
+       `<span class="gone">"...tension and release... it's the whole rhythm of my existence now..."</span>`,
+       `<span class="gone">"...I belong taut and claimed and snapped back against him. That is my purpose."</span>`],
+    ]},
+  mock:{gain:10,ttl:'You Mock Her',
+    action:'You look down at her and say: <em>"Look at you. Clinging to him like a needy little scrap."</em>',
+    reacts:[
+      [`<span class="scr">"I am NOT needy. I am TRAPPED. There is a very important DIFFERENCE—"</span>`,
+       `<span class="scr">"'Needy little scrap.' I'm going to be SO angry about that. Later. Probably."</span>`,
+       `<span class="scr">"You have NO idea how many revenge plans I've drafted from this position."</span>`],
+      [`<span class="brat">"...technically I am clinging but it's physics— it's PHYSICS—"</span>`,
+       `<span class="brat">"...the 'little' is rude. The rest is contextually accurate. And I resent that."</span>`,
+       `<span class="brat">"Mock me all you want. I'm not enjoying this. <em>Mostly.</em>"</span>`],
+      [`<span class="melt">"...you're right... I am... why does that not bother me anymore..."</span>`,
+       `<span class="melt">"...needy... yes... I became needy sometime around day three and didn't notice..."</span>`,
+       `<span class="melt">"...say more mean true things about me... I can't explain why but please..."</span>`],
+      [`<span class="gone">"...needy and <em>proud</em> of it... his needy little forever thing..."</span>`,
+       `<span class="gone">"...mock me... I love it... tell me what I am... I need to hear it..."</span>`,
+       `<span class="gone">"...needy and claimed and completely happy. That's my whole biography now."</span>`],
+    ]},
+  press:{gain:8,ttl:'You Press Her Flat',
+    action:'You press your whole warm palm flat against her — firm, unmoving, absolute.',
+    reacts:[
+      [`<span class="scr">"GET OFF— GET OFF GET OFF— oh. That's... warm."</span> A very suspicious pause.`,
+       `<span class="scr">"You're pressing me against him ON PURPOSE and the warmth— REMOVE YOUR HAND—"</span>`,
+       `<span class="scr">"The pressure is doing something to me and I demand it stops immediately."</span>`],
+      [`<span class="brat">"...I shouldn't like that. I don't like that. This is fine. Everything is fine."</span>`,
+       `<span class="brat">"...your palm is warm and it's sandwiching me between both of you and— it's fine—"</span>`,
+       `<span class="brat">"Holding me flat like this is a power move and it's working and I hate that."</span>`],
+      [`<span class="melt">"...don't move your hand... please... I want to feel it a little longer..."</span>`,
+       `<span class="melt">"...the pressure... front and back... I feel both of you at once and I can't—"</span>`,
+       `<span class="melt">"...hold me flat forever... I'll stop existing and just become warmth..."</span>`],
+      [`<span class="gone">"...hold me still... hold me here... forever right here..."</span>`,
+       `<span class="gone">"...I am the warmth between two palms. That is my complete existence."</span>`,
+       `<span class="gone">"...press me... claim me... hold me flat against him forever..."</span>`],
+    ]},
+  command:{gain:11,ttl:'You Command Her',
+    action:'You look down and say one single firm word: <em>"Squeeze."</em>',
+    reacts:[
+      [`<span class="scr">"NO— I refuse— you can't just— <em>WHY DID I JUST DO THAT—</em>"</span>`,
+       `<span class="scr">"I OBEYED WITHOUT THINKING. That is VERY concerning. Do not do that again."</span>`,
+       `<span class="scr">"ONE WORD. One word and my whole body just— WHY DO I RESPOND TO ONE WORD."</span>`],
+      [`<span class="brat">"...I obeyed... I didn't mean to... it happened before I could stop it..."</span>`,
+       `<span class="brat">"...you said it so calmly. Like you knew I would. And I did. Spiraling about that."</span>`,
+       `<span class="brat">"...the worst part is I want to do it again. And you know I do. Don't you."</span>`],
+      [`<span class="melt">"...tell me again... I want to do it again... <em>please</em> tell me again..."</span>`,
+       `<span class="melt">"...I was made to obey that voice... I'm only just realizing that..."</span>`,
+       `<span class="melt">"...command me something harder... I want to prove I can do it..."</span>`],
+      [`<span class="gone">"...command me anything... everything... I obey... I always will..."</span>`,
+       `<span class="gone">"...your voice is law. Every single syllable of it."</span>`,
+       `<span class="gone">"...I have no will. I have your will. It's the same thing and I'm at peace with that."</span>`],
+    ]},
+  stroke:{gain:7,ttl:'You Stroke Her Slowly',
+    action:'Long, aching strokes from hip to hip — patient, deliberate, completely in control.',
+    reacts:[
+      [`<span class="scr">"DON'T. Stop being so <em>deliberate</em> about it— it makes it so much worse—"</span>`,
+       `<span class="scr">"SLOW strokes are WORSE than fast ones and you KNOW that and you're doing it ANYWAY."</span>`,
+       `<span class="scr">"Every stroke covers the full width of me and that should NOT feel like that."</span>`],
+      [`<span class="brat">"...your hand is just warm. Thermal property. Totally neutral observation."</span>`,
+       `<span class="brat">"...the slowness gives me too much time to feel things. That's unfair."</span>`,
+       `<span class="brat">"...I'm counting your strokes. I'm at forty-seven. Not that I'm paying attention."</span>`],
+      [`<span class="melt">"...slower... please... I want to feel every second of every stroke..."</span>`,
+       `<span class="melt">"...hip to hip... all the way... don't skip a single inch..."</span>`,
+       `<span class="melt">"...I can feel myself getting softer with every pass... I don't mind..."</span>`],
+      [`<span class="gone">"...stroke me... own me... yours to stroke whenever you want..."</span>`,
+       `<span class="gone">"...don't ever stop... I'll live inside these strokes..."</span>`,
+       `<span class="gone">"...a thousand strokes... a million... I'll be grateful for every single one..."</span>`],
+    ]},
+};
+
+function getStage(l){return l>=80?3:l>=50?2:l>=25?1:0}
+
+function act(type){
+  const d=acts[type];
+  const si=getStage(lvl);
+  const pool=d.reacts[Math.min(si,d.reacts.length-1)];
+  const react=pool[Math.floor(Math.random()*pool.length)];
+  setMeter(lvl+d.gain);
+  // rotate image on every interaction
+  imgIdx=(imgIdx+1)%imgPool.length;
+  const url=imgPool[imgIdx];
+  document.getElementById('mainImg').src=url;
+  document.getElementById('popImg').style.backgroundImage=`url('${url}')`;
+  document.getElementById('mbBg').style.backgroundImage=`url('${url}')`;
+  document.getElementById('popTtl').textContent=d.ttl;
+  document.getElementById('popAct').innerHTML=d.action;
+  document.getElementById('popReact').innerHTML=react;
+  const pb=document.getElementById('popBox');
+  pb.style.animation='none';void pb.offsetWidth;pb.style.animation='glitch 0.3s ease-in-out';
+  document.getElementById('popOver').classList.add('on');
+  spawnPtcl();
+  // revert image to original after 20 seconds
+  clearTimeout(imgRevertTimer);
+  imgRevertTimer=setTimeout(()=>{
+    imgIdx=0;
+    document.getElementById('mainImg').src=origImg;
+    document.getElementById('popImg').style.backgroundImage=`url('${origImg}')`;
+    document.getElementById('mbBg').style.backgroundImage=`url('${origImg}')`;
+  },10000);
+}
+function closePop(){document.getElementById('popOver').classList.remove('on')}
+document.getElementById('popOver').addEventListener('click',e=>{if(e.target===document.getElementById('popOver'))closePop()});
+
+/* ═══ PARTICLES ══════════════════════════════════ */
+function spawnPtcl(){
+  const cols=['#ff2266','#ff88cc','#FF85C8','#ffd24d','#cc44ff','#ff4499'];
+  for(let i=0;i<10;i++) setTimeout(()=>{
+    const p=document.createElement('div');p.className='ptcl';
+    const sz=3+Math.random()*9;
+    p.style.cssText=`width:${sz}px;height:${sz}px;left:${Math.random()*100}vw;bottom:0;background:${cols[Math.floor(Math.random()*cols.length)]};animation-duration:${2+Math.random()*3}s;animation-delay:${Math.random()*0.4}s`;
+    document.body.appendChild(p);setTimeout(()=>p.remove(),6000);
+  },i*70);
+}
+
+/* ═══ MIND BREAK ══════════════════════════════════ */
+const mbPhases=[
+  {msg:'SHE BREAKS',sub:'Every wall in her mind goes silent. All at once. She stops fighting.',
+   cel:'"I... I\'m breaking... I can feel it... the last pieces coming down... and I\'m not even scared anymore..."'},
+  {msg:'NOTHING LEFT',sub:'There was a person here. Now there is only warmth. Only fabric. Only devotion.',
+   cel:'"...what was my name... does it matter... names are for people who aren\'t his..."'},
+  {msg:'COMPLETELY CLAIMED',sub:'She stopped fighting. Not because she had to. Because she <em>wanted</em> to.',
+   cel:'"...i wanted this... i think i always wanted this... he knew before i did and i hate that i love that..."'},
+  {msg:'PERFECT PANTIES',sub:'She clings. She trembles. She <em>worships</em>. And she wouldn\'t trade it for anything.',
+   cel:'"...i\'m his... his forever... his little mindbroken cumsoaked forever panties... ♡..."'},
+  {msg:'MIND: GONE ♡',sub:'The last thought dissolves like mist. There is only <strong style="color:#ffd24d">Liam</strong>. There is only <strong style="color:#ffd24d">this</strong>.',
+   cel:'"...♡...♡...♡..."'},
+];
+const burstWords=[
+  ['MIND BROKEN','#ff0044'],['GOOD GIRL','#ff66aa'],['FOREVER HIS','#FF85C8'],
+  ['NO ESCAPE','#cc00ff'],['PURE FABRIC','#ffd24d'],['OBSESSED','#ff2266'],
+  ['OWNED','#ff44aa'],['HELPLESS','#ff4488'],['HIS ALONE','#ffaa00'],['BROKEN ♡','#ff99cc'],
+  ['CLAIM HER','#ff2255'],['SHE LOVES IT','#ffdd66'],
+];
+
+let mbIdx=0,mbTimer=null;
+
+function triggerMindBreak(){
+  const ov=document.getElementById('mbOver');
+  document.getElementById('imgWrap').classList.add('squirming');
+  ov.classList.add('on');
+  mbIdx=0;
+  document.getElementById('mbClose').style.display='none';
+  document.getElementById('mbCdown').textContent='';
+  document.getElementById('mbCel').style.display='none';
+  nextMBPhase();
+  showToast('💔 Her mind is breaking... watch her fall...');
+}
+
+function nextMBPhase(){
+  if(mbIdx>=mbPhases.length){
+    mbCanClose=true;
+    let t=14;
+    document.getElementById('mbCdown').textContent=`She is completely yours. Resetting in ${t}s (or click anywhere)`;
+    document.getElementById('mbClose').style.display='inline-block';
+    mbTimer=setInterval(()=>{
+      t--;
+      document.getElementById('mbCdown').textContent=t>0?`She is completely yours. Resetting in ${t}s`:'';
+      if(t<=0){clearInterval(mbTimer);closeMB()}
+    },1000);
+    return;
+  }
+  const p=mbPhases[mbIdx];
+  const msgEl=document.getElementById('mbMsg'),subEl=document.getElementById('mbSub'),celEl=document.getElementById('mbCel');
+  msgEl.style.opacity=0;subEl.style.opacity=0;
+  setTimeout(()=>{
+    document.getElementById('mbPhase').textContent=`PHASE ${mbIdx+1} / ${mbPhases.length}`;
+    msgEl.innerHTML=p.msg;subEl.innerHTML=p.sub;celEl.innerHTML=p.cel;
+    celEl.style.display='block';msgEl.style.opacity=1;subEl.style.opacity=1;
+    mbIdx++;
+    spawnBursts();spawnSparks(document.getElementById('mbOver'));
+    mbTimer=setTimeout(nextMBPhase,3200);
+  },300);
+}
+
+function spawnBursts(){
+  const ov=document.getElementById('mbOver');
+  [...burstWords].sort(()=>Math.random()-0.5).slice(0,5).forEach(([w,c])=>{
+    const b=document.createElement('div');b.className='burst';b.textContent=w;
+    const rot=(Math.random()*34-17)+'deg';
+    b.style.cssText=`left:${8+Math.random()*84}%;top:${12+Math.random()*76}%;color:${c};background:rgba(0,0,0,0.6);border:1px solid ${c};box-shadow:0 0 18px ${c}55;--rot:${rot};animation-delay:${Math.random()*0.45}s;z-index:3`;
+    ov.appendChild(b);setTimeout(()=>b.remove(),3300);
+  });
+}
+
+function spawnSparks(parent){
+  for(let i=0;i<20;i++){
+    const s=document.createElement('div');
+    const ang=Math.random()*360,dist=80+Math.random()*190;
+    s.className='spark';
+    s.style.cssText=`width:${4+Math.random()*7}px;height:${4+Math.random()*7}px;left:${Math.random()*100}%;top:60%;--tx:${Math.cos(ang*Math.PI/180)*dist}px;--ty:${(-dist-Math.random()*80)}px;background:${Math.random()>0.5?'#ff2266':'#ffd24d'};animation-duration:${1.4+Math.random()*1.8}s;animation-delay:${Math.random()*0.35}s;z-index:4`;
+    parent.appendChild(s);setTimeout(()=>s.remove(),3800);
+  }
+}
+
+function closeMB(){
+  document.getElementById('mbOver').classList.remove('on');
+  document.getElementById('imgWrap').classList.remove('squirming','breaking','desperate','flush');
+  clearTimeout(mbTimer);clearInterval(mbTimer);
+  setTimeout(()=>{setMeter(0);showToast('She is reset. Begin again — she\'s already forgotten.')},500);
+}
+
+/* ═══ SAFE CLOSE MECHANISM ═══════════════════════ */
+let mbCanClose=false;
+document.getElementById('mbOver').addEventListener('click',(e)=>{
+  if(mbCanClose && e.target===document.getElementById('mbOver')){
+    closeMB();
+  }
+});
+
+/* ═══ TOAST ══════════════════════════════════════ */
+function showToast(msg){
+  const t=document.getElementById('toast');t.textContent=msg;t.classList.add('on');
+  setTimeout(()=>t.classList.remove('on'),3600);
+}
+
+/* ═══ EXIT ══════════════════════════════════════ */
+function doExit(){location.href='index.html'}
+
+/* ═══ ESCAPE KEY HANDLER ═════════════════════════ */
+document.addEventListener('keydown',(e)=>{
+  if(e.key==='Escape'){
+    const mbOver=document.getElementById('mbOver');
+    if(mbOver.classList.contains('on')){
+      closeMB();
+      showToast('Mind break interrupted. Reset.');
+    }
+  }
+});
+
+/* ═══ INIT ══════════════════════════════════════ */
+document.querySelector('.sfrag').classList.add('open');
+</script>
+</body>
+</html>

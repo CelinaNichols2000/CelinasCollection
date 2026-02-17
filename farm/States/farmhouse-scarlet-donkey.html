@@ -3,138 +3,1053 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trapped as Scarlet's donkey</title>
+    <title>Trapped as Livestock - Scarlet's Work Donkey</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
-    <script>
-    (function() {
-        const s = JSON.parse(localStorage.getItem('farmState') || '{}');
-        if (!s.trappedUntil || s.trappedUntil <= Date.now()) {
-            localStorage.removeItem('farmState');
-            window.location.href = '../../index.html';
-        }
-    })();
-    </script>
+    <!-- GLOBAL CHECKER -->
+    <script>(function(){const s=JSON.parse(localStorage.getItem('farmState')||'{}');if(s.trappedUntil&&s.trappedUntil>Date.now()){}else{localStorage.removeItem('farmState');window.location.href='../../index.html';}})();</script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: linear-gradient(135deg, #9B7653 0%, #D4AF9B 100%); color: #fff; font-family: 'Poppins', sans-serif; min-height: 100vh; }
-        .main-container { display: flex; flex-direction: column; align-items: center; padding: 20px; gap: 30px; }
-        @keyframes timerPulse { 0%, 100% { transform: scale(1); text-shadow: 0 0 30px #9B7653; } 50% { transform: scale(1.05); text-shadow: 0 0 50px #D4AF9B; } }
-        .timer-display { font-family: 'Orbitron', monospace; font-size: 3.5rem; font-weight: 700; color: #9B7653; text-align: center; animation: timerPulse 2s ease-in-out infinite; letter-spacing: 8px; }
-        .main-panel { display: grid; grid-template-columns: 1fr 380px; gap: 40px; max-width: 1200px; width: 100%; align-items: start; }
-        .left-panel { display: flex; flex-direction: column; align-items: center; gap: 20px; }
-        .image-container { position: relative; width: 100%; max-width: 600px; height: 480px; border-radius: 25px; overflow: hidden; box-shadow: 0 20px 60px rgba(155, 118, 83, 0.4); }
-        .image-container img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; }
-        .image-container img.active { opacity: 1; }
-        .right-panel { display: flex; flex-direction: column; gap: 20px; height: fit-content; }
-        .item-header { text-align: center; }
-        .item-title { font-family: 'Orbitron', sans-serif; font-size: 1.8rem; font-weight: 700; color: #9B7653; margin-bottom: 8px; }
-        .category-badge { background: linear-gradient(45deg, #9B7653, #D4AF9B); padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
-        .mind-break-container { background: rgba(155, 118, 83, 0.15); backdrop-filter: blur(20px); border: 2px solid rgba(155, 118, 83, 0.6); border-radius: 15px; padding: 20px; }
-        .mind-break-header { display: flex; justify-content: space-between; margin-bottom: 10px; }
-        .mind-break-title { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; font-weight: 700; color: #9B7653; }
-        .mind-break-percentage { font-size: 1.1rem; font-weight: 700; color: #D4AF9B; }
-        .mind-break-bar { width: 100%; height: 12px; background: rgba(0, 0, 0, 0.4); border-radius: 10px; overflow: hidden; margin-bottom: 10px; }
-        .mind-break-fill { height: 100%; background: linear-gradient(90deg, #9B7653, #D4AF9B); border-radius: 10px; width: 0%; }
-        .mind-break-stages { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; font-size: 0.75rem; text-align: center; }
-        .action-buttons { display: grid; grid-template-columns: 1fr; gap: 12px; }
-        .action-btn { font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 700; padding: 16px 20px; border-radius: 50px; border: none; cursor: pointer; color: #fff; }
-        .action-btn:hover { transform: translateY(-3px); filter: brightness(1.15); }
-        .lower-section { max-width: 1000px; width: 100%; }
-        .status-box { background: rgba(155, 118, 83, 0.15); border: 2px solid rgba(155, 118, 83, 0.7); border-radius: 20px; padding: 30px; margin-bottom: 25px; text-align: center; }
-        .status-box h3 { font-family: 'Orbitron', sans-serif; font-size: 1.6rem; color: #9B7653; margin-bottom: 15px; }
-        .memory-fragment { background: rgba(0, 0, 0, 0.4); border-left: 4px solid #9B7653; border-radius: 12px; overflow: hidden; margin-bottom: 15px; }
-        .memory-trigger { padding: 15px; background: rgba(155, 118, 83, 0.2); cursor: pointer; font-weight: 600; }
-        .memory-trigger:hover { background: rgba(155, 118, 83, 0.35); }
-        .memory-content { padding: 15px; display: none; }
-        .memory-content.active { display: block; }
-        details summary { margin-top: 30px; font-family: 'Orbitron', sans-serif; font-size: 1.8rem; font-weight: 700; color: #9B7653; padding: 20px; list-style: none; background: rgba(155, 118, 83, 0.15); border-radius: 20px; cursor: pointer; }
-        @media (max-width: 900px) { .main-panel { grid-template-columns: 1fr; } }
+        
+        body {
+            background: linear-gradient(135deg, #1a0a1f 0%, #2d1040 100%);
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            gap: 30px;
+        }
+
+        /* TIMER ANIMATIONS */
+        @keyframes timerExplode {
+            0%, 100% { 
+                font-size:8rem;transform:scale(1) rotate(0deg);
+                text-shadow:0 0 80px #FF69B4,0 0 160px #FF1493;filter:brightness(1);
+            }
+            25% { font-size:10rem;transform:scale(1.4) rotate(5deg);filter:brightness(1.4); }
+            50% { font-size:12rem;transform:scale(1.8) rotate(-8deg);filter:brightness(1.8); }
+            75% { font-size:10rem;transform:scale(1.4) rotate(3deg);filter:brightness(1.4); }
+        }
+
+        @keyframes bulkyFlash {
+            0% { opacity:0;transform:scale(0.3) translateY(50px) rotate(-15deg); }
+            15% { opacity:1;transform:scale(1.1) translateY(0) rotate(2deg); }
+            85% { opacity:1;transform:scale(1.05) translateY(-10px) rotate(1deg); }
+            100% { opacity:0;transform:scale(1.4) translateY(-80px) rotate(180deg); }
+        }
+
+        /* TIMER TOP CENTER */
+        .timer-display {
+            font-family: 'Orbitron', monospace;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #FF69B4;
+            text-align: center;
+            text-shadow: 0 0 30px #FF1493, 0 0 60px #FF69B4;
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+        }
+
+        /* MAIN PANEL: IMAGE LEFT + UI RIGHT */
+        .main-panel {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 40px;
+            max-width: 1200px;
+            width: 100%;
+            align-items: start;
+        }
+
+        .left-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* DONKEY IMAGE */
+        .donkey-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 480px;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(255, 20, 147, 0.4);
+            border: 2px solid rgba(255, 105, 180, 0.5);
+        }
+
+        .donkey-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.8s ease, filter 0.5s ease;
+        }
+
+        .donkey-image.active {
+            opacity: 1;
+        }
+
+        /* RIGHT PANEL */
+        .right-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            height: fit-content;
+        }
+
+        /* TITLE + BADGE */
+        .item-header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .item-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #FF1493, #FF69B4, #FFB6C1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(255, 20, 147, 0.5);
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+
+        .category-badge {
+            background: linear-gradient(45deg, #FF1493, #FFB6C1);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            box-shadow: 0 5px 20px rgba(255, 20, 147, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* MIND BREAK CONTAINER */
+        .mind-break-container {
+            background: rgba(255, 20, 147, 0.12);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 105, 180, 0.6);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 15px 40px rgba(255, 20, 147, 0.3);
+        }
+
+        .mind-break-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .mind-break-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            color: #FFB6C1;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .mind-break-percentage {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #FF69B4, #FF1493);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .mind-break-bar {
+            height: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 105, 180, 0.5);
+            position: relative;
+        }
+
+        .mind-break-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #FF1493, #FF69B4, #FFB6C1, #FF1493);
+            transition: width 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(255, 20, 147, 0.9);
+        }
+
+        .mind-break-stages {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #ccc;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* ACTION BUTTONS */
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .action-btn {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 16px 20px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            filter: brightness(1.15);
+        }
+
+        .action-btn:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        .resist-btn {
+            background: linear-gradient(45deg, #FF1493, #FF69B4);
+            color: #fff;
+            box-shadow: 0 8px 25px rgba(255, 20, 147, 0.6);
+        }
+
+        .bray-btn {
+            background: linear-gradient(45deg, #FFB6C1, #FF69B4);
+            color: #000;
+            box-shadow: 0 8px 25px rgba(255, 105, 180, 0.6);
+            font-weight: 800;
+        }
+
+        .nuzzle-btn {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
+            font-weight: 800;
+        }
+
+        .mount-btn {
+            background: linear-gradient(45deg, #DC143C, #FF1493, #8B008B);
+            color: #fff;
+            box-shadow: 0 8px 25px rgba(220, 20, 60, 0.6);
+            text-shadow: 0 0 8px rgba(139, 0, 139, 0.8);
+        }
+
+        /* MIND BREAK PROGRESS PULSES */
+        #mindBreakFill.pulsing {
+            animation: mindBreakPulse 0.8s ease-out;
+        }
+
+        @keyframes mindBreakPulse {
+            0% { transform: scaleX(1); }
+            50% { transform: scaleX(1.05); }
+            100% { transform: scaleX(1); }
+        }
+
+        /* LOWER SECTION - FULL WIDTH CENTERED */
+        .lower-section {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .donkey-status {
+            background: rgba(255, 20, 147, 0.15);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(255, 105, 180, 0.7);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(255, 20, 147, 0.25);
+        }
+
+        .donkey-status h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            color: #FF69B4;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px #FF1493;
+        }
+
+        .donkey-status p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 8px;
+            color: #eee;
+        }
+
+        .degradation-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+
+        .stat-item {
+            background: rgba(255, 105, 180, 0.1);
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 20, 147, 0.4);
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #FF69B4;
+        }
+
+        /* MEMORY FRAGMENTS */
+        .memory-fragments {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .memory-fragment {
+            background: rgba(20, 10, 25, 0.8);
+            border: 1px solid rgba(255, 105, 180, 0.4);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .memory-fragment:hover {
+            border-color: #FF69B4;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .memory-trigger {
+            padding: 18px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.05rem;
+            background: linear-gradient(90deg, rgba(255, 20, 147, 0.2), rgba(255, 105, 180, 0.15));
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .memory-trigger:hover {
+            background: linear-gradient(90deg, #FF1493, #FF69B4);
+            color: #000;
+            font-weight: 700;
+        }
+
+        .memory-content {
+            display: none;
+            padding: 20px;
+            background: rgba(10, 5, 15, 0.95);
+            font-style: italic;
+            color: #ddd;
+            line-height: 1.6;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .memory-content.active {
+            display: block;
+            animation: slideDown 0.4s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* DONKEY STRUGGLE POPUP */
+        .donkey-flash {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            background: radial-gradient(circle at center, rgba(255,20,147,0.35), rgba(0,0,0,0.95));
+            animation: glitch 0.35s infinite;
+        }
+
+        .donkey-flash-inner {
+            max-width: 680px;
+            width: 90%;
+            background: linear-gradient(135deg, #2d1040, #1a0a1f);
+            border: 2px solid #FF1493;
+            box-shadow: 0 0 40px rgba(255,20,147,0.9);
+            border-radius: 18px;
+            padding: 18px 22px;
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 18px;
+        }
+
+        .donkey-flash-image {
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            min-height: 160px;
+            box-shadow: 0 0 25px rgba(255,105,180,0.8);
+        }
+
+        .donkey-flash-text {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #FFB6C1;
+            font-weight: 600;
+            text-shadow: 0 0 8px rgba(255,20,147,0.9);
+        }
+
+        .donkey-flash-text span.donkey-scream {
+            color: #FF1493;
+            font-weight: 800;
+        }
+
+        @media (max-width: 650px) {
+            .donkey-flash-inner {
+                grid-template-columns: 1fr;
+            }
+            .donkey-flash-image {
+                min-height: 140px;
+            }
+        }
+
+        /* PROGRESSIVE MEMORY PERSPECTIVES */
+        .fairy-speak {
+            color: #FF69B4 !important;
+            font-weight: 800;
+            text-shadow: 0 0 12px #FF1493;
+            font-style: italic;
+        }
+
+        .scream {
+            color: #FF4500 !important;
+            font-weight: 900;
+            font-size: 1.1em;
+            text-shadow: 0 0 10px #FF4500;
+            animation: screamShake 0.5s infinite;
+        }
+
+        .happy-donkey {
+            color: #FFB6C1 !important;
+            font-weight: 700;
+            text-shadow: 0 0 12px #FF1493;
+        }
+
+        .final-donkey {
+            color: #FFD700 !important;
+            font-weight: 800;
+            font-size: 1.15em;
+            text-shadow: 0 0 20px #FFA500;
+            background: linear-gradient(45deg, rgba(255,215,0,0.2), rgba(255,165,0,0.2));
+            padding: 4px 8px;
+            border-radius: 6px;
+        }
+
+        @keyframes screamShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(2px); }
+            75% { transform: translateX(-2px); }
+        }
+
+        /* STAGE VISUALS */
+        .memory-fragment[data-stage="0"] .memory-trigger { border-left: 4px solid #FF1493; }
+        .memory-fragment[data-stage="1"] .memory-trigger { border-left: 4px solid #FF69B4; }
+        .memory-fragment[data-stage="2"] .memory-trigger { border-left: 4px solid #FFB6C1; }
+        .memory-fragment[data-stage="3"] .memory-trigger { border-left: 4px solid #FFA500; }
+        .memory-fragment[data-stage="4"] .memory-trigger { border-left: 4px solid #FFD700; }
+
+        /* MIND BREAK LOCKOUT */
+        .memory-fragment.locked {
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .memory-fragment.locked .memory-trigger {
+            background: linear-gradient(90deg, rgba(255,20,147,0.3), rgba(139,0,139,0.3)) !important;
+            color: #666 !important;
+        }
+
+        .memory-fragment.unlocked {
+            border-color: #FF69B4 !important;
+            box-shadow: 0 0 20px rgba(255,105,180,0.4) !important;
+        }
+
+        /* ANIMATIONS */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+
+        .mind-broken {
+            filter: grayscale(100%) brightness(0.6) !important;
+            opacity: 0.8;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .main-panel {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .timer-display {
+                font-size: 2.5rem;
+            }
+            
+            .donkey-image-container {
+                max-width: 320px;
+                height: 400px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="main-container">
+        <!-- REAL TIME CLOCK TOP -->
         <div class="timer-display" id="countdownTimer">--:--:--</div>
+
+        <!-- MAIN PANEL -->
         <div class="main-panel">
+            <!-- LEFT: DONKEY IMAGE -->
             <div class="left-panel">
-                <div class="image-container">
-                    <img src="https://via.placeholder.com/600x480/9B7653?text=donkey+Form" class="active">
+                <div class="donkey-image-container">
+                    <img src="https://i.ibb.co/bjVYg4vb/Donkey-1.jpg" class="donkey-image active" data-stage="0">
+                    <img src="https://i.ibb.co/spY6R1Vk/cmsn-assinine-by-wrenzephyr2-dba1kt9-pre.jpg" class="donkey-image" data-stage="1">
+                    <img src="https://i.ibb.co/d43J8D82/dumbdonkey.png" class="donkey-image" data-stage="2">
+                    <img src="https://i.ibb.co/cKpq61Xd/sillydonkey.png" class="donkey-image" data-stage="3">
                 </div>
             </div>
+
+            <!-- DONKEY STRUGGLE POPUP -->
+            <div id="donkeyStrugglePopup" class="donkey-flash" style="display:none;">
+                <div class="donkey-flash-inner">
+                    <div class="donkey-flash-image" id="donkeyFlashImage"></div>
+                    <div class="donkey-flash-text" id="donkeyFlashText"></div>
+                </div>
+            </div>
+
+            <!-- RIGHT: UI PANEL -->
             <div class="right-panel">
                 <div class="item-header">
-                    <h1 class="item-title">Scarlet's Perfect Donkey</h1>
-                    <div class="category-badge">Farm Transformation</div>
+                    <h1 class="item-title">Scarlet's Work Donkey</h1>
+                    <div class="category-badge">Stable Master's Beast</div>
                 </div>
+
+                <!-- MIND BREAK -->
                 <div class="mind-break-container">
                     <div class="mind-break-header">
-                        <div class="mind-break-title">EQUINE DEGRADATION</div>
+                        <div class="mind-break-title">INTELLIGENCE DRAIN</div>
                         <div class="mind-break-percentage" id="mindBreakPercentage">0%</div>
                     </div>
-                    <div class="mind-break-bar"><div class="mind-break-fill" id="mindBreakFill"></div></div>
+                    <div class="mind-break-bar">
+                        <div class="mind-break-fill" id="mindBreakFill" style="width: 0%"></div>
+                    </div>
                     <div class="mind-break-stages">
                         <span>HUMAN</span>
-                        <span>SHIFTING</span>
-                        <span>EQUINE</span>
-                        <span>STUD</span>
+                        <span>DULLING</span>
+                        <span>STUBBORN BEAST</span>
+                        <span>WORK DONKEY</span>
                     </div>
                 </div>
+
+                <!-- ACTION BUTTONS -->
                 <div class="action-buttons">
-                    <button class="action-btn" style="background: linear-gradient(45deg, #9B7653, #D4AF9B); box-shadow: 0 8px 25px rgba(155, 118, 83, 0.6);" onclick="resist()">RESIST</button>
-                    <button class="action-btn" style="background: linear-gradient(45deg, #D4AF9B, #9B7653); box-shadow: 0 8px 25px rgba(155, 118, 83, 0.6);" onclick="accept()">ACCEPT FORM</button>
+                    <button class="action-btn resist-btn" onclick="resist()">RESIST SPELL</button>
+                    <button class="action-btn bray-btn" onclick="bray()">BRAY LOUDLY</button>
+                    <button class="action-btn nuzzle-btn" onclick="pullCart()">PULL CART</button>
+                    <button class="action-btn mount-btn" onclick="accept()">ACCEPT FATE</button>
                 </div>
             </div>
         </div>
+
+        <!-- LOWER SECTION - FULL WIDTH -->
         <div class="lower-section">
-            <details>
-                <summary>Your Complete Existence</summary>
-                <div class="status-box">
-                    <h3>Transformation Complete</h3>
-                    <p>You have been completely transformed. Your consciousness has changed. This is what you are now.</p>
+            <details style="cursor: pointer;">
+                <summary style="
+                    margin-top: 30px;
+                    font-family: 'Orbitron', sans-serif;
+                    font-size: 1.8rem;
+                    font-weight: 700;
+                    color: #FF69B4;
+                    padding: 20px;
+                    list-style: none;
+                    background: rgba(255, 20, 147, 0.15);
+                    border-radius: 20px;
+                    border: 2px solid rgba(255, 105, 180, 0.6);
+                    text-align: center;
+                    text-shadow: 0 0 15px #FF1493;
+                    margin-bottom: 10px;
+                ">Your Stubborn Work Beast Existence</summary>
+
+                <div class="donkey-status">
+                    <p>Scarlet's whip cracks. Your body compresses, spine curves. Gray fur spreads across shrinking frame. Massive ears twitch atop your skull. You're becoming her stubborn work donkey...</p>
+                    <p id="statusText">Resisting... but body obeys anyway... stubbornly complying...</p>
+                    
+                    <div class="degradation-stats" id="degradationStats">
+                        <div class="stat-item">
+                            Human Thoughts: <span class="stat-value" id="memoryLoss">100%</span>
+                        </div>
+                        <div class="stat-item">
+                            Stubborn Resistance: <span class="stat-value" id="selfAwareness">100%</span>
+                        </div>
+                        <div class="stat-item">
+                            Obedient Work Beast: <span class="stat-value" id="objectPerception">0%</span>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <div class="memory-fragment">
-                        <div class="memory-trigger" onclick="toggleMemory(0)">#1: POWERFUL TRANSFORMATION</div>
-                        <div class="memory-content">Your body elongates and strengthens. Your legs become powerful and muscular. Scarlet watches as you transform into her perfect breeding animal. Your will crumbles before her magic.</div>
+
+                <div class="memory-fragments">
+                    <!-- #1: PURE RESISTANCE (0-25%) -->
+                    <div class="memory-fragment" data-stage="0">
+                        <div class="memory-trigger" onclick="toggleMemory(0)">#1: SCARLET'S TRANSFORMATION</div>
+                        <div class="memory-content">
+                            <span class="scream">I WON'T!</span> Scarlet's magic slams into me—body compressing, shrinking down. My ears stretch LONG, fuzzy, swiveling wildly. <span class="scream">STOP THIS!</span> But she just smirks, circling with her riding crop. <span class="fairy-speak">"Going to make you the most stubborn little work donkey in my stable."</span> My spine cracks—forcing me toward all fours. Gray fur erupts across my skin.
+                        </div>
                     </div>
-                    <div class="memory-fragment">
-                        <div class="memory-trigger" onclick="toggleMemory(1)">#2: BREEDING URGES</div>
-                        <div class="memory-content">Your new form drives everything. Powerful legs. Breeding instinct. Scarlet controls everything. You want only to serve her breeding purposes. Your consciousness is focused purely on this drive.</div>
+
+                    <!-- #2: DESPERATE FIGHT (25-50%) -->
+                    <div class="memory-fragment" data-stage="1">
+                        <div class="memory-trigger" onclick="toggleMemory(1)">#2: ASININE FEATURES</div>
+                        <div class="memory-content">
+                            Tried to protest—came out as a harsh bray. <span class="scream">HEE-HAW!</span> No! That's not MY voice! Hands harden into hooves—I crash onto all fours. A tufted tail sprouts from my rear. <span class="scream">I'M STILL ME!</span> But Scarlet slaps my flank hard. <span class="fairy-speak">"Stubborn beasts need to learn their place. You'll pull my carts whether you like it or not."</span> She buckles a harness onto my shrinking frame.
+                        </div>
                     </div>
-                    <div class="memory-fragment">
-                        <div class="memory-trigger" onclick="toggleMemory(2)">#3: HER PERFECT STUD</div>
-                        <div class="memory-content">You no longer question. You have become her breeding tool. Strong. Obedient. Ready to fulfill whatever purpose she desires. All your humanity has burned away in service to her will.</div>
+
+                    <!-- #3: CONFUSED SUBMISSION (50-75%) -->
+                    <div class="memory-fragment" data-stage="2">
+                        <div class="memory-trigger" onclick="toggleMemory(2)">#3: STUBBORN COMPLIANCE</div>
+                        <div class="memory-content">
+                            Mind at WAR with itself. <span class="scream">I DON'T WANT TO OBEY!</span> But when Scarlet says "Pull," my legs move. When she says "Stop," I freeze. <span class="happy-donkey">Body betrays... stubborn mind... can't resist...</span> She hooks me to a heavy cart. I plant my hooves, refusing—but she cracks her whip. <span class="fairy-speak">"Move, beast."</span> My legs pull anyway. <span class="happy-donkey">Hate this. But... pulling. Working. Obeying.</span>
+                        </div>
                     </div>
-                    <div class="memory-fragment">
-                        <div class="memory-trigger" onclick="toggleMemory(3)">#4: FOREVER HER DONKEY</div>
-                        <div class="memory-content">You are Scarlet's perfect donkey now. Powerful. Submissive. Complete. There is nothing human left in you. Only the desire to serve, to breed, to obey her completely.</div>
+
+                    <!-- #4: BEAST IDENTITY (75-90%) -->
+                    <div class="memory-fragment" data-stage="3">
+                        <div class="memory-trigger" onclick="toggleMemory(3)">#4: MINDLESS WORKER</div>
+                        <div class="memory-content">
+                            Awareness fading. Just simple beast now. <span class="happy-donkey">Pull cart. Carry load. Obey master.</span> Scarlet rides on my back sometimes, heels digging into my flanks. I trot obediently despite mental resistance. <span class="fairy-speak">"Such a good work donkey. Stubborn, but you always obey in the end."</span> She's right. I bray irritably but my body serves perfectly. <span class="happy-donkey">This is life now. Work. Serve. Exist as beast.</span>
+                        </div>
+                    </div>
+
+                    <!-- #5: TOTAL BEAST JOY (90%+) -->
+                    <div class="memory-fragment" data-stage="4">
+                        <div class="memory-trigger" onclick="toggleMemory(4)">#5: PERMANENT SERVITUDE</div>
+                        <div class="memory-content">
+                            <span class="final-donkey">HEE-HAW! Work donkey! Master's beast! Pull forever!</span><br>
+                            Human memories completely gone. Just donkey instincts remain. Grass good. Water refreshing. <span class="happy-donkey">Harness familiar. Carts normal. Work is life.</span> Scarlet brushes my coat sometimes—I lean into her touch despite still feeling stubborn. <span class="fairy-speak">"My perfect little worker. Always resisting, always obeying anyway."</span> She's right. I bray irritably when she loads heavy carts. But I pull them perfectly every time. <span class="final-donkey">This is existence. Stubborn beast. Obedient donkey. Serve master. Forever.</span>
+                        </div>
                     </div>
                 </div>
             </details>
         </div>
     </div>
+
     <script>
+        // STATE MANAGEMENT
         const state = JSON.parse(localStorage.getItem('farmState') || '{}');
         const endTime = state.trappedUntil;
-        let mindBreakLevel = parseInt(localStorage.getItem('ScarletdonkeyMindBreak') || '0');
+        let mindBreakLevel = parseInt(localStorage.getItem('donkeyMindBreak') || '0');
+        let desperationClicks = parseInt(localStorage.getItem('donkeyClicks') || '0');
+
+        // MIND BREAK STAGES
+        const mindBreakStages = [
+            {title: "STILL RESISTING", color: "#FF1493", memory: 100, awareness: 0, obj: 0},
+            {title: "INTELLIGENCE FADING", color: "#FF69B4", memory: 60, awareness: 30, obj: 40},
+            {title: "DUMB BEAST", color: "#FFB6C1", memory: 20, awareness: 70, obj: 80},
+            {title: "WORK BEAST", color: "#FFA500", memory: 0, awareness: 100, obj: 100}
+        ];
+
         function updateCountdownTimer() {
             const timeLeft = Math.max(0, endTime - Date.now());
             const h = Math.floor(timeLeft / 3600000).toString().padStart(2, '0');
             const m = Math.floor((timeLeft % 3600000) / 60000).toString().padStart(2, '0');
             const s = Math.floor((timeLeft % 60000) / 1000).toString().padStart(2, '0');
-            document.getElementById('countdownTimer').textContent = h + ':' + m + ':' + s;
-            if (timeLeft <= 0) { localStorage.removeItem('farmState'); window.location.href = '../../index.html'; }
+            document.getElementById('countdownTimer').textContent = `${h}:${m}:${s}`;
+            
+            if (timeLeft <= 0) {
+                localStorage.removeItem('donkeyMindBreak');
+                localStorage.removeItem('donkeyClicks');
+                window.location.href = '../../index.html';
+            }
         }
-        function toggleMemory(stage) { document.querySelectorAll('.memory-content')[stage].classList.toggle('active'); }
-        function resist() { mindBreakLevel = Math.min(100, mindBreakLevel + 5); updateMindBreak(); }
-        function accept() { mindBreakLevel = Math.min(100, mindBreakLevel + 10); updateMindBreak(); }
+
+        // IMAGE SWAP
+        function swapImage(stage) {
+            const images = document.querySelectorAll('.donkey-image');
+            images.forEach((img, index) => {
+                img.classList.toggle('active', index === stage);
+            });
+        }
+
+        // DONKEY STRUGGLE POPUP
+        function showDonkeyStruggle(options) {
+            const popup = document.getElementById("donkeyStrugglePopup");
+            const imgBox = document.getElementById("donkeyFlashImage");
+            const textBox = document.getElementById("donkeyFlashText");
+
+            if (!popup || !imgBox || !textBox) return;
+
+            if (options.image) {
+                imgBox.style.backgroundImage = `url("${options.image}")`;
+            } else {
+                imgBox.style.backgroundImage = "linear-gradient(135deg, #FF1493, #FF69B4, #FFB6C1)";
+            }
+
+            textBox.innerHTML = options.text;
+            popup.style.display = "flex";
+            popup.style.opacity = "1";
+
+            const dur = options.duration || 3500;
+            setTimeout(() => {
+                popup.style.opacity = "0";
+                setTimeout(() => {
+                    popup.style.display = "none";
+                }, 400);
+            }, dur);
+        }
+
+        // MEMORY TOGGLE
+        function toggleMemory(id) {
+            const contents = document.querySelectorAll('.memory-content');
+            const target = contents[id];
+            const triggers = document.querySelectorAll('.memory-trigger');
+            
+            contents.forEach((content, index) => {
+                if (index !== id) {
+                    content.classList.remove('active');
+                    triggers[index].style.background = 'linear-gradient(90deg, rgba(255, 20, 147, 0.2), rgba(255, 105, 180, 0.15))';
+                }
+            });
+            
+            target.classList.toggle('active');
+            triggers[id].style.background = target.classList.contains('active') ? 
+                'linear-gradient(90deg, #FF1493, #FF69B4)' : 
+                'linear-gradient(90deg, rgba(255, 20, 147, 0.2), rgba(255, 105, 180, 0.15))';
+            
+            document.getElementById('statusText').textContent = 
+                `Memory #${id+1} accessed. Intelligence draining...`;
+        }
+
+        // MIND BREAK UPDATE
         function updateMindBreak() {
-            document.getElementById('mindBreakPercentage').textContent = mindBreakLevel + '%';
-            document.getElementById('mindBreakFill').style.width = mindBreakLevel + '%';
-            localStorage.setItem('ScarletdonkeyMindBreak', mindBreakLevel);
+            const stage = mindBreakStages[Math.min(Math.floor(mindBreakLevel), 3)];
+            const percentage = Math.floor(Math.min(100, (mindBreakLevel) * 25));
+
+            document.getElementById('mindBreakPercentage').textContent = percentage + '%';
+            document.getElementById('mindBreakFill').style.width = percentage + '%';
+            
+            document.getElementById('memoryLoss').textContent = stage.memory + '%';
+            document.getElementById('selfAwareness').textContent = stage.awareness + '%';
+            document.getElementById('objectPerception').textContent = stage.obj + '%';
+
+            const activeImage = document.querySelector('.donkey-image.active');
+            if (activeImage) {
+                const grayscale = Math.min(100, percentage / 2);
+                const brightness = 1 - (percentage / 200);
+                activeImage.style.filter = `grayscale(${grayscale}%) brightness(${brightness})`;
+                if (percentage > 70) activeImage.classList.add('mind-broken');
+            }
+
+            localStorage.setItem('donkeyMindBreak', Math.floor(mindBreakLevel));
+
+            if (percentage >= 25) swapImage(1);
+            if (percentage >= 50) swapImage(2);
+            if (percentage >= 75) swapImage(3);
+            if (percentage >= 100 && !document.querySelector('#gameOverTimer')) triggerGameOver();
         }
+
+        // ACTIONS
+        function resist() {
+            closeDonkeyDetails();
+            desperationClicks++;
+            document.getElementById('statusText').textContent = 'Scarlet laughs! Spell tightens! Ears twitching! Hooves forming!';
+            
+            const img = document.querySelector('.donkey-image.active');
+            img.style.transform = 'scale(1.1)';
+            setTimeout(() => img.style.transform = '', 400);
+            
+            mindBreakLevel += 0.08;
+            showMindBreakPulse(2);
+            updateMindBreak();
+            localStorage.setItem('donkeyClicks', desperationClicks);
+
+            if (Math.random() < 0.7) {
+                showDonkeyStruggle({
+                    image: null,
+                    text: "<span class='donkey-scream'>I refuse!</span> But my body shrinks anyway. Ears stretch LONG and fuzzy. Hands harden into hooves. <span class='fairy-speak'>'Fight all you want. Your body belongs to me now.'</span> Scarlet's whip cracks. I flinch. <span class='happy-donkey'>Legs obey even when mind refuses...</span>",
+                    duration: 3800,
+                });
+            }
+        }
+
+        function bray() {
+            closeDonkeyDetails();
+            desperationClicks += 2;
+            document.body.style.animation = 'shake 0.6s';
+            document.getElementById('statusText').textContent = '*HEE-HAW!* Braying uncontrollably! Human voice gone! Beast sounds only!';
+            
+            mindBreakLevel += 0.1;
+            showMindBreakPulse(4);
+            updateMindBreak();
+            setTimeout(() => document.body.style.animation = '', 600);
+
+            if (Math.random() < 0.7) {
+                showDonkeyStruggle({
+                    image: null,
+                    text: "The bray rips from my throat—harsh, asinine, <span class='scream'>NOT HUMAN!</span> Scarlet grins wickedly. <span class='fairy-speak'>'There's my stubborn little donkey. Can't even speak anymore, can you?'</span> I try to curse at her. <span class='donkey-scream'>HEE-HAW!</span> She slaps my flank. <span class='happy-donkey'>Can only bray now...</span>",
+                });
+            }
+        }
+
+        function pullCart() {
+            closeDonkeyDetails();
+            desperationClicks += 3;
+            createFloatingSparkles();
+            document.getElementById('statusText').textContent = 'Harness buckles on... pulling heavy load... body obeys... stubborn mind screams...';
+            
+            mindBreakLevel += 0.2;
+            showMindBreakPulse(8);
+            updateMindBreak();
+
+            if (Math.random() < 0.7) {
+                showDonkeyStruggle({
+                    image: null,
+                    text: "She hooks me to a MASSIVE cart. <span class='scream'>I WON'T PULL IT!</span> But my legs move anyway. Muscles strain. Hooves dig in. Cart rolls forward. <span class='fairy-speak'>'Such a good work donkey. Stubborn but obedient.'</span> She's right. I hate her. But I'm pulling perfectly. <span class='happy-donkey'>Body serves even when mind rebels...</span>",
+                });
+            }
+        }
+
+        function accept() {
+            closeDonkeyDetails();
+            if (Math.random() < 0.2) {
+                document.getElementById('statusText').textContent = 'Scarlet shows mercy! Brief moment of clarity... (Rare!)';
+            } else {
+                desperationClicks++;
+                mindBreakLevel += 0.3;
+                document.getElementById('statusText').textContent = 'Surrendering... accepting beast nature... mind breaking... becoming donkey...';
+                showMindBreakPulse(4);
+                updateMindBreak();
+
+                if (Math.random() < 0.7) {
+                    showDonkeyStruggle({
+                        image: null,
+                        text: "<span class='donkey-scream'>FINE! I GIVE UP!</span> Mental resistance shatters. I AM a donkey. Scarlet's property. Her work beast. <span class='fairy-speak'>'There we go. Acceptance looks good on you, beast.'</span> She brushes my coat. I lean into it—<span class='happy-donkey'>grateful. Obedient. Hers.</span> <span class='final-donkey'>Work donkey forever. HEE-HAW!</span>",
+                        duration: 4200,
+                    });
+                }
+            }
+        }
+
+        function closeDonkeyDetails() {
+            const details = document.querySelector('details');
+            if (details && details.open) {
+                details.open = false;
+            }
+        }
+
+        function showMindBreakPulse(intensity) {
+            const bar = document.getElementById('mindBreakFill');
+            const percent = document.getElementById('mindBreakPercentage');
+            
+            const colors = ['#FF69B4', '#FFD700', '#FF8C00', '#FF4500', '#FF1493'];
+            const pulseColor = colors[Math.min(intensity-1, colors.length-1)];
+            
+            bar.style.boxShadow = `0 0 20px ${pulseColor}, inset 0 0 20px ${pulseColor}`;
+            percent.style.color = pulseColor;
+            percent.style.textShadow = `0 0 15px ${pulseColor}`;
+            
+            const oldPercent = parseInt(percent.textContent);
+            setTimeout(() => {
+                const gain = Math.floor((mindBreakLevel / 10) * 25);
+                document.getElementById('statusText').textContent += ` [+${gain-oldPercent}%]`;
+            }, 100);
+            
+            setTimeout(() => {
+                bar.style.boxShadow = '';
+                percent.style.color = '';
+                percent.style.textShadow = '';
+            }, 800);
+        }
+
+        function createFloatingSparkles() {
+            for (let i = 0; i < 12; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.innerHTML = '✨';
+                sparkle.style.cssText = `
+                    position: fixed; left: ${Math.random()*90}vw; top: 50vh;
+                    font-size: ${1.2+Math.random()*1}rem; pointer-events: none;
+                    animation: floatUp 3s ease-out forwards; z-index: 9999;
+                `;
+                document.body.appendChild(sparkle);
+                setTimeout(() => sparkle.remove(), 3000);
+            }
+        }
+
+        function triggerGameOver() {
+            triggerMindBreakVictory();
+            
+            setTimeout(() => {
+                document.body.innerHTML = `
+                <div style="position:fixed;inset:0;background:linear-gradient(45deg,#2d1040,#1a0a1f);display:flex;align-items:center;justify-content:center;flex-direction:column;font-family:'Orbitron',sans-serif;color:#FF69B4;text-align:center;z-index:99999;padding:20px;">
+                    <h1 style="font-size:5rem;text-shadow:0 0 40px #FF1493;margin:0;animation:glitch 0.3s infinite;">TRANSFORMATION COMPLETE</h1>
+                    <div style="font-size:2.5rem;margin:20px;font-weight:700;">PERFECT WORK DONKEY ACHIEVED</div>
+                    <div style="font-size:1.4rem;max-width:700px;line-height:1.6;margin:30px;">
+                        You are now Scarlet's mindless work donkey. No intelligence. No humanity. Just braying, pulling, and obedience...
+                    </div>
+                    <img src="https://i.ibb.co/d43J8D82/dumbdonkey.png" style="width:350px;margin:30px;border-radius:25px;box-shadow:0 0 60px #FF1493;">
+                    <div id="gameOverTimer" style="font-size:3.5rem;font-weight:700;color:#FFB6C1;text-shadow:0 0 30px #FF1493;">Returning to Scarlet's stable in: 00:30</div>
+                </div>
+                `;
+                
+                let countdown = 30;
+                const timer = setInterval(() => {
+                    const minutes = Math.floor(countdown / 60).toString().padStart(2, '0');
+                    const seconds = (countdown % 60).toString().padStart(2, '0');
+                    document.getElementById('gameOverTimer').textContent = `Returning to Scarlet's stable in: ${minutes}:${seconds}`;
+                    countdown--;
+                    if (countdown < 0) {
+                        clearInterval(timer);
+                        localStorage.removeItem('donkeyMindBreak');
+                        localStorage.removeItem('donkeyClicks');
+                        location.reload();
+                    }
+                }, 1000);
+            }, 20500);
+        }
+
+        function triggerMindBreakVictory() {
+            const state = JSON.parse(localStorage.getItem('farmState') || '{}');
+            state.trappedUntil += 24 * 60 * 60 * 1000;
+            localStorage.setItem('farmState', JSON.stringify(state));
+            
+            const overlay = document.createElement('div');
+            overlay.id = 'victoryOverlay';
+            overlay.style.cssText = `
+                position:fixed;inset:0;z-index:100000;background:rgba(45,16,64,0.95);
+                display:flex;align-items:center;justify-content:center;text-align:center;
+                font-family:'Orbitron',sans-serif;pointer-events:none;overflow:hidden;
+            `;
+            
+            overlay.innerHTML = `
+                <div id="victoryTimerDisplay" style="
+                    font-size:8rem;font-weight:900;color:#FF69B4;
+                    text-shadow:0 0 80px #FF1493,0 0 160px #FF69B4;
+                    letter-spacing:16px;margin:0;animation:timerExplode 20s linear infinite;
+                    position:relative;z-index:10;pointer-events:none;
+                ">+24:00:00</div>
+                <div id="bulkyFlashes" style="position:absolute;inset:0;pointer-events:none;"></div>
+            `;
+            
+            document.body.appendChild(overlay);
+            
+            let flashCount = 0;
+            const bulkyMessages = [
+                "SCARLET'S SPELL LOCKED PERMANENTLY",
+                "HUMAN INTELLIGENCE ERASED",
+                "WORK BEAST PROTOCOL ACTIVE",
+                "+24 HOURS DONKEY LIFE EXTENSION",
+                "COCK SWOLLEN PERMANENTLY",
+                "RUTTING DESIRE PERPETUAL",
+                "SCARLET'S PERFECT TOY",
+                "MOUNTING COMPULSION OVERWHELMING",
+                "STABLE INTEGRATION COMPLETE",
+                "PERFECT DUMB BEAST UPGRADE"
+            ];
+            
+            const flashInterval = setInterval(() => {
+                if (flashCount >= bulkyMessages.length) return;
+                
+                const flash = document.createElement('div');
+                flash.innerHTML = bulkyMessages[flashCount];
+                flash.style.cssText = `
+                    position:absolute;font-size:2.2rem;font-weight:900;color:#FFB6C1;
+                    text-shadow:0 0 15px #FF1493;background:linear-gradient(135deg,#2d1040,#1a0a1f);
+                    border:3px solid #FF1493;box-shadow:0 0 40px rgba(255,20,147,0.9);
+                    border-radius:20px;padding:20px 30px;left:${Math.random()*60+20}%;
+                    top:${Math.random()*50+15}%;animation:bulkyFlash 3s ease-out forwards;
+                    z-index:5;pointer-events:none;font-family:'Orbitron',sans-serif;
+                    text-transform:uppercase;letter-spacing:2px;
+                `;
+                document.getElementById('bulkyFlashes').appendChild(flash);
+                flashCount++;
+            }, 1800);
+            
+            let victoryTime = 20;
+            const victoryTimer = setInterval(() => {
+                victoryTime--;
+                document.getElementById('victoryTimerDisplay').textContent = `+24:00:00`;
+                
+                if (victoryTime <= 0) {
+                    clearInterval(victoryTimer);
+                    clearInterval(flashInterval);
+                    overlay.remove();
+                }
+            }, 1000);
+        }
+
+        // INIT
         setInterval(updateCountdownTimer, 1000);
         updateCountdownTimer();
         updateMindBreak();
+
+        setInterval(() => {
+            if (Math.random() < 0.15) {
+                const statuses = [
+                    "Scarlet's magic humming... intelligence fading...",
+                    'Cock throbbing... need breeding...',
+                    'Ears twitching! Mind dulling!',
+                    `Brain draining... ${Math.floor(mindBreakLevel * 25)}% donkey...`
+                ];
+                document.getElementById('statusText').textContent = statuses[Math.floor(Math.random() * statuses.length)];
+            }
+        }, 10000);
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes floatUp {
+                0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+                100% { transform: translateY(-120vh) rotate(720deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>

@@ -1,0 +1,6091 @@
+{
+  "sessionId": 1769346021191,
+  "captureStarted": "2026-01-25T13:00:31.947Z",
+  "captureEnded": "2026-01-25T13:02:47.013Z",
+  "totalDuration": "145822ms",
+  "messageCount": {
+    "total": 176,
+    "fromServer": 142,
+    "fromClient": 34
+  },
+  "messageTypes": {
+    "JSON": 152,
+    "Object": 7,
+    "ArrayBuffer": 17
+  },
+  "messages": [
+    {
+      "session": 1769346021191,
+      "timestamp": 10756,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "friends": [
+            null,
+            null,
+            {
+              "jovemstephanie": {},
+              "eliasile": {},
+              "magic847": {},
+              "olimara": {},
+              "smol": {},
+              "ghost_rigby": {},
+              "phaerak": {},
+              "mintleafmonkey": {},
+              "slut4cock": {},
+              "badending": {},
+              "crisscross": {},
+              "snowmountain": {},
+              "chrotheeejit": {},
+              "intrepidmutt": {},
+              "aura000": {},
+              "thecheese21": {},
+              "psychotic_link": {},
+              "celina2000": {},
+              "nyxia5005": {},
+              "amym": {},
+              "lexiwessy": {},
+              "infectedeaglex": {},
+              "delirium": {},
+              "natasha911": {},
+              "lena_": {},
+              "hanna_": {},
+              "kittycat101": {},
+              "cindy_": {}
+            },
+            {}
+          ]
+        },
+        "raw": "{\"friends\":[null,null,{\"jovemstephanie\":{},\"eliasile\":{},\"magic847\":{},\"olimara\":{},\"smol\":{},\"ghost_rigby\":{},\"phaerak\":{},\"mintleafmonkey\":{},\"slut4cock\":{},\"badending\":{},\"crisscross\":{},\"snowmountain\":{},\"chrotheeejit\":{},\"intrepidmutt\":{},\"aura000\":{},\"thecheese21\":{},\"psychotic_link\":{},\"celina2000\":{},\"nyxia5005\":{},\"amym\":{},\"lexiwessy\":{},\"infectedeaglex\":{},\"delirium\":{},\"natasha911\":{},\"lena_\":{},\"hanna_\":{},\"kittycat101\":{},\"cindy_\":{}},{}]}"
+      },
+      "rawData": "{\"friends\":[null,null,{\"jovemstephanie\":{},\"eliasile\":{},\"magic847\":{},\"olimara\":{},\"smol\":{},\"ghost_rigby\":{},\"phaerak\":{},\"mintleafmonkey\":{},\"slut4cock\":{},\"badending\":{},\"crisscross\":{},\"snowmountain\":{},\"chrotheeejit\":{},\"intrepidmutt\":{},\"aura000\":{},\"thecheese21\":{},\"psychotic_link\":{},\"celina2000\":{},\"nyxia5005\":{},\"amym\":{},\"lexiwessy\":{},\"infectedeaglex\":{},\"delirium\":{},\"natasha911\":{},\"lena_\":{},\"hanna_\":{},\"kittycat101\":{},\"cindy_\":{}},{}]}",
+      "capturedAt": "2026-01-25T13:00:31.947Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 11577,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "Object",
+        "data": {
+          "0": 120,
+          "1": 156,
+          "2": 171,
+          "3": 86,
+          "4": 74,
+          "5": 76,
+          "6": 46,
+          "7": 201,
+          "8": 204,
+          "9": 207,
+          "10": 83,
+          "11": 178,
+          "12": 82,
+          "13": 114,
+          "14": 15,
+          "15": 245,
+          "16": 116,
+          "17": 81,
+          "18": 210,
+          "19": 81,
+          "20": 74,
+          "21": 47,
+          "22": 205,
+          "23": 76,
+          "24": 1,
+          "25": 242,
+          "26": 12,
+          "27": 146,
+          "28": 210,
+          "29": 18,
+          "30": 147,
+          "31": 76,
+          "32": 13,
+          "33": 44,
+          "34": 44,
+          "35": 205,
+          "36": 77,
+          "37": 147,
+          "38": 146,
+          "39": 147,
+          "40": 45,
+          "41": 82,
+          "42": 140,
+          "43": 45,
+          "44": 12,
+          "45": 19,
+          "46": 205,
+          "47": 76,
+          "48": 83,
+          "49": 146,
+          "50": 149,
+          "51": 106,
+          "52": 1,
+          "53": 139,
+          "54": 82,
+          "55": 14,
+          "56": 233
+        }
+      },
+      "rawData": "[Binary Data]",
+      "capturedAt": "2026-01-25T13:00:32.768Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 15450,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "spellId": 1,
+          "selfcast": false,
+          "variant": null,
+          "materialsRequired": false,
+          "action": "Spell",
+          "id": 1
+        },
+        "raw": "{\"spellId\":1,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":1}"
+      },
+      "rawData": "{\"spellId\":1,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":1}",
+      "capturedAt": "2026-01-25T13:00:36.641Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 15585,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "id": 1,
+          "success": true
+        },
+        "raw": "{\"id\":1,\"success\":true}"
+      },
+      "rawData": "{\"id\":1,\"success\":true}",
+      "capturedAt": "2026-01-25T13:00:36.776Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 15586,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          {
+            "status": {
+              "hit": true,
+              "mind": 450,
+              "body": 500
+            }
+          }
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"status\":{\"hit\":true,\"mind\":450,\"body\":500}}]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"status\":{\"hit\":true,\"mind\":450,\"body\":500}}]",
+      "capturedAt": "2026-01-25T13:00:36.777Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 15628,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          [
+            500,
+            0,
+            500,
+            450,
+            0,
+            500,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",[500,0,500,450,0,500,0,0,0]]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",[500,0,500,450,0,500,0,0,0]]",
+      "capturedAt": "2026-01-25T13:00:36.819Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 15629,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            541,
+            0,
+            541,
+            0,
+            0,
+            0,
+            2.2353833333333335,
+            0.05383333333333333,
+            3.23,
+            3.37,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,541,0,541,0,0,0,2.2353833333333335,0.05383333333333333,3.23,3.37,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,541,0,541,0,0,0,2.2353833333333335,0.05383333333333333,3.23,3.37,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:00:36.820Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 16921,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            541,
+            0,
+            541,
+            0,
+            0,
+            0,
+            2.3053666666666692,
+            0.05383333333333333,
+            3.23,
+            3.37,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,541,0,541,0,0,0,2.3053666666666692,0.05383333333333333,3.23,3.37,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,541,0,541,0,0,0,2.3053666666666692,0.05383333333333333,3.23,3.37,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:00:38.112Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 20795,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "spellId": 1,
+          "selfcast": false,
+          "variant": null,
+          "materialsRequired": false,
+          "action": "Spell",
+          "id": 2
+        },
+        "raw": "{\"spellId\":1,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":2}"
+      },
+      "rawData": "{\"spellId\":1,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":2}",
+      "capturedAt": "2026-01-25T13:00:41.986Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 20930,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "id": 2,
+          "success": true
+        },
+        "raw": "{\"id\":2,\"success\":true}"
+      },
+      "rawData": "{\"id\":2,\"success\":true}",
+      "capturedAt": "2026-01-25T13:00:42.122Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 20931,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          {
+            "status": {
+              "hit": true,
+              "mind": 400,
+              "body": 500
+            }
+          }
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"status\":{\"hit\":true,\"mind\":400,\"body\":500}}]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"status\":{\"hit\":true,\"mind\":400,\"body\":500}}]",
+      "capturedAt": "2026-01-25T13:00:42.122Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 21028,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          [
+            500,
+            0,
+            500,
+            400,
+            0,
+            500,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",[500,0,500,400,0,500,0,0,0]]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",[500,0,500,400,0,500,0,0,0]]",
+      "capturedAt": "2026-01-25T13:00:42.219Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 21029,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            541,
+            0,
+            541,
+            0,
+            0,
+            0,
+            1.5260833333333432,
+            0.05383333333333333,
+            3.23,
+            3.37,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,541,0,541,0,0,0,1.5260833333333432,0.05383333333333333,3.23,3.37,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,541,0,541,0,0,0,1.5260833333333432,0.05383333333333333,3.23,3.37,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:00:42.220Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 21930,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            541,
+            0,
+            541,
+            0,
+            0,
+            0,
+            1.5745333333333429,
+            0.05383333333333333,
+            3.23,
+            3.37,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,541,0,541,0,0,0,1.5745333333333429,0.05383333333333333,3.23,3.37,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,541,0,541,0,0,0,1.5745333333333429,0.05383333333333333,3.23,3.37,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:00:43.121Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 26921,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            541,
+            0,
+            541,
+            0,
+            0,
+            0,
+            1.8437000000000077,
+            0.05383333333333333,
+            3.23,
+            3.37,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,541,0,541,0,0,0,1.8437000000000077,0.05383333333333333,3.23,3.37,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,541,0,541,0,0,0,1.8437000000000077,0.05383333333333333,3.23,3.37,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:00:48.112Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 28633,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "spellId": 21,
+          "selfcast": false,
+          "variant": null,
+          "materialsRequired": false,
+          "action": "Spell",
+          "id": 3
+        },
+        "raw": "{\"spellId\":21,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":3}"
+      },
+      "rawData": "{\"spellId\":21,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":3}",
+      "capturedAt": "2026-01-25T13:00:49.824Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 28786,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "id": 3,
+          "success": true
+        },
+        "raw": "{\"id\":3,\"success\":true}"
+      },
+      "rawData": "{\"id\":3,\"success\":true}",
+      "capturedAt": "2026-01-25T13:00:49.977Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 28786,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "menu": {
+            "refresh": "inspect",
+            "token": "307ba0f777d90b53159d6da436e1dcecadd921e8"
+          }
+        },
+        "raw": "{\"menu\":{\"refresh\":\"inspect\",\"token\":\"307ba0f777d90b53159d6da436e1dcecadd921e8\"}}"
+      },
+      "rawData": "{\"menu\":{\"refresh\":\"inspect\",\"token\":\"307ba0f777d90b53159d6da436e1dcecadd921e8\"}}",
+      "capturedAt": "2026-01-25T13:00:49.977Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 28787,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "chat": {
+            "combat": {
+              "message": "Mindfucked-Skintight's skin becomes like silk fabric with a delicately lace pattern!",
+              "firstPerson": 0
+            }
+          },
+          "message_id": 1
+        },
+        "raw": "{\"chat\":{\"combat\":{\"message\":\"Mindfucked-Skintight's skin becomes like silk fabric with a delicately lace pattern!\",\"firstPerson\":0}},\"message_id\":1}"
+      },
+      "rawData": "{\"chat\":{\"combat\":{\"message\":\"Mindfucked-Skintight's skin becomes like silk fabric with a delicately lace pattern!\",\"firstPerson\":0}},\"message_id\":1}",
+      "capturedAt": "2026-01-25T13:00:49.978Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 28794,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          {
+            "character": {
+              "skin": [
+                0,
+                255,
+                0
+              ]
+            }
+          }
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"character\":{\"skin\":[0,255,0]}}]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"character\":{\"skin\":[0,255,0]}}]",
+      "capturedAt": "2026-01-25T13:00:49.985Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 28799,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "ArrayBuffer",
+        "size": 536,
+        "preview": [
+          120,
+          156,
+          181,
+          147,
+          193,
+          110,
+          219,
+          48,
+          12,
+          134,
+          95,
+          133,
+          224,
+          217,
+          104,
+          146,
+          166,
+          109,
+          90,
+          31,
+          119,
+          27,
+          176,
+          1,
+          3,
+          186,
+          203,
+          80,
+          20,
+          1,
+          45,
+          209,
+          54,
+          103,
+          89,
+          50,
+          68,
+          186,
+          173,
+          91,
+          228,
+          221,
+          7,
+          199,
+          105,
+          49,
+          116,
+          61,
+          236,
+          176,
+          221,
+          36,
+          145,
+          224,
+          71,
+          254,
+          252,
+          117,
+          135,
+          219,
+          245,
+          174,
+          162,
+          117,
+          189,
+          219,
+          237,
+          252,
+          205,
+          186,
+          186,
+          220,
+          110,
+          46,
+          111,
+          252,
+          149,
+          167,
+          139,
+          237,
+          21,
+          111,
+          188,
+          99,
+          71,
+          222,
+          223,
+          156,
+          111,
+          248,
+          26,
+          139,
+          23,
+          84,
+          35,
+          27,
+          21,
+          203,
+          23,
+          172
+        ],
+        "hex": "78 9c b5 93 c1 6e db 30 0c 86 5f 85 e0 d9 68 92 a6 6d 5a 1f 77 1b b0 01 03 ba cb 50 14 01 2d d1 36 67 59 32 44 ba ad 5b e4 dd 07 c7 69 31 74 3d ec b0 dd 24 91 e0 47 fe fc 75 87 db f5 ae a2 75 bd db ed fc cd ba ba dc 6e 2e 6f fc 95 a7 8b ed 15 6f bc 63 47 de df 9c 6f f8 1a 8b 17 54 23 1b 15 cb 17 ac"
+      },
+      "rawData": {},
+      "capturedAt": "2026-01-25T13:00:49.990Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 28836,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          {
+            "status": {
+              "hit": true,
+              "mind": 273,
+              "body": 500
+            }
+          }
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"status\":{\"hit\":true,\"mind\":273,\"body\":500}}]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"status\":{\"hit\":true,\"mind\":273,\"body\":500}}]",
+      "capturedAt": "2026-01-25T13:00:50.027Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 28846,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          [
+            500,
+            0,
+            500,
+            273,
+            0,
+            500,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",[500,0,500,273,0,500,0,0,0]]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",[500,0,500,273,0,500,0,0,0]]",
+      "capturedAt": "2026-01-25T13:00:50.037Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 28847,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            541,
+            0,
+            541,
+            0,
+            0,
+            0,
+            1.9459833333333403,
+            0.05383333333333333,
+            3.23,
+            2.3756166666666667,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,541,0,541,0,0,0,1.9459833333333403,0.05383333333333333,3.23,2.3756166666666667,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,541,0,541,0,0,0,1.9459833333333403,0.05383333333333333,3.23,2.3756166666666667,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:00:50.038Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 31921,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            541,
+            0,
+            541,
+            0,
+            0,
+            0,
+            2.112866666666677,
+            0.05383333333333333,
+            3.23,
+            2.5497333333333314,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,541,0,541,0,0,0,2.112866666666677,0.05383333333333333,3.23,2.5497333333333314,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,541,0,541,0,0,0,2.112866666666677,0.05383333333333333,3.23,2.5497333333333314,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:00:53.112Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 32813,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "spellId": 21,
+          "selfcast": false,
+          "variant": null,
+          "materialsRequired": false,
+          "action": "Spell",
+          "id": 4
+        },
+        "raw": "{\"spellId\":21,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":4}"
+      },
+      "rawData": "{\"spellId\":21,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":4}",
+      "capturedAt": "2026-01-25T13:00:54.004Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 32946,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "chat": {
+            "combat": {
+              "message": "Your spell seems to have no effect on Mindfucked-Skintight",
+              "firstPerson": true
+            }
+          },
+          "message_id": 2
+        },
+        "raw": "{\"chat\":{\"combat\":{\"message\":\"Your spell seems to have no effect on Mindfucked-Skintight\",\"firstPerson\":true}},\"message_id\":2}"
+      },
+      "rawData": "{\"chat\":{\"combat\":{\"message\":\"Your spell seems to have no effect on Mindfucked-Skintight\",\"firstPerson\":true}},\"message_id\":2}",
+      "capturedAt": "2026-01-25T13:00:54.137Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 32950,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "success": true,
+          "resetCooldown": true,
+          "id": 4
+        },
+        "raw": "{\"success\":true,\"resetCooldown\":true,\"id\":4}"
+      },
+      "rawData": "{\"success\":true,\"resetCooldown\":true,\"id\":4}",
+      "capturedAt": "2026-01-25T13:00:54.141Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 36364,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "spellId": 21,
+          "selfcast": false,
+          "variant": null,
+          "materialsRequired": false,
+          "action": "Spell",
+          "id": 5
+        },
+        "raw": "{\"spellId\":21,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":5}"
+      },
+      "rawData": "{\"spellId\":21,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":5}",
+      "capturedAt": "2026-01-25T13:00:57.555Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 36502,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "chat": {
+            "combat": {
+              "message": "The spell seems to have no effect on you",
+              "firstPerson": true
+            }
+          },
+          "message_id": 3
+        },
+        "raw": "{\"chat\":{\"combat\":{\"message\":\"The spell seems to have no effect on you\",\"firstPerson\":true}},\"message_id\":3}"
+      },
+      "rawData": "{\"chat\":{\"combat\":{\"message\":\"The spell seems to have no effect on you\",\"firstPerson\":true}},\"message_id\":3}",
+      "capturedAt": "2026-01-25T13:00:57.693Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 36506,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "id": 5,
+          "success": true
+        },
+        "raw": "{\"id\":5,\"success\":true}"
+      },
+      "rawData": "{\"id\":5,\"success\":true}",
+      "capturedAt": "2026-01-25T13:00:57.697Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 36507,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "chat": {
+            "combat": {
+              "message": "Your spell rebounded!",
+              "firstPerson": true
+            }
+          },
+          "message_id": 4
+        },
+        "raw": "{\"chat\":{\"combat\":{\"message\":\"Your spell rebounded!\",\"firstPerson\":true}},\"message_id\":4}"
+      },
+      "rawData": "{\"chat\":{\"combat\":{\"message\":\"Your spell rebounded!\",\"firstPerson\":true}},\"message_id\":4}",
+      "capturedAt": "2026-01-25T13:00:57.698Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 36510,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          {
+            "status": {
+              "hit": true,
+              "mind": 420,
+              "body": 462
+            }
+          }
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",{\"status\":{\"hit\":true,\"mind\":420,\"body\":462}}]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",{\"status\":{\"hit\":true,\"mind\":420,\"body\":462}}]",
+      "capturedAt": "2026-01-25T13:00:57.701Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 36521,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            420,
+            0,
+            541,
+            0,
+            0,
+            0,
+            2.3605000000000187,
+            0.05383333333333333,
+            3.23,
+            1.8080999999999952,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,2.3605000000000187,0.05383333333333333,3.23,1.8080999999999952,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,2.3605000000000187,0.05383333333333333,3.23,1.8080999999999952,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:00:57.712Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 36923,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            420,
+            0,
+            541,
+            0,
+            0,
+            0,
+            2.3820333333333528,
+            0.05383333333333333,
+            3.23,
+            1.8305666666666616,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,2.3820333333333528,0.05383333333333333,3.23,1.8305666666666616,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,2.3820333333333528,0.05383333333333333,3.23,1.8305666666666616,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:00:58.114Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 39637,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "spellId": 21,
+          "selfcast": false,
+          "variant": null,
+          "materialsRequired": false,
+          "action": "Spell",
+          "id": 6
+        },
+        "raw": "{\"spellId\":21,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":6}"
+      },
+      "rawData": "{\"spellId\":21,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":6}",
+      "capturedAt": "2026-01-25T13:01:00.828Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 39761,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "chat": {
+            "combat": {
+              "message": "Your spell seems to have no effect on Mindfucked-Skintight",
+              "firstPerson": true
+            }
+          },
+          "message_id": 5
+        },
+        "raw": "{\"chat\":{\"combat\":{\"message\":\"Your spell seems to have no effect on Mindfucked-Skintight\",\"firstPerson\":true}},\"message_id\":5}"
+      },
+      "rawData": "{\"chat\":{\"combat\":{\"message\":\"Your spell seems to have no effect on Mindfucked-Skintight\",\"firstPerson\":true}},\"message_id\":5}",
+      "capturedAt": "2026-01-25T13:01:00.952Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 39763,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "success": true,
+          "resetCooldown": true,
+          "id": 6
+        },
+        "raw": "{\"success\":true,\"resetCooldown\":true,\"id\":6}"
+      },
+      "rawData": "{\"success\":true,\"resetCooldown\":true,\"id\":6}",
+      "capturedAt": "2026-01-25T13:01:00.955Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 41920,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            420,
+            0,
+            541,
+            0,
+            0,
+            0,
+            2.6512000000000286,
+            0.05383333333333333,
+            3.23,
+            2.1113999999999917,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,2.6512000000000286,0.05383333333333333,3.23,2.1113999999999917,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,2.6512000000000286,0.05383333333333333,3.23,2.1113999999999917,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:01:03.111Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 42651,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "spellId": 21,
+          "selfcast": false,
+          "variant": null,
+          "materialsRequired": false,
+          "action": "Spell",
+          "id": 7
+        },
+        "raw": "{\"spellId\":21,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":7}"
+      },
+      "rawData": "{\"spellId\":21,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":7}",
+      "capturedAt": "2026-01-25T13:01:03.842Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 42785,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "chat": {
+            "combat": {
+              "message": "Your spell seems to have no effect on Mindfucked-Skintight",
+              "firstPerson": true
+            }
+          },
+          "message_id": 6
+        },
+        "raw": "{\"chat\":{\"combat\":{\"message\":\"Your spell seems to have no effect on Mindfucked-Skintight\",\"firstPerson\":true}},\"message_id\":6}"
+      },
+      "rawData": "{\"chat\":{\"combat\":{\"message\":\"Your spell seems to have no effect on Mindfucked-Skintight\",\"firstPerson\":true}},\"message_id\":6}",
+      "capturedAt": "2026-01-25T13:01:03.977Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 42789,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "success": true,
+          "resetCooldown": true,
+          "id": 7
+        },
+        "raw": "{\"success\":true,\"resetCooldown\":true,\"id\":7}"
+      },
+      "rawData": "{\"success\":true,\"resetCooldown\":true,\"id\":7}",
+      "capturedAt": "2026-01-25T13:01:03.980Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 43760,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "Object",
+        "data": {
+          "0": 120,
+          "1": 156,
+          "2": 171,
+          "3": 86,
+          "4": 74,
+          "5": 76,
+          "6": 46,
+          "7": 201,
+          "8": 204,
+          "9": 207,
+          "10": 83,
+          "11": 178,
+          "12": 82,
+          "13": 114,
+          "14": 15,
+          "15": 245,
+          "16": 116,
+          "17": 81,
+          "18": 210,
+          "19": 81,
+          "20": 74,
+          "21": 47,
+          "22": 205,
+          "23": 76,
+          "24": 1,
+          "25": 242,
+          "26": 140,
+          "27": 83,
+          "28": 82,
+          "29": 147,
+          "30": 82,
+          "31": 45,
+          "32": 45,
+          "33": 141,
+          "34": 44,
+          "35": 44,
+          "36": 210,
+          "37": 18,
+          "38": 45,
+          "39": 147,
+          "40": 146,
+          "41": 77,
+          "42": 140,
+          "43": 204,
+          "44": 140,
+          "45": 140,
+          "46": 45,
+          "47": 77,
+          "48": 45,
+          "49": 45,
+          "50": 148,
+          "51": 106,
+          "52": 1,
+          "53": 138,
+          "54": 211,
+          "55": 14,
+          "56": 117
+        }
+      },
+      "rawData": "[Binary Data]",
+      "capturedAt": "2026-01-25T13:01:04.951Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 45197,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "spellId": 21,
+          "selfcast": false,
+          "variant": null,
+          "materialsRequired": false,
+          "action": "Spell",
+          "id": 8
+        },
+        "raw": "{\"spellId\":21,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":8}"
+      },
+      "rawData": "{\"spellId\":21,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":8}",
+      "capturedAt": "2026-01-25T13:01:06.388Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 45329,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "chat": {
+            "combat": {
+              "message": "Your spell seems to have no effect on Mindfucked-Skintight",
+              "firstPerson": true
+            }
+          },
+          "message_id": 7
+        },
+        "raw": "{\"chat\":{\"combat\":{\"message\":\"Your spell seems to have no effect on Mindfucked-Skintight\",\"firstPerson\":true}},\"message_id\":7}"
+      },
+      "rawData": "{\"chat\":{\"combat\":{\"message\":\"Your spell seems to have no effect on Mindfucked-Skintight\",\"firstPerson\":true}},\"message_id\":7}",
+      "capturedAt": "2026-01-25T13:01:06.520Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 45333,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "success": true,
+          "resetCooldown": true,
+          "id": 8
+        },
+        "raw": "{\"success\":true,\"resetCooldown\":true,\"id\":8}"
+      },
+      "rawData": "{\"success\":true,\"resetCooldown\":true,\"id\":8}",
+      "capturedAt": "2026-01-25T13:01:06.524Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 46921,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            420,
+            0,
+            541,
+            0,
+            0,
+            0,
+            2.9203666666667045,
+            0.05383333333333333,
+            3.23,
+            2.392233333333322,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,2.9203666666667045,0.05383333333333333,3.23,2.392233333333322,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,2.9203666666667045,0.05383333333333333,3.23,2.392233333333322,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:01:08.112Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 51929,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            420,
+            0,
+            541,
+            0,
+            0,
+            0,
+            3.1895333333333804,
+            0.05383333333333333,
+            3.23,
+            2.673066666666652,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,3.1895333333333804,0.05383333333333333,3.23,2.673066666666652,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,3.1895333333333804,0.05383333333333333,3.23,2.673066666666652,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:01:13.120Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 53594,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "spellId": 3,
+          "selfcast": false,
+          "variant": null,
+          "materialsRequired": false,
+          "action": "Spell",
+          "id": 9
+        },
+        "raw": "{\"spellId\":3,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":9}"
+      },
+      "rawData": "{\"spellId\":3,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":9}",
+      "capturedAt": "2026-01-25T13:01:14.785Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 53745,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "id": 9,
+          "success": true
+        },
+        "raw": "{\"id\":9,\"success\":true}"
+      },
+      "rawData": "{\"id\":9,\"success\":true}",
+      "capturedAt": "2026-01-25T13:01:14.936Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 53746,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "menu": {
+            "refresh": "inspect",
+            "token": "307ba0f777d90b53159d6da436e1dcecadd921e8"
+          }
+        },
+        "raw": "{\"menu\":{\"refresh\":\"inspect\",\"token\":\"307ba0f777d90b53159d6da436e1dcecadd921e8\"}}"
+      },
+      "rawData": "{\"menu\":{\"refresh\":\"inspect\",\"token\":\"307ba0f777d90b53159d6da436e1dcecadd921e8\"}}",
+      "capturedAt": "2026-01-25T13:01:14.937Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 53746,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "chat": {
+            "combat": {
+              "message": "Mindfucked-Skintight shrinks until they are [size]{41} tall (down from [size]{83})",
+              "firstPerson": 0
+            }
+          },
+          "message_id": 8
+        },
+        "raw": "{\"chat\":{\"combat\":{\"message\":\"Mindfucked-Skintight shrinks until they are [size]{41} tall (down from [size]{83})\",\"firstPerson\":0}},\"message_id\":8}"
+      },
+      "rawData": "{\"chat\":{\"combat\":{\"message\":\"Mindfucked-Skintight shrinks until they are [size]{41} tall (down from [size]{83})\",\"firstPerson\":0}},\"message_id\":8}",
+      "capturedAt": "2026-01-25T13:01:14.937Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 53751,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          {
+            "character": {
+              "effects": [
+                [
+                  1,
+                  1,
+                  2
+                ]
+              ]
+            }
+          }
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"character\":{\"effects\":[[1,1,2]]}}]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"character\":{\"effects\":[[1,1,2]]}}]",
+      "capturedAt": "2026-01-25T13:01:14.942Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 53755,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "ArrayBuffer",
+        "size": 537,
+        "preview": [
+          120,
+          156,
+          181,
+          147,
+          193,
+          78,
+          28,
+          49,
+          12,
+          134,
+          95,
+          197,
+          242,
+          121,
+          196,
+          238,
+          178,
+          192,
+          194,
+          28,
+          123,
+          171,
+          212,
+          74,
+          149,
+          232,
+          165,
+          66,
+          8,
+          121,
+          18,
+          207,
+          140,
+          59,
+          153,
+          100,
+          20,
+          59,
+          192,
+          130,
+          246,
+          221,
+          171,
+          217,
+          1,
+          84,
+          81,
+          14,
+          61,
+          180,
+          183,
+          36,
+          78,
+          252,
+          217,
+          191,
+          255,
+          220,
+          224,
+          118,
+          189,
+          107,
+          104,
+          221,
+          238,
+          118,
+          59,
+          127,
+          181,
+          110,
+          206,
+          183,
+          155,
+          243,
+          43,
+          127,
+          225,
+          233,
+          108,
+          123,
+          193,
+          27,
+          239,
+          216,
+          145,
+          247,
+          87,
+          167,
+          27,
+          190,
+          196,
+          234,
+          25,
+          213,
+          200,
+          138,
+          98,
+          253,
+          140,
+          77
+        ],
+        "hex": "78 9c b5 93 c1 4e 1c 31 0c 86 5f c5 f2 79 c4 ee b2 c0 c2 1c 7b ab d4 4a 95 e8 a5 42 08 79 12 cf 8c 3b 99 64 14 3b c0 82 f6 dd ab d9 01 54 51 0e 3d b4 b7 24 4e fc d9 bf ff dc e0 76 bd 6b 68 dd ee 76 3b 7f b5 6e ce b7 9b f3 2b 7f e1 e9 6c 7b c1 1b ef d8 91 f7 57 a7 1b be c4 ea 19 d5 c8 8a 62 fd 8c 4d"
+      },
+      "rawData": {},
+      "capturedAt": "2026-01-25T13:01:14.946Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 53759,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          {
+            "status": {
+              "hit": true,
+              "mind": 147,
+              "body": 500
+            }
+          }
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"status\":{\"hit\":true,\"mind\":147,\"body\":500}}]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"status\":{\"hit\":true,\"mind\":147,\"body\":500}}]",
+      "capturedAt": "2026-01-25T13:01:14.950Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 53824,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          [
+            500,
+            0,
+            500,
+            147,
+            0,
+            500,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",[500,0,500,147,0,500,0,0,0]]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",[500,0,500,147,0,500,0,0,0]]",
+      "capturedAt": "2026-01-25T13:01:15.015Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 53825,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            420,
+            0,
+            541,
+            0,
+            0,
+            0,
+            3.23,
+            0.05383333333333333,
+            3.23,
+            1.7797833333333175,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,3.23,0.05383333333333333,3.23,1.7797833333333175,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,3.23,0.05383333333333333,3.23,1.7797833333333175,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:01:15.016Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 56930,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            420,
+            0,
+            541,
+            0,
+            0,
+            0,
+            3.23,
+            0.05383333333333333,
+            3.23,
+            1.9538999999999822,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,3.23,0.05383333333333333,3.23,1.9538999999999822,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,3.23,0.05383333333333333,3.23,1.9538999999999822,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:01:18.121Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 57060,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "spellId": 3,
+          "selfcast": false,
+          "variant": null,
+          "materialsRequired": false,
+          "action": "Spell",
+          "id": 10
+        },
+        "raw": "{\"spellId\":3,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":10}"
+      },
+      "rawData": "{\"spellId\":3,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":10}",
+      "capturedAt": "2026-01-25T13:01:18.251Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 57209,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "id": 10,
+          "success": true
+        },
+        "raw": "{\"id\":10,\"success\":true}"
+      },
+      "rawData": "{\"id\":10,\"success\":true}",
+      "capturedAt": "2026-01-25T13:01:18.400Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 57210,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "menu": {
+            "refresh": "inspect",
+            "token": "307ba0f777d90b53159d6da436e1dcecadd921e8"
+          }
+        },
+        "raw": "{\"menu\":{\"refresh\":\"inspect\",\"token\":\"307ba0f777d90b53159d6da436e1dcecadd921e8\"}}"
+      },
+      "rawData": "{\"menu\":{\"refresh\":\"inspect\",\"token\":\"307ba0f777d90b53159d6da436e1dcecadd921e8\"}}",
+      "capturedAt": "2026-01-25T13:01:18.401Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 57210,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "chat": {
+            "combat": {
+              "message": "Mindfucked-Skintight shrinks until they are [size]{21} tall (down from [size]{41})",
+              "firstPerson": 0
+            }
+          },
+          "message_id": 9
+        },
+        "raw": "{\"chat\":{\"combat\":{\"message\":\"Mindfucked-Skintight shrinks until they are [size]{21} tall (down from [size]{41})\",\"firstPerson\":0}},\"message_id\":9}"
+      },
+      "rawData": "{\"chat\":{\"combat\":{\"message\":\"Mindfucked-Skintight shrinks until they are [size]{21} tall (down from [size]{41})\",\"firstPerson\":0}},\"message_id\":9}",
+      "capturedAt": "2026-01-25T13:01:18.401Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 57214,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          {
+            "character": {
+              "effects": [
+                [
+                  1,
+                  1,
+                  3
+                ]
+              ]
+            }
+          }
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"character\":{\"effects\":[[1,1,3]]}}]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"character\":{\"effects\":[[1,1,3]]}}]",
+      "capturedAt": "2026-01-25T13:01:18.405Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 57216,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "ArrayBuffer",
+        "size": 534,
+        "preview": [
+          120,
+          156,
+          181,
+          147,
+          193,
+          78,
+          220,
+          64,
+          12,
+          134,
+          95,
+          197,
+          242,
+          57,
+          98,
+          119,
+          89,
+          96,
+          97,
+          142,
+          189,
+          85,
+          106,
+          165,
+          74,
+          244,
+          82,
+          33,
+          132,
+          156,
+          25,
+          39,
+          113,
+          51,
+          153,
+          137,
+          198,
+          14,
+          176,
+          160,
+          125,
+          247,
+          42,
+          27,
+          64,
+          21,
+          229,
+          208,
+          67,
+          123,
+          27,
+          203,
+          150,
+          63,
+          251,
+          247,
+          63,
+          55,
+          184,
+          93,
+          239,
+          106,
+          90,
+          55,
+          187,
+          221,
+          46,
+          92,
+          173,
+          235,
+          243,
+          237,
+          230,
+          252,
+          42,
+          92,
+          4,
+          58,
+          219,
+          94,
+          240,
+          38,
+          120,
+          246,
+          20,
+          194,
+          213,
+          233,
+          134,
+          47,
+          177,
+          122,
+          70,
+          53,
+          178,
+          73,
+          209,
+          61,
+          99,
+          157
+        ],
+        "hex": "78 9c b5 93 c1 4e dc 40 0c 86 5f c5 f2 39 62 77 59 60 61 8e bd 55 6a a5 4a f4 52 21 84 9c 19 27 71 33 99 89 c6 0e b0 a0 7d f7 2a 1b 40 15 e5 d0 43 7b 1b cb 96 3f fb f7 3f 37 b8 5d ef 6a 5a 37 bb dd 2e 5c ad eb f3 ed e6 fc 2a 5c 04 3a db 5e f0 26 78 f6 14 c2 d5 e9 86 2f b1 7a 46 35 b2 49 d1 3d 63 9d"
+      },
+      "rawData": {},
+      "capturedAt": "2026-01-25T13:01:18.407Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 57219,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          {
+            "status": {
+              "hit": true,
+              "mind": 33,
+              "body": 500
+            }
+          }
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"status\":{\"hit\":true,\"mind\":33,\"body\":500}}]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"status\":{\"hit\":true,\"mind\":33,\"body\":500}}]",
+      "capturedAt": "2026-01-25T13:01:18.410Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 57259,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          [
+            500,
+            0,
+            500,
+            33,
+            0,
+            500,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",[500,0,500,33,0,500,0,0,0]]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",[500,0,500,33,0,500,0,0,0]]",
+      "capturedAt": "2026-01-25T13:01:18.450Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 57265,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            420,
+            0,
+            541,
+            0,
+            0,
+            0,
+            3.23,
+            0.05383333333333333,
+            3.23,
+            0.9707499999999821,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,3.23,0.05383333333333333,3.23,0.9707499999999821,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,3.23,0.05383333333333333,3.23,0.9707499999999821,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:01:18.456Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 60582,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "spellId": 3,
+          "selfcast": false,
+          "variant": null,
+          "materialsRequired": false,
+          "action": "Spell",
+          "id": 11
+        },
+        "raw": "{\"spellId\":3,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":11}"
+      },
+      "rawData": "{\"spellId\":3,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":11}",
+      "capturedAt": "2026-01-25T13:01:21.773Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 60709,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "chat": {
+            "combat": {
+              "message": "Your spell seems to have no effect on Mindfucked-Skintight",
+              "firstPerson": true
+            }
+          },
+          "message_id": 10
+        },
+        "raw": "{\"chat\":{\"combat\":{\"message\":\"Your spell seems to have no effect on Mindfucked-Skintight\",\"firstPerson\":true}},\"message_id\":10}"
+      },
+      "rawData": "{\"chat\":{\"combat\":{\"message\":\"Your spell seems to have no effect on Mindfucked-Skintight\",\"firstPerson\":true}},\"message_id\":10}",
+      "capturedAt": "2026-01-25T13:01:21.900Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 60744,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "success": true,
+          "resetCooldown": true,
+          "id": 11
+        },
+        "raw": "{\"success\":true,\"resetCooldown\":true,\"id\":11}"
+      },
+      "rawData": "{\"success\":true,\"resetCooldown\":true,\"id\":11}",
+      "capturedAt": "2026-01-25T13:01:21.935Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 61928,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            420,
+            0,
+            541,
+            0,
+            0,
+            0,
+            3.23,
+            0.05383333333333333,
+            3.23,
+            1.234733333333313,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,3.23,0.05383333333333333,3.23,1.234733333333313,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,3.23,0.05383333333333333,3.23,1.234733333333313,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:01:23.120Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 66927,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            420,
+            0,
+            541,
+            0,
+            0,
+            0,
+            3.23,
+            0.05383333333333333,
+            3.23,
+            1.5155666666666432,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,3.23,0.05383333333333333,3.23,1.5155666666666432,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,3.23,0.05383333333333333,3.23,1.5155666666666432,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:01:28.118Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 71926,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            420,
+            0,
+            541,
+            0,
+            0,
+            0,
+            3.23,
+            0.05383333333333333,
+            3.23,
+            1.7963999999999734,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,3.23,0.05383333333333333,3.23,1.7963999999999734,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,3.23,0.05383333333333333,3.23,1.7963999999999734,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:01:33.117Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 72167,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "spellId": 7,
+          "selfcast": false,
+          "variant": null,
+          "materialsRequired": false,
+          "action": "Spell",
+          "id": 12
+        },
+        "raw": "{\"spellId\":7,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":12}"
+      },
+      "rawData": "{\"spellId\":7,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":12}",
+      "capturedAt": "2026-01-25T13:01:33.358Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 72316,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "id": 12,
+          "success": true
+        },
+        "raw": "{\"id\":12,\"success\":true}"
+      },
+      "rawData": "{\"id\":12,\"success\":true}",
+      "capturedAt": "2026-01-25T13:01:33.507Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 72316,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "menu": {
+            "refresh": "inspect",
+            "token": "307ba0f777d90b53159d6da436e1dcecadd921e8"
+          }
+        },
+        "raw": "{\"menu\":{\"refresh\":\"inspect\",\"token\":\"307ba0f777d90b53159d6da436e1dcecadd921e8\"}}"
+      },
+      "rawData": "{\"menu\":{\"refresh\":\"inspect\",\"token\":\"307ba0f777d90b53159d6da436e1dcecadd921e8\"}}",
+      "capturedAt": "2026-01-25T13:01:33.507Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 72329,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "chat": {
+            "combat": {
+              "message": "Mindfucked-Skintight's breasts grow until they are Huge!",
+              "firstPerson": 0
+            }
+          },
+          "message_id": 11
+        },
+        "raw": "{\"chat\":{\"combat\":{\"message\":\"Mindfucked-Skintight's breasts grow until they are Huge!\",\"firstPerson\":0}},\"message_id\":11}"
+      },
+      "rawData": "{\"chat\":{\"combat\":{\"message\":\"Mindfucked-Skintight's breasts grow until they are Huge!\",\"firstPerson\":0}},\"message_id\":11}",
+      "capturedAt": "2026-01-25T13:01:33.520Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 72333,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          {
+            "character": {
+              "breasts": [
+                5,
+                0,
+                0,
+                0
+              ]
+            }
+          }
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"character\":{\"breasts\":[5,0,0,0]}}]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"character\":{\"breasts\":[5,0,0,0]}}]",
+      "capturedAt": "2026-01-25T13:01:33.524Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 72372,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          {
+            "status": {
+              "hit": true,
+              "mind": 0,
+              "body": 394
+            }
+          }
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"status\":{\"hit\":true,\"mind\":0,\"body\":394}}]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"status\":{\"hit\":true,\"mind\":0,\"body\":394}}]",
+      "capturedAt": "2026-01-25T13:01:33.563Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 72376,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          [
+            394,
+            0,
+            500,
+            0,
+            0,
+            500,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",[394,0,500,0,0,500,0,0,0]]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",[394,0,500,0,0,500,0,0,0]]",
+      "capturedAt": "2026-01-25T13:01:33.567Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 72377,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            420,
+            0,
+            541,
+            0,
+            0,
+            0,
+            3.23,
+            0.05383333333333333,
+            3.23,
+            0.8188666666666399,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,3.23,0.05383333333333333,3.23,0.8188666666666399,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,3.23,0.05383333333333333,3.23,0.8188666666666399,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:01:33.568Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 76924,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            420,
+            0,
+            541,
+            0,
+            0,
+            0,
+            3.23,
+            0.05383333333333333,
+            3.23,
+            1.0772333333333073,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,3.23,0.05383333333333333,3.23,1.0772333333333073,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,3.23,0.05383333333333333,3.23,1.0772333333333073,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:01:38.115Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 78910,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "spellId": 1,
+          "selfcast": false,
+          "variant": null,
+          "materialsRequired": false,
+          "action": "Spell",
+          "id": 13
+        },
+        "raw": "{\"spellId\":1,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":13}"
+      },
+      "rawData": "{\"spellId\":1,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":13}",
+      "capturedAt": "2026-01-25T13:01:40.101Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 79034,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "id": 13,
+          "success": true
+        },
+        "raw": "{\"id\":13,\"success\":true}"
+      },
+      "rawData": "{\"id\":13,\"success\":true}",
+      "capturedAt": "2026-01-25T13:01:40.225Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 79035,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "chat": {
+            "combat": {
+              "message": "Mindfucked-Skintight dodged your attack",
+              "firstPerson": false
+            }
+          },
+          "message_id": 12
+        },
+        "raw": "{\"chat\":{\"combat\":{\"message\":\"Mindfucked-Skintight dodged your attack\",\"firstPerson\":false}},\"message_id\":12}"
+      },
+      "rawData": "{\"chat\":{\"combat\":{\"message\":\"Mindfucked-Skintight dodged your attack\",\"firstPerson\":false}},\"message_id\":12}",
+      "capturedAt": "2026-01-25T13:01:40.226Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 79124,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            420,
+            0,
+            541,
+            0,
+            0,
+            0,
+            2.2353833333333335,
+            0.05383333333333333,
+            3.23,
+            1.5762444444444168,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,2.2353833333333335,0.05383333333333333,3.23,1.5762444444444168,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,2.2353833333333335,0.05383333333333333,3.23,1.5762444444444168,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:01:40.315Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 81969,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            420,
+            0,
+            541,
+            0,
+            0,
+            0,
+            2.386116666666672,
+            0.05383333333333333,
+            3.23,
+            1.7335111111110817,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,2.386116666666672,0.05383333333333333,3.23,1.7335111111110817,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,2.386116666666672,0.05383333333333333,3.23,1.7335111111110817,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:01:43.160Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 81982,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "spellId": 1,
+          "selfcast": false,
+          "variant": null,
+          "materialsRequired": false,
+          "action": "Spell",
+          "id": 14
+        },
+        "raw": "{\"spellId\":1,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":14}"
+      },
+      "rawData": "{\"spellId\":1,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":14}",
+      "capturedAt": "2026-01-25T13:01:43.173Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 82107,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "id": 14,
+          "success": true
+        },
+        "raw": "{\"id\":14,\"success\":true}"
+      },
+      "rawData": "{\"id\":14,\"success\":true}",
+      "capturedAt": "2026-01-25T13:01:43.298Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 82109,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          {
+            "status": {
+              "hit": true,
+              "mind": 0,
+              "body": 344
+            }
+          }
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"status\":{\"hit\":true,\"mind\":0,\"body\":344}}]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"status\":{\"hit\":true,\"mind\":0,\"body\":344}}]",
+      "capturedAt": "2026-01-25T13:01:43.300Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 82127,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          [
+            344,
+            0,
+            500,
+            0,
+            0,
+            500,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",[344,0,500,0,0,500,0,0,0]]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",[344,0,500,0,0,500,0,0,0]]",
+      "capturedAt": "2026-01-25T13:01:43.318Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 82128,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            420,
+            0,
+            541,
+            0,
+            0,
+            0,
+            1.3968833333333388,
+            0.05383333333333333,
+            3.23,
+            2.120188888888859,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,1.3968833333333388,0.05383333333333333,3.23,2.120188888888859,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,1.3968833333333388,0.05383333333333333,3.23,2.120188888888859,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:01:43.319Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 84557,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "Object",
+        "data": {
+          "0": 120,
+          "1": 156,
+          "2": 171,
+          "3": 86,
+          "4": 74,
+          "5": 76,
+          "6": 46,
+          "7": 201,
+          "8": 204,
+          "9": 207,
+          "10": 83,
+          "11": 178,
+          "12": 82,
+          "13": 114,
+          "14": 15,
+          "15": 245,
+          "16": 116,
+          "17": 81,
+          "18": 210,
+          "19": 81,
+          "20": 74,
+          "21": 47,
+          "22": 205,
+          "23": 76,
+          "24": 1,
+          "25": 242,
+          "26": 204,
+          "27": 140,
+          "28": 205,
+          "29": 76,
+          "30": 147,
+          "31": 76,
+          "32": 147,
+          "33": 44,
+          "34": 83,
+          "35": 82,
+          "36": 44,
+          "37": 76,
+          "38": 77,
+          "39": 45,
+          "40": 204,
+          "41": 45,
+          "42": 146,
+          "43": 140,
+          "44": 44,
+          "45": 205,
+          "46": 13,
+          "47": 83,
+          "48": 12,
+          "49": 13,
+          "50": 148,
+          "51": 106,
+          "52": 1,
+          "53": 127,
+          "54": 237,
+          "55": 14,
+          "56": 10
+        }
+      },
+      "rawData": "[Binary Data]",
+      "capturedAt": "2026-01-25T13:01:45.748Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 86923,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            420,
+            0,
+            541,
+            0,
+            0,
+            0,
+            1.655283333333337,
+            0.05383333333333333,
+            3.23,
+            2.389788888888856,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,1.655283333333337,0.05383333333333333,3.23,2.389788888888856,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,1.655283333333337,0.05383333333333333,3.23,2.389788888888856,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:01:48.114Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 89134,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "spellId": 7,
+          "selfcast": false,
+          "variant": null,
+          "materialsRequired": false,
+          "action": "Spell",
+          "id": 15
+        },
+        "raw": "{\"spellId\":7,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":15}"
+      },
+      "rawData": "{\"spellId\":7,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":15}",
+      "capturedAt": "2026-01-25T13:01:50.325Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 89273,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "id": 15,
+          "success": true
+        },
+        "raw": "{\"id\":15,\"success\":true}"
+      },
+      "rawData": "{\"id\":15,\"success\":true}",
+      "capturedAt": "2026-01-25T13:01:50.464Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 89274,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "menu": {
+            "refresh": "inspect",
+            "token": "307ba0f777d90b53159d6da436e1dcecadd921e8"
+          }
+        },
+        "raw": "{\"menu\":{\"refresh\":\"inspect\",\"token\":\"307ba0f777d90b53159d6da436e1dcecadd921e8\"}}"
+      },
+      "rawData": "{\"menu\":{\"refresh\":\"inspect\",\"token\":\"307ba0f777d90b53159d6da436e1dcecadd921e8\"}}",
+      "capturedAt": "2026-01-25T13:01:50.465Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 89275,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "chat": {
+            "combat": {
+              "message": "Mindfucked-Skintight's breasts grow until they are Massive!",
+              "firstPerson": 0
+            }
+          },
+          "message_id": 13
+        },
+        "raw": "{\"chat\":{\"combat\":{\"message\":\"Mindfucked-Skintight's breasts grow until they are Massive!\",\"firstPerson\":0}},\"message_id\":13}"
+      },
+      "rawData": "{\"chat\":{\"combat\":{\"message\":\"Mindfucked-Skintight's breasts grow until they are Massive!\",\"firstPerson\":0}},\"message_id\":13}",
+      "capturedAt": "2026-01-25T13:01:50.466Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 89278,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          {
+            "character": {
+              "breasts": [
+                6,
+                0,
+                0,
+                0
+              ]
+            }
+          }
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"character\":{\"breasts\":[6,0,0,0]}}]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"character\":{\"breasts\":[6,0,0,0]}}]",
+      "capturedAt": "2026-01-25T13:01:50.469Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 89283,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          {
+            "status": {
+              "hit": true,
+              "mind": 0,
+              "body": 197
+            }
+          }
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"status\":{\"hit\":true,\"mind\":0,\"body\":197}}]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"status\":{\"hit\":true,\"mind\":0,\"body\":197}}]",
+      "capturedAt": "2026-01-25T13:01:50.474Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 89326,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          [
+            197,
+            0,
+            500,
+            0,
+            0,
+            500,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",[197,0,500,0,0,500,0,0,0]]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",[197,0,500,0,0,500,0,0,0]]",
+      "capturedAt": "2026-01-25T13:01:50.518Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 89327,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            420,
+            0,
+            541,
+            0,
+            0,
+            0,
+            1.784483333333336,
+            0.05383333333333333,
+            3.23,
+            1.5245888888888546,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,1.784483333333336,0.05383333333333333,3.23,1.5245888888888546,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,1.784483333333336,0.05383333333333333,3.23,1.5245888888888546,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:01:50.518Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 91924,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            420,
+            0,
+            541,
+            0,
+            0,
+            0,
+            1.9244500000000018,
+            0.05383333333333333,
+            3.23,
+            1.6706222222221863,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,1.9244500000000018,0.05383333333333333,3.23,1.6706222222221863,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,1.9244500000000018,0.05383333333333333,3.23,1.6706222222221863,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:01:53.115Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 92472,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "spellId": 7,
+          "selfcast": false,
+          "variant": null,
+          "materialsRequired": false,
+          "action": "Spell",
+          "id": 16
+        },
+        "raw": "{\"spellId\":7,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":16}"
+      },
+      "rawData": "{\"spellId\":7,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":16}",
+      "capturedAt": "2026-01-25T13:01:53.663Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 92620,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "id": 16,
+          "success": true
+        },
+        "raw": "{\"id\":16,\"success\":true}"
+      },
+      "rawData": "{\"id\":16,\"success\":true}",
+      "capturedAt": "2026-01-25T13:01:53.811Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 92620,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "menu": {
+            "refresh": "inspect",
+            "token": "307ba0f777d90b53159d6da436e1dcecadd921e8"
+          }
+        },
+        "raw": "{\"menu\":{\"refresh\":\"inspect\",\"token\":\"307ba0f777d90b53159d6da436e1dcecadd921e8\"}}"
+      },
+      "rawData": "{\"menu\":{\"refresh\":\"inspect\",\"token\":\"307ba0f777d90b53159d6da436e1dcecadd921e8\"}}",
+      "capturedAt": "2026-01-25T13:01:53.811Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 92621,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "chat": {
+            "combat": {
+              "message": "Mindfucked-Skintight's breasts grow until they are Gargantuan!",
+              "firstPerson": 0
+            }
+          },
+          "message_id": 14
+        },
+        "raw": "{\"chat\":{\"combat\":{\"message\":\"Mindfucked-Skintight's breasts grow until they are Gargantuan!\",\"firstPerson\":0}},\"message_id\":14}"
+      },
+      "rawData": "{\"chat\":{\"combat\":{\"message\":\"Mindfucked-Skintight's breasts grow until they are Gargantuan!\",\"firstPerson\":0}},\"message_id\":14}",
+      "capturedAt": "2026-01-25T13:01:53.813Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 92626,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          {
+            "character": {
+              "breasts": [
+                7,
+                0,
+                0,
+                0
+              ]
+            }
+          }
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"character\":{\"breasts\":[7,0,0,0]}}]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"character\":{\"breasts\":[7,0,0,0]}}]",
+      "capturedAt": "2026-01-25T13:01:53.817Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 92629,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          {
+            "status": {
+              "hit": true,
+              "mind": 0,
+              "body": 54
+            }
+          }
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"status\":{\"hit\":true,\"mind\":0,\"body\":54}}]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"status\":{\"hit\":true,\"mind\":0,\"body\":54}}]",
+      "capturedAt": "2026-01-25T13:01:53.820Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 92631,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          [
+            54,
+            0,
+            500,
+            0,
+            0,
+            500,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",[54,0,500,0,0,500,0,0,0]]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",[54,0,500,0,0,500,0,0,0]]",
+      "capturedAt": "2026-01-25T13:01:53.822Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 92632,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            420,
+            0,
+            541,
+            0,
+            0,
+            0,
+            1.9621333333333348,
+            0.05383333333333333,
+            3.23,
+            0.7099388888888526,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,1.9621333333333348,0.05383333333333333,3.23,0.7099388888888526,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,1.9621333333333348,0.05383333333333333,3.23,0.7099388888888526,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:01:53.823Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 94312,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "Object",
+        "data": {
+          "0": 120,
+          "1": 156,
+          "2": 171,
+          "3": 86,
+          "4": 74,
+          "5": 76,
+          "6": 46,
+          "7": 201,
+          "8": 204,
+          "9": 207,
+          "10": 83,
+          "11": 178,
+          "12": 82,
+          "13": 114,
+          "14": 15,
+          "15": 245,
+          "16": 116,
+          "17": 81,
+          "18": 210,
+          "19": 81,
+          "20": 74,
+          "21": 47,
+          "22": 205,
+          "23": 76,
+          "24": 1,
+          "25": 242,
+          "26": 44,
+          "27": 12,
+          "28": 19,
+          "29": 147,
+          "30": 19,
+          "31": 13,
+          "32": 141,
+          "33": 146,
+          "34": 140,
+          "35": 45,
+          "36": 146,
+          "37": 140,
+          "38": 19,
+          "39": 83,
+          "40": 211,
+          "41": 82,
+          "42": 82,
+          "43": 147,
+          "44": 45,
+          "45": 210,
+          "46": 76,
+          "47": 12,
+          "48": 77,
+          "49": 18,
+          "50": 149,
+          "51": 106,
+          "52": 1,
+          "53": 142,
+          "54": 177,
+          "55": 15,
+          "56": 60
+        }
+      },
+      "rawData": "[Binary Data]",
+      "capturedAt": "2026-01-25T13:01:55.503Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 96922,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            420,
+            0,
+            541,
+            0,
+            0,
+            0,
+            2.1936166666666743,
+            0.05383333333333333,
+            3.23,
+            0.9514555555555212,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,2.1936166666666743,0.05383333333333333,3.23,0.9514555555555212,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,2.1936166666666743,0.05383333333333333,3.23,0.9514555555555212,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:01:58.114Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 100743,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "spellId": 1,
+          "selfcast": false,
+          "variant": null,
+          "materialsRequired": false,
+          "action": "Spell",
+          "id": 17
+        },
+        "raw": "{\"spellId\":1,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":17}"
+      },
+      "rawData": "{\"spellId\":1,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":17}",
+      "capturedAt": "2026-01-25T13:02:01.934Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 100893,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "id": 17,
+          "success": true
+        },
+        "raw": "{\"id\":17,\"success\":true}"
+      },
+      "rawData": "{\"id\":17,\"success\":true}",
+      "capturedAt": "2026-01-25T13:02:02.084Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 100894,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          {
+            "status": {
+              "hit": true,
+              "mind": 0,
+              "body": 4
+            }
+          }
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"status\":{\"hit\":true,\"mind\":0,\"body\":4}}]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"status\":{\"hit\":true,\"mind\":0,\"body\":4}}]",
+      "capturedAt": "2026-01-25T13:02:02.085Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 100920,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          [
+            4,
+            0,
+            500,
+            0,
+            0,
+            500,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",[4,0,500,0,0,500,0,0,0]]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",[4,0,500,0,0,500,0,0,0]]",
+      "capturedAt": "2026-01-25T13:02:02.111Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 100921,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            420,
+            0,
+            541,
+            0,
+            0,
+            0,
+            1.4089500000000148,
+            0.05383333333333333,
+            3.23,
+            1.5515666666666306,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,1.4089500000000148,0.05383333333333333,3.23,1.5515666666666306,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,1.4089500000000148,0.05383333333333333,3.23,1.5515666666666306,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:02:02.112Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 101922,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            420,
+            0,
+            541,
+            0,
+            0,
+            0,
+            1.4627833333333478,
+            0.05383333333333333,
+            3.23,
+            1.6077333333332966,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,1.4627833333333478,0.05383333333333333,3.23,1.6077333333332966,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,1.4627833333333478,0.05383333333333333,3.23,1.6077333333332966,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:02:03.113Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 104162,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "spellId": 1,
+          "selfcast": false,
+          "variant": null,
+          "materialsRequired": false,
+          "action": "Spell",
+          "id": 18
+        },
+        "raw": "{\"spellId\":1,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":18}"
+      },
+      "rawData": "{\"spellId\":1,\"selfcast\":false,\"variant\":null,\"materialsRequired\":false,\"action\":\"Spell\",\"id\":18}",
+      "capturedAt": "2026-01-25T13:02:05.353Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 104293,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "id": 18,
+          "success": true
+        },
+        "raw": "{\"id\":18,\"success\":true}"
+      },
+      "rawData": "{\"id\":18,\"success\":true}",
+      "capturedAt": "2026-01-25T13:02:05.484Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 104294,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          {
+            "status": {
+              "hit": true,
+              "mind": 0,
+              "body": 0
+            }
+          }
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"status\":{\"hit\":true,\"mind\":0,\"body\":0}}]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"status\":{\"hit\":true,\"mind\":0,\"body\":0}}]",
+      "capturedAt": "2026-01-25T13:02:05.485Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 104299,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          {
+            "countdowns": [
+              "dazed",
+              45000
+            ]
+          }
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"countdowns\":[\"dazed\",45000]}]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"countdowns\":[\"dazed\",45000]}]",
+      "capturedAt": "2026-01-25T13:02:05.490Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 104301,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          {
+            "countdowns": [
+              "recentlyDefeated",
+              900000
+            ]
+          }
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"countdowns\":[\"recentlyDefeated\",900000]}]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",{\"countdowns\":[\"recentlyDefeated\",900000]}]",
+      "capturedAt": "2026-01-25T13:02:05.492Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 104302,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "ArrayBuffer",
+        "size": 704,
+        "preview": [
+          120,
+          156,
+          181,
+          84,
+          193,
+          110,
+          228,
+          54,
+          12,
+          253,
+          21,
+          66,
+          103,
+          55,
+          51,
+          147,
+          217,
+          236,
+          108,
+          124,
+          92,
+          244,
+          82,
+          180,
+          11,
+          20,
+          221,
+          94,
+          138,
+          32,
+          24,
+          208,
+          18,
+          109,
+          179,
+          150,
+          37,
+          67,
+          164,
+          146,
+          157,
+          13,
+          230,
+          223,
+          11,
+          217,
+          51,
+          73,
+          145,
+          14,
+          186,
+          5,
+          178,
+          189,
+          73,
+          52,
+          205,
+          71,
+          190,
+          247,
+          196,
+          59,
+          179,
+          93,
+          239,
+          26,
+          92,
+          183,
+          187,
+          221,
+          206,
+          221,
+          174,
+          155,
+          155,
+          237,
+          230,
+          230,
+          214,
+          189,
+          119,
+          248,
+          110,
+          251,
+          158,
+          54,
+          206,
+          146,
+          69,
+          231,
+          110,
+          175,
+          55,
+          244,
+          193,
+          84,
+          79,
+          70,
+          20,
+          53
+        ],
+        "hex": "78 9c b5 54 c1 6e e4 36 0c fd 15 42 67 37 33 93 d9 ec 6c 7c 5c f4 52 b4 0b 14 dd 5e 8a 20 18 d0 12 6d b3 96 25 43 a4 92 9d 0d e6 df 0b d9 33 49 91 0e ba 05 b2 bd 49 34 cd 47 be f7 c4 3b b3 5d ef 1a 5c b7 bb dd ce dd ae 9b 9b ed e6 e6 d6 bd 77 f8 6e fb 9e 36 ce 92 45 e7 6e af 37 f4 c1 54 4f 46 14 35"
+      },
+      "rawData": {},
+      "capturedAt": "2026-01-25T13:02:05.494Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 104307,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "chat": {
+            "combat": {
+              "message": "Mindfucked-Skintight drops to their knees before you",
+              "firstPerson": false
+            }
+          },
+          "message_id": 15
+        },
+        "raw": "{\"chat\":{\"combat\":{\"message\":\"Mindfucked-Skintight drops to their knees before you\",\"firstPerson\":false}},\"message_id\":15}"
+      },
+      "rawData": "{\"chat\":{\"combat\":{\"message\":\"Mindfucked-Skintight drops to their knees before you\",\"firstPerson\":false}},\"message_id\":15}",
+      "capturedAt": "2026-01-25T13:02:05.498Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 104312,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "ArrayBuffer",
+        "size": 852,
+        "preview": [
+          120,
+          156,
+          221,
+          151,
+          77,
+          111,
+          227,
+          54,
+          16,
+          134,
+          255,
+          138,
+          49,
+          199,
+          130,
+          93,
+          91,
+          254,
+          136,
+          109,
+          221,
+          186,
+          217,
+          195,
+          162,
+          216,
+          69,
+          3,
+          236,
+          238,
+          41,
+          8,
+          132,
+          17,
+          53,
+          145,
+          88,
+          83,
+          164,
+          74,
+          82,
+          13,
+          220,
+          192,
+          255,
+          189,
+          24,
+          197,
+          177,
+          107,
+          57,
+          254,
+          200,
+          202,
+          139,
+          166,
+          189,
+          72,
+          22,
+          105,
+          14,
+          71,
+          243,
+          188,
+          156,
+          25,
+          61,
+          130,
+          182,
+          18,
+          131,
+          178,
+          6,
+          226,
+          71,
+          240,
+          21,
+          73,
+          133,
+          250,
+          23,
+          201,
+          3,
+          158,
+          71,
+          108,
+          181,
+          254,
+          121,
+          251,
+          8,
+          42,
+          131,
+          120,
+          20,
+          9,
+          192,
+          102,
+          58,
+          49
+        ],
+        "hex": "78 9c dd 97 4d 6f e3 36 10 86 ff 8a 31 c7 82 5d 5b fe 88 6d dd ba d9 c3 a2 d8 45 03 ec ee 29 08 84 11 35 91 58 53 a4 4a 52 0d dc c0 ff bd 18 c5 b1 6b 39 fe c8 ca 8b a6 bd 48 16 69 0e 47 f3 bc 9c 19 3d 82 b6 12 83 b2 06 e2 47 f0 15 49 85 fa 17 c9 03 9e 47 6c b5 fe 79 fb 08 2a 83 78 14 09 c0 66 3a 31"
+      },
+      "rawData": {},
+      "capturedAt": "2026-01-25T13:02:05.503Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 104330,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "307ba0f777d90b53159d6da436e1dcecadd921e8",
+          [
+            0,
+            0,
+            500,
+            0,
+            0,
+            500,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",[0,0,500,0,0,500,0,0,0]]"
+      },
+      "rawData": "[\"307ba0f777d90b53159d6da436e1dcecadd921e8\",[0,0,500,0,0,500,0,0,0]]",
+      "capturedAt": "2026-01-25T13:02:05.521Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 104331,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            420,
+            0,
+            541,
+            0,
+            0,
+            0,
+            0.5919833333333469,
+            0.05383333333333333,
+            3.23,
+            2.1179777777777393,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,0.5919833333333469,0.05383333333333333,3.23,2.1179777777777393,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,0.5919833333333469,0.05383333333333333,3.23,2.1179777777777393,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:02:05.522Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 106923,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            420,
+            0,
+            541,
+            0,
+            0,
+            0,
+            0.7319500000000125,
+            0.05383333333333333,
+            3.23,
+            2.264011111111071,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,0.7319500000000125,0.05383333333333333,3.23,2.264011111111071,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,0.7319500000000125,0.05383333333333333,3.23,2.264011111111071,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:02:08.114Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 111277,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "Object",
+        "data": {
+          "0": 120,
+          "1": 156,
+          "2": 171,
+          "3": 86,
+          "4": 74,
+          "5": 76,
+          "6": 46,
+          "7": 201,
+          "8": 204,
+          "9": 207,
+          "10": 83,
+          "11": 178,
+          "12": 82,
+          "13": 114,
+          "14": 15,
+          "15": 245,
+          "16": 116,
+          "17": 81,
+          "18": 210,
+          "19": 81,
+          "20": 74,
+          "21": 47,
+          "22": 205,
+          "23": 76,
+          "24": 1,
+          "25": 242,
+          "26": 12,
+          "27": 147,
+          "28": 82,
+          "29": 204,
+          "30": 77,
+          "31": 12,
+          "32": 140,
+          "33": 83,
+          "34": 147,
+          "35": 140,
+          "36": 147,
+          "37": 83,
+          "38": 77,
+          "39": 141,
+          "40": 13,
+          "41": 205,
+          "42": 13,
+          "43": 141,
+          "44": 141,
+          "45": 77,
+          "46": 82,
+          "47": 77,
+          "48": 45,
+          "49": 146,
+          "50": 149,
+          "51": 106,
+          "52": 1,
+          "53": 132,
+          "54": 30,
+          "55": 14,
+          "56": 80
+        }
+      },
+      "rawData": "[Binary Data]",
+      "capturedAt": "2026-01-25T13:02:12.468Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 111931,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            420,
+            0,
+            541,
+            0,
+            0,
+            0,
+            1.0011166666666773,
+            0.05383333333333333,
+            3.23,
+            2.544844444444401,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,1.0011166666666773,0.05383333333333333,3.23,2.544844444444401,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,1.0011166666666773,0.05383333333333333,3.23,2.544844444444401,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:02:13.122Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 116611,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "Object",
+        "data": {
+          "0": 120,
+          "1": 156,
+          "2": 171,
+          "3": 86,
+          "4": 74,
+          "5": 76,
+          "6": 46,
+          "7": 201,
+          "8": 204,
+          "9": 207,
+          "10": 83,
+          "11": 178,
+          "12": 82,
+          "13": 114,
+          "14": 15,
+          "15": 245,
+          "16": 116,
+          "17": 81,
+          "18": 210,
+          "19": 81,
+          "20": 74,
+          "21": 47,
+          "22": 205,
+          "23": 76,
+          "24": 1,
+          "25": 242,
+          "26": 82,
+          "27": 77,
+          "28": 82,
+          "29": 13,
+          "30": 83,
+          "31": 83,
+          "32": 205,
+          "33": 140,
+          "34": 146,
+          "35": 82,
+          "36": 83,
+          "37": 44,
+          "38": 77,
+          "39": 44,
+          "40": 141,
+          "41": 45,
+          "42": 13,
+          "43": 141,
+          "44": 140,
+          "45": 77,
+          "46": 44,
+          "47": 146,
+          "48": 77,
+          "49": 83,
+          "50": 149,
+          "51": 106,
+          "52": 1,
+          "53": 138,
+          "54": 125,
+          "55": 14,
+          "56": 150
+        }
+      },
+      "rawData": "[Binary Data]",
+      "capturedAt": "2026-01-25T13:02:17.802Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 116929,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            420,
+            0,
+            541,
+            0,
+            0,
+            0,
+            1.270283333333342,
+            0.05383333333333333,
+            3.23,
+            2.8256777777777313,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,1.270283333333342,0.05383333333333333,3.23,2.8256777777777313,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,1.270283333333342,0.05383333333333333,3.23,2.8256777777777313,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:02:18.120Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 117206,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "Object",
+        "data": {
+          "0": 120,
+          "1": 156,
+          "2": 171,
+          "3": 86,
+          "4": 74,
+          "5": 76,
+          "6": 46,
+          "7": 201,
+          "8": 204,
+          "9": 207,
+          "10": 83,
+          "11": 178,
+          "12": 82,
+          "13": 114,
+          "14": 15,
+          "15": 245,
+          "16": 116,
+          "17": 81,
+          "18": 210,
+          "19": 81,
+          "20": 74,
+          "21": 47,
+          "22": 205,
+          "23": 76,
+          "24": 1,
+          "25": 242,
+          "26": 12,
+          "27": 204,
+          "28": 44,
+          "29": 205,
+          "30": 205,
+          "31": 18,
+          "32": 19,
+          "33": 13,
+          "34": 12,
+          "35": 140,
+          "36": 83,
+          "37": 147,
+          "38": 82,
+          "39": 205,
+          "40": 147,
+          "41": 45,
+          "42": 77,
+          "43": 82,
+          "44": 77,
+          "45": 204,
+          "46": 18,
+          "47": 211,
+          "48": 140,
+          "49": 82,
+          "50": 148,
+          "51": 106,
+          "52": 1,
+          "53": 131,
+          "54": 249,
+          "55": 14,
+          "56": 185
+        }
+      },
+      "rawData": "[Binary Data]",
+      "capturedAt": "2026-01-25T13:02:18.397Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 120309,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "id": 43,
+          "action": "Special"
+        },
+        "raw": "{\"id\":43,\"action\":\"Special\"}"
+      },
+      "rawData": "{\"id\":43,\"action\":\"Special\"}",
+      "capturedAt": "2026-01-25T13:02:21.500Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 120455,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "scenario": true
+        },
+        "raw": "{\"scenario\":true}"
+      },
+      "rawData": "{\"scenario\":true}",
+      "capturedAt": "2026-01-25T13:02:21.647Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 120466,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "gui": {
+            "action": "SetTextParameters",
+            "params": [
+              false,
+              null,
+              null,
+              0
+            ]
+          }
+        },
+        "raw": "{\"gui\":{\"action\":\"SetTextParameters\",\"params\":[false,null,null,0]}}"
+      },
+      "rawData": "{\"gui\":{\"action\":\"SetTextParameters\",\"params\":[false,null,null,0]}}",
+      "capturedAt": "2026-01-25T13:02:21.657Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 120466,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "action": "Scenario"
+        },
+        "raw": "{\"action\":\"Scenario\"}"
+      },
+      "rawData": "{\"action\":\"Scenario\"}",
+      "capturedAt": "2026-01-25T13:02:21.657Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 120467,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "ArrayBuffer",
+        "size": 225,
+        "preview": [
+          120,
+          156,
+          189,
+          208,
+          177,
+          78,
+          196,
+          48,
+          12,
+          6,
+          224,
+          87,
+          65,
+          255,
+          28,
+          93,
+          196,
+          154,
+          153,
+          5,
+          137,
+          13,
+          54,
+          132,
+          78,
+          190,
+          212,
+          164,
+          129,
+          38,
+          174,
+          28,
+          247,
+          164,
+          83,
+          213,
+          119,
+          71,
+          61,
+          122,
+          32,
+          30,
+          160,
+          108,
+          241,
+          111,
+          89,
+          159,
+          157,
+          25,
+          105,
+          202,
+          8,
+          51,
+          40,
+          90,
+          150,
+          138,
+          128,
+          103,
+          182,
+          39,
+          137,
+          116,
+          173,
+          28,
+          70,
+          82,
+          42,
+          13,
+          225,
+          117,
+          70,
+          165,
+          194,
+          8,
+          120,
+          16,
+          45,
+          217,
+          68,
+          47,
+          112,
+          176,
+          108,
+          195,
+          154,
+          189,
+          244,
+          124,
+          247,
+          39,
+          191,
+          140,
+          107,
+          28,
+          169,
+          140,
+          83,
+          131
+        ],
+        "hex": "78 9c bd d0 b1 4e c4 30 0c 06 e0 57 41 ff 1c 5d c4 9a 99 05 89 0d 36 84 4e be d4 a4 81 26 ae 1c f7 a4 53 d5 77 47 3d 7a 20 1e a0 6c f1 6f 59 9f 9d 19 69 ca 08 33 28 5a 96 8a 80 67 b6 27 89 74 ad 1c 46 52 2a 0d e1 75 46 a5 c2 08 78 10 2d d9 44 2f 70 b0 6c c3 9a bd f4 7c f7 27 bf 8c 6b 1c a9 8c 53 83"
+      },
+      "rawData": {},
+      "capturedAt": "2026-01-25T13:02:21.658Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 120470,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "action": "Scenario",
+          "callbackId": 1
+        },
+        "raw": "{\"action\":\"Scenario\",\"callbackId\":1}"
+      },
+      "rawData": "{\"action\":\"Scenario\",\"callbackId\":1}",
+      "capturedAt": "2026-01-25T13:02:21.661Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 120471,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "ArrayBuffer",
+        "size": 328,
+        "preview": [
+          120,
+          156,
+          93,
+          80,
+          203,
+          106,
+          195,
+          48,
+          16,
+          252,
+          149,
+          50,
+          231,
+          61,
+          200,
+          78,
+          28,
+          55,
+          186,
+          149,
+          210,
+          67,
+          207,
+          61,
+          26,
+          17,
+          54,
+          122,
+          216,
+          34,
+          126,
+          85,
+          146,
+          41,
+          105,
+          200,
+          191,
+          23,
+          219,
+          9,
+          77,
+          203,
+          30,
+          196,
+          60,
+          52,
+          179,
+          236,
+          5,
+          245,
+          228,
+          33,
+          47,
+          96,
+          157,
+          252,
+          208,
+          67,
+          226,
+          163,
+          25,
+          190,
+          94,
+          27,
+          14,
+          172,
+          147,
+          13,
+          32,
+          140,
+          28,
+          184,
+          139,
+          144,
+          213,
+          5,
+          61,
+          119,
+          22,
+          18,
+          47,
+          221,
+          25,
+          132,
+          56,
+          133,
+          27,
+          254,
+          232,
+          124,
+          106,
+          64,
+          139,
+          28,
+          87,
+          253,
+          233,
+          151,
+          75,
+          83
+        ],
+        "hex": "78 9c 5d 50 cb 6a c3 30 10 fc 95 32 e7 3d c8 4e 1c 37 ba 95 d2 43 cf 3d 1a 11 36 7a d8 22 7e 55 92 29 69 c8 bf 17 db 09 4d cb 1e c4 3c 34 b3 ec 05 f5 e4 21 2f 60 9d fc d0 43 e2 a3 19 be 5e 1b 0e ac 93 0d 20 8c 1c b8 8b 90 d5 05 3d 77 16 12 2f dd 19 84 38 85 1b fe e8 7c 6a 40 8b 1c 57 fd e9 97 4b 53"
+      },
+      "rawData": {},
+      "capturedAt": "2026-01-25T13:02:21.662Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 120472,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "action": "Scenario",
+          "response": false,
+          "callbackId": 2
+        },
+        "raw": "{\"action\":\"Scenario\",\"response\":false,\"callbackId\":2}"
+      },
+      "rawData": "{\"action\":\"Scenario\",\"response\":false,\"callbackId\":2}",
+      "capturedAt": "2026-01-25T13:02:21.663Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 120472,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "ArrayBuffer",
+        "size": 335,
+        "preview": [
+          120,
+          156,
+          117,
+          145,
+          79,
+          111,
+          179,
+          48,
+          12,
+          198,
+          191,
+          202,
+          228,
+          179,
+          55,
+          65,
+          41,
+          101,
+          205,
+          117,
+          151,
+          237,
+          176,
+          211,
+          142,
+          8,
+          85,
+          110,
+          98,
+          192,
+          130,
+          6,
+          150,
+          63,
+          154,
+          182,
+          170,
+          223,
+          125,
+          130,
+          210,
+          247,
+          101,
+          147,
+          22,
+          31,
+          34,
+          63,
+          254,
+          249,
+          177,
+          149,
+          156,
+          161,
+          137,
+          2,
+          234,
+          12,
+          164,
+          131,
+          12,
+          22,
+          20,
+          188,
+          181,
+          195,
+          199,
+          83,
+          75,
+          142,
+          116,
+          96,
+          7,
+          8,
+          35,
+          57,
+          58,
+          121,
+          80,
+          229,
+          25,
+          44,
+          157,
+          24,
+          20,
+          188,
+          138,
+          53,
+          117,
+          212,
+          29,
+          155,
+          251,
+          183,
+          78,
+          108,
+          144,
+          166,
+          13,
+          128
+        ],
+        "hex": "78 9c 75 91 4f 6f b3 30 0c c6 bf ca e4 b3 37 41 29 65 cd 75 97 ed b0 d3 8e 08 55 6e 62 c0 82 06 96 3f 9a b6 aa df 7d 82 d2 f7 65 93 16 1f 22 3f fe f9 b1 95 9c a1 89 02 ea 0c a4 83 0c 16 14 bc b5 c3 c7 53 4b 8e 74 60 07 08 23 39 3a 79 50 e5 19 2c 9d 18 14 bc 8a 35 75 d4 1d 9b fb b7 4e 6c 90 a6 0d 80"
+      },
+      "rawData": {},
+      "capturedAt": "2026-01-25T13:02:21.663Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 120473,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "action": "Scenario",
+          "response": false,
+          "callbackId": 3
+        },
+        "raw": "{\"action\":\"Scenario\",\"response\":false,\"callbackId\":3}"
+      },
+      "rawData": "{\"action\":\"Scenario\",\"response\":false,\"callbackId\":3}",
+      "capturedAt": "2026-01-25T13:02:21.664Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 120474,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "ArrayBuffer",
+        "size": 286,
+        "preview": [
+          120,
+          156,
+          189,
+          146,
+          209,
+          110,
+          194,
+          48,
+          12,
+          69,
+          127,
+          101,
+          242,
+          115,
+          69,
+          97,
+          165,
+          43,
+          228,
+          149,
+          125,
+          194,
+          180,
+          87,
+          100,
+          82,
+          167,
+          205,
+          104,
+          226,
+          144,
+          184,
+          72,
+          8,
+          245,
+          223,
+          167,
+          0,
+          221,
+          180,
+          15,
+          96,
+          111,
+          214,
+          181,
+          124,
+          207,
+          181,
+          229,
+          43,
+          12,
+          172,
+          81,
+          44,
+          123,
+          80,
+          87,
+          240,
+          232,
+          8,
+          20,
+          188,
+          115,
+          116,
+          86,
+          56,
+          94,
+          160,
+          0,
+          177,
+          50,
+          100,
+          237,
+          163,
+          167,
+          151,
+          63,
+          250,
+          37,
+          100,
+          89,
+          163,
+          11,
+          99,
+          130,
+          2,
+          34,
+          37,
+          177,
+          190,
+          3,
+          37,
+          113,
+          164,
+          2,
+          14,
+          168,
+          143,
+          93,
+          228
+        ],
+        "hex": "78 9c bd 92 d1 6e c2 30 0c 45 7f 65 f2 73 45 61 a5 2b e4 95 7d c2 b4 57 64 52 a7 cd 68 e2 90 b8 48 08 f5 df a7 00 dd b4 0f 60 6f d6 b5 7c cf b5 e5 2b 0c ac 51 2c 7b 50 57 f0 e8 08 14 bc 73 74 56 38 5e a0 00 b1 32 64 ed a3 a7 97 3f fa 25 64 59 a3 0b 63 82 02 22 25 b1 be 03 25 71 a4 02 0e a8 8f 5d e4"
+      },
+      "rawData": {},
+      "capturedAt": "2026-01-25T13:02:21.665Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 120492,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "menu": {
+            "refresh": "yourself"
+          }
+        },
+        "raw": "{\"menu\":{\"refresh\":\"yourself\"}}"
+      },
+      "rawData": "{\"menu\":{\"refresh\":\"yourself\"}}",
+      "capturedAt": "2026-01-25T13:02:21.683Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 120493,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "inventory": {
+            "equipment": {
+              "items": [
+                898708,
+                899380,
+                913413,
+                1235646,
+                null,
+                6946271,
+                884061,
+                832660
+              ],
+              "worn": [
+                false,
+                true,
+                true,
+                true,
+                false,
+                true,
+                true,
+                true
+              ]
+            }
+          }
+        },
+        "raw": "{\"inventory\":{\"equipment\":{\"items\":[898708,899380,913413,1235646,null,6946271,884061,832660],\"worn\":[false,true,true,true,false,true,true,true]}}}"
+      },
+      "rawData": "{\"inventory\":{\"equipment\":{\"items\":[898708,899380,913413,1235646,null,6946271,884061,832660],\"worn\":[false,true,true,true,false,true,true,true]}}}",
+      "capturedAt": "2026-01-25T13:02:21.684Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 120495,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "ArrayBuffer",
+        "size": 938,
+        "preview": [
+          120,
+          156,
+          181,
+          86,
+          77,
+          111,
+          227,
+          54,
+          16,
+          253,
+          43,
+          3,
+          158,
+          181,
+          182,
+          44,
+          57,
+          182,
+          163,
+          91,
+          131,
+          30,
+          26,
+          160,
+          11,
+          44,
+          144,
+          94,
+          138,
+          32,
+          8,
+          40,
+          114,
+          36,
+          77,
+          77,
+          145,
+          2,
+          57,
+          178,
+          227,
+          93,
+          248,
+          191,
+          23,
+          20,
+          99,
+          111,
+          62,
+          140,
+          109,
+          139,
+          116,
+          121,
+          146,
+          248,
+          49,
+          243,
+          222,
+          188,
+          153,
+          33,
+          239,
+          197,
+          114,
+          45,
+          241,
+          122,
+          189,
+          186,
+          214,
+          74,
+          45,
+          155,
+          141,
+          110,
+          202,
+          117,
+          83,
+          46,
+          150,
+          87,
+          77,
+          158,
+          235,
+          171,
+          141,
+          106,
+          74,
+          213,
+          232,
+          166,
+          144,
+          235,
+          181,
+          200,
+          190,
+          137,
+          192,
+          146
+        ],
+        "hex": "78 9c b5 56 4d 6f e3 36 10 fd 2b 03 9e b5 b6 2c 39 b6 a3 5b 83 1e 1a a0 0b 2c 90 5e 8a 20 08 28 72 24 4d 4d 91 02 39 b2 e3 5d f8 bf 17 14 63 6f 3e 8c 6d 8b 74 79 92 f8 31 f3 de bc 99 21 ef c5 72 2d f1 7a bd ba d6 4a 2d 9b 8d 6e ca 75 53 2e 96 57 4d 9e eb ab 8d 6a 4a d5 e8 a6 90 eb b5 c8 be 89 c0 92"
+      },
+      "rawData": {},
+      "capturedAt": "2026-01-25T13:02:21.686Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 120497,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          {
+            "actions": {}
+          }
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",{\"actions\":{}}]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",{\"actions\":{}}]",
+      "capturedAt": "2026-01-25T13:02:21.688Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 120498,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "menu": {
+            "refresh": "yourself"
+          }
+        },
+        "raw": "{\"menu\":{\"refresh\":\"yourself\"}}"
+      },
+      "rawData": "{\"menu\":{\"refresh\":\"yourself\"}}",
+      "capturedAt": "2026-01-25T13:02:21.689Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 120498,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "ArrayBuffer",
+        "size": 1228,
+        "preview": [
+          120,
+          156,
+          221,
+          87,
+          75,
+          143,
+          219,
+          56,
+          12,
+          254,
+          43,
+          6,
+          143,
+          11,
+          37,
+          241,
+          51,
+          15,
+          31,
+          103,
+          138,
+          109,
+          47,
+          45,
+          6,
+          77,
+          177,
+          151,
+          32,
+          48,
+          20,
+          155,
+          177,
+          133,
+          200,
+          146,
+          43,
+          201,
+          205,
+          122,
+          7,
+          243,
+          223,
+          23,
+          114,
+          50,
+          177,
+          157,
+          76,
+          166,
+          143,
+          180,
+          61,
+          244,
+          226,
+          32,
+          36,
+          253,
+          145,
+          150,
+          190,
+          79,
+          164,
+          86,
+          16,
+          206,
+          40,
+          46,
+          102,
+          211,
+          69,
+          150,
+          166,
+          225,
+          118,
+          158,
+          109,
+          131,
+          217,
+          54,
+          240,
+          194,
+          104,
+          235,
+          186,
+          89,
+          52,
+          79,
+          183,
+          65,
+          186,
+          205,
+          182,
+          62,
+          157,
+          205,
+          128,
+          60,
+          66,
+          90
+        ],
+        "hex": "78 9c dd 57 4b 8f db 38 0c fe 2b 06 8f 0b 25 f1 33 0f 1f 67 8a 6d 2f 2d 06 4d b1 97 20 30 14 9b b1 85 c8 92 2b c9 cd 7a 07 f3 df 17 72 32 b1 9d 4c a6 8f b4 3d f4 e2 20 24 fd 91 96 be 4f a4 56 10 ce 28 2e 66 d3 45 96 a6 e1 76 9e 6d 83 d9 36 f0 c2 68 eb ba 59 34 4f b7 41 ba cd b6 3e 9d cd 80 3c 42 5a"
+      },
+      "rawData": {},
+      "capturedAt": "2026-01-25T13:02:21.689Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 120501,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "id": 43,
+          "success": true
+        },
+        "raw": "{\"id\":43,\"success\":true}"
+      },
+      "rawData": "{\"id\":43,\"success\":true}",
+      "capturedAt": "2026-01-25T13:02:21.692Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 120585,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "location": {
+            "specialActions": {
+              "options": [],
+              "token": "307ba0f777d90b53159d6da436e1dcecadd921e8",
+              "tier": 0
+            }
+          }
+        },
+        "raw": "{\"location\":{\"specialActions\":{\"options\":[],\"token\":\"307ba0f777d90b53159d6da436e1dcecadd921e8\",\"tier\":0}}}"
+      },
+      "rawData": "{\"location\":{\"specialActions\":{\"options\":[],\"token\":\"307ba0f777d90b53159d6da436e1dcecadd921e8\",\"tier\":0}}}",
+      "capturedAt": "2026-01-25T13:02:21.776Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 120587,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            0,
+            462,
+            420,
+            0,
+            541,
+            0,
+            0,
+            0,
+            1.4640833333333407,
+            0.05383333333333333,
+            3.23,
+            3.0222611111110624,
+            0,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,1.4640833333333407,0.05383333333333333,3.23,3.0222611111110624,0,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,0,462,420,0,541,0,0,0,1.4640833333333407,0.05383333333333333,3.23,3.0222611111110624,0,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:02:21.778Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 120609,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "ArrayBuffer",
+        "size": 505,
+        "preview": [
+          120,
+          156,
+          117,
+          82,
+          93,
+          139,
+          219,
+          48,
+          16,
+          252,
+          43,
+          199,
+          62,
+          171,
+          137,
+          19,
+          231,
+          227,
+          162,
+          215,
+          131,
+          210,
+          62,
+          20,
+          14,
+          250,
+          24,
+          76,
+          88,
+          75,
+          107,
+          121,
+          177,
+          44,
+          185,
+          146,
+          124,
+          112,
+          13,
+          249,
+          239,
+          69,
+          182,
+          115,
+          151,
+          22,
+          106,
+          129,
+          205,
+          206,
+          206,
+          206,
+          202,
+          179,
+          123,
+          5,
+          51,
+          50,
+          200,
+          43,
+          160,
+          74,
+          236,
+          29,
+          72,
+          248,
+          225,
+          195,
+          208,
+          190,
+          180,
+          24,
+          80,
+          37,
+          10,
+          32,
+          96,
+          192,
+          128,
+          125,
+          4,
+          121,
+          190,
+          130,
+          195,
+          158,
+          50,
+          133,
+          157,
+          110,
+          70,
+          213,
+          145,
+          254,
+          242,
+          179,
+          99,
+          151,
+          216,
+          180
+        ],
+        "hex": "78 9c 75 52 5d 8b db 30 10 fc 2b c7 3e ab 89 13 e7 e3 a2 d7 83 d2 3e 14 0e fa 18 4c 58 4b 6b 79 b1 2c b9 92 7c 70 0d f9 ef 45 b6 73 97 16 6a 81 cd ce ce ce ca b3 7b 05 33 32 c8 2b a0 4a ec 1d 48 f8 e1 c3 d0 be b4 18 50 25 0a 20 60 c0 80 7d 04 79 be 82 c3 9e 32 85 9d 6e 46 d5 91 fe f2 b3 63 97 d8 b4"
+      },
+      "rawData": {},
+      "capturedAt": "2026-01-25T13:02:21.800Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 121408,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "action": "Scenario",
+          "callbackId": 4
+        },
+        "raw": "{\"action\":\"Scenario\",\"callbackId\":4}"
+      },
+      "rawData": "{\"action\":\"Scenario\",\"callbackId\":4}",
+      "capturedAt": "2026-01-25T13:02:22.599Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 121571,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "gui": {
+            "action": "ShowText",
+            "params": [
+              "Mindfucked-Skintight was turned into Cage Panties"
+            ]
+          },
+          "callbackId": 5
+        },
+        "raw": "{\"gui\":{\"action\":\"ShowText\",\"params\":[\"Mindfucked-Skintight was turned into Cage Panties\"]},\"callbackId\":5}"
+      },
+      "rawData": "{\"gui\":{\"action\":\"ShowText\",\"params\":[\"Mindfucked-Skintight was turned into Cage Panties\"]},\"callbackId\":5}",
+      "capturedAt": "2026-01-25T13:02:22.762Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 124210,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "action": "Scenario",
+          "callbackId": 5
+        },
+        "raw": "{\"action\":\"Scenario\",\"callbackId\":5}"
+      },
+      "rawData": "{\"action\":\"Scenario\",\"callbackId\":5}",
+      "capturedAt": "2026-01-25T13:02:25.401Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 124354,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "ArrayBuffer",
+        "size": 1705,
+        "preview": [
+          120,
+          156,
+          205,
+          88,
+          73,
+          111,
+          227,
+          56,
+          22,
+          254,
+          43,
+          4,
+          143,
+          3,
+          197,
+          209,
+          98,
+          121,
+          59,
+          86,
+          10,
+          211,
+          153,
+          67,
+          53,
+          130,
+          74,
+          245,
+          92,
+          130,
+          64,
+          160,
+          165,
+          103,
+          137,
+          48,
+          77,
+          170,
+          73,
+          42,
+          110,
+          77,
+          193,
+          255,
+          125,
+          240,
+          40,
+          89,
+          146,
+          183,
+          44,
+          229,
+          52,
+          208,
+          23,
+          89,
+          92,
+          244,
+          248,
+          190,
+          239,
+          173,
+          244,
+          79,
+          202,
+          229,
+          11,
+          72,
+          171,
+          116,
+          77,
+          23,
+          63,
+          233,
+          146,
+          25,
+          248,
+          143,
+          133,
+          141,
+          193,
+          193,
+          56,
+          194,
+          39,
+          207,
+          232,
+          98,
+          28,
+          121,
+          148,
+          91,
+          216,
+          36,
+          146,
+          109,
+          128,
+          46,
+          232,
+          119
+        ],
+        "hex": "78 9c cd 58 49 6f e3 38 16 fe 2b 04 8f 03 c5 d1 62 79 3b 56 0a d3 99 43 35 82 4a f5 5c 82 40 a0 a5 67 89 30 4d aa 49 2a 6e 4d c1 ff 7d f0 28 59 92 b7 2c e5 34 d0 17 59 5c f4 f8 be ef ad f4 4f ca e5 0b 48 ab 74 4d 17 3f e9 92 19 f8 8f 85 8d c1 c1 38 c2 27 cf e8 62 1c 79 94 5b d8 24 92 6d 80 2e e8 77"
+      },
+      "rawData": {},
+      "capturedAt": "2026-01-25T13:02:25.546Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 124367,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "ArrayBuffer",
+        "size": 2202,
+        "preview": [
+          120,
+          156,
+          237,
+          89,
+          109,
+          111,
+          219,
+          56,
+          18,
+          254,
+          43,
+          4,
+          63,
+          30,
+          184,
+          137,
+          37,
+          91,
+          182,
+          227,
+          111,
+          219,
+          246,
+          14,
+          45,
+          112,
+          61,
+          44,
+          54,
+          187,
+          11,
+          28,
+          12,
+          67,
+          160,
+          164,
+          145,
+          197,
+          154,
+          34,
+          85,
+          146,
+          178,
+          227,
+          13,
+          252,
+          223,
+          15,
+          67,
+          74,
+          126,
+          137,
+          211,
+          151,
+          212,
+          206,
+          97,
+          129,
+          59,
+          27,
+          112,
+          34,
+          82,
+          154,
+          25,
+          62,
+          243,
+          62,
+          122,
+          164,
+          82,
+          231,
+          220,
+          9,
+          173,
+          232,
+          236,
+          145,
+          42,
+          94,
+          3,
+          157,
+          209,
+          119,
+          218,
+          212,
+          194,
+          105,
+          179,
+          165,
+          140,
+          58,
+          225,
+          36,
+          174,
+          253,
+          86,
+          1,
+          57,
+          89
+        ],
+        "hex": "78 9c ed 59 6d 6f db 38 12 fe 2b 04 3f 1e b8 89 25 5b b6 e3 6f db f6 0e 2d 70 3d 2c 36 bb 0b 1c 0c 43 a0 a4 91 c5 9a 22 55 92 b2 e3 0d fc df 0f 43 4a 7e 89 d3 97 d4 ce 61 81 3b 1b 70 22 52 9a 19 3e f3 3e 7a a4 52 e7 dc 09 ad e8 ec 91 2a 5e 03 9d d1 77 da d4 c2 69 b3 a5 8c 3a e1 24 ae fd 56 01 39 59"
+      },
+      "rawData": {},
+      "capturedAt": "2026-01-25T13:02:25.558Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 124375,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "ArrayBuffer",
+        "size": 286,
+        "preview": [
+          120,
+          156,
+          189,
+          146,
+          221,
+          110,
+          194,
+          48,
+          12,
+          133,
+          95,
+          101,
+          242,
+          117,
+          68,
+          249,
+          47,
+          203,
+          45,
+          123,
+          132,
+          105,
+          183,
+          200,
+          164,
+          78,
+          26,
+          104,
+          226,
+          42,
+          113,
+          145,
+          16,
+          234,
+          187,
+          79,
+          1,
+          186,
+          105,
+          15,
+          192,
+          238,
+          172,
+          99,
+          249,
+          124,
+          199,
+          150,
+          111,
+          208,
+          177,
+          65,
+          241,
+          28,
+          65,
+          223,
+          32,
+          98,
+          32,
+          208,
+          240,
+          193,
+          41,
+          120,
+          225,
+          116,
+          5,
+          5,
+          226,
+          165,
+          43,
+          218,
+          103,
+          75,
+          111,
+          127,
+          244,
+          107,
+          95,
+          100,
+          131,
+          161,
+          31,
+          50,
+          40,
+          72,
+          148,
+          197,
+          71,
+          7,
+          90,
+          210,
+          64,
+          10,
+          142,
+          104,
+          206,
+          46,
+          241,
+          16
+        ],
+        "hex": "78 9c bd 92 dd 6e c2 30 0c 85 5f 65 f2 75 44 f9 2f cb 2d 7b 84 69 b7 c8 a4 4e 1a 68 e2 2a 71 91 10 ea bb 4f 01 ba 69 0f c0 ee ac 63 f9 7c c7 96 6f d0 b1 41 f1 1c 41 df 20 62 20 d0 f0 c1 29 78 e1 74 05 05 e2 a5 2b da 67 4b 6f 7f f4 6b 5f 64 83 a1 1f 32 28 48 94 c5 47 07 5a d2 40 0a 8e 68 ce 2e f1 10"
+      },
+      "rawData": {},
+      "capturedAt": "2026-01-25T13:02:25.566Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 124397,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "menu": {
+            "refresh": "yourself"
+          }
+        },
+        "raw": "{\"menu\":{\"refresh\":\"yourself\"}}"
+      },
+      "rawData": "{\"menu\":{\"refresh\":\"yourself\"}}",
+      "capturedAt": "2026-01-25T13:02:25.588Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 124398,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "inventory": {
+            "equipment": {
+              "items": [
+                898708,
+                899380,
+                913413,
+                1235646,
+                null,
+                6946271,
+                884061,
+                832660
+              ],
+              "worn": [
+                false,
+                true,
+                true,
+                true,
+                false,
+                true,
+                true,
+                true
+              ]
+            }
+          }
+        },
+        "raw": "{\"inventory\":{\"equipment\":{\"items\":[898708,899380,913413,1235646,null,6946271,884061,832660],\"worn\":[false,true,true,true,false,true,true,true]}}}"
+      },
+      "rawData": "{\"inventory\":{\"equipment\":{\"items\":[898708,899380,913413,1235646,null,6946271,884061,832660],\"worn\":[false,true,true,true,false,true,true,true]}}}",
+      "capturedAt": "2026-01-25T13:02:25.589Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 124424,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "ArrayBuffer",
+        "size": 939,
+        "preview": [
+          120,
+          156,
+          181,
+          86,
+          77,
+          111,
+          227,
+          54,
+          16,
+          253,
+          43,
+          3,
+          158,
+          181,
+          182,
+          44,
+          57,
+          182,
+          163,
+          91,
+          131,
+          30,
+          26,
+          160,
+          11,
+          44,
+          144,
+          94,
+          138,
+          32,
+          8,
+          40,
+          114,
+          36,
+          77,
+          77,
+          145,
+          2,
+          57,
+          178,
+          227,
+          93,
+          248,
+          191,
+          23,
+          164,
+          98,
+          111,
+          62,
+          140,
+          109,
+          139,
+          116,
+          121,
+          146,
+          248,
+          49,
+          243,
+          222,
+          188,
+          153,
+          33,
+          239,
+          197,
+          114,
+          45,
+          241,
+          122,
+          189,
+          186,
+          214,
+          74,
+          45,
+          155,
+          141,
+          110,
+          202,
+          117,
+          83,
+          46,
+          150,
+          87,
+          77,
+          158,
+          235,
+          171,
+          141,
+          106,
+          74,
+          213,
+          232,
+          166,
+          144,
+          235,
+          181,
+          200,
+          190,
+          137,
+          192,
+          146
+        ],
+        "hex": "78 9c b5 56 4d 6f e3 36 10 fd 2b 03 9e b5 b6 2c 39 b6 a3 5b 83 1e 1a a0 0b 2c 90 5e 8a 20 08 28 72 24 4d 4d 91 02 39 b2 e3 5d f8 bf 17 a4 62 6f 3e 8c 6d 8b 74 79 92 f8 31 f3 de bc 99 21 ef c5 72 2d f1 7a bd ba d6 4a 2d 9b 8d 6e ca 75 53 2e 96 57 4d 9e eb ab 8d 6a 4a d5 e8 a6 90 eb b5 c8 be 89 c0 92"
+      },
+      "rawData": {},
+      "capturedAt": "2026-01-25T13:02:25.615Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 124440,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          {
+            "actions": {}
+          }
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",{\"actions\":{}}]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",{\"actions\":{}}]",
+      "capturedAt": "2026-01-25T13:02:25.632Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 124443,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "menu": {
+            "refresh": "yourself"
+          }
+        },
+        "raw": "{\"menu\":{\"refresh\":\"yourself\"}}"
+      },
+      "rawData": "{\"menu\":{\"refresh\":\"yourself\"}}",
+      "capturedAt": "2026-01-25T13:02:25.634Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 124444,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "ArrayBuffer",
+        "size": 1228,
+        "preview": [
+          120,
+          156,
+          221,
+          87,
+          75,
+          143,
+          219,
+          56,
+          12,
+          254,
+          43,
+          6,
+          143,
+          11,
+          37,
+          241,
+          51,
+          15,
+          31,
+          103,
+          138,
+          109,
+          47,
+          45,
+          6,
+          77,
+          177,
+          151,
+          32,
+          48,
+          20,
+          155,
+          177,
+          133,
+          200,
+          146,
+          43,
+          201,
+          205,
+          122,
+          7,
+          243,
+          223,
+          23,
+          114,
+          50,
+          177,
+          157,
+          76,
+          166,
+          143,
+          180,
+          61,
+          244,
+          226,
+          32,
+          36,
+          253,
+          145,
+          150,
+          190,
+          79,
+          164,
+          86,
+          16,
+          206,
+          40,
+          46,
+          102,
+          211,
+          69,
+          150,
+          166,
+          225,
+          118,
+          158,
+          109,
+          131,
+          217,
+          54,
+          240,
+          194,
+          104,
+          235,
+          186,
+          89,
+          52,
+          79,
+          183,
+          65,
+          186,
+          205,
+          182,
+          62,
+          157,
+          205,
+          128,
+          60,
+          66,
+          90
+        ],
+        "hex": "78 9c dd 57 4b 8f db 38 0c fe 2b 06 8f 0b 25 f1 33 0f 1f 67 8a 6d 2f 2d 06 4d b1 97 20 30 14 9b b1 85 c8 92 2b c9 cd 7a 07 f3 df 17 72 32 b1 9d 4c a6 8f b4 3d f4 e2 20 24 fd 91 96 be 4f a4 56 10 ce 28 2e 66 d3 45 96 a6 e1 76 9e 6d 83 d9 36 f0 c2 68 eb ba 59 34 4f b7 41 ba cd b6 3e 9d cd 80 3c 42 5a"
+      },
+      "rawData": {},
+      "capturedAt": "2026-01-25T13:02:25.635Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 124469,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            7.7,
+            462,
+            421,
+            9.016666666666667,
+            541,
+            0,
+            -0.016666666666666666,
+            0,
+            1.6740333333333393,
+            0.05383333333333333,
+            3.23,
+            3.027877777777729,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,7.7,462,421,9.016666666666667,541,0,-0.016666666666666666,0,1.6740333333333393,0.05383333333333333,3.23,3.027877777777729,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,7.7,462,421,9.016666666666667,541,0,-0.016666666666666666,0,1.6740333333333393,0.05383333333333333,3.23,3.027877777777729,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:02:25.660Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 125822,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            7.7,
+            462,
+            434,
+            9.016666666666667,
+            541,
+            0,
+            -0.016666666666666666,
+            0,
+            1.7494000000000054,
+            0.05383333333333333,
+            3.23,
+            3.1065111111110615,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,7.7,462,434,9.016666666666667,541,0,-0.016666666666666666,0,1.7494000000000054,0.05383333333333333,3.23,3.1065111111110615,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,7.7,462,434,9.016666666666667,541,0,-0.016666666666666666,0,1.7494000000000054,0.05383333333333333,3.23,3.1065111111110615,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:02:27.013Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 127552,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "inventory": {
+            "held": 7485409,
+            "loot": 0
+          },
+          "action": "Inventory"
+        },
+        "raw": "{\"inventory\":{\"held\":7485409,\"loot\":0},\"action\":\"Inventory\"}"
+      },
+      "rawData": "{\"inventory\":{\"held\":7485409,\"loot\":0},\"action\":\"Inventory\"}",
+      "capturedAt": "2026-01-25T13:02:28.743Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 128304,
+      "direction": "CLIENT → SERVER",
+      "parsedData": {
+        "type": "JSON",
+        "data": {
+          "inventory": {
+            "held": 0,
+            "tab": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1397659,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              null,
+              7485409,
+              7485409
+            ]
+          },
+          "action": "Inventory"
+        },
+        "raw": "{\"inventory\":{\"held\":0,\"tab\":[0,0,0,0,0,0,0,0,0,1397659,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,7485409,7485409]},\"action\":\"Inventory\"}"
+      },
+      "rawData": "{\"inventory\":{\"held\":0,\"tab\":[0,0,0,0,0,0,0,0,0,1397659,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,7485409,7485409]},\"action\":\"Inventory\"}",
+      "capturedAt": "2026-01-25T13:02:29.496Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 130822,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            7.7,
+            462,
+            479,
+            9.016666666666667,
+            541,
+            0,
+            -0.016666666666666666,
+            0,
+            2.018566666666671,
+            0.05383333333333333,
+            3.23,
+            3.37,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,7.7,462,479,9.016666666666667,541,0,-0.016666666666666666,0,2.018566666666671,0.05383333333333333,3.23,3.37,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,7.7,462,479,9.016666666666667,541,0,-0.016666666666666666,0,2.018566666666671,0.05383333333333333,3.23,3.37,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:02:32.013Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 135822,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            7.7,
+            462,
+            524,
+            9.016666666666667,
+            541,
+            0,
+            -0.016666666666666666,
+            0,
+            2.287733333333347,
+            0.05383333333333333,
+            3.23,
+            3.37,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,7.7,462,524,9.016666666666667,541,0,-0.016666666666666666,0,2.287733333333347,0.05383333333333333,3.23,3.37,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,7.7,462,524,9.016666666666667,541,0,-0.016666666666666666,0,2.287733333333347,0.05383333333333333,3.23,3.37,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:02:37.013Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 140821,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            7.7,
+            462,
+            541,
+            9.016666666666667,
+            541,
+            0,
+            -0.016666666666666666,
+            0,
+            2.556900000000023,
+            0.05383333333333333,
+            3.23,
+            3.37,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,7.7,462,541,9.016666666666667,541,0,-0.016666666666666666,0,2.556900000000023,0.05383333333333333,3.23,3.37,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,7.7,462,541,9.016666666666667,541,0,-0.016666666666666666,0,2.556900000000023,0.05383333333333333,3.23,3.37,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:02:42.012Z"
+    },
+    {
+      "session": 1769346021191,
+      "timestamp": 145822,
+      "direction": "SERVER → CLIENT",
+      "parsedData": {
+        "type": "JSON",
+        "data": [
+          "47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77",
+          [
+            462,
+            7.7,
+            462,
+            541,
+            9.016666666666667,
+            541,
+            0,
+            -0.016666666666666666,
+            0,
+            2.8260666666666987,
+            0.05383333333333333,
+            3.23,
+            3.37,
+            0.05616666666666667,
+            3.37,
+            0,
+            0,
+            0,
+            0
+          ]
+        ],
+        "raw": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,7.7,462,541,9.016666666666667,541,0,-0.016666666666666666,0,2.8260666666666987,0.05383333333333333,3.23,3.37,0.05616666666666667,3.37,0,0,0,0]]"
+      },
+      "rawData": "[\"47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77\",[462,7.7,462,541,9.016666666666667,541,0,-0.016666666666666666,0,2.8260666666666987,0.05383333333333333,3.23,3.37,0.05616666666666667,3.37,0,0,0,0]]",
+      "capturedAt": "2026-01-25T13:02:47.013Z"
+    }
+  ]
+}

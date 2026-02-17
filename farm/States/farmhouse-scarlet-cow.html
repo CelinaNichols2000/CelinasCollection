@@ -23,7 +23,7 @@
         .main-panel { display: grid; grid-template-columns: 1fr 380px; gap: 40px; max-width: 1200px; width: 100%; align-items: start; }
         .left-panel { display: flex; flex-direction: column; align-items: center; gap: 20px; }
         .image-container { position: relative; width: 100%; max-width: 600px; height: 480px; border-radius: 25px; overflow: hidden; box-shadow: 0 20px 60px rgba(139, 90, 60, 0.4); }
-        .image-container img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; }
+        .image-container img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; }
         .image-container img.active { opacity: 1; }
         .right-panel { display: flex; flex-direction: column; gap: 20px; height: fit-content; }
         .item-header { text-align: center; }
@@ -36,17 +36,42 @@
         .mind-break-bar { width: 100%; height: 12px; background: rgba(0, 0, 0, 0.4); border-radius: 10px; overflow: hidden; margin-bottom: 10px; }
         .mind-break-fill { height: 100%; background: linear-gradient(90deg, #8B5A3C, #D2A679); border-radius: 10px; width: 0%; }
         .mind-break-stages { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; font-size: 0.75rem; text-align: center; }
-        .action-buttons { display: grid; grid-template-columns: 1fr; gap: 12px; }
-        .action-btn { font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 700; padding: 16px 20px; border-radius: 50px; border: none; cursor: pointer; color: #fff; }
-        .action-btn:hover { transform: translateY(-3px); filter: brightness(1.15); }
+        .action-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .action-btn { font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 700; padding: 16px 20px; border-radius: 50px; border: none; cursor: pointer; color: #fff; transition: all 0.3s ease; }
+        .action-btn:hover { transform: translateY(-3px); filter: brightness(1.15); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+        .action-btn:active { transform: translateY(-1px); }
+        .resist-btn { background: linear-gradient(45deg, #6B4A2C, #8B5A3C); }
+        .moo-btn { background: linear-gradient(45deg, #8B5A3C, #A0826D); }
+        .udder-btn { background: linear-gradient(45deg, #A0826D, #D2A679); }
+        .submit-btn { background: linear-gradient(45deg, #D2A679, #E8D0C8); }
         .lower-section { max-width: 1000px; width: 100%; }
         .status-box { background: rgba(139, 90, 60, 0.15); border: 2px solid rgba(139, 90, 60, 0.7); border-radius: 20px; padding: 30px; margin-bottom: 25px; text-align: center; }
-        .status-box h3 { font-family: 'Orbitron', sans-serif; font-size: 1.6rem; color: #8B5A3C; margin-bottom: 15px; }
-        .memory-fragment { background: rgba(0, 0, 0, 0.4); border-left: 4px solid #8B5A3C; border-radius: 12px; overflow: hidden; margin-bottom: 15px; }
-        .memory-trigger { padding: 15px; background: rgba(139, 90, 60, 0.2); cursor: pointer; font-weight: 600; }
-        .memory-trigger:hover { background: rgba(139, 90, 60, 0.35); }
-        .memory-content { padding: 15px; display: none; }
+        .status-box h3 { font-family: 'Orbitron', sans-serif; font-size: 1.6rem; color: #D2A679; margin-bottom: 15px; }
+        .degradation-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
+        .stat-item { background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px; border-left: 4px solid #8B5A3C; }
+        .stat-value { font-size: 1.4rem; font-weight: 700; color: #D2A679; }
+        .transformation-flash { position: fixed; inset: 0; background: rgba(139, 90, 60, 0.95); display: none; align-items: center; justify-content: center; z-index: 5000; animation: flashIn 0.3s ease; }
+        .transformation-flash.active { display: flex; }
+        .transformation-flash-inner { text-align: center; max-width: 600px; padding: 40px; }
+        .transformation-flash-image { width: 200px; height: 200px; margin: 0 auto 20px; border-radius: 50%; object-fit: cover; border: 4px solid #D2A679; }
+        .transformation-flash-text { font-size: 1.4rem; color: #fff; line-height: 1.6; }
+        @keyframes flashIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+        .memory-fragment { background: rgba(0, 0, 0, 0.4); border-left: 4px solid #8B5A3C; border-radius: 12px; overflow: hidden; margin-bottom: 15px; transition: all 0.3s ease; }
+        .memory-trigger { padding: 15px; background: rgba(139, 90, 60, 0.2); cursor: pointer; font-weight: 600; color: #E8D0C8; transition: all 0.3s ease; }
+        .memory-trigger:hover { background: rgba(139, 90, 60, 0.35); color: #D2A679; }
+        .memory-content { padding: 15px; display: none; background: rgba(0,0,0,0.3); color: #E8D0D8; line-height: 1.7; animation: slideDown 0.3s ease; }
         .memory-content.active { display: block; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .memory-fragment.locked { opacity: 0.4; pointer-events: none; }
+        .memory-fragment.locked .memory-trigger { background: rgba(50, 50, 50, 0.2); color: #666; }
+        .memory-fragment[data-stage="0"] .memory-trigger { border-left-color: #D2A679; }
+        .memory-fragment[data-stage="1"] .memory-trigger { border-left-color: #A0826D; }
+        .memory-fragment[data-stage="2"] .memory-trigger { border-left-color: #8B5A3C; }
+        .memory-fragment[data-stage="3"] .memory-trigger { border-left-color: #6B4A2C; }
+        .memory-fragment[data-stage="4"] .memory-trigger { border-left-color: #D2A679; }
+        .human-thoughts { color: #E8D0D8; font-style: italic; }
+        .bovine-instinct { color: #D2A679; font-weight: 600; }
+        .scarlet-voice { color: #8B5A3C; font-weight: 700; }
         details summary { margin-top: 30px; font-family: 'Orbitron', sans-serif; font-size: 1.8rem; font-weight: 700; color: #8B5A3C; padding: 20px; list-style: none; background: rgba(139, 90, 60, 0.15); border-radius: 20px; cursor: pointer; }
         @media (max-width: 900px) { .main-panel { grid-template-columns: 1fr; } }
     </style>
@@ -57,17 +82,21 @@
         <div class="main-panel">
             <div class="left-panel">
                 <div class="image-container">
-                    <img src="https://via.placeholder.com/600x480/8B5A3C?text=cow+Form" class="active">
+                    <img src="https://via.placeholder.com/600x480/8B5A3C/E8D0D8?text=Stage+1:+Human" id="img0" class="active">
+                    <img src="https://via.placeholder.com/600x480/A0826D/E8D0D8?text=Stage+2:+Changes+Begin" id="img1">
+                    <img src="https://via.placeholder.com/600x480/D2A679/FFFFFF?text=Stage+3:+Half+Transformed" id="img2">
+                    <img src="https://via.placeholder.com/600x480/E8D0C8/8B5A3C?text=Stage+4:+Nearly+Cow" id="img3">
+                    <img src="https://via.placeholder.com/600x480/D2A679/8B5A3C?text=Stage+5:+Complete+Cow" id="img4">
                 </div>
             </div>
             <div class="right-panel">
                 <div class="item-header">
-                    <h1 class="item-title">Scarlet's Perfect Cow</h1>
-                    <div class="category-badge">Farm Transformation</div>
+                    <h1 class="item-title">Scarlet's Milking Cow</h1>
+                    <div class="category-badge">Breeding & Milking Stock</div>
                 </div>
                 <div class="mind-break-container">
                     <div class="mind-break-header">
-                        <div class="mind-break-title">BOVINE DEGRADATION</div>
+                        <div class="mind-break-title">LACTATION ADDICTION</div>
                         <div class="mind-break-percentage" id="mindBreakPercentage">0%</div>
                     </div>
                     <div class="mind-break-bar"><div class="mind-break-fill" id="mindBreakFill"></div></div>
@@ -75,66 +104,265 @@
                         <span>HUMAN</span>
                         <span>SHIFTING</span>
                         <span>BOVINE</span>
-                        <span>PRODUCER</span>
+                        <span>MILKER</span>
                     </div>
                 </div>
                 <div class="action-buttons">
-                    <button class="action-btn" style="background: linear-gradient(45deg, #8B5A3C, #D2A679); box-shadow: 0 8px 25px rgba(139, 90, 60, 0.6);" onclick="resist()">RESIST</button>
-                    <button class="action-btn" style="background: linear-gradient(45deg, #D2A679, #8B5A3C); box-shadow: 0 8px 25px rgba(139, 90, 60, 0.6);" onclick="accept()">ACCEPT FORM</button>
+                    <button class="action-btn resist-btn" onclick="resist()">Resist Spell</button>
+                    <button class="action-btn moo-btn" onclick="tryToSpeak()">Moo Desperately</button>
+                    <button class="action-btn udder-btn" onclick="feelUdders()">Fondle Udders</button>
+                    <button class="action-btn submit-btn" onclick="accept()">Beg for Milking</button>
                 </div>
             </div>
         </div>
         <div class="lower-section">
             <details>
-                <summary>Your Complete Existence</summary>
+                <summary>Your Milking Cow Existence</summary>
                 <div class="status-box">
-                    <h3>Transformation Complete</h3>
-                    <p>You have been completely transformed. Your consciousness has changed. This is what you are now.</p>
+                    <h3>Current State: Scarlet's Prize Breeding Cow</h3>
+                    <p>Scarlet's spell has transformed you completely. Your massive udders swell with constant milk production, aching for her touch. Your swollen teats leak desperately. She breeds you regularly—your fertile cow body pregnant more often than not. You exist to produce milk and calves for her, mindlessly obedient, perpetually in heat...</p>
+                    <div class="degradation-stats">
+                        <div class="stat-item">
+                            <div>Humanity Remaining</div>
+                            <div class="stat-value" id="humanityValue">100%</div>
+                        </div>
+                        <div class="stat-item">
+                            <div>Bovine Instincts</div>
+                            <div class="stat-value" id="bovineValue">0%</div>
+                        </div>
+                        <div class="stat-item">
+                            <div>Obedience Level</div>
+                            <div class="stat-value" id="obedienceValue">0%</div>
+                        </div>
+                        <div class="stat-item">
+                            <div>Speech Capability</div>
+                            <div class="stat-value" id="speechValue">100%</div>
+                        </div>
+                    </div>
                 </div>
                 <div>
-                    <div class="memory-fragment">
-                        <div class="memory-trigger" onclick="toggleMemory(0)">#1: THE TRANSFORMATION BEGINS</div>
-                        <div class="memory-content">Your body broadens and shifts. Your limbs thicken into sturdy legs. Scarlet watches with satisfaction. Your consciousness begins to blur. You try to resist but feel your mind slipping away slowly.</div>
+                    <div class="memory-fragment" data-stage="0">
+                        <div class="memory-trigger" onclick="toggleMemory(0)">STAGE 1: Scarlet's Touch - Chest Swelling</div>
+                        <div class="memory-content"><span class="scarlet-voice">"You're going to make SO much milk for me,"</span> Scarlet purrs, cupping your chest. Heat floods through you. <span class="human-thoughts">Wait, why does my chest feel... heavy?</span> Your breasts SWELL visibly, growing larger, heavier. <span class="human-thoughts">What's happening to me?!</span> Scarlet's hands massage them firmly. <span class="scarlet-voice">"That's it. Let them grow. Big udders for my perfect cow."</span> Warmth spreads, tingling, <span class="bovine-instinct">good... feels so good...</span> Your nipples harden, lengthening into teats. <span class="human-thoughts">No! This is wrong!</span> But liquid beads at the tips. You're... lactating? <span class="scarlet-voice">"Already producing. Such a good girl."</span></div>
                     </div>
-                    <div class="memory-fragment">
-                        <div class="memory-trigger" onclick="toggleMemory(1)">#2: DOCILE FORM</div>
-                        <div class="memory-content">You stand on four powerful legs. Your body has become large and docile. Udders form on your belly. You feel strangely complete, ready to produce for her. The transformation feels natural now.</div>
+                    <div class="memory-fragment" data-stage="1">
+                        <div class="memory-trigger" onclick="toggleMemory(1)">STAGE 2: Udder Formation - Desperate Fullness</div>
+                        <div class="memory-content">Your chest hangs HEAVY now, swollen breasts merging downward. <span class="human-thoughts">They're becoming... udders!</span> Four distinct teats form, thick and sensitive. Scarlet strokes them and you MOAN involuntarily. <span class="scarlet-voice">"Look how full you are already. You NEED milking, don't you?"</span> <span class="bovine-instinct">YES! So full! Aching! Please!</span> <span class="human-thoughts">I shouldn't want this!</span> But your udders throb with desperate need. Milk leaks steadily. Your hips widen with wet CRACKS, haunches swelling. <span class="scarlet-voice">"Perfect breeding hips. You'll carry so many calves for me."</span> Heat floods between your legs. <span class="human-thoughts">Calves? She means... breeding?!</span> But your body responds eagerly...</div>
                     </div>
-                    <div class="memory-fragment">
-                        <div class="memory-trigger" onclick="toggleMemory(2)">#3: HERD MENTALITY</div>
-                        <div class="memory-content">Scarlet leads you to the field. You follow without question. Your bovine instincts feel more real than any human memory. All you want is to graze and give milk. Obedience comes naturally.</div>
+                    <div class="memory-fragment" data-stage="2">
+                        <div class="memory-trigger" onclick="toggleMemory(2)">STAGE 3: Cow Body - Breeding Heat</div>
+                        <div class="memory-content">You drop to all fours—standing upright is IMPOSSIBLE now. Your spine extends, body lengthening. <span class="bovine-instinct">This is right. This is natural.</span> Scarlet's hands stroke your back as a tail sprouts. Your massive udders swing beneath you with every movement, milk sloshing inside. <span class="scarlet-voice">"Time to breed you, my fertile cow."</span> A BULL approaches—massive, powerful. <span class="human-thoughts">NO! I can't... I won't...</span> But your cow sex twitches, wet and ready. You're IN HEAT. <span class="bovine-instinct">NEED BULL! NEED BREEDING!</span> Your rear lifts automatically, presenting. <span class="human-thoughts">My body's betraying me!</span> The bull mounts—HEAVY weight crushing down...</div>
                     </div>
-                    <div class="memory-fragment">
-                        <div class="memory-trigger" onclick="toggleMemory(3)">#4: PRODUCTIVE COW</div>
-                        <div class="memory-content">You are Scarlet's perfect cow now. Content to produce. Content to be milked. Content to obey. Your human mind dissolved completely into bovine simplicity and purpose.</div>
+                    <div class="memory-fragment" data-stage="3">
+                        <div class="memory-trigger" onclick="toggleMemory(3)">STAGE 4: Milking Bliss - Addicted</div>
+                        <div class="memory-content">Scarlet's hands on your swollen udders are HEAVEN. She milks you firmly, rhythmically. <span class="bovine-instinct">YES! YES! MILK ME!</span> Pleasure floods through your simple mind with each squeeze. <span class="human-thoughts">It feels too good... I'm becoming addicted...</span> Milk streams into buckets. Your udders refill almost immediately. <span class="scarlet-voice">"Such a productive cow. Always full for me."</span> You MOO desperately, begging for more. <span class="bovine-instinct">Need milking. Always need milking. Can't think without it.</span> She milks you three, four, five times a day. Your mind empties each time, leaving only <span class="bovine-instinct">gratitude, pleasure, obedience.</span> You're pregnant again—belly swelling with calf. More milk. Always more milk.</div>
+                    </div>
+                    <div class="memory-fragment" data-stage="4">
+                        <div class="memory-trigger" onclick="toggleMemory(4)">STAGE 5: Breeding Stock Forever</div>
+                        <div class="memory-content"><span class="bovine-instinct">Mooooo~ Milk cow. Breeding cow. Scarlet's cow.</span> No humanity remains. Just udders, milk, heat, breeding, calves. Your massive udders never empty—always full, always leaking. <span class="bovine-instinct">Need milking. NEED MILKING!</span> Scarlet's hands bring mind-blanking pleasure. You low desperately when she approaches. Pregnant belly drags beneath you—your fourth calf. Maybe fifth? Numbers don't matter. <span class="scarlet-voice">"My perfect breeding stock. You'll produce forever."</span> <span class="bovine-instinct">Yes. Forever. Milk forever. Breed forever. Hers forever.</span> The bull mounts you again. You bellow in heat-mad pleasure. This is existence. This is purpose. <span class="bovine-instinct">MOOOOO!</span></div>
                     </div>
                 </div>
             </details>
         </div>
     </div>
+
+    <!-- Transformation Flash Popup -->
+    <div class="transformation-flash" id="transformFlash">
+        <div class="transformation-flash-inner">
+            <img src="https://via.placeholder.com/200/D2A679/FFFFFF?text=Changing" class="transformation-flash-image" id="flashImage">
+            <div class="transformation-flash-text" id="flashText"></div>
+        </div>
+    </div>
+
     <script>
         const state = JSON.parse(localStorage.getItem('farmState') || '{}');
         const endTime = state.trappedUntil;
         let mindBreakLevel = parseInt(localStorage.getItem('ScarletcowMindBreak') || '0');
+        let currentImage = 0;
+        let desperationClicks = parseInt(localStorage.getItem('cowClicks') || '0');
+        let humanity = 100;
+        let bovineInstinct = 0;
+        let obedience = 0;
+        let speech = 100;
+
         function updateCountdownTimer() {
             const timeLeft = Math.max(0, endTime - Date.now());
             const h = Math.floor(timeLeft / 3600000).toString().padStart(2, '0');
             const m = Math.floor((timeLeft % 3600000) / 60000).toString().padStart(2, '0');
             const s = Math.floor((timeLeft % 60000) / 1000).toString().padStart(2, '0');
             document.getElementById('countdownTimer').textContent = h + ':' + m + ':' + s;
-            if (timeLeft <= 0) { localStorage.removeItem('farmState'); window.location.href = '../../index.html'; }
+            if (timeLeft <= 0) { 
+                localStorage.removeItem('farmState'); 
+                window.location.href = '../../index.html'; 
+            }
         }
-        function toggleMemory(stage) { document.querySelectorAll('.memory-content')[stage].classList.toggle('active'); }
-        function resist() { mindBreakLevel = Math.min(100, mindBreakLevel + 5); updateMindBreak(); }
-        function accept() { mindBreakLevel = Math.min(100, mindBreakLevel + 10); updateMindBreak(); }
+
+        function swapImage(stage) {
+            document.querySelectorAll('.image-container img').forEach(img => img.classList.remove('active'));
+            document.getElementById('img' + stage).classList.add('active');
+            currentImage = stage;
+        }
+
+        function showTransformationFlash(options) {
+            const flash = document.getElementById('transformFlash');
+            const text = document.getElementById('flashText');
+            const img = document.getElementById('flashImage');
+            
+            text.innerHTML = options.text;
+            img.src = options.image || 'https://via.placeholder.com/200/D2A679/FFFFFF?text=Changing';
+            flash.classList.add('active');
+            
+            setTimeout(() => {
+                flash.classList.remove('active');
+            }, options.duration || 2000);
+        }
+
+        function toggleMemory(id) {
+            const content = document.querySelectorAll('.memory-content')[id];
+            content.classList.toggle('active');
+        }
+
+        function updateStats() {
+            document.getElementById('humanityValue').textContent = Math.max(0, humanity).toFixed(0) + '%';
+            document.getElementById('bovineValue').textContent = Math.min(100, bovineInstinct).toFixed(0) + '%';
+            document.getElementById('obedienceValue').textContent = Math.min(100, obedience).toFixed(0) + '%';
+            document.getElementById('speechValue').textContent = Math.max(0, speech).toFixed(0) + '%';
+            
+            localStorage.setItem('cowHumanity', humanity);
+            localStorage.setItem('cowBovine', bovineInstinct);
+            localStorage.setItem('cowObedience', obedience);
+            localStorage.setItem('cowSpeech', speech);
+        }
+
         function updateMindBreak() {
             document.getElementById('mindBreakPercentage').textContent = mindBreakLevel + '%';
             document.getElementById('mindBreakFill').style.width = mindBreakLevel + '%';
             localStorage.setItem('ScarletcowMindBreak', mindBreakLevel);
+            
+            // Update memory unlocks
+            const memories = document.querySelectorAll('.memory-fragment');
+            memories.forEach((mem, idx) => {
+                if (mindBreakLevel >= idx * 20) {
+                    mem.classList.remove('locked');
+                } else {
+                    mem.classList.add('locked');
+                }
+            });
+            
+            // Update image based on mind break level
+            if (mindBreakLevel >= 80) swapImage(4);
+            else if (mindBreakLevel >= 60) swapImage(3);
+            else if (mindBreakLevel >= 40) swapImage(2);
+            else if (mindBreakLevel >= 20) swapImage(1);
+            else swapImage(0);
         }
+
+        function resist() {
+            mindBreakLevel = Math.min(100, mindBreakLevel + 3);
+            desperationClicks++;
+            humanity -= 2;
+            bovineInstinct += 1;
+            speech -= 2;
+            
+            const messages = [
+                "<span class='human-thoughts'>I won't become her cow!</span> But your udders ache desperately for milking...",
+                "<span class='human-thoughts'>I need to fight!</span> Yet Scarlet's touch on your swollen teats feels SO good...",
+                "<span class='human-thoughts'>I have to remember...</span> But milk leaks from your teats constantly...",
+                "<span class='bovine-instinct'>Why resist? Being milked is heaven...</span> No! I mean... yes?",
+                "<span class='human-thoughts'>I'm losing myself...</span> Your udders throb. <span class='bovine-instinct'>Need milking NOW!</span>",
+            ];
+            
+            showTransformationFlash({
+                text: messages[Math.floor(Math.random() * messages.length)],
+                duration: 2500
+            });
+            
+            updateMindBreak();
+            updateStats();
+            localStorage.setItem('cowClicks', desperationClicks);
+        }
+
+        function tryToSpeak() {
+            mindBreakLevel = Math.min(100, mindBreakLevel + 6);
+            humanity -= 4;
+            bovineInstinct += 4;
+            speech -= 6;
+            obedience += 3;
+            
+            const messages = [
+                "You open your mouth to speak but it comes out: <span class='bovine-instinct'>MOOOOO!</span> <span class='human-thoughts'>That wasn't... my voice is gone!</span>",
+                "Words dissolve into a desperate <span class='bovine-instinct'>MOOOOO</span> before forming. Your udders leak urgently.",
+                "<span class='bovine-instinct'>*MOO!* *MOOOOO!*</span> <span class='human-thoughts'>I need to TALK!</span> But you can only beg for milking...",
+                "You try to protest but only <span class='bovine-instinct'>moo desperately</span>. Scarlet grins. <span class='scarlet-voice'>Beg properly, cow.</span>",
+                "Your vocal cords produce only <span class='bovine-instinct'>bovine bellows</span>. <span class='human-thoughts'>I sound like a cow in heat...</span> Because you ARE.",
+            ];
+            
+            showTransformationFlash({
+                text: messages[Math.floor(Math.random() * messages.length)],
+                duration: 2500
+            });
+            
+            updateMindBreak();
+            updateStats();
+        }
+
+        function feelUdders() {
+            mindBreakLevel = Math.min(100, mindBreakLevel + 8);
+            humanity -= 5;
+            bovineInstinct += 7;
+            obedience += 4;
+            
+            const messages = [
+                "Your hands fondle the massive udders beneath you. <span class='bovine-instinct'>SO FULL! ACHING! NEED MILKING!</span> <span class='human-thoughts'>These are... mine now...</span>",
+                "You massage your swollen udders desperately. Milk sprays out. <span class='bovine-instinct'>Not enough! Need HER hands!</span>",
+                "<span class='human-thoughts'>I shouldn't touch them...</span> But they're SO sensitive, SO full... <span class='bovine-instinct'>PLEASURE!</span>",
+                "Your teats are thick, leaking constantly. <span class='bovine-instinct'>Need squeezing! Need milking! BEG for it!</span>",
+                "The weight of your udders makes you <span class='bovine-instinct'>desperate</span>. You moo loudly. <span class='scarlet-voice'>Beg properly and I'll milk you...</span>",
+            ];
+            
+            showTransformationFlash({
+                text: messages[Math.floor(Math.random() * messages.length)],
+                duration: 2500
+            });
+            
+            updateMindBreak();
+            updateStats();
+        }
+
+        function accept() {
+            mindBreakLevel = Math.min(100, mindBreakLevel + 12);
+            humanity -= 8;
+            bovineInstinct += 10;
+            obedience += 8;
+            speech -= 10;
+            
+            const messages = [
+                "<span class='human-thoughts'>Please... just milk me...</span> <span class='bovine-instinct'>BEG! Moo! Present udders!</span> All dignity gone.",
+                "You stop fighting and <span class='bovine-instinct'>MOO desperately for milking</span>. <span class='scarlet-voice'>Good cow. I'll drain you completely.</span>",
+                "<span class='bovine-instinct'>MILK ME! BREED ME! USE ME!</span> Your mind shatters into pure animal need.",
+                "<span class='bovine-instinct'>You bellow, presenting your dripping udders</span>. <span class='scarlet-voice'>Such a desperate cow...</span> Her hands bring ECSTASY.",
+                "Complete surrender. <span class='bovine-instinct'>You ARE her breeding stock. Milk factory. Calf producer. MOOOOO!</span>",
+            ];
+            
+            showTransformationFlash({
+                text: messages[Math.floor(Math.random() * messages.length)],
+                duration: 3000
+            });
+            
+            updateMindBreak();
+            updateStats();
+        }
+
+        // Load saved stats
+        humanity = parseInt(localStorage.getItem('cowHumanity') || '100');
+        bovineInstinct = parseInt(localStorage.getItem('cowBovine') || '0');
+        obedience = parseInt(localStorage.getItem('cowObedience') || '0');
+        speech = parseInt(localStorage.getItem('cowSpeech') || '100');
+
         setInterval(updateCountdownTimer, 1000);
         updateCountdownTimer();
         updateMindBreak();
+        updateStats();
     </script>
 </body>
 </html>

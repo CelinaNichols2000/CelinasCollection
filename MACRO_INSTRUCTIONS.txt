@@ -1,0 +1,94 @@
+╔════════════════════════════════════════════════════════════════════════╗
+║                    SELFTF MACRO INSTRUCTIONS                           ║
+╚════════════════════════════════════════════════════════════════════════╝
+
+SETUP:
+------
+1. Make sure SELFTF_MASTER.js is loaded in your browser console first
+   (Copy the entire file and paste into browser console, press Enter)
+
+2. Wait for message: "SELFTF Ready - Use: SELFTF.enableWithStaticOwner()"
+
+3. In BMR, type: /open macros
+
+4. Create a new macro and copy one of the macro codes below
+
+
+MACRO 1: TRANSFORM (Main Transformation)
+-----------------------------------------
+Name: Transform
+Icon: Will auto-show Vinyl Leotard icon
+
+#showtooltip Vinyl Leotard
+/emote begins to shimmer and transform...
+${SELFTF.enableWithStaticOwner() && ''}
+
+Description: Triggers the inanimate transformation. You'll see the morph
+effect, become Sakura's owned item, and action buttons will appear.
+
+
+MACRO 2: CHANGE COLOR
+----------------------
+Name: Change Color
+Icon: Will auto-show Vinyl Leotard icon
+
+#showtooltip Vinyl Leotard
+/say Changing color to $color!
+${SELFTF.changeColor($color || 'Purple') && ''}
+
+Description: Changes your color. Edit the macro to replace $color with
+a specific color like 'Black', 'Red', 'Pink', etc.
+
+Example for Black:
+#showtooltip Vinyl Leotard
+/say Changing to black!
+${SELFTF.changeColor('Black') && ''}
+
+
+MACRO 3: DISABLE TRANSFORMATION
+--------------------------------
+Name: Return to Normal
+Icon: Default icon
+
+#showtooltip
+/emote returns to normal form
+${SELFTF.disable() && ''}
+
+Description: Cancels the transformation and returns you to normal.
+
+
+AVAILABLE COLORS:
+-----------------
+Purple, Black, White, Red, Pink, Blue, Green, Yellow, Orange, Brown,
+Gray, Teal, Cyan, Magenta, Lime, Navy, Maroon, Olive, Gold, Silver,
+Beige, Tan
+
+
+ADVANCED: COLOR CYCLE MACRO
+----------------------------
+Name: Cycle Colors
+Icon: Will auto-show Vinyl Leotard icon
+
+#showtooltip Vinyl Leotard
+${$colors = $colors || ['Purple','Black','Red','Pink','Blue','Green','Yellow'], $ci = ($ci || 0) % $colors.length, SELFTF.changeColor($colors[$ci]) && ($ci++, '')}
+
+Description: Each time you click, cycles through different colors.
+Edit the $colors array to customize which colors to cycle through.
+
+
+TROUBLESHOOTING:
+----------------
+- If macro shows ?, make sure the script is loaded first
+- If you get "SELFTF is not defined", reload SELFTF_MASTER.js in console
+- Macros with ${} will show a warning first time - click "Allow"
+- Action buttons appear but don't work? That's intentional (not worn state)
+- Can't move/chat? That's the inanimate blocking - use disable macro
+
+
+QUICK START:
+------------
+1. Load SELFTF_MASTER.js in browser console
+2. Create macro with the "TRANSFORM" code above
+3. Click the macro button
+4. Wait 3 seconds for transformation to complete
+5. Enjoy your inanimate state!

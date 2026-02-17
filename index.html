@@ -1011,9 +1011,21 @@
             }
             
             function showWebsite() {
+                // Check if humiliationActive flag is set and this is first visit in session
+                try {
+                    if (localStorage.getItem('humiliationActive') === null) {
+                        localStorage.setItem('humiliationActive', 'true');
+                    }
+                    if (localStorage.getItem('humiliationActive') === 'true' && sessionStorage.getItem('myFateRedirected') !== 'true') {
+                        sessionStorage.setItem('myFateRedirected', 'true');
+                        window.location.href = 'MyFate.html';
+                        return;
+                    }
+                } catch(e) {}
+
                 if (modal) modal.style.display = 'none';
                 if (websiteContent) websiteContent.style.display = 'block';
-                
+
                 // Initialize shuffle after showing website
                 setTimeout(() => {
                     initializeShuffleSections();

@@ -16,14 +16,14 @@
     </script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: linear-gradient(135deg, #D4A574 0%, #E8C8AB 100%); color: #fff; font-family: 'Poppins', sans-serif; min-height: 100vh; }
+        body { background: linear-gradient(135deg, #6B8B7A 0%, #8AA898 100%); color: #fff; font-family: 'Poppins', sans-serif; min-height: 100vh; }
         .main-container { display: flex; flex-direction: column; align-items: center; padding: 20px; gap: 30px; }
-        @keyframes timerPulse { 0%, 100% { transform: scale(1); text-shadow: 0 0 30px #D4A574; } 50% { transform: scale(1.05); text-shadow: 0 0 50px #E8C8AB; } }
-        .timer-display { font-family: 'Orbitron', monospace; font-size: 3.5rem; font-weight: 700; color: #D4A574; text-align: center; animation: timerPulse 2s ease-in-out infinite; letter-spacing: 8px; }
+        @keyframes timerPulse { 0%, 100% { transform: scale(1); text-shadow: 0 0 30px #7FA8A3; } 50% { transform: scale(1.05); text-shadow: 0 0 50px #A0C4BF; } }
+        .timer-display { font-family: 'Orbitron', monospace; font-size: 3.5rem; font-weight: 700; color: #7FA8A3; text-align: center; animation: timerPulse 2s ease-in-out infinite; letter-spacing: 8px; }
         .main-panel { display: grid; grid-template-columns: 1fr 380px; gap: 40px; max-width: 1200px; width: 100%; align-items: start; }
         .left-panel { display: flex; flex-direction: column; align-items: center; gap: 20px; }
         .image-container { position: relative; width: 100%; max-width: 600px; height: 480px; border-radius: 25px; overflow: hidden; box-shadow: 0 20px 60px rgba(212, 165, 116, 0.4); }
-        .image-container img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; }
+        .image-container img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transition: opacity 0.5s ease; }
         .image-container img.active { opacity: 1; }
         .right-panel { display: flex; flex-direction: column; gap: 20px; height: fit-content; }
         .item-header { text-align: center; }
@@ -36,18 +36,43 @@
         .mind-break-bar { width: 100%; height: 12px; background: rgba(0, 0, 0, 0.4); border-radius: 10px; overflow: hidden; margin-bottom: 10px; }
         .mind-break-fill { height: 100%; background: linear-gradient(90deg, #D4A574, #E8C8AB); border-radius: 10px; width: 0%; }
         .mind-break-stages { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; font-size: 0.75rem; text-align: center; }
-        .action-buttons { display: grid; grid-template-columns: 1fr; gap: 12px; }
-        .action-btn { font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 700; padding: 16px 20px; border-radius: 50px; border: none; cursor: pointer; color: #fff; }
-        .action-btn:hover { transform: translateY(-3px); filter: brightness(1.15); }
+        .action-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+        .action-btn { font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 700; padding: 16px 20px; border-radius: 50px; border: none; cursor: pointer; color: #fff; transition: all 0.3s ease; }
+        .action-btn:hover { transform: translateY(-3px); filter: brightness(1.15); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+        .action-btn:active { transform: translateY(-1px); }
+        .resist-btn { background: linear-gradient(45deg, #5B7B76, #688F8A); }
+        .bark-btn { background: linear-gradient(45deg, #688F8A, #7FA8A3); }
+        .wag-btn { background: linear-gradient(45deg, #7FA8A3, #A0C4BF); }
+        .submit-btn { background: linear-gradient(45deg, #5A8078, #688F8A); }
         .lower-section { max-width: 1000px; width: 100%; }
-        .status-box { background: rgba(212, 165, 116, 0.15); border: 2px solid rgba(212, 165, 116, 0.7); border-radius: 20px; padding: 30px; margin-bottom: 25px; text-align: center; }
-        .status-box h3 { font-family: 'Orbitron', sans-serif; font-size: 1.6rem; color: #D4A574; margin-bottom: 15px; }
-        .memory-fragment { background: rgba(0, 0, 0, 0.4); border-left: 4px solid #D4A574; border-radius: 12px; overflow: hidden; margin-bottom: 15px; }
-        .memory-trigger { padding: 15px; background: rgba(212, 165, 116, 0.2); cursor: pointer; font-weight: 600; }
-        .memory-trigger:hover { background: rgba(212, 165, 116, 0.35); }
-        .memory-content { padding: 15px; display: none; }
+        .status-box { background: rgba(104, 143, 138, 0.15); border: 2px solid rgba(127, 168, 163, 0.7); border-radius: 20px; padding: 30px; margin-bottom: 25px; text-align: center; }
+        .status-box h3 { font-family: 'Orbitron', sans-serif; font-size: 1.6rem; color: #7FA8A3; margin-bottom: 15px; }
+        .degradation-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
+        .stat-item { background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px; border-left: 4px solid #688F8A; }
+        .stat-value { font-size: 1.4rem; font-weight: 700; color: #7FA8A3; }
+        .transformation-flash { position: fixed; inset: 0; background: rgba(104, 143, 138, 0.95); display: none; align-items: center; justify-content: center; z-index: 5000; animation: flashIn 0.3s ease; }
+        .transformation-flash.active { display: flex; }
+        .transformation-flash-inner { text-align: center; max-width: 600px; padding: 40px; }
+        .transformation-flash-image { width: 200px; height: 200px; margin: 0 auto 20px; border-radius: 50%; object-fit: cover; border: 4px solid #7FA8A3; }
+        .transformation-flash-text { font-size: 1.4rem; color: #fff; line-height: 1.6; }
+        @keyframes flashIn { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
+        .memory-fragment { background: rgba(0, 0, 0, 0.4); border-left: 4px solid #688F8A; border-radius: 12px; overflow: hidden; margin-bottom: 15px; transition: all 0.3s ease; }
+        .memory-trigger { padding: 15px; background: rgba(104, 143, 138, 0.2); cursor: pointer; font-weight: 600; color: #E8D0D8; transition: all 0.3s ease; }
+        .memory-trigger:hover { background: rgba(104, 143, 138, 0.35); color: #7FA8A3; }
+        .memory-content { padding: 15px; display: none; background: rgba(0,0,0,0.3); color: #E8D0D8; line-height: 1.7; animation: slideDown 0.3s ease; }
         .memory-content.active { display: block; }
-        details summary { margin-top: 30px; font-family: 'Orbitron', sans-serif; font-size: 1.8rem; font-weight: 700; color: #D4A574; padding: 20px; list-style: none; background: rgba(212, 165, 116, 0.15); border-radius: 20px; cursor: pointer; }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+        .memory-fragment.locked { opacity: 0.4; pointer-events: none; }
+        .memory-fragment.locked .memory-trigger { background: rgba(50, 50, 50, 0.2); color: #666; }
+        .memory-fragment[data-stage="0"] .memory-trigger { border-left-color: #C8E0DD; }
+        .memory-fragment[data-stage="1"] .memory-trigger { border-left-color: #A0C4BF; }
+        .memory-fragment[data-stage="2"] .memory-trigger { border-left-color: #7FA8A3; }
+        .memory-fragment[data-stage="3"] .memory-trigger { border-left-color: #688F8A; }
+        .memory-fragment[data-stage="4"] .memory-trigger { border-left-color: #C8E0DD; }
+        .human-thoughts { color: #E8D0D8; font-style: italic; }
+        .canine-instinct { color: #7FA8A3; font-weight: 600; }
+        .scarlet-voice { color: #688F8A; font-weight: 700; }
+        details summary { margin-top: 30px; font-family: 'Orbitron', sans-serif; font-size: 1.8rem; font-weight: 700; color: #7FA8A3; padding: 20px; list-style: none; background: rgba(104, 143, 138, 0.15); border-radius: 20px; cursor: pointer; }
         @media (max-width: 900px) { .main-panel { grid-template-columns: 1fr; } }
     </style>
 </head>
@@ -57,84 +82,379 @@
         <div class="main-panel">
             <div class="left-panel">
                 <div class="image-container">
-                    <img src="https://via.placeholder.com/600x480/D4A574?text=dog+Form" class="active">
+                    <img src="https://via.placeholder.com/600x480/8AA898/E8D0D8?text=Stage+1:+Human" id="img0" class="active">
+                    <img src="https://via.placeholder.com/600x480/7FA8A3/E8D0D8?text=Stage+2:+Canine+Features" id="img1">
+                    <img src="https://via.placeholder.com/600x480/A0C4BF/6B8B7A?text=Stage+3:+Half+Dog" id="img2">
+                    <img src="https://via.placeholder.com/600x480/C8E0DD/6B8B7A?text=Stage+4:+Nearly+Complete" id="img3">
+                    <img src="https://via.placeholder.com/600x480/A0C4BF/688F8A?text=Stage+5:+Loyal+Dog" id="img4">
                 </div>
             </div>
             <div class="right-panel">
                 <div class="item-header">
-                    <h1 class="item-title">Scarlet's Perfect Dog</h1>
-                    <div class="category-badge">Farm Transformation</div>
+                    <h1 class="item-title">Scarlet's Breeding Bitch</h1>
+                    <div class="category-badge">Obedient Pet Slut</div>
                 </div>
                 <div class="mind-break-container">
                     <div class="mind-break-header">
-                        <div class="mind-break-title">CANINE SUBJUGATION</div>
+                        <div class="mind-break-title">SUBMISSION TRAINING</div>
                         <div class="mind-break-percentage" id="mindBreakPercentage">0%</div>
                     </div>
                     <div class="mind-break-bar"><div class="mind-break-fill" id="mindBreakFill"></div></div>
                     <div class="mind-break-stages">
                         <span>HUMAN</span>
-                        <span>SHIFTING</span>
                         <span>CANINE</span>
-                        <span>LOYAL_COMPANION</span>
+                        <span>OBEDIENT</span>
+                        <span>BREEDING PET</span>
                     </div>
                 </div>
                 <div class="action-buttons">
-                    <button class="action-btn" style="background: linear-gradient(45deg, #D4A574, #E8C8AB); box-shadow: 0 8px 25px rgba(212, 165, 116, 0.6);" onclick="resist()">RESIST</button>
-                    <button class="action-btn" style="background: linear-gradient(45deg, #E8C8AB, #D4A574); box-shadow: 0 8px 25px rgba(212, 165, 116, 0.6);" onclick="accept()">ACCEPT FORM</button>
+                    <button class="action-btn resist-btn" onclick="resist()">Resist Spell</button>
+                    <button class="action-btn bark-btn" onclick="tryToBark()">Whine in Heat</button>
+                    <button class="action-btn wag-btn" onclick="wagTail()">Present Rear</button>
+                    <button class="action-btn submit-btn" onclick="accept()">Beg to Breed</button>
                 </div>
             </div>
         </div>
         <div class="lower-section">
-            <details>
-                <summary>Your Complete Existence</summary>
+            <details open>
+                <summary>Your Breeding Bitch Existence</summary>
                 <div class="status-box">
-                    <h3>Transformation Complete</h3>
-                    <p>You have been completely transformed. Your consciousness has changed. This is what you are now.</p>
+                    <h3>Current State: Scarlet's Obedient Breeding Pet</h3>
+                    <p>You're now her perfect bitch—on all fours, tail wagging, tongue lolling. Every command makes you OBEY instantly. When she says "present," your rear lifts automatically. When she brings a male dog, you're IN HEAT—desperate, whining, needing to be mounted. Your existence revolves around pleasing her, obeying her, breeding for her...</p>
+                    <div class="degradation-stats">
+                        <div class="stat-item">
+                            <div>Humanity Remaining</div>
+                            <div class="stat-value" id="humanityValue">100%</div>
+                        </div>
+                        <div class="stat-item">
+                            <div>Canine Instincts</div>
+                            <div class="stat-value" id="canineValue">0%</div>
+                        </div>
+                        <div class="stat-item">
+                            <div>Loyalty Level</div>
+                            <div class="stat-value" id="loyaltyValue">0%</div>
+                        </div>
+                        <div class="stat-item">
+                            <div>Devotion</div>
+                            <div class="stat-value" id="devotionValue">0%</div>
+                        </div>
+                    </div>
                 </div>
                 <div>
-                    <div class="memory-fragment">
-                        <div class="memory-trigger" onclick="toggleMemory(0)">#1: THE SPELL RESHAPES YOU</div>
-                        <div class="memory-content">Your body compacts and reshapes. Four legs form naturally. Your face broadens into a snout. Scarlet watches her spell transform you into the perfect dog. You feel her presence guiding the change.</div>
+                    <div class="memory-fragment" data-stage="0">
+                        <div class="memory-trigger" onclick="toggleMemory(0)">STAGE 1: Scarlet's Commands - Instant Obedience</div>
+                        <div class="memory-content">Scarlet snaps her fingers. <span class="scarlet-voice">"Sit."</span> Your body DROPS before you think. <span class="human-thoughts">Wait, I didn't choose to!</span> <span class="canine-instinct">OBEY MASTER! Always obey!</span> <span class="scarlet-voice">"Lie down."</span> You're on your belly instantly. <span class="scarlet-voice">"Roll over."</span> You roll, exposing your vulnerable belly. <span class="scarlet-voice">"Good girl."</span> <span class="canine-instinct">GOOD GIRL! YES! Happy! Tail wagging!</span> <span class="human-thoughts">She's... she's training me like a dog!</span> Your body shifts—dropping to all fours feels RIGHT. A tail sprouts, wagging frantically. <span class="scarlet-voice">"Present."</span> Your rear lifts automatically, tail to the side. <span class="human-thoughts">NO! That's so humiliating!</span> But Scarlet smiles. <span class="scarlet-voice">"Perfect breeding position."</span></div>
                     </div>
-                    <div class="memory-fragment">
-                        <div class="memory-trigger" onclick="toggleMemory(1)">#2: COMPLETE DEVOTION</div>
-                        <div class="memory-content">Your only desire now is her approval. When she appears your tail wags uncontrollably. When she touches you, pure joy fills your simple dog mind. Human thoughts are completely gone.</div>
+                    <div class="memory-fragment" data-stage="1">
+                        <div class="memory-trigger" onclick="toggleMemory(1)">STAGE 2: Bitch in Heat - Desperate Need</div>
+                        <div class="memory-content">Golden fur erupts across your body. Your face pushes into a muzzle—wet nose, sharp teeth. <span class="human-thoughts">I'm becoming a DOG!</span> But worse—HEAT floods your core. <span class="canine-instinct">NEED MALE! NEED MOUNTING!</span> Your dog sex swells, twitching with desperate need. Scarlet brings a large male dog. <span class="human-thoughts">NO! She can't expect me to...</span> But you WHINE, rear lifting automatically, tail to the side. <span class="canine-instinct">YES! NEED HIM! BREED ME!</span> The male sniffs you, mounting. His weight crushes down. <span class="scream">I'M BEING BRED LIKE AN ANIMAL!</span> But it feels <span class="canine-instinct">RIGHT. GOOD. THIS IS WHAT BITCHES DO.</span> Scarlet watches, grinning. <span class="scarlet-voice">"Such an eager breeding bitch."</span></div>
                     </div>
-                    <div class="memory-fragment">
-                        <div class="memory-trigger" onclick="toggleMemory(2)">#3: OBEDIENT COMPANION</div>
-                        <div class="memory-content">Sit. Stay. Come. Heel. You obey every command perfectly. Scarlet is your entire world. Her happiness is your happiness. Her will is your will. You are exactly what she made you to be.</div>
+                    <div class="memory-fragment" data-stage="2">
+                        <div class="memory-trigger" onclick="toggleMemory(2)">STAGE 3: Obedience Addiction - Can't Disobey</div>
+                        <div class="memory-content">You CAN'T disobey anymore. <span class="scarlet-voice">"Sit."</span> You sit. <span class="scarlet-voice">"Beg."</span> You're on hind legs, paws up. <span class="scarlet-voice">"Lick my hand."</span> Your tongue is out before you think. <span class="human-thoughts">I'm completely under her control!</span> <span class="canine-instinct">GOOD! Master controls us! We obey! Makes us happy!</span> She points at her feet. <span class="scarlet-voice">"Hump."</span> <span class="human-thoughts">NO! That's too degrading!</span> But you're already mounting her leg, humping desperately. <span class="canine-instinct">CAN'T STOP! MASTER COMMANDED!</span> She laughs. <span class="scarlet-voice">"Good slut. Such an obedient breeding bitch."</span> Pleasure floods you at the praise. <span class="canine-instinct">Good slut! Yes! We're her slut!</span></div>
                     </div>
-                    <div class="memory-fragment">
-                        <div class="memory-trigger" onclick="toggleMemory(3)">#4: HER PERFECT DOG</div>
-                        <div class="memory-content">You are Scarlet's perfect dog now. Loyal. Obedient. Devoted. Your entire existence is devoted to serving and pleasing her. You would never want to be anything else.</div>
+                    <div class="memory-fragment" data-stage="3">
+                        <div class="memory-trigger" onclick="toggleMemory(3)">STAGE 4: Breeding Cycle - Pregnant Pet</div>
+                        <div class="memory-content">You're IN HEAT constantly now. <span class="canine-instinct">NEED MALE! NEED BREEDING! NEED PUPPIES!</span> Scarlet brings the stud dog regularly. You present eagerly, whining, <span class="canine-instinct">DESPERATE</span>. He mounts, ties with you, fills you. <span class="human-thoughts">I'm... I'm going to have PUPPIES!</span> Belly swells with litter. Scarlet pets your pregnant form. <span class="scarlet-voice">"Such a good breeding bitch. You'll give me so many puppies."</span> <span class="canine-instinct">YES! Breed for Master! Birth puppies for Master! Good bitch!</span> You birth a litter—five squirming pups. But the heat returns quickly. <span class="canine-instinct">Ready to breed again! Always ready!</span> This is your life now.</div>
+                    </div>
+                    <div class="memory-fragment" data-stage="4">
+                        <div class="memory-trigger" onclick="toggleMemory(4)">STAGE 5: Permanent Breeding Bitch</div>
+                        <div class="memory-content"><span class="canine-instinct">WOOF! Breeding bitch! Obedient slut! Master's pet!</span> No humanity left. Just obey, present, breed, birth. Perpetual heat. Tail wagging. Tongue lolling. <span class="canine-instinct">NEED MASTER'S COMMAND!</span> She points down. You lie down. She snaps. You sit. She says "present." Rear up, tail aside, READY. Male dog mounts—you whine in pleasure. <span class="canine-instinct">YES! BREED! PUPPIES!</span> Belly swells again—third litter? Fourth? Numbers don't matter. <span class="scarlet-voice">"My perfect breeding stock. Forever my obedient bitch."</span> <span class="canine-instinct">Yes Master! Your bitch! Forever! WOOF!</span> You lick her hand submissively. This is existence. This is purpose. <span class="canine-instinct">OBEY. BREED. SERVE. WOOF!</span></div>
                     </div>
                 </div>
             </details>
         </div>
     </div>
+
+    <!-- Transformation Flash Popup -->
+    <div class="transformation-flash" id="transformFlash">
+        <div class="transformation-flash-inner">
+            <img src="https://via.placeholder.com/200/E8C8AB/FFFFFF?text=Changing" class="transformation-flash-image" id="flashImage">
+            <div class="transformation-flash-text" id="flashText"></div>
+        </div>
+    </div>
+
     <script>
         const state = JSON.parse(localStorage.getItem('farmState') || '{}');
         const endTime = state.trappedUntil;
         let mindBreakLevel = parseInt(localStorage.getItem('ScarletdogMindBreak') || '0');
+        let currentImage = 0;
+        let devotionClicks = parseInt(localStorage.getItem('dogClicks') || '0');
+        let humanity = 100;
+        let canineInstinct = 0;
+        let loyalty = 0;
+        let devotion = 0;
+
         function updateCountdownTimer() {
             const timeLeft = Math.max(0, endTime - Date.now());
             const h = Math.floor(timeLeft / 3600000).toString().padStart(2, '0');
             const m = Math.floor((timeLeft % 3600000) / 60000).toString().padStart(2, '0');
             const s = Math.floor((timeLeft % 60000) / 1000).toString().padStart(2, '0');
             document.getElementById('countdownTimer').textContent = h + ':' + m + ':' + s;
-            if (timeLeft <= 0) { localStorage.removeItem('farmState'); window.location.href = '../../index.html'; }
+            if (timeLeft <= 0) { 
+                localStorage.removeItem('farmState'); 
+                window.location.href = '../../index.html'; 
+            }
         }
-        function toggleMemory(stage) { document.querySelectorAll('.memory-content')[stage].classList.toggle('active'); }
-        function resist() { mindBreakLevel = Math.min(100, mindBreakLevel + 5); updateMindBreak(); }
-        function accept() { mindBreakLevel = Math.min(100, mindBreakLevel + 10); updateMindBreak(); }
+
+        function swapImage(stage) {
+            document.querySelectorAll('.image-container img').forEach(img => img.classList.remove('active'));
+            document.getElementById('img' + stage).classList.add('active');
+            currentImage = stage;
+        }
+
+        function showTransformationFlash(options) {
+            const flash = document.getElementById('transformFlash');
+            const text = document.getElementById('flashText');
+            const img = document.getElementById('flashImage');
+            
+            text.innerHTML = options.text;
+            img.src = options.image || 'https://via.placeholder.com/200/E8C8AB/FFFFFF?text=Changing';
+            flash.classList.add('active');
+            
+            setTimeout(() => {
+                flash.classList.remove('active');
+            }, options.duration || 2000);
+        }
+
+        function toggleMemory(id) {
+            const content = document.querySelectorAll('.memory-content')[id];
+            content.classList.toggle('active');
+        }
+
+        function updateStats() {
+            document.getElementById('humanityValue').textContent = Math.max(0, humanity).toFixed(0) + '%';
+            document.getElementById('canineValue').textContent = Math.min(100, canineInstinct).toFixed(0) + '%';
+            document.getElementById('loyaltyValue').textContent = Math.min(100, loyalty).toFixed(0) + '%';
+            document.getElementById('devotionValue').textContent = Math.min(100, devotion).toFixed(0) + '%';
+            
+            localStorage.setItem('dogHumanity', humanity);
+            localStorage.setItem('dogCanine', canineInstinct);
+            localStorage.setItem('dogLoyalty', loyalty);
+            localStorage.setItem('dogDevotion', devotion);
+        }
+
         function updateMindBreak() {
             document.getElementById('mindBreakPercentage').textContent = mindBreakLevel + '%';
             document.getElementById('mindBreakFill').style.width = mindBreakLevel + '%';
             localStorage.setItem('ScarletdogMindBreak', mindBreakLevel);
+            
+            const memories = document.querySelectorAll('.memory-fragment');
+            memories.forEach((mem, idx) => {
+                if (mindBreakLevel >= idx * 20) {
+                    mem.classList.remove('locked');
+                } else {
+                    mem.classList.add('locked');
+                }
+            });
+            
+            if (mindBreakLevel >= 80) swapImage(4);
+            else if (mindBreakLevel >= 60) swapImage(3);
+            else if (mindBreakLevel >= 40) swapImage(2);
+            else if (mindBreakLevel >= 20) swapImage(1);
+            else swapImage(0);
         }
+
+        function resist() {
+            mindBreakLevel = Math.min(100, mindBreakLevel + 3);
+            devotionClicks++;
+            humanity -= 2;
+            canineInstinct += 1;
+            loyalty += 2;
+            
+            const messages = [
+                "<span class='human-thoughts'>I won't give in! I'm a person, not a pet!</span> But Scarlet's scent is so COMFORTING... <span class='canine-instinct'>Master scent. Safe.</span>",
+                "<span class='human-thoughts'>I need to remember who I was!</span> Your tail wags involuntarily. <span class='canine-instinct'>Why fight? Master good. Being dog good.</span>",
+                "<span class='human-thoughts'>This isn't right!</span> But obeying her commands feels <span class='canine-instinct'>SO right. Natural. Meant to be.</span>",
+                "<span class='canine-instinct'>Master happy when we obey. We want Master happy!</span> <span class='human-thoughts'>Wait, that's not...</span>",
+                "<span class='human-thoughts'>I'm losing myself...</span> <span class='canine-instinct'>Not losing. Finding. True self is loyal dog.</span>",
+            ];
+            
+            showTransformationFlash({
+                text: messages[Math.floor(Math.random() * messages.length)],
+                duration: 2500
+            });
+            
+            updateMindBreak();
+            updateStats();
+            localStorage.setItem('dogClicks', devotionClicks);
+        }
+
+        function tryToBark() {
+            mindBreakLevel = Math.min(100, mindBreakLevel + 6);
+            humanity -= 4;
+            canineInstinct += 5;
+            loyalty += 3;
+            
+            const messages = [
+                "You try to speak but it comes out <span class='canine-instinct'>WOOF! WOOF!</span> <span class='human-thoughts'>No! That's not what I meant to say!</span>",
+                "<span class='canine-instinct'>BARK BARK BARK!</span> Your voice is pure dog now. <span class='scarlet-voice'>Good boy!</span> Pride swells. <span class='human-thoughts'>Wait, why am I proud of barking?!</span>",
+                "Words won't form. Only <span class='canine-instinct'>barks, whines, happy yips</span>. <span class='human-thoughts'>My voice... it's gone...</span>",
+                "You bark excitedly when Scarlet approaches. <span class='canine-instinct'>MASTER! MASTER HERE! BARK TO GREET MASTER!</span>",
+                "<span class='canine-instinct'>Barking is natural. Barking is right. Dogs bark. We are dog.</span> <span class='human-thoughts'>But I'm not...</span> <span class='canine-instinct'>We ARE.</span>",
+            ];
+            
+            showTransformationFlash({
+                text: messages[Math.floor(Math.random() * messages.length)],
+                duration: 2500
+            });
+            
+            updateMindBreak();
+            updateStats();
+        }
+
+        function wagTail() {
+            mindBreakLevel = Math.min(100, mindBreakLevel + 8);
+            humanity -= 5;
+            canineInstinct += 7;
+            loyalty += 4;
+            devotion += 6;
+            
+            const messages = [
+                "Your tail wags frantically. <span class='canine-instinct'>HAPPY! SO HAPPY! MASTER HERE!</span> <span class='human-thoughts'>I can't stop wagging!</span>",
+                "<span class='canine-instinct'>Tail shows emotion. Can't hide it. Don't WANT to hide it.</span> It wags harder when Scarlet smiles.",
+                "The wagging is involuntary, tied to your emotions. Happy = <span class='canine-instinct'>WAG WAG WAG!</span> <span class='human-thoughts'>This is humiliating but...</span> <span class='canine-instinct'>Feels good!</span>",
+                "Scarlet pets you and your tail becomes a <span class='canine-instinct'>golden blur of pure JOY</span>. <span class='human-thoughts'>Why does this make me so happy?</span>",
+                "You can't imagine NOT having a tail to wag. <span class='canine-instinct'>How did humans show happiness without tails? So inefficient.</span>",
+            ];
+            
+            showTransformationFlash({
+                text: messages[Math.floor(Math.random() * messages.length)],
+                duration: 2500
+            });
+            
+            updateMindBreak();
+            updateStats();
+        }
+
+        function accept() {
+            mindBreakLevel = Math.min(100, mindBreakLevel + 12);
+            humanity -= 8;
+            canineInstinct += 10;
+            loyalty += 10;
+            devotion += 12;
+            
+            const messages = [
+                "<span class='human-thoughts'>Maybe... maybe being her dog isn't so bad...</span> <span class='canine-instinct'>NOT BAD! BEST! Perfect! Complete!</span>",
+                "You press your head into her hand, seeking approval. <span class='scarlet-voice'>Such a good, loyal dog.</span> <span class='canine-instinct'>YES! Good dog! Her dog! Always her dog!</span>",
+                "<span class='human-thoughts'>I don't want to fight anymore. I just want to make her happy.</span> <span class='canine-instinct'>That's ALL we want. All we NEED.</span>",
+                "<span class='canine-instinct'>You accept your collar, your leash, your place at her feet.</span> It's where you belong. <span class='human-thoughts'>Where I... belong...</span>",
+                "The last resistance fades. <span class='canine-instinct'>You ARE her dog. Loyal. Devoted. Faithful. Forever and ever and ever.</span>",
+            ];
+            
+            showTransformationFlash({
+                text: messages[Math.floor(Math.random() * messages.length)],
+                duration: 3000
+            });
+            
+            updateMindBreak();
+            updateStats();
+            
+            if (mindBreakLevel >= 100) {
+                setTimeout(() => {
+                    triggerMindBreakVictory();
+                }, 3500);
+            }
+        }
+
+        function triggerMindBreakVictory() {
+            const state = JSON.parse(localStorage.getItem('farmState') || '{}');
+            state.trappedUntil += 24 * 60 * 60 * 1000;
+            localStorage.setItem('farmState', JSON.stringify(state));
+            
+            mindBreakLevel = 0;
+            localStorage.setItem('ScarletdogMindBreak', '0');
+            updateMindBreak();
+            
+            const overlay = document.createElement('div');
+            overlay.id = 'victoryOverlay';
+            overlay.style.cssText = `
+                position:fixed;inset:0;z-index:100000;background:rgba(212,165,116,0.95);
+                display:flex;align-items:center;justify-content:center;text-align:center;
+                font-family:'Orbitron',sans-serif;pointer-events:none;overflow:hidden;
+            `;
+            
+            overlay.innerHTML = `
+                <div id="victoryTimerDisplay" style="
+                    font-size:8rem;font-weight:900;color:#E8C8AB;
+                    text-shadow:0 0 80px #D4A574,0 0 160px #E8C8AB;
+                    letter-spacing:16px;margin:0;animation:timerExplode 20s linear infinite;
+                    position:relative;z-index:10;pointer-events:none;
+                ">+24:00:00</div>
+                <div id="bulkyFlashes" style="position:absolute;inset:0;pointer-events:none;"></div>
+            `;
+            
+            document.body.appendChild(overlay);
+            
+            let flashCount = 0;
+            const bulkyMessages = [
+                "UNWAVERING LOYALTY ACHIEVED 🐶💕",
+                "MASTER BOND UNBREAKABLE 🔒",
+                "+24 HOURS DOG LIFE EXTENSION ⏳😈",
+                "OBEDIENCE PROTOCOL PERMANENT 🎯",
+                "TAIL WAGGING MANDATORY 🐾",
+                "BARKING ONLY COMMUNICATION 🔊",
+                "DEVOTED PET FOREVER ✨🐶",
+                "COLLAR LOCKED ETERNALLY 🔗",
+                "SCARLET'S FAITHFUL COMPANION 👑🐾",
+                "PERFECT GOOD BOY STATUS 🏆❤️"
+            ];
+            
+            const flashInterval = setInterval(() => {
+                if (flashCount >= bulkyMessages.length) return;
+                
+                const flash = document.createElement('div');
+                flash.innerHTML = bulkyMessages[flashCount];
+                flash.style.cssText = `
+                    position:absolute;font-size:2.2rem;font-weight:900;color:#F0D8C8;
+                    text-shadow:0 0 15px #D4A574;background:linear-gradient(135deg,#3d2815,#1a0f0a);
+                    border:3px solid #E8C8AB;box-shadow:0 0 40px rgba(232,200,171,0.9);
+                    border-radius:20px;padding:20px 30px;left:${Math.random()*60+20}%;
+                    top:${Math.random()*50+15}%;animation:bulkyFlash 3s ease-out forwards;
+                    z-index:5;pointer-events:none;font-family:'Orbitron',sans-serif;
+                    text-transform:uppercase;letter-spacing:2px;
+                `;
+                document.getElementById('bulkyFlashes').appendChild(flash);
+                flashCount++;
+            }, 1800);
+            
+            let victoryTime = 20;
+            const victoryTimer = setInterval(() => {
+                victoryTime--;
+                document.getElementById('victoryTimerDisplay').textContent = `+24:00:00`;
+                
+                if (victoryTime <= 0) {
+                    clearInterval(victoryTimer);
+                    clearInterval(flashInterval);
+                    overlay.remove();
+                }
+            }, 1000);
+        }
+
+        humanity = parseInt(localStorage.getItem('dogHumanity') || '100');
+        canineInstinct = parseInt(localStorage.getItem('dogCanine') || '0');
+        loyalty = parseInt(localStorage.getItem('dogLoyalty') || '0');
+        devotion = parseInt(localStorage.getItem('dogDevotion') || '0');
+
         setInterval(updateCountdownTimer, 1000);
         updateCountdownTimer();
         updateMindBreak();
+        updateStats();
+        
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes bulkyFlash {
+                0% { opacity: 0; transform: scale(0.5) rotate(-5deg); }
+                20% { opacity: 1; transform: scale(1.1) rotate(2deg); }
+                80% { opacity: 1; transform: scale(1) rotate(0deg); }
+                100% { opacity: 0; transform: scale(0.8) rotate(5deg); }
+            }
+            @keyframes timerExplode {
+                0%, 100% { transform: scale(1); }
+                50% { transform: scale(1.05); }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>

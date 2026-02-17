@@ -3,138 +3,1052 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Trapped as Scarlet's rabbit</title>
+    <title>Trapped as Livestock - Scarlet's Breeding Rabbit</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
-    <script>
-    (function() {
-        const s = JSON.parse(localStorage.getItem('farmState') || '{}');
-        if (!s.trappedUntil || s.trappedUntil <= Date.now()) {
-            localStorage.removeItem('farmState');
-            window.location.href = '../../index.html';
-        }
-    })();
-    </script>
+    <!-- GLOBAL CHECKER -->
+    <script>(function(){const s=JSON.parse(localStorage.getItem('farmState')||'{}');if(s.trappedUntil&&s.trappedUntil>Date.now()){}else{localStorage.removeItem('farmState');window.location.href='../../index.html';}})();</script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: linear-gradient(135deg, #A0826D 0%, #D4B5A0 100%); color: #fff; font-family: 'Poppins', sans-serif; min-height: 100vh; }
-        .main-container { display: flex; flex-direction: column; align-items: center; padding: 20px; gap: 30px; }
-        @keyframes timerPulse { 0%, 100% { transform: scale(1); text-shadow: 0 0 30px #A0826D; } 50% { transform: scale(1.05); text-shadow: 0 0 50px #D4B5A0; } }
-        .timer-display { font-family: 'Orbitron', monospace; font-size: 3.5rem; font-weight: 700; color: #A0826D; text-align: center; animation: timerPulse 2s ease-in-out infinite; letter-spacing: 8px; }
-        .main-panel { display: grid; grid-template-columns: 1fr 380px; gap: 40px; max-width: 1200px; width: 100%; align-items: start; }
-        .left-panel { display: flex; flex-direction: column; align-items: center; gap: 20px; }
-        .image-container { position: relative; width: 100%; max-width: 600px; height: 480px; border-radius: 25px; overflow: hidden; box-shadow: 0 20px 60px rgba(160, 130, 109, 0.4); }
-        .image-container img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; }
-        .image-container img.active { opacity: 1; }
-        .right-panel { display: flex; flex-direction: column; gap: 20px; height: fit-content; }
-        .item-header { text-align: center; }
-        .item-title { font-family: 'Orbitron', sans-serif; font-size: 1.8rem; font-weight: 700; color: #A0826D; margin-bottom: 8px; }
-        .category-badge { background: linear-gradient(45deg, #A0826D, #D4B5A0); padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
-        .mind-break-container { background: rgba(160, 130, 109, 0.15); backdrop-filter: blur(20px); border: 2px solid rgba(160, 130, 109, 0.6); border-radius: 15px; padding: 20px; }
-        .mind-break-header { display: flex; justify-content: space-between; margin-bottom: 10px; }
-        .mind-break-title { font-family: 'Orbitron', sans-serif; font-size: 1.1rem; font-weight: 700; color: #A0826D; }
-        .mind-break-percentage { font-size: 1.1rem; font-weight: 700; color: #D4B5A0; }
-        .mind-break-bar { width: 100%; height: 12px; background: rgba(0, 0, 0, 0.4); border-radius: 10px; overflow: hidden; margin-bottom: 10px; }
-        .mind-break-fill { height: 100%; background: linear-gradient(90deg, #A0826D, #D4B5A0); border-radius: 10px; width: 0%; }
-        .mind-break-stages { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; font-size: 0.75rem; text-align: center; }
-        .action-buttons { display: grid; grid-template-columns: 1fr; gap: 12px; }
-        .action-btn { font-family: 'Poppins', sans-serif; font-size: 1rem; font-weight: 700; padding: 16px 20px; border-radius: 50px; border: none; cursor: pointer; color: #fff; }
-        .action-btn:hover { transform: translateY(-3px); filter: brightness(1.15); }
-        .lower-section { max-width: 1000px; width: 100%; }
-        .status-box { background: rgba(160, 130, 109, 0.15); border: 2px solid rgba(160, 130, 109, 0.7); border-radius: 20px; padding: 30px; margin-bottom: 25px; text-align: center; }
-        .status-box h3 { font-family: 'Orbitron', sans-serif; font-size: 1.6rem; color: #A0826D; margin-bottom: 15px; }
-        .memory-fragment { background: rgba(0, 0, 0, 0.4); border-left: 4px solid #A0826D; border-radius: 12px; overflow: hidden; margin-bottom: 15px; }
-        .memory-trigger { padding: 15px; background: rgba(160, 130, 109, 0.2); cursor: pointer; font-weight: 600; }
-        .memory-trigger:hover { background: rgba(160, 130, 109, 0.35); }
-        .memory-content { padding: 15px; display: none; }
-        .memory-content.active { display: block; }
-        details summary { margin-top: 30px; font-family: 'Orbitron', sans-serif; font-size: 1.8rem; font-weight: 700; color: #A0826D; padding: 20px; list-style: none; background: rgba(160, 130, 109, 0.15); border-radius: 20px; cursor: pointer; }
-        @media (max-width: 900px) { .main-panel { grid-template-columns: 1fr; } }
+        
+        body {
+            background: linear-gradient(135deg, #0a1f0a 0%, #1a3c1a 100%);
+            color: #fff;
+            font-family: 'Poppins', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            gap: 30px;
+        }
+
+        /* TIMER ANIMATIONS */
+        @keyframes timerExplode {
+            0%, 100% { 
+                font-size:8rem;transform:scale(1) rotate(0deg);
+                text-shadow:0 0 80px #32CD32,0 0 160px #90EE90;filter:brightness(1);
+            }
+            25% { font-size:10rem;transform:scale(1.4) rotate(5deg);filter:brightness(1.4); }
+            50% { font-size:12rem;transform:scale(1.8) rotate(-8deg);filter:brightness(1.8); }
+            75% { font-size:10rem;transform:scale(1.4) rotate(3deg);filter:brightness(1.4); }
+        }
+
+        @keyframes bulkyFlash {
+            0% { opacity:0;transform:scale(0.3) translateY(50px) rotate(-15deg); }
+            15% { opacity:1;transform:scale(1.1) translateY(0) rotate(2deg); }
+            85% { opacity:1;transform:scale(1.05) translateY(-10px) rotate(1deg); }
+            100% { opacity:0;transform:scale(1.4) translateY(-80px) rotate(180deg); }
+        }
+
+        /* TIMER TOP CENTER */
+        .timer-display {
+            font-family: 'Orbitron', monospace;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: #90EE90;
+            text-align: center;
+            text-shadow: 0 0 30px #32CD32, 0 0 60px #90EE90;
+            letter-spacing: 8px;
+            margin-bottom: 10px;
+        }
+
+        /* MAIN PANEL: IMAGE LEFT + UI RIGHT */
+        .main-panel {
+            display: grid;
+            grid-template-columns: 1fr 380px;
+            gap: 40px;
+            max-width: 1200px;
+            width: 100%;
+            align-items: start;
+        }
+
+        .left-panel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* RABBIT IMAGE */
+        .rabbit-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 480px;
+            border-radius: 25px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(50, 205, 50, 0.4);
+            border: 2px solid rgba(144, 238, 144, 0.5);
+        }
+
+        .rabbit-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.8s ease, filter 0.5s ease;
+        }
+
+        .rabbit-image.active {
+            opacity: 1;
+        }
+
+        /* RIGHT PANEL */
+        .right-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            height: fit-content;
+        }
+
+        /* TITLE + BADGE */
+        .item-header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .item-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #32CD32, #90EE90, #98FB98);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 0 20px rgba(50, 205, 50, 0.5);
+            margin-bottom: 8px;
+            letter-spacing: 2px;
+        }
+
+        .category-badge {
+            background: linear-gradient(45deg, #32CD32, #98FB98);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            box-shadow: 0 5px 20px rgba(50, 205, 50, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* MIND BREAK CONTAINER */
+        .mind-break-container {
+            background: rgba(50, 205, 50, 0.12);
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(144, 238, 144, 0.6);
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 15px 40px rgba(50, 205, 50, 0.3);
+        }
+
+        .mind-break-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .mind-break-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            color: #98FB98;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .mind-break-percentage {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #90EE90, #32CD32);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .mind-break-bar {
+            height: 20px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(144, 238, 144, 0.5);
+            position: relative;
+        }
+
+        .mind-break-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #32CD32, #90EE90, #98FB98, #00FF7F);
+            transition: width 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(50, 205, 50, 0.9);
+        }
+
+        .mind-break-stages {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: #ccc;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* ACTION BUTTONS */
+        .action-buttons {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .action-btn {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            padding: 16px 20px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-3px) scale(1.05);
+            filter: brightness(1.15);
+        }
+
+        .action-btn:active {
+            transform: translateY(-1px) scale(1.02);
+        }
+
+        .resist-btn {
+            background: linear-gradient(45deg, #32CD32, #90EE90);
+            color: #fff;
+            box-shadow: 0 8px 25px rgba(50, 205, 50, 0.6);
+        }
+
+        .squeak-btn {
+            background: linear-gradient(45deg, #98FB98, #00FF7F);
+            color: #000;
+            box-shadow: 0 8px 25px rgba(0, 255, 127, 0.6);
+            font-weight: 800;
+        }
+
+        .nibble-btn {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
+            font-weight: 800;
+        }
+
+        .breed-btn {
+            background: linear-gradient(45deg, #FF69B4, #FF1493, #8B008B);
+            color: #fff;
+            box-shadow: 0 8px 25px rgba(255, 105, 180, 0.6);
+            text-shadow: 0 0 8px rgba(139, 0, 139, 0.8);
+        }
+
+        /* MIND BREAK PROGRESS PULSES */
+        #mindBreakFill.pulsing {
+            animation: mindBreakPulse 0.8s ease-out;
+        }
+
+        @keyframes mindBreakPulse {
+            0% { transform: scaleX(1); }
+            50% { transform: scaleX(1.05); }
+            100% { transform: scaleX(1); }
+        }
+
+        /* LOWER SECTION - FULL WIDTH CENTERED */
+        .lower-section {
+            max-width: 1000px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .rabbit-status {
+            background: rgba(50, 205, 50, 0.15);
+            backdrop-filter: blur(20px);
+            border: 2px solid rgba(144, 238, 144, 0.7);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 25px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(50, 205, 50, 0.25);
+        }
+
+        .rabbit-status h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            color: #90EE90;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 15px #32CD32;
+        }
+
+        .rabbit-status p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 8px;
+            color: #eee;
+        }
+
+        .degradation-stats {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+
+        .stat-item {
+            background: rgba(144, 238, 144, 0.1);
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid rgba(50, 205, 50, 0.4);
+            text-align: center;
+        }
+
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #90EE90;
+        }
+
+        /* MEMORY FRAGMENTS */
+        .memory-fragments {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .memory-fragment {
+            background: rgba(10, 40, 10, 0.8);
+            border: 1px solid rgba(144, 238, 144, 0.4);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .memory-fragment:hover {
+            border-color: #90EE90;
+            box-shadow: 0 10px 30px rgba(144, 238, 144, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .memory-trigger {
+            padding: 18px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.05rem;
+            background: linear-gradient(90deg, rgba(50, 205, 50, 0.2), rgba(144, 238, 144, 0.15));
+            transition: all 0.3s ease;
+            user-select: none;
+        }
+
+        .memory-trigger:hover {
+            background: linear-gradient(90deg, #32CD32, #90EE90);
+            color: #000;
+            font-weight: 700;
+        }
+
+        .memory-content {
+            display: none;
+            padding: 20px;
+            background: rgba(5, 20, 5, 0.95);
+            font-style: italic;
+            color: #ddd;
+            line-height: 1.6;
+            max-height: 200px;
+            overflow-y: auto;
+        }
+
+        .memory-content.active {
+            display: block;
+            animation: slideDown 0.4s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* RABBIT STRUGGLE POPUP */
+        .rabbit-flash {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 99999;
+            background: radial-gradient(circle at center, rgba(50,205,50,0.35), rgba(0,0,0,0.95));
+            animation: glitch 0.35s infinite;
+        }
+
+        .rabbit-flash-inner {
+            max-width: 680px;
+            width: 90%;
+            background: linear-gradient(135deg, #1a3c1a, #0a1f0a);
+            border: 2px solid #32CD32;
+            box-shadow: 0 0 40px rgba(50,205,50,0.9);
+            border-radius: 18px;
+            padding: 18px 22px;
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            gap: 18px;
+        }
+
+        .rabbit-flash-image {
+            background-size: cover;
+            background-position: center;
+            border-radius: 12px;
+            min-height: 160px;
+            box-shadow: 0 0 25px rgba(144,238,144,0.8);
+        }
+
+        .rabbit-flash-text {
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #98FB98;
+            font-weight: 600;
+            text-shadow: 0 0 8px rgba(50,205,50,0.9);
+        }
+
+        .rabbit-flash-text span.rabbit-scream {
+            color: #FF4500;
+            font-weight: 800;
+        }
+
+        @media (max-width: 650px) {
+            .rabbit-flash-inner {
+                grid-template-columns: 1fr;
+            }
+            .rabbit-flash-image {
+                min-height: 140px;
+            }
+        }
+
+        /* PROGRESSIVE MEMORY PERSPECTIVES */
+        .druid-speak {
+            color: #90EE90 !important;
+            font-weight: 800;
+            text-shadow: 0 0 12px #32CD32;
+            font-style: italic;
+        }
+
+        .scream {
+            color: #FF4500 !important;
+            font-weight: 900;
+            font-size: 1.1em;
+            text-shadow: 0 0 10px #FF4500;
+            animation: screamShake 0.5s infinite;
+        }
+
+        .happy-rabbit {
+            color: #98FB98 !important;
+            font-weight: 700;
+            text-shadow: 0 0 12px #32CD32;
+        }
+
+        .final-rabbit {
+            color: #FFD700 !important;
+            font-weight: 800;
+            font-size: 1.15em;
+            text-shadow: 0 0 20px #FFA500;
+            background: linear-gradient(45deg, rgba(255,215,0,0.2), rgba(255,165,0,0.2));
+            padding: 4px 8px;
+            border-radius: 6px;
+        }
+
+        @keyframes screamShake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(2px); }
+            75% { transform: translateX(-2px); }
+        }
+
+        /* STAGE VISUALS */
+        .memory-fragment[data-stage="0"] .memory-trigger { border-left: 4px solid #32CD32; }
+        .memory-fragment[data-stage="1"] .memory-trigger { border-left: 4px solid #90EE90; }
+        .memory-fragment[data-stage="2"] .memory-trigger { border-left: 4px solid #98FB98; }
+        .memory-fragment[data-stage="3"] .memory-trigger { border-left: 4px solid #FFA500; }
+        .memory-fragment[data-stage="4"] .memory-trigger { border-left: 4px solid #FFD700; }
+
+        /* MIND BREAK LOCKOUT */
+        .memory-fragment.locked {
+            opacity: 0.4;
+            pointer-events: none;
+        }
+
+        .memory-fragment.locked .memory-trigger {
+            background: linear-gradient(90deg, rgba(50,205,50,0.3), rgba(0,100,0,0.3)) !important;
+            color: #666 !important;
+        }
+
+        .memory-fragment.unlocked {
+            border-color: #90EE90 !important;
+            box-shadow: 0 0 20px rgba(144,238,144,0.4) !important;
+        }
+
+        /* ANIMATIONS */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+
+        .mind-broken {
+            filter: grayscale(100%) brightness(0.6) !important;
+            opacity: 0.8;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 900px) {
+            .main-panel {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+            
+            .timer-display {
+                font-size: 2.5rem;
+            }
+            
+            .rabbit-image-container {
+                max-width: 320px;
+                height: 400px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="main-container">
+        <!-- REAL TIME CLOCK TOP -->
         <div class="timer-display" id="countdownTimer">--:--:--</div>
+
+        <!-- MAIN PANEL -->
         <div class="main-panel">
+            <!-- LEFT: RABBIT IMAGE -->
             <div class="left-panel">
-                <div class="image-container">
-                    <img src="https://via.placeholder.com/600x480/A0826D?text=rabbit+Form" class="active">
+                <div class="rabbit-image-container">
+                    <img src="https://i.ibb.co/zWCzBvcz/remove-comments.jpg" class="rabbit-image active" data-stage="0">
+                    <img src="https://i.ibb.co/PZq193ft/buns-of-steal-page-1-by-strawberrytfs-digsqnd-pre.jpg" class="rabbit-image" data-stage="1">
+                    <img src="https://i.ibb.co/DgRswjgF/bunny-tf-2-by-kyo-dom-d9ksb5k-375w.jpg" class="rabbit-image" data-stage="2">
+                    <img src="https://i.ibb.co/KjPDmYhX/bunnys.jpg" class="rabbit-image" data-stage="3">
                 </div>
             </div>
+
+            <!-- RABBIT STRUGGLE POPUP -->
+            <div id="rabbitStrugglePopup" class="rabbit-flash" style="display:none;">
+                <div class="rabbit-flash-inner">
+                    <div class="rabbit-flash-image" id="rabbitFlashImage"></div>
+                    <div class="rabbit-flash-text" id="rabbitFlashText"></div>
+                </div>
+            </div>
+
+            <!-- RIGHT: UI PANEL -->
             <div class="right-panel">
                 <div class="item-header">
-                    <h1 class="item-title">Scarlet's Perfect Rabbit</h1>
-                    <div class="category-badge">Farm Transformation</div>
+                    <h1 class="item-title">Scarlet's Breeding Rabbit</h1>
+                    <div class="category-badge">Stable Master's Toy</div>
                 </div>
+
+                <!-- MIND BREAK -->
                 <div class="mind-break-container">
                     <div class="mind-break-header">
-                        <div class="mind-break-title">TRANSFORMATION INTO PREY</div>
+                        <div class="mind-break-title">HUMILIATION BREEDING</div>
                         <div class="mind-break-percentage" id="mindBreakPercentage">0%</div>
                     </div>
-                    <div class="mind-break-bar"><div class="mind-break-fill" id="mindBreakFill"></div></div>
+                    <div class="mind-break-bar">
+                        <div class="mind-break-fill" id="mindBreakFill" style="width: 0%"></div>
+                    </div>
                     <div class="mind-break-stages">
                         <span>HUMAN</span>
                         <span>SHRINKING</span>
-                        <span>LAGOMORPH</span>
-                        <span>PET</span>
+                        <span>BUNNY</span>
+                        <span>BREEDING BITCH</span>
                     </div>
                 </div>
+
+                <!-- ACTION BUTTONS -->
                 <div class="action-buttons">
-                    <button class="action-btn" style="background: linear-gradient(45deg, #A0826D, #D4B5A0); box-shadow: 0 8px 25px rgba(160, 130, 109, 0.6);" onclick="resist()">RESIST</button>
-                    <button class="action-btn" style="background: linear-gradient(45deg, #D4B5A0, #A0826D); box-shadow: 0 8px 25px rgba(160, 130, 109, 0.6);" onclick="accept()">ACCEPT FORM</button>
+                    <button class="action-btn resist-btn" onclick="resist()">RESIST SPELL</button>
+                    <button class="action-btn squeak-btn" onclick="squeak()">SQUEAK IN HEAT</button>
+                    <button class="action-btn nibble-btn" onclick="nibble()">PRESENT EAGERLY</button>
+                    <button class="action-btn breed-btn" onclick="breed()">BEG FOR MOUNTING</button>
                 </div>
             </div>
         </div>
+
+        <!-- LOWER SECTION - FULL WIDTH -->
         <div class="lower-section">
-            <details>
-                <summary>Your Complete Existence</summary>
-                <div class="status-box">
-                    <h3>Transformation Complete</h3>
-                    <p>You have been completely transformed. Your consciousness has changed. This is what you are now.</p>
+            <details style="cursor: pointer;">
+                <summary style="
+                    margin-top: 30px;
+                    font-family: 'Orbitron', sans-serif;
+                    font-size: 1.8rem;
+                    font-weight: 700;
+                    color: #90EE90;
+                    padding: 20px;
+                    list-style: none;
+                    background: rgba(50, 205, 50, 0.15);
+                    border-radius: 20px;
+                    border: 2px solid rgba(144, 238, 144, 0.6);
+                    text-align: center;
+                    text-shadow: 0 0 15px #32CD32;
+                    margin-bottom: 10px;
+                ">Your Mindless Breeding Bunny Existence</summary>
+
+                <div class="rabbit-status">
+                    <p>Scarlet grins wickedly as her spell compresses your body. You SHRINK rapidly—bones cracking, skin tingling. Soft fur erupts everywhere. Your mind simplifies into pure bunny lust... tiny, helpless, desperate to be bred...</p>
+                    <p id="statusText">Body shrinking... heat building... need to be mounted...</p>
+                    
+                    <div class="degradation-stats" id="degradationStats">
+                        <div class="stat-item">
+                            Human Intelligence: <span class="stat-value" id="memoryLoss">100%</span>
+                        </div>
+                        <div class="stat-item">
+                            Breeding Heat: <span class="stat-value" id="selfAwareness">0%</span>
+                        </div>
+                        <div class="stat-item">
+                            Bunny Acceptance: <span class="stat-value" id="objectPerception">0%</span>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <div class="memory-fragment">
-                        <div class="memory-trigger" onclick="toggleMemory(0)">#1: SHRINKING DOWN</div>
-                        <div class="memory-content">Your body shrinks and compresses. Your bones become delicate. Soft fur covers your new tiny form. Scarlet picks you up gently. In her hands you are small. Helpless. Perfect.</div>
+
+                <div class="memory-fragments">
+                    <!-- #1: PURE RESISTANCE (0-25%) -->
+                    <div class="memory-fragment" data-stage="0">
+                        <div class="memory-trigger" onclick="toggleMemory(0)">#1: SCARLET'S HUMILIATION</div>
+                        <div class="memory-content">
+                            <span class="scream">WHAT ARE YOU DOING TO ME?!</span> Scarlet circles me, laughing cruelly as my body compresses. Bones crack—SHRINKING FAST! <span class="scream">I'M GETTING TINY!</span> She grabs my diminishing form in one hand. <span class="druid-speak">"Going to make you my cutest little breeding toy. So small. So helpless. So desperate."</span> My ears stretch LONG. Fur sprouts. <span class="scream">Between my legs... changing... aching...</span>
+                        </div>
                     </div>
-                    <div class="memory-fragment">
-                        <div class="memory-trigger" onclick="toggleMemory(1)">#2: ADORABLE AND OWNED</div>
-                        <div class="memory-content">You are now pocket-sized. Your rabbit instincts overwhelm what little human thought remains. You want to be in her hands. To be petted. To hop at her command. Breeding urges dominate.</div>
+
+                    <!-- #2: DESPERATE FIGHT (25-50%) -->
+                    <div class="memory-fragment" data-stage="1">
+                        <div class="memory-trigger" onclick="toggleMemory(1)">#2: TINY AND HELPLESS</div>
+                        <div class="memory-content">
+                            I'm SO SMALL now—barely a foot tall! Tiny paws replace my hands. White fur covers everything. <span class="scream">I'M A RABBIT!</span> Scarlet picks me up easily, stroking my trembling body. <span class="druid-speak">"Look at you. Completely helpless. Can't even fight back anymore."</span> Her finger trails down my belly to my... <span class="scream">SO EXPOSED!</span> My bunny sex twitches. Heat floods my tiny form. <span class="happy-rabbit">Need... something... breeding...</span>
+                        </div>
                     </div>
-                    <div class="memory-fragment">
-                        <div class="memory-trigger" onclick="toggleMemory(2)">#3: HER LITTLE PET</div>
-                        <div class="memory-content">You have become the perfect rabbit. Scarlet cares for you. Feeds you. Pets you endlessly. You exist only for her affection and control. Your size makes you completely dependent on her.</div>
+
+                    <!-- #3: CONFUSED SUBMISSION (50-75%) -->
+                    <div class="memory-fragment" data-stage="2">
+                        <div class="memory-trigger" onclick="toggleMemory(2)">#3: BUNNY HEAT</div>
+                        <div class="memory-content">
+                            Mind foggy... bunny instincts overwhelming... <span class="happy-rabbit">NEED BUCK! NEED BREEDING!</span> Scarlet brings a massive male rabbit—he's HUGE compared to my tiny body. His scent makes me squirm desperately. <span class="druid-speak">"You're in heat now, aren't you? Such a needy little doe."</span> I present automatically—rear lifting, trembling. <span class="scream">NO! I'M HUMAN!</span> But my tiny sex is slick, ready, <span class="happy-rabbit">begging for it...</span>
+                        </div>
                     </div>
-                    <div class="memory-fragment">
-                        <div class="memory-trigger" onclick="toggleMemory(3)">#4: TINY RABBIT FOREVER</div>
-                        <div class="memory-content">You are Scarlet's perfect rabbit now. Small. Vulnerable. Completely hers. Your entire existence revolves around her. This is all you are. This is all you ever wanted to be.</div>
+
+                    <!-- #4: BREEDER IDENTITY (75-90%) -->
+                    <div class="memory-fragment" data-stage="3">
+                        <div class="memory-trigger" onclick="toggleMemory(3)">#4: BREEDING FRENZY</div>
+                        <div class="memory-content">
+                            Human thoughts gone. Just bunny now. <span class="happy-rabbit">Present. Get mounted. Feel buck.</span> He climbs on my tiny back—HEAVY. His rapid rabbit thrusts shake my whole body. <span class="final-rabbit">YES! BREED ME! FILL ME!</span> Scarlet watches, grinning. <span class="druid-speak">"That's it. Take him. You're just a breeding toy now."</span> His rhythm is frantic. Mind blanks. Pure <span class="happy-rabbit">PLEASURE. BREEDING. KITS.</span>
+                        </div>
+                    </div>
+
+                    <!-- #5: TOTAL BUNNY JOY (90%+) -->
+                    <div class="memory-fragment" data-stage="4">
+                        <div class="memory-trigger" onclick="toggleMemory(4)">#5: BREEDING TOY FOREVER</div>
+                        <div class="memory-content">
+                            <span class="final-rabbit">Squeak~ 💕 Breed bunny! Tiny bunny! Full bunny! 💕</span><br>
+                            No humanity left. Just doe instincts. Perpetual heat. Desperate for buck. <span class="happy-rabbit">Feel him mount. Feel him thrust. Feel him FILL tiny body.</span> Belly swells with litter after litter. Scarlet pets my pregnant form. <span class="druid-speak">"My perfect little breeding machine. You'll make me so many kits."</span> <span class="final-rabbit">Yes! Breed forever! Birth forever! Bunny existence! SQUEAK!</span>
+                        </div>
                     </div>
                 </div>
             </details>
         </div>
     </div>
     <script>
+        // STATE MANAGEMENT
         const state = JSON.parse(localStorage.getItem('farmState') || '{}');
         const endTime = state.trappedUntil;
-        let mindBreakLevel = parseInt(localStorage.getItem('ScarletrabbitMindBreak') || '0');
+        let mindBreakLevel = parseInt(localStorage.getItem('rabbitMindBreak') || '0');
+        let desperationClicks = parseInt(localStorage.getItem('rabbitClicks') || '0');
+
+        // MIND BREAK STAGES
+        const mindBreakStages = [
+            {title: "STILL RESISTING", color: "#32CD32", memory: 100, awareness: 0, obj: 0},
+            {title: "BODY SHRINKING", color: "#90EE90", memory: 60, awareness: 30, obj: 40},
+            {title: "BUNNY MIND", color: "#98FB98", memory: 20, awareness: 70, obj: 80},
+            {title: "BREEDING BITCH", color: "#006400", memory: 0, awareness: 100, obj: 100}
+        ];
+
         function updateCountdownTimer() {
             const timeLeft = Math.max(0, endTime - Date.now());
             const h = Math.floor(timeLeft / 3600000).toString().padStart(2, '0');
             const m = Math.floor((timeLeft % 3600000) / 60000).toString().padStart(2, '0');
             const s = Math.floor((timeLeft % 60000) / 1000).toString().padStart(2, '0');
-            document.getElementById('countdownTimer').textContent = h + ':' + m + ':' + s;
-            if (timeLeft <= 0) { localStorage.removeItem('farmState'); window.location.href = '../../index.html'; }
+            document.getElementById('countdownTimer').textContent = `${h}:${m}:${s}`;
+            
+            if (timeLeft <= 0) {
+                localStorage.removeItem('rabbitMindBreak');
+                localStorage.removeItem('rabbitClicks');
+                window.location.href = '../../index.html';
+            }
         }
-        function toggleMemory(stage) { document.querySelectorAll('.memory-content')[stage].classList.toggle('active'); }
-        function resist() { mindBreakLevel = Math.min(100, mindBreakLevel + 5); updateMindBreak(); }
-        function accept() { mindBreakLevel = Math.min(100, mindBreakLevel + 10); updateMindBreak(); }
+
+        // IMAGE SWAP
+        function swapImage(stage) {
+            const images = document.querySelectorAll('.rabbit-image');
+            images.forEach((img, index) => {
+                img.classList.toggle('active', index === stage);
+            });
+        }
+
+        // RABBIT STRUGGLE POPUP
+        function showRabbitStruggle(options) {
+            const popup = document.getElementById("rabbitStrugglePopup");
+            const imgBox = document.getElementById("rabbitFlashImage");
+            const textBox = document.getElementById("rabbitFlashText");
+
+            if (!popup || !imgBox || !textBox) return;
+
+            if (options.image) {
+                imgBox.style.backgroundImage = `url("${options.image}")`;
+            } else {
+                imgBox.style.backgroundImage = "linear-gradient(135deg, #32CD32, #90EE90, #98FB98)";
+            }
+
+            textBox.innerHTML = options.text;
+            popup.style.display = "flex";
+            popup.style.opacity = "1";
+
+            const dur = options.duration || 3500;
+            setTimeout(() => {
+                popup.style.opacity = "0";
+                setTimeout(() => {
+                    popup.style.display = "none";
+                }, 400);
+            }, dur);
+        }
+
+        // MEMORY TOGGLE
+        function toggleMemory(id) {
+            const contents = document.querySelectorAll('.memory-content');
+            const target = contents[id];
+            const triggers = document.querySelectorAll('.memory-trigger');
+            
+            contents.forEach((content, index) => {
+                if (index !== id) {
+                    content.classList.remove('active');
+                    triggers[index].style.background = 'linear-gradient(90deg, rgba(50, 205, 50, 0.2), rgba(144, 238, 144, 0.15))';
+                }
+            });
+            
+            target.classList.toggle('active');
+            triggers[id].style.background = target.classList.contains('active') ? 
+                'linear-gradient(90deg, #32CD32, #90EE90)' : 
+                'linear-gradient(90deg, rgba(50, 205, 50, 0.2), rgba(144, 238, 144, 0.15))';
+            
+            document.getElementById('statusText').textContent = 
+                `Memory #${id+1} accessed. Consciousness shrinking... `;
+        }
+
+        // MIND BREAK UPDATE
         function updateMindBreak() {
-            document.getElementById('mindBreakPercentage').textContent = mindBreakLevel + '%';
-            document.getElementById('mindBreakFill').style.width = mindBreakLevel + '%';
-            localStorage.setItem('ScarletrabbitMindBreak', mindBreakLevel);
+            const stage = mindBreakStages[Math.min(Math.floor(mindBreakLevel), 3)];
+            const percentage = Math.floor(Math.min(100, (mindBreakLevel) * 25));
+
+            document.getElementById('mindBreakPercentage').textContent = percentage + '%';
+            document.getElementById('mindBreakFill').style.width = percentage + '%';
+            
+            document.getElementById('memoryLoss').textContent = stage.memory + '%';
+            document.getElementById('selfAwareness').textContent = stage.awareness + '%';
+            document.getElementById('objectPerception').textContent = stage.obj + '%';
+
+            const activeImage = document.querySelector('.rabbit-image.active');
+            if (activeImage) {
+                const grayscale = Math.min(100, percentage / 2);
+                const brightness = 1 - (percentage / 200);
+                activeImage.style.filter = `grayscale(${grayscale}%) brightness(${brightness})`;
+                if (percentage > 70) activeImage.classList.add('mind-broken');
+            }
+
+            localStorage.setItem('rabbitMindBreak', Math.floor(mindBreakLevel));
+
+            if (percentage >= 25) swapImage(1);
+            if (percentage >= 50) swapImage(2);
+            if (percentage >= 75) swapImage(3);
+            if (percentage >= 100 && !document.querySelector('#gameOverTimer')) triggerGameOver();
         }
+
+        // ACTIONS
+        function resist() {
+            closeRabbitDetails();
+            desperationClicks++;
+            document.getElementById('statusText').textContent = 'Scarlet laughs! Shrinking faster! Tiny body heating up!';
+            
+            const img = document.querySelector('.rabbit-image.active');
+            img.style.transform = 'scale(1.1)';
+            setTimeout(() => img.style.transform = '', 400);
+            
+            mindBreakLevel += 0.08;
+            showMindBreakPulse(2);
+            updateMindBreak();
+            localStorage.setItem('rabbitClicks', desperationClicks);
+
+            if (Math.random() < 0.7) {
+                showRabbitStruggle({
+                    image: null,
+                    text: "<span class='rabbit-scream'>I won't become a rabbit!</span> But I'm SHRINKING—so small! Scarlet picks me up in one hand, grinning wickedly. <span class='druid-speak'>'You're already mine. Tiny. Helpless. Soon you'll be begging to breed.'</span> Heat floods my diminishing form. <span class='happy-rabbit'>Between my legs... aching... need...</span>",
+                    duration: 3800,
+                });
+            }
+        }
+
+        function squeak() {
+            closeRabbitDetails();
+            desperationClicks += 2;
+            document.body.style.animation = 'shake 0.6s';
+            document.getElementById('statusText').textContent = '*SQUEAK!* In heat! Tiny body trembling! Need buck!';
+            
+            mindBreakLevel += 0.1;
+            showMindBreakPulse(4);
+            updateMindBreak();
+            setTimeout(() => document.body.style.animation = '', 600);
+
+            if (Math.random() < 0.7) {
+                showRabbitStruggle({
+                    image: null,
+                    text: "The squeak is high, desperate, <span class='scream'>IN HEAT!</span> I can't control it. Scarlet strokes my trembling form. <span class='druid-speak'>'Such a needy little doe. You need a buck, don't you?'</span> My tiny sex twitches. <span class='happy-rabbit'>YES! Need mounting! Need breeding NOW!</span>",
+                });
+            }
+        }
+
+        function nibble() {
+            closeRabbitDetails();
+            desperationClicks += 3;
+            createFloatingCarrots();
+            document.getElementById('statusText').textContent = 'Presenting hindquarters... tail lifting... ready for buck...';
+            
+            mindBreakLevel += 0.2;
+            showMindBreakPulse(8);
+            updateMindBreak();
+
+            if (Math.random() < 0.7) {
+                showRabbitStruggle({
+                    image: null,
+                    text: "My tiny body moves on instinct—rear lifts, tail wiggles. <span class='scream'>WHAT AM I DOING?!</span> But it feels RIGHT. Natural. <span class='druid-speak'>'Good doe. Show him how ready you are.'</span> My bunny sex is wet, exposed, <span class='happy-rabbit'>begging for it...</span>",
+                });
+            }
+        }
+
+        function breed() {
+            closeRabbitDetails();
+            if (Math.random() < 0.2) {
+                document.getElementById('statusText').textContent = 'Scarlet shows mercy! Heat fades briefly... (Rare!)';
+            } else {
+                desperationClicks++;
+                mindBreakLevel += 0.3;
+                document.getElementById('statusText').textContent = 'BREEDING FRENZY! Buck mounting! Tiny body FILLED! Mind breaking!';
+                showMindBreakPulse(4);
+                updateMindBreak();
+
+                if (Math.random() < 0.7) {
+                    showRabbitStruggle({
+                        image: null,
+                        text: "<span class='rabbit-scream'>BREED ME! MOUNT ME NOW!</span> The buck's weight crushes my tiny frame. His rapid thrusts shake my ENTIRE BODY. <span class='happy-rabbit'>SO FULL! SO GOOD!</span> Scarlet watches, grinning. <span class='druid-speak'>'That's it. Take him. You're just a breeding toy now.'</span> His frantic rhythm overwhelms. <span class='final-rabbit'>YES! BREED! KITS! FOREVER! SQUEAK!</span>",
+                        duration: 4200,
+                    });
+                }
+            }
+        }
+
+        function closeRabbitDetails() {
+            const details = document.querySelector('details');
+            if (details && details.open) {
+                details.open = false;
+            }
+        }
+
+        function showMindBreakPulse(intensity) {
+            const bar = document.getElementById('mindBreakFill');
+            const percent = document.getElementById('mindBreakPercentage');
+            
+            const colors = ['#90EE90', '#FFD700', '#FF8C00', '#FF4500', '#32CD32'];
+            const pulseColor = colors[Math.min(intensity-1, colors.length-1)];
+            
+            bar.style.boxShadow = `0 0 20px ${pulseColor}, inset 0 0 20px ${pulseColor}`;
+            percent.style.color = pulseColor;
+            percent.style.textShadow = `0 0 15px ${pulseColor}`;
+            
+            const oldPercent = parseInt(percent.textContent);
+            setTimeout(() => {
+                const gain = Math.floor((mindBreakLevel / 10) * 25);
+                document.getElementById('statusText').textContent += ` [+${gain-oldPercent}%]`;
+            }, 100);
+            
+            setTimeout(() => {
+                bar.style.boxShadow = '';
+                percent.style.color = '';
+                percent.style.textShadow = '';
+            }, 800);
+        }
+
+        function createFloatingCarrots() {
+            for (let i = 0; i < 12; i++) {
+                const carrot = document.createElement('div');
+                carrot.innerHTML = '🥕';
+                carrot.style.cssText = `
+                    position: fixed; left: ${Math.random()*90}vw; top: 50vh;
+                    font-size: ${1.2+Math.random()*1}rem; pointer-events: none;
+                    animation: floatUp 3s ease-out forwards; z-index: 9999;
+                `;
+                document.body.appendChild(carrot);
+                setTimeout(() => carrot.remove(), 3000);
+            }
+        }
+
+        function triggerGameOver() {
+            triggerMindBreakVictory();
+            
+            setTimeout(() => {
+                document.body.innerHTML = `
+                <div style="position:fixed;inset:0;background:linear-gradient(45deg,#1a3c1a,#0a1f0a);display:flex;align-items:center;justify-content:center;flex-direction:column;font-family:'Orbitron',sans-serif;color:#90EE90;text-align:center;z-index:99999;padding:20px;">
+                    <h1 style="font-size:5rem;text-shadow:0 0 40px #32CD32;margin:0;animation:glitch 0.3s infinite;"> TRANSFORMATION COMPLETE </h1>
+                    <div style="font-size:2.5rem;margin:20px;font-weight:700;">PERFECT BREEDING DOE ACHIEVED</div>
+                    <div style="font-size:1.4rem;max-width:700px;line-height:1.6;margin:30px;">
+                        You are now Scarlet's perfect breeding rabbit. No thoughts. No memories. Just heat, mounting, and breeding kits...
+                    </div>
+                    <img src="https://i.ibb.co/KjPDmYhX/bunnys.jpg" style="width:350px;margin:30px;border-radius:25px;box-shadow:0 0 60px #32CD32;">
+                    <div id="gameOverTimer" style="font-size:3.5rem;font-weight:700;color:#98FB98;text-shadow:0 0 30px #32CD32;">Returning to hutch in: 00:30</div>
+                </div>
+                `;
+                
+                let countdown = 30;
+                const timer = setInterval(() => {
+                    const minutes = Math.floor(countdown / 60).toString().padStart(2, '0');
+                    const seconds = (countdown % 60).toString().padStart(2, '0');
+                    document.getElementById('gameOverTimer').textContent = `Returning to hutch in: ${minutes}:${seconds}`;
+                    countdown--;
+                    if (countdown < 0) {
+                        clearInterval(timer);
+                        localStorage.removeItem('rabbitMindBreak');
+                        localStorage.removeItem('rabbitClicks');
+                        location.reload();
+                    }
+                }, 1000);
+            }, 20500);
+        }
+
+        function triggerMindBreakVictory() {
+            const state = JSON.parse(localStorage.getItem('farmState') || '{}');
+            state.trappedUntil += 24 * 60 * 60 * 1000;
+            localStorage.setItem('farmState', JSON.stringify(state));
+            
+            const overlay = document.createElement('div');
+            overlay.id = 'victoryOverlay';
+            overlay.style.cssText = `
+                position:fixed;inset:0;z-index:100000;background:rgba(26,60,26,0.95);
+                display:flex;align-items:center;justify-content:center;text-align:center;
+                font-family:'Orbitron',sans-serif;pointer-events:none;overflow:hidden;
+            `;
+            
+            overlay.innerHTML = `
+                <div id="victoryTimerDisplay" style="
+                    font-size:8rem;font-weight:900;color:#90EE90;
+                    text-shadow:0 0 80px #32CD32,0 0 160px #90EE90;
+                    letter-spacing:16px;margin:0;animation:timerExplode 20s linear infinite;
+                    position:relative;z-index:10;pointer-events:none;
+                ">+24:00:00</div>
+                <div id="bulkyFlashes" style="position:absolute;inset:0;pointer-events:none;"></div>
+            `;
+            
+            document.body.appendChild(overlay);
+            
+            let flashCount = 0;
+            const bulkyMessages = [
+                "SCARLET'S SPELL LOCKED PERMANENTLY",
+                "HUMAN MIND ERASED FOREVER",
+                "BREEDING DOE PROTOCOL ACTIVE",
+                "+24 HOURS BUNNY LIFE EXTENSION",
+                "BELLY SWOLLEN WITH KITS",
+                "HEAT CYCLE PERPETUAL",
+                "BREEDING TOY FOREVER",
+                "BREEDING DESIRE OVERWHELMING",
+                "HUTCH INTEGRATION COMPLETE",
+                "PERFECT FERTILE DOE UPGRADE "
+            ];
+            
+            const flashInterval = setInterval(() => {
+                if (flashCount >= bulkyMessages.length) return;
+                
+                const flash = document.createElement('div');
+                flash.innerHTML = bulkyMessages[flashCount];
+                flash.style.cssText = `
+                    position:absolute;font-size:2.2rem;font-weight:900;color:#98FB98;
+                    text-shadow:0 0 15px #32CD32;background:linear-gradient(135deg,#1a3c1a,#0a1f0a);
+                    border:3px solid #32CD32;box-shadow:0 0 40px rgba(50,205,50,0.9);
+                    border-radius:20px;padding:20px 30px;left:${Math.random()*60+20}%;
+                    top:${Math.random()*50+15}%;animation:bulkyFlash 3s ease-out forwards;
+                    z-index:5;pointer-events:none;font-family:'Orbitron',sans-serif;
+                    text-transform:uppercase;letter-spacing:2px;
+                `;
+                document.getElementById('bulkyFlashes').appendChild(flash);
+                flashCount++;
+            }, 1800);
+            
+            let victoryTime = 20;
+            const victoryTimer = setInterval(() => {
+                victoryTime--;
+                document.getElementById('victoryTimerDisplay').textContent = `+24:00:00`;
+                
+                if (victoryTime <= 0) {
+                    clearInterval(victoryTimer);
+                    clearInterval(flashInterval);
+                    overlay.remove();
+                }
+            }, 1000);
+        }
+
+        // INIT
         setInterval(updateCountdownTimer, 1000);
         updateCountdownTimer();
         updateMindBreak();
+
+        setInterval(() => {
+            if (Math.random() < 0.15) {
+                const statuses = [
+                    'Scarlet watching... heat building... need breeding... ',
+                    'Belly aching... need breeding... ',
+                    'Buck scent detected! Heat rising! ',
+                    `Mind shrinking... ${Math.floor(mindBreakLevel * 25)}% bunny... `
+                ];
+                document.getElementById('statusText').textContent = statuses[Math.floor(Math.random() * statuses.length)];
+            }
+        }, 10000);
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes floatUp {
+                0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+                100% { transform: translateY(-120vh) rotate(720deg); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
