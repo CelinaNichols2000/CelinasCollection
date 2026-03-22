@@ -1,5 +1,8 @@
 /* item-detail-improved.css */
 /* Improved CSS for item detail pages */
+* {
+    box-sizing: border-box;
+}
 
 :root {
     --primary-color: #FF00CA;
@@ -42,10 +45,13 @@ body {
 .item-detail-container {
     background-color: var(--dark-content);
     border-radius: 15px;
-    overflow: hidden;
     box-shadow: 0 10px 30px rgba(0,0,0,0.3), 0 0 20px rgba(255,0,202,0.1);
     padding: 30px;
     margin-bottom: 40px;
+}
+
+.main-container > * {
+    min-width: 0;
 }
 
 /* First container: Main content layout */
@@ -53,6 +59,7 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 40px;
+    min-width: 0;
     /* Added gradient background for enhanced visual appeal */
     background: linear-gradient(145deg, var(--dark-content), #242424);
 }
@@ -62,6 +69,8 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    min-width: 0;
+    overflow: hidden;
 }
 
 /* Improved image container for better proportions - FIXED EMPTY SPACE ISSUE */
@@ -77,6 +86,11 @@ body {
     justify-content: center;
     position: relative;
     padding: 10px; /* Added padding instead of fixed height */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 .item-main-image-container::after {
@@ -103,18 +117,18 @@ body {
 .item-thumbnail-gallery {
     display: flex;
     gap: 10px;
-    justify-content: center;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+}
+
+.item-thumbnail-gallery::-webkit-scrollbar {
+    display: none;
 }
 
 .thumbnail {
-    width: 80px;
-    height: 80px;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    opacity: 0.6;
-    border: 2px solid transparent;
+    flex: 0 0 auto;
 }
 
 .thumbnail:hover {
@@ -137,6 +151,7 @@ body {
 /* Content column styling */
 .item-detail-content {
     display: flex;
+    min-width: 0;
     flex-direction: column;
     gap: 30px;
 }
@@ -191,6 +206,8 @@ body {
 
 /* Expanded description - FIXED SCROLLBAR ISSUE */
 .item-detail-description {
+    overflow-wrap: break-word;
+    word-break: break-word;
     color: var(--text-dim);
     line-height: 1.7;
     font-size: 1.1rem;
@@ -541,15 +558,53 @@ footer {
     }
 }
 
-@media (max-width: 500px) {
-    .item-stats-grid {
-        grid-template-columns: 1fr;
+@media (max-width: 768px) {
+    .item-main-image-container {
+        padding: 0; /* remove extra padding */
     }
-    
+
+    .item-detail-image {
+        max-height: none;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .item-thumbnail-gallery {
+        overflow-x: auto;
+        justify-content: flex-start;
+        padding-bottom: 10px;
+        scroll-snap-type: x mandatory;
+    }
+
+    .thumbnail {
+        flex: 0 0 auto; /* 🔥 prevents shrinking */
+        scroll-snap-align: start;
+    }
+
     .item-detail-name {
-        font-size: 2rem;
+        font-size: 1.6rem;
+        line-height: 1.2;
+    }
+
+    .section-title {
+        font-size: 1.2rem;
+    }
+
+    .item-detail-description {
+        font-size: 0.95rem;
+        padding: 15px;
+    }
+
+    .main-container {
+        gap: 20px;
+    }
+
+    .item-detail-container {
+        padding: 15px;
     }
 }
+
 
 /* Animation keyframes */
 @keyframes glow {
