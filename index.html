@@ -34,7 +34,10 @@
     </div>
 <div id="websiteContent" style="display: none;">
     <header>
-        <nav>
+    <div class="menu-toggle" id="menuToggle">
+        ☰
+    </div>
+        <nav  id="mobileNav">
             <ul>
                 <li><a href="#about">About Me</a></li>
                 <li><a href="#family">Family</a></li>
@@ -1072,6 +1075,16 @@
                 });
             }
             
+            // Mobile Navigation
+            const menuToggle = document.getElementById('menuToggle');
+            const mobileNav = document.getElementById('mobileNav');
+
+            if (menuToggle && mobileNav) {
+                menuToggle.addEventListener('click', function () {
+                    mobileNav.classList.toggle('active');
+                });
+            }
+
             function showWebsite() {
                 // Check if humiliationActive flag is set and this is first visit in session
                 try {
