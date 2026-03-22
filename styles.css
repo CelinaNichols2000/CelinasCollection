@@ -1220,6 +1220,18 @@ nav ul li a:hover::after {
     }
 }
 
+@media (min-width: 769px) {
+    .age-verification-overlay {
+        overflow-y: visible;
+        align-items: center;
+    }
+
+    .age-verification-container {
+        max-height: none;
+        overflow: hidden;
+    }
+}
+
 @media (max-width: 768px) {
 
     .menu-toggle {
@@ -1374,6 +1386,7 @@ nav ul li a:hover::after {
         font-size: 4rem;
     }
 }
+
 
 @media (max-width: 600px) {
         .age-verification-overlay {
