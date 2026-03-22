@@ -260,12 +260,14 @@ nav ul li a:hover::after {
 
 /* Content Section */
 .content-section {
+    position: relative;
+    overflow: hidden;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     gap: 40px;
-    padding: 60px 40px;
+    padding: 40px 40px;
     margin: 60px auto;
     max-width: 1300px;
     background: rgba(10, 0, 20, 0.6);
@@ -1330,24 +1332,20 @@ nav ul li a:hover::after {
         font-size: 0.9rem;
     }
 
-    .content-section {
-        flex-direction: column;
-        gap: 30px;
-    }
-
     .item-detail-image {
         max-height: 500px;
     }
     
     .image-container,
     .text-content {
-        width: 90%;
+        min-width: 0;
+        width: 100%;
     }
     
     .text-content {
         padding: 25px;
     }
-    
+
     .celina-title {
         font-size: 2.5rem;
     }
@@ -1483,7 +1481,7 @@ nav ul li a:hover::after {
     }
 
     .content-section {
-        padding: 20px 10px;
+        padding: 20px 20px;
     }
 
     .image-container,
