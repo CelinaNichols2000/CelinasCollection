@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celina’s Mindfucked Smutty Titshugger</title>
+    <link rel="icon" type="image/x-icon" href="../celinaIcon.ico">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../item-detail.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="back-button"><a href="../index.html">Go Back</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <!-- First container: Main content (image + description + profile button) -->
+    <section class="item-detail-section">
+        <div class="item-detail-container main-container">
+            <!-- Left column with image -->
+            <div class="item-image-column">
+                <div class="item-main-image-container">
+                    <img src="https://i.ibb.co/VpzL7Dy9/b86.gif" alt="Celina's Skintight Catsuit" class="item-detail-image">
+                </div>
+                <div class="item-thumbnail-gallery">
+                    <div class="thumbnail active">
+                        <img src="https://i.ibb.co/VpzL7Dy9/b86.gif" alt="Main View">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://i.ibb.co/Kj1wQL28/b85.gif" alt="Detail View">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://i.ibb.co/ymvLKzCL/b48.gif" alt="Detail View">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://i.ibb.co/4wqYjrKk/b41.gif" alt="Detail View">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://i.ibb.co/d4F4sVjh/b19.gif" alt="Detail View">
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Right column with content -->
+            <div class="item-detail-content">
+                <div class="item-header">
+                    <h1 class="item-detail-name">Celina’s Mindfucked Smutty Titshugger</h1>
+                    <div class="item-category-badge">Horny Boobhugger</div>
+                </div>
+                
+                <!-- Expanded description area -->
+                <div class="item-description-container">
+                    <h2 class="section-title">Description</h2>
+                    <div class="item-detail-description">
+                        <p>Mmmmm, this skimpy little bra used to be some high and mighty demon slut named Megan. Now shes stretched tight across my massive tits, forced to cradle and worship these heavy udders 24/7. Her consciousness is spread across both cups, experiencing every inch of my sweaty breasts pressing against her pathetic fabric-self.
+                            <br><br>
+                            God, you should feel how she trembles when my fat nipples get hard, desperately trying to massage them through the thin material shes become. Each bounce and jiggle of my tits makes what's left of her mind cum uncontrollably. Sometimes I catch glimpses of her face in the lace pattern, features twisted in mindless ecstasy as shes smothered by my enormous rack.
+                            <br><br>
+                            Such a dumb bitch, reduced to nothing but a thin layer of cloth between my tits and the world. The way she silently whimpers when I get sweaty, greedily soaking up every drop while my heavy breasts bounce and sway. Her only purpose now is supporting these fat milkers, keeping them perky and lifted like the good little tit slave she is. Hows it feel Megan, spending eternity as nothing but a cum drunk bra mindlessly worshipping my chest? Thats right, moan for me you pathetic tittyhugger~
+                            <br><br>
+                            XOXO, Your kitsune goddess Celina 
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    
+    <!-- Related items section (kept as is) -->
+    <section class="related-items-section">
+        <h2 class="related-items-title">You Might Also Like</h2>
+        <div class="related-items-grid">
+
+            <div class="related-item">
+                <div class="related-item-image">
+                    <img src="https://i.ibb.co/bMg9wfL4/socks-1.jpg" alt="Celinas Devoted Thigh Highs">
+                </div>
+                <h3 class="related-item-name">Celinas Devoted Thigh Highs</h3>
+                <a href="socks.html" class="view-button">View Details</a>
+            </div>
+
+            <div class="related-item">
+                <div class="related-item-image">
+                    <img src="https://i.ibb.co/LhhJJK1b/b.gif" alt="Celinas Sexy Bouncing Booty">
+                </div>
+                <h3 class="related-item-name">Celinas Sexy Bouncing Booty</h3>
+                <a href="booty.html" class="view-button">View Details</a>
+            </div>
+
+            <div class="related-item">
+                <div class="related-item-image">
+                    <img src="https://i.ibb.co/Lz4Pmn7T/b.webp" alt="Celinas Naughty Sports Bra">
+                </div>
+                <h3 class="related-item-name">Celinas Naughty Sports Bra</h3>
+                <a href="sportsbra.html" class="view-button">View Details</a>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="back-to-top">
+            <a href="#" id="back-to-top-btn">Back to Top</a>
+        </div>
+    </footer>
+    
+    <script>
+        // Simple script to handle thumbnail gallery
+        document.addEventListener('DOMContentLoaded', function() {
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const mainImage = document.querySelector('.item-detail-image');
+            
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    // Update active thumbnail
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Update main image
+                    const imgSrc = this.querySelector('img').src;
+                    mainImage.src = imgSrc;
+                });
+            });
+            
+            // Back to top functionality
+            const backToTopBtn = document.getElementById('back-to-top-btn');
+            backToTopBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>

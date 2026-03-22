@@ -155,15 +155,15 @@ nav ul {
     
     .member-detail-container {
         flex-direction: column;
-        max-width: 993px;
+        max-width: 970px;
         position: relative;
     }
 
     .member-image-container {
         width: 100%;
-        height: 60vh; 
+        height: 80vh; 
         min-height: 350px;
-        max-height: 450px;
+        max-height: 650px;
         border-right: none;
         position: relative;
     }
