@@ -731,6 +731,14 @@ footer {
     .o-squish-console {
         padding: 15px;
     }
+
+    p {
+        font-size: 0.8rem;
+    }
+
+    .o-item-name {
+        font-size: 1.7rem;
+    }
 }
 
 @media (max-width: 500px) {
