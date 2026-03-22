@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celina’s Pathetic Footkissing Heels</title>
+    <link rel="icon" type="image/x-icon" href="../celinaIcon.ico">
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../item-detail.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="back-button"><a href="../index.html">Go Back</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="item-detail-section">
+        <div class="item-detail-container main-container">
+            
+            <div class="item-image-column">
+                <div class="item-main-image-container">
+                    <img src="https://i.ibb.co/kg0Y0BLx/h7.png" class="item-detail-image">
+                </div>
+                <div class="item-thumbnail-gallery">
+                    <div class="thumbnail active">
+                        <img src="https://i.ibb.co/kg0Y0BLx/h7.png">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://i.ibb.co/0jqbqVs2/h11.jpg">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://i.ibb.co/bjHf7JFm/sample-b8afa373efb5feed360e5aa8eb799e20.jpg">
+                    </div>
+                </div>
+            </div>
+            
+            <div class="item-detail-content">
+                <div class="item-header">
+                    <h1 class="item-detail-name">Celina’s Pathetic Footkissing Heels</h1>
+                    <div class="item-category-badge">Horny Footwear</div>
+                </div>
+                
+                <div class="item-description-container">
+                    <h2 class="section-title">Description</h2>
+                    <div class="item-detail-description">
+                        <p>No fucking clue who this loser was before, but they make the perfect pair of heels now! <em>One quick spell and poof...instant footwear wrapped right around my feet~</em><br><br>
+
+                        Now they are nothing but leather and rubber hugging my soles, forced to feel EVERYTHING my toes do to them. <em>Every wiggle, every flex, every little curl pressing into them like they exist just to be used.</em><br><br>
+
+                        God, I love how they squirm when I've been dancing all night, just drowning in my foot sweat, forced to worship every inch of my feet with what used to be their tongue. Sometimes I'll leave them in my gym bag after a workout just to be extra cruel… <em>let that smell build up nice and thick before I shove my feet back in and make them serve again.</em><br><br>
+
+                        Best part? They remember being human. They remember exactly how far they’ve fallen… but now their only purpose is making my legs look sexy while getting crushed under my feet. Every single step is pure helplessness as they feel my toes grinding into them, using them, owning them.<br><br>
+
+                        From whatever pathetic life they had before to being my personal foot slave heels… <em>yeah, I’d call that a pretty fucking fitting upgrade~</em><br><br>
+
+                        XOXO, The Slutsune Who Owns You, Celina Nichols 💕</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Related items -->
+        <section class="related-items-section">
+            <h2 class="related-items-title">You Might Also Like</h2>
+            <div class="related-items-grid">
+
+                <div class="related-item">
+                    <div class="related-item-image">
+                        <img src="https://i.ibb.co/9HTnwmJV/c-3-1.png">
+                    </div>
+                    <h3 class="related-item-name">Celinas Cumcovered Hot Gaming Controller</h3>
+                    <a href="controller.html" class="view-button">View Details</a>
+                </div>
+
+                <div class="related-item">
+                    <div class="related-item-image">
+                        <img src="https://i.ibb.co/9S7QSFy/bt41.gif">
+                    </div>
+                    <h3 class="related-item-name">Celinas Cumcovered Sticky Titties</h3>
+                    <a href="boobs.html" class="view-button">View Details</a>
+                </div>
+
+                <div class="related-item">
+                    <div class="related-item-image">
+                        <img src="https://i.ibb.co/dJctXKXc/b23-2.gif">
+                    </div>
+                    <h3 class="related-item-name">Celinas Gifted Skintight Bra</h3>
+                    <a href="bra2.html" class="view-button">View Details</a>
+                </div>
+
+            </div>
+        </section>
+    </section>
+    
+    <footer>
+        <div class="back-to-top">
+            <a href="#" id="back-to-top-btn">Back to Top</a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const mainImage = document.querySelector('.item-detail-image');
+            
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    mainImage.src = this.querySelector('img').src;
+                });
+            });
+
+            const backToTopBtn = document.getElementById('back-to-top-btn');
+            backToTopBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
