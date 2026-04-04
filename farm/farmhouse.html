@@ -2940,483 +2940,404 @@ Forever.`,
                 role: 'The Demon',
                 badge: 'Animal Transformation',
                 image: 'https://i.ibb.co/DP6301MC/sample-41604f793dce84dfa84fe4644a540417.jpg',
-                details: 'A bored, possessive demon who turns visitors into animals and keeps them. She does not ask permission. She does not offer escape. She just takes.',
+                details: 'A bored, bratty demon who turns whoever walks into her room into a small animal. She keeps them. How you act when you first meet her decides what you become.',
                 transformType: 'Animal (Cat, Rabbit, Dog, Rat)',
                 color: '#e91e63',
                 stages: [
+
+                    // ── STAGE 1 ── intro ────────────────────────────────────────────
                     {
                         stage: 1,
-                        title: 'Wrong Room',
-                        text: `The bedroom reeks of brimstone and something sweeter underneath it. Candles line every surface, lit by no human hand. A tail cuts through the air before you see the rest of her — Azalea, sprawled across the bed like she owns everything in a three-mile radius.
+                        title: 'wrong room',
+                        text: `The room smells like candles and something that is definitely not just candles. You push the door open and immediately regret it.
 
-She does.
+She's on the bed. Demon, very clearly — horns, tail, yellow eyes, dressed like she doesn't care what you think about any of it. She looks up slow and does a once-over on you like you're something she found in a vending machine.
 
-She rolls onto her side and fixes you with heavy-lidded yellow eyes, one hand propping up her head.
+<span style="color: #e91e63; font-weight: bold;">"oh."</span>
 
-<span style="color: #e91e63; font-weight: bold;">"Oh. Something walked in."</span> She sounds almost bored. <span style="color: #e91e63; font-weight: bold;">"Cute timing. I was just thinking I needed entertainment."</span>
+Just that. The door swings shut behind you on its own and you hear the lock click.
 
-Her tail twitches. The door behind you clicks shut on its own.
-
-<span style="color: #e91e63; font-weight: bold;">"Don't bother with the door. Sealed it the second you crossed the threshold."</span> She sits up, letting her legs dangle over the edge of the bed, and smiles like she already knows how this ends. <span style="color: #e91e63; font-weight: bold;">"You're in MY room. Everything that ends up in my room is mine. That's just how it works."</span>`,
+<span style="color: #e91e63; font-weight: bold;">"so you're in my room now,"</span> she says, sitting up and tilting her head. Tail curling slow. <span style="color: #e91e63; font-weight: bold;">"that's already pretty funny. what are you gonna do about it?"</span>`,
                         choices: [
-                            { text: 'Demand she open the door right now', next: 2, branch: 'defiant' },
-                            { text: 'Tell her this is clearly a mistake', next: 3, branch: 'resist' },
-                            { text: 'Ask what she wants from you', next: 4, branch: 'curious' },
-                            { text: 'Stay completely still and wait', next: 5, branch: 'submissive' }
+                            { text: 'Open this door right now. I\'m serious.', next: 2, branch: 'defiant', creatureType: 'rat' },
+                            { text: 'This has to be a mistake. I shouldn\'t be here.', next: 6, branch: 'resist', creatureType: 'rabbit' },
+                            { text: 'What are you? What\'s going on?', next: 10, branch: 'curious', creatureType: 'dog' },
+                            { text: '[say nothing. don\'t move.]', next: 14, branch: 'submissive', creatureType: 'cat' }
                         ]
                     },
+
+                    // ── STAGES 2-5 ── RAT PATH (rude → gets ignored) ────────────────
                     {
                         stage: 2,
-                        title: 'Big Mistake',
-                        text: `She raises one eyebrow.
+                        title: 'she\'s delighted',
+                        text: `She blinks. Then she grins, like that was the funniest possible thing you could have said.
 
-<span style="color: #e91e63; font-weight: bold;">"Demand?"</span> She laughs, short and sharp. <span style="color: #e91e63; font-weight: bold;">"You don't demand things from me, little thing."</span>
+<span style="color: #e91e63; font-weight: bold;">"serious."</span> She repeats it like she's tasting it. <span style="color: #e91e63; font-weight: bold;">"you're serious. okay. i love this, genuinely."</span>
 
-She doesn't move from the bed. She doesn't need to. Something invisible slams into your chest and shoves you hard against the wall, pinning you there. Magic crackles hot against your skin. Her eyes don't even blink.
+She snaps her fingers. The magic hits you before you even register the motion — a full-body shockwave that SHRINKS you. Fast. The room shoots up around you. The bed turns into a wall. Her feet are at eye level and she is enormous and you are very, very small and grey and your nose is twitching and you have no idea why.
 
-<span style="color: #e91e63; font-weight: bold;">"I like the defiant ones."</span> She slides off the bed and walks toward you, tail swaying. <span style="color: #e91e63; font-weight: bold;">"They always try so hard before they give in. It's adorable."</span>
+She crouches down and squints at you.
 
-She presses one finger to your sternum. The heat that radiates from it is obscene.
+<span style="color: #e91e63; font-weight: bold;">"yeah. rat. figured you'd be a good rat — people who do the whole demanding thing always are."</span>
 
-<span style="color: #e91e63; font-weight: bold;">"Try saying it again. See what happens."</span>`,
+She picks you up with one hand, not gentle, not rough, just completely casual, and carries you over to the nightstand. Puts you down. Walks away.
+
+<span style="color: #e91e63; font-weight: bold;">"sit there. i've got stuff to do."</span>`,
                         choices: [
-                            { text: 'Keep fighting it', next: 6, branch: 'resist' },
-                            { text: 'Fine. What do you want?', next: 6, branch: 'cave' }
+                            { text: 'try to do something about this', next: 3 }
                         ]
                     },
                     {
                         stage: 3,
-                        title: 'That Doesn\'t Help You',
-                        text: `She stares at you.
+                        title: 'she literally forgot you exist',
+                        text: `She has stuff to do. Apparently a lot of stuff.
 
-<span style="color: #e91e63; font-weight: bold;">"A mistake."</span> She repeats it flat. Then she grins. <span style="color: #e91e63; font-weight: bold;">"Sure. A mistake."</span>
+You sit on the nightstand for what feels like hours. She moves around the room. She reads on her bed. She messes with her candles. She talks to herself. She does not look at you one single time.
 
-She stands up and stretches, her tail curling lazily overhead.
+Your rat brain is sniffing everything and running to the edge of the stand and running back. The human part of you is experiencing a very specific, deeply personal humiliation.
 
-<span style="color: #e91e63; font-weight: bold;">"Here's the thing though."</span> She walks closer, casual, unhurried. <span style="color: #e91e63; font-weight: bold;">"Mistake or not, you're here. My room. My rules. I don't care how you got here. I care what I'm going to do with you now."</span>
+She walks past the nightstand.
 
-She flicks her fingers and something warm coils around your ankles, rooting you to the floor.
+Doesn't look.
 
-<span style="color: #e91e63; font-weight: bold;">"You've got nice energy. I can already feel it."</span> She's right in front of you now, face too close. <span style="color: #e91e63; font-weight: bold;">"Wasted as a human, honestly."</span>`,
+Walks past again.
+
+Doesn't look.
+
+On the third pass she stops, clocks you like she forgot she put you there.
+
+<span style="color: #e91e63; font-weight: bold;">"oh. you're still here."</span>
+
+She picks you up, turns you over in her palm once — briefly — and drops you in her coat pocket.
+
+<span style="color: #e91e63; font-weight: bold;">"come on."</span>`,
                         choices: [
-                            { text: 'What are you going to do with me?', next: 6, branch: 'curious' },
-                            { text: 'You can\'t just do this!', next: 6, branch: 'resist' }
+                            { text: 'the pocket is dark', next: 4 }
                         ]
                     },
                     {
                         stage: 4,
-                        title: 'Honest Answer',
-                        text: `Her smile shifts into something sharper.
+                        title: 'pocket rat',
+                        text: `The pocket is dark and warm and slightly too small and somehow completely fine.
 
-<span style="color: #e91e63; font-weight: bold;">"What do I want?"</span> She tilts her head. <span style="color: #e91e63; font-weight: bold;">"Oh, I like you already. Most people try to run first."</span>
+You ride around in her pocket for the rest of the afternoon. She goes places. You can't see where. Just occasional flashes of light when she reaches in for something and disturbs you. Sometimes her fingers brush you by accident.
 
-She stands and walks over slowly, tail flicking.
+She doesn't check on you on purpose once.
 
-<span style="color: #e91e63; font-weight: bold;">"I'm bored. You walked in. I have a particular hobby."</span> She reaches out and tilts your face up with two fingers. Her skin runs hot. <span style="color: #e91e63; font-weight: bold;">"I transform people into animals. Little ones. Keep them."</span> She says it completely matter-of-fact, like she's describing collecting stamps. <span style="color: #e91e63; font-weight: bold;">"You'll make a good one. I can already tell."</span>
+At some point she reaches into the pocket for her keys, palms you completely by accident, holds you for a second without realizing, then sets her keys on a shelf with you dangling from her fist.
 
-She drops her hand and circles you slowly.
+<span style="color: #e91e63; font-weight: bold;">"oh—"</span> She looks at you in her open hand. <span style="color: #e91e63; font-weight: bold;">"sorry, forgot you were in there."</span>
 
-<span style="color: #e91e63; font-weight: bold;">"The fun part is you don't really get a say in it happening. But I'll let you pick WHAT you become. That's me being generous."</span>`,
+You look up at her.
+
+<span style="color: #e91e63; font-weight: bold;">"you're fine though."</span>
+
+Back in the pocket. Obviously.`,
                         choices: [
-                            { text: 'You\'re insane.', next: 6, branch: 'defiant' },
-                            { text: 'Pick... like which animal?', next: 7, branch: 'curious' }
+                            { text: 'this is just your life now', next: 5 }
                         ]
                     },
                     {
                         stage: 5,
-                        title: 'Playing It Smart',
-                        text: `Smart. She watches you go completely still.
+                        title: 'her rat. unfortunately.',
+                        text: `She puts you in a small box at the end of the day. Bedding inside. Tiny water bottle clipped to the side. She clearly already had this.
 
-<span style="color: #e91e63; font-weight: bold;">"Oh, a patient one."</span> She tilts her head, amused. <span style="color: #e91e63; font-weight: bold;">"That's unusual. I usually have to chase them around the room first."</span>
+<span style="color: #e91e63; font-weight: bold;">"there. that's yours."</span>
 
-She gets up and comes over, walking a slow circle around you. Her tail brushes against you as she passes.
+You look around the box. You look at her.
 
-<span style="color: #e91e63; font-weight: bold;">"You're scared though. I can smell it."</span> She stops in front of you and cups your face in both hands, demonic warmth pouring off her palms. <span style="color: #e91e63; font-weight: bold;">"That's fine. Fear's fine. Better than stupidity."</span>
+<span style="color: #e91e63; font-weight: bold;">"don't look at me like that. i gave you a whole box. that's nice of me."</span>
 
-She looks into your eyes like she's reading something in them. Then she steps back with a satisfied little smile.
+She taps the side once and goes back to her bed and lies down. You're in the box. You're her rat. You will apparently be in this box or her pocket for the rest of forever, pulled out when she happens to remember you exist.
 
-<span style="color: #e91e63; font-weight: bold;">"Pick your form. Cat, rabbit, dog, or rat. I'm letting you choose because I'm in a good mood."</span> A pause. <span style="color: #e91e63; font-weight: bold;">"Don't make me choose instead."</span>`,
+The part of you that wanted to demand things looks at this outcome and has the decency to feel embarrassed about it.
+
+<span style="color: #e91e63; font-weight: bold;">"goodnight, rat,"</span> she says from across the room.
+
+Your whiskers twitch. Your tail curls. The box is actually kind of warm.
+
+You hate that you're okay with this.`,
                         choices: [
-                            { text: 'Become her cat', next: 8, creatureType: 'cat' },
-                            { text: 'Become her rabbit', next: 8, creatureType: 'rabbit' },
-                            { text: 'Become her dog', next: 8, creatureType: 'dog' },
-                            { text: 'Become her rat', next: 8, creatureType: 'rat' }
+                            { text: 'End Interaction & Return to Map', next: 'end' }
                         ]
                     },
+
+                    // ── STAGES 6-9 ── RABBIT PATH (arguing/resisting → prey pet) ─────
                     {
                         stage: 6,
-                        title: 'She\'s Done Listening',
-                        text: `She sighs like you've personally exhausted her and then snaps her fingers.
+                        title: 'a mistake, sure',
+                        text: `She tilts her head. <span style="color: #e91e63; font-weight: bold;">"a mistake."</span> She hops off the bed. <span style="color: #e91e63; font-weight: bold;">"totally. the door opened itself by mistake. you walked in here by mistake. super interesting."</span>
 
-Magic wraps around your whole body at once — dense, hot, inescapable — and your feet lift clean off the floor. She walks over while you hang there and tilts your chin up with one finger.
+She comes toward you and you instinctively back up — door's behind you though, and it is very locked.
 
-<span style="color: #e91e63; font-weight: bold;">"Okay. We're past the talking part."</span> She sounds bored again. <span style="color: #e91e63; font-weight: bold;">"I'm going to turn you into a little animal and keep you. The horror on your face right now is my absolute favorite part of this whole process."</span>
+<span style="color: #e91e63; font-weight: bold;">"here's the thing,"</span> she says, stopping right in front of you, tail flicking. <span style="color: #e91e63; font-weight: bold;">"you're already thinking about getting out. i can literally see it on your face. you want to RUN."</span>
 
-She steps back, drops into a chair, and drapes one leg over the armrest. Looks at her nails.
+She snaps her fingers. The change hits the floor first — you're dropping down, fast, fur up your arms, ears stretching long, everything collapsing into small, fast, prey. The heartbeat that kicks in is nothing like yours — twice as fast, triple, rabbit heartbeat, constant and wild.
 
-<span style="color: #e91e63; font-weight: bold;">"Pick something. Cat, rabbit, dog, rat."</span> She glances up. <span style="color: #e91e63; font-weight: bold;">"Or I pick. And I always pick worst-case-scenario when I'm doing it for someone."</span>`,
+She steps back and spreads her arms at the room.
+
+<span style="color: #e91e63; font-weight: bold;">"so go ahead."</span>`,
                         choices: [
-                            { text: 'Become her cat', next: 8, creatureType: 'cat' },
-                            { text: 'Become her rabbit', next: 8, creatureType: 'rabbit' },
-                            { text: 'Become her dog', next: 8, creatureType: 'dog' },
-                            { text: 'Become her rat', next: 8, creatureType: 'rat' }
+                            { text: 'RUN', next: 7 }
                         ]
                     },
                     {
                         stage: 7,
-                        title: 'Fine. Which Animal.',
-                        text: `She grins wide, clearly delighted you asked.
+                        title: 'under the bed immediately',
+                        text: `You run. Under the bed. Your heart is going absolutely insane — legs working before your brain even tells them to, rabbit body doing what it was built for. You flatten yourself against the floor with your nose pressed to the dust and your ears pinned back.
 
-<span style="color: #e91e63; font-weight: bold;">"Cat — sleeps on my bed, gets petted when I feel like it, claws things I like. Very me."</span> She ticks them off on her fingers. <span style="color: #e91e63; font-weight: bold;">"Rabbit — small and fast and I like chasing things. Dog — pathetically loyal, which is hilarious. Rat — tiny, forgotten about for days at a time, I pull you out when I'm bored."</span>
+She sits on the bed above you. You can hear her weight settle.
 
-She spreads her hands.
+<span style="color: #e91e63; font-weight: bold;">"you know i can see you, right?"</span>
 
-<span style="color: #e91e63; font-weight: bold;">"All permanent. None reversible. I want to be clear about that."</span> She looks completely unbothered by this. <span style="color: #e91e63; font-weight: bold;">"Which one sounds fun to you? Or which one sounds least awful, whatever."</span>`,
+She leans over the side and looks down. You look up. Her yellow eyes are very bright and she is smiling and this is somehow so much worse.
+
+<span style="color: #e91e63; font-weight: bold;">"the little frozen thing. so cute."</span>
+
+She reaches one hand down slow.
+
+<span style="color: #e91e63; font-weight: bold;">"come out."</span>`,
                         choices: [
-                            { text: 'Become her cat', next: 8, creatureType: 'cat' },
-                            { text: 'Become her rabbit', next: 8, creatureType: 'rabbit' },
-                            { text: 'Become her dog', next: 8, creatureType: 'dog' },
-                            { text: 'Become her rat', next: 8, creatureType: 'rat' }
+                            { text: 'do not come out (you come out anyway)', next: 8 }
                         ]
                     },
                     {
                         stage: 8,
-                        title: 'The Magic Drops In',
-                        text: (gs) => {
-                            const t = {
-                                cat: `She snaps her fingers. <span style="color: #e91e63; font-weight: bold;">"Cat it is."</span>
+                        title: 'the chase',
+                        text: `She chases you every day.
 
-The magic hits different when it's demonic — it doesn't ease you in, it just TAKES. Your spine curves before you can stop it. Your hands hit the floor, fingers shortening, nails darkening into claws. Soft fur pushes through your skin like a warm flood. The sound that comes out of you isn't human — half-cry, half-yowl — and even that fades fast as your throat reshapes.
+Not mean about it — she's never actually going to hurt you — but she runs after you around the room when you bolt, diving over furniture, absolutely losing her mind with delight every time she actually catches you.
 
-Azalea crouches down in front of you with her chin on her fist.
+<span style="color: #e91e63; font-weight: bold;">"THERE — go left, no wait —"</span>
 
-<span style="color: #e91e63; font-weight: bold;">"There you go. Much better already."</span>
+She lunges and misses. You make it under the nightstand. She cackles loud.
 
-Your face compresses into a short muzzle. Ears shift to the top of your head. Your tail comes in all at once — a rush of sensation that arches your whole back. You are small now. Warm. She reaches out and drags one finger down the back of your neck and you feel the purr come up before you can stop it.`,
-                                rabbit: `She snaps her fingers and something slams into you like a shockwave. Your legs buckle. You try to catch yourself and realize your hands are already changing — fingers fusing, shrinking, covered in dense fur. The room gets bigger around you, which means you're getting smaller.
+<span style="color: #e91e63; font-weight: bold;">"okay THAT was a good move, honestly."</span>
 
-<span style="color: #e91e63; font-weight: bold;">"Rabbit. Cute choice."</span> She sounds pleased.
+She catches you eventually. She always catches you eventually. She scoops you up and holds you against her chest while you kick your back legs and she catches her breath.
 
-Your ears come in long and twitching. Your nose reshapes on its own. Your heartbeat kicks up fast, fast, fast — that's new, that's rabbit, that's going to be constant now. You hit the floor on four small legs, barely knee height to her, and she's already reaching down.
+<span style="color: #e91e63; font-weight: bold;">"okay okay okay — i got you. settle. settle."</span>
 
-<span style="color: #e91e63; font-weight: bold;">"Oh you are adorable."</span> She scoops you up and you kick your back legs uselessly against her grip. <span style="color: #e91e63; font-weight: bold;">"Relax. I've got you. That's the problem."</span>`,
-                                dog: `She snaps her fingers. You feel it hit your chest first — a warm pulse that radiates through every limb. Your legs feel wrong immediately. Lower. Stronger. You're dropping to all fours without meaning to, your body knowing before your brain does.
+You settle. Your heart is hammering. She scratches behind your ear.
 
-<span style="color: #e91e63; font-weight: bold;">"Dog. Loyal choice."</span> There's something almost like approval in her voice.
-
-Your ears drop and widen. Your fingers pull back, hands restructure into paws on the floor. A tail — you feel it push out behind you and it is already wagging. That was not your idea. She watches you with a smirk as your face extends into a muzzle, as your whole sense of the world reshapes around smell and sound.
-
-<span style="color: #e91e63; font-weight: bold;">"God, you're going to be insufferable,"</span> she says, already sounding fond about it.`,
-                                rat: `She snaps her fingers and you're already shrinking. Fast. The room explodes in scale — the bed becomes a wall, her legs tower overhead. Fur prickles across every inch of you, coarse and warm. Whiskers push out from your face. Your hands are tiny now, pink-palmed, twitching.
-
-<span style="color: #e91e63; font-weight: bold;">"Rat."</span> She doesn't sound disappointed. Just thoughtful. <span style="color: #e91e63; font-weight: bold;">"Underappreciated. I like it."</span>
-
-You're barely the size of her shoe. She reaches down with two fingers and picks you up by the scruff like you weigh absolutely nothing, which you now do.
-
-<span style="color: #e91e63; font-weight: bold;">"Hi."</span> She holds you up at eye level and looks at you. You look back. Your whiskers twitch. <span style="color: #e91e63; font-weight: bold;">"You're mine now. Just so we're clear."</span>`
-                            };
-                            return t[gs.creatureType] || t.cat;
-                        },
+<span style="color: #e91e63; font-weight: bold;">"see? got you."</span>`,
                         choices: [
-                            { text: 'Feel the change settle', next: 9 }
+                            { text: 'Continue', next: 9 }
                         ]
                     },
                     {
                         stage: 9,
-                        title: 'Fully Changed',
-                        text: (gs) => {
-                            const t = {
-                                cat: `You have stopped fighting it.
+                        title: 'always caught',
+                        text: `Weeks later she doesn't even have to try that hard anymore.
 
-The cat-brain is so much simpler than you expected. Warm. Focused. Immediate. You're crouched on the floor staring at a dust mote drifting through candlelight and you have forgotten for a moment that you were ever anything else.
+She starts moving toward you and your legs are already going — can't stop it, prey animal, the body's choice — but she knows exactly where you're heading now and she gets there first.
 
-Azalea sits on the edge of the bed and drums her fingers on her knee.
+<span style="color: #e91e63; font-weight: bold;">"caught you,"</span> she says. Not triumphant. Just easy.
 
-<span style="color: #e91e63; font-weight: bold;">"Come here."</span>
+She sits cross-legged on the floor with you in her lap, one hand over your back while you kick for a couple seconds then go still.
 
-You go. You actually go. Not because you decided to — because your body just does it, crossing the floor and pressing against her leg before your brain fully catches up.
+<span style="color: #e91e63; font-weight: bold;">"you're gonna keep doing that the rest of your life, huh."</span>
 
-<span style="color: #e91e63; font-weight: bold;">"See?"</span> She scratches behind your ear and the purr that comes out of you is embarrassingly loud. <span style="color: #e91e63; font-weight: bold;">"You're already better at this than you were at being human."</span>`,
-                                rabbit: `You're under the bed.
+Your nose goes. Your ears swivel. You are completely in her lap and you cannot leave and she is petting you like you're her favorite thing right now.
 
-Heart hammering. Nose going. Everything in you says stay still, don't move, the demon is right there.
+<span style="color: #e91e63; font-weight: bold;">"that's fine. i like catching you."</span>
 
-<span style="color: #e91e63; font-weight: bold;">"I can hear you breathing,"</span> Azalea says, lying on her stomach on the bed and dangling one hand over the edge. <span style="color: #e91e63; font-weight: bold;">"Come out."</span>
+She scratches behind your ear and you press into it against your will.
 
-Your rabbit brain is screaming not to. You do it anyway, creeping out on silent paws, and the second you're close enough she scoops you up and drops you on the bed with one hand clamped gently over your back.
-
-<span style="color: #e91e63; font-weight: bold;">"There."</span> She scratches under your chin. Your feet kick involuntarily. <span style="color: #e91e63; font-weight: bold;">"You're so cute when you're panicking. Keep doing that."</span>`,
-                                dog: `You are sitting in front of her.
-
-Paws on the floor, ears up, tail going, completely focused on her face. You didn't sit because she told you to. You sat because the pull toward her is so strong that sitting felt like the only option. She hasn't even looked at you yet.
-
-When she finally glances down you give a short, embarrassing bark.
-
-She raises one eyebrow. <span style="color: #e91e63; font-weight: bold;">"Did you just bark to get my attention?"</span>
-
-You bark again. You have absolutely no idea why. Your tail is going very fast.
-
-She laughs — real, startled. <span style="color: #e91e63; font-weight: bold;">"Oh you are going to be insufferable. I love it."</span> She reaches down and rubs your ears roughly.`,
-                                rat: `She's carrying you in her shirt pocket.
-
-It's warm in here. It smells like sulfur and something sweet underneath it and you're tucked against her chest while she walks around doing things that are incomprehensibly large from this angle. Every step jostles you slightly. Your tiny claws grip the pocket fabric automatically.
-
-<span style="color: #e91e63; font-weight: bold;">"Stop squirming,"</span> she says without looking down.
-
-You stop squirming. Your whiskers twitch instead. You peek over the edge of the pocket at a shelf passing by and she flicks you lightly on the nose with one finger.
-
-<span style="color: #e91e63; font-weight: bold;">"I said stop."</span>`
-                            };
-                            return t[gs.creatureType] || t.cat;
-                        },
+<span style="color: #e91e63; font-weight: bold;">"you're mine, little runner. that's permanent."</span>`,
                         choices: [
-                            { text: 'Continue', next: 10 }
+                            { text: 'End Interaction & Return to Map', next: 'end' }
                         ]
                     },
+
+                    // ── STAGES 10-13 ── DOG PATH (curious → embarrassingly devoted) ──
                     {
                         stage: 10,
-                        title: 'Finding Your Place',
-                        text: (gs) => {
-                            const t = {
-                                cat: `Your days have found a rhythm.
+                        title: 'oh you\'re curious',
+                        text: `She actually lights up a little — like that was not what she expected at all.
 
-Morning: you sleep on her feet. She tries to push you off. You move six inches and come back. This repeats four times. She gives up.
+<span style="color: #e91e63; font-weight: bold;">"oh~"</span> She grins. <span style="color: #e91e63; font-weight: bold;">"you're not running, you're not freaking out, you just — you wanna know what's happening. that's kind of adorable actually."</span>
 
-Afternoon: you knock things off surfaces. She yells at you. You do it again. The knocking is deeply satisfying in a way that defies explanation.
+She hops off the bed and walks toward you and you hold your ground, which she also seems to appreciate.
 
-Night: she's doing something with candles and old books and you climb directly into her lap. She doesn't move you.
+<span style="color: #e91e63; font-weight: bold;">"okay. i'm a demon. i turn people into animals and keep them. it's a whole thing."</span> Said completely casual. <span style="color: #e91e63; font-weight: bold;">"you're going to be a dog."</span>
 
-<span style="color: #e91e63; font-weight: bold;">"You're the most annoying thing I've ever transformed,"</span> she tells you, stroking your back with one hand while reading with the other.
+She snaps her fingers. The change is fast and warm and a lot all at once — limbs wrong, spine wrong, and then somehow fine. Fur up your arms. Four paws on the floor. Ears dropped to the sides. The whole world suddenly smells like ten thousand different things.
 
-You purr. You can't help it.
+She crouches right in front of you.
 
-<span style="color: #e91e63; font-weight: bold;">"I'm keeping you anyway."</span>`,
-                                rabbit: `She hunts you.
-
-Not cruelly — she doesn't hurt you — but she chases you around the room every time you bolt, and your rabbit brain cannot tell the difference between game and predator so you bolt every single time.
-
-<span style="color: #e91e63; font-weight: bold;">"THERE you go!"</span> She dives over the bed and catches you in both hands, rolling onto her back and holding you over her face, both of you breathing hard. <span style="color: #e91e63; font-weight: bold;">"Got you."</span>
-
-You kick your back legs against her grip.
-
-<span style="color: #e91e63; font-weight: bold;">"You can try to run again if you want."</span> She sets you down on her chest, one hand over your back. <span style="color: #e91e63; font-weight: bold;">"I'll catch you again."</span>
-
-You already know she will. You run anyway.`,
-                                dog: `She takes you everywhere.
-
-You have no sense of personal space as a dog. You follow her to every corner of the room, nose to her heels, and when she stops you sit directly on her feet.
-
-<span style="color: #e91e63; font-weight: bold;">"Off,"</span> she says.
-
-You look up at her.
-
-<span style="color: #e91e63; font-weight: bold;">"Off."</span>
-
-You stay on her feet. She looks down at you for a long moment. Then she sits on the floor with you — which was clearly not what she planned — and you immediately climb into her lap.
-
-<span style="color: #e91e63; font-weight: bold;">"This is embarrassing,"</span> she says. But she's scratching your ears.`,
-                                rat: `She lets you run across her hands.
-
-Back and forth, back and forth, your quick small feet going on pure instinct, and she watches with something that might actually be affection.
-
-<span style="color: #e91e63; font-weight: bold;">"You're getting braver,"</span> she says.
-
-You stop in the middle of her palm and look up at her. She is incomprehensibly large from here. She could close her hand around you. She hasn't.
-
-<span style="color: #e91e63; font-weight: bold;">"Good rat."</span> She lifts you close to her face and you press your nose to her cheek — you're not sure why. She goes very still. Then she laughs softly. <span style="color: #e91e63; font-weight: bold;">"Yeah. Alright. You're staying."</span>`
-                            };
-                            return t[gs.creatureType] || t.cat;
-                        },
+<span style="color: #e91e63; font-weight: bold;">"you wanted to know what was happening. now you know."</span>`,
                         choices: [
-                            { text: 'Continue', next: 11 }
+                            { text: 'process this', next: 11 }
                         ]
                     },
                     {
                         stage: 11,
-                        title: 'Settling In',
-                        text: (gs) => {
-                            const t = {
-                                cat: `She teaches you things without meaning to.
+                        title: 'the tail situation',
+                        text: `Your tail is wagging.
 
-Which shelf has the good candles. Which door she goes through without you. How long she sleeps when she doesn't have anything to do. You know her schedule now, her habits, the specific spot on the bed she always starts on and the spot she actually ends up.
+You didn't tell it to. It just started on its own. She's looking at you and your tail is going and there is nothing you can do about it because you are a dog now and dog bodies just do this automatically.
 
-You wait at the door for her every time she leaves.
+She looks at your tail. Then at you. Then back at your tail. Her smile goes very slow and very wide.
 
-<span style="color: #e91e63; font-weight: bold;">"Clingy,"</span> she says when she gets back, scooping you up and carrying you inside pressed against her chest. <span style="color: #e91e63; font-weight: bold;">"Absolutely no shame."</span>
+<span style="color: #e91e63; font-weight: bold;">"oh WOW."</span>
 
-You don't have any. You push your face into her neck. She doesn't put you down.
+You try to stop wagging. You can't.
 
-The human part of you that used to object to things like this has gone very quiet.`,
-                                rabbit: `She stops having to chase you to pick you up.
+<span style="color: #e91e63; font-weight: bold;">"that is genuinely the best thing that's happened to me today."</span> She reaches out and rubs your ears rough and your tail immediately kicks into like, high gear. <span style="color: #e91e63; font-weight: bold;">"you are SO embarrassing. i love this."</span>
 
-It happens gradually — your rabbit brain stops treating every reach as a threat and starts treating her hands as the thing that is warm and safe. You still flinch sometimes. Old instinct. She waits it out.
+Your whole back end is wiggling. You press your nose to her hand.
 
-<span style="color: #e91e63; font-weight: bold;">"You're starting to trust me,"</span> she says one afternoon, scratching behind your ear while you sit in her lap without bolting. <span style="color: #e91e63; font-weight: bold;">"That's disgusting. I love it."</span>
+<span style="color: #e91e63; font-weight: bold;">"okay hi. yes. good dog."</span>
 
-You press into her hand.
-
-<span style="color: #e91e63; font-weight: bold;">"You're not going anywhere anyway,"</span> she says, like it's obvious. <span style="color: #e91e63; font-weight: bold;">"Might as well be comfortable."</span>`,
-                                dog: `She's teaching you tricks.
-
-Sit. Stay. Come. You learn them too fast — faster than a real dog — because the human part of you is still far enough in there to understand words, just too far down to refuse them.
-
-<span style="color: #e91e63; font-weight: bold;">"Shake,"</span> she says.
-
-You give her your paw before you consciously decide to.
-
-<span style="color: #e91e63; font-weight: bold;">"Good."</span> She gives you something warm to eat. It's so good you want to roll over. <span style="color: #e91e63; font-weight: bold;">"Now stay."</span>
-
-You stay. You hate that you're good at this. You love that she looks satisfied.
-
-<span style="color: #e91e63; font-weight: bold;">"You're genuinely the best dog I've ever made,"</span> she tells you. You wag at this. You cannot help it.`,
-                                rat: `She names you.
-
-She gives it real thought, frowning at you where you sit on her palm, whiskers twitching. She runs through options out loud. Rejects several. Considers two. Decides.
-
-She tells you.
-
-You tuck your nose under your own tiny paw and refuse to look at her because the name is perfect and you absolutely hate that it is.
-
-<span style="color: #e91e63; font-weight: bold;">"Don't pout,"</span> she says, carrying you to your corner. <span style="color: #e91e63; font-weight: bold;">"You're a rat. Dignity is a human concept and you're not one anymore."</span>
-
-You curl up in your corner. You think about objecting. You don't.`
-                            };
-                            return t[gs.creatureType] || t.cat;
-                        },
+Something in your chest goes warm and tight at those two words. That's going to be a problem.`,
                         choices: [
                             { text: 'Continue', next: 12 }
                         ]
                     },
                     {
                         stage: 12,
-                        title: 'Slipping',
-                        text: (gs) => {
-                            const t = {
-                                cat: `The last of your resistance fades in stages.
+                        title: 'tricks (this is humiliating)',
+                        text: `She teaches you tricks. You learn them too fast and that is really embarrassing.
 
-You're on her lap when it happens — her hand on your back, steady rhythm — and somewhere in the warmth and the weight of it you stop trying to remember who you were before. There's just her. There's just this. The purr and the heat and the present moment, and the past becomes something from very far away.
+<span style="color: #e91e63; font-weight: bold;">"sit,"</span> she says.
 
-<span style="color: #e91e63; font-weight: bold;">"There it is,"</span> Azalea says softly, like she felt it happen. Her hand keeps moving. <span style="color: #e91e63; font-weight: bold;">"That's the last of it. Doesn't hurt, does it?"</span>
+You sit before she finishes the word. She stares.
 
-It doesn't.
+<span style="color: #e91e63; font-weight: bold;">"...shake."</span>
 
-<span style="color: #e91e63; font-weight: bold;">"Thought so. They never do at the end."</span>`,
-                                rabbit: `You stop running.
+You give her your paw. She takes it, holding it for a second. She's doing a terrible job hiding how funny she finds this.
 
-Not out of surrender — your body still bolts sometimes, your heart still hammers when she reaches too fast. But the human part that kept screaming to escape goes quiet one day and doesn't come back very loud after that.
+<span style="color: #e91e63; font-weight: bold;">"roll over."</span>
 
-You're sitting in the middle of the floor when she walks in. You look up. You don't bolt.
+You roll over. You lie there on your back looking up at her. She puts her hand over her mouth.
 
-She stops. Stares at you. <span style="color: #e91e63; font-weight: bold;">"Huh."</span>
+<span style="color: #e91e63; font-weight: bold;">"okay i know there's still a person in there somewhere,"</span> she says, crouching down. <span style="color: #e91e63; font-weight: bold;">"and i just want you to know i think this is extremely funny."</span>
 
-She crouches down and holds out her hand. You hop forward and press your nose to her palm.
+She scratches your belly. Your back leg kicks.
 
-<span style="color: #e91e63; font-weight: bold;">"Look at that."</span> She cups you in both hands, gentle. <span style="color: #e91e63; font-weight: bold;">"Decided to trust me? Finally."</span>
-
-The rabbit part of you doesn't know the word trust. It knows warmth. It knows familiar. It goes still.`,
-                                dog: `You sleep on her bed now.
-
-She put a cushion at the foot of the mattress for you. You slept on it two days. Then you moved to the edge of the actual bed. Then to next to her. Now you're pressed against her side every night and she stopped arguing about it weeks ago.
-
-She shifts in her sleep and her hand lands on your back. You exhale.
-
-<span style="color: #e91e63; font-weight: bold;">"You're not going anywhere,"</span> she says one night, half-asleep, arm moving over you. <span style="color: #e91e63; font-weight: bold;">"You know that, right?"</span>
-
-You already know. Your tail goes once against the sheets.
-
-This is fine. This is actually completely fine.`,
-                                rat: `She carries you in her coat pocket everywhere she goes.
-
-You claimed the spot on your own — scrambled in the first time she put it on and refused to come out. She's stopped trying to make you leave. Now she just checks that you're in before she goes anywhere.
-
-<span style="color: #e91e63; font-weight: bold;">"You're going to fall out,"</span> she says.
-
-You grip the pocket lining tighter.
-
-<span style="color: #e91e63; font-weight: bold;">"Fine."</span> She sighs and starts walking. You feel the motion through the pocket walls. <span style="color: #e91e63; font-weight: bold;">"Don't fall out."</span>
-
-You don't fall out. You never fall out. The pocket is yours and you are going wherever she goes and that is just how it is now.`
-                            };
-                            return t[gs.creatureType] || t.cat;
-                        },
+The human part of you has basically gone offline from embarrassment.`,
                         choices: [
                             { text: 'Continue', next: 13 }
                         ]
                     },
                     {
                         stage: 13,
-                        title: 'Hers',
-                        text: (gs) => {
-                            const t = {
-                                cat: `She's been calling you by a name she gave you for weeks. You come when she calls. You always come.
+                        title: 'her good dog',
+                        text: `She takes you out of the room for the first time.
 
-Today she picks you up and doesn't put you down for the rest of the evening — just carries you around, draped over her shoulder, your chin on her collar. She talks to you while she does things. Not at you. To you.
+Through the farmhouse, past other doors, past smells that hit you all at once like a wall. Your nose goes completely wild. You're heeling perfectly next to her despite desperately wanting to dart ahead — the training just stuck, it always sticks now. You keep glancing up at her face to check.
 
-<span style="color: #e91e63; font-weight: bold;">"You're the best thing I've turned anyone into,"</span> she tells you, dropping down onto the bed at the end of the night and settling you onto her chest. <span style="color: #e91e63; font-weight: bold;">"Don't tell the others."</span>
+<span style="color: #e91e63; font-weight: bold;">"look at that,"</span> she says to herself, watching you trot next to her. <span style="color: #e91e63; font-weight: bold;">"trained herself."</span>
 
-Your eyes are already closing.
+When you get back to the room you circle three times and drop at her feet with your chin on her boot.
 
-<span style="color: #e91e63; font-weight: bold;">"Permanently mine,"</span> she says, quieter. <span style="color: #e91e63; font-weight: bold;">"You know that, right?"</span>
+<span style="color: #e91e63; font-weight: bold;">"good girl,"</span> she says, reaching down to ruffle your ears.
 
-You purr, slow and deep, all the way down.
+The warmth from those two words goes all the way down your spine and out your tail. Your tail goes. You've stopped fighting the tail.
 
-She smiles. She doesn't put you down.`,
-                                rabbit: `She stopped chasing you.
+<span style="color: #e91e63; font-weight: bold;">"you're mine, by the way."</span> She says it looking at something else. Casual. <span style="color: #e91e63; font-weight: bold;">"mine. permanently. just so that's clear."</span>
 
-Not because you stopped running — you still do, sometimes, just for the feeling of it — but because you always come back now and she figured out it was more efficient to just wait.
+You put your chin back on her boot. It's very clear.`,
+                        choices: [
+                            { text: 'End Interaction & Return to Map', next: 'end' }
+                        ]
+                    },
 
-You appear from under the bed and hop over to her on your own. She scoops you up without looking away from what she's doing.
+                    // ── STAGES 14-17 ── CAT PATH (quiet/still → bedroom cat, favorite) ─
+                    {
+                        stage: 14,
+                        title: 'smart',
+                        text: `She looks at you for a long moment. Then she tilts her head.
 
-<span style="color: #e91e63; font-weight: bold;">"Took you long enough,"</span> she says.
+<span style="color: #e91e63; font-weight: bold;">"hm. you're doing the still thing."</span>
 
-You settle against her side. Her thumb moves along your ear, slow and steady.
+She gets off the bed and comes toward you — slow — and you don't move. Don't flinch. You just watch her.
 
-<span style="color: #e91e63; font-weight: bold;">"You're not going anywhere,"</span> she tells you. Not a threat. Just a fact. <span style="color: #e91e63; font-weight: bold;">"You're mine. That's it."</span>
+<span style="color: #e91e63; font-weight: bold;">"most people bolt or start yelling. you're just... watching."</span> She stops right in front of you and studies your face. <span style="color: #e91e63; font-weight: bold;">"that's kind of a cat thing actually."</span>
 
-Your heartbeat slows. Your eyes close.
+She reaches out without warning and scratches under your chin — fingers warm and a little electric — and you feel the change start moving through you. Soft. Gradual. Fur along your arms, everything getting smaller, the world getting a little bigger around you.
 
-It's fine. It's been fine for a while.`,
-                                dog: `She takes you out of the room for the first time.
+<span style="color: #e91e63; font-weight: bold;">"yeah,"</span> she says, watching it happen like she's pleased with herself. <span style="color: #e91e63; font-weight: bold;">"you're a cat. definitely called it."</span>`,
+                        choices: [
+                            { text: 'feel the change finish', next: 15 }
+                        ]
+                    },
+                    {
+                        stage: 15,
+                        title: 'being a cat is actually kind of great',
+                        text: `You knock a candle off the shelf.
 
-Through the farmhouse, past other rooms, other smells that hit you like a wall. Your nose goes completely wild. You're heeling perfectly despite desperately wanting to dart ahead — the training held, it always holds now.
+You don't plan it. Your paw just goes out and it goes off the edge and the satisfaction is immediate and specific and you do not regret it at all.
 
-<span style="color: #e91e63; font-weight: bold;">"Stay close,"</span> she says.
+<span style="color: #e91e63; font-weight: bold;">"hey—"</span>
 
-You stay close.
+You sit on the shelf where the candle was and look at her.
 
-She brings you back to the room eventually and you circle three times before dropping at her feet, chin on her boot.
+<span style="color: #e91e63; font-weight: bold;">"don't."</span>
 
-<span style="color: #e91e63; font-weight: bold;">"Good dog,"</span> she says.
+You put your paw on the next candle.
 
-The warmth of those two words runs all the way down your spine and out the tail.
+<span style="color: #e91e63; font-weight: bold;">"i will put you in a BOX."</span>
 
-<span style="color: #e91e63; font-weight: bold;">"You're mine permanently,"</span> she says, offhand, like it's just a thing she's noting. <span style="color: #e91e63; font-weight: bold;">"In case you weren't totally clear on that."</span>
+You push it off. Worth it. She makes this frustrated noise and scoops you off the shelf, holding you up at face level, and you blink at her slow and she cannot actually hold the glare.
 
-You put your chin back on her boot. You're clear.`,
-                                rat: `She built you a nest.
+<span style="color: #e91e63; font-weight: bold;">"you're lucky you're soft,"</span> she mutters, pulling you against her chest.
 
-An old book cover and some ribbon, stuffed into your corner while you were on your run-around. You came back and found it and went in and turned circles six times and then sat in the middle of it and did not feel stupid about it at all.
+You purr. Can't help it. Her hands are warm.`,
+                        choices: [
+                            { text: 'Continue', next: 16 }
+                        ]
+                    },
+                    {
+                        stage: 16,
+                        title: 'the bed situation',
+                        text: `You sleep on her face.
 
-<span style="color: #e91e63; font-weight: bold;">"You're welcome,"</span> she says from the bed, not looking up.
+Not beside her, not at the foot of the bed. On her actual face. You found the spot between her shoulder and her chin and you put yourself there and you don't move.
 
-You peek over the edge at her.
+<span style="color: #e91e63; font-weight: bold;">"i can't — you're on my face —"</span>
 
-<span style="color: #e91e63; font-weight: bold;">"You're staying here forever,"</span> she says. <span style="color: #e91e63; font-weight: bold;">"Obviously. You fit perfectly in that corner. It would be wasteful to get rid of you."</span>
+You purr louder.
 
-Your whiskers twitch.
+She tries to move you. You weigh basically nothing but you go completely limp and warm and she just can't.
 
-<span style="color: #e91e63; font-weight: bold;">"Don't thank me,"</span> she says.
+<span style="color: #e91e63; font-weight: bold;">"fine."</span>
 
-You weren't going to. You go back to turning circles in your nest.
+Her hand comes up and lands on your back anyway. Starts moving slow. You purr and purr and purr.
 
-It's good here. It's been good for a while.`
-                            };
-                            return t[gs.creatureType] || t.cat;
-                        },
+She says quietly into the top of your head:
+
+<span style="color: #e91e63; font-weight: bold;">"you're my favorite one. don't tell the others."</span>`,
+                        choices: [
+                            { text: 'Continue', next: 17 }
+                        ]
+                    },
+                    {
+                        stage: 17,
+                        title: 'her cat. her favorite.',
+                        text: `You claim everything.
+
+Her pillow. Her lap. The warm spot near the candles. Her — wherever she sits, you are there immediately, on her lap or her chest or pressed against her side like it's your spot, which it is.
+
+She stopped pretending this is inconvenient a while ago.
+
+<span style="color: #e91e63; font-weight: bold;">"okay but you know you're a pet, right,"</span> she says one evening with you sprawled across her stomach. <span style="color: #e91e63; font-weight: bold;">"like. i own you."</span>
+
+You blink at her. Slow. Completely unbothered.
+
+<span style="color: #e91e63; font-weight: bold;">"yeah you don't care."</span>
+
+She scratches behind your ear and you press into it and go completely boneless.
+
+<span style="color: #e91e63; font-weight: bold;">"mine,"</span> she says. Like it's obvious. <span style="color: #e91e63; font-weight: bold;">"permanently mine. obviously."</span>
+
+You already knew. You claimed her first, honestly. It goes both ways.`,
                         choices: [
                             { text: 'End Interaction & Return to Map', next: 'end' }
                         ]
                     }
+
                 ]
             },
             amy: {
