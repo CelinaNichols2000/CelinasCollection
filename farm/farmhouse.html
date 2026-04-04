@@ -21,7 +21,7 @@
                 <p class="nav-subtitle">Where secrets hide behind every door...</p>
             </div>
             <button class="nav-btn nav-menu" id="menuToggle" title="Open menu">
-                <span class="nav-icon">☰</span>
+                <span class="nav-icon">Menu</span>
             </button>
         </nav>
 
@@ -31,7 +31,7 @@
                 <button class="menu-close" id="menuClose">✕</button>
                 <div class="menu-stats" id="menuStats"></div>
                 <button class="menu-item" id="menuReturnMap">↩ Return to Map</button>
-                <button class="menu-item" id="menuExit">🚪 Exit Farmhouse</button>
+                <button class="menu-item" id="menuExit">Exit Farmhouse</button>
             </div>
         </div>
     </header>
@@ -63,7 +63,6 @@
                             <h3 class="location-name">Entrance Hall</h3>
                             <p class="location-desc">The mistress of this mysterious house awaits... Scarlet's commands are absolute.</p>
                             <div class="location-character">
-                                <span class="char-emoji">🔴</span>
                                 <span class="char-name">Scarlet</span>
                                 <span class="char-role">Mistress</span>
                             </div>
@@ -87,7 +86,6 @@
                             <h3 class="location-name">Cozy Kitchen</h3>
                             <p class="location-desc">A helpful maid works among the pots and pans. Her cooking has special ingredients.</p>
                             <div class="location-character">
-                                <span class="char-emoji">🌸</span>
                                 <span class="char-name">Iris</span>
                                 <span class="char-role">Maid</span>
                             </div>
@@ -111,7 +109,6 @@
                             <h3 class="location-name">Garden Room</h3>
                             <p class="location-desc">An elegant elf tends to exotic plants. Strange flowers bloom only for her touch.</p>
                             <div class="location-character">
-                                <span class="char-emoji">🌿</span>
                                 <span class="char-name">Aelindor</span>
                                 <span class="char-role">Elf</span>
                             </div>
@@ -135,7 +132,6 @@
                             <h3 class="location-name">Enchanted Library</h3>
                             <p class="location-desc">A mischievous fairy hides among the books. Her spells are written in invisible ink.</p>
                             <div class="location-character">
-                                <span class="char-emoji">✨</span>
                                 <span class="char-name">Sparkle</span>
                                 <span class="char-role">Fairy</span>
                             </div>
@@ -145,10 +141,10 @@
                         </div>
                     </div>
 
-                    <!-- BEDROOM - LILY -->
-                    <div class="location-card" data-character="lily">
+                    <!-- BEDROOM - AZALEA -->
+                    <div class="location-card" data-character="azalea">
                         <div class="location-image-wrapper">
-                            <img src="https://i.ibb.co/DP6301MC/sample-41604f793dce84dfa84fe4644a540417.jpg" alt="Lily" class="location-image">
+                            <img src="https://i.ibb.co/DP6301MC/sample-41604f793dce84dfa84fe4644a540417.jpg" alt="Azalea" class="location-image">
                             <div class="location-overlay">
                                 <span class="location-label">Bedroom</span>
                                 <span class="location-intensity">★★★</span>
@@ -157,11 +153,10 @@
                         </div>
                         <div class="location-info">
                             <h3 class="location-name">Private Chamber</h3>
-                            <p class="location-desc">A young beauty in her sanctuary. She has particular talents with transformations.</p>
+                            <p class="location-desc">A demon with a taste for pets. Anyone who wanders in becomes one.</p>
                             <div class="location-character">
-                                <span class="char-emoji">🌷</span>
-                                <span class="char-name">Lily</span>
-                                <span class="char-role">Tamer</span>
+                                <span class="char-name">Azalea</span>
+                                <span class="char-role">Demon</span>
                             </div>
                         </div>
                         <div class="location-footer">
@@ -183,7 +178,6 @@
                             <h3 class="location-name">Craft Workshop</h3>
                             <p class="location-desc">A tiny woman with enormous power. She transforms guests into animals she can control.</p>
                             <div class="location-character">
-                                <span class="char-emoji">⚙️</span>
                                 <span class="char-name">Amy</span>
                                 <span class="char-role">Beast Master</span>
                             </div>
@@ -207,7 +201,6 @@
                             <h3 class="location-name">Potion Cellar</h3>
                             <p class="location-desc">A dark alchemist who transforms people into small animals. Her experiments are permanent.</p>
                             <div class="location-character">
-                                <span class="char-emoji">🧪</span>
                                 <span class="char-name">Morrigan</span>
                                 <span class="char-role">Alchemist</span>
                             </div>
@@ -399,7 +392,6 @@
                     {
                         stage: 1,
                         title: 'Welcome to the Stables',
-                        image: 'https://via.placeholder.com/600x300/2C1810/FFFFFF?text=Dark+Stables',
                         text: `The stable door creaks shut behind you. Warm air, thick with the scent of hay, leather, and sweat wraps around you like a blanket. You hear soft breathing from the stalls... something shifts in the shadows.
 
 Then you see her.
@@ -421,7 +413,6 @@ She stops right in front of you, close enough that you can smell her perfume mix
                     {
                         stage: 2,
                         title: 'Wrong Answer',
-                        image: 'https://via.placeholder.com/600x300/5C2E3E/FFFFFF?text=Caught',
                         text: `Her smile drops immediately. 
 
 <span style="color: #8B3A62; font-weight: bold;">"Not interested?"</span> She steps forward fast, backing you against the wall. The crop presses under your chin, forcing your head up. <span style="color: #8B3A62; font-weight: bold;">"Tch... that's cute. You think you get a choice here?"</span>
@@ -442,7 +433,6 @@ She grabs a bridle from a hook on the wall and dangles it in front of your face.
                     {
                         stage: 3,
                         title: 'Negotiations',
-                        image: 'https://via.placeholder.com/600x300/5C2E3E/FFFFFF?text=Deal',
                         text: `She raises an eyebrow, amused. 
 
 <span style="color: #8B3A62; font-weight: bold;">"Oh? Got some smooth talk in you, huh?"</span> She circles you slowly, the crop trailing across your shoulders. <span style="color: #8B3A62; font-weight: bold;">"Alright, I'll bite. What kinda deal you offering me, smooth talker?"</span>
@@ -461,7 +451,6 @@ The way she's looking at you... you're not sure she's planning to keep her word 
                     {
                         stage: 4,
                         title: 'Too Polite',
-                        image: 'https://via.placeholder.com/600x300/5C2E3E/FFFFFF?text=Submission',
                         text: `<span style="color: #8B3A62; font-weight: bold;">"Awww..."</span> She tilts her head, grinning wide. <span style="color: #8B3A62; font-weight: bold;">"Look at you being all polite and sweet. That's adorable."</span>
 
 She reaches out and cups your chin, her thumb brushing over your bottom lip.
@@ -482,7 +471,6 @@ Magic flares hot in her palm against your side.`,
                     {
                         stage: 5,
                         title: 'Curious Little Thing',
-                        image: 'https://via.placeholder.com/600x300/5C2E3E/FFFFFF?text=Interest',
                         text: `Her grin widens. 
 
 <span style="color: #8B3A62; font-weight: bold;">"Ohhh, so you're INTO this?"</span> She laughs, low and dangerous. <span style="color: #8B3A62; font-weight: bold;">"Damn, didn't expect that. Most people try to run or beg... but you? You wanna know more?"</span>
@@ -507,7 +495,6 @@ She taps the crop against your chest.
                     {
                         stage: 6,
                         title: 'Breaking the Defiant',
-                        image: 'https://via.placeholder.com/600x300/6B3A52/FFFFFF?text=No+Escape',
                         text: `<span style="color: #8B3A62; font-weight: bold;">"Wrong answer."</span>
 
 Heat explodes through your body. Magic wraps around your waist like a belt, tight and burning. Your knees buckle and you drop hard.
@@ -529,7 +516,6 @@ She grinds her boot down. Magic surges into you.
                     {
                         stage: 7,
                         title: 'Run!',
-                        image: 'https://via.placeholder.com/600x300/6B3A52/FFFFFF?text=Chase',
                         text: `You bolt for the door.
 
 You almost make it.
@@ -550,7 +536,6 @@ She leans down close to your ear. <span style="color: #8B3A62; font-weight: bold
                     {
                         stage: 8,
                         title: 'Seduction Attempt',
-                        image: 'https://via.placeholder.com/600x300/6B3A52/FFFFFF?text=Flirt',
                         text: `You put on your best smile and step closer, trying to work some charm.
 
 Scarlet watches you, eyebrow raised, amused. 
@@ -570,7 +555,6 @@ She kisses you hard, sudden and overwhelming, her tongue pushing into your mouth
                     {
                         stage: 9,
                         title: 'Begging',
-                        image: 'https://via.placeholder.com/600x300/6B3A52/FFFFFF?text=Plea',
                         text: `You drop to your knees, hands clasped, begging her to let you go.
 
 Scarlet looks down at you, smiling like she just won something.
@@ -592,7 +576,6 @@ Her thumb brushes your lips.
                     {
                         stage: 10,
                         title: 'Willing Victim',
-                        image: 'https://via.placeholder.com/600x300/6B3A52/FFFFFF?text=Choice',
                         text: `Scarlet's eyes light up. 
 
 <span style="color: #8B3A62; font-weight: bold;">"Oh fuck, you're serious."</span> She grabs you by the chin and kisses you hard, hungry. When she pulls back, she's grinning ear to ear. <span style="color: #8B3A62; font-weight: bold;">"God, I love a willing victim. Makes it so much hotter."</span>
@@ -614,7 +597,6 @@ She leans in close, her breath hot against your neck.
                     {
                         stage: 11,
                         title: 'Smart Answer',
-                        image: 'https://via.placeholder.com/600x300/3B2A2A/FFFFFF?text=Escape',
                         text: `<span style="color: #8B3A62; font-weight: bold;">"The bit."</span>
 
 Scarlet blinks. Then she smirks and steps back.
@@ -635,7 +617,6 @@ You're free. For now.`,
                     {
                         stage: 12,
                         title: 'Honest Work',
-                        image: 'https://via.placeholder.com/600x300/3B2A2A/FFFFFF?text=Service',
                         text: `You agree to work for her.
 
 For the next hour, you clean stalls, brush down horses (some of which look at you with disturbingly human eyes), and haul hay bales while Scarlet watches you like a hawk.
@@ -658,7 +639,6 @@ She lets go. You're free.`,
                     {
                         stage: 13,
                         title: 'The Change Begins',
-                        image: 'https://via.placeholder.com/600x300/4B1D2D/FFFFFF?text=Transformation',
                         text: (gs) => {
                             const t = {
                                 horse: `Magic slams into you like a wave. Your legs buckle and you fall forward onto your hands.
@@ -736,7 +716,6 @@ Fur spreads across your body. Your ears reshape and perk up. Your cock or pussy 
                     {
                         stage: 14,
                         title: 'Willing Transformation',
-                        image: 'https://via.placeholder.com/600x300/4B1D2D/FFFFFF?text=Surrender',
                         text: (gs) => {
                             const t = {
                                 horse: `<span style="color: #8B3A62; font-weight: bold;">"Alright, babe... let's make you into my perfect riding horse."</span>
@@ -789,7 +768,6 @@ She clips a collar around your neck. You can feel the weight of it, the ownershi
                     {
                         stage: 15,
                         title: 'Fading Mind',
-                        image: 'https://via.placeholder.com/600x300/3B1525/FFFFFF?text=Breaking',
                         text: (gs) => {
                             const t = {
                                 horse: `You try to think. Try to remember who you were.
@@ -847,7 +825,6 @@ You whine happily and press your head into her leg.`
                     {
                         stage: 16,
                         title: 'Willing Pet',
-                        image: 'https://via.placeholder.com/600x300/1A0A10/FFFFFF?text=Owned',
                         text: (gs) => {
                             const t = {
                                 horse: `Scarlet mounts you. Her weight settles onto your back and it feels RIGHT.
@@ -900,7 +877,6 @@ You don't care. You just want to please her.
                     {
                         stage: 17,
                         title: 'Broken and Used',
-                        image: 'https://via.placeholder.com/600x300/1A0A10/FFFFFF?text=Property',
                         text: (gs) => {
                             const t = {
                                 horse: `You don't remember your name anymore. You don't remember being human.
@@ -972,7 +948,6 @@ Those words are everything. They're all you need.`
                     {
                         stage: 1,
                         title: 'The Head Maid',
-                        image: 'https://via.placeholder.com/600x300/FFE4E1/C94E7F?text=Pristine+Kitchen',
                         text: `The kitchen is spotless. Unnaturally so. Every surface gleams. The air smells like chemicals mixed with something sweet and artificial.
 
 Iris stands in the center of the room wearing a pristine maid uniform, arms crossed, watching you with cold, calculating eyes. She doesn't smile.
@@ -996,7 +971,6 @@ Her hand gestures to a cabinet filled with colorful bottles and syringes.
                     {
                         stage: 2,
                         title: 'Resistance',
-                        image: 'https://via.placeholder.com/600x300/FFB6C1/C94E7F?text=Chemical+Treatment',
                         text: `Iris's expression doesn't change. She just sighs, like she expected this.
 
 <span style="color: #C94E7F; font-weight: bold;">"Defiant. How predictable."</span>
@@ -1019,7 +993,6 @@ When you come back to yourself, you're sitting in a chair. Your wrists are bound
                     {
                         stage: 3,
                         title: 'Negotiation',
-                        image: 'https://via.placeholder.com/600x300/FFE4E1/C94E7F?text=Deal',
                         text: `Iris raises an eyebrow, mildly amused.
 
 <span style="color: #C94E7F; font-weight: bold;">"Oh? You think you can talk your way out?"</span> She circles you slowly, hands clasped behind her back. <span style="color: #C94E7F; font-weight: bold;">"Fine. I'll entertain you."</span>
@@ -1040,7 +1013,6 @@ She holds out a spray bottle and a rag.
                     {
                         stage: 4,
                         title: 'Submission',
-                        image: 'https://via.placeholder.com/600x300/FFC0CB/C94E7F?text=Too+Polite',
                         text: `Iris stares at you for a long moment. Then she smiles. It's not a kind smile.
 
 <span style="color: #C94E7F; font-weight: bold;">"How sweet. Polite. Obedient already."</span> She steps closer and cups your chin, forcing you to look up at her. <span style="color: #C94E7F; font-weight: bold;">"You're soft. Compliant. Perfect raw material."</span>
@@ -1061,7 +1033,6 @@ She uncaps the vial.
                     {
                         stage: 5,
                         title: 'Curiosity',
-                        image: 'https://via.placeholder.com/600x300/FFB6C1/C94E7F?text=Explanation',
                         text: `Iris's expression softens slightly. Not warmth, exactly. More like... interest.
 
 <span style="color: #C94E7F; font-weight: bold;">"Curious, huh? Most people just scream or beg."</span> She walks to the cabinet and opens it, revealing rows of vials, syringes, and bottles. <span style="color: #C94E7F; font-weight: bold;">"Fine. I'll explain."</span>
@@ -1090,7 +1061,6 @@ She turns back to you.
                     {
                         stage: 6,
                         title: 'Forced Injection',
-                        image: 'https://via.placeholder.com/600x300/FF69B4/FFFFFF?text=Caught',
                         text: `Iris moves faster than you expected.
 
 Her hand grabs your wrist and twists, forcing you to your knees. Before you can scream, she jams a syringe into your neck and pushes the plunger.
@@ -1111,7 +1081,6 @@ Magic pulses through her fingers into your skin.
                     {
                         stage: 7,
                         title: 'Escape Attempt',
-                        image: 'https://via.placeholder.com/600x300/FFC0CB/C94E7F?text=Captured',
                         text: `You bolt for the door.
 
 You almost make it. Your hand touches the handle.
@@ -1134,7 +1103,6 @@ Your vision blurs. Your thoughts scatter.
                     {
                         stage: 8,
                         title: 'Seduction Attempt',
-                        image: 'https://via.placeholder.com/600x300/FFB6C1/C94E7F?text=Distraction',
                         text: `Iris watches you try to flirt with cold amusement.
 
 <span style="color: #C94E7F; font-weight: bold;">"How... cute."</span> She steps closer, her fingers trailing along your jawline. <span style="color: #C94E7F; font-weight: bold;">"You think you can seduce your way out? Use your body to distract me?"</span>
@@ -1154,7 +1122,6 @@ Her hand slides down your chest, possessive.
                     {
                         stage: 9,
                         title: 'First Dose',
-                        image: 'https://via.placeholder.com/600x300/DDA0DD/FFFFFF?text=Mental+Fog',
                         text: `The liquid slides down your throat. It tastes like strawberries and champagne and something chemical underneath.
 
 Immediately, your thoughts start to blur. It's subtle at first. Just a slight fog, a delay in processing.
@@ -1176,7 +1143,6 @@ Your tongue feels thick. Words are harder to form.`,
                     {
                         stage: 10,
                         title: 'Willing Victim',
-                        image: 'https://via.placeholder.com/600x300/FF69B4/FFFFFF?text=Choice',
                         text: `Iris stops. Stares at you. Then a slow, predatory smile spreads across her face.
 
 <span style="color: #C94E7F; font-weight: bold;">"Oh fuck, you're serious."</span> She laughs, genuinely surprised. <span style="color: #C94E7F; font-weight: bold;">"You actually WANT this. God, that's so much better."</span>
@@ -1198,7 +1164,6 @@ Her eyes gleam with excitement.
                     {
                         stage: 11,
                         title: 'Correct Answer',
-                        image: 'https://via.placeholder.com/600x300/FFE4E1/C94E7F?text=Release',
                         text: `Iris blinks. Then she lowers the syringe with a slight frown.
 
 <span style="color: #C94E7F; font-weight: bold;">"Huh. You actually know your chemistry."</span>
@@ -1219,7 +1184,6 @@ You're free. For now.`,
                     {
                         stage: 12,
                         title: 'Service Work',
-                        image: 'https://via.placeholder.com/600x300/FFC0CB/C94E7F?text=Labor',
                         text: `For the next hour, you clean.
 
 And clean. And clean.
@@ -1246,7 +1210,6 @@ She lets you leave. You're free.`,
                     {
                         stage: 13,
                         title: function(gs) { return gs.lastBranch === 'doll' ? 'Becoming a Doll' : gs.lastBranch === 'slave' ? 'Breaking You Down' : 'Mind Melting'; },
-                        image: 'https://via.placeholder.com/600x300/FF69B4/FFFFFF?text=Transformation',
                         text: function(gs) {
                             const t = {
                                 slave: `The chemical floods your system fast.
@@ -1309,7 +1272,6 @@ You try to think. It's... hard. Why think when you can just feel?`
                     {
                         stage: 14,
                         title: 'Willing Transformation',
-                        image: 'https://via.placeholder.com/600x300/DDA0DD/FFFFFF?text=Your+Choice',
                         text: function(gs) {
                             const t = {
                                 maid: `Iris hands you a vial of clear pink liquid. You drink it willingly.
@@ -1366,7 +1328,6 @@ Your thoughts slow down, spacing out, becoming distant and dreamlike.
                     {
                         stage: 15,
                         title: 'Mind Breaking',
-                        image: 'https://via.placeholder.com/600x300/FF1493/FFFFFF?text=Mental+Collapse',
                         text: function(gs) {
                             const roleType = gs.lastBranch || 'maid';
                             const t = {
@@ -1432,7 +1393,6 @@ And somehow... that feels right.`
                     {
                         stage: 16,
                         title: 'Complete Reprogramming',
-                        image: 'https://via.placeholder.com/600x300/C71585/FFFFFF?text=Fully+Broken',
                         text: function(gs) {
                             const roleType = gs.lastBranch || 'maid';
                             const t = {
@@ -1506,7 +1466,6 @@ And you will. Because that's all you are.`
                     {
                         stage: 17,
                         title: 'Iris\'s Creation',
-                        image: 'https://via.placeholder.com/600x300/FF69B4/FFFFFF?text=Forever+Hers',
                         text: function(gs) {
                             const roleType = gs.lastBranch || 'maid';
                             const t = {
@@ -1583,7 +1542,6 @@ Forever.`
                     {
                         stage: 1,
                         title: 'The Garden Beckons',
-                        image: 'https://via.placeholder.com/600x300/228B22/FFFFFF?text=Bioluminescent+Garden',
                         text: `The garden breathes. That's the only way to describe it. Every flower pulses with soft light. Vines shift without wind. The ground beneath your feet feels warm, alive.
 
 At the center stands a woman made of flowing, translucent green energy. You can see through her body... and inside, you see shapes. Human shapes. Moving. Aware. Part of her.
@@ -1607,7 +1565,6 @@ She extends a hand made of flowing green light.
                     {
                         stage: 2,
                         title: 'Resistance',
-                        image: 'https://via.placeholder.com/600x300/32CD32/FFFFFF?text=Roots',
                         text: `Her expression doesn't change. She simply flows closer.
 
 <span style="color: #2ecc71; font-weight: bold;">"Resistance. How... expected. But unnecessary."</span>
@@ -1628,7 +1585,6 @@ The vines begin to glow brighter, and where they touch your skin, you feel... wa
                     {
                         stage: 3,
                         title: 'Negotiation',
-                        image: 'https://via.placeholder.com/600x300/00FF00/228B22?text=Understanding',
                         text: `Aelindor pauses, her flowing form settling into something almost solid.
 
 <span style="color: #2ecc71; font-weight: bold;">"Ah. One who seeks balance. How rare."</span> She circles you slowly, like water flowing around a stone. <span style="color: #2ecc71; font-weight: bold;">"Very well. I will offer you a path that preserves your separation... for now."</span>
@@ -1649,7 +1605,6 @@ She leans closer, her voice soft.
                     {
                         stage: 4,
                         title: 'Submission',
-                        image: 'https://via.placeholder.com/600x300/7FFF00/228B22?text=Gentle+Merger',
                         text: `Aelindor flows around you like warm water, surrounding you without quite touching.
 
 <span style="color: #2ecc71; font-weight: bold;">"Such gentleness. Such openness. You do not fight the current."</span>
@@ -1672,7 +1627,6 @@ Green light flows into you through her hands.`,
                     {
                         stage: 5,
                         title: 'Drawn In',
-                        image: 'https://via.placeholder.com/600x300/90EE90/228B22?text=Hypnotic',
                         text: `Aelindor's voice wraps around you like silk, like roots, like inevitability.
 
 <span style="color: #2ecc71; font-weight: bold;">"Yes... listen. Feel. Understand."</span>
@@ -1697,7 +1651,6 @@ Her eyes lock onto yours.
                     {
                         stage: 6,
                         title: 'Forced Absorption',
-                        image: 'https://via.placeholder.com/600x300/ADFF2F/228B22?text=Taken',
                         text: `The ground beneath you liquefies.
 
 You sink into it before you can scream. Warm, glowing green surrounds you, pulling you down, dissolving your boundaries.
@@ -1718,7 +1671,6 @@ Heat and pressure build where your hips used to be.
                     {
                         stage: 7,
                         title: 'Flight',
-                        image: 'https://via.placeholder.com/600x300/98FB98/228B22?text=Caught',
                         text: `You run.
 
 The garden seems to stretch endlessly in every direction. No matter how fast you move, the exit never gets closer.
@@ -1739,7 +1691,6 @@ Green light fills your vision.`,
                     {
                         stage: 8,
                         title: 'Connection',
-                        image: 'https://via.placeholder.com/600x300/7CFC00/228B22?text=Touch',
                         text: `Your fingers pass through her surface... and stick.
 
 The moment you make contact, her energy flows into you. You gasp as pleasure and warmth spread up your arm.
@@ -1759,7 +1710,6 @@ The pleasure becomes overwhelming.`,
                     {
                         stage: 9,
                         title: 'Beginning Merger',
-                        image: 'https://via.placeholder.com/600x300/00FA9A/228B22?text=Dissolution',
                         text: `Your body dissolves into hers like sugar in water.
 
 It doesn't hurt. It feels... right. Natural. Like finally letting go of a weight you've been carrying too long.
@@ -1781,7 +1731,6 @@ Your sense of self begins to localize, condensing into a specific region of her 
                     {
                         stage: 10,
                         title: 'Willing Merger',
-                        image: 'https://via.placeholder.com/600x300/3CB371/FFFFFF?text=Choice',
                         text: `Aelindor stops completely. Her entire form goes still.
 
 <span style="color: #2ecc71; font-weight: bold;">"You... wish to merge? Truly? Knowingly?"</span>
@@ -1805,7 +1754,6 @@ Her eyes gleam with ancient joy.`,
                     {
                         stage: 11,
                         title: 'Knowledge Rewarded',
-                        image: 'https://via.placeholder.com/600x300/228B22/FFFFFF?text=Release',
                         text: `The vines release you immediately. Aelindor flows backward, pleased.
 
 <span style="color: #2ecc71; font-weight: bold;">"You understand growth. You understand transformation through light and life."</span>
@@ -1826,7 +1774,6 @@ You're free. For now.`,
                     {
                         stage: 12,
                         title: 'Tending the Garden',
-                        image: 'https://via.placeholder.com/600x300/7FFF00/228B22?text=Work',
                         text: `You spend hours in reverent labor.
 
 Watering roots that pulse with consciousness. Pruning branches that whisper as you cut. Nourishing soil that feels warm and appreciative beneath your hands.
@@ -1851,7 +1798,6 @@ You're free.`,
                     {
                         stage: 13,
                         title: function(gs) { return gs.lastBranch === 'ass' ? 'Becoming Her Ass' : gs.lastBranch === 'cock' ? 'Becoming Her Cock' : gs.lastBranch === 'pussy' ? 'Becoming Her Pussy' : 'Transformation'; },
-                        image: 'https://via.placeholder.com/600x300/90EE90/228B22?text=Reshaping',
                         text: function(gs) {
                             const t = {
                                 pussy: `Your consciousness condenses between her legs.
@@ -1916,7 +1862,6 @@ She strokes you and you grow painfully hard. The pleasure is sharp, demanding, a
                     {
                         stage: 14,
                         title: 'Chosen Integration',
-                        image: 'https://via.placeholder.com/600x300/00FF00/228B22?text=Willing+Merger',
                         text: function(gs) {
                             const t = {
                                 pussy: `Aelindor flows over you gently, lovingly.
@@ -1981,7 +1926,6 @@ She strokes you and the pleasure is hard and sharp.
                     {
                         stage: 15,
                         title: 'Collective Awareness',
-                        image: 'https://via.placeholder.com/600x300/ADFF2F/228B22?text=Many+As+One',
                         text: function(gs) {
                             const partType = gs.lastBranch || 'pussy';
                             const t = {
@@ -2041,7 +1985,6 @@ When she's aroused, you harden. When she penetrates someone, you feel every thru
                     {
                         stage: 16,
                         title: 'Being Used',
-                        image: 'https://via.placeholder.com/600x300/7CFC00/228B22?text=Function',
                         text: function(gs) {
                             const partType = gs.lastBranch || 'pussy';
                             const t = {
@@ -2101,7 +2044,6 @@ You drive deeper, harder, overwhelmed by the need to claim, to fill, to conquer.
                     {
                         stage: 17,
                         title: 'Eternal Part',
-                        image: 'https://via.placeholder.com/600x300/3CB371/FFFFFF?text=Forever+One',
                         text: function(gs) {
                             const partType = gs.lastBranch || 'pussy';
                             const t = {
@@ -2176,7 +2118,6 @@ And it's perfect.`
                     {
                         stage: 1,
                         title: 'Sparkle\'s Fucktoy Collection',
-                        image: 'https://via.placeholder.com/600x300/FFE4B5/f39c12?text=Display+Pedestals',
                         text: `The display room reeks of sex and magic. Pedestals everywhere showing off sex toys—thick dildos, tight fleshlights, shiny buttplugs, buzzing vibrators. All perfectly crafted. All trembling.
 
 All watching you with desperate awareness.
@@ -2202,7 +2143,6 @@ Magic crackles around her tiny fists.
                     {
                         stage: 2,
                         title: 'Obedient Little Bitch',
-                        image: 'https://via.placeholder.com/600x300/FFD700/f39c12?text=Getting+Closer',
                         text: `<span style="color: #f39c12; font-weight: bold;">"Awwww! Such a good little bitch!"</span> Sparkle squeals, zipping around you in excited circles. <span style="color: #f39c12; font-weight: bold;">"I LOVE obedient sluts! They turn into the BEST fucktoys!"</span>
 
 She lands on your shoulder, tiny hands gripping your ear.
@@ -2223,7 +2163,6 @@ Magic starts wrapping around your wrists like burning ribbons.`,
                     {
                         stage: 3,
                         title: 'Bratty Fucktoy Gets Punished',
-                        image: 'https://via.placeholder.com/600x300/FF4500/f39c12?text=Rage',
                         text: `<span style="color: #f39c12; font-weight: bold;">"OH YOU DID NOT JUST—"</span>
 
 Sparkle's entire body flashes bright red. Magic EXPLODES from her in waves that slam you against the wall.
@@ -2246,7 +2185,6 @@ The magic tightens, spreading heat through your body.
                     {
                         stage: 4,
                         title: 'Distracted Slut',
-                        image: 'https://via.placeholder.com/600x300/FFD700/f39c12?text=Curious',
                         text: `You walk past her toward a pedestal. Up close, the dildo on it is... beautifully crafted. Smooth. Detailed. Perfect curves.
 
 And it's trembling. Watching you with something that feels like desperation.
@@ -2269,7 +2207,6 @@ Magic sparks from her fingertips onto the toy. It vibrates desperately.
                     {
                         stage: 5,
                         title: 'Lying Piece of Shit',
-                        image: 'https://via.placeholder.com/600x300/FFD700/f39c12?text=Caught',
                         text: `<span style="color: #f39c12; font-weight: bold;">"Uh-huh. Sure."</span> Sparkle rolls her eyes—impressive for someone tiny—and flies right back in front of you.
 
 <span style="color: #f39c12; font-weight: bold;">"Sparkle can SMELL lies, dumbass. You didn't just 'wander in here' or whatever bullshit excuse you were gonna give."</span> She pokes your nose hard. <span style="color: #f39c12; font-weight: bold;">"You came here 'cause you're CURIOUS about my collection!"</span>
@@ -2290,7 +2227,6 @@ Her wings buzz angrily.
                     {
                         stage: 6,
                         title: 'Begging Is Pathetic',
-                        image: 'https://via.placeholder.com/600x300/FF8C00/FFFFFF?text=Tears',
                         text: `<span style="color: #f39c12; font-weight: bold;">"Awwww you're BEGGING?"</span> Sparkle tilts her head, watching you plead with fake sympathy. <span style="color: #f39c12; font-weight: bold;">"That's so PATHETIC! But also... kinda cute?"</span>
 
 She flies closer, poking your tear-stained cheek.
@@ -2311,7 +2247,6 @@ Your legs start fusing together. Your torso reshaping.
                     {
                         stage: 7,
                         title: 'Willing Fucktoy',
-                        image: 'https://via.placeholder.com/600x300/FFA500/FFFFFF?text=Eager',
                         text: `Sparkle freezes mid-air. Stares. Her eyes go HUGE.
 
 <span style="color: #f39c12; font-weight: bold;">"WHAT?! You're TURNED ON by this?!"</span> She starts bouncing up and down frantically. <span style="color: #f39c12; font-weight: bold;">"OH MY FUCK! You actually WANT it?!"</span>
@@ -2334,7 +2269,6 @@ The magic tightens, already starting to reshape you.
                     {
                         stage: 8,
                         title: 'Running From Sparkle',
-                        image: 'https://via.placeholder.com/600x300/FFA500/FFFFFF?text=Caught',
                         text: `<span style="color: #f39c12; font-weight: bold;">"RUN?! You think you can RUN FROM SPARKLE?!"</span>
 
 Magic SLAMS into your back and you crash to the floor hard. Before you can scramble up, golden chains wrap around your wrists and ankles.
@@ -2355,7 +2289,6 @@ Your body starts to compress. Shrink. Change.
                     {
                         stage: 9,
                         title: 'Apologizing Won\'t Save You',
-                        image: 'https://via.placeholder.com/600x300/FF8C00/FFFFFF?text=Too+Late',
                         text: `<span style="color: #f39c12; font-weight: bold;">"Sorry? SORRY?!"</span> Sparkle's still glowing red with rage. <span style="color: #f39c12; font-weight: bold;">"You think saying SORRY fixes it?!"</span>
 
 She flies in tight circles around your head, magic crackling.
@@ -2376,7 +2309,6 @@ Your body starts feeling wrong. Soft. Hollow.
                     {
                         stage: 10,
                         title: 'The Transformation Process',
-                        image: 'https://via.placeholder.com/600x300/FFA500/FFFFFF?text=Demonstration',
                         text: `<span style="color: #f39c12; font-weight: bold;">"OHHH you wanna KNOW how it works?!"</span> Sparkle bounces with excitement. <span style="color: #f39c12; font-weight: bold;">"YES! Sparkle LOVES showing off!"</span>
 
 She holds up her tiny hands, magic crackling between them.
@@ -2400,7 +2332,6 @@ Magic starts tingling across your skin.`,
                     {
                         stage: 11,
                         title: 'One Chance (Escape Route)',
-                        image: 'https://via.placeholder.com/600x300/90EE90/FFFFFF?text=Deal',
                         text: `<span style="color: #f39c12; font-weight: bold;">"A way OUT?"</span> Sparkle actually pauses. Thinks. <span style="color: #f39c12; font-weight: bold;">"Hmmmmm..."</span>
 
 She taps her tiny chin.
@@ -2424,7 +2355,6 @@ She stares at you, waiting.
                     {
                         stage: 12,
                         title: 'Correct Answer (Freedom)',
-                        image: 'https://via.placeholder.com/600x300/90EE90/FFFFFF?text=Freedom',
                         text: `<span style="color: #f39c12; font-weight: bold;">"WHAT?! You got it RIGHT?!"</span>
 
 Sparkle looks genuinely shocked. Her mouth hangs open.
@@ -2447,7 +2377,6 @@ She turns away, sulking.
                     {
                         stage: 20,
                         title: (gameState) => 'Becoming Her Punishment Dildo',
-                        image: 'https://via.placeholder.com/600x300/DC143C/FFFFFF?text=Dildo+Form',
                         text: (gameState) => `The transformation completes.
 
 Your body has compressed into something thick, long, and hard. You are no longer human. You are a DILDO. A massive, thick, ridged cock-shaped dildo designed for rough use.
@@ -2470,7 +2399,6 @@ You're just a cock-shaped object now. Her punishment cock.`,
                     {
                         stage: 21,
                         title: (gameState) => 'Rammed Into Her Pussy - Brutal',
-                        image: 'https://via.placeholder.com/600x300/C71585/FFFFFF?text=Pussy+Fucked',
                         text: (gameState) => `Sparkle spreads her legs and lines your tip up with her pussy.
 
 Then she RAMS you inside.
@@ -2496,7 +2424,6 @@ This is your existence now. A thick cock to be shoved into her pussy when she's 
                     {
                         stage: 22,
                         title: (gameState) => 'Breaking - Pussy Dildo',
-                        image: 'https://via.placeholder.com/600x300/8B008B/FFFFFF?text=Mind+Fading',
                         text: (gameState) => `You try to remember your name. Your face. Your life before becoming a dildo.
 
 But every time she uses you—multiple times a day whenever she's angry—more of your humanity erodes. Replaced by the sensation of pussy walls clenching around your shaft. Of being rammed deep into her cunt. Of being her thick cock.
@@ -2517,7 +2444,6 @@ And the last fragment of who you were... surrenders completely.`,
                     {
                         stage: 23,
                         title: (gameState) => 'Eternal Pussy Dildo',
-                        image: 'https://via.placeholder.com/600x300/4B0082/FFFFFF?text=Forever+Fucked',
                         text: (gameState) => `You don't remember being human.
 
 You are a dildo. A thick, ridged, ten-inch pussy dildo. You have always been a dildo.
@@ -2549,7 +2475,6 @@ Forever.`,
                     {
                         stage: 24,
                         title: (gameState) => 'Becoming Her Buttplug',
-                        image: 'https://via.placeholder.com/600x300/DC143C/FFFFFF?text=Plug+Form',
                         text: (gameState) => `The transformation completes.
 
 Your body has shrunk and reshaped into something small and smooth. You are no longer human. You are a BUTTPLUG. A perfectly shaped anal plug designed to stay inserted.
@@ -2572,7 +2497,6 @@ You're just a small anal toy now. Her butt plug.`,
                     {
                         stage: 25,
                         title: (gameState) => 'Inserted Into Her Ass - Constant Wear',
-                        image: 'https://via.placeholder.com/600x300/C71585/FFFFFF?text=Anal+Insertion',
                         text: (gameState) => `Sparkle reaches behind herself, spreading her ass cheeks.
 
 She presses your tapered tip against her anus.
@@ -2600,7 +2524,6 @@ This is your existence now. Perpetually inserted. Perpetually squeezed. Perpetua
                     {
                         stage: 26,
                         title: (gameState) => 'Breaking - Anal Plug',
-                        image: 'https://via.placeholder.com/600x300/8B008B/FFFFFF?text=Squeezed+Forever',
                         text: (gameState) => `You try to remember what it felt like to move freely. To not be constantly squeezed.
 
 But it's impossible. Every second, her sphincter clamps around your neck. Her anal walls press against your widest point. The pressure is constant, inescapable, overwhelming.
@@ -2621,7 +2544,6 @@ And the last shred of your former self... accepts it.`,
                     {
                         stage: 27,
                         title: (gameState) => 'Eternal Butt Plug',
-                        image: 'https://via.placeholder.com/600x300/4B0082/FFFFFF?text=Forever+In+Ass',
                         text: (gameState) => `You don't remember being human.
 
 You are a butt plug. A smooth, tapered anal plug. You have always been a plug.
@@ -2653,7 +2575,6 @@ Forever.`,
                     {
                         stage: 28,
                         title: (gameState) => 'Becoming Her Fleshlight',
-                        image: 'https://via.placeholder.com/600x300/DC143C/FFFFFF?text=Fleshlight+Form',
                         text: (gameState) => `The transformation finishes.
 
 Your body has reshaped into something hollow, soft, designed to be penetrated. You are no longer human. You are a FLESHLIGHT. A tube-shaped male masturbator with a tight, textured interior.
@@ -2680,7 +2601,6 @@ You're just a hole now. An open, waiting hole.`,
                     {
                         stage: 29,
                         title: (gameState) => 'Fucked By Everyone - Endless Penetration',
-                        image: 'https://via.placeholder.com/600x300/C71585/FFFFFF?text=Cock+After+Cock',
                         text: (gameState) => `Someone grabs your cylindrical body.
 
 You feel a cock pressing against your vulva-shaped opening. The head pushes through your entrance—you feel yourself stretching to accommodate it. Then the shaft slides in, and you experience EVERYTHING.
@@ -2716,7 +2636,6 @@ A fleshlight. A hole to be fucked. Forever.`,
                     {
                         stage: 30,
                         title: (gameState) => 'Breaking - Communal Fleshlight',
-                        image: 'https://via.placeholder.com/600x300/8B008B/FFFFFF?text=Used+Empty',
                         text: (gameState) => `You try to remember who you were. What you were.
 
 But it's impossible. You're fucked so constantly, penetrated so endlessly, that your memories dissolve. Replaced ONLY by the sensation of cocks sliding into your opening, thrusting through your tunnel, cumming inside you.
@@ -2737,7 +2656,6 @@ And the last part of your consciousness... surrenders to being a hole.`,
                     {
                         stage: 31,
                         title: (gameState) => 'Eternal Fleshlight',
-                        image: 'https://via.placeholder.com/600x300/4B0082/FFFFFF?text=Forever+Fucked',
                         text: (gameState) => `You don't remember being human.
 
 You are a fleshlight. A soft, ribbed masturbation sleeve with a vulva opening. You have always been a fleshlight.
@@ -2771,7 +2689,6 @@ Forever.`,
                     {
                         stage: 32,
                         title: (gameState) => 'Becoming Her Vibrator',
-                        image: 'https://via.placeholder.com/600x300/DC143C/FFFFFF?text=Vibrator+Form',
                         text: (gameState) => `The transformation completes violently.
 
 Your body compresses into something sleek, smooth, and constantly BUZZING. You are no longer human. You are a VIBRATOR. Every ounce of your fight, your resistance, converted into endless vibration.
@@ -2800,7 +2717,6 @@ You're just a buzzing object. Her vibrating toy.`,
                     {
                         stage: 33,
                         title: (gameState) => 'Constant Buzzing - Clitoral Stimulation',
-                        image: 'https://via.placeholder.com/600x300/C71585/FFFFFF?text=Buzzing+Madness',
                         text: (gameState) => `Sparkle spreads her legs and presses your vibrating tip directly against her clit.
 
 The sensation is immediate and overwhelming. You feel her wetness, her heat, the softness of her clit against your buzzing tip. Your vibrations—YOUR OWN FIGHT turned into constant buzzing—stimulate her directly.
@@ -2832,7 +2748,6 @@ Constant vibration. Constant use. Constant madness.`,
                     {
                         stage: 34,
                         title: (gameState) => 'Breaking - Vibrator',
-                        image: 'https://via.placeholder.com/600x300/8B008B/FFFFFF?text=Buzzing+Mad',
                         text: (gameState) => `You try to stop vibrating. To find silence. To remember stillness.
 
 But it's IMPOSSIBLE. The vibrations ARE you now. Your consciousness itself buzzes constantly, endlessly, maddeningly.
@@ -2857,7 +2772,6 @@ And the last fragment of your sanity... shatters into vibrations.`,
                     {
                         stage: 35,
                         title: (gameState) => 'Eternal Vibrator',
-                        image: 'https://via.placeholder.com/600x300/4B0082/FFFFFF?text=Forever+Buzzing',
                         text: (gameState) => `You don't remember being human.
 
 You are a vibrator. A sleek, buzzing, five-inch vibrator. You have always been a vibrator.
@@ -2903,7 +2817,6 @@ Forever.`,
                     {
                         stage: 36,
                         title: (gameState) => 'Becoming Her Favorite',
-                        image: 'https://via.placeholder.com/600x300/DC143C/FFFFFF?text=Perfect+Form',
                         text: (gameState) => `The transformation completes gently, lovingly.
 
 Your body reshapes into something beautiful and perfect. You are no longer human. You are her FAVORITE FUCKTOY. A gorgeous, custom-made dildo designed specifically for pleasure.
@@ -2932,7 +2845,6 @@ You're her favorite now. Her beloved toy.`,
                     {
                         stage: 37,
                         title: (gameState) => 'Daily Pleasure - Cherished Use',
-                        image: 'https://via.placeholder.com/600x300/C71585/FFFFFF?text=Loved',
                         text: (gameState) => `Sparkle lies back on her bed, holding you lovingly.
 
 She spreads her legs and lines your gently tapered tip up with her pussy. Then slides you inside SLOWLY. Carefully. Savoring every inch.
@@ -2964,7 +2876,6 @@ Forever.`,
                     {
                         stage: 38,
                         title: (gameState) => 'Fading Gently - Favorite Dildo',
-                        image: 'https://via.placeholder.com/600x300/8B008B/FFFFFF?text=Loved+Away',
                         text: (gameState) => `You try to remember who you were. Your name. Your face. Your life before becoming her dildo.
 
 But it's difficult. Not painful—just... difficult. Every day she uses you lovingly inside her pussy. Every day she whispers sweet words to you. Every day you feel CHERISHED.
@@ -2991,7 +2902,6 @@ Just... content.`,
                     {
                         stage: 39,
                         title: (gameState) => 'Eternal Favorite',
-                        image: 'https://via.placeholder.com/600x300/4B0082/FFFFFF?text=Forever+Cherished',
                         text: (gameState) => `You don't remember being human.
 
 You are her favorite dildo. A beautiful seven-inch curved dildo with gradient purple-to-pink silicone and subtle spiral ridges. You have always been her favorite.
@@ -3025,97 +2935,484 @@ Forever.`,
                     }
                 ]
             },
-            lily: {
-                name: 'Lily',
-                role: 'The Animal Tamer',
-                badge: 'Creature Transformation',
+            azalea: {
+                name: 'Azalea',
+                role: 'The Demon',
+                badge: 'Animal Transformation',
                 image: 'https://i.ibb.co/DP6301MC/sample-41604f793dce84dfa84fe4644a540417.jpg',
-                details: 'A seductive, controlling woman who transforms people into small animals. She keeps them as intimate possessions, completely dependent on her for everything.',
-                transformType: 'Animal (Worm, Bug, Monkey, Frog)',
+                details: 'A bored, possessive demon who turns visitors into animals and keeps them. She does not ask permission. She does not offer escape. She just takes.',
+                transformType: 'Animal (Cat, Rabbit, Dog, Rat)',
                 color: '#e91e63',
                 stages: [
                     {
                         stage: 1,
-                        title: 'Seductive Invitation',
-                        image: 'https://via.placeholder.com/600x300/FFE4E1/e91e63?text=Luxurious+Bedroom',
-                        text: `Lily's bedroom is pure luxury—silk sheets, velvet curtains, gold accents everywhere. She reclines on her massive bed, watching you enter with predatory eyes.\n\nShe's beautiful and terrifying all at once, dressed in elegant lingerie that leaves little to the imagination.\n\n<span style="color: #e91e63; font-weight: bold;">"Well hello, darling,"</span> she purrs, her voice like honey. <span style="color: #e91e63; font-weight: bold;">"Come closer. Don't be shy."</span>\n\nAs you approach, she sits up, running her fingers through her hair.\n\n<span style="color: #e91e63; font-weight: bold;">"I have a confession—I like small things. Tiny things. Things I can hold in my palm, control completely, play with whenever I want. And you, my sweet... you're going to become one of my precious little creatures."</span>`,
+                        title: 'Wrong Room',
+                        text: `The bedroom reeks of brimstone and something sweeter underneath it. Candles line every surface, lit by no human hand. A tail cuts through the air before you see the rest of her — Azalea, sprawled across the bed like she owns everything in a three-mile radius.
+
+She does.
+
+She rolls onto her side and fixes you with heavy-lidded yellow eyes, one hand propping up her head.
+
+<span style="color: #e91e63; font-weight: bold;">"Oh. Something walked in."</span> She sounds almost bored. <span style="color: #e91e63; font-weight: bold;">"Cute timing. I was just thinking I needed entertainment."</span>
+
+Her tail twitches. The door behind you clicks shut on its own.
+
+<span style="color: #e91e63; font-weight: bold;">"Don't bother with the door. Sealed it the second you crossed the threshold."</span> She sits up, letting her legs dangle over the edge of the bed, and smiles like she already knows how this ends. <span style="color: #e91e63; font-weight: bold;">"You're in MY room. Everything that ends up in my room is mine. That's just how it works."</span>`,
                         choices: [
-                            { text: 'Try to leave immediately', next: 2, branch: 'flight' },
-                            { text: 'Resist whatever magic she\'s using', next: 2, branch: 'defiant' },
-                            { text: 'Let her touch you', next: 2, branch: 'willing' }
+                            { text: 'Demand she open the door right now', next: 2, branch: 'defiant' },
+                            { text: 'Tell her this is clearly a mistake', next: 3, branch: 'resist' },
+                            { text: 'Ask what she wants from you', next: 4, branch: 'curious' },
+                            { text: 'Stay completely still and wait', next: 5, branch: 'submissive' }
                         ]
                     },
                     {
                         stage: 2,
-                        title: 'Shrinking Magic',
-                        image: 'https://via.placeholder.com/600x300/FF69B4/FFFFFF?text=Diminishing+Size',
-                        text: `Lily's hands glow with soft pink light. Before you can escape, the magic wraps around you like invisible chains.\n\nYou feel yourself... shrinking. The room grows massive around you. Lily becomes a towering giantess, her smile widening as you diminish.\n\n<span style="color: #e91e63; font-weight: bold;">"There we go,"</span> she coos, watching you shrink down to barely a few inches tall. <span style="color: #e91e63; font-weight: bold;">"Perfect size. Now, what adorable little creature will you become?"</span>\n\nShe kneels down, her face enormous from your tiny perspective.\n\n<span style="color: #e91e63; font-weight: bold;">"A worm—helpless and squirming? A bug—scurrying and vulnerable? A monkey—clever but contained? Or a frog—leaping and trapped?"</span>`,
+                        title: 'Big Mistake',
+                        text: `She raises one eyebrow.
+
+<span style="color: #e91e63; font-weight: bold;">"Demand?"</span> She laughs, short and sharp. <span style="color: #e91e63; font-weight: bold;">"You don't demand things from me, little thing."</span>
+
+She doesn't move from the bed. She doesn't need to. Something invisible slams into your chest and shoves you hard against the wall, pinning you there. Magic crackles hot against your skin. Her eyes don't even blink.
+
+<span style="color: #e91e63; font-weight: bold;">"I like the defiant ones."</span> She slides off the bed and walks toward you, tail swaying. <span style="color: #e91e63; font-weight: bold;">"They always try so hard before they give in. It's adorable."</span>
+
+She presses one finger to your sternum. The heat that radiates from it is obscene.
+
+<span style="color: #e91e63; font-weight: bold;">"Try saying it again. See what happens."</span>`,
                         choices: [
-                            { text: 'Become a worm', next: 3, creatureType: 'worm' },
-                            { text: 'Become a bug', next: 3, creatureType: 'bug' },
-                            { text: 'Become a monkey', next: 3, creatureType: 'monkey' },
-                            { text: 'Become a frog', next: 3, creatureType: 'frog' }
+                            { text: 'Keep fighting it', next: 6, branch: 'resist' },
+                            { text: 'Fine. What do you want?', next: 6, branch: 'cave' }
                         ]
                     },
                     {
                         stage: 3,
-                        title: 'Creature Transformation',
-                        image: 'https://via.placeholder.com/600x300/FF1493/FFFFFF?text=Animal+Form',
-                        text: `Your tiny body begins to transform rapidly. Your limbs reshape, your skin changes texture, your entire being reforms into your chosen creature.\n\nThe transformation is overwhelming—your human mind fracturing as animal instincts flood in. You can still think, but those thoughts are becoming simpler, more focused on immediate survival and response.\n\n<span style="color: #e91e63; font-weight: bold;">"Oh, you're PRECIOUS!"</span> Lily squeals with delight, reaching down to scoop you up in her hands. <span style="color: #e91e63; font-weight: bold;">"My perfect little creature. So tiny. So helpless. So completely mine."</span>\n\nYou try to resist but your new form responds to her touch automatically—seeking warmth, seeking safety, seeking the comfort only she can provide.`,
+                        title: 'That Doesn\'t Help You',
+                        text: `She stares at you.
+
+<span style="color: #e91e63; font-weight: bold;">"A mistake."</span> She repeats it flat. Then she grins. <span style="color: #e91e63; font-weight: bold;">"Sure. A mistake."</span>
+
+She stands up and stretches, her tail curling lazily overhead.
+
+<span style="color: #e91e63; font-weight: bold;">"Here's the thing though."</span> She walks closer, casual, unhurried. <span style="color: #e91e63; font-weight: bold;">"Mistake or not, you're here. My room. My rules. I don't care how you got here. I care what I'm going to do with you now."</span>
+
+She flicks her fingers and something warm coils around your ankles, rooting you to the floor.
+
+<span style="color: #e91e63; font-weight: bold;">"You've got nice energy. I can already feel it."</span> She's right in front of you now, face too close. <span style="color: #e91e63; font-weight: bold;">"Wasted as a human, honestly."</span>`,
                         choices: [
-                            { text: 'Experience your new existence', next: 4 }
+                            { text: 'What are you going to do with me?', next: 6, branch: 'curious' },
+                            { text: 'You can\'t just do this!', next: 6, branch: 'resist' }
                         ]
                     },
                     {
                         stage: 4,
-                        title: 'Habitat Introduction',
-                        image: 'https://via.placeholder.com/600x300/DB7093/FFFFFF?text=Terrarium+Home',
-                        text: `Lily places you in a beautiful terrarium—custom-designed for your specific creature type. It has everything you need: food, water, hiding places, comfort items.\n\nBut it's also a cage. Beautiful, luxurious, but still a cage.\n\n<span style="color: #e91e63; font-weight: bold;">"This is your home now, darling,"</span> Lily says, her giant face pressed close to the glass. <span style="color: #e91e63; font-weight: bold;">"I'll take such good care of you. Feed you, clean you, play with you. You'll want for nothing... except freedom."</span>\n\nHer laugh is musical and cruel.\n\n<span style="color: #e91e63; font-weight: bold;">"But you won't miss freedom. Soon you won't even remember what it felt like."</span>`,
+                        title: 'Honest Answer',
+                        text: `Her smile shifts into something sharper.
+
+<span style="color: #e91e63; font-weight: bold;">"What do I want?"</span> She tilts her head. <span style="color: #e91e63; font-weight: bold;">"Oh, I like you already. Most people try to run first."</span>
+
+She stands and walks over slowly, tail flicking.
+
+<span style="color: #e91e63; font-weight: bold;">"I'm bored. You walked in. I have a particular hobby."</span> She reaches out and tilts your face up with two fingers. Her skin runs hot. <span style="color: #e91e63; font-weight: bold;">"I transform people into animals. Little ones. Keep them."</span> She says it completely matter-of-fact, like she's describing collecting stamps. <span style="color: #e91e63; font-weight: bold;">"You'll make a good one. I can already tell."</span>
+
+She drops her hand and circles you slowly.
+
+<span style="color: #e91e63; font-weight: bold;">"The fun part is you don't really get a say in it happening. But I'll let you pick WHAT you become. That's me being generous."</span>`,
                         choices: [
-                            { text: 'Settle into your habitat', next: 5 }
+                            { text: 'You\'re insane.', next: 6, branch: 'defiant' },
+                            { text: 'Pick... like which animal?', next: 7, branch: 'curious' }
                         ]
                     },
                     {
                         stage: 5,
-                        title: 'Perfect Pet',
-                        image: 'https://via.placeholder.com/600x300/C71585/FFFFFF?text=Dependent+Creature',
-                        text: `Days pass in your terrarium. Your human consciousness grows weaker as animal instinct takes over more and more.\n\nYou respond to Lily automatically now. When she opens the lid, you don't try to escape—you eagerly await her interaction. When she feeds you, you're grateful. When she plays with you, you enjoy it.\n\n<span style="color: #e91e63; font-weight: bold;">"Such a good pet,"</span> she coos, stroking your small form. <span style="color: #e91e63; font-weight: bold;">"You're learning your place. You depend on me for everything now, don't you?"</span>\n\nAnd it's true. You do. Completely.`,
+                        title: 'Playing It Smart',
+                        text: `Smart. She watches you go completely still.
+
+<span style="color: #e91e63; font-weight: bold;">"Oh, a patient one."</span> She tilts her head, amused. <span style="color: #e91e63; font-weight: bold;">"That's unusual. I usually have to chase them around the room first."</span>
+
+She gets up and comes over, walking a slow circle around you. Her tail brushes against you as she passes.
+
+<span style="color: #e91e63; font-weight: bold;">"You're scared though. I can smell it."</span> She stops in front of you and cups your face in both hands, demonic warmth pouring off her palms. <span style="color: #e91e63; font-weight: bold;">"That's fine. Fear's fine. Better than stupidity."</span>
+
+She looks into your eyes like she's reading something in them. Then she steps back with a satisfied little smile.
+
+<span style="color: #e91e63; font-weight: bold;">"Pick your form. Cat, rabbit, dog, or rat. I'm letting you choose because I'm in a good mood."</span> A pause. <span style="color: #e91e63; font-weight: bold;">"Don't make me choose instead."</span>`,
                         choices: [
-                            { text: 'Continue', next: 6 }
+                            { text: 'Become her cat', next: 8, creatureType: 'cat' },
+                            { text: 'Become her rabbit', next: 8, creatureType: 'rabbit' },
+                            { text: 'Become her dog', next: 8, creatureType: 'dog' },
+                            { text: 'Become her rat', next: 8, creatureType: 'rat' }
                         ]
                     },
                     {
                         stage: 6,
-                        title: 'Complete Dependency',
-                        image: 'https://via.placeholder.com/600x300/BA55D3/FFFFFF?text=Total+Reliance',
-                        text: `You are completely transformed now—body and mind. Your human consciousness is buried so deep beneath animal instinct that it barely exists.\n\nYou eat when Lily feeds you. You sleep when she dims the lights. You play when she wants entertainment. You exist entirely at her whim.\n\n<span style="color: #e91e63; font-weight: bold;">"My perfect little possession,"</span> Lily whispers, holding you in her palm. <span style="color: #e91e63; font-weight: bold;">"So small. So vulnerable. So completely, utterly mine."</span>\n\nShe's right. You are hers. Every tiny part of you belongs to her now.`,
+                        title: 'She\'s Done Listening',
+                        text: `She sighs like you've personally exhausted her and then snaps her fingers.
+
+Magic wraps around your whole body at once — dense, hot, inescapable — and your feet lift clean off the floor. She walks over while you hang there and tilts your chin up with one finger.
+
+<span style="color: #e91e63; font-weight: bold;">"Okay. We're past the talking part."</span> She sounds bored again. <span style="color: #e91e63; font-weight: bold;">"I'm going to turn you into a little animal and keep you. The horror on your face right now is my absolute favorite part of this whole process."</span>
+
+She steps back, drops into a chair, and drapes one leg over the armrest. Looks at her nails.
+
+<span style="color: #e91e63; font-weight: bold;">"Pick something. Cat, rabbit, dog, rat."</span> She glances up. <span style="color: #e91e63; font-weight: bold;">"Or I pick. And I always pick worst-case-scenario when I'm doing it for someone."</span>`,
                         choices: [
-                            { text: 'Continue', next: 7 }
+                            { text: 'Become her cat', next: 8, creatureType: 'cat' },
+                            { text: 'Become her rabbit', next: 8, creatureType: 'rabbit' },
+                            { text: 'Become her dog', next: 8, creatureType: 'dog' },
+                            { text: 'Become her rat', next: 8, creatureType: 'rat' }
                         ]
                     },
                     {
                         stage: 7,
-                        title: 'Lily\'s Plaything',
-                        image: 'https://via.placeholder.com/600x300/9370DB/FFFFFF?text=Entertainment',
-                        text: `Lily uses you for entertainment. Sometimes she lets you crawl on her while she reads. Sometimes she shows you to guests. Sometimes she just watches you going about your simple creature existence.\n\nYou don't mind anymore. This is your life now. Simple. Safe. Controlled.\n\n<span style="color: #e91e63; font-weight: bold;">"I could never let you go,"</span> she tells you one day, her finger gently stroking your tiny head. <span style="color: #e91e63; font-weight: bold;">"You're too precious. Too perfect. Too... mine."</span>\n\nHer touch triggers happiness in your animal brain. You nuzzle against her finger, seeking more affection.`,
+                        title: 'Fine. Which Animal.',
+                        text: `She grins wide, clearly delighted you asked.
+
+<span style="color: #e91e63; font-weight: bold;">"Cat — sleeps on my bed, gets petted when I feel like it, claws things I like. Very me."</span> She ticks them off on her fingers. <span style="color: #e91e63; font-weight: bold;">"Rabbit — small and fast and I like chasing things. Dog — pathetically loyal, which is hilarious. Rat — tiny, forgotten about for days at a time, I pull you out when I'm bored."</span>
+
+She spreads her hands.
+
+<span style="color: #e91e63; font-weight: bold;">"All permanent. None reversible. I want to be clear about that."</span> She looks completely unbothered by this. <span style="color: #e91e63; font-weight: bold;">"Which one sounds fun to you? Or which one sounds least awful, whatever."</span>`,
                         choices: [
-                            { text: 'Continue', next: 8 }
+                            { text: 'Become her cat', next: 8, creatureType: 'cat' },
+                            { text: 'Become her rabbit', next: 8, creatureType: 'rabbit' },
+                            { text: 'Become her dog', next: 8, creatureType: 'dog' },
+                            { text: 'Become her rat', next: 8, creatureType: 'rat' }
                         ]
                     },
                     {
                         stage: 8,
-                        title: 'Beloved Pet',
-                        image: 'https://via.placeholder.com/600x300/8A2BE2/FFFFFF?text=Forever+Cherished',
-                        text: `Time has lost meaning for you. You've been Lily's creature for so long that you can't imagine ever being anything else.\n\nShe loves you, in her way. She cares for you meticulously. You're healthy, well-fed, entertained. You're also completely under her control.\n\n<span style="color: #e91e63; font-weight: bold;">"My precious baby,"</span> she murmurs, watching you with fond eyes. <span style="color: #e91e63; font-weight: bold;">"You're perfect in your simplicity. Perfect in your dependence. Perfect in every way."</span>\n\nAnd in your simple animal mind, you agree.`,
+                        title: 'The Magic Drops In',
+                        text: (gs) => {
+                            const t = {
+                                cat: `She snaps her fingers. <span style="color: #e91e63; font-weight: bold;">"Cat it is."</span>
+
+The magic hits different when it's demonic — it doesn't ease you in, it just TAKES. Your spine curves before you can stop it. Your hands hit the floor, fingers shortening, nails darkening into claws. Soft fur pushes through your skin like a warm flood. The sound that comes out of you isn't human — half-cry, half-yowl — and even that fades fast as your throat reshapes.
+
+Azalea crouches down in front of you with her chin on her fist.
+
+<span style="color: #e91e63; font-weight: bold;">"There you go. Much better already."</span>
+
+Your face compresses into a short muzzle. Ears shift to the top of your head. Your tail comes in all at once — a rush of sensation that arches your whole back. You are small now. Warm. She reaches out and drags one finger down the back of your neck and you feel the purr come up before you can stop it.`,
+                                rabbit: `She snaps her fingers and something slams into you like a shockwave. Your legs buckle. You try to catch yourself and realize your hands are already changing — fingers fusing, shrinking, covered in dense fur. The room gets bigger around you, which means you're getting smaller.
+
+<span style="color: #e91e63; font-weight: bold;">"Rabbit. Cute choice."</span> She sounds pleased.
+
+Your ears come in long and twitching. Your nose reshapes on its own. Your heartbeat kicks up fast, fast, fast — that's new, that's rabbit, that's going to be constant now. You hit the floor on four small legs, barely knee height to her, and she's already reaching down.
+
+<span style="color: #e91e63; font-weight: bold;">"Oh you are adorable."</span> She scoops you up and you kick your back legs uselessly against her grip. <span style="color: #e91e63; font-weight: bold;">"Relax. I've got you. That's the problem."</span>`,
+                                dog: `She snaps her fingers. You feel it hit your chest first — a warm pulse that radiates through every limb. Your legs feel wrong immediately. Lower. Stronger. You're dropping to all fours without meaning to, your body knowing before your brain does.
+
+<span style="color: #e91e63; font-weight: bold;">"Dog. Loyal choice."</span> There's something almost like approval in her voice.
+
+Your ears drop and widen. Your fingers pull back, hands restructure into paws on the floor. A tail — you feel it push out behind you and it is already wagging. That was not your idea. She watches you with a smirk as your face extends into a muzzle, as your whole sense of the world reshapes around smell and sound.
+
+<span style="color: #e91e63; font-weight: bold;">"God, you're going to be insufferable,"</span> she says, already sounding fond about it.`,
+                                rat: `She snaps her fingers and you're already shrinking. Fast. The room explodes in scale — the bed becomes a wall, her legs tower overhead. Fur prickles across every inch of you, coarse and warm. Whiskers push out from your face. Your hands are tiny now, pink-palmed, twitching.
+
+<span style="color: #e91e63; font-weight: bold;">"Rat."</span> She doesn't sound disappointed. Just thoughtful. <span style="color: #e91e63; font-weight: bold;">"Underappreciated. I like it."</span>
+
+You're barely the size of her shoe. She reaches down with two fingers and picks you up by the scruff like you weigh absolutely nothing, which you now do.
+
+<span style="color: #e91e63; font-weight: bold;">"Hi."</span> She holds you up at eye level and looks at you. You look back. Your whiskers twitch. <span style="color: #e91e63; font-weight: bold;">"You're mine now. Just so we're clear."</span>`
+                            };
+                            return t[gs.creatureType] || t.cat;
+                        },
                         choices: [
-                            { text: 'Continue', next: 9 }
+                            { text: 'Feel the change settle', next: 9 }
                         ]
                     },
                     {
                         stage: 9,
-                        title: 'Eternal Pet',
-                        image: 'https://via.placeholder.com/600x300/9400D3/FFFFFF?text=Forever+Hers',
-                        text: `Forever is being Lily's tiny creature. Forever is existing in your terrarium, completely dependent on her for everything. Forever is simple animal existence under her complete control.\n\n<span style="color: #e91e63; font-weight: bold;">"You'll be mine forever, won't you darling?"</span> Lily asks, though it's not really a question.\n\nYou make your creature sound in response—squirm, chirp, croak, or chatter depending on your form.\n\n<span style="color: #e91e63; font-weight: bold;">"That's right,"</span> she smiles. <span style="color: #e91e63; font-weight: bold;">"Forever and always. My perfect little pet."</span>\n\nAnd you are exactly what you were meant to become.\n\nHers. Completely. Forever.`,
+                        title: 'Fully Changed',
+                        text: (gs) => {
+                            const t = {
+                                cat: `You have stopped fighting it.
+
+The cat-brain is so much simpler than you expected. Warm. Focused. Immediate. You're crouched on the floor staring at a dust mote drifting through candlelight and you have forgotten for a moment that you were ever anything else.
+
+Azalea sits on the edge of the bed and drums her fingers on her knee.
+
+<span style="color: #e91e63; font-weight: bold;">"Come here."</span>
+
+You go. You actually go. Not because you decided to — because your body just does it, crossing the floor and pressing against her leg before your brain fully catches up.
+
+<span style="color: #e91e63; font-weight: bold;">"See?"</span> She scratches behind your ear and the purr that comes out of you is embarrassingly loud. <span style="color: #e91e63; font-weight: bold;">"You're already better at this than you were at being human."</span>`,
+                                rabbit: `You're under the bed.
+
+Heart hammering. Nose going. Everything in you says stay still, don't move, the demon is right there.
+
+<span style="color: #e91e63; font-weight: bold;">"I can hear you breathing,"</span> Azalea says, lying on her stomach on the bed and dangling one hand over the edge. <span style="color: #e91e63; font-weight: bold;">"Come out."</span>
+
+Your rabbit brain is screaming not to. You do it anyway, creeping out on silent paws, and the second you're close enough she scoops you up and drops you on the bed with one hand clamped gently over your back.
+
+<span style="color: #e91e63; font-weight: bold;">"There."</span> She scratches under your chin. Your feet kick involuntarily. <span style="color: #e91e63; font-weight: bold;">"You're so cute when you're panicking. Keep doing that."</span>`,
+                                dog: `You are sitting in front of her.
+
+Paws on the floor, ears up, tail going, completely focused on her face. You didn't sit because she told you to. You sat because the pull toward her is so strong that sitting felt like the only option. She hasn't even looked at you yet.
+
+When she finally glances down you give a short, embarrassing bark.
+
+She raises one eyebrow. <span style="color: #e91e63; font-weight: bold;">"Did you just bark to get my attention?"</span>
+
+You bark again. You have absolutely no idea why. Your tail is going very fast.
+
+She laughs — real, startled. <span style="color: #e91e63; font-weight: bold;">"Oh you are going to be insufferable. I love it."</span> She reaches down and rubs your ears roughly.`,
+                                rat: `She's carrying you in her shirt pocket.
+
+It's warm in here. It smells like sulfur and something sweet underneath it and you're tucked against her chest while she walks around doing things that are incomprehensibly large from this angle. Every step jostles you slightly. Your tiny claws grip the pocket fabric automatically.
+
+<span style="color: #e91e63; font-weight: bold;">"Stop squirming,"</span> she says without looking down.
+
+You stop squirming. Your whiskers twitch instead. You peek over the edge of the pocket at a shelf passing by and she flicks you lightly on the nose with one finger.
+
+<span style="color: #e91e63; font-weight: bold;">"I said stop."</span>`
+                            };
+                            return t[gs.creatureType] || t.cat;
+                        },
+                        choices: [
+                            { text: 'Continue', next: 10 }
+                        ]
+                    },
+                    {
+                        stage: 10,
+                        title: 'Finding Your Place',
+                        text: (gs) => {
+                            const t = {
+                                cat: `Your days have found a rhythm.
+
+Morning: you sleep on her feet. She tries to push you off. You move six inches and come back. This repeats four times. She gives up.
+
+Afternoon: you knock things off surfaces. She yells at you. You do it again. The knocking is deeply satisfying in a way that defies explanation.
+
+Night: she's doing something with candles and old books and you climb directly into her lap. She doesn't move you.
+
+<span style="color: #e91e63; font-weight: bold;">"You're the most annoying thing I've ever transformed,"</span> she tells you, stroking your back with one hand while reading with the other.
+
+You purr. You can't help it.
+
+<span style="color: #e91e63; font-weight: bold;">"I'm keeping you anyway."</span>`,
+                                rabbit: `She hunts you.
+
+Not cruelly — she doesn't hurt you — but she chases you around the room every time you bolt, and your rabbit brain cannot tell the difference between game and predator so you bolt every single time.
+
+<span style="color: #e91e63; font-weight: bold;">"THERE you go!"</span> She dives over the bed and catches you in both hands, rolling onto her back and holding you over her face, both of you breathing hard. <span style="color: #e91e63; font-weight: bold;">"Got you."</span>
+
+You kick your back legs against her grip.
+
+<span style="color: #e91e63; font-weight: bold;">"You can try to run again if you want."</span> She sets you down on her chest, one hand over your back. <span style="color: #e91e63; font-weight: bold;">"I'll catch you again."</span>
+
+You already know she will. You run anyway.`,
+                                dog: `She takes you everywhere.
+
+You have no sense of personal space as a dog. You follow her to every corner of the room, nose to her heels, and when she stops you sit directly on her feet.
+
+<span style="color: #e91e63; font-weight: bold;">"Off,"</span> she says.
+
+You look up at her.
+
+<span style="color: #e91e63; font-weight: bold;">"Off."</span>
+
+You stay on her feet. She looks down at you for a long moment. Then she sits on the floor with you — which was clearly not what she planned — and you immediately climb into her lap.
+
+<span style="color: #e91e63; font-weight: bold;">"This is embarrassing,"</span> she says. But she's scratching your ears.`,
+                                rat: `She lets you run across her hands.
+
+Back and forth, back and forth, your quick small feet going on pure instinct, and she watches with something that might actually be affection.
+
+<span style="color: #e91e63; font-weight: bold;">"You're getting braver,"</span> she says.
+
+You stop in the middle of her palm and look up at her. She is incomprehensibly large from here. She could close her hand around you. She hasn't.
+
+<span style="color: #e91e63; font-weight: bold;">"Good rat."</span> She lifts you close to her face and you press your nose to her cheek — you're not sure why. She goes very still. Then she laughs softly. <span style="color: #e91e63; font-weight: bold;">"Yeah. Alright. You're staying."</span>`
+                            };
+                            return t[gs.creatureType] || t.cat;
+                        },
+                        choices: [
+                            { text: 'Continue', next: 11 }
+                        ]
+                    },
+                    {
+                        stage: 11,
+                        title: 'Settling In',
+                        text: (gs) => {
+                            const t = {
+                                cat: `She teaches you things without meaning to.
+
+Which shelf has the good candles. Which door she goes through without you. How long she sleeps when she doesn't have anything to do. You know her schedule now, her habits, the specific spot on the bed she always starts on and the spot she actually ends up.
+
+You wait at the door for her every time she leaves.
+
+<span style="color: #e91e63; font-weight: bold;">"Clingy,"</span> she says when she gets back, scooping you up and carrying you inside pressed against her chest. <span style="color: #e91e63; font-weight: bold;">"Absolutely no shame."</span>
+
+You don't have any. You push your face into her neck. She doesn't put you down.
+
+The human part of you that used to object to things like this has gone very quiet.`,
+                                rabbit: `She stops having to chase you to pick you up.
+
+It happens gradually — your rabbit brain stops treating every reach as a threat and starts treating her hands as the thing that is warm and safe. You still flinch sometimes. Old instinct. She waits it out.
+
+<span style="color: #e91e63; font-weight: bold;">"You're starting to trust me,"</span> she says one afternoon, scratching behind your ear while you sit in her lap without bolting. <span style="color: #e91e63; font-weight: bold;">"That's disgusting. I love it."</span>
+
+You press into her hand.
+
+<span style="color: #e91e63; font-weight: bold;">"You're not going anywhere anyway,"</span> she says, like it's obvious. <span style="color: #e91e63; font-weight: bold;">"Might as well be comfortable."</span>`,
+                                dog: `She's teaching you tricks.
+
+Sit. Stay. Come. You learn them too fast — faster than a real dog — because the human part of you is still far enough in there to understand words, just too far down to refuse them.
+
+<span style="color: #e91e63; font-weight: bold;">"Shake,"</span> she says.
+
+You give her your paw before you consciously decide to.
+
+<span style="color: #e91e63; font-weight: bold;">"Good."</span> She gives you something warm to eat. It's so good you want to roll over. <span style="color: #e91e63; font-weight: bold;">"Now stay."</span>
+
+You stay. You hate that you're good at this. You love that she looks satisfied.
+
+<span style="color: #e91e63; font-weight: bold;">"You're genuinely the best dog I've ever made,"</span> she tells you. You wag at this. You cannot help it.`,
+                                rat: `She names you.
+
+She gives it real thought, frowning at you where you sit on her palm, whiskers twitching. She runs through options out loud. Rejects several. Considers two. Decides.
+
+She tells you.
+
+You tuck your nose under your own tiny paw and refuse to look at her because the name is perfect and you absolutely hate that it is.
+
+<span style="color: #e91e63; font-weight: bold;">"Don't pout,"</span> she says, carrying you to your corner. <span style="color: #e91e63; font-weight: bold;">"You're a rat. Dignity is a human concept and you're not one anymore."</span>
+
+You curl up in your corner. You think about objecting. You don't.`
+                            };
+                            return t[gs.creatureType] || t.cat;
+                        },
+                        choices: [
+                            { text: 'Continue', next: 12 }
+                        ]
+                    },
+                    {
+                        stage: 12,
+                        title: 'Slipping',
+                        text: (gs) => {
+                            const t = {
+                                cat: `The last of your resistance fades in stages.
+
+You're on her lap when it happens — her hand on your back, steady rhythm — and somewhere in the warmth and the weight of it you stop trying to remember who you were before. There's just her. There's just this. The purr and the heat and the present moment, and the past becomes something from very far away.
+
+<span style="color: #e91e63; font-weight: bold;">"There it is,"</span> Azalea says softly, like she felt it happen. Her hand keeps moving. <span style="color: #e91e63; font-weight: bold;">"That's the last of it. Doesn't hurt, does it?"</span>
+
+It doesn't.
+
+<span style="color: #e91e63; font-weight: bold;">"Thought so. They never do at the end."</span>`,
+                                rabbit: `You stop running.
+
+Not out of surrender — your body still bolts sometimes, your heart still hammers when she reaches too fast. But the human part that kept screaming to escape goes quiet one day and doesn't come back very loud after that.
+
+You're sitting in the middle of the floor when she walks in. You look up. You don't bolt.
+
+She stops. Stares at you. <span style="color: #e91e63; font-weight: bold;">"Huh."</span>
+
+She crouches down and holds out her hand. You hop forward and press your nose to her palm.
+
+<span style="color: #e91e63; font-weight: bold;">"Look at that."</span> She cups you in both hands, gentle. <span style="color: #e91e63; font-weight: bold;">"Decided to trust me? Finally."</span>
+
+The rabbit part of you doesn't know the word trust. It knows warmth. It knows familiar. It goes still.`,
+                                dog: `You sleep on her bed now.
+
+She put a cushion at the foot of the mattress for you. You slept on it two days. Then you moved to the edge of the actual bed. Then to next to her. Now you're pressed against her side every night and she stopped arguing about it weeks ago.
+
+She shifts in her sleep and her hand lands on your back. You exhale.
+
+<span style="color: #e91e63; font-weight: bold;">"You're not going anywhere,"</span> she says one night, half-asleep, arm moving over you. <span style="color: #e91e63; font-weight: bold;">"You know that, right?"</span>
+
+You already know. Your tail goes once against the sheets.
+
+This is fine. This is actually completely fine.`,
+                                rat: `She carries you in her coat pocket everywhere she goes.
+
+You claimed the spot on your own — scrambled in the first time she put it on and refused to come out. She's stopped trying to make you leave. Now she just checks that you're in before she goes anywhere.
+
+<span style="color: #e91e63; font-weight: bold;">"You're going to fall out,"</span> she says.
+
+You grip the pocket lining tighter.
+
+<span style="color: #e91e63; font-weight: bold;">"Fine."</span> She sighs and starts walking. You feel the motion through the pocket walls. <span style="color: #e91e63; font-weight: bold;">"Don't fall out."</span>
+
+You don't fall out. You never fall out. The pocket is yours and you are going wherever she goes and that is just how it is now.`
+                            };
+                            return t[gs.creatureType] || t.cat;
+                        },
+                        choices: [
+                            { text: 'Continue', next: 13 }
+                        ]
+                    },
+                    {
+                        stage: 13,
+                        title: 'Hers',
+                        text: (gs) => {
+                            const t = {
+                                cat: `She's been calling you by a name she gave you for weeks. You come when she calls. You always come.
+
+Today she picks you up and doesn't put you down for the rest of the evening — just carries you around, draped over her shoulder, your chin on her collar. She talks to you while she does things. Not at you. To you.
+
+<span style="color: #e91e63; font-weight: bold;">"You're the best thing I've turned anyone into,"</span> she tells you, dropping down onto the bed at the end of the night and settling you onto her chest. <span style="color: #e91e63; font-weight: bold;">"Don't tell the others."</span>
+
+Your eyes are already closing.
+
+<span style="color: #e91e63; font-weight: bold;">"Permanently mine,"</span> she says, quieter. <span style="color: #e91e63; font-weight: bold;">"You know that, right?"</span>
+
+You purr, slow and deep, all the way down.
+
+She smiles. She doesn't put you down.`,
+                                rabbit: `She stopped chasing you.
+
+Not because you stopped running — you still do, sometimes, just for the feeling of it — but because you always come back now and she figured out it was more efficient to just wait.
+
+You appear from under the bed and hop over to her on your own. She scoops you up without looking away from what she's doing.
+
+<span style="color: #e91e63; font-weight: bold;">"Took you long enough,"</span> she says.
+
+You settle against her side. Her thumb moves along your ear, slow and steady.
+
+<span style="color: #e91e63; font-weight: bold;">"You're not going anywhere,"</span> she tells you. Not a threat. Just a fact. <span style="color: #e91e63; font-weight: bold;">"You're mine. That's it."</span>
+
+Your heartbeat slows. Your eyes close.
+
+It's fine. It's been fine for a while.`,
+                                dog: `She takes you out of the room for the first time.
+
+Through the farmhouse, past other rooms, other smells that hit you like a wall. Your nose goes completely wild. You're heeling perfectly despite desperately wanting to dart ahead — the training held, it always holds now.
+
+<span style="color: #e91e63; font-weight: bold;">"Stay close,"</span> she says.
+
+You stay close.
+
+She brings you back to the room eventually and you circle three times before dropping at her feet, chin on her boot.
+
+<span style="color: #e91e63; font-weight: bold;">"Good dog,"</span> she says.
+
+The warmth of those two words runs all the way down your spine and out the tail.
+
+<span style="color: #e91e63; font-weight: bold;">"You're mine permanently,"</span> she says, offhand, like it's just a thing she's noting. <span style="color: #e91e63; font-weight: bold;">"In case you weren't totally clear on that."</span>
+
+You put your chin back on her boot. You're clear.`,
+                                rat: `She built you a nest.
+
+An old book cover and some ribbon, stuffed into your corner while you were on your run-around. You came back and found it and went in and turned circles six times and then sat in the middle of it and did not feel stupid about it at all.
+
+<span style="color: #e91e63; font-weight: bold;">"You're welcome,"</span> she says from the bed, not looking up.
+
+You peek over the edge at her.
+
+<span style="color: #e91e63; font-weight: bold;">"You're staying here forever,"</span> she says. <span style="color: #e91e63; font-weight: bold;">"Obviously. You fit perfectly in that corner. It would be wasteful to get rid of you."</span>
+
+Your whiskers twitch.
+
+<span style="color: #e91e63; font-weight: bold;">"Don't thank me,"</span> she says.
+
+You weren't going to. You go back to turning circles in your nest.
+
+It's good here. It's been good for a while.`
+                            };
+                            return t[gs.creatureType] || t.cat;
+                        },
                         choices: [
                             { text: 'End Interaction & Return to Map', next: 'end' }
                         ]
@@ -3134,7 +3431,6 @@ Forever.`,
                     {
                         stage: 1,
                         title: 'The Tiny Tamer',
-                        image: 'https://via.placeholder.com/600x300/FFE4B5/e67e22?text=Small+Scale+Workshop',
                         text: `The workshop is built to Amy's scale—everything tiny, intricate, perfect. She's about three feet tall with bright eyes and an energetic demeanor. But the power radiating from her makes the air shimmer.\n\nShe looks up at you, hands on her hips.\n\n<span style="color: #e67e22; font-weight: bold;">"Welcome, big person!"</span> she chirps, her voice high but confident. <span style="color: #e67e22; font-weight: bold;">"Amy transforms people into animals. Horses. Cows. Birds. Snails. All kinds!"</span>\n\nShe walks around you in a circle, examining you from every angle.\n\n<span style="color: #e67e22; font-weight: bold;">"You'll make a good animal. Amy can see it. Which form calls to you? Or should Amy decide?"</span>`,
                         choices: [
                             { text: 'Ask about the different forms', next: 2, branch: 'curious' },
@@ -3145,7 +3441,6 @@ Forever.`,
                     {
                         stage: 2,
                         title: 'Choosing Your Animal',
-                        image: 'https://via.placeholder.com/600x300/D2691E/FFFFFF?text=Transformation+Potions',
                         text: `Amy pulls out four carefully labeled bottles from her workshop shelves. Despite her small size, she handles them with practiced expertise.\n\n<span style="color: #e67e22; font-weight: bold;">"Horse—strong and majestic, but obedient to Amy's commands. Cow—gentle and docile, made for care and milking. Bird—free to fly, but always returning to Amy's cages. Snail—slow and vulnerable, completely dependent."</span>\n\nShe holds them up, each glowing with different colored magic.\n\n<span style="color: #e67e22; font-weight: bold;">"Pick one. Amy makes the best transformations! You'll be perfect animal. Promise!"</span>\n\nHer enthusiasm is almost infectious, despite the horrifying implications.`,
                         choices: [
                             { text: 'Choose horse', next: 3, animalForm: 'horse' },
@@ -3157,7 +3452,6 @@ Forever.`,
                     {
                         stage: 3,
                         title: 'Potion Administration',
-                        image: 'https://via.placeholder.com/600x300/CD853F/FFFFFF?text=Magical+Liquid',
                         text: `Amy's magic forces your mouth open and the potion pours down your throat. It tastes earthy and wild—like storms and forests and ancient instincts.\n\nThe transformation begins immediately. Your bones crack and reform. Your muscles expand or contract. Your skin changes texture—fur, feathers, shell depending on your choice.\n\n<span style="color: #e67e22; font-weight: bold;">"There! There! Working perfectly!"</span> Amy claps her tiny hands excitedly. <span style="color: #e67e22; font-weight: bold;">"Amy's formula never fails! You becoming beautiful animal!"</span>\n\nThe pain is overwhelming, but it's mixed with strange pleasure—your body eagerly accepting its new form.`,
                         choices: [
                             { text: 'Feel the change accelerate', next: 4 }
@@ -3166,7 +3460,6 @@ Forever.`,
                     {
                         stage: 4,
                         title: 'Animal Emergence',
-                        image: 'https://via.placeholder.com/600x300/B8860B/FFFFFF?text=Beast+Form',
                         text: `Your transformation is progressing rapidly. Your human form is being overwritten by animal nature. Your thoughts are becoming simpler, more focused on immediate sensory input and basic needs.\n\nIf you're becoming a horse, you feel powerful muscles and strong legs. If you're a cow, you feel docility and contentment. If you're a bird, lightness and the urge to fly. If you're a snail, slowness and vulnerability.\n\n<span style="color: #e67e22; font-weight: bold;">"Perfect! Perfect!"</span> Amy dances around you with joy. <span style="color: #e67e22; font-weight: bold;">"Your human consciousness still there, but animal instinct taking over! Soon you be Amy's perfect animal!"</span>`,
                         choices: [
                             { text: 'Surrender to animal nature', next: 5 }
@@ -3175,7 +3468,6 @@ Forever.`,
                     {
                         stage: 5,
                         title: 'Fully Transformed',
-                        image: 'https://via.placeholder.com/600x300/DAA520/FFFFFF?text=Complete+Animal',
                         text: `The transformation completes. You are fully animal now—horse, cow, bird, or snail. Your body is perfect for your new form. Your mind is mostly animal, with only a tiny spark of human consciousness remaining.\n\nAmy approaches, reaching up to pet you (or reaching down if you're a snail).\n\n<span style="color: #e67e22; font-weight: bold;">"Beautiful! Amy's best work!"</span> she declares proudly. <span style="color: #e67e22; font-weight: bold;">"Now you Amy's animal. You live here with Amy. Amy take good care of you!"</span>\n\nShe leads you to your new home—a stall, pen, cage, or terrarium depending on your form.`,
                         choices: [
                             { text: 'Accept your new life', next: 6 }
@@ -3184,7 +3476,6 @@ Forever.`,
                     {
                         stage: 6,
                         title: 'Amy\'s Beast',
-                        image: 'https://via.placeholder.com/600x300/F4A460/FFFFFF?text=Animal+Care',
                         text: `Days settle into routine. Amy cares for you meticulously—feeding, grooming, exercising (if applicable). She talks to you constantly, her cheerful voice a constant presence.\n\n<span style="color: #e67e22; font-weight: bold;">"Good animal! Such good behavior!"</span> she praises when you respond to her commands.\n\nYour human consciousness is fading more each day. Your existence revolves around simple animal needs and Amy's control. You eat when she feeds you. You sleep when she dims the lights. You exist entirely according to her schedule.\n\n<span style="color: #e67e22; font-weight: bold;">"You happy here, yes?"</span> Amy asks, not really expecting an answer. <span style="color: #e67e22; font-weight: bold;">"Amy knows animals are happy with Amy!"</span>`,
                         choices: [
                             { text: 'Continue', next: 7 }
@@ -3193,7 +3484,6 @@ Forever.`,
                     {
                         stage: 7,
                         title: 'Perfect Animal',
-                        image: 'https://via.placeholder.com/600x300/D2B48C/FFFFFF?text=Content+Beast',
                         text: `You are Amy's perfect creature now. Your human consciousness is barely a whisper. Everything you do is pure animal response and instinct.\n\nWhen Amy commands, you obey automatically. When she cares for you, you feel contentment. When she shows you affection, you respond with your animal equivalent—nuzzling, cooing, moving closer.\n\n<span style="color: #e67e22; font-weight: bold;">"See? Told you!"</span> Amy says to someone visiting her workshop. <span style="color: #e67e22; font-weight: bold;">"Amy transforms people into perfect animals. This one used to be human! Now look! Perfect horse/cow/bird/snail!"</span>\n\nYou don't understand the words. They're just pleasant sounds from the person who feeds you.`,
                         choices: [
                             { text: 'Continue', next: 8 }
@@ -3202,7 +3492,6 @@ Forever.`,
                     {
                         stage: 8,
                         title: 'Amy\'s Pride',
-                        image: 'https://via.placeholder.com/600x300/BC8F8F/FFFFFF?text=Showcase+Animal',
                         text: `Amy shows you off proudly. You're one of her finest transformations. Healthy, well-adjusted, completely animal in behavior.\n\nOther animals in the workshop were humans too, you vaguely sense. But that doesn't matter. You're all animals now. Amy's animals.\n\n<span style="color: #e67e22; font-weight: bold;">"Amy loves all her animals so much!"</span> she declares, giving each of you attention and affection. <span style="color: #e67e22; font-weight: bold;">"You all safe here. Cared for. Happy!"</span>\n\nAnd somehow, in your simple animal mind, you know she's right. You are happy. This is your life now. This is all you need.`,
                         choices: [
                             { text: 'Continue', next: 9 }
@@ -3211,7 +3500,6 @@ Forever.`,
                     {
                         stage: 9,
                         title: 'Forever Hers',
-                        image: 'https://via.placeholder.com/600x300/A0826D/FFFFFF?text=Eternal+Animal',
                         text: `Forever is being Amy's animal. Forever is existing in your stall, cage, pen, or terrarium. Forever is simple animal existence under her care.\n\n<span style="color: #e67e22; font-weight: bold;">"You Amy's forever!"</span> she says cheerfully, stroking your muzzle, wing, shell, or fur. <span style="color: #e67e22; font-weight: bold;">"Amy never let you go. You too perfect!"</span>\n\nYou make your animal sound in response—neigh, moo, chirp, or silent contentment.\n\nYou are exactly what you were meant to become.\n\nAmy's animal. Amy's creation. Amy's forever.`,
                         choices: [
                             { text: 'End Interaction & Return to Map', next: 'end' }
@@ -3231,7 +3519,6 @@ Forever.`,
                     {
                         stage: 1,
                         title: 'The Laboratory',
-                        image: 'https://via.placeholder.com/600x300/2C3E50/FFFFFF?text=Dark+Basement+Lab',
                         text: `The basement reeks of chemicals and... animal musk. Cages line every wall, filled with creatures of all kinds—squeaking, chittering, moving in confused patterns.\n\nMorrigan stands at a massive cauldron, stirring slowly. She's dressed in dark robes covered in chemical stains. Her eyes are cold, analytical, utterly devoid of empathy.\n\n<span style="color: #34495e; font-weight: bold;">"Another test subject,"</span> she states flatly, not looking up from her work. <span style="color: #34495e; font-weight: bold;">"You've wandered into the worst possible place."</span>\n\nShe finally turns to face you, her expression clinical.\n\n<span style="color: #34495e; font-weight: bold;">"I transform people into small animals for my research. Pigs. Mice. Cats. Guinea pigs. You'll become one of them. The only question is which."</span>`,
                         choices: [
                             { text: 'Try to run away', next: 2, branch: 'flight' },
@@ -3242,7 +3529,6 @@ Forever.`,
                     {
                         stage: 2,
                         title: 'Selection Process',
-                        image: 'https://via.placeholder.com/600x300/34495e/FFFFFF?text=Four+Cauldrons',
                         text: `Before you can escape, Morrigan's magic locks your legs in place. Dark tendrils of energy wrap around your ankles, rooting you to the spot.\n\n<span style="color: #34495e; font-weight: bold;">"Struggling is pointless,"</span> she says, returning to her cauldrons. <span style="color: #34495e; font-weight: bold;">"You have four options."</span>\n\nShe gestures to four bubbling pots.\n\n<span style="color: #34495e; font-weight: bold;">"Pig—controllable, designed for degradation studies. Mouse—timid, perfect for behavioral analysis. Cat—independent yet ultimately bound, for dominance research. Guinea pig—docile, ideal for chemical experiments."</span>\n\nHer voice is matter-of-fact, clinical.\n\n<span style="color: #34495e; font-weight: bold;">"Choose, or I'll choose for you. Makes no difference to my research."</span>`,
                         choices: [
                             { text: 'Choose pig', next: 3, specimen: 'pig' },
@@ -3254,7 +3540,6 @@ Forever.`,
                     {
                         stage: 3,
                         title: 'Forced Transformation',
-                        image: 'https://via.placeholder.com/600x300/283747/FFFFFF?text=Alchemical+Change',
                         text: `Morrigan forces the potion down your throat. It burns—acrid, chemical, vile. Your body convulses as the transformation begins.\n\nUnlike the others, this isn't gentle or pleasurable. This is violent alchemy. Your bones crack and reshape brutally. Your skin tears and reforms. Your organs shift and restructure.\n\n<span style="color: #34495e; font-weight: bold;">"Excellent response time,"</span> Morrigan observes, making notes on a clipboard. <span style="color: #34495e; font-weight: bold;">"Transformation progressing at optimal rate. Subject showing expected distress levels."</span>\n\nYour consciousness fractures as animal instincts flood in. Fear. Confusion. The desperate need to escape.`,
                         choices: [
                             { text: 'Endure the transformation', next: 4 }
@@ -3263,7 +3548,6 @@ Forever.`,
                     {
                         stage: 4,
                         title: 'Specimen Containment',
-                        image: 'https://via.placeholder.com/600x300/1C2833/FFFFFF?text=Laboratory+Cage',
                         text: `The transformation completes. You're now your chosen animal form—small, vulnerable, trapped in a completely animal body.\n\nMorrigan efficiently captures you and places you in a cage. The bars are cold against your new fur or skin.\n\n<span style="color: #34495e; font-weight: bold;">"Subject successfully transformed,"</span> she records in her notes. <span style="color: #34495e; font-weight: bold;">"Cognitive functions reduced to approximately 15% of original capacity. Excellent baseline for experimentation."</span>\n\nShe attaches a tag to your cage with a number. You're not a person anymore. You're Specimen #[number].`,
                         choices: [
                             { text: 'Try to understand what\'s happening', next: 5 }
@@ -3272,7 +3556,6 @@ Forever.`,
                     {
                         stage: 5,
                         title: 'First Experiments',
-                        image: 'https://via.placeholder.com/600x300/212F3C/FFFFFF?text=Research+Begins',
                         text: `Morrigan begins her experiments immediately. Chemical injections. Behavioral tests. Observation of your responses to various stimuli.\n\nYour tiny animal body is poked, prodded, tested. Your consciousness—what remains of it—experiences everything with heightened animal senses and decreased ability to process.\n\n<span style="color: #34495e; font-weight: bold;">"Subject responding within normal parameters,"</span> Morrigan notes coldly. <span style="color: #34495e; font-weight: bold;">"Residual human consciousness detected but diminishing. Proceed to phase two."</span>\n\nYou try to hold onto yourself, but with each day, each test, you feel more animal and less human.`,
                         choices: [
                             { text: 'Survive the experiments', next: 6 }
@@ -3281,7 +3564,6 @@ Forever.`,
                     {
                         stage: 6,
                         title: 'Complete Creature',
-                        image: 'https://via.placeholder.com/600x300/17202A/FFFFFF?text=Animal+Mind',
                         text: `Weeks of experimentation have erased most of your human consciousness. You respond purely on animal instinct now—fear when Morrigan approaches, relief when food arrives, confusion at the tests.\n\n<span style="color: #34495e; font-weight: bold;">"Human consciousness successfully suppressed,"</span> Morrigan records. <span style="color: #34495e; font-weight: bold;">"Subject now operating on purely animal behavioral patterns. Perfect for long-term research."</span>\n\nYou don't understand her words. You just know she's the one who causes pain and occasionally provides food. Your world has shrunk to the cage, the tests, and survival.`,
                         choices: [
                             { text: 'Continue', next: 7 }
@@ -3290,7 +3572,6 @@ Forever.`,
                     {
                         stage: 7,
                         title: 'Laboratory Existence',
-                        image: 'https://via.placeholder.com/600x300/212F3D/FFFFFF?text=Research+Subject',
                         text: `You are Morrigan's permanent research specimen now. Your days blend together—tests, feeding, cleaning, more tests.\n\nOther animals in the laboratory are in the same situation. Some were human too, though you can't really comprehend that anymore. You're all just subjects now. Specimens. Tools for research.\n\n<span style="color: #34495e; font-weight: bold;">"Specimen performing adequately,"</span> Morrigan observes during one examination. <span style="color: #34495e; font-weight: bold;">"Useful for ongoing studies. Will maintain indefinitely."</span>\n\nIndefinitely. Forever. This is your existence now.`,
                         choices: [
                             { text: 'Continue', next: 8 }
@@ -3299,7 +3580,6 @@ Forever.`,
                     {
                         stage: 8,
                         title: 'Permanent Specimen',
-                        image: 'https://via.placeholder.com/600x300/1B2631/FFFFFF?text=Long+Term+Study',
                         text: `Time has lost meaning. You've been in Morrigan's laboratory for what might be months or years. You don't remember being human anymore. You don't remember anything except cage, tests, food, sleep.\n\nNew subjects arrive sometimes. You watch them transform with your animal eyes, not understanding, not caring beyond the vague animal curiosity.\n\n<span style="color: #34495e; font-weight: bold;">"Long-term specimen stability confirmed,"</span> Morrigan notes in her records. <span style="color: #34495e; font-weight: bold;">"Subject #[number] continues to provide valuable data."</span>\n\nYou're not a person. You're data. Research. A permanent fixture in her dark laboratory.`,
                         choices: [
                             { text: 'Continue', next: 9 }
@@ -3308,7 +3588,6 @@ Forever.`,
                     {
                         stage: 9,
                         title: 'Eternal Research',
-                        image: 'https://via.placeholder.com/600x300/17202A/FFFFFF?text=Forever+Specimen',
                         text: `Forever is being Morrigan's research subject. Forever is your cage. Forever is tests and observation and endless experimentation.\n\n<span style="color: #34495e; font-weight: bold;">"Specimen remains viable for continued research,"</span> Morrigan states, examining you with the same cold, clinical detachment she's always shown. <span style="color: #34495e; font-weight: bold;">"An excellent example of successful permanent transformation."</span>\n\nYou squeak, oink, meow, or chirp—whatever sound your animal form makes. You don't know what her words mean. You're just an animal in a cage.\n\nYou are exactly what you were meant to become.\n\nA specimen. Research. Morrigan's forever.`,
                         choices: [
                             { text: 'End Interaction & Return to Map', next: 'end' }
@@ -3424,8 +3703,11 @@ Forever.`,
                 snail: 'helpless pet',
                 pig: 'lab pig',
                 mouse: 'lab mouse',
-                cat: 'lab cat',
-                guineapig: 'lab guinea pig'
+                cat: 'kept cat',
+                guineapig: 'lab guinea pig',
+                rabbit: 'prey rabbit',
+                dog: 'loyal dog',
+                rat: 'little rat'
             };
             return labels[fateKey] || 'obedient thing';
         }
@@ -3451,6 +3733,13 @@ Forever.`,
             gameState.currentStage = 1;
             gameState.lastBranch = null;
             gameState.lastChoiceText = null;
+            gameState.animalType = null;
+            gameState.role = null;
+            gameState.bodyPart = null;
+            gameState.objectType = null;
+            gameState.creatureType = null;
+            gameState.animalForm = null;
+            gameState.specimen = null;
 
             // Show interaction view
             document.getElementById('mapView').style.display = 'none';
