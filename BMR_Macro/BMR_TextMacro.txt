@@ -83,4 +83,37 @@ ${var out="";Object.values(GAME_MANAGER.instance.spells||{}).forEach(function(s)
 SelfTF:
 ${GAME_MANAGER.instance.CastSpell(0,true);}${DELETETHIS="";}
 
+------------------------------------------------------------
+ SELF INANIMATE (visual — SELFTF_MASTER.js must be loaded)
+ WORKFLOW:
+   1. SelfTF_ListPlayers   — see who is at your location
+   2. SelfTF_SetOwner      — stage to set owner by username
+   3. SelfTF_Configure     — set item name / color / image
+   4. SelfTF_Enable        — activate with staged owner
+      SelfTF_Static        — activate with hardcoded Sakura
+   5. SelfTF_Off           — revert to normal
+ All macros run in YOUR browser — send to yourself via
+ MessageCast or paste into your own console directly.
+------------------------------------------------------------
+
+SelfTF_ListPlayers:
+${window.SELFTF?SELFTF.listPlayers():GUI.instance.DisplayMessage("Load SELFTF_MASTER.js first");}${DELETETHIS="";}
+
+SelfTF_SetOwner:
+${window.SELFTF&&SELFTF.setOwner("USERNAME_HERE");}${DELETETHIS="";}
+
+SelfTF_Configure:
+${window.SELFTF&&SELFTF.configure({name:"My Item Name",color:"Purple",imageUrl:"https://battlemageserotica.com/game/assets/items/leotard_vinyl.png",permanent:true,sealed:false});}${DELETETHIS="";}
+
+SelfTF_Enable:
+${window.SELFTF&&SELFTF.enableWithStagedOwner();}${DELETETHIS="";}
+
+SelfTF_Static:
+${window.SELFTF&&SELFTF.enableWithStaticOwner();}${DELETETHIS="";}
+
+SelfTF_Off:
+${window.SELFTF&&SELFTF.disable();}${DELETETHIS="";}
+
+SelfTF_Color:
+${window.SELFTF&&SELFTF.changeColor("Purple");}${DELETETHIS="";}
 
