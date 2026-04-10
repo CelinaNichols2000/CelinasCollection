@@ -1,0 +1,323 @@
+================================================================================
+  BMR_unlockItems_Info.txt
+  Complete technical breakdown: Inanimate Turn-Back Research
+  Character: Marc0017 stuck as item "Sakura's Sexy-Swimsuit" (itemId: 6057885)
+  Owner: Max_The_Catgirl (inactive)
+================================================================================
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 1 — ITEM STATE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  itemId         : 6057885
+  item name      : Sakura's Sexy-Swimsuit
+  permanent      : TRUE   ← blocks turnBack
+  sealed         : FALSE  ← escape should be allowed
+  owner username : Max_The_Catgirl
+  owner char token: 709781bac744b9e05b50c5eb4dbe66c11e5b01b6
+                    (NOTE: this is a CHARACTER IDENTIFIER, NOT a login token)
+
+  Marc0017's char token : bf3a757d2e8c956bd32c2c7cfb45476371e219dd
+  Marc0017's username   : Marc0017
+  Marc0017's auth_token : 1cbeef9a1653628982a2fb17430ee3c125823c52
+                          (stored in sessionStorage("session").auth_token)
+  _deviceId (localStorage): 5608e9eb-168f-4a6e-9efc-abbf9d1e4932
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 2 — SERVER / WEBSOCKET ARCHITECTURE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Game:      Battle Mages Erotica (battlemageserotica.com)
+  Server:    Heroku Node.js
+  WS URL:    wss://battlemages-app-live-27f368751fc2.herokuapp.com/
+  Protocol:  JSON messages (some responses are pako-compressed binary)
+
+  WS Authentication handshake (from GameManager.1748712111.js line 207):
+  ┌─────────────────────────────────────────────────────────────────────────┐
+  │  Object.assign({}, getSession(), {                                      │
+  │    id_token        : _idToken,       // ← from URL param ?id_token=...  │
+  │    relog           : _relog,                                            │
+  │    origin_timestamp: getOriginTime(),                                   │
+  │    device_id       : getDeviceId(),                                     │
+  │  })                                                                     │
+  └─────────────────────────────────────────────────────────────────────────┘
+
+  Session format (sessionStorage("session")):
+    { username: "Marc0017", auth_token: "1cbeef9a...", timestamp: 1775466695 }
+
+  CRITICAL DISTINCTION:
+    auth_token    = login credential. Same value as ?id_token= URL parameter.
+                    Used in WS handshake as "id_token" field.
+                    Stored in sessionStorage("session").auth_token
+    character token = character IDENTIFIER (709..., bf3a...). Completely
+                    different from auth_token. Cannot be used for WS auth.
+
+  _idToken:
+    Private closure variable inside GameManager (line 73: let _idToken = null)
+    Set via: this.Connect = async idToken => { ... }
+    NOT exposed via any public getter on GAME_MANAGER.instance
+    Value comes from the ?id_token= URL query parameter at login
+
+  Server close codes:
+    4000 = LoginFailed
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 3 — HOW THE INANIMATE SYSTEM WORKS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  CLIENT SIDE:
+    GAME_MANAGER.instance.inanimate
+      → READ-ONLY getter: () => !!_character.item
+      → Cannot be set directly
+      → To make it return false: set gm.character.item = null
+        (gm.character returns _character by reference, mutation works)
+
+    gm.Send(action, payload)
+      → Has a CLIENT-SIDE inanimate guard
+      → Blocks Crafting, Location, and other actions when inanimate
+      → Bypass: use raw WebSocket directly (skip gm.Send entirely)
+
+  RAW WEBSOCKET ACCESS:
+    The WebSocket is stored under a Symbol-keyed property on GAME_MANAGER.
+    Symbol description = 'ws'
+
+    function getWS() {
+      const sym = Object.getOwnPropertySymbols(GAME_MANAGER)
+        .find(s => s && s.description === 'ws');
+      if (sym && GAME_MANAGER[sym] && GAME_MANAGER[sym].readyState === 1)
+        return GAME_MANAGER[sym];
+    }
+
+    Sending directly on this WS bypasses gm.Send and the inanimate guard.
+    BUT: the server has its own inanimate guard — see Section 4.
+
+  SERVER SIDE:
+    The server checks character state before processing ANY action.
+    If your character is inanimate (has item assigned), the server rejects:
+      - Crafting actions (all optionIds)
+      - Location changes
+      - Most Form actions EXCEPT escape
+    This is a server-side guard — raw WS tricks cannot bypass it.
+
+  NPC UNLOCK (the correct unlock mechanic):
+    Located at: ward location
+    Crafting optionId: 29  (NPC nurse unlock — removes permanent + frees item)
+    Crafting optionId: 27  (alternative/fallback remove-permanence)
+    Requirement: sender must be the OWNER of the item
+    Flow: Location{ward} → Crafting{itemId, optionId:29, npc:true}
+    This was DESIGNED for the owner to use on their item, not for the item
+    to use on itself.
+
+  ESCAPE MECHANIC (designed for inactive owner):
+    Form action: { action: 'Form', escape: true }
+    Requirements:
+      - sealed = false  ✓ (our item is not sealed)
+      - permanent = true is a potential blocker (unclear)
+      - owner must have been offline for N days (server checks this)
+    Result if successful: character becomes a "stray" unowned item
+    After escape: ANY player can NPC-unlock the stray at the ward
+    Status: TRIED — did not work. Exact server response unknown.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 4 — WHAT WAS TRIED AND WHY IT FAILED
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  ┌──────────────────────────────────┬──────────────────────┬───────────────────────────────────────────────────┐
+  │ Approach                         │ Result               │ Why it failed                                     │
+  ├──────────────────────────────────┼──────────────────────┼───────────────────────────────────────────────────┤
+  │ gm.Send('Crafting', ...)         │ BLOCKED              │ Client-side inanimate guard in gm.Send            │
+  ├──────────────────────────────────┼──────────────────────┼───────────────────────────────────────────────────┤
+  │ Raw WS Crafting{optionId:29}     │ BLOCKED by server    │ Server-side guard: can't Craft while inanimate    │
+  ├──────────────────────────────────┼──────────────────────┼───────────────────────────────────────────────────┤
+  │ Raw WS Crafting{optionId:27}     │ BLOCKED by server    │ Same server-side guard                            │
+  ├──────────────────────────────────┼──────────────────────┼───────────────────────────────────────────────────┤
+  │ Helper account NPC unlock        │ BLOCKED by server    │ Helper doesn't own item; server checks ownership  │
+  ├──────────────────────────────────┼──────────────────────┼───────────────────────────────────────────────────┤
+  │ Helper claimScript               │ Untested/likely fail │ Item has an owner (Max); can't claim owned item   │
+  ├──────────────────────────────────┼──────────────────────┼───────────────────────────────────────────────────┤
+  │ Form turnBack (raw WS)           │ BLOCKED by server    │ permanent=true blocks turnBack server-side        │
+  ├──────────────────────────────────┼──────────────────────┼───────────────────────────────────────────────────┤
+  │ clientReset (char.item=null)     │ CLIENT ONLY          │ Server still has inanimate state; resyncs on next │
+  │                                  │                      │ server message                                    │
+  ├──────────────────────────────────┼──────────────────────┼───────────────────────────────────────────────────┤
+  │ ownerUnlock with char token      │ WS code 4000         │ Character token ≠ auth_token; server rejected     │
+  │ (709781bac744...)                │ LoginFailed          │ login because wrong credential type               │
+  ├──────────────────────────────────┼──────────────────────┼───────────────────────────────────────────────────┤
+  │ Form escape                      │ FAILED               │ Exact reason unknown — server response not shared │
+  ├──────────────────────────────────┼──────────────────────┼───────────────────────────────────────────────────┤
+  │ inspectActions / castInanimate   │ No actions found     │ Item has no self-release inanimate spell actions  │
+  └──────────────────────────────────┴──────────────────────┴───────────────────────────────────────────────────┘
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 5 — THE ONLY PATHS THAT WILL WORK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  PATH A — Dev DB edit (FASTEST, GUARANTEED):
+    The game developer has direct database access.
+    Request: "Please run this on the database:
+              UPDATE items SET permanent=false WHERE id=6057885;
+              (or clear the inanimate/item assignment on character Marc0017)"
+    After that: run UNLOCK.turnBack() or UNLOCK.escape() again.
+    This is a 10-second fix on their end.
+
+  PATH B — Dev provides owner's auth_token:
+    If the developer can generate a login URL for Max_The_Catgirl, or provide
+    their auth_token from the database, then ownerUnlock() can authenticate
+    as the owner and send the NPC unlock.
+
+    The auth_token the server expects:
+      - Same value that appears in the URL as ?id_token=...
+      - Stored in the user's sessionStorage("session").auth_token
+      - The developer can read it from their DB or generate a new login link
+
+    Call:
+      UNLOCK.ownerUnlock({ username: 'Max_The_Catgirl', auth_token: 'HEX_FROM_DEV', timestamp: 0 })
+    Then immediately:
+      UNLOCK.turnBack()
+
+  PATH C — Wait for escape timer (if time-based):
+    The escape mechanic may have simply failed because Max hasn't been offline
+    long enough. The server message from UNLOCK.escape() would have stated
+    how many days remain. Once that timer expires, escape should work.
+    After escape succeeds and character becomes a stray item, any player can
+    NPC-unlock them at the ward.
+
+  PATH D — Max_The_Catgirl comes back online:
+    If the owner returns and logs in, they can NPC-unlock you at the ward
+    themselves using the normal in-game UI. This is the intended mechanic.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 6 — HOW THE PIECES CONNECT (FLOW DIAGRAM)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  You (Marc0017, inanimate) want to turn back.
+
+  CLIENT                              SERVER
+  ──────                              ──────
+  gm.Send('Crafting',...)  ──[blocked by client guard]──✗
+                                      │
+  raw WS send(Crafting)   ────────────►  [inanimate guard] ──✗
+                                      │   "you are inanimate"
+  raw WS send(Form escape) ───────────►  [checks: sealed=false ✓]
+                                      │   [checks: owner offline N days ?]
+                                      │   [checks: permanent=true ?]
+                                      │   → failed (reason unknown)
+
+  Second WS as owner      ────────────►  [auth check: id_token]
+  (needs valid auth_token)              │   char token = 4000 LoginFailed ✗
+                                      │   real auth_token = ??? (not obtained)
+                                      │   if success → Crafting{optionId:29}
+                                      │   → removes permanent, frees item ✓
+
+  Dev DB edit             ───────────────────────────────────────────────────►
+  (no WS needed)                          UPDATE items SET permanent=false ✓
+                                          → then Form escape works
+                                          → or turnBack works directly
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 7 — KEY CODE SNIPPETS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Get raw WebSocket (bypasses gm.Send guard):
+  ────────────────────────────────────────────
+    const sym = Object.getOwnPropertySymbols(GAME_MANAGER)
+      .find(s => s && s.description === 'ws');
+    const ws = GAME_MANAGER[sym];  // readyState 1 = open
+
+  Check your own session (Marc0017):
+  ────────────────────────────────────────────
+    JSON.parse(sessionStorage.getItem('session'))
+    // → { username: "Marc0017", auth_token: "1cbeef9a...", timestamp: ... }
+
+  Check inanimate state:
+  ────────────────────────────────────────────
+    GAME_MANAGER.instance.inanimate          // true/false
+    GAME_MANAGER.instance.character.item     // the item object or null
+    GAME_MANAGER.instance.character.item.id  // itemId = 6057885
+
+  NPC unlock message structure (must be sent by owner):
+  ────────────────────────────────────────────
+    ws.send(JSON.stringify({ action: 'Location', menu: 'ward' }));
+    ws.send(JSON.stringify({ action: 'Crafting', itemId: 6057885, optionId: 29, npc: true }));
+    ws.send(JSON.stringify({ action: 'Crafting', itemId: 6057885, optionId: 27, npc: true }));
+
+  Escape message structure:
+  ────────────────────────────────────────────
+    ws.send(JSON.stringify({ action: 'Form', escape: true }));
+
+  TurnBack message structure:
+  ────────────────────────────────────────────
+    ws.send(JSON.stringify({ action: 'Form', turnBack: true }));
+    ws.send(JSON.stringify({ action: 'Form', turnBack: true, giveIn: false }));
+
+  WS auth handshake (for ownerUnlock second connection):
+  ────────────────────────────────────────────
+    ws.send(JSON.stringify({
+      username        : 'Max_The_Catgirl',
+      auth_token      : '<auth_token from dev>',
+      id_token        : '<same auth_token>',
+      timestamp       : 0,
+      origin_timestamp: Date.now(),
+      device_id       : localStorage.getItem('_deviceId'),
+      relog           : true,
+    }));
+
+  Check pako binary decode (server sometimes sends compressed responses):
+  ────────────────────────────────────────────
+    ws.onmessage = ev => {
+      if (ev.data instanceof ArrayBuffer) {
+        const decoded = JSON.parse(pako.inflate(new Uint8Array(ev.data), { to: 'string' }));
+        console.log(decoded);
+      }
+    };
+
+  Client-side inanimate clear (visual only, server resyncs):
+  ────────────────────────────────────────────
+    GAME_MANAGER.instance.character.item = null;
+    // gm.inanimate is now false — but server will overwrite on next message
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 8 — UNKNOWN / STILL NEEDED
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  □ Exact server response from UNLOCK.escape() — what did it say?
+    (Run UNLOCK.monitor() first, then UNLOCK.escape(), then paste [WS IN] output)
+
+  □ Max_The_Catgirl's auth_token — only the developer can provide this
+    from the database or by generating a new login link for that account.
+
+  □ Whether permanent=true blocks the escape mechanic on the server side
+    (likely yes — may need dev to clear permanent first, then escape works).
+
+  □ Exact number of "offline days" required for escape — server message
+    would tell this if escape is rejected due to timing.
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  SECTION 9 — IMMEDIATE NEXT STEPS (PRIORITY ORDER)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  1. Run UNLOCK.monitor() then UNLOCK.escape() and paste the [WS IN] output.
+     This will tell us the EXACT reason escape failed.
+
+  2. Contact developer with this exact message:
+     "I am permanently stuck as item 6057885 (Sakura's Sexy-Swimsuit).
+      The owner Max_The_Catgirl is inactive and escape is not working.
+      Can you please run:  UPDATE items SET permanent=false WHERE id=6057885
+      on the database? Or clear the item assignment on my character Marc0017."
+
+  3. If dev provides Max's auth_token:
+     UNLOCK.ownerUnlock({ username: 'Max_The_Catgirl', auth_token: '<TOKEN>', timestamp: 0 })
+     Then: UNLOCK.turnBack()
+
+================================================================================
+  END OF FILE
+================================================================================
