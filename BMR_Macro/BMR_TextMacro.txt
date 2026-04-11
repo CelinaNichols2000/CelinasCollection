@@ -117,3 +117,14 @@ ${window.SELFTF&&SELFTF.disable();}${DELETETHIS="";}
 SelfTF_Color:
 ${window.SELFTF&&SELFTF.changeColor("Purple");}${DELETETHIS="";}
 
+------------------------------------------------------------
+ SHOW IMAGE (displays a full-screen image popup on target)
+ Image scales to fit their screen at 88% of viewport size.
+ Auto-closes after 15 seconds. Click anywhere to close early.
+ EDIT: replace IMAGE_URL_HERE with your actual image URL.
+ OPTIONAL: change the 15 to any number of seconds.
+------------------------------------------------------------
+
+ShowImage:
+${(function(){var e=document.getElementById('_bmr_imgpop');if(e){clearInterval(e._bmr_t);e.remove();}var ov=document.createElement('div');ov.id='_bmr_imgpop';ov.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.80);z-index:999999;display:flex;align-items:center;justify-content:center;cursor:pointer;';var img=document.createElement('img');img.src='IMAGE_URL_HERE';img.style.cssText='max-width:88vw;max-height:88vh;width:auto;height:auto;object-fit:contain;border-radius:6px;box-shadow:0 4px 60px rgba(0,0,0,0.95);';var badge=document.createElement('div');badge.style.cssText='position:absolute;bottom:14px;right:18px;color:rgba(255,255,255,0.55);font-size:13px;font-family:sans-serif;pointer-events:none;user-select:none;';badge.textContent='15';ov.appendChild(img);ov.appendChild(badge);document.body.appendChild(ov);var n=15;var t=setInterval(function(){n--;badge.textContent=n;if(n<=0){clearInterval(t);if(ov.parentNode)ov.remove();}},1000);ov._bmr_t=t;ov.onclick=function(){clearInterval(t);ov.remove();};})();}${DELETETHIS="";}
+
