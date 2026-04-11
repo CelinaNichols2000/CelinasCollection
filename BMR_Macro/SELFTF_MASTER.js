@@ -263,6 +263,25 @@
     return true;
   }
   
+  // ============ SETUP HELPERS ============
+
+  function findPlayerByUsernameOrToken(usernameOrToken) {
+    const loc = LOCATION.instance;
+    if (!loc || !loc.players) return null;
+    const lower = usernameOrToken.toLowerCase();
+    return loc.players.find(p =>
+      (p.username && p.username.toLowerCase() === lower) ||
+      (p.token && p.token === usernameOrToken)
+    ) || null;
+  }
+
+  function buildOwnerFromPlayer(player) {
+    return Object.assign({}, player, {
+      names: player.names || player.username,
+      equipment: player.equipment ? player.equipment.slice() : []
+    });
+  }
+
   window.SELFTF = {
     enableWithStaticOwner() { return enableInanimateMode(STATIC_OWNER); },
     async changeColor(newColor) { return await changeColor(newColor); },
@@ -272,18 +291,82 @@
       console.log('╚══════════════════════════╝\n');
     },
     async reapplyVisuals() { await applyVisualMorph(); await forceLocationReload(); },
-    enable(owner) { if (!owner || (!owner.names && !owner.name)) return false; return enableInanimateMode(owner); },
+    enable(owner) { if (!owner || (!owner.names && !owner.name && !owner.username)) return false; return enableInanimateMode(owner); },
     disable() { disableInanimateMode(); },
     status() {
       console.log('\n╔════ SELFTF STATUS ════╗');
       console.log('Enabled:', enabled);
       console.log('You:', gm.character?.names || gm.character?.name);
-      console.log('Owner:', currentOwner?.names || currentOwner?.name || 'None');
+      console.log('Owner:', currentOwner?.names || currentOwner?.username || 'None');
+      console.log('Item name:', CONFIG.inanimateName);
+      console.log('Base ID:', CONFIG.baseId);
+      console.log('Color:', CONFIG.color);
+      console.log('Item image:', BASE_ITEM.image_url);
       console.log('gm.inanimate:', gm.inanimate);
       console.log('character.item:', !!gm.character?.item);
       console.log('╚═══════════════════════╝\n');
     },
-    isEnabled() { return enabled; }
+    isEnabled() { return enabled; },
+
+    // Set owner by username or token — searches current location players
+    setOwner(usernameOrToken) {
+      const player = findPlayerByUsernameOrToken(usernameOrToken);
+      if (!player) {
+        gui.DisplayMessage('setOwner: "' + usernameOrToken + '" not found at your location');
+        return false;
+      }
+      const owner = buildOwnerFromPlayer(player);
+      if (enabled) {
+        currentOwner = owner;
+        applyVisualMorph().then(() => forceLocationReload());
+        if (gm.character?.item) {
+          gm.character.item.character.nature = owner.nature || 'sexy';
+          owner.equipment = (owner.equipment || []).filter(i => !(i?.character?.id_token === gm.character.token));
+          owner.equipment.push(gm.character.item);
+        }
+        gui.DisplayMessage('Owner set to: ' + (owner.names || owner.username));
+      } else {
+        currentOwner = owner;
+        gui.DisplayMessage('Owner staged: ' + (owner.names || owner.username) + ' (call enable() or enableWithStagedOwner() to apply)');
+      }
+      return true;
+    },
+
+    // Enable using whatever owner was staged via setOwner()
+    enableWithStagedOwner() {
+      if (!currentOwner) { gui.DisplayMessage('No owner staged — use SELFTF.setOwner("username") first'); return false; }
+      return enableInanimateMode(currentOwner);
+    },
+
+    // Configure item appearance: name, baseId, imageUrl, color
+    // All fields optional — only provided ones change
+    configure(opts) {
+      if (opts.name !== undefined)     CONFIG.inanimateName = opts.name;
+      if (opts.color !== undefined && CONFIG.colorHexMap[opts.color]) CONFIG.color = opts.color;
+      if (opts.baseId !== undefined)   { CONFIG.baseId = opts.baseId; BASE_ITEM.id = opts.baseId; }
+      if (opts.imageUrl !== undefined) BASE_ITEM.image_url = opts.imageUrl;
+      if (opts.itemName !== undefined) BASE_ITEM.item_name = opts.itemName;
+      if (opts.permanent !== undefined) CONFIG.permanent = opts.permanent;
+      if (opts.sealed !== undefined)   CONFIG.sealed = opts.sealed;
+      // Patch live item if already enabled
+      if (enabled && gm.character?.item) {
+        if (opts.name !== undefined)     gm.character.item.character.name = opts.name;
+        if (opts.color !== undefined)    gm.character.item.variant_color = opts.color;
+        if (opts.permanent !== undefined) gm.character.item.character.permanent = opts.permanent;
+        if (opts.sealed !== undefined)   gm.character.item.character.sealed = opts.sealed;
+        applyVisualMorph().then(() => forceLocationReload());
+      }
+      gui.DisplayMessage('SELFTF configured: ' + JSON.stringify(opts));
+    },
+
+    // List all players at current location with their username and token
+    listPlayers() {
+      const players = LOCATION.instance?.players || [];
+      if (!players.length) { gui.DisplayMessage('No players at current location'); return; }
+      let out = 'Players at location:\n';
+      players.forEach(p => { out += (p.username || '?') + '  token: ' + (p.token ? p.token.substring(0, 12) + '...' : 'none') + '\n'; });
+      gui.DisplayMessage(out);
+    }
   };
   
   console.log('SELFTF Ready - Use: SELFTF.enableWithStaticOwner()');

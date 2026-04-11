@@ -1,0 +1,481 @@
+Panties:
+${$tId=0;$tl={};spawnTime=800;deleteAfter=10000;
+
+spiral=document.createElement("div");
+spiral.style="position:fixed;z-index:1;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/rwCxKMm/giphy.gif') center/cover no-repeat;opacity:0.3;pointer-events:none;";
+document.body.appendChild(spiral);
+
+flash=document.createElement("div");
+flash.style="position:fixed;z-index:5;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/RpLXNrH/pink-glitter-texture-abstract-background-photo.jpg') center/cover no-repeat;opacity:0;pointer-events:none;transition:opacity 0.1s ease-in-out;";
+document.body.appendChild(flash);
+triggerFlash=function(){
+    flash.style.opacity=0.8;
+    setTimeout(function(){flash.style.opacity=0},100);
+    setTimeout(function(){
+        flash.style.opacity=0.8;
+        setTimeout(function(){flash.style.opacity=0},100);
+    },200);
+};
+setInterval(triggerFlash,10000);
+
+cr=function(){
+    gameRect=document.getElementById("scaler").getBoundingClientRect();
+    ab=document.createElement("div");
+    tList=[
+        "Obey~",
+        "Permanent Panties",
+        "Forever~",
+        "Mistress' Panties~",
+        "(‿ˠ‿)",
+        "You can't resist~",
+        "💖 Just a Panty 💖",
+        "<img src='https://i.ibb.co/25RHZcX/licking-pussy.gif' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/GspHQwm/pantiesgif.gif' style='width:25%;height:25%;'></img>",
+        "<img src='https://i.ibb.co/WxSgZwf/ass-gif.gif' style='width:25%;height:25%;'></img>",
+        "<img src='https://i.ibb.co/RD5xGXT/panties-rub-gif.gif' style='width:25%;height:25%;'></img>",
+"<img src='https://i.ibb.co/t7Qw4bv/Difficult-Icky-Honeybadger-mobile-Trim-ezgif-com-video-to-gif-converter.gif' style='width:25%;height:25%;'></img>",
+"<img src='https://i.ibb.co/S4xhKPdP/52246115.gif' style='width:25%;height:25%;'></img>",
+        "<img src='https://i.ibb.co/GHksPzr/pussyreal1.jpg' style='width:50%;height:50%;'></img>",
+"<img src='https://i.ibb.co/KcqZnPZR/image0-1.gif' style='width:50%;height:50%;'></img>",
+"<img src='https://i.ibb.co/DP67HZzv/tap.jpg' style='width:50%;height:50%;'></img>",
+"<img src='https://i.ibb.co/vS9Q1bW/mademoiselle-bending-ass-over-in-sheer-lingerie-on-her-perfect-body-scaled.webp' style='width:50%;height:50%;'></img>",
+"<img src='https://i.ibb.co/NgLHHMS2/sample-93e66ee1b62b790cb5bce5b5a1fced77.jpg' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/smrT8pj/pink-panties.jpg' style='width:50%;height:50%;'></img>"
+    ];
+    ab.id="sillyText"+$tId;$tl[ab.id]=Date.now();$tId+=1;
+    ab.innerHTML=tList[Math.floor(Math.random()*tList.length)];
+    ab.style="position:fixed;z-index:10;user-select:none;opacity:0.8;pointer-events:none;left:"+(Math.floor(Math.random()*gameRect.width*0.90)+gameRect.x)+"px;top:"+(Math.floor(Math.random()*gameRect.height*0.90)+gameRect.y)+"px;color:rgba(255,"+(Math.floor(Math.random()*155+100))+",255,0.8);-webkit-text-stroke:1px purple;font-size:"+(Math.floor(Math.random()*5)+1)+"em;text-shadow:0 0 10px purple,0 0 20px pink;transform:rotate("+(Math.floor(Math.random()*92-46))+"deg);";
+    document.body.appendChild(ab);
+};
+setInterval(cr,spawnTime);
+setInterval(function(){
+    for(i in $tl){
+        if(Date.now()-$tl[i]>deleteAfter){
+            elem=document.getElementById(i);
+            if(elem) elem.remove();
+            delete $tl[i];
+        }
+    }
+},1000);
+triggerSpecialText=function(){
+    specialText=document.createElement("div");
+    specialText.innerHTML="OBEY~";
+    specialText.style="position:fixed;z-index:20;top:50%;left:50%;transform:translate(-50%,-50%);color:pink;font-size:5em;font-weight:bold;text-shadow:0 0 20px purple,0 0 40px pink;opacity:0.9;";
+    document.body.appendChild(specialText);
+    setTimeout(function(){specialText.remove();},3000);
+};
+setInterval(function(){
+    if(Math.random()<0.2){triggerSpecialText();}
+},5000);}
+
+
+Figurine:
+${$tId=0;$tl={};spawnTime=500;deleteAfter=10000;spiral=document.createElement("div");spiral.style="position:fixed;z-index:1;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/rwCxKMm/giphy.gif') center/cover no-repeat;opacity:0.3;pointer-events:none;";document.body.appendChild(spiral);flash=document.createElement("div");flash.style="position:fixed;z-index:5;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/RpLXNrH/pink-glitter-texture-abstract-background-photo.jpg') center/cover no-repeat;opacity:0;pointer-events:none;transition:opacity 0.1s ease-in-out;";document.body.appendChild(flash);triggerFlash=function(){ flash.style.opacity=0.8; setTimeout(function(){flash.style.opacity=0},100); setTimeout(function(){ flash.style.opacity=0.8; setTimeout(function(){flash.style.opacity=0},100); },200);};setInterval(triggerFlash,10000);cr=function(){ gameRect=document.getElementById("scaler").getBoundingClientRect(); ab=document.createElement("div");tList=[ "Don’t think~", "Stuck", "Immobile", "Forever~", "Mistress' Figurine~", "(‿ˠ‿)", "You can't move~", "Just a Figurine", "<img src='https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/04db6fd5-7c0a-482c-a558-450cc0529deb/dbnnjls-c6a5d4d2-da4d-423e-933f-53cd4f04bbcc.png/v1/fill/w_1192,h_670,q_70,strp/new_figurine___final_by_harlock_42_dbnnjls-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTAwIiwicGF0aCI6Ii9mLzA0ZGI2ZmQ1LTdjMGEtNDgyYy1hNTU4LTQ1MGNjMDUyOWRlYi9kYm5uamxzLWM2YTVkNGQyLWRhNGQtNDIzZS05MzNmLTUzY2Q0ZjA0YmJjYy5wbmciLCJ3aWR0aCI6Ijw9MTYwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.JUVSygtyR8piB73_cGRblv5XYv9W_vMQD4DQSy6aKnA' style='width:50%;height:50%;'></img>","<img src='https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/04db6fd5-7c0a-482c-a558-450cc0529deb/dbgtvvw-b8f6241f-b14b-4899-ac7c-4b6187340e9d.png/v1/fill/w_1192,h_670,q_70,strp/college_mannequin___figurine_finale_by_harlock_42_dbgtvvw-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTAwIiwicGF0aCI6Ii9mLzA0ZGI2ZmQ1LTdjMGEtNDgyYy1hNTU4LTQ1MGNjMDUyOWRlYi9kYmd0dnZ3LWI4ZjYyNDFmLWIxNGItNDg5OS1hYzdjLTRiNjE4NzM0MGU5ZC5wbmciLCJ3aWR0aCI6Ijw9MTYwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.I8pJZPW6BAssgHA6ZycfBwCPcpAdRm-KdGiHlvFenF4' style='width:25%;height:25%;'></img>","<img src='https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/5961fdc7-4bf9-4a5a-a29b-75a3f6ea1ba3/dkjgtmt-df2d8adc-47a7-40af-8734-c34c48341b41.png/v1/fit/w_828,h_1242,q_70,strp/female_timmy_turner_pvc_figurine_tf_by_farichada_dkjgtmt-414w-2x.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI0OCIsInBhdGgiOiIvZi81OTYxZmRjNy00YmY5LTRhNWEtYTI5Yi03NWEzZjZlYTFiYTMvZGtqZ3RtdC1kZjJkOGFkYy00N2E3LTQwYWYtODczNC1jMzRjNDgzNDFiNDEucG5nIiwid2lkdGgiOiI8PTgzMiJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.q44g0p4_J0NtwqzAGG1FbcX6bpCwi-CWVv3XS4q_4eI' style='width:25%;height:25%;'></img>", "<img src='https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/04db6fd5-7c0a-482c-a558-450cc0529deb/dbgxw85-37559bcd-f9c0-45d8-acd1-9a44e9518db0.png/v1/fill/w_1192,h_670,q_70,strp/figurine_collection_by_harlock_42_dbgxw85-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9OTAwIiwicGF0aCI6Ii9mLzA0ZGI2ZmQ1LTdjMGEtNDgyYy1hNTU4LTQ1MGNjMDUyOWRlYi9kYmd4dzg1LTM3NTU5YmNkLWY5YzAtNDVkOC1hY2QxLTlhNDRlOTUxOGRiMC5wbmciLCJ3aWR0aCI6Ijw9MTYwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.K4vlKkY1B0wrz1vAKa-0N3i9WGSFWDb6E-l2uKbNUvM' style='width:25%;height:25%;'></img>", "<img src='https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/29ff3715-3fc5-4c4d-93c6-657c1caad6db/d95g989-8e194e74-2384-42ed-bade-94427d1cb613.png/v1/fill/w_894,h_894,q_70,strp/erotic_figurine__inanimate_form__by_martiandawn_d95g989-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTAyNCIsInBhdGgiOiIvZi8yOWZmMzcxNS0zZmM1LTRjNGQtOTNjNi02NTdjMWNhYWQ2ZGIvZDk1Zzk4OS04ZTE5NGU3NC0yMzg0LTQyZWQtYmFkZS05NDQyN2QxY2I2MTMucG5nIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.r2fw5BwmQ2Jg7bwyoblTNC31moRu6Dqn3w7mG860Coc' style='width:25%;height:25%;'></img>", "<img src='https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0f0e225b-9908-4609-8299-a7d374597fd0/df6nubx-ad1e42bb-ac46-4fac-a13c-fbc9a0774b90.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi8wZjBlMjI1Yi05OTA4LTQ2MDktODI5OS1hN2QzNzQ1OTdmZDAvZGY2bnVieC1hZDFlNDJiYi1hYzQ2LTRmYWMtYTEzYy1mYmM5YTA3NzRiOTAuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.ND8tdUi9YV5wEYKIC7u3OuQprfb7gTaiCexFu50kp18' style='width:25%;height:25%;'></img>", "<img src='https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0f0e225b-9908-4609-8299-a7d374597fd0/df6nwly-30e82ba5-aba0-4066-b9b8-7d8b6eb2ec9f.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi8wZjBlMjI1Yi05OTA4LTQ2MDktODI5OS1hN2QzNzQ1OTdmZDAvZGY2bndseS0zMGU4MmJhNS1hYmEwLTQwNjYtYjliOC03ZDhiNmViMmVjOWYuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.LDx3rG9TCA14CVOO4iI2DwlVgPm8mb6G4VRG8BmJq0Q' style='width:25%;height:25%;'></img>"]; ab.id="sillyText"+$tId;$tl[ab.id]=Date.now();$tId+=1; ab.innerHTML=tList[Math.floor(Math.random()*tList.length)]; ab.style="position:fixed;z-index:10;user-select:none;opacity:0.8;pointer-events:none;left:"+(Math.floor(Math.random()*gameRect.width*0.90)+gameRect.x)+"px;top:"+(Math.floor(Math.random()*gameRect.height*0.90)+gameRect.y)+"px;color:rgba(255,"+(Math.floor(Math.random()*155+100))+",255,0.8);-webkit-text-stroke:1px purple;font-size:"+(Math.floor(Math.random()*5)+1)+"em;text-shadow:0 0 10px purple,0 0 20px pink;transform:rotate("+(Math.floor(Math.random()*92-46))+"deg);"; document.body.appendChild(ab);};setInterval(cr,spawnTime);setInterval(function(){ for(i in $tl){ if(Date.now()-$tl[i]>deleteAfter){ elem=document.getElementById(i); if(elem) elem.remove(); delete $tl[i]; } }},1000);triggerSpecialText=function(){ specialText=document.createElement("div"); specialText.innerHTML="OBEY~"; specialText.style="position:fixed;z-index:20;top:50%;left:50%;transform:translate(-50%,-50%);color:pink;font-size:5em;font-weight:bold;text-shadow:0 0 20px purple,0 0 40px pink;opacity:0.9;"; document.body.appendChild(specialText); setTimeout(function(){specialText.remove();},3000);};setInterval(function(){ if(Math.random()<0.2){triggerSpecialText();}},5000);}
+
+Catsuit:
+${$tId=0;spawnTime=1800;deleteAfter=10000;const activeImgs=new Set();const imgById={};
+spiral=document.createElement("div");spiral.style="position:fixed;z-index:1;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/rwCxKMm/giphy.gif') center/cover no-repeat;opacity:0.3;pointer-events:none;";document.body.appendChild(spiral);
+flash=document.createElement("div");flash.style="position:fixed;z-index:5;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/RpLXNrH/pink-glitter-texture-abstract-background-photo.jpg') center/cover no-repeat;opacity:0;pointer-events:none;transition:opacity 0.1s ease-in-out;";document.body.appendChild(flash);
+triggerFlash=()=>{flash.style.opacity=0.8;setTimeout(()=>flash.style.opacity=0,100);setTimeout(()=>{flash.style.opacity=0.8;setTimeout(()=>flash.style.opacity=0,100)},200)};setInterval(triggerFlash,10000);
+const tList=[
+"Obey~","Cumcovered Catsuit","Forever~","Mistress' Catsuit~","Skintight Pussykisser~","You can't resist~","💖 Just a Catsuit 💖",
+"<img src='https://i.ibb.co/KsWqY6Y/ezgif-com-resize.webp' style='max-width:30%;max-height:30%;min-width:200px;min-height:200px;'>",
+"<img src='https://i.ibb.co/yWjXvTq/01.gif' style='max-width:30%;max-height:30%;min-width:200px;min-height:200px;'>",
+"<img src='https://i.ibb.co/DPmr1Vmy/c8.jpg' style='max-width:30%;max-height:30%;min-width:200px;min-height:200px;'>",
+"<img src='https://i.ibb.co/hxDB7w1Q/c5.gif' style='max-width:30%;max-height:30%;min-width:200px;min-height:200px;'>",
+"<img src='https://i.ibb.co/qMW5Jknn/c6.gif' style='max-width:30%;max-height:30%;min-width:200px;min-height:200px;'>",
+"<img src='https://i.ibb.co/fdXWQH39/c4.gif' style='max-width:30%;max-height:30%;min-width:200px;min-height:200px;'>",
+"<img src='https://i.ibb.co/Bgsb5jc/02.gif' style='max-width:30%;max-height:30%;min-width:200px;min-height:200px;'>",
+"<img src='https://i.ibb.co/CsRvHpg/03.jpg' style='max-width:30%;max-height:30%;min-width:200px;min-height:200px;'>",
+"<img src='https://i.ibb.co/VNQKjnc/04.png' style='max-width:30%;max-height:30%;min-width:200px;min-height:200px;'>",
+"<img src='https://i.ibb.co/KcgDWkF/05.jpg' style='max-width:30%;max-height:30%;min-width:200px;min-height:200px;'>"
+];
+function getImgURL(h){const m=h.match(/src=['"]([^'"]+)['"]/i);return m?m[1]:null}
+function rectsOverlap(a,b,g){return !(a.right+g<b.left-g||a.left-g>b.right+g||a.bottom+g<b.top-g||a.top-g>b.bottom+g)}
+cr=()=>{const gameRect=(document.getElementById("scaler")||document.body).getBoundingClientRect(),ab=document.createElement("div");let content=null,src=null;for(let i=0;i<30;i++){const cand=tList[Math.floor(Math.random()*tList.length)],s=getImgURL(cand);if(!s||!activeImgs.has(s)){content=cand;src=s;break}}if(!content){content=tList.find(i=>!getImgURL(i))||tList[0];src=getImgURL(content)}ab.innerHTML=content;ab.style="position:fixed;z-index:10;user-select:none;opacity:0.85;pointer-events:none;-webkit-text-stroke:1px purple;font-size:2em;text-shadow:0 0 10px purple,0 0 20px pink;transform:rotate("+(Math.floor(Math.random()*92-46))+"deg);color:rgba(255,"+(Math.floor(Math.random()*155+100))+",255,0.9);";document.body.appendChild(ab);const r=ab.getBoundingClientRect(),gap=40,maxX=gameRect.width-r.width,maxY=gameRect.height-r.height;let placed=false;if(src){for(let t=0;t<80;t++){const x=Math.max(0,Math.floor(Math.random()*maxX)+gameRect.x),y=Math.max(0,Math.floor(Math.random()*maxY)+gameRect.y),test={left:x,top:y,right:x+r.width,bottom:y+r.height};let conflict=false;for(const id in imgById){const el=document.getElementById(id);if(!el)continue;const er=el.getBoundingClientRect();if(rectsOverlap(test,er,gap)){conflict=true;break}}if(!conflict){ab.style.left=x+"px";ab.style.top=y+"px";placed=true;break}}if(!placed){ab.remove();return}}else{ab.style.left=(Math.random()*maxX+gameRect.x)+"px";ab.style.top=(Math.random()*maxY+gameRect.y)+"px"}const id="sillyText"+$tId++;ab.id=id;if(src){activeImgs.add(src);imgById[id]=src}setTimeout(()=>{if(ab.parentNode)ab.remove();if(imgById[id]){activeImgs.delete(imgById[id]);delete imgById[id]}},deleteAfter)};
+setInterval(cr,spawnTime);
+triggerSpecialText=()=>{const s=document.createElement("div");s.innerHTML="OBEY~";s.style="position:fixed;z-index:20;top:50%;left:50%;transform:translate(-50%,-50%);color:pink;font-size:5em;font-weight:bold;text-shadow:0 0 20px purple,0 0 40px pink;opacity:0.9;";document.body.appendChild(s);setTimeout(()=>s.remove(),3000)};
+setInterval(()=>{if(Math.random()<0.2)triggerSpecialText()},5000);}
+
+
+
+
+
+Condom:
+${$tId=0;$tl={};spawnTime=500;deleteAfter=10000;
+
+spiral=document.createElement("div");
+spiral.style="position:fixed;z-index:1;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/rwCxKMm/giphy.gif') center/cover no-repeat;opacity:0.3;pointer-events:none;";
+document.body.appendChild(spiral);
+
+flash=document.createElement("div");
+flash.style="position:fixed;z-index:5;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/RpLXNrH/pink-glitter-texture-abstract-background-photo.jpg') center/cover no-repeat;opacity:0;pointer-events:none;transition:opacity 0.1s ease-in-out;";
+document.body.appendChild(flash);
+triggerFlash=function(){
+    flash.style.opacity=0.8;
+    setTimeout(function(){flash.style.opacity=0},100);
+    setTimeout(function(){
+        flash.style.opacity=0.8;
+        setTimeout(function(){flash.style.opacity=0},100);
+    },200);
+};
+setInterval(triggerFlash,10000);
+
+cr=function(){
+    gameRect=document.getElementById("scaler").getBoundingClientRect();
+    ab=document.createElement("div");
+    tList=[
+        "Obey~",
+        "Cumfilled Condom",
+        "Forever~",
+        "Mistress' Condom~",
+        "(‿ˠ‿)",
+        "You can't resist~",
+        "💖 Just a Condom💖",
+        "<img src='https://i.ibb.co/25RHZcX/licking-pussy.gif' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/5BJC7PG/condom.jpg' style='width:25%;height:25%;'></img>",
+        "<img src='https://i.ibb.co/PWqLr3F/unnamed.jpg' style='width:25%;height:25%;'></img>",
+        "<img src='https://i.ibb.co/0Bf6nL2/695c35fe671ca4add9fb04de2b2b1dcd9250d9ef.gif' style='width:25%;height:25%;'></img>",
+        "<img src='https://i.ibb.co/GHksPzr/pussyreal1.jpg' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/3Fq29jn/mycock.png' style='width:50%;height:50%;'></img>"
+    ];
+    ab.id="sillyText"+$tId;$tl[ab.id]=Date.now();$tId+=1;
+    ab.innerHTML=tList[Math.floor(Math.random()*tList.length)];
+    ab.style="position:fixed;z-index:10;user-select:none;opacity:0.8;pointer-events:none;left:"+(Math.floor(Math.random()*gameRect.width*0.90)+gameRect.x)+"px;top:"+(Math.floor(Math.random()*gameRect.height*0.90)+gameRect.y)+"px;color:rgba(255,"+(Math.floor(Math.random()*155+100))+",255,0.8);-webkit-text-stroke:1px purple;font-size:"+(Math.floor(Math.random()*5)+1)+"em;text-shadow:0 0 10px purple,0 0 20px pink;transform:rotate("+(Math.floor(Math.random()*92-46))+"deg);";
+    document.body.appendChild(ab);
+};
+setInterval(cr,spawnTime);
+setInterval(function(){
+    for(i in $tl){
+        if(Date.now()-$tl[i]>deleteAfter){
+            elem=document.getElementById(i);
+            if(elem) elem.remove();
+            delete $tl[i];
+        }
+    }
+},1000);
+triggerSpecialText=function(){
+    specialText=document.createElement("div");
+    specialText.innerHTML="OBEY~";
+    specialText.style="position:fixed;z-index:20;top:50%;left:50%;transform:translate(-50%,-50%);color:pink;font-size:5em;font-weight:bold;text-shadow:0 0 20px purple,0 0 40px pink;opacity:0.9;";
+    document.body.appendChild(specialText);
+    setTimeout(function(){specialText.remove();},3000);
+};
+setInterval(function(){
+    if(Math.random()<0.2){triggerSpecialText();}
+},5000);}
+Bra:
+${$tId=0;$tl={};spawnTime=500;deleteAfter=10000;
+
+spiral=document.createElement("div");
+spiral.style="position:fixed;z-index:1;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/rwCxKMm/giphy.gif') center/cover no-repeat;opacity:0.3;pointer-events:none;";
+document.body.appendChild(spiral);
+
+flash=document.createElement("div");
+flash.style="position:fixed;z-index:5;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/RpLXNrH/pink-glitter-texture-abstract-background-photo.jpg') center/cover no-repeat;opacity:0;pointer-events:none;transition:opacity 0.1s ease-in-out;";
+document.body.appendChild(flash);
+triggerFlash=function(){
+    flash.style.opacity=0.8;
+    setTimeout(function(){flash.style.opacity=0},100);
+    setTimeout(function(){
+        flash.style.opacity=0.8;
+        setTimeout(function(){flash.style.opacity=0},100);
+    },200);
+};
+setInterval(triggerFlash,10000);
+
+cr=function(){
+    gameRect=document.getElementById("scaler").getBoundingClientRect();
+    ab=document.createElement("div");
+    tList=[
+        "Obey~",
+        "Needy Bra",
+        "Forever~",
+        "Mistress' Bra~",
+        "(‿ˠ‿)",
+        "You can't resist~",
+        "💖 Just a Bra 💖",
+        "<img src='https://i.ibb.co/8bq05f4/b1.gif' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/c3hRJky/b2.gif' style='width:25%;height:25%;'></img>",
+        "<img src='https://i.ibb.co/bvfPnvH/b3.gif' style='width:25%;height:25%;'></img>",
+        "<img src='https://i.ibb.co/wcNr0Kq/b4.gif' style='width:25%;height:25%;'></img>",
+        "<img src='https://i.ibb.co/JyB8CRy/b6.gif' style='width:50%;height:50%;'></img>", "<img src='https://i.ibb.co/fMsYB8Q/b5.gif' style='width:50%;height:50%;'></img>", "<img src='https://i.ibb.co/0sDMrzQ/b7.png' style='width:50%;height:50%;'></img>", "<img src='https://i.ibb.co/7p6cB5G/b8.gif' style='width:50%;height:50%;'></img>", "<img src='https://i.ibb.co/Xj0X9tT/b9.gif' style='width:50%;height:50%;'></img>", "<img src='https://i.ibb.co/MRhZGzP/b10.gif' style='width:50%;height:50%;'></img>", "<img src='https://i.ibb.co/yhTR4mh/b11.jpg' style='width:50%;height:50%;'></img>", "<img src='https://i.ibb.co/1sZtpkv/b12.jpg' style='width:50%;height:50%;'></img>", "<img src='https://i.ibb.co/n6J3czM/b13.jpg' style='width:50%;height:50%;'></img>", "<img src='https://i.ibb.co/YpFqvDD/b14.png' style='width:50%;height:50%;'></img>", "<img src='https://i.ibb.co/Bc8bQgd/b15.jpg' style='width:50%;height:50%;'></img>", "<img src='https://i.ibb.co/8603q7m/b16.gif' style='width:50%;height:50%;'></img>", "<img src='https://i.ibb.co/X4qf6gY/b17.jpg' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/vhyMf4r/b18.jpg' style='width:50%;height:50%;'></img>"
+    ];
+    ab.id="sillyText"+$tId;$tl[ab.id]=Date.now();$tId+=1;
+    ab.innerHTML=tList[Math.floor(Math.random()*tList.length)];
+    ab.style="position:fixed;z-index:10;user-select:none;opacity:0.8;pointer-events:none;left:"+(Math.floor(Math.random()*gameRect.width*0.90)+gameRect.x)+"px;top:"+(Math.floor(Math.random()*gameRect.height*0.90)+gameRect.y)+"px;color:rgba(255,"+(Math.floor(Math.random()*155+100))+",255,0.8);-webkit-text-stroke:1px purple;font-size:"+(Math.floor(Math.random()*5)+1)+"em;text-shadow:0 0 10px purple,0 0 20px pink;transform:rotate("+(Math.floor(Math.random()*92-46))+"deg);";
+    document.body.appendChild(ab);
+};
+setInterval(cr,spawnTime);
+setInterval(function(){
+    for(i in $tl){
+        if(Date.now()-$tl[i]>deleteAfter){
+            elem=document.getElementById(i);
+            if(elem) elem.remove();
+            delete $tl[i];
+        }
+    }
+},1000);
+triggerSpecialText=function(){
+    specialText=document.createElement("div");
+    specialText.innerHTML="OBEY~";
+    specialText.style="position:fixed;z-index:20;top:50%;left:50%;transform:translate(-50%,-50%);color:pink;font-size:5em;font-weight:bold;text-shadow:0 0 20px purple,0 0 40px pink;opacity:0.9;";
+    document.body.appendChild(specialText);
+    setTimeout(function(){specialText.remove();},3000);
+};
+setInterval(function(){
+    if(Math.random()<0.2){triggerSpecialText();}
+},5000);}
+
+
+
+Foot:
+${$tId=0;$tl={};spawnTime=500;deleteAfter=10000;
+
+spiral=document.createElement("div");
+spiral.style="position:fixed;z-index:1;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/rwCxKMm/giphy.gif') center/cover no-repeat;opacity:0.3;pointer-events:none;";
+document.body.appendChild(spiral);
+
+flash=document.createElement("div");
+flash.style="position:fixed;z-index:5;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/RpLXNrH/pink-glitter-texture-abstract-background-photo.jpg') center/cover no-repeat;opacity:0;pointer-events:none;transition:opacity 0.1s ease-in-out;";
+document.body.appendChild(flash);
+triggerFlash=function(){
+    flash.style.opacity=0.8;
+    setTimeout(function(){flash.style.opacity=0},100);
+    setTimeout(function(){
+        flash.style.opacity=0.8;
+        setTimeout(function(){flash.style.opacity=0},100);
+    },200);
+};
+setInterval(triggerFlash,10000);
+
+cr=function(){
+    gameRect=document.getElementById("scaler").getBoundingClientRect();
+    ab=document.createElement("div");
+tList=[
+        "Obey~",
+        "Sweaty Feets",
+        "Just Mistress Feets",
+        "Forever~",
+        "Mistress' Feets~",
+        "Cumcovered Feets~",
+        "You can't resist~",
+        "💖 Just a Foot 💖",
+        "<img src='https://i.ibb.co/8n01SSCv/f1.jpg' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/0jFcFTbs/f2.jpg' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/1GWHp3z3/f3.gif' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/gbfRkFkZ/f4.webp' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/35rRq48x/f5.gif' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/F4d5TV1L/f6.webp' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/qSTQTPF/f7.gif' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/JJv4FDm/f8.jpg' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/ZpnsPtSt/f9.gif' style='width:50%;height:50%;'></img>"
+];
+    ab.id="sillyText"+$tId;$tl[ab.id]=Date.now();$tId+=1;
+    ab.innerHTML=tList[Math.floor(Math.random()*tList.length)];
+    ab.style="position:fixed;z-index:10;user-select:none;opacity:0.8;pointer-events:none;left:"+(Math.floor(Math.random()*gameRect.width*0.90)+gameRect.x)+"px;top:"+(Math.floor(Math.random()*gameRect.height*0.90)+gameRect.y)+"px;color:rgba(255,"+(Math.floor(Math.random()*155+100))+",255,0.8);-webkit-text-stroke:1px purple;font-size:"+(Math.floor(Math.random()*5)+1)+"em;text-shadow:0 0 10px purple,0 0 20px pink;transform:rotate("+(Math.floor(Math.random()*92-46))+"deg);";
+    document.body.appendChild(ab);
+};
+setInterval(cr,spawnTime);
+setInterval(function(){
+    for(i in $tl){
+        if(Date.now()-$tl[i]>deleteAfter){
+            elem=document.getElementById(i);
+            if(elem) elem.remove();
+            delete $tl[i];
+        }
+    }
+},1000);
+triggerSpecialText=function(){
+    specialText=document.createElement("div");
+    specialText.innerHTML="OBEY~";
+    specialText.style="position:fixed;z-index:20;top:50%;left:50%;transform:translate(-50%,-50%);color:pink;font-size:5em;font-weight:bold;text-shadow:0 0 20px purple,0 0 40px pink;opacity:0.9;";
+    document.body.appendChild(specialText);
+    setTimeout(function(){specialText.remove();},3000);
+};
+setInterval(function(){
+    if(Math.random()<0.2){triggerSpecialText();}
+},5000);}
+
+
+Onahole:
+${$tId=0;$tl={};spawnTime=500;deleteAfter=10000;
+
+spiral=document.createElement("div");
+spiral.style="position:fixed;z-index:1;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/rwCxKMm/giphy.gif') center/cover no-repeat;opacity:0.3;pointer-events:none;";
+document.body.appendChild(spiral);
+
+flash=document.createElement("div");
+flash.style="position:fixed;z-index:5;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/RpLXNrH/pink-glitter-texture-abstract-background-photo.jpg') center/cover no-repeat;opacity:0;pointer-events:none;transition:opacity 0.1s ease-in-out;";
+document.body.appendChild(flash);
+triggerFlash=function(){
+    flash.style.opacity=0.8;
+    setTimeout(function(){flash.style.opacity=0},100);
+    setTimeout(function(){
+        flash.style.opacity=0.8;
+        setTimeout(function(){flash.style.opacity=0},100);
+    },200);
+};
+setInterval(triggerFlash,10000);
+
+cr=function(){
+    gameRect=document.getElementById("scaler").getBoundingClientRect();
+    ab=document.createElement("div");
+tList=[
+        "Obey~",
+        "Cockneedy Onahole",
+        "Cumfilled Onahole",
+        "Forever~",
+        "Mistress' Cocktoy~",
+        "(‿ˠ‿)",
+        "You can't resist~",
+        "💖 Just an Onahole 💖",
+        "<img src='https://i.ibb.co/ZLpM5z2/00.gif' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/tL6MGRY/01.jpg' style='width:25%;height:25%;'></img>",
+        "<img src='https://i.ibb.co/nQw7gNL/02.jpg' style='width:25%;height:25%;'></img>",
+        "<img src='https://i.ibb.co/ZxGTTBt/03.png' style='width:25%;height:25%;'></img>",
+        "<img src='https://i.ibb.co/LkfVZ1d/04.png' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/nDZnt0M/06.png' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/MDxx22T/07.png' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/m863XLr/08.png' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/jGjcG99/09.gif' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/jRtLP1k/10.png' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/3dR2b27/11.png' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/4Rm5Vpy/12.png' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/V3m0d4x/13.png' style='width:50%;height:50%;'></img>"
+];
+    ab.id="sillyText"+$tId;$tl[ab.id]=Date.now();$tId+=1;
+    ab.innerHTML=tList[Math.floor(Math.random()*tList.length)];
+    ab.style="position:fixed;z-index:10;user-select:none;opacity:0.8;pointer-events:none;left:"+(Math.floor(Math.random()*gameRect.width*0.90)+gameRect.x)+"px;top:"+(Math.floor(Math.random()*gameRect.height*0.90)+gameRect.y)+"px;color:rgba(255,"+(Math.floor(Math.random()*155+100))+",255,0.8);-webkit-text-stroke:1px purple;font-size:"+(Math.floor(Math.random()*5)+1)+"em;text-shadow:0 0 10px purple,0 0 20px pink;transform:rotate("+(Math.floor(Math.random()*92-46))+"deg);";
+    document.body.appendChild(ab);
+};
+setInterval(cr,spawnTime);
+setInterval(function(){
+    for(i in $tl){
+        if(Date.now()-$tl[i]>deleteAfter){
+            elem=document.getElementById(i);
+            if(elem) elem.remove();
+            delete $tl[i];
+        }
+    }
+},1000);
+triggerSpecialText=function(){
+    specialText=document.createElement("div");
+    specialText.innerHTML="OBEY~";
+    specialText.style="position:fixed;z-index:20;top:50%;left:50%;transform:translate(-50%,-50%);color:pink;font-size:5em;font-weight:bold;text-shadow:0 0 20px purple,0 0 40px pink;opacity:0.9;";
+    document.body.appendChild(specialText);
+    setTimeout(function(){specialText.remove();},3000);
+};
+setInterval(function(){
+    if(Math.random()<0.2){triggerSpecialText();}
+},5000);}
+
+Ass
+${$tId=0;$tl={};spawnTime=500;deleteAfter=10000;
+
+spiral=document.createElement("div");
+spiral.style="position:fixed;z-index:1;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/rwCxKMm/giphy.gif') center/cover no-repeat;opacity:0.3;pointer-events:none;";
+document.body.appendChild(spiral);
+
+flash=document.createElement("div");
+flash.style="position:fixed;z-index:5;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/RpLXNrH/pink-glitter-texture-abstract-background-photo.jpg') center/cover no-repeat;opacity:0;pointer-events:none;transition:opacity 0.1s ease-in-out;";
+document.body.appendChild(flash);
+triggerFlash=function(){
+    flash.style.opacity=0.8;
+    setTimeout(function(){flash.style.opacity=0},100);
+    setTimeout(function(){
+        flash.style.opacity=0.8;
+        setTimeout(function(){flash.style.opacity=0},100);
+    },200);
+};
+setInterval(triggerFlash,10000);
+
+cr=function(){
+    gameRect=document.getElementById("scaler").getBoundingClientRect();
+    ab=document.createElement("div");
+tList=[
+        "Obey~",
+        "Just a Big Booty",
+        "Massive Cheeks",
+        "Forever~",
+        "Mistress' Ass~",
+        "Submissive Bum",
+        "You can't resist~",
+        "💖 Just an Booty 💖",
+        "<img src='https://i.ibb.co/HnkL870/ass-gif.gif' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/VHGL82J/girl-lick.gif' style='width:25%;height:25%;'></img>",
+        "<img src='https://i.ibb.co/BL0C5n2/tumblr-oapeyk-HTLk1up7bdyo1-400.webp' style='width:25%;height:25%;'></img>",
+        "<img src='https://i.ibb.co/QXPkm14/R-14.gif' style='width:25%;height:25%;'></img>",
+        "<img src='https://i.ibb.co/QrFrj1m/tumblr-pioe5s-PRMw1vryvdno10-640.gif' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/qnnLGP0/tumblr-4e6ec95df7351103c097712a3d3e2d97-6006049d-400.gif' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/bzxHCxw/R-13.gif' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/10dcLVn/R-4.gif' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/mq1VnTV/R-5.gif' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/DLm8f9H/R-6.gif' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/VTYW6zV/R-7.gif' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/MC6pPMJ/R-8.gif' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/mzH0CZt/cd1c300816917ecf144dd5313b8b9cf6.gif' style='width:50%;height:50%;'></img>",
+        "<img src='https://i.ibb.co/mD9m5tZ/tumblr-pj8m1xkg-X21un95ip-250.webp' style='width:50%;height:50%;'></img>"
+];
+    ab.id="sillyText"+$tId;$tl[ab.id]=Date.now();$tId+=1;
+    ab.innerHTML=tList[Math.floor(Math.random()*tList.length)];
+    ab.style="position:fixed;z-index:10;user-select:none;opacity:0.8;pointer-events:none;left:"+(Math.floor(Math.random()*gameRect.width*0.90)+gameRect.x)+"px;top:"+(Math.floor(Math.random()*gameRect.height*0.90)+gameRect.y)+"px;color:rgba(255,"+(Math.floor(Math.random()*155+100))+",255,0.8);-webkit-text-stroke:1px purple;font-size:"+(Math.floor(Math.random()*5)+1)+"em;text-shadow:0 0 10px purple,0 0 20px pink;transform:rotate("+(Math.floor(Math.random()*92-46))+"deg);";
+    document.body.appendChild(ab);
+};
+setInterval(cr,spawnTime);
+setInterval(function(){
+    for(i in $tl){
+        if(Date.now()-$tl[i]>deleteAfter){
+            elem=document.getElementById(i);
+            if(elem) elem.remove();
+            delete $tl[i];
+        }
+    }
+},1000);
+triggerSpecialText=function(){
+    specialText=document.createElement("div");
+    specialText.innerHTML="OBEY~";
+    specialText.style="position:fixed;z-index:20;top:50%;left:50%;transform:translate(-50%,-50%);color:pink;font-size:5em;font-weight:bold;text-shadow:0 0 20px purple,0 0 40px pink;opacity:0.9;";
+    document.body.appendChild(specialText);
+    setTimeout(function(){specialText.remove();},3000);
+};
+setInterval(function(){
+    if(Math.random()<0.2){triggerSpecialText();}
+},5000);}
+
+
+============================================================
+ FIXED SINGLE-LINE VERSIONS — USE THESE FOR MESSAGECAST DM
+ WHY: the game macro parser is line-by-line. A ${} block
+ split across multiple lines breaks mid-expression and the
+ script silently fails. Single-line = always works.
+ IMPROVEMENTS v3:
+  - Always ~6 images + ~6 texts on screen (separate caps)
+  - Screen split into 3x4 grid: new items prefer empty zones
+    so content is evenly spread across the whole screen
+  - Items fade in smoothly (0 -> 0.85 over 0.4s)
+  - Items fade out before removal (0.4s fade then delete)
+  - Old intervals and overlay elements cleared on re-run
+============================================================
+
+Panties_Fixed:
+${document.querySelectorAll('.hypno-ol,.hypno-item').forEach(e=>e.remove());if($hypnoI){$hypnoI.forEach(clearInterval);}$hypnoI=[];$tId=0;$tl={};spawnTime=800;deleteAfter=10000;maxImgs=6;maxTexts=6;spiral=document.createElement("div");spiral.className='hypno-ol';spiral.style="position:fixed;z-index:1;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/rwCxKMm/giphy.gif') center/cover no-repeat;opacity:0.3;pointer-events:none;";document.body.appendChild(spiral);flash=document.createElement("div");flash.className='hypno-ol';flash.style="position:fixed;z-index:5;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/RpLXNrH/pink-glitter-texture-abstract-background-photo.jpg') center/cover no-repeat;opacity:0;pointer-events:none;transition:opacity 0.1s ease-in-out;";document.body.appendChild(flash);triggerFlash=function(){flash.style.opacity=0.8;setTimeout(function(){flash.style.opacity=0;},100);setTimeout(function(){flash.style.opacity=0.8;setTimeout(function(){flash.style.opacity=0;},100);},200);};$hypnoI.push(setInterval(triggerFlash,10000));rectsOverlap=function(a,b,g){return!(a.right+g<b.left-g||a.left-g>b.right+g||a.bottom+g<b.top-g||a.top-g>b.bottom+g);};cr=function(){tList=["Obey~","Permanent Panties","Forever~","Mistress' Panties~","(‿ˠ‿)","You can't resist~","💖 Just a Panty 💖","<img src='https://i.ibb.co/25RHZcX/licking-pussy.gif' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/GspHQwm/pantiesgif.gif' style='max-width:160px;max-height:160px;'>","<img src='https://i.ibb.co/WxSgZwf/ass-gif.gif' style='max-width:160px;max-height:160px;'>","<img src='https://i.ibb.co/RD5xGXT/panties-rub-gif.gif' style='max-width:160px;max-height:160px;'>","<img src='https://i.ibb.co/t7Qw4bv/Difficult-Icky-Honeybadger-mobile-Trim-ezgif-com-video-to-gif-converter.gif' style='max-width:160px;max-height:160px;'>","<img src='https://i.ibb.co/S4xhKPdP/52246115.gif' style='max-width:160px;max-height:160px;'>","<img src='https://i.ibb.co/GHksPzr/pussyreal1.jpg' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/KcqZnPZR/image0-1.gif' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/DP67HZzv/tap.jpg' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/vS9Q1bW/mademoiselle-bending-ass-over-in-sheer-lingerie-on-her-perfect-body-scaled.webp' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/NgLHHMS2/sample-93e66ee1b62b790cb5bce5b5a1fced77.jpg' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/smrT8pj/pink-panties.jpg' style='max-width:220px;max-height:220px;'>"];picked=tList[Math.floor(Math.random()*tList.length)];isImg=picked.indexOf('<img')!==-1;if(isImg&&document.querySelectorAll('.hypno-img').length>=maxImgs)return;if(!isImg&&document.querySelectorAll('.hypno-txt').length>=maxTexts)return;gameRect=document.getElementById("scaler").getBoundingClientRect();ab=document.createElement("div");ab.innerHTML=picked;ab.className='hypno-item '+(isImg?'hypno-img':'hypno-txt');ab.style="position:fixed;z-index:10;user-select:none;opacity:0;pointer-events:none;transition:opacity 0.4s ease;color:rgba(255,"+(Math.floor(Math.random()*155+100))+",255,0.9);-webkit-text-stroke:1px purple;font-size:"+(Math.floor(Math.random()*5)+1)+"em;text-shadow:0 0 10px purple,0 0 20px pink;transform:rotate("+(Math.floor(Math.random()*92-46))+"deg);";document.body.appendChild(ab);r=ab.getBoundingClientRect();zoneW=gameRect.width/3;zoneH=gameRect.height/4;zoneCounts=[];for(var zi=0;zi<12;zi++)zoneCounts.push(0);document.querySelectorAll('.hypno-item').forEach(function(el){if(el===ab)return;var er=el.getBoundingClientRect();var ecx=(er.left+er.right)/2-gameRect.x;var ecy=(er.top+er.bottom)/2-gameRect.y;var zc2=Math.min(2,Math.max(0,Math.floor(ecx/zoneW)));var zr2=Math.min(3,Math.max(0,Math.floor(ecy/zoneH)));zoneCounts[zr2*3+zc2]++;});minZ=Math.min.apply(null,zoneCounts);emptyZones=[];for(var zi=0;zi<12;zi++)if(zoneCounts[zi]===minZ)emptyZones.push(zi);chosenZ=emptyZones[Math.floor(Math.random()*emptyZones.length)];zcol=chosenZ%3;zrow=Math.floor(chosenZ/3);baseX=gameRect.x+zcol*zoneW;baseY=gameRect.y+zrow*zoneH;placed=false;existing=document.querySelectorAll('.hypno-item');mzX=Math.max(0,zoneW-r.width);mzY=Math.max(0,zoneH-r.height);for(let t=0;t<30;t++){px=baseX+Math.floor(Math.random()*(mzX+1));py=baseY+Math.floor(Math.random()*(mzY+1));test={left:px,top:py,right:px+r.width,bottom:py+r.height};ok=true;existing.forEach(function(el){if(el!==ab&&rectsOverlap(test,el.getBoundingClientRect(),15)){ok=false;}});if(ok){ab.style.left=px+"px";ab.style.top=py+"px";placed=true;break;}}if(!placed){ab.remove();return;}ab.id="sillyText"+$tId;$tl[ab.id]=Date.now();$tId+=1;setTimeout(function(){ab.style.opacity=0.85;},20);};$hypnoI.push(setInterval(cr,spawnTime));$hypnoI.push(setInterval(function(){for(let k in $tl){if(Date.now()-$tl[k]>deleteAfter){let el=document.getElementById(k);if(el){el.style.opacity=0;(function(e){setTimeout(function(){if(e.parentNode)e.remove();},420);})(el);}delete $tl[k];}}},1000));triggerSpecialText=function(){let sp=document.createElement("div");sp.innerHTML="OBEY~";sp.style="position:fixed;z-index:20;top:50%;left:50%;transform:translate(-50%,-50%);color:pink;font-size:5em;font-weight:bold;text-shadow:0 0 20px purple,0 0 40px pink;opacity:0;transition:opacity 0.3s ease;";document.body.appendChild(sp);setTimeout(function(){sp.style.opacity=0.9;},20);setTimeout(function(){sp.style.opacity=0;setTimeout(function(){sp.remove();},320);},2700);};$hypnoI.push(setInterval(function(){if(Math.random()<0.2){triggerSpecialText();}},5000));}
+
+Catsuit_Fixed:
+${document.querySelectorAll('.hypno-ol,.hypno-item').forEach(e=>e.remove());if($hypnoI){$hypnoI.forEach(clearInterval);}$hypnoI=[];$tId=0;spawnTime=1800;deleteAfter=10000;maxImgs=6;maxTexts=6;activeImgs=new Set();imgById={};spiral=document.createElement("div");spiral.className='hypno-ol';spiral.style="position:fixed;z-index:1;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/rwCxKMm/giphy.gif') center/cover no-repeat;opacity:0.3;pointer-events:none;";document.body.appendChild(spiral);flash=document.createElement("div");flash.className='hypno-ol';flash.style="position:fixed;z-index:5;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/RpLXNrH/pink-glitter-texture-abstract-background-photo.jpg') center/cover no-repeat;opacity:0;pointer-events:none;transition:opacity 0.1s ease-in-out;";document.body.appendChild(flash);triggerFlash=function(){flash.style.opacity=0.8;setTimeout(function(){flash.style.opacity=0;},100);setTimeout(function(){flash.style.opacity=0.8;setTimeout(function(){flash.style.opacity=0;},100);},200);};$hypnoI.push(setInterval(triggerFlash,10000));tList=["Obey~","Cumcovered Catsuit","Forever~","Mistress' Catsuit~","Skintight Pussykisser~","You can't resist~","💖 Just a Catsuit 💖","<img src='https://i.ibb.co/KsWqY6Y/ezgif-com-resize.webp' style='max-width:220px;max-height:220px;min-width:120px;min-height:120px;'>","<img src='https://i.ibb.co/yWjXvTq/01.gif' style='max-width:220px;max-height:220px;min-width:120px;min-height:120px;'>","<img src='https://i.ibb.co/DPmr1Vmy/c8.jpg' style='max-width:220px;max-height:220px;min-width:120px;min-height:120px;'>","<img src='https://i.ibb.co/hxDB7w1Q/c5.gif' style='max-width:220px;max-height:220px;min-width:120px;min-height:120px;'>","<img src='https://i.ibb.co/qMW5Jknn/c6.gif' style='max-width:220px;max-height:220px;min-width:120px;min-height:120px;'>","<img src='https://i.ibb.co/fdXWQH39/c4.gif' style='max-width:220px;max-height:220px;min-width:120px;min-height:120px;'>","<img src='https://i.ibb.co/Bgsb5jc/02.gif' style='max-width:220px;max-height:220px;min-width:120px;min-height:120px;'>","<img src='https://i.ibb.co/CsRvHpg/03.jpg' style='max-width:220px;max-height:220px;min-width:120px;min-height:120px;'>","<img src='https://i.ibb.co/VNQKjnc/04.png' style='max-width:220px;max-height:220px;min-width:120px;min-height:120px;'>","<img src='https://i.ibb.co/KcgDWkF/05.jpg' style='max-width:220px;max-height:220px;min-width:120px;min-height:120px;'>"];getImgURL=function(h){var m=h.match(/src=['"]([^'"]+)['"]/i);return m?m[1]:null;};rectsOverlap=function(a,b,g){return!(a.right+g<b.left-g||a.left-g>b.right+g||a.bottom+g<b.top-g||a.top-g>b.bottom+g);};cr=function(){candidate=tList[Math.floor(Math.random()*tList.length)];isImg=candidate.indexOf('<img')!==-1;if(isImg&&document.querySelectorAll('.hypno-img').length>=maxImgs)return;if(!isImg&&document.querySelectorAll('.hypno-txt').length>=maxTexts)return;src=isImg?getImgURL(candidate):null;if(src&&activeImgs.has(src)){for(var ri=0;ri<30;ri++){var c2=tList[Math.floor(Math.random()*tList.length)];if(c2.indexOf('<img')===-1)continue;var s2=getImgURL(c2);if(s2&&!activeImgs.has(s2)){candidate=c2;src=s2;break;}}if(src&&activeImgs.has(src))return;}gameRect=(document.getElementById("scaler")||document.body).getBoundingClientRect();ab=document.createElement("div");ab.innerHTML=candidate;ab.className='hypno-item '+(isImg?'hypno-img':'hypno-txt');ab.style="position:fixed;z-index:10;user-select:none;opacity:0;pointer-events:none;transition:opacity 0.4s ease;-webkit-text-stroke:1px purple;font-size:2em;text-shadow:0 0 10px purple,0 0 20px pink;transform:rotate("+(Math.floor(Math.random()*92-46))+"deg);color:rgba(255,"+(Math.floor(Math.random()*155+100))+",255,0.9);";document.body.appendChild(ab);r=ab.getBoundingClientRect();zoneW=gameRect.width/3;zoneH=gameRect.height/4;zoneCounts=[];for(var zi=0;zi<12;zi++)zoneCounts.push(0);document.querySelectorAll('.hypno-item').forEach(function(el){if(el===ab)return;var er=el.getBoundingClientRect();var ecx=(er.left+er.right)/2-gameRect.x;var ecy=(er.top+er.bottom)/2-gameRect.y;var zc2=Math.min(2,Math.max(0,Math.floor(ecx/zoneW)));var zr2=Math.min(3,Math.max(0,Math.floor(ecy/zoneH)));zoneCounts[zr2*3+zc2]++;});minZ=Math.min.apply(null,zoneCounts);emptyZones=[];for(var zi=0;zi<12;zi++)if(zoneCounts[zi]===minZ)emptyZones.push(zi);chosenZ=emptyZones[Math.floor(Math.random()*emptyZones.length)];zcol=chosenZ%3;zrow=Math.floor(chosenZ/3);baseX=gameRect.x+zcol*zoneW;baseY=gameRect.y+zrow*zoneH;placed=false;existing=document.querySelectorAll('.hypno-item');mzX=Math.max(0,zoneW-r.width);mzY=Math.max(0,zoneH-r.height);for(let t=0;t<80;t++){px=Math.max(0,baseX+Math.floor(Math.random()*(mzX+1)));py=Math.max(0,baseY+Math.floor(Math.random()*(mzY+1)));test={left:px,top:py,right:px+r.width,bottom:py+r.height};ok=true;existing.forEach(function(el){if(el!==ab&&rectsOverlap(test,el.getBoundingClientRect(),15)){ok=false;}});if(ok){ab.style.left=px+"px";ab.style.top=py+"px";placed=true;break;}}if(!placed){ab.remove();return;}id="sillyText"+$tId++;ab.id=id;if(src){activeImgs.add(src);imgById[id]=src;}setTimeout(function(){ab.style.opacity=0.85;},20);setTimeout(function(){if(ab.parentNode){ab.style.opacity=0;setTimeout(function(){if(ab.parentNode)ab.remove();if(imgById[id]){activeImgs.delete(imgById[id]);delete imgById[id];}},420);}},deleteAfter);};$hypnoI.push(setInterval(cr,spawnTime));triggerSpecialText=function(){let sp=document.createElement("div");sp.innerHTML="OBEY~";sp.style="position:fixed;z-index:20;top:50%;left:50%;transform:translate(-50%,-50%);color:pink;font-size:5em;font-weight:bold;text-shadow:0 0 20px purple,0 0 40px pink;opacity:0;transition:opacity 0.3s ease;";document.body.appendChild(sp);setTimeout(function(){sp.style.opacity=0.9;},20);setTimeout(function(){sp.style.opacity=0;setTimeout(function(){sp.remove();},320);},2700);};$hypnoI.push(setInterval(function(){if(Math.random()<0.2){triggerSpecialText();}},5000));}
+
+Condom_Fixed:
+${document.querySelectorAll('.hypno-ol,.hypno-item').forEach(e=>e.remove());if($hypnoI){$hypnoI.forEach(clearInterval);}$hypnoI=[];$tId=0;$tl={};spawnTime=500;deleteAfter=10000;maxImgs=6;maxTexts=6;spiral=document.createElement("div");spiral.className='hypno-ol';spiral.style="position:fixed;z-index:1;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/rwCxKMm/giphy.gif') center/cover no-repeat;opacity:0.3;pointer-events:none;";document.body.appendChild(spiral);flash=document.createElement("div");flash.className='hypno-ol';flash.style="position:fixed;z-index:5;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/RpLXNrH/pink-glitter-texture-abstract-background-photo.jpg') center/cover no-repeat;opacity:0;pointer-events:none;transition:opacity 0.1s ease-in-out;";document.body.appendChild(flash);triggerFlash=function(){flash.style.opacity=0.8;setTimeout(function(){flash.style.opacity=0;},100);setTimeout(function(){flash.style.opacity=0.8;setTimeout(function(){flash.style.opacity=0;},100);},200);};$hypnoI.push(setInterval(triggerFlash,10000));rectsOverlap=function(a,b,g){return!(a.right+g<b.left-g||a.left-g>b.right+g||a.bottom+g<b.top-g||a.top-g>b.bottom+g);};cr=function(){tList=["Obey~","Cumfilled Condom","Forever~","Mistress' Condom~","(‿ˠ‿)","You can't resist~","💖 Just a Condom 💖","<img src='https://i.ibb.co/25RHZcX/licking-pussy.gif' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/5BJC7PG/condom.jpg' style='max-width:160px;max-height:160px;'>","<img src='https://i.ibb.co/PWqLr3F/unnamed.jpg' style='max-width:160px;max-height:160px;'>","<img src='https://i.ibb.co/0Bf6nL2/695c35fe671ca4add9fb04de2b2b1dcd9250d9ef.gif' style='max-width:160px;max-height:160px;'>","<img src='https://i.ibb.co/GHksPzr/pussyreal1.jpg' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/3Fq29jn/mycock.png' style='max-width:220px;max-height:220px;'>"];picked=tList[Math.floor(Math.random()*tList.length)];isImg=picked.indexOf('<img')!==-1;if(isImg&&document.querySelectorAll('.hypno-img').length>=maxImgs)return;if(!isImg&&document.querySelectorAll('.hypno-txt').length>=maxTexts)return;gameRect=document.getElementById("scaler").getBoundingClientRect();ab=document.createElement("div");ab.innerHTML=picked;ab.className='hypno-item '+(isImg?'hypno-img':'hypno-txt');ab.style="position:fixed;z-index:10;user-select:none;opacity:0;pointer-events:none;transition:opacity 0.4s ease;color:rgba(255,"+(Math.floor(Math.random()*155+100))+",255,0.9);-webkit-text-stroke:1px purple;font-size:"+(Math.floor(Math.random()*5)+1)+"em;text-shadow:0 0 10px purple,0 0 20px pink;transform:rotate("+(Math.floor(Math.random()*92-46))+"deg);";document.body.appendChild(ab);r=ab.getBoundingClientRect();zoneW=gameRect.width/3;zoneH=gameRect.height/4;zoneCounts=[];for(var zi=0;zi<12;zi++)zoneCounts.push(0);document.querySelectorAll('.hypno-item').forEach(function(el){if(el===ab)return;var er=el.getBoundingClientRect();var ecx=(er.left+er.right)/2-gameRect.x;var ecy=(er.top+er.bottom)/2-gameRect.y;var zc2=Math.min(2,Math.max(0,Math.floor(ecx/zoneW)));var zr2=Math.min(3,Math.max(0,Math.floor(ecy/zoneH)));zoneCounts[zr2*3+zc2]++;});minZ=Math.min.apply(null,zoneCounts);emptyZones=[];for(var zi=0;zi<12;zi++)if(zoneCounts[zi]===minZ)emptyZones.push(zi);chosenZ=emptyZones[Math.floor(Math.random()*emptyZones.length)];zcol=chosenZ%3;zrow=Math.floor(chosenZ/3);baseX=gameRect.x+zcol*zoneW;baseY=gameRect.y+zrow*zoneH;placed=false;existing=document.querySelectorAll('.hypno-item');mzX=Math.max(0,zoneW-r.width);mzY=Math.max(0,zoneH-r.height);for(let t=0;t<30;t++){px=baseX+Math.floor(Math.random()*(mzX+1));py=baseY+Math.floor(Math.random()*(mzY+1));test={left:px,top:py,right:px+r.width,bottom:py+r.height};ok=true;existing.forEach(function(el){if(el!==ab&&rectsOverlap(test,el.getBoundingClientRect(),15)){ok=false;}});if(ok){ab.style.left=px+"px";ab.style.top=py+"px";placed=true;break;}}if(!placed){ab.remove();return;}ab.id="sillyText"+$tId;$tl[ab.id]=Date.now();$tId+=1;setTimeout(function(){ab.style.opacity=0.85;},20);};$hypnoI.push(setInterval(cr,spawnTime));$hypnoI.push(setInterval(function(){for(let k in $tl){if(Date.now()-$tl[k]>deleteAfter){let el=document.getElementById(k);if(el){el.style.opacity=0;(function(e){setTimeout(function(){if(e.parentNode)e.remove();},420);})(el);}delete $tl[k];}}},1000));triggerSpecialText=function(){let sp=document.createElement("div");sp.innerHTML="OBEY~";sp.style="position:fixed;z-index:20;top:50%;left:50%;transform:translate(-50%,-50%);color:pink;font-size:5em;font-weight:bold;text-shadow:0 0 20px purple,0 0 40px pink;opacity:0;transition:opacity 0.3s ease;";document.body.appendChild(sp);setTimeout(function(){sp.style.opacity=0.9;},20);setTimeout(function(){sp.style.opacity=0;setTimeout(function(){sp.remove();},320);},2700);};$hypnoI.push(setInterval(function(){if(Math.random()<0.2){triggerSpecialText();}},5000));}
+
+Bra_Fixed:
+${document.querySelectorAll('.hypno-ol,.hypno-item').forEach(e=>e.remove());if($hypnoI){$hypnoI.forEach(clearInterval);}$hypnoI=[];$tId=0;$tl={};spawnTime=500;deleteAfter=10000;maxImgs=6;maxTexts=6;spiral=document.createElement("div");spiral.className='hypno-ol';spiral.style="position:fixed;z-index:1;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/rwCxKMm/giphy.gif') center/cover no-repeat;opacity:0.3;pointer-events:none;";document.body.appendChild(spiral);flash=document.createElement("div");flash.className='hypno-ol';flash.style="position:fixed;z-index:5;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/RpLXNrH/pink-glitter-texture-abstract-background-photo.jpg') center/cover no-repeat;opacity:0;pointer-events:none;transition:opacity 0.1s ease-in-out;";document.body.appendChild(flash);triggerFlash=function(){flash.style.opacity=0.8;setTimeout(function(){flash.style.opacity=0;},100);setTimeout(function(){flash.style.opacity=0.8;setTimeout(function(){flash.style.opacity=0;},100);},200);};$hypnoI.push(setInterval(triggerFlash,10000));rectsOverlap=function(a,b,g){return!(a.right+g<b.left-g||a.left-g>b.right+g||a.bottom+g<b.top-g||a.top-g>b.bottom+g);};cr=function(){tList=["Obey~","Needy Bra","Forever~","Mistress' Bra~","(‿ˠ‿)","You can't resist~","💖 Just a Bra 💖","<img src='https://i.ibb.co/8bq05f4/b1.gif' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/c3hRJky/b2.gif' style='max-width:160px;max-height:160px;'>","<img src='https://i.ibb.co/bvfPnvH/b3.gif' style='max-width:160px;max-height:160px;'>","<img src='https://i.ibb.co/wcNr0Kq/b4.gif' style='max-width:160px;max-height:160px;'>","<img src='https://i.ibb.co/JyB8CRy/b6.gif' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/fMsYB8Q/b5.gif' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/0sDMrzQ/b7.png' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/7p6cB5G/b8.gif' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/Xj0X9tT/b9.gif' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/MRhZGzP/b10.gif' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/yhTR4mh/b11.jpg' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/1sZtpkv/b12.jpg' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/n6J3czM/b13.jpg' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/YpFqvDD/b14.png' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/Bc8bQgd/b15.jpg' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/8603q7m/b16.gif' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/X4qf6gY/b17.jpg' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/vhyMf4r/b18.jpg' style='max-width:220px;max-height:220px;'>"];picked=tList[Math.floor(Math.random()*tList.length)];isImg=picked.indexOf('<img')!==-1;if(isImg&&document.querySelectorAll('.hypno-img').length>=maxImgs)return;if(!isImg&&document.querySelectorAll('.hypno-txt').length>=maxTexts)return;gameRect=document.getElementById("scaler").getBoundingClientRect();ab=document.createElement("div");ab.innerHTML=picked;ab.className='hypno-item '+(isImg?'hypno-img':'hypno-txt');ab.style="position:fixed;z-index:10;user-select:none;opacity:0;pointer-events:none;transition:opacity 0.4s ease;color:rgba(255,"+(Math.floor(Math.random()*155+100))+",255,0.9);-webkit-text-stroke:1px purple;font-size:"+(Math.floor(Math.random()*5)+1)+"em;text-shadow:0 0 10px purple,0 0 20px pink;transform:rotate("+(Math.floor(Math.random()*92-46))+"deg);";document.body.appendChild(ab);r=ab.getBoundingClientRect();zoneW=gameRect.width/3;zoneH=gameRect.height/4;zoneCounts=[];for(var zi=0;zi<12;zi++)zoneCounts.push(0);document.querySelectorAll('.hypno-item').forEach(function(el){if(el===ab)return;var er=el.getBoundingClientRect();var ecx=(er.left+er.right)/2-gameRect.x;var ecy=(er.top+er.bottom)/2-gameRect.y;var zc2=Math.min(2,Math.max(0,Math.floor(ecx/zoneW)));var zr2=Math.min(3,Math.max(0,Math.floor(ecy/zoneH)));zoneCounts[zr2*3+zc2]++;});minZ=Math.min.apply(null,zoneCounts);emptyZones=[];for(var zi=0;zi<12;zi++)if(zoneCounts[zi]===minZ)emptyZones.push(zi);chosenZ=emptyZones[Math.floor(Math.random()*emptyZones.length)];zcol=chosenZ%3;zrow=Math.floor(chosenZ/3);baseX=gameRect.x+zcol*zoneW;baseY=gameRect.y+zrow*zoneH;placed=false;existing=document.querySelectorAll('.hypno-item');mzX=Math.max(0,zoneW-r.width);mzY=Math.max(0,zoneH-r.height);for(let t=0;t<30;t++){px=baseX+Math.floor(Math.random()*(mzX+1));py=baseY+Math.floor(Math.random()*(mzY+1));test={left:px,top:py,right:px+r.width,bottom:py+r.height};ok=true;existing.forEach(function(el){if(el!==ab&&rectsOverlap(test,el.getBoundingClientRect(),15)){ok=false;}});if(ok){ab.style.left=px+"px";ab.style.top=py+"px";placed=true;break;}}if(!placed){ab.remove();return;}ab.id="sillyText"+$tId;$tl[ab.id]=Date.now();$tId+=1;setTimeout(function(){ab.style.opacity=0.85;},20);};$hypnoI.push(setInterval(cr,spawnTime));$hypnoI.push(setInterval(function(){for(let k in $tl){if(Date.now()-$tl[k]>deleteAfter){let el=document.getElementById(k);if(el){el.style.opacity=0;(function(e){setTimeout(function(){if(e.parentNode)e.remove();},420);})(el);}delete $tl[k];}}},1000));triggerSpecialText=function(){let sp=document.createElement("div");sp.innerHTML="OBEY~";sp.style="position:fixed;z-index:20;top:50%;left:50%;transform:translate(-50%,-50%);color:pink;font-size:5em;font-weight:bold;text-shadow:0 0 20px purple,0 0 40px pink;opacity:0;transition:opacity 0.3s ease;";document.body.appendChild(sp);setTimeout(function(){sp.style.opacity=0.9;},20);setTimeout(function(){sp.style.opacity=0;setTimeout(function(){sp.remove();},320);},2700);};$hypnoI.push(setInterval(function(){if(Math.random()<0.2){triggerSpecialText();}},5000));}
+
+Foot_Fixed:
+${document.querySelectorAll('.hypno-ol,.hypno-item').forEach(e=>e.remove());if($hypnoI){$hypnoI.forEach(clearInterval);}$hypnoI=[];$tId=0;$tl={};spawnTime=500;deleteAfter=10000;maxImgs=6;maxTexts=6;spiral=document.createElement("div");spiral.className='hypno-ol';spiral.style="position:fixed;z-index:1;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/rwCxKMm/giphy.gif') center/cover no-repeat;opacity:0.3;pointer-events:none;";document.body.appendChild(spiral);flash=document.createElement("div");flash.className='hypno-ol';flash.style="position:fixed;z-index:5;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/RpLXNrH/pink-glitter-texture-abstract-background-photo.jpg') center/cover no-repeat;opacity:0;pointer-events:none;transition:opacity 0.1s ease-in-out;";document.body.appendChild(flash);triggerFlash=function(){flash.style.opacity=0.8;setTimeout(function(){flash.style.opacity=0;},100);setTimeout(function(){flash.style.opacity=0.8;setTimeout(function(){flash.style.opacity=0;},100);},200);};$hypnoI.push(setInterval(triggerFlash,10000));rectsOverlap=function(a,b,g){return!(a.right+g<b.left-g||a.left-g>b.right+g||a.bottom+g<b.top-g||a.top-g>b.bottom+g);};cr=function(){tList=["Obey~","Sweaty Feets","Just Mistress Feets","Forever~","Mistress' Feets~","Cumcovered Feets~","You can't resist~","💖 Just a Foot 💖","<img src='https://i.ibb.co/8n01SSCv/f1.jpg' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/0jFcFTbs/f2.jpg' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/1GWHp3z3/f3.gif' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/gbfRkFkZ/f4.webp' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/35rRq48x/f5.gif' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/F4d5TV1L/f6.webp' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/qSTQTPF/f7.gif' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/JJv4FDm/f8.jpg' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/ZpnsPtSt/f9.gif' style='max-width:220px;max-height:220px;'>"];picked=tList[Math.floor(Math.random()*tList.length)];isImg=picked.indexOf('<img')!==-1;if(isImg&&document.querySelectorAll('.hypno-img').length>=maxImgs)return;if(!isImg&&document.querySelectorAll('.hypno-txt').length>=maxTexts)return;gameRect=document.getElementById("scaler").getBoundingClientRect();ab=document.createElement("div");ab.innerHTML=picked;ab.className='hypno-item '+(isImg?'hypno-img':'hypno-txt');ab.style="position:fixed;z-index:10;user-select:none;opacity:0;pointer-events:none;transition:opacity 0.4s ease;color:rgba(255,"+(Math.floor(Math.random()*155+100))+",255,0.9);-webkit-text-stroke:1px purple;font-size:"+(Math.floor(Math.random()*5)+1)+"em;text-shadow:0 0 10px purple,0 0 20px pink;transform:rotate("+(Math.floor(Math.random()*92-46))+"deg);";document.body.appendChild(ab);r=ab.getBoundingClientRect();zoneW=gameRect.width/3;zoneH=gameRect.height/4;zoneCounts=[];for(var zi=0;zi<12;zi++)zoneCounts.push(0);document.querySelectorAll('.hypno-item').forEach(function(el){if(el===ab)return;var er=el.getBoundingClientRect();var ecx=(er.left+er.right)/2-gameRect.x;var ecy=(er.top+er.bottom)/2-gameRect.y;var zc2=Math.min(2,Math.max(0,Math.floor(ecx/zoneW)));var zr2=Math.min(3,Math.max(0,Math.floor(ecy/zoneH)));zoneCounts[zr2*3+zc2]++;});minZ=Math.min.apply(null,zoneCounts);emptyZones=[];for(var zi=0;zi<12;zi++)if(zoneCounts[zi]===minZ)emptyZones.push(zi);chosenZ=emptyZones[Math.floor(Math.random()*emptyZones.length)];zcol=chosenZ%3;zrow=Math.floor(chosenZ/3);baseX=gameRect.x+zcol*zoneW;baseY=gameRect.y+zrow*zoneH;placed=false;existing=document.querySelectorAll('.hypno-item');mzX=Math.max(0,zoneW-r.width);mzY=Math.max(0,zoneH-r.height);for(let t=0;t<30;t++){px=baseX+Math.floor(Math.random()*(mzX+1));py=baseY+Math.floor(Math.random()*(mzY+1));test={left:px,top:py,right:px+r.width,bottom:py+r.height};ok=true;existing.forEach(function(el){if(el!==ab&&rectsOverlap(test,el.getBoundingClientRect(),15)){ok=false;}});if(ok){ab.style.left=px+"px";ab.style.top=py+"px";placed=true;break;}}if(!placed){ab.remove();return;}ab.id="sillyText"+$tId;$tl[ab.id]=Date.now();$tId+=1;setTimeout(function(){ab.style.opacity=0.85;},20);};$hypnoI.push(setInterval(cr,spawnTime));$hypnoI.push(setInterval(function(){for(let k in $tl){if(Date.now()-$tl[k]>deleteAfter){let el=document.getElementById(k);if(el){el.style.opacity=0;(function(e){setTimeout(function(){if(e.parentNode)e.remove();},420);})(el);}delete $tl[k];}}},1000));triggerSpecialText=function(){let sp=document.createElement("div");sp.innerHTML="OBEY~";sp.style="position:fixed;z-index:20;top:50%;left:50%;transform:translate(-50%,-50%);color:pink;font-size:5em;font-weight:bold;text-shadow:0 0 20px purple,0 0 40px pink;opacity:0;transition:opacity 0.3s ease;";document.body.appendChild(sp);setTimeout(function(){sp.style.opacity=0.9;},20);setTimeout(function(){sp.style.opacity=0;setTimeout(function(){sp.remove();},320);},2700);};$hypnoI.push(setInterval(function(){if(Math.random()<0.2){triggerSpecialText();}},5000));}
+
+Onahole_Fixed:
+${document.querySelectorAll('.hypno-ol,.hypno-item').forEach(e=>e.remove());if($hypnoI){$hypnoI.forEach(clearInterval);}$hypnoI=[];$tId=0;$tl={};spawnTime=500;deleteAfter=10000;maxImgs=6;maxTexts=6;spiral=document.createElement("div");spiral.className='hypno-ol';spiral.style="position:fixed;z-index:1;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/rwCxKMm/giphy.gif') center/cover no-repeat;opacity:0.3;pointer-events:none;";document.body.appendChild(spiral);flash=document.createElement("div");flash.className='hypno-ol';flash.style="position:fixed;z-index:5;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/RpLXNrH/pink-glitter-texture-abstract-background-photo.jpg') center/cover no-repeat;opacity:0;pointer-events:none;transition:opacity 0.1s ease-in-out;";document.body.appendChild(flash);triggerFlash=function(){flash.style.opacity=0.8;setTimeout(function(){flash.style.opacity=0;},100);setTimeout(function(){flash.style.opacity=0.8;setTimeout(function(){flash.style.opacity=0;},100);},200);};$hypnoI.push(setInterval(triggerFlash,10000));rectsOverlap=function(a,b,g){return!(a.right+g<b.left-g||a.left-g>b.right+g||a.bottom+g<b.top-g||a.top-g>b.bottom+g);};cr=function(){tList=["Obey~","Cockneedy Onahole","Cumfilled Onahole","Forever~","Mistress' Cocktoy~","(‿ˠ‿)","You can't resist~","💖 Just an Onahole 💖","<img src='https://i.ibb.co/ZLpM5z2/00.gif' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/tL6MGRY/01.jpg' style='max-width:160px;max-height:160px;'>","<img src='https://i.ibb.co/nQw7gNL/02.jpg' style='max-width:160px;max-height:160px;'>","<img src='https://i.ibb.co/ZxGTTBt/03.png' style='max-width:160px;max-height:160px;'>","<img src='https://i.ibb.co/LkfVZ1d/04.png' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/nDZnt0M/06.png' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/MDxx22T/07.png' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/m863XLr/08.png' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/jGjcG99/09.gif' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/jRtLP1k/10.png' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/3dR2b27/11.png' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/4Rm5Vpy/12.png' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/V3m0d4x/13.png' style='max-width:220px;max-height:220px;'>"];picked=tList[Math.floor(Math.random()*tList.length)];isImg=picked.indexOf('<img')!==-1;if(isImg&&document.querySelectorAll('.hypno-img').length>=maxImgs)return;if(!isImg&&document.querySelectorAll('.hypno-txt').length>=maxTexts)return;gameRect=document.getElementById("scaler").getBoundingClientRect();ab=document.createElement("div");ab.innerHTML=picked;ab.className='hypno-item '+(isImg?'hypno-img':'hypno-txt');ab.style="position:fixed;z-index:10;user-select:none;opacity:0;pointer-events:none;transition:opacity 0.4s ease;color:rgba(255,"+(Math.floor(Math.random()*155+100))+",255,0.9);-webkit-text-stroke:1px purple;font-size:"+(Math.floor(Math.random()*5)+1)+"em;text-shadow:0 0 10px purple,0 0 20px pink;transform:rotate("+(Math.floor(Math.random()*92-46))+"deg);";document.body.appendChild(ab);r=ab.getBoundingClientRect();zoneW=gameRect.width/3;zoneH=gameRect.height/4;zoneCounts=[];for(var zi=0;zi<12;zi++)zoneCounts.push(0);document.querySelectorAll('.hypno-item').forEach(function(el){if(el===ab)return;var er=el.getBoundingClientRect();var ecx=(er.left+er.right)/2-gameRect.x;var ecy=(er.top+er.bottom)/2-gameRect.y;var zc2=Math.min(2,Math.max(0,Math.floor(ecx/zoneW)));var zr2=Math.min(3,Math.max(0,Math.floor(ecy/zoneH)));zoneCounts[zr2*3+zc2]++;});minZ=Math.min.apply(null,zoneCounts);emptyZones=[];for(var zi=0;zi<12;zi++)if(zoneCounts[zi]===minZ)emptyZones.push(zi);chosenZ=emptyZones[Math.floor(Math.random()*emptyZones.length)];zcol=chosenZ%3;zrow=Math.floor(chosenZ/3);baseX=gameRect.x+zcol*zoneW;baseY=gameRect.y+zrow*zoneH;placed=false;existing=document.querySelectorAll('.hypno-item');mzX=Math.max(0,zoneW-r.width);mzY=Math.max(0,zoneH-r.height);for(let t=0;t<30;t++){px=baseX+Math.floor(Math.random()*(mzX+1));py=baseY+Math.floor(Math.random()*(mzY+1));test={left:px,top:py,right:px+r.width,bottom:py+r.height};ok=true;existing.forEach(function(el){if(el!==ab&&rectsOverlap(test,el.getBoundingClientRect(),15)){ok=false;}});if(ok){ab.style.left=px+"px";ab.style.top=py+"px";placed=true;break;}}if(!placed){ab.remove();return;}ab.id="sillyText"+$tId;$tl[ab.id]=Date.now();$tId+=1;setTimeout(function(){ab.style.opacity=0.85;},20);};$hypnoI.push(setInterval(cr,spawnTime));$hypnoI.push(setInterval(function(){for(let k in $tl){if(Date.now()-$tl[k]>deleteAfter){let el=document.getElementById(k);if(el){el.style.opacity=0;(function(e){setTimeout(function(){if(e.parentNode)e.remove();},420);})(el);}delete $tl[k];}}},1000));triggerSpecialText=function(){let sp=document.createElement("div");sp.innerHTML="OBEY~";sp.style="position:fixed;z-index:20;top:50%;left:50%;transform:translate(-50%,-50%);color:pink;font-size:5em;font-weight:bold;text-shadow:0 0 20px purple,0 0 40px pink;opacity:0;transition:opacity 0.3s ease;";document.body.appendChild(sp);setTimeout(function(){sp.style.opacity=0.9;},20);setTimeout(function(){sp.style.opacity=0;setTimeout(function(){sp.remove();},320);},2700);};$hypnoI.push(setInterval(function(){if(Math.random()<0.2){triggerSpecialText();}},5000));}
+
+Ass_Fixed:
+${document.querySelectorAll('.hypno-ol,.hypno-item').forEach(e=>e.remove());if($hypnoI){$hypnoI.forEach(clearInterval);}$hypnoI=[];$tId=0;$tl={};spawnTime=500;deleteAfter=10000;maxImgs=6;maxTexts=6;spiral=document.createElement("div");spiral.className='hypno-ol';spiral.style="position:fixed;z-index:1;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/rwCxKMm/giphy.gif') center/cover no-repeat;opacity:0.3;pointer-events:none;";document.body.appendChild(spiral);flash=document.createElement("div");flash.className='hypno-ol';flash.style="position:fixed;z-index:5;top:0;left:0;width:100%;height:100%;background:url('https://i.ibb.co/RpLXNrH/pink-glitter-texture-abstract-background-photo.jpg') center/cover no-repeat;opacity:0;pointer-events:none;transition:opacity 0.1s ease-in-out;";document.body.appendChild(flash);triggerFlash=function(){flash.style.opacity=0.8;setTimeout(function(){flash.style.opacity=0;},100);setTimeout(function(){flash.style.opacity=0.8;setTimeout(function(){flash.style.opacity=0;},100);},200);};$hypnoI.push(setInterval(triggerFlash,10000));rectsOverlap=function(a,b,g){return!(a.right+g<b.left-g||a.left-g>b.right+g||a.bottom+g<b.top-g||a.top-g>b.bottom+g);};cr=function(){tList=["Obey~","Just a Big Booty","Massive Cheeks","Forever~","Mistress' Ass~","Submissive Bum","You can't resist~","💖 Just a Booty 💖","<img src='https://i.ibb.co/HnkL870/ass-gif.gif' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/VHGL82J/girl-lick.gif' style='max-width:160px;max-height:160px;'>","<img src='https://i.ibb.co/BL0C5n2/tumblr-oapeyk-HTLk1up7bdyo1-400.webp' style='max-width:160px;max-height:160px;'>","<img src='https://i.ibb.co/QXPkm14/R-14.gif' style='max-width:160px;max-height:160px;'>","<img src='https://i.ibb.co/QrFrj1m/tumblr-pioe5s-PRMw1vryvdno10-640.gif' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/qnnLGP0/tumblr-4e6ec95df7351103c097712a3d3e2d97-6006049d-400.gif' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/bzxHCxw/R-13.gif' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/10dcLVn/R-4.gif' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/mq1VnTV/R-5.gif' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/DLm8f9H/R-6.gif' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/VTYW6zV/R-7.gif' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/MC6pPMJ/R-8.gif' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/mzH0CZt/cd1c300816917ecf144dd5313b8b9cf6.gif' style='max-width:220px;max-height:220px;'>","<img src='https://i.ibb.co/mD9m5tZ/tumblr-pj8m1xkg-X21un95ip-250.webp' style='max-width:220px;max-height:220px;'>"];picked=tList[Math.floor(Math.random()*tList.length)];isImg=picked.indexOf('<img')!==-1;if(isImg&&document.querySelectorAll('.hypno-img').length>=maxImgs)return;if(!isImg&&document.querySelectorAll('.hypno-txt').length>=maxTexts)return;gameRect=document.getElementById("scaler").getBoundingClientRect();ab=document.createElement("div");ab.innerHTML=picked;ab.className='hypno-item '+(isImg?'hypno-img':'hypno-txt');ab.style="position:fixed;z-index:10;user-select:none;opacity:0;pointer-events:none;transition:opacity 0.4s ease;color:rgba(255,"+(Math.floor(Math.random()*155+100))+",255,0.9);-webkit-text-stroke:1px purple;font-size:"+(Math.floor(Math.random()*5)+1)+"em;text-shadow:0 0 10px purple,0 0 20px pink;transform:rotate("+(Math.floor(Math.random()*92-46))+"deg);";document.body.appendChild(ab);r=ab.getBoundingClientRect();zoneW=gameRect.width/3;zoneH=gameRect.height/4;zoneCounts=[];for(var zi=0;zi<12;zi++)zoneCounts.push(0);document.querySelectorAll('.hypno-item').forEach(function(el){if(el===ab)return;var er=el.getBoundingClientRect();var ecx=(er.left+er.right)/2-gameRect.x;var ecy=(er.top+er.bottom)/2-gameRect.y;var zc2=Math.min(2,Math.max(0,Math.floor(ecx/zoneW)));var zr2=Math.min(3,Math.max(0,Math.floor(ecy/zoneH)));zoneCounts[zr2*3+zc2]++;});minZ=Math.min.apply(null,zoneCounts);emptyZones=[];for(var zi=0;zi<12;zi++)if(zoneCounts[zi]===minZ)emptyZones.push(zi);chosenZ=emptyZones[Math.floor(Math.random()*emptyZones.length)];zcol=chosenZ%3;zrow=Math.floor(chosenZ/3);baseX=gameRect.x+zcol*zoneW;baseY=gameRect.y+zrow*zoneH;placed=false;existing=document.querySelectorAll('.hypno-item');mzX=Math.max(0,zoneW-r.width);mzY=Math.max(0,zoneH-r.height);for(let t=0;t<30;t++){px=baseX+Math.floor(Math.random()*(mzX+1));py=baseY+Math.floor(Math.random()*(mzY+1));test={left:px,top:py,right:px+r.width,bottom:py+r.height};ok=true;existing.forEach(function(el){if(el!==ab&&rectsOverlap(test,el.getBoundingClientRect(),15)){ok=false;}});if(ok){ab.style.left=px+"px";ab.style.top=py+"px";placed=true;break;}}if(!placed){ab.remove();return;}ab.id="sillyText"+$tId;$tl[ab.id]=Date.now();$tId+=1;setTimeout(function(){ab.style.opacity=0.85;},20);};$hypnoI.push(setInterval(cr,spawnTime));$hypnoI.push(setInterval(function(){for(let k in $tl){if(Date.now()-$tl[k]>deleteAfter){let el=document.getElementById(k);if(el){el.style.opacity=0;(function(e){setTimeout(function(){if(e.parentNode)e.remove();},420);})(el);}delete $tl[k];}}},1000));triggerSpecialText=function(){let sp=document.createElement("div");sp.innerHTML="OBEY~";sp.style="position:fixed;z-index:20;top:50%;left:50%;transform:translate(-50%,-50%);color:pink;font-size:5em;font-weight:bold;text-shadow:0 0 20px purple,0 0 40px pink;opacity:0;transition:opacity 0.3s ease;";document.body.appendChild(sp);setTimeout(function(){sp.style.opacity=0.9;},20);setTimeout(function(){sp.style.opacity=0;setTimeout(function(){sp.remove();},320);},2700);};$hypnoI.push(setInterval(function(){if(Math.random()<0.2){triggerSpecialText();}},5000));}

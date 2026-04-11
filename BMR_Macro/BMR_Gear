@@ -1,0 +1,255 @@
+﻿====================================================================
+ BMR GEAR GUIDE — Counter Build vs WP/Pen/Spell Burst Build
+ (v3 — corrected kill target: Mind + Body = 1000, not just 500)
+====================================================================
+ TARGET OPPONENT PROFILE:
+   8 items, all Willpower primary (+8 WP on base ~10 = 18 WP total)
+   Secondaries: ~6x Penetration (+1.00 ea) + ~2x Spell (+0.34 ea)
+   Derived stats:
+     Pen = WP + Pen_bonus = 18 + 6 = 24
+     Res = WP + 0         = 18
+     MaxSpells = Int(10)/3 + 0.68 = ~4.0
+     MaxActions = Str(10)/3 = ~3.33
+     MaxBody = Str(10) * 50 = 500
+     MaxMind = Int(10) * 50 = 500
+     Hit = Dex(10) = 10,  Eva = Dex(10) = 10
+
+ OBSERVED COMBAT PATTERN:
+   Phase 1: 3 physical attacks  (spent from MaxActions pool)
+   Phase 2: 4 spells burst      (spent from MaxSpells pool)
+   Then repeat (slowly regens spells via their attack actions)
+
+====================================================================
+ GAME FORMULAS (from Tooltip.js source)
+====================================================================
+   Attack damage  = base * (1 + (Hit   - Evasion)   * 0.10)
+   Spell damage   = base * (1 + (Pen   - Resistance) * 0.10)
+   MaxBody        = Strength * 50 + Body_bonus
+   MaxMind        = Intelligence * 50 + Mind_bonus
+   MaxActions     = Strength / 3  + Action_bonus     (regen PER MINUTE)
+   MaxSpells      = Intelligence / 3 + Spell_bonus
+   Spell regen    = MaxSpells / 9 per non-spell attack
+
+   Block chance   = 100 - Lust%
+     => When block triggers: ALL damage (attacks AND spells) hits Mind
+        before Body. Body only takes overflow once Mind = 0.
+     => At Lust=0% (fight start): 100% block. Everything hits Mind first.
+   Mindless       = Mind=0 OR Lust=100% (no block, ailments land freely)
+
+   CRITICAL IMPLICATION:
+     Your physical attacks also hit the opponent's Mind before Body.
+     At Lust=0% they have 100% block. You must drain their Mind (500)
+     BEFORE you can damage their Body (500).
+     REAL KILL TARGET = MaxMind + MaxBody = 500 + 500 = 1000
+
+ ENCHANT VALUES (per item slot):
+   Primary:   Strength, Dexterity, Intelligence, Willpower = +1.00 each
+   Secondary: Hit, Evasion, Penetration, Resistance        = +1.00 each
+              Mind, Body                                    = +50  each
+              Spell, Action                                 = +0.34 each
+
+ BASE STATS ASSUMED (mid-tier character):
+   Str=10, Dex=10, Int=10, WP=10
+   => Body=500, Mind=500, MaxActions=3.33, MaxSpells=3.33
+
+====================================================================
+ BASE DAMAGE VALUES
+====================================================================
+   Base attack damage: ~50
+   Base spell  damage: ~120
+
+   Opponent Pen=24 vs your Res=10:
+     Spell mult = 1 + (24-10) * 0.10 = x2.4
+     => Each spell = 120 * 2.4 = 288 damage to YOUR Mind (then Body)
+
+   Their 4-spell burst = 4 * 288 = 1152 raw damage
+   Your Mind (500) absorbs 500. Overflow = 652 to Body.
+   If your Body < 652 you die in the burst. Need Body > 652.
+
+   Opponent's own kill target against YOU = your Mind + your Body.
+   Their DPS = 288 * cycle_rate + attacks. Very high.
+
+====================================================================
+ THE REAL KILL MATH (corrected)
+====================================================================
+ KILL TARGET = opponent Mind (500) + opponent Body (500) = 1000
+
+   Simplified: Body damage on target = total_dmg_you_deal - their_MaxMind
+   Their Mind absorbs the first 500 damage you deal regardless of source.
+
+ DPS comparison:
+   Default (no enchants): 50 * 3.33 = 167/min => 1000 in ~360 seconds
+   Striker (4Str+4Dex 4Hit+4Action): 90 * 6.03 = 543/min => 1000 in ~110s
+   Ironclad (6Str+2Dex 4Hit+4Action): 80 * 6.69 = 535/min => 1000 in ~112s
+   Survivor (2WP+3Dex+3Str 4Res+2Hit+2Action): 75 * 5.01 = 376/min => 1000 in ~160s
+
+ Their damage clock:
+   Burst 1 fires at t~54s (3 attacks done). Full burst = 4 spells.
+   Total incoming during burst = depends on your Res:
+     No Res build: 3 * attack_dmg + 4 * 288
+     With Res=16 (Survivor): 3 * 35 + 4 * 216 = 969
+
+   After burst, spell regen from attacks:
+     0.446 regen per attack, at 18s/attack
+     Need 2.24 attacks for 1 spell = 40s
+     Next single regen spell fires at t = 58 + 54 = t=112s
+       (needs 3 full attacks = 1.338 spells to have 1 whole spell to fire)
+     Second regen spell: t ~= 112 + 48 = t=160s
+
+====================================================================
+ SURVIVAL CHECK FOR EACH BUILD
+====================================================================
+
+ STRIKER (4Str+4Dex, 4Hit+4Action):
+   MaxBody=700, MaxMind=500, Res=10
+   Incoming first cycle: 3*(50*0.6) + 4*288 = 90+1152 = 1242
+   My Mind+Body = 500+700 = 1200
+   1242 > 1200 => DEAD DURING BURST at t~57s.
+   Kill time needed: 110s. Dies at ~57s. FAILS.
+
+ IRONCLAD (6Str+2Dex, 4Hit+4Action):
+   MaxBody=800, MaxMind=500, Res=10
+   Incoming first cycle: 3*(50*0.8) + 4*288 = 120+1152 = 1272
+   My Mind+Body = 500+800 = 1300. Survive burst by 28 body.
+   Post-burst attacks (40 each at 18s): dead at t=76.
+   Kill time needed: 112s. Dies at t=76s. FAILS.
+
+ SURVIVOR (2WP+3Dex+3Str, 4Res+2Hit+2Action):
+   MaxBody=650, MaxMind=500, Res=16
+   Incoming first cycle: 3*35+4*216=969. Survive: Body=181.
+   Post-burst: attacks(35)+regen spells(216 each at t=112,160).
+   Body at t=112: 181 - 3*(35) = 76, then -216 = DEAD at t=112.
+   Kill time needed: 160s. Dies at t=112. FAILS.
+
+ CONCLUSION: No basic stat build cleanly defeats this opponent.
+ Doubling the kill target (1000 vs 500) makes the race unwinnable
+ with physical attacks alone.
+
+====================================================================
+ WHY IT FAILS — THE CORE PROBLEM
+====================================================================
+ The opponent's spell burst (1152 raw) vs your attack DPS:
+
+   With Res=10: survive burst only if MaxBody > 652 (need Str=23+)
+                => impossible, minimum 13 Str primaries not available.
+
+   With Res=16: burst = 969. Survive if MaxBody > 469.
+                Survivable! But kill time = 160s. They regen 2 spells
+                before you kill them. Those 2 regens + attacks kill you.
+
+   The real constraint: killing 1000hp in time is fighting THEIR
+   defensive Mind layer + their offensive spell bursts simultaneously.
+
+====================================================================
+ WHAT ACTUALLY HELPS: LOWERING THEIR LUST
+====================================================================
+ The opponent's block is 100% ONLY while their Lust = 0%.
+ As their Lust rises:
+   - At Lust=50%: block chance drops to 50%
+   - At Lust=80%: block chance = 20%
+   - At Lust=100% (Mindless): no block, ALL your attacks hit Body directly
+
+ If opponent goes Mindless:
+   - Their effective kill target = 500 Body only (not 1000 total)
+   - At 50% Lust, roughly half your attacks bypass their Mind
+   - Kill time effectively 50-100% shorter
+
+ LUST SPELL INTERACTION WHILE OPPONENT BLOCKS:
+   "50% chance to suppress mental changes" while they are blocking.
+   So lust effects from YOUR spells land 50% of the time even at full Mind.
+   Each lust spell has a 50% chance to raise their Lust.
+   Once raised, their block drops toward 0%.
+
+ YOUR SPELLS VS THEIR RES=18:
+   Pen=10 (base) vs Res=18: spell damage = 120 * 0.2 = 24 (negligible damage)
+   BUT: lust STATUS EFFECT from the spell may still apply at 50% chance.
+   => Use lust spells for Lust buildup, NOT for damage.
+
+====================================================================
+ REVISED STRATEGY: LUST + ATTACK HYBRID
+====================================================================
+ The correct approach vs this opponent:
+   Phase A - Lust buildup: cast lust spells to push their Lust toward 50-100%
+     Each spell may add lust at 50% success rate while they are blocking.
+     At Lust=50%: their block = 50%, half their Mind mitigation gone.
+     At Lust=100% (Mindless): kill target drops from 1000 to 500.
+
+   Phase B - Kill window: once Mindless, spam attacks.
+     All your attacks now hit Body directly.
+     At x1.8 mult, 90 damage each: 500/90 = 6 attacks = ~60 seconds.
+     Their spells still fire (they lose block, not spell ability).
+
+ GEAR FOR THIS STRATEGY:
+   Option A — Stay on Striker build (4Str+4Dex 4Hit+4Action)
+   but treat early spells as Lust tools, not damage tools.
+   You have MaxSpells=3.33 (base). Use first 3 naturally.
+   Target: push their Lust quickly with all 3 at fight start.
+   After that, pure attack spam while waiting for them to regen Lust.
+
+   Option B — Add Spell secondary enchants (sacrifice some Action):
+   4Str + 4Dex, 3Hit + 3Action + 2Spell (+0.68 MaxSpells)
+   MaxSpells = 3.33 + 0.68 = 4.0  (1 extra lust spell available)
+   MaxActions = 14/3 + 3*0.34 = 4.67+1.02 = 5.69
+   Slightly slower attacks, slightly more lust pressure.
+
+====================================================================
+ COMPARISON TABLE (corrected — all vs WP/Pen/Spell opponent)
+====================================================================
+                         No enchants  Striker    Ironclad   Survivor
+ Str enchants              0            4          6          3
+ Dex enchants              0            4          2          3
+ WP enchants               0            0          0          2
+ MaxBody                  500          700        800        650
+ MaxMind                  500          500        500        500
+ MaxActions               3.33         6.03       6.69       5.01
+ Hit                       10           18         16         15
+ Evasion                   10           14         12         13
+ Resistance                10           10         10         16
+
+ DPS (per minute)          167          543        535        376
+ Kill target (total)       1000         1000       1000       1000
+ Kill time (seconds)       ~360         ~110       ~112       ~160
+
+ Survive burst?            No           No (28)   Barely     Yes(181)
+ Post-burst lifespan       -            dead@76   dead@76    dead@112
+ At Lust=0% win rate:     ~5%          ~0%        ~5%        ~20%
+
+ After opponent Mindless (Lust=100%): kill target becomes 500
+ Kill time (Mindless phase): ~55s       ~55s       ~56s       ~80s
+
+====================================================================
+ HONEST WIN CONDITION SUMMARY
+====================================================================
+ Against Pen=24 with no Resistance build on your side:
+   - Kill target = 1000 (500 Mind + 500 Body)
+   - Kill time for best offensive build = ~110 seconds
+   - Incoming damage over 110s = more than your Mind+Body can absorb
+   - Result: you die before killing them
+
+ Against Pen=24 with Res=16 (Survivor):
+   - Survive the 4-spell burst (barely, Body=181 after)
+   - Kill time increases to 160s (they regen 2 spells during this)
+   - Those 2 regen spells + post-burst attacks kill you at t=112
+   - Result: still die 48 seconds short
+
+ THE REAL COUNTER:
+   Raise opponent Lust to 100% (Mindless) via lust spells in Phase A.
+   Once Mindless, kill target = 500, achievable in ~55-80s.
+   During lust buildup phase, they are still a threat.
+   Surviving phase A is the key challenge.
+
+   Best survival during Phase A = Survivor build (most total HP).
+   Best Phase B kill speed = Striker build (highest DPS).
+   Hybrid recommendation: Survivor stats + use all early spells for Lust.
+
+====================================================================
+ FIRST-TO-ZERO-BODY WINS — KEY RULES
+====================================================================
+ 1. Damage routes (all, attacks and spells): Mind first, then Body.
+ 2. Block (100-Lust%) applies to all incoming damage including attacks.
+ 3. Mindless at Mind=0 or Lust=100%. Then everything hits Body.
+ 4. To kill someone: deal their MaxMind + MaxBody total damage.
+ 5. Opponent MaxMind = 500, MaxBody = 500 = 1000 kill target.
+ 6. Lust spells vs blocking opponent: 50% chance to apply per cast.
+ 7. Raising their Lust is the single most effective strategy:
+    cuts their effective kill target from 1000 to 500 at Lust=100%.

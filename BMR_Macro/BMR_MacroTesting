@@ -1,0 +1,322 @@
+# [smallcaps]{[color]{gunmetal}{Macros}}
+
+Macros are programmable action bar buttons that allow players to customize their user-interface and create advanced interactions. Common use cases include combining spells with messages, creating spells with prepared input, and adding buttons for opening the inventory and other screens on mobile devices.
+
+### [smallcaps]{[color]{gunmetal}{Chat commands}}
+[code]{/say Prepare to be shrunk!
+/cast Shrink}
+[br]
+[table]{equalcells}
+[thead]{Chat commands}{Channel}
+[tbody]{`/say` or `/s`}{Say}
+[tbody]{`/emote`, `/em`, `/me`, or `/e`}{*Emote*}
+[tbody]{`/ooc` or `/o`}{(Out-of-character)}
+
+When using a chat command, the message following the command will be send to its associated channel. Any line not starting with `/` or `#` will be send as a message to the local chat channel.
+
+### [smallcaps]{[color]{gunmetal}{Use items}}
+[table]{equalcells, noborder}
+[tbody]{[code]{/use Sol Talisman
+/use Crown, Coin Toss}}
+
+[table]{equalcells, noborder}
+[tbody]{[code]{/use <base item name> [, <action name>]
+/use <equipment slot id> [, <action name>]
+/use <inventory coordinates> [, <action name>]}}{Uses the given item. An optional action name can be given to use a specific action from the standard dropdown}
+
+[table]{equalcells}
+[thead]{Examples}{Description}
+[tbody]{`/use 0`}{Any one whole number will be treated as an equipment slot id and will use the item located in the given equipment slot}
+[tbody]{`/use 0 0`}{Any two whole numbers will be treated as inventory coordinates and will use the item located at the given inventory coordinates. `0 0` is the top-left position in the inventory, and the heirloom container starts at `0 5`}
+[tbody]{`/use Chromatic Dye`}{Base item names will use the first available item with that base}
+[tbody]{`/use Onahole(99239)`}{You can add a numeric item id between `()` immediately after the base item name to specify an exact item with the base name to use}
+
+The base name of an item is the name of the item without any prefixes or suffixes caused by enchantments and other properties.
+
+Clicking an item using the Left Mouse Button while holding down the Shift key, or pressing the input field while holding an item will insert its base name. Items that don't stack and cannot be sold or bought in bulk on the item market will also have their id added.
+
+###### [smallcaps]{[color]{gunmetal}{When no action is given — Mouse or touch input}}
+* If the item only has one action and it's labelled `Use`, it will attempt to use the action. 
+* If the item has any actions not labelled `Use`, it will show the standard dropdown.
+
+###### [smallcaps]{[color]{gunmetal}{When no action is given — Key input}}
+* It will attempt to use the action labelled `Use`.
+
+[details]{[smallcaps]{[color]{gunmetal}{###### List of equipment slot ids}}}{
+[table]{equalcells}
+[thead]{Label}{Equipment slot id}
+[tbody]{Head}{0}
+[tbody]{Shirt}{1}
+[tbody]{Pants}{2}
+[tbody]{Shoes}{3}
+[tbody]{Undershirt}{4}
+[tbody]{Underpants}{5}
+[tbody]{Gloves}{6}
+[tbody]{Bra}{7}}
+
+### [smallcaps]{[color]{gunmetal}{Spellcasting}}
+[table]{equalcells, noborder}
+[tbody]{[code]{/cast Breast Enlargement
+/cast Impair Speech: Bimbo
+/cast Change Name, Bimbo
+/cast Restore Self (Immediate)}}
+
+[table]{equalcells, noborder}
+[tbody]{[code]{/cast <fully qualified spell name> [, <input>]}}{Casts the spell with the given name and optional input}
+[tbody]{[code]{/cast Use Pussy(99239)}}{You can add a numeric item id between `()` immediately after the spell name to target an item-specific spell or action}
+
+Clicking a spell using the Left Mouse Button while holding down the Shift key, or pressing the input field while holding a spell will insert the fully qualified name of the spell.
+
+[color]{bronze}{A macro will stop computing after it attempts to cast a spell, so make sure you place any other commands and messages before}
+
+###### [smallcaps]{[color]{gunmetal}{Change Name}}
+[code]{/cast Change Name, <new name>}
+* If no new name is given, you will be prompted to write a new name when the spell is cast.
+* If a new name is given, it will attempt to cast the spell with the new name as input.
+* The spell will fail if the input is an invalid name.
+
+###### [smallcaps]{[color]{gunmetal}{Change Height}}
+[code]{/cast Change Height, <new height>}
+* If no new height is given, you will be prompted to select a new height when the spell is cast.
+* If a new height is given, it will attempt to cast the spell with the new height as input.
+* Input will clamp to lowest and highest possible height if outside the valid range.
+* Input can be `x` for centimeters or `x'y"` for feet and inches.
+
+###### [smallcaps]{[color]{gunmetal}{Transform Item}}
+[code]{/cast Transform Item [, <base item name | equipment slot id | inventory coordinates>, <option name>]}
+* If no input is given or no item is found, it will open the Transform Item screen normally.
+* If an option name is given, it will attempt to immediately transform the item using an option matching the name.
+
+###### [smallcaps]{[color]{gunmetal}{Enchant Item}}
+[code]{/cast Enchant Item [, <base item name | equipment slot id | inventory coordinates>]}
+* If no input is given or no item is found, opens the Enchant Item screen normally.
+
+###### [smallcaps]{[color]{gunmetal}{Conjure Item}}
+[code]{/cast Conjure Item [, <base item name | equipment slot id>, <appearance>, <accessory>, <color>]}
+* If no input is given or no item or equipment slot is found, opens the Conjure Item screen normally.
+* If an appearance is given, it will attempt to immediately conjure an item with the given appearance and optional accessory and color input.
+* The accessory and color input can be given out of order, allowing you to list a color input before or without an accessory input.
+* The appearance, accessory, and color input must match an option available to you. `Mark` and `Symbol` can be omitted from accessory input.
+* Items that aren't equipped are ignored.
+
+### [smallcaps]{[color]{gunmetal}{Target modifiers}}
+
+You can add target modifiers after the command within `[]` to change the target of the action.
+
+[table]{equalcells, noborder}
+[tbody]{[code]{/cast [@player] Enlarge}}{Cast Enlarge on yourself}
+[tbody]{[code]{/cast [@opponent] Enlarge}}{Cast Enlarge on your opponent}
+
+[details]{[smallcaps]{[color]{gunmetal}{###### List of target modifiers}}}{
+[table]{equalcells}
+[thead]{Target modifier}{Description}
+[tbody]{`@player`}{Target your character}
+[tbody]{`@opponent`}{Target your opponent}
+[tbody]{`@owner`}{Target your owner}
+[tbody]{`@mouseover`}{Target the character underneath the mouse cursor}}
+
+By default, spells with a target will attempt to target your opponent before you. Spells dragged to an action bar from the spell list targeting your character will explicitly be selfcast instead of attempting to target an opponent first.
+
+### [smallcaps]{[color]{gunmetal}{Conditionals}}
+
+Conditionals can be added and combined with target modifiers after the command within `[]` to control whether an action should take place.
+
+All conditions within the same `[]` must be true for an action to be executed, and multiple groups of conditionals can be added for the same command.
+
+[table]{equalcells, noborder}
+[tbody]{[code]{/cast [@opponent, exists][@player] Shrink}}{Casts Shrink on your opponent, if you have an opponent. Otherwise, it casts Shrink on you}
+[tbody]{[code]{/cast [@opponent, exists, @player] Shrink}}{Checks to see if you have an opponent, then changes target to yourself and casts Shrink and you}
+[tbody]{[code]{/cast [@opponent, exists] Shrink}}{Casts Shrink on your opponent, if you have an opponent. Otherwise, it does nothing}
+[tbody]{[code]{/cast [@player, mod:shift][@opponent] Shrink}}{Casts Shrink on yourself if the Shift key is pressed. Otherwise, attempts to cast Shrink on your opponent}
+[tbody]{[code]{/cast [resting, nomod] Restore Self}}{Only attempts to cast Restore Self if you are resting and no modifier key is pressed}
+[tbody]{[code]{/use [@opponent, mouse] 0}}{If the macro is triggered using mouse or touch input, will attempt to display a dropdown with use options for an opponent's head slot}
+
+Any conditional can be prefixed with `no` to __inverse__ its condition.
+
+Conditionals that consider a target will use the first target modifier to the left of it and default to the player's character if no target modifier has been declared.
+
+[details]{[smallcaps]{[color]{gunmetal}{###### List of conditionals}}}{
+[table]{equalcells}
+[thead]{Target modifier}{Description}
+[tbody]{`exists`}{True if the target was found}
+[tbody]{`mindless`}{True if the target is mindless}
+[tbody]{`defeated`}{True if the target has been defeated}
+[tbody]{`combat`}{True if the player is in combat}
+[tbody]{`resting`}{True if the player is resting}
+[tbody]{`mod`[br]`mod:ctrl`[br]`mod:alt`[br]`mod:shift`}{True if the Ctrl, Alt, or Shift key is pressed[br]True if the Ctrl key is pressed[br]True if the Alt key is pressed[br]True if the Shift key is pressed}
+[tbody]{`mouse`[br]`mouse:0`[br]`mouse:2`}{True if triggered by any mouse or touch input[br]True if triggered by mouse button 0 or any touch input[br]True if triggered by mouse button 2}
+[tbody]{`pussy`[br]`pussy:0`}{True if the target has a Pussy Desire. A person without a vagina or the possiblity of growing a vagina won't have a Pussy Desire. Content filters and sexual preferences can affect which desires are active.}
+[tbody]{`bondage:1`[br]`breasts:1`[br]`butt:1`[br]`cock:1`[br]`cum:1`[br]`mouth:1`[br]`pet:1`[br]`pussy:1`}{True if the target's Bondage Desire >= 1[br]True if the target's Breasts Desire >= 1[br]True if the target's Butt Desire >= 1[br]True if the target's Cock Desire >= 1[br]True if the target's Cum Desire >= 1[br]True if the target's Mouth Desire >= 1[br]True if the target's Pet Desire >= 1[br]True if the target's Pussy Desire >= 1}
+
+`mouse:0` is usually the Left Mouse Button, and `mouse:2` is usually the Right Mouse Button. Any positive integer can be used in place of `0`, `1`, and `2`, and touch is only considered when `0` or no button is specified.}
+
+### [smallcaps]{[color]{gunmetal}{Meta commands}}
+
+[table]{equalcells, noborder}
+[tbody]{[code]{#show}}{Affects the icon of a macro}
+[tbody]{[code]{#showtooltip}}{Affects the icon and hover tooltip of a macro}
+[tbody]{[code]{#suppresserrors}}{Prevents macro errors from being displayed}
+
+[table]{equalcells}
+[thead]{Examples}{Description}
+[tbody]{`#show`[br]`#showtooltip`}{Attempts to show the spell or item of the first command following the meta command. Ignores all commands that fail their condition check}
+[tbody]{`#show 0`[br]`#showtooltip 7`[br]`#showtooltip [@opponent] 0`}{Any one whole number will be treated as an equipment slot id and will show the item located in the given equipment slot. Can be used with a target modifier to show the equipped item of another player's character}
+[tbody]{`#show 0 0`[br]`#showtooltip 0 5`}{Any two whole numbers will be treated as inventory coordinates and will show the item located at the given inventory coordinates}
+[tbody]{`#show Breast Enlargement`[br]`#showtooltip Change Appearance: Feminine`}{Fully qualified spell names will show the given spell}
+[tbody]{`#show Chromatic Dye`[br]`#showtooltip Sol Talisman`}{Base item names will show the first available item with that base. For items that stack or can be sold and bought in bulk on the item market, it will show the total number of that item in your inventory}
+[tbody]{`#show Catsuit(Spell)`[br]`#showtooltip Onahole(Spell)`}{Some spells may share a name with items in your inventory. If so, you can append `(Spell)` to the name to explicitly treat the name as that of a spell. Otherwise, it will prioritize an item with the given name}
+[tbody]{`#show Onahole(5159)`[br]`#showtooltip Catsuit(99239)`}{Shows a specific item with the given base name and numeric item id}
+[br]
+1. The icon of a macro is only altered if it uses the default `?` icon.
+2. If you don't know the spell, don't have the item, or the command otherwise fails to find a target, the macro will use the default `?` icon.
+3. If a valid target disappears, the macro will use a darker version of the icon for the latest known target. This could be when targeting an equipment slot, and the equipment was removed.
+4. The icon for the latest known target of a macro is stored locally between sessions to prevent macros with situational targets from reverting back to the default `?` icon between sessions.
+5. A macro that doesn't have the `#showtooltip` meta command will show the macro name as tooltip, if any.
+
+###### [smallcaps]{[color]{gunmetal}{Comments}}
+Any line that starts with `#` and isn't immediately followed by `show` or `showtooltip` are disregarded and can be used to write comments for a macro.
+
+### [smallcaps]{[color]{gunmetal}{UI commands}}
+[table]{equalcells}
+[thead]{Examples}{Description}
+[tbody]{`/open macros`}{Opens the macro screen}
+[tbody]{`/open inventory`}{Opens your inventory}
+[tbody]{`/open skills`}{Opens the skills screen}
+[tbody]{`/open social`}{Opens the social screen}
+[tbody]{`/open location`}{Opens the location screen}
+[tbody]{`/open settings`}{Opens the settings screen}
+[tbody]{`/open market`}{Opens the item market}
+[tbody]{`/open chat`}{Opens the local chat box}
+[tbody]{`/open spells`[br]`/open [@player] spells`[br]`/open [@opponent] spells`}{Opens your spellbook[br]Shows a list of spells targeting you[br]Shows a list of spells targeting your opponent}
+[tbody]{`/open actions`[br]`/open [@opponent] actions`}{Shows a list of actions[br]Shows a list of actions targeting your opponent}
+[tbody]{`/open transform`[br]`/open [@player] transform`[br]`/open [@owner] transform`}{Shows a list of transformation actions you can do to your opponent[br]Shows a list of transformation actions that can be done to you[br]Shows a list of transformation actions that can be done to your owner}
+[tbody]{`/open messages`[br]`/open [@opponent] messages`[br]`/open [@owner] messages`}{Opens private messages[br]Opens a private chat with your opponent[br]Opens a private chat with your owner}
+[tbody]{`/open profile`[br]`/open profile <username>`[br]`/open [@opponent] profile`[br]`/open [@owner] profile`}{Opens your profile[br]Opens the profile with the given username[br]Opens your opponent's profile[br]Opens your owner's profile}
+[tbody]{`/inspect`[br]`/inspect [@opponent]`[br]`/inspect [@owner]`}{Opens your equipment screen[br]Inspects your opponent[br]Inspects your owner}
+[tbody]{`/rl`[br]`/reload`[br]`/reloadui`}{Reloads the game}
+[tbody]{`/hide`[br]`/hideui`}{Toggles the user interface. Pressing the game screen will reveal the user interface}
+
+### [smallcaps]{[color]{gunmetal}{Equipment commands}}
+[table]{equalcells}
+[thead]{Examples}{Description}
+[tbody]{`/wear <equipment slot id | label>`[br]`/remove <equipment slot id | label>`}{You put on the item in the given equipment slot[br]You take off the item in the given equipment slot}
+
+[details]{[smallcaps]{[color]{gunmetal}{###### List of equipment slot ids}}}{
+[table]{equalcells}
+[thead]{Label}{Equipment slot id}
+[tbody]{Head}{0}
+[tbody]{Shirt}{1}
+[tbody]{Pants}{2}
+[tbody]{Shoes}{3}
+[tbody]{Undershirt}{4}
+[tbody]{Underpants}{5}
+[tbody]{Gloves}{6}
+[tbody]{Bra}{7}}
+
+### [smallcaps]{[color]{gunmetal}{Vocal command}}
+[table]{equalcells, noborder}
+[tbody]{[code]{/vocal <vocal id | label>}}{Performs the given vocal chat action. Labels are case-insensitive}
+
+[details]{[smallcaps]{[color]{gunmetal}{###### List of vocal ids}}}{
+[table]{equalcells}
+[thead]{Label}{Vocal id}
+[tbody]{Greet}{0}
+[tbody]{Thank}{1}
+[tbody]{Threaten}{2}
+[tbody]{Plead}{3}
+[tbody]{Flirt}{4}}
+
+### [smallcaps]{[color]{gunmetal}{Inserts}}
+
+[code]{/say Hi, my name is $name and I'm $height tall. Pleased to mee you, $opponent!}
+
+[table]{equalcells}
+[thead]{}{Player}{Opponent}{Mouseover}
+[tbody]{[smallcaps]{Name}}{$name or $n}{$opponent or $o}{$mouseover or $m}
+[tbody]{[smallcaps]{Names}}{$names or $ns}{$os}{$ms}
+[tbody]{[smallcaps]{Username}}{$username or $u}{$ou}{$mu}
+[tbody]{[smallcaps]{Height}}{$height or $h}{$oh}{$mh}
+
+`$` properties can be escaped by inserting an additional `$` in front of it. `$$h` will evaluate to `$h` instead of displaying your character's height.
+
+###### [smallcaps]{[color]{gunmetal}{Run custom scripts}}
+
+Players can use `${}` to run custom JS code inside a command and the computed value will be inserted in its place.
+
+1. The closing and opening `{}` must appear on the same line and the code inside can only be one line.
+2. The `${}` part will only run when the command is executed and cannot appear within `[]` for target modifiers and conditionals.
+4. If you don't want to insert a returned value, you must make sure the returned value isn't a string or number type value.
+5. You can write custom `$` properties inside `${}`, which will be kept for the duration of the login session.
+6. You cannot overwrite predefined `$` properties.
+
+[table]{equalcells, noborder}
+[tbody]{[code]{`${(2 + 2) && ''}`}}{Any script between `()` will never be inserted}
+[tbody]{[code]{`${$i = ($i || 0) + 1}`}}{Increments $i by one each time you run the command, and inserts the value in its place}
+
+[color]{bronze}{Running scripts could compromise your character and cause the loss of items. You should not accept custom scripts from any source you don't trust and all attempts to run a custom script will be aborted with a warning until you allow for them to run.}
+
+[code]{${!$i&&($c=false,$i=setInterval(()=>{let m,c=LOCATION.instance.combat;if(c!=$c)c?$t=Date.now():TEXT_LOG.instance.CombatMessage({message:`Encounter ended after ${(m=Math.floor((Date.now()-$t)/60000))?'':'<'}${m||1} minute${m>1?'s':''}`});$c=c},1000))&&''}}
+Example code for a macro that starts tracking the duration of encounters when triggered and posts the duration in minutes to your combat log after an encounter ends without informing other players.
+
+[code]{/cast Shrink ${($shrink = ($shrink || 0) + 1) && ''}
+# Move line underneath to separate macro for displaying the count. 
+${TEXT_LOG.instance.CombatMessage({message:`I have cast Shrink ${$shrink || 0} time${$shrink === 1 ? '' : 's'} this session`})}}
+Example code for a macro that counts the number of times Shrink was cast and a second macro that writes it to your combat log without informing other players.
+
+### [smallcaps]{[color]{gunmetal}{Run command}}
+[table]{equalcells}
+[thead]{Examples}{Description}
+[tbody]{`/run <macro name>`}{Runs the first macro it finds with the given name. Useful for chaining macros to create operations that exceed the character limit of a single macro}
+
+### [smallcaps]{[color]{gunmetal}{Useful macros}}
+
+[code]{#showtooltip Shrink
+/cast [@opponent, exists] Shrink}
+Casts a spell on your opponent if they exists. By default, spells with a target will attempt to target your opponent first, then target you if no opponent was found. This macro removes the risk of hitting yourself, and the explicit `#showtooltip Shrink` ensures the the icon and tooltip are displayed correctly for the spell, even when no valid target is found.
+
+[code]{#showtooltip Shrink
+/cast [@player, mod:shift][@opponent, exists] Shrink}
+A variant of the macro above, where holding down the Shift key will cause the spell to be selfcast.
+
+[code]{#showtooltip
+/cast [resting, nomod] Restore Self
+/cast [resting, mod] Soul Imprint
+/cast Attack}
+Restore Self and Soul Imprint can only be cast while resting, while Attack can only be used on an opponent. Since Attack is mutually exclusive to Restore Self and Soul Imprint, we can use the same macro for them and change the spell based on the situation.
+
+[code]{#showtooltip
+/cast [nocombat, nomod] Restore Self
+/cast [nocombat, mod] Soul Imprint
+/cast Attack}
+A variant of the macro above, where Restore Self and Soul Imprint are shown instead of Attack while out of combat and not resting.
+
+[code]{#showtooltip
+/cast [@opponent, mindless, nomod] Change Name
+/cast Stoke Libido}
+Since Change Name can only be cast on someone else when they are mindless, while Stoke Libido becomes less useful if your oppoonent is already mindless, we can combine these spells in a single macro.
+
+[code]{#showtooltip
+/cast [@opponent, defeated, nomod] Catsuit(Spell)
+/cast Smooth Skin}
+Catsuit is a special action that only becomes available after you have defeated your opponent. You could combine it with another spell you prefer to use before your opponent is defeated.
+
+[code]{#showtooltip [@opponent] 0
+/use [@opponent, exists, mouse:2] 0
+/cast [@opponent, exists, nomouse:2] Conjure Item 0}
+A macro that displays one of your opponent's equipment slots. Clicking the macro with the Right Mouse Button will reveal a dropdown with options similar to pressing the equipment slot directly, while any other mouse, touch, and key input will open the Conjure Item screen for the equipment slot. With eight of these you could see and interact with your opponent's equipment without having to inspect them.
+
+[code]{#showtooltip [@opponent, exists, nomod:shift][] 0
+/use [@opponent, exists, mouse:2, nomod:shift][mouse:2] 0
+/cast [@opponent, exists, nomouse:2, nomod:shift][nomouse:2] Conjure Item 0}
+A variant of the macro above that, where your own equipment slot will be displayed and targeted while you don't have an opponent or the Shift key is pressed.
+
+[code]{#showtooltip Cunnilingus
+/cast [@opponent, exists, pussy:3] Cunnilingus
+/cast [@opponent, exists, pussy:2] Finger Clit
+/cast [@opponent, exists, pussy:1] Pussy Petting
+/cast [@opponent, exists, pussy] Stoke Libido}
+Changes what action to take based on your opponent's Pussy Desire level. The macro does nothing if your opponent doesn't have a Pussy Desire.
+
+### [smallcaps]{[color]{gunmetal}{More commands}}
+
+You can write `/help` or `/emotes` in the in-game chat for a list of other useful commands.

