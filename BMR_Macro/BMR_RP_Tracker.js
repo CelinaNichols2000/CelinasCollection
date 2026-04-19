@@ -1,24 +1,24 @@
 // BMR RP Tracker - Zeichnet RP-Nachrichten auf und exportiert sie als formatierte Textdatei
 // Verwendung: In der Browser-Console (F12) auf BMR ausführen
 
-(function() {
+(function () {
     'use strict';
-    
+
     const CONFIG = {
         YOUR_CHARACTER_NAME: 'Celina',
         SAVE_DIRECTORY: 'C:\\Users\\PC\\OneDrive\\Dokumente\\BMR_RP_Transcripts',
     };
-    
+
     let isTracking = false;
     let messages = [];
     let sessionStart = null;
     let partnerInfo = null;
     let originalLocalChatMessage = null;
-    
+
     function createUI() {
         const existing = document.getElementById('bmr-tracker-ui');
         if (existing) existing.remove();
-        
+
         const container = document.createElement('div');
         container.id = 'bmr-tracker-ui';
         container.innerHTML = `
@@ -33,7 +33,7 @@
                 <button id="copy-3" class="tracker-btn copy" disabled>3</button>
             </div>
         `;
-        
+
         const style = document.createElement('style');
         style.textContent = `
             #bmr-tracker-ui {
@@ -100,17 +100,17 @@
                 50% { opacity: 0.6; }
             }
         `;
-        
+
         document.head.appendChild(style);
         document.body.appendChild(container);
-        
+
         document.getElementById('copy-1').addEventListener('click', () => copyLastPartnerMessages(1));
         document.getElementById('copy-2').addEventListener('click', () => copyLastPartnerMessages(2));
         document.getElementById('copy-3').addEventListener('click', () => copyLastPartnerMessages(3));
         document.getElementById('tracker-start').addEventListener('click', startTracking);
         document.getElementById('tracker-stop').addEventListener('click', stopTracking);
     }
-    
+
     function getPartnerInfo() {
         try {
             if (typeof GAME_MANAGER !== 'undefined' && GAME_MANAGER.instance?.opponent) {
@@ -123,7 +123,7 @@
                     };
                 }
             }
-            
+
             if (typeof CHARACTER_MANAGER !== 'undefined') {
                 const characters = CHARACTER_MANAGER.characters || [];
                 for (const char of characters) {
@@ -132,7 +132,7 @@
                     }
                 }
             }
-            
+
             if (typeof ROOM !== 'undefined' && ROOM.opponent) {
                 const opp = ROOM.opponent;
                 return { username: opp.username || opp.name || 'Unknown', characterName: opp.name || opp.username || 'Unknown', token: opp.token };
@@ -142,30 +142,31 @@
         }
         return null;
     }
-    
+
     function hookTextLog() {
         if (typeof TEXT_LOG === 'undefined' || !TEXT_LOG.instance) {
             setTimeout(hookTextLog, 500);
             return;
         }
-        
+
         originalLocalChatMessage = TEXT_LOG.instance.LocalChatMessage;
-        
-        TEXT_LOG.instance.LocalChatMessage = function(chatData, yourUsername, owner) {
+
+        TEXT_LOG.instance.LocalChatMessage = function (chatData, yourUsername, owner) {
             const result = originalLocalChatMessage.apply(this, arguments);
-            
+
             if (isTracking && chatData?.message && (chatData.channel === 0 || chatData.channel === undefined)) {
                 const isYourMessage = chatData.sender === yourUsername || !chatData.sender || chatData.sender === CONFIG.YOUR_CHARACTER_NAME;
                 captureMessage(chatData.sender || 'Unknown', chatData.message, isYourMessage);
             }
-            
+
             return result;
         };
     }
-    
+
+
     function captureMessage(sender, text, isYourMessage) {
         if (!text || typeof text !== 'string') return;
-        
+
         let author;
         if (isYourMessage) {
             author = CONFIG.YOUR_CHARACTER_NAME;
@@ -173,32 +174,32 @@
             if (!partnerInfo) partnerInfo = { username: sender, characterName: sender, token: null };
             author = partnerInfo.characterName;
         }
-        
+
         messages.push({ author, text: text.trim(), timestamp: new Date() });
         updateMessageCount();
     }
-    
+
     function updateMessageCount() {
         const countElement = document.getElementById('tracker-count');
         if (countElement) countElement.textContent = messages.length;
-        
+
         const partnerMessages = messages.filter(m => m.author !== CONFIG.YOUR_CHARACTER_NAME);
         document.getElementById('copy-1').disabled = partnerMessages.length < 1;
         document.getElementById('copy-2').disabled = partnerMessages.length < 2;
         document.getElementById('copy-3').disabled = partnerMessages.length < 3;
     }
-    
+
     function copyLastPartnerMessages(count) {
         const partnerMessages = messages.filter(m => m.author !== CONFIG.YOUR_CHARACTER_NAME);
-        
+
         if (partnerMessages.length < count) {
             alert('⚠️ Keine Partner-Nachricht an dieser Position!');
             return;
         }
-        
+
         const message = partnerMessages[partnerMessages.length - count];
         const textToCopy = message.text;
-        
+
         navigator.clipboard.writeText(textToCopy).then(() => {
             const btn = document.getElementById(`copy-${count}`);
             const originalText = btn.textContent;
@@ -209,60 +210,60 @@
             alert('❌ Kopieren fehlgeschlagen!');
         });
     }
-    
+
     function startTracking() {
         if (isTracking) return;
-        
+
         isTracking = true;
         sessionStart = new Date();
         messages = [];
         partnerInfo = getPartnerInfo();
-        
+
         document.getElementById('tracker-start').disabled = true;
         document.getElementById('tracker-stop').disabled = false;
         document.getElementById('tracker-count').classList.add('recording');
         updateMessageCount();
     }
-    
+
     function stopTracking() {
         if (!isTracking) return;
-        
+
         isTracking = false;
         document.getElementById('tracker-start').disabled = false;
         document.getElementById('tracker-stop').disabled = true;
         document.getElementById('tracker-count').classList.remove('recording');
-        
+
         if (messages.length > 0) downloadTranscript();
         else alert('⚠️ Keine Nachrichten aufgezeichnet!');
     }
-    
+
     function formatTime(date) {
         return `${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`;
     }
-    
+
     function formatDate(date) {
         const day = String(date.getDate()).padStart(2, '0');
         const month = String(date.getMonth() + 1).padStart(2, '0');
         const year = date.getFullYear();
         return `${day}.${month}.${year}`;
     }
-    
+
     function calculateDuration() {
         if (!sessionStart || messages.length === 0) return 'N/A';
-        
+
         const lastMessage = messages[messages.length - 1].timestamp;
         const durationMs = lastMessage - sessionStart;
         const hours = Math.floor(durationMs / 3600000);
         const minutes = Math.floor((durationMs % 3600000) / 60000);
-        
+
         if (hours > 0) return `${hours}h ${minutes}m`;
         return `${minutes}m`;
     }
-    
+
     function generateTranscript() {
         const partnerName = partnerInfo?.characterName || 'Unknown';
         const username = partnerInfo?.username || 'Unknown';
-        
+
         const header = `
 ================================================================================
                           ROLEPLAY TRANSCRIPT
@@ -278,44 +279,44 @@ Dauer:              ${calculateDuration()}
 ================================================================================
 
 `;
-        
+
         let content = '';
         messages.forEach((msg, index) => {
             if (index > 0) content += '\n';
             content += `${msg.author}: ${msg.text}\n`;
         });
-        
+
         const footer = `
 ================================================================================
                           END OF TRANSCRIPT
 ================================================================================
 Erstellt am ${formatDate(new Date())} um ${formatTime(new Date())} Uhr
 `;
-        
+
         return header + content + footer;
     }
-    
+
     async function downloadTranscript() {
         const transcript = generateTranscript();
         const partnerName = partnerInfo?.characterName || 'Unknown';
         const dateStr = formatDate(sessionStart).replace(/\./g, '-');
         const timeStr = formatTime(sessionStart).replace(/:/g, '-');
         const filename = `RP_${CONFIG.YOUR_CHARACTER_NAME}_${partnerName}_${dateStr}_${timeStr}.txt`;
-        
+
         try {
             const handle = await window.showSaveFilePicker({
                 suggestedName: filename,
                 types: [{ description: 'Text Files', accept: { 'text/plain': ['.txt'] } }]
             });
-            
+
             const writable = await handle.createWritable();
             await writable.write(transcript);
             await writable.close();
-            
+
             alert(`✅ Transcript gespeichert!\n\n📁 ${filename}\n📊 ${messages.length} Nachrichten\n⏱️ ${calculateDuration()}`);
         } catch (error) {
             if (error.name === 'AbortError') return;
-            
+
             const blob = new Blob([transcript], { type: 'text/plain;charset=utf-8' });
             const link = document.createElement('a');
             link.href = URL.createObjectURL(blob);
@@ -325,7 +326,7 @@ Erstellt am ${formatDate(new Date())} um ${formatTime(new Date())} Uhr
             document.body.removeChild(link);
         }
     }
-    
+
     createUI();
     hookTextLog();
     console.log('[BMR Tracker] Bereit!');
