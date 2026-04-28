@@ -536,7 +536,8 @@
 
 <script>
 /* ═══ STATE ══════════════════════════════════════ */
-let lvl = parseInt(localStorage.getItem('mf_tease')||'0');
+let lvl = Math.min(parseInt(localStorage.getItem('mf_tease')||'0'), 1);
+localStorage.setItem('mf_tease', String(lvl));
 
 // Initialize localStorage flag if not set
 try {
