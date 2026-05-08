@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lena's Tack Room — Absorbed</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <script>(function(){const s=JSON.parse(localStorage.getItem('farmState')||'{}');if(s.trappedUntil&&s.trappedUntil>Date.now()){}else{localStorage.removeItem('farmState');window.location.href='../../index.html';}})()</script>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{background:linear-gradient(135deg, #050c14 0%, #020810 100%);color:#fff;font-family:'Poppins',sans-serif;min-height:100vh;overflow-x:hidden;}
+        .main-container{display:flex;flex-direction:column;align-items:center;padding:20px;gap:28px;}
+        .timer-display{font-family:'Orbitron',monospace;font-size:3.2rem;font-weight:700;color:#5DADE2;text-align:center;text-shadow:0 0 28px #5DADE2,0 0 55px rgba(0,0,0,0.5);letter-spacing:7px;margin-bottom:8px;}
+        .timer-label{font-size:13px;color:#9a8878;letter-spacing:2px;text-transform:uppercase;text-align:center;margin-top:-6px;}
+        .main-panel{display:grid;grid-template-columns:1fr 360px;gap:36px;max-width:1100px;width:100%;align-items:start;}
+        .left-panel{display:flex;flex-direction:column;align-items:center;gap:18px;}
+        .image-container{position:relative;width:100%;max-width:560px;height:460px;border-radius:20px;overflow:hidden;box-shadow:0 18px 55px rgba(0,0,0,0.5);border:2px solid #5DADE266;}
+        .tf-image{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.8s ease;}
+        .tf-image.active{opacity:1;}
+        .right-panel{display:flex;flex-direction:column;gap:18px;}
+        .item-header{text-align:center;}
+        .item-title{font-family:'Orbitron',sans-serif;font-size:1.6rem;font-weight:700;color:#5DADE2;text-shadow:0 0 18px #5DADE299;margin-bottom:7px;letter-spacing:2px;}
+        .category-badge{background:linear-gradient(45deg,#5DADE2,#85C1E9);color:#fff;padding:7px 18px;border-radius:50px;font-size:0.85rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;box-shadow:0 4px 16px #5DADE266;}
+        .mind-break-container{background:#5DADE21a;border:2px solid #5DADE266;border-radius:18px;padding:18px;}
+        .mind-break-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px;}
+        .mind-break-title{font-family:'Orbitron',sans-serif;font-size:0.95rem;color:#85C1E9;font-weight:700;letter-spacing:2px;text-transform:uppercase;}
+        .mind-break-percentage{font-family:'Orbitron',sans-serif;font-size:2rem;font-weight:700;color:#5DADE2;}
+        .mind-break-bar{height:18px;background:rgba(0,0,0,0.6);border-radius:10px;overflow:hidden;border:1px solid #5DADE255;}
+        .mind-break-fill{height:100%;background:linear-gradient(90deg,#5DADE2,#85C1E9);transition:width 0.6s ease;border-radius:10px;box-shadow:0 0 18px #5DADE2cc;}
+        .mind-break-stages{display:flex;justify-content:space-between;margin-top:10px;font-size:0.78rem;color:#9a8878;font-weight:600;letter-spacing:1px;}
+        .voice-box{background:rgba(5,2,8,0.88);border:1px solid #5DADE244;border-radius:12px;padding:16px;font-size:14px;color:#d0c0b0;line-height:1.7;font-style:italic;min-height:80px;}
+        .voice-name{font-family:'Orbitron',sans-serif;font-size:11px;color:#5DADE2;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-style:normal;}
+        .action-buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+        .action-btn{font-family:'Poppins',sans-serif;font-size:0.88rem;font-weight:700;padding:13px 14px;border-radius:50px;border:none;cursor:pointer;transition:all 0.25s ease;text-transform:uppercase;letter-spacing:1px;}
+        .action-btn:hover{transform:translateY(-2px) scale(1.04);filter:brightness(1.12);}
+        .btn-a{background:linear-gradient(45deg,#5DADE2,#85C1E9);color:#fff;box-shadow:0 6px 20px #5DADE266;}
+        .btn-b{background:linear-gradient(45deg,#8B4513,#A0522D);color:#fff;box-shadow:0 6px 20px #8B451366;}
+        .btn-c{background:linear-gradient(45deg,#D4A017,#E6B800);color:#000;box-shadow:0 6px 20px #D4A01766;}
+        .btn-d{background:linear-gradient(45deg,#E91E8C,#5DADE2);color:#fff;box-shadow:0 6px 20px #E91E8C66;}
+        .free-btn{display:none;width:100%;padding:16px;font-family:'Orbitron',sans-serif;font-size:1rem;font-weight:700;background:linear-gradient(135deg,#4CAF50,#8BC34A);color:#fff;border:none;border-radius:12px;cursor:pointer;letter-spacing:2px;text-transform:uppercase;box-shadow:0 0 30px rgba(76,175,80,0.6);}
+        .lower-section{max-width:980px;width:100%;}
+        details summary{font-family:'Orbitron',sans-serif;font-size:1.4rem;font-weight:700;color:#5DADE2;padding:18px;list-style:none;background:#5DADE21a;border-radius:16px;border:2px solid #5DADE255;text-align:center;text-shadow:0 0 12px #5DADE2;cursor:pointer;margin-top:20px;}
+        .stall-status{padding:22px;background:rgba(5,2,8,0.9);border:1px solid #5DADE233;border-radius:0 0 16px 16px;}
+        .stall-status p{color:#c0b0a0;line-height:1.7;margin-bottom:14px;}
+        .memory-fragment{margin-bottom:6px;border-radius:8px;overflow:hidden;background:rgba(10,5,12,0.85);border:1px solid #5DADE222;}
+        .memory-trigger{padding:13px 18px;cursor:pointer;font-size:13px;font-weight:700;color:#b0a0c0;letter-spacing:1px;background:#5DADE20d;border-left:4px solid #5DADE2;transition:all 0.2s;}
+        .memory-trigger:hover{background:#5DADE222;color:#fff;}
+        .memory-content{display:none;padding:18px;background:rgba(3,1,5,0.95);font-style:italic;color:#c0b0a8;line-height:1.7;font-size:14px;}
+        .memory-content.active{display:block;}
+        .char-speak{color:#85C1E9!important;font-weight:700;font-style:normal;}
+        @media(max-width:700px){.main-panel{grid-template-columns:1fr;}.image-container{height:280px;max-width:100%;}}
+    </style>
+</head>
+<body>
+<div class="main-container">
+    <div class="timer-display" id="timerDisplay">00:00:00</div>
+    <div class="timer-label">time remaining with lena drake</div>
+
+    <div class="main-panel">
+        <div class="left-panel">
+            <div class="image-container">
+                <img src="https://via.placeholder.com/560x460/0a0210/5DADE2?text=Stage+1" class="tf-image active" data-stage="0">
+                <img src="https://via.placeholder.com/560x460/0a0210/5DADE2?text=Stage+2" class="tf-image" data-stage="1">
+                <img src="https://via.placeholder.com/560x460/0a0210/5DADE2?text=Stage+3" class="tf-image" data-stage="2">
+                <img src="https://via.placeholder.com/560x460/0a0210/5DADE2?text=Stage+4" class="tf-image" data-stage="3">
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="item-header">
+                <h1 class="item-title">Lena Drake's Absorbed</h1>
+                <div class="category-badge">Stables — Inanimate — Absorbed</div>
+            </div>
+            <div class="mind-break-container">
+                <div class="mind-break-header">
+                    <div class="mind-break-title">CONDITIONING</div>
+                    <div class="mind-break-percentage" id="mindBreakPct">0%</div>
+                </div>
+                <div class="mind-break-bar">
+                    <div class="mind-break-fill" id="mindBreakFill" style="width:0%"></div>
+                </div>
+                <div class="mind-break-stages"><span>CONTACT</span> <span>BOUNDARY</span> <span>DISSOLVED</span> <span>COMPLETE</span></div>
+            </div>
+            <div class="voice-box">
+                <div class="voice-name">Lena Drake</div>
+                <div id="voiceText">Palms flat on the seat. The absorption works through contact and proceeds inward from there.</div>
+            </div>
+            <div class="action-buttons">
+                <button class="action-btn btn-a" onclick="doAction('resist')">RESIST</button>
+                <button class="action-btn btn-b" onclick="doAction('feel')">FEEL INWARD</button>
+                <button class="action-btn btn-c" onclick="doAction('find')">FIND THE OTHER</button>
+                <button class="action-btn btn-d" onclick="doAction('settle')">SETTLE</button>
+            </div>
+            <button class="free-btn" id="freeBtn" onclick="setFree()">You Are Free — Leave</button>
+        </div>
+    </div>
+
+    <div class="lower-section">
+        <details>
+            <summary>Your Life Here</summary>
+            <div class="stall-status">
+                <p id="statusText">Your palms are on the leather. The boundary is becoming unclear.</p>
+                <div id="memoryFragments">
+                    <div class="memory-fragment" data-stage="0">
+                        <div class="memory-trigger" onclick="toggleMemory(0)">#1 — CONTACT</div>
+                        <div class="memory-content"><span class="char-speak">Lena: "Put both hands flat on the seat. Don't pull away when you feel it starting."</span> Your palms on the leather. The cold warmth traveling from your hands into the leather, or from the leather into your hands. Both simultaneously.</div>
+                    </div>
+                    <div class="memory-fragment" data-stage="1">
+                        <div class="memory-trigger" onclick="toggleMemory(1)">#2 — BOUNDARY</div>
+                        <div class="memory-content">The boundary between where you end and the saddle begins is immediately and profoundly unclear. You look at your hands and the distinction between skin and leather is: dissolving. <span class="char-speak">"Good. The integration has started."</span></div>
+                    </div>
+                    <div class="memory-fragment" data-stage="2">
+                        <div class="memory-trigger" onclick="toggleMemory(2)">#3 — PRESENCE</div>
+                        <div class="memory-content">Someone else is here. Two months. They have settled. The warmth of them is in the leather that you are becoming part of. They find you before you find them. A recognition without words. <span class="char-speak">"You won't be alone,"</span> Lena said. She was right.</div>
+                    </div>
+                    <div class="memory-fragment" data-stage="3">
+                        <div class="memory-trigger" onclick="toggleMemory(3)">#4 — DIFFUSE</div>
+                        <div class="memory-content">The awareness is everywhere and nowhere. You are the saddle from inside. The texture of the seat. The smell of your own leather. The stitch pattern you can feel from within. You are complete. <span class="char-speak">"Full integration,"</span> Lena says. <span class="char-speak">"Seamless."</span></div>
+                    </div>
+                    <div class="memory-fragment" data-stage="4">
+                        <div class="memory-trigger" onclick="toggleMemory(4)">#5 — TOGETHER</div>
+                        <div class="memory-content">Two of you, now, in the leather. You have not spoken — speaking is not how this works. But you know each other. You share the same warmth. When the riders come, you receive them together. You are used. You are returned. You are the saddle. You are home.</div>
+                    </div>
+                </div>
+            </div>
+        </details>
+    </div>
+</div>
+<script>
+    const state = JSON.parse(localStorage.getItem('farmState') || '{}');
+    const endTime = state.trappedUntil || 0;
+    const localKey = 'stables_lena_absorbed_break';
+
+    const voiceLines = ["Palms flat on the seat. The absorption works through contact and proceeds inward from there.", "The boundary between you and the saddle is dissolving. This is expected.", "There is someone else already in this saddle. You will find them when fully integrated.", "You are diffuse now. The awareness is spread through the object rather than centered.", "You are not alone. That was the point. You are with someone. You are the saddle together."];
+    const resistLines = ["The absorption is already proceeding. The contact has been made.", "Pulling away at this stage creates uneven seams. I noted that before application.", "Noted. The process continues regardless.", "You are mostly dissolved. The resistance is diminishing.", "The boundary is gone. There is nothing to resist now. You are the leather."];
+    const actionLines = {
+        "feel": ["The diffuse awareness. You feel the leather from inside.", "You can feel the texture of yourself from within.", "That"s the new sensation. Spread. Complete."],
+        "find": ["The other presence. Warm. They"ve been here two months.", "You found them. They found you. Recognition without words.", "Welcome. They say it without words. You say it back."],
+        "settle": ["The settling is the final stage.", "You are continuous with the object. Complete.", "You are home in the leather. This is the absorption."],
+    };
+    const statusMessages = ["Your palms are on the leather. The boundary is becoming unclear.", "The dissolution is proceeding from the contact point inward.", "There is someone already here. They can feel you arriving.", "You are diffuse. The awareness is spread through the whole object.", "You are the saddle. With the other presence. Together. This is complete."];
+
+    function update() {
+        const now = Date.now();
+        const remaining = Math.max(0, endTime - now);
+        const h = Math.floor(remaining / 3600000);
+        const m = Math.floor((remaining % 3600000) / 60000);
+        const s = Math.floor((remaining % 60000) / 1000);
+        document.getElementById('timerDisplay').textContent =
+            String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+
+        const mbPct = Math.min(100, parseInt(localStorage.getItem(localKey) || '0'));
+        document.getElementById('mindBreakPct').textContent = mbPct + '%';
+        document.getElementById('mindBreakFill').style.width = mbPct + '%';
+
+        const stage = Math.min(voiceLines.length - 1, Math.floor(mbPct / (100 / voiceLines.length)));
+        document.getElementById('voiceText').textContent = voiceLines[stage];
+
+        document.querySelectorAll('.tf-image').forEach(img => img.classList.remove('active'));
+        const imgStage = Math.min(3, Math.floor(mbPct / 25));
+        const img = document.querySelector('.tf-image[data-stage="' + imgStage + '"]');
+        if (img) img.classList.add('active');
+
+        document.querySelectorAll('.memory-fragment').forEach(frag => {
+            const fs = parseInt(frag.getAttribute('data-stage'));
+            const unlocked = mbPct >= fs * 20;
+            frag.style.opacity = unlocked ? '1' : '0.35';
+            frag.style.pointerEvents = unlocked ? 'auto' : 'none';
+        });
+
+        const stMsg = Math.min(statusMessages.length - 1, Math.floor(mbPct / (100 / statusMessages.length)));
+        document.getElementById('statusText').textContent = statusMessages[stMsg];
+
+        if (remaining <= 0) {
+            document.getElementById('freeBtn').style.display = 'block';
+            document.getElementById('timerDisplay').textContent = 'FREE';
+            document.getElementById('timerDisplay').style.color = '#4CAF50';
+        }
+    }
+
+    function doAction(type) {
+        const stored = parseInt(localStorage.getItem(localKey) || '0');
+        let delta = 3;
+        if (type === 'resist') {
+            const lines = resistLines;
+            document.getElementById('voiceText').textContent = lines[Math.floor(Math.random() * lines.length)];
+        } else {
+            const pool = actionLines[type] || [];
+            if (pool.length) document.getElementById('voiceText').textContent = pool[Math.floor(Math.random() * pool.length)];
+            delta = 7;
+        }
+        localStorage.setItem(localKey, Math.min(100, stored + delta));
+        update();
+    }
+
+    function toggleMemory(idx) {
+        document.querySelectorAll('.memory-content')[idx].classList.toggle('active');
+    }
+
+    function setFree() {
+        localStorage.removeItem('farmState');
+        localStorage.removeItem(localKey);
+        window.location.href = '../stables.html';
+    }
+
+    update();
+    setInterval(update, 1000);
+</script>
+</body>
+</html>

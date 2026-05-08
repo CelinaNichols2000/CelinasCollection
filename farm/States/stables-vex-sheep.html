@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vex's Flock — Kept as a Sheep</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <script>(function(){const s=JSON.parse(localStorage.getItem('farmState')||'{}');if(s.trappedUntil&&s.trappedUntil>Date.now()){}else{localStorage.removeItem('farmState');window.location.href='../../index.html';}})()</script>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{background:linear-gradient(135deg, #1a0505 0%, #0a0210 100%);color:#fff;font-family:'Poppins',sans-serif;min-height:100vh;overflow-x:hidden;}
+        .main-container{display:flex;flex-direction:column;align-items:center;padding:20px;gap:28px;}
+        .timer-display{font-family:'Orbitron',monospace;font-size:3.2rem;font-weight:700;color:#C0392B;text-align:center;text-shadow:0 0 28px #C0392B,0 0 55px rgba(0,0,0,0.5);letter-spacing:7px;margin-bottom:8px;}
+        .timer-label{font-size:13px;color:#9a8878;letter-spacing:2px;text-transform:uppercase;text-align:center;margin-top:-6px;}
+        .main-panel{display:grid;grid-template-columns:1fr 360px;gap:36px;max-width:1100px;width:100%;align-items:start;}
+        .left-panel{display:flex;flex-direction:column;align-items:center;gap:18px;}
+        .image-container{position:relative;width:100%;max-width:560px;height:460px;border-radius:20px;overflow:hidden;box-shadow:0 18px 55px rgba(0,0,0,0.5);border:2px solid #C0392B66;}
+        .tf-image{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.8s ease;}
+        .tf-image.active{opacity:1;}
+        .right-panel{display:flex;flex-direction:column;gap:18px;}
+        .item-header{text-align:center;}
+        .item-title{font-family:'Orbitron',sans-serif;font-size:1.6rem;font-weight:700;color:#C0392B;text-shadow:0 0 18px #C0392B99;margin-bottom:7px;letter-spacing:2px;}
+        .category-badge{background:linear-gradient(45deg,#C0392B,#E74C3C);color:#fff;padding:7px 18px;border-radius:50px;font-size:0.85rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;box-shadow:0 4px 16px #C0392B66;}
+        .mind-break-container{background:#C0392B1a;border:2px solid #C0392B66;border-radius:18px;padding:18px;}
+        .mind-break-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px;}
+        .mind-break-title{font-family:'Orbitron',sans-serif;font-size:0.95rem;color:#E74C3C;font-weight:700;letter-spacing:2px;text-transform:uppercase;}
+        .mind-break-percentage{font-family:'Orbitron',sans-serif;font-size:2rem;font-weight:700;color:#C0392B;}
+        .mind-break-bar{height:18px;background:rgba(0,0,0,0.6);border-radius:10px;overflow:hidden;border:1px solid #C0392B55;}
+        .mind-break-fill{height:100%;background:linear-gradient(90deg,#C0392B,#E74C3C);transition:width 0.6s ease;border-radius:10px;box-shadow:0 0 18px #C0392Bcc;}
+        .mind-break-stages{display:flex;justify-content:space-between;margin-top:10px;font-size:0.78rem;color:#9a8878;font-weight:600;letter-spacing:1px;}
+        .voice-box{background:rgba(5,2,8,0.88);border:1px solid #C0392B44;border-radius:12px;padding:16px;font-size:14px;color:#d0c0b0;line-height:1.7;font-style:italic;min-height:80px;}
+        .voice-name{font-family:'Orbitron',sans-serif;font-size:11px;color:#C0392B;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-style:normal;}
+        .action-buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+        .action-btn{font-family:'Poppins',sans-serif;font-size:0.88rem;font-weight:700;padding:13px 14px;border-radius:50px;border:none;cursor:pointer;transition:all 0.25s ease;text-transform:uppercase;letter-spacing:1px;}
+        .action-btn:hover{transform:translateY(-2px) scale(1.04);filter:brightness(1.12);}
+        .btn-a{background:linear-gradient(45deg,#C0392B,#E74C3C);color:#fff;box-shadow:0 6px 20px #C0392B66;}
+        .btn-b{background:linear-gradient(45deg,#8B4513,#A0522D);color:#fff;box-shadow:0 6px 20px #8B451366;}
+        .btn-c{background:linear-gradient(45deg,#D4A017,#E6B800);color:#000;box-shadow:0 6px 20px #D4A01766;}
+        .btn-d{background:linear-gradient(45deg,#E91E8C,#C0392B);color:#fff;box-shadow:0 6px 20px #E91E8C66;}
+        .free-btn{display:none;width:100%;padding:16px;font-family:'Orbitron',sans-serif;font-size:1rem;font-weight:700;background:linear-gradient(135deg,#4CAF50,#8BC34A);color:#fff;border:none;border-radius:12px;cursor:pointer;letter-spacing:2px;text-transform:uppercase;box-shadow:0 0 30px rgba(76,175,80,0.6);}
+        .lower-section{max-width:980px;width:100%;}
+        details summary{font-family:'Orbitron',sans-serif;font-size:1.4rem;font-weight:700;color:#C0392B;padding:18px;list-style:none;background:#C0392B1a;border-radius:16px;border:2px solid #C0392B55;text-align:center;text-shadow:0 0 12px #C0392B;cursor:pointer;margin-top:20px;}
+        .stall-status{padding:22px;background:rgba(5,2,8,0.9);border:1px solid #C0392B33;border-radius:0 0 16px 16px;}
+        .stall-status p{color:#c0b0a0;line-height:1.7;margin-bottom:14px;}
+        .memory-fragment{margin-bottom:6px;border-radius:8px;overflow:hidden;background:rgba(10,5,12,0.85);border:1px solid #C0392B22;}
+        .memory-trigger{padding:13px 18px;cursor:pointer;font-size:13px;font-weight:700;color:#b0a0c0;letter-spacing:1px;background:#C0392B0d;border-left:4px solid #C0392B;transition:all 0.2s;}
+        .memory-trigger:hover{background:#C0392B22;color:#fff;}
+        .memory-content{display:none;padding:18px;background:rgba(3,1,5,0.95);font-style:italic;color:#c0b0a8;line-height:1.7;font-size:14px;}
+        .memory-content.active{display:block;}
+        .char-speak{color:#E74C3C!important;font-weight:700;font-style:normal;}
+        @media(max-width:700px){.main-panel{grid-template-columns:1fr;}.image-container{height:280px;max-width:100%;}}
+    </style>
+</head>
+<body>
+<div class="main-container">
+    <div class="timer-display" id="timerDisplay">00:00:00</div>
+    <div class="timer-label">time remaining with vex harlow</div>
+
+    <div class="main-panel">
+        <div class="left-panel">
+            <div class="image-container">
+                <img src="https://via.placeholder.com/560x460/0a0210/C0392B?text=Stage+1" class="tf-image active" data-stage="0">
+                <img src="https://via.placeholder.com/560x460/0a0210/C0392B?text=Stage+2" class="tf-image" data-stage="1">
+                <img src="https://via.placeholder.com/560x460/0a0210/C0392B?text=Stage+3" class="tf-image" data-stage="2">
+                <img src="https://via.placeholder.com/560x460/0a0210/C0392B?text=Stage+4" class="tf-image" data-stage="3">
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="item-header">
+                <h1 class="item-title">Vex Harlow's Sheep</h1>
+                <div class="category-badge">Stables — Sheep Form</div>
+            </div>
+            <div class="mind-break-container">
+                <div class="mind-break-header">
+                    <div class="mind-break-title">CONDITIONING</div>
+                    <div class="mind-break-percentage" id="mindBreakPct">0%</div>
+                </div>
+                <div class="mind-break-bar">
+                    <div class="mind-break-fill" id="mindBreakFill" style="width:0%"></div>
+                </div>
+                <div class="mind-break-stages"><span>HUMAN</span> <span>FLEECE</span> <span>FLOCK</span> <span>OWNED</span></div>
+            </div>
+            <div class="voice-box">
+                <div class="voice-name">Vex Harlow</div>
+                <div id="voiceText">Stand with the others. Sheep stand with the flock. Stop separating yourself.</div>
+            </div>
+            <div class="action-buttons">
+                <button class="action-btn btn-a" onclick="doAction('resist')">RESIST</button>
+                <button class="action-btn btn-b" onclick="doAction('bleat')">BLEAT</button>
+                <button class="action-btn btn-c" onclick="doAction('graze')">GRAZE</button>
+                <button class="action-btn btn-d" onclick="doAction('follow')">FOLLOW</button>
+            </div>
+            <button class="free-btn" id="freeBtn" onclick="setFree()">You Are Free — Leave</button>
+        </div>
+    </div>
+
+    <div class="lower-section">
+        <details>
+            <summary>Your Life Here</summary>
+            <div class="stall-status">
+                <p id="statusText">You are in the paddock. The others are here. You haven't moved toward them yet but you will.</p>
+                <div id="memoryFragments">
+                    <div class="memory-fragment" data-stage="0">
+                        <div class="memory-trigger" onclick="toggleMemory(0)">#1 — FIRST WOOL</div>
+                        <div class="memory-content">It comes in across the back of your hands first. Dense, warm, wrong-and-then-very-right. <span class="char-speak">Vex: "Don't pull at it. It grows even if you pull."</span> She says this from outside the paddock, watching. Making notes.</div>
+                    </div>
+                    <div class="memory-fragment" data-stage="1">
+                        <div class="memory-trigger" onclick="toggleMemory(1)">#2 — THE FLOCK</div>
+                        <div class="memory-content">The other sheep are warm and present. You don't know when you moved toward them. You are standing in the middle of them now and it is the most natural arrangement in the world. The smell of them is dense and right.</div>
+                    </div>
+                    <div class="memory-fragment" data-stage="2">
+                        <div class="memory-trigger" onclick="toggleMemory(2)">#3 — PADDOCK</div>
+                        <div class="memory-content">The paddock grass comes in sweet in the morning. You know this now. You were waiting for it before you remembered what waiting was. <span class="char-speak">Vex: "Good. You've found the routine."</span></div>
+                    </div>
+                    <div class="memory-fragment" data-stage="3">
+                        <div class="memory-trigger" onclick="toggleMemory(3)">#4 — SHORN</div>
+                        <div class="memory-content">She shears you with the same clinical efficiency she does everything. The wool comes off in long clean sweeps. The lightness afterward is remarkable. You bleat once. <span class="char-speak">"Good,"</span> she says, and moves to the next.</div>
+                    </div>
+                    <div class="memory-fragment" data-stage="4">
+                        <div class="memory-trigger" onclick="toggleMemory(4)">#5 — OWNED</div>
+                        <div class="memory-content">You are the best sheep in the flock. She said so while checking your fleece, quietly, like a fact. Your name — the one she gave you — you hear it and your head comes up every time without trying.</div>
+                    </div>
+                </div>
+            </div>
+        </details>
+    </div>
+</div>
+<script>
+    const state = JSON.parse(localStorage.getItem('farmState') || '{}');
+    const endTime = state.trappedUntil || 0;
+    const localKey = 'stables_vex_sheep_break';
+
+    const voiceLines = ["Stand with the others. Sheep stand with the flock. Stop separating yourself.", "The wool is coming in across your shoulders. It will be warm. That"s not a bad thing.", "You tried to leave the paddock. Your feet brought you back. They know where you belong.", "You"re following. That"s correct. Sheep follow. You"re the best at following in this flock.", "You"ll be shorn in the spring. I"ll be there. You won"t mind. You mind a lot of things less now."];
+    const resistLines = ["The paddock fence is higher than you think it is.", "Sheep don"t fight. That"s the whole point of sheep.", "You"ll tire before I do. I"ve been doing this a long time.", "The others are watching. They settled faster than you.", "Resistance is wasted energy. The wool comes in either way."];
+    const actionLines = {
+        "bleat": ["Good voice. Small but certain.", "That"s yours. Clean.", "The others heard you."],
+        "graze": ["You found the good patch. Keep it.", "Correct. That"s what the paddock is for.", "Head down. Grazing. Yes."],
+        "follow": ["First one in the flock to follow properly.", "You knew which direction before I pointed.", "That"s correct. Follow."],
+    };
+    const statusMessages = ["You are in the paddock. The others are here. You haven"t moved toward them yet but you will.", "The wool is coming in. Your back is warm. The flock is very close.", "You followed without being told. You are the second-best at following.", "The grazing is good. You know where the best patch is. You were there before sunrise.", "You are Vex"s best sheep. The flock is yours. The paddock is home. This is correct."];
+
+    function update() {
+        const now = Date.now();
+        const remaining = Math.max(0, endTime - now);
+        const h = Math.floor(remaining / 3600000);
+        const m = Math.floor((remaining % 3600000) / 60000);
+        const s = Math.floor((remaining % 60000) / 1000);
+        document.getElementById('timerDisplay').textContent =
+            String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+
+        const mbPct = Math.min(100, parseInt(localStorage.getItem(localKey) || '0'));
+        document.getElementById('mindBreakPct').textContent = mbPct + '%';
+        document.getElementById('mindBreakFill').style.width = mbPct + '%';
+
+        const stage = Math.min(voiceLines.length - 1, Math.floor(mbPct / (100 / voiceLines.length)));
+        document.getElementById('voiceText').textContent = voiceLines[stage];
+
+        document.querySelectorAll('.tf-image').forEach(img => img.classList.remove('active'));
+        const imgStage = Math.min(3, Math.floor(mbPct / 25));
+        const img = document.querySelector('.tf-image[data-stage="' + imgStage + '"]');
+        if (img) img.classList.add('active');
+
+        document.querySelectorAll('.memory-fragment').forEach(frag => {
+            const fs = parseInt(frag.getAttribute('data-stage'));
+            const unlocked = mbPct >= fs * 20;
+            frag.style.opacity = unlocked ? '1' : '0.35';
+            frag.style.pointerEvents = unlocked ? 'auto' : 'none';
+        });
+
+        const stMsg = Math.min(statusMessages.length - 1, Math.floor(mbPct / (100 / statusMessages.length)));
+        document.getElementById('statusText').textContent = statusMessages[stMsg];
+
+        if (remaining <= 0) {
+            document.getElementById('freeBtn').style.display = 'block';
+            document.getElementById('timerDisplay').textContent = 'FREE';
+            document.getElementById('timerDisplay').style.color = '#4CAF50';
+        }
+    }
+
+    function doAction(type) {
+        const stored = parseInt(localStorage.getItem(localKey) || '0');
+        let delta = 3;
+        if (type === 'resist') {
+            const lines = resistLines;
+            document.getElementById('voiceText').textContent = lines[Math.floor(Math.random() * lines.length)];
+        } else {
+            const pool = actionLines[type] || [];
+            if (pool.length) document.getElementById('voiceText').textContent = pool[Math.floor(Math.random() * pool.length)];
+            delta = 7;
+        }
+        localStorage.setItem(localKey, Math.min(100, stored + delta));
+        update();
+    }
+
+    function toggleMemory(idx) {
+        document.querySelectorAll('.memory-content')[idx].classList.toggle('active');
+    }
+
+    function setFree() {
+        localStorage.removeItem('farmState');
+        localStorage.removeItem(localKey);
+        window.location.href = '../stables.html';
+    }
+
+    update();
+    setInterval(update, 1000);
+</script>
+</body>
+</html>
