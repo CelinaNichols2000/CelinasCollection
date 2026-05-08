@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thessaly's Dog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <script>(function(){const s=JSON.parse(localStorage.getItem('farmState')||'{}');if(s.trappedUntil&&s.trappedUntil>Date.now()){}else{localStorage.removeItem('farmState');window.location.href='../../index.html';}})()</script>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box;}
+        body{background:linear-gradient(135deg, #0a0514 0%, #040210 100%);color:#fff;font-family:'Poppins',sans-serif;min-height:100vh;overflow-x:hidden;}
+        .main-container{display:flex;flex-direction:column;align-items:center;padding:20px;gap:28px;}
+        .timer-display{font-family:'Orbitron',monospace;font-size:3.2rem;font-weight:700;color:#9B59B6;text-align:center;text-shadow:0 0 28px #9B59B6,0 0 55px rgba(0,0,0,0.5);letter-spacing:7px;margin-bottom:8px;}
+        .timer-label{font-size:13px;color:#9a8878;letter-spacing:2px;text-transform:uppercase;text-align:center;margin-top:-6px;}
+        .main-panel{display:grid;grid-template-columns:1fr 360px;gap:36px;max-width:1100px;width:100%;align-items:start;}
+        .left-panel{display:flex;flex-direction:column;align-items:center;gap:18px;}
+        .image-container{position:relative;width:100%;max-width:560px;height:460px;border-radius:20px;overflow:hidden;box-shadow:0 18px 55px rgba(0,0,0,0.5);border:2px solid #9B59B666;}
+        .tf-image{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 0.8s ease;}
+        .tf-image.active{opacity:1;}
+        .right-panel{display:flex;flex-direction:column;gap:18px;}
+        .item-header{text-align:center;}
+        .item-title{font-family:'Orbitron',sans-serif;font-size:1.6rem;font-weight:700;color:#9B59B6;text-shadow:0 0 18px #9B59B699;margin-bottom:7px;letter-spacing:2px;}
+        .category-badge{background:linear-gradient(45deg,#9B59B6,#BB8FCE);color:#fff;padding:7px 18px;border-radius:50px;font-size:0.85rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;box-shadow:0 4px 16px #9B59B666;}
+        .mind-break-container{background:#9B59B61a;border:2px solid #9B59B666;border-radius:18px;padding:18px;}
+        .mind-break-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:13px;}
+        .mind-break-title{font-family:'Orbitron',sans-serif;font-size:0.95rem;color:#BB8FCE;font-weight:700;letter-spacing:2px;text-transform:uppercase;}
+        .mind-break-percentage{font-family:'Orbitron',sans-serif;font-size:2rem;font-weight:700;color:#9B59B6;}
+        .mind-break-bar{height:18px;background:rgba(0,0,0,0.6);border-radius:10px;overflow:hidden;border:1px solid #9B59B655;}
+        .mind-break-fill{height:100%;background:linear-gradient(90deg,#9B59B6,#BB8FCE);transition:width 0.6s ease;border-radius:10px;box-shadow:0 0 18px #9B59B6cc;}
+        .mind-break-stages{display:flex;justify-content:space-between;margin-top:10px;font-size:0.78rem;color:#9a8878;font-weight:600;letter-spacing:1px;}
+        .voice-box{background:rgba(5,2,8,0.88);border:1px solid #9B59B644;border-radius:12px;padding:16px;font-size:14px;color:#d0c0b0;line-height:1.7;font-style:italic;min-height:80px;}
+        .voice-name{font-family:'Orbitron',sans-serif;font-size:11px;color:#9B59B6;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px;font-style:normal;}
+        .action-buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+        .action-btn{font-family:'Poppins',sans-serif;font-size:0.88rem;font-weight:700;padding:13px 14px;border-radius:50px;border:none;cursor:pointer;transition:all 0.25s ease;text-transform:uppercase;letter-spacing:1px;}
+        .action-btn:hover{transform:translateY(-2px) scale(1.04);filter:brightness(1.12);}
+        .btn-a{background:linear-gradient(45deg,#9B59B6,#BB8FCE);color:#fff;box-shadow:0 6px 20px #9B59B666;}
+        .btn-b{background:linear-gradient(45deg,#8B4513,#A0522D);color:#fff;box-shadow:0 6px 20px #8B451366;}
+        .btn-c{background:linear-gradient(45deg,#D4A017,#E6B800);color:#000;box-shadow:0 6px 20px #D4A01766;}
+        .btn-d{background:linear-gradient(45deg,#E91E8C,#9B59B6);color:#fff;box-shadow:0 6px 20px #E91E8C66;}
+        .free-btn{display:none;width:100%;padding:16px;font-family:'Orbitron',sans-serif;font-size:1rem;font-weight:700;background:linear-gradient(135deg,#4CAF50,#8BC34A);color:#fff;border:none;border-radius:12px;cursor:pointer;letter-spacing:2px;text-transform:uppercase;box-shadow:0 0 30px rgba(76,175,80,0.6);}
+        .lower-section{max-width:980px;width:100%;}
+        details summary{font-family:'Orbitron',sans-serif;font-size:1.4rem;font-weight:700;color:#9B59B6;padding:18px;list-style:none;background:#9B59B61a;border-radius:16px;border:2px solid #9B59B655;text-align:center;text-shadow:0 0 12px #9B59B6;cursor:pointer;margin-top:20px;}
+        .stall-status{padding:22px;background:rgba(5,2,8,0.9);border:1px solid #9B59B633;border-radius:0 0 16px 16px;}
+        .stall-status p{color:#c0b0a0;line-height:1.7;margin-bottom:14px;}
+        .memory-fragment{margin-bottom:6px;border-radius:8px;overflow:hidden;background:rgba(10,5,12,0.85);border:1px solid #9B59B622;}
+        .memory-trigger{padding:13px 18px;cursor:pointer;font-size:13px;font-weight:700;color:#b0a0c0;letter-spacing:1px;background:#9B59B60d;border-left:4px solid #9B59B6;transition:all 0.2s;}
+        .memory-trigger:hover{background:#9B59B622;color:#fff;}
+        .memory-content{display:none;padding:18px;background:rgba(3,1,5,0.95);font-style:italic;color:#c0b0a8;line-height:1.7;font-size:14px;}
+        .memory-content.active{display:block;}
+        .char-speak{color:#BB8FCE!important;font-weight:700;font-style:normal;}
+        @media(max-width:700px){.main-panel{grid-template-columns:1fr;}.image-container{height:280px;max-width:100%;}}
+    </style>
+</head>
+<body>
+<div class="main-container">
+    <div class="timer-display" id="timerDisplay">00:00:00</div>
+    <div class="timer-label">time remaining with thessaly</div>
+
+    <div class="main-panel">
+        <div class="left-panel">
+            <div class="image-container">
+                <img src="https://via.placeholder.com/560x460/0a0210/9B59B6?text=Stage+1" class="tf-image active" data-stage="0">
+                <img src="https://via.placeholder.com/560x460/0a0210/9B59B6?text=Stage+2" class="tf-image" data-stage="1">
+                <img src="https://via.placeholder.com/560x460/0a0210/9B59B6?text=Stage+3" class="tf-image" data-stage="2">
+                <img src="https://via.placeholder.com/560x460/0a0210/9B59B6?text=Stage+4" class="tf-image" data-stage="3">
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="item-header">
+                <h1 class="item-title">Thessaly's Dog</h1>
+                <div class="category-badge">Stables — Dog Form</div>
+            </div>
+            <div class="mind-break-container">
+                <div class="mind-break-header">
+                    <div class="mind-break-title">CONDITIONING</div>
+                    <div class="mind-break-percentage" id="mindBreakPct">0%</div>
+                </div>
+                <div class="mind-break-bar">
+                    <div class="mind-break-fill" id="mindBreakFill" style="width:0%"></div>
+                </div>
+                <div class="mind-break-stages"><span>HUMAN</span> <span>EARS</span> <span>TAIL</span> <span>DEVOTED</span></div>
+            </div>
+            <div class="voice-box">
+                <div class="voice-name">Thessaly</div>
+                <div id="voiceText">You're a dog now! Your ears came in so fast. You're going to be such a good dog.</div>
+            </div>
+            <div class="action-buttons">
+                <button class="action-btn btn-a" onclick="doAction('resist')">RESIST</button>
+                <button class="action-btn btn-b" onclick="doAction('wag')">WAG</button>
+                <button class="action-btn btn-c" onclick="doAction('bark')">BARK</button>
+                <button class="action-btn btn-d" onclick="doAction('spin')">SPIN</button>
+            </div>
+            <button class="free-btn" id="freeBtn" onclick="setFree()">You Are Free — Leave</button>
+        </div>
+    </div>
+
+    <div class="lower-section">
+        <details>
+            <summary>Your Life Here</summary>
+            <div class="stall-status">
+                <p id="statusText">Your ears came in. Everything is louder and more detailed. Your tail started.</p>
+                <div id="memoryFragments">
+                    <div class="memory-fragment" data-stage="0">
+                        <div class="memory-trigger" onclick="toggleMemory(0)">#1 — THE EARS</div>
+                        <div class="memory-content">They flopped forward before you registered they'd moved. Large, warm, folding slightly at the tips. The whole stable in vivid audio detail. <span class="char-speak">Thessaly: "The ears are so good. The ears are already so good."</span></div>
+                    </div>
+                    <div class="memory-fragment" data-stage="1">
+                        <div class="memory-trigger" onclick="toggleMemory(1)">#2 — THE TAIL</div>
+                        <div class="memory-content">It moved before the rest of you. A thick, warm presence behind you, sweeping steadily. You reached back and found it. It sped up when you touched it. <span class="char-speak">"THERE IT IS. The tail is going!"</span></div>
+                    </div>
+                    <div class="memory-fragment" data-stage="2">
+                        <div class="memory-trigger" onclick="toggleMemory(2)">#3 — THE LICK</div>
+                        <div class="memory-content">She got down on the floor and opened her arms and you went to her and you licked her face. You did not plan this. Your face executed independently. <span class="char-speak">"HI. Hello. I missed you too."</span></div>
+                    </div>
+                    <div class="memory-fragment" data-stage="3">
+                        <div class="memory-trigger" onclick="toggleMemory(3)">#4 — GOOD DOG</div>
+                        <div class="memory-content"><span class="char-speak">"You are a very good dog,"</span> she said, looking directly at you. And the part of you that is a dog heard it and responded with full-body enthusiasm and the part of you that was human heard it and also responded with full-body enthusiasm. Both. Simultaneously.</div>
+                    </div>
+                    <div class="memory-fragment" data-stage="4">
+                        <div class="memory-trigger" onclick="toggleMemory(4)">#5 — DEVOTED</div>
+                        <div class="memory-content">You know her smell across the stable. You know her footsteps from the others. When the stall door opens and it's her, your tail starts before you see her face. <span class="char-speak">"There's my dog."</span> And you are. You entirely are.</div>
+                    </div>
+                </div>
+            </div>
+        </details>
+    </div>
+</div>
+<script>
+    const state = JSON.parse(localStorage.getItem('farmState') || '{}');
+    const endTime = state.trappedUntil || 0;
+    const localKey = 'stables_thessaly_dog_break';
+
+    const voiceLines = ["You"re a dog now! Your ears came in so fast. You"re going to be such a good dog.", "Your tail is wagging. I know you"re confused about that. Dogs wag. You wag now.", "You"re SO HAPPY. Dogs get happy when they see people they like. Do you like me?", "You licked my face. You didn"t plan that. Your face planned that.", "You are the best dog. You are my best dog. I"m going to tell you that every day."];
+    const resistLines = ["The ward is up! You already wagged at me once which undermines this a bit.", "You can try to resist but your tail started wagging mid-resistance.", "You"re growling but it"s not a very convincing growl. It"s a little friendly.", "Resisting while your tail is going is mixed messaging. I"m noting it.", "Your ears folded down. That"s actually very sweet when dogs do it."];
+    const actionLines = {
+        "wag": ["THE WAG. You can"t stop it. I love it.", "Full-body wag now. Excellent.", "Your whole back half is moving. This is wonderful."],
+        "bark": ["There it is! Short bark! Surprised bark! Perfect!", "You barked and then looked surprised you barked.", "Good bark. Firm. Certain. Yours."],
+        "spin": ["You spun in a circle! Happy spin! Dogs do that!", "You spun twice. Happy dogs spin. You"re a happy dog.", "The spin! Yes! This is a spin of joy!"],
+    };
+    const statusMessages = ["Your ears came in. Everything is louder and more detailed. Your tail started.", "You"re wagging. You can"t stop it. You don"t want to.", "You licked her face. You didn"t plan that. Your face planned that without you.", "You"re spinning in circles because she came in. Happy spin. Full-body joy.", "You are Thessaly"s dog. You know her footsteps. You are devoted. This is home."];
+
+    function update() {
+        const now = Date.now();
+        const remaining = Math.max(0, endTime - now);
+        const h = Math.floor(remaining / 3600000);
+        const m = Math.floor((remaining % 3600000) / 60000);
+        const s = Math.floor((remaining % 60000) / 1000);
+        document.getElementById('timerDisplay').textContent =
+            String(h).padStart(2,'0') + ':' + String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+
+        const mbPct = Math.min(100, parseInt(localStorage.getItem(localKey) || '0'));
+        document.getElementById('mindBreakPct').textContent = mbPct + '%';
+        document.getElementById('mindBreakFill').style.width = mbPct + '%';
+
+        const stage = Math.min(voiceLines.length - 1, Math.floor(mbPct / (100 / voiceLines.length)));
+        document.getElementById('voiceText').textContent = voiceLines[stage];
+
+        document.querySelectorAll('.tf-image').forEach(img => img.classList.remove('active'));
+        const imgStage = Math.min(3, Math.floor(mbPct / 25));
+        const img = document.querySelector('.tf-image[data-stage="' + imgStage + '"]');
+        if (img) img.classList.add('active');
+
+        document.querySelectorAll('.memory-fragment').forEach(frag => {
+            const fs = parseInt(frag.getAttribute('data-stage'));
+            const unlocked = mbPct >= fs * 20;
+            frag.style.opacity = unlocked ? '1' : '0.35';
+            frag.style.pointerEvents = unlocked ? 'auto' : 'none';
+        });
+
+        const stMsg = Math.min(statusMessages.length - 1, Math.floor(mbPct / (100 / statusMessages.length)));
+        document.getElementById('statusText').textContent = statusMessages[stMsg];
+
+        if (remaining <= 0) {
+            document.getElementById('freeBtn').style.display = 'block';
+            document.getElementById('timerDisplay').textContent = 'FREE';
+            document.getElementById('timerDisplay').style.color = '#4CAF50';
+        }
+    }
+
+    function doAction(type) {
+        const stored = parseInt(localStorage.getItem(localKey) || '0');
+        let delta = 3;
+        if (type === 'resist') {
+            const lines = resistLines;
+            document.getElementById('voiceText').textContent = lines[Math.floor(Math.random() * lines.length)];
+        } else {
+            const pool = actionLines[type] || [];
+            if (pool.length) document.getElementById('voiceText').textContent = pool[Math.floor(Math.random() * pool.length)];
+            delta = 7;
+        }
+        localStorage.setItem(localKey, Math.min(100, stored + delta));
+        update();
+    }
+
+    function toggleMemory(idx) {
+        document.querySelectorAll('.memory-content')[idx].classList.toggle('active');
+    }
+
+    function setFree() {
+        localStorage.removeItem('farmState');
+        localStorage.removeItem(localKey);
+        window.location.href = '../stables.html';
+    }
+
+    update();
+    setInterval(update, 1000);
+</script>
+</body>
+</html>
