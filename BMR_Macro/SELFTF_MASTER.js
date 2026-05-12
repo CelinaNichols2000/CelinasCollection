@@ -9,9 +9,9 @@
   const CONFIG = {
     sakuraToken: '709781bac744b9e05b50c5eb4dbe66c11e5b01b6',
     yourToken: '47ae9769dcc4f8df37f3145f00d58cf3cfdf2a77',
-    inanimateName: 'Amy"s Transform Item',
-    baseId: 137,
-    color: 'Purple',
+    inanimateName: 'Celinas-Cumcovered Slutty-Thong',
+    baseId: 82,
+    color: 'Lime',
     permanent: true,
     sealed: false,
     colorHexMap: {
@@ -25,24 +25,197 @@
   };
   
   const STATIC_OWNER = {
-    background: 0, effects: [], physique: [255, 0, 0], skin: [0, 0], skin_color: 0,
-    head: [0, 0, 8, 0, 0], head_flags: 0, body: [0, 0, 8, 0], height: 0, body_flags: 0,
-    hair: [0, 0, 0, 0, 0, 0], hair_flags: 0, genitalia: 2, genitalia_size: 0,
-    breasts: [4, 0, 0, 0], training: [0, 0, 0], lip_size: 0,
-    makeup: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    names: "Sakura Moone", nature: "sexy", token: CONFIG.sakuraToken,
-    abilities: [], cards: [], passives: [], username: "Max_The_Catgirl",
-    username_color: "#3498DB", tier: 2, equipment: [],
-    filter: { absorption: true, animal: true, anthro: true, inanimate: true, monster: true, sissification: true, transgender: true },
-    sexuality: 7, desires: {},
-    stats: { strength: 10, dexterity: 10.67, intelligence: 10.77, willpower: 13.77, body: 0, mind: 0, action: 0, spell: 0.23, hit: 0.67, evasion: 0, penetration: 3.52, resistance: 0 },
-    status: { body: 500, maxBody: 500, mind: 538, maxMind: 538, lust: 0, roleplaying: true, effects: [] }
+      "background": 1,
+      "effects": [],
+      "physique": [
+          255,
+          0,
+          255
+      ],
+      "skin": [
+          0,
+          0
+      ],
+      "skin_color": 0,
+      "head": [
+          0,
+          0,
+          8,
+          0,
+          0
+      ],
+      "head_flags": 0,
+      "body": [
+          0,
+          0,
+          8,
+          0
+      ],
+      "height": 0,
+      "body_flags": 0,
+      "hair": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+      ],
+      "hair_flags": 0,
+      "genitalia": 2,
+      "genitalia_size": 3,
+      "breasts": [
+          4,
+          0,
+          0,
+          0
+      ],
+      "training": [
+          1.00208,
+          0,
+          0
+      ],
+      "lip_size": 0,
+      "makeup": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+      ],
+      "names": "Celina Nichols",
+      "nature": "sexy",
+      "token": "d97387afa03b7445dc56f588be3269314ab0019f",
+      "username": "Celina2000",
+      "username_color": null,
+      "tier": 2,
+      "sexuality": 123,
+      "desires": {
+          "1": {
+              "value": 0,
+              "max": 3,
+              "points": 3,
+              "boost": 0,
+              "suppressed": false,
+              "delta": 0
+          },
+          "2": {
+              "value": 0,
+              "max": 3,
+              "points": 3,
+              "boost": 0,
+              "suppressed": false,
+              "delta": 0
+          },
+          "3": {
+              "value": 0,
+              "max": 3,
+              "points": 3,
+              "boost": 0,
+              "suppressed": false,
+              "delta": 0
+          },
+          "4": {
+              "value": 0,
+              "max": 3,
+              "points": 3,
+              "boost": 0,
+              "suppressed": false,
+              "delta": 0
+          },
+          "5": {
+              "value": 0,
+              "max": 3,
+              "points": 3,
+              "boost": 0,
+              "suppressed": false,
+              "delta": 0
+          },
+          "6": {
+              "value": 0,
+              "max": 3,
+              "points": 3,
+              "boost": 0,
+              "suppressed": false,
+              "delta": 0
+          },
+          "7": {
+              "value": 0,
+              "max": 3,
+              "points": 3,
+              "boost": 0,
+              "suppressed": false,
+              "delta": 0
+          },
+          "8": {
+              "value": 0,
+              "max": 3,
+              "points": 3,
+              "boost": 0,
+              "suppressed": false,
+              "delta": 0
+          }
+      },
+      "abilities": [],
+      "cards": [],
+      "passives": [],
+      "equipment": [
+          7727094,
+          7421385,
+          7081528,
+          7722693,
+          3829563,
+          7727662,
+          7500677,
+          7269486
+      ],
+      "filter": {
+          "absorption": true,
+          "animal": true,
+          "anthro": true,
+          "inanimate": true,
+          "monster": true,
+          "sissification": true,
+          "transgender": true
+      },
+      "stats": {
+          "strength": 10,
+          "dexterity": 10,
+          "intelligence": 10,
+          "willpower": 10.99,
+          "body": 0,
+          "mind": 0,
+          "action": 0,
+          "spell": 0,
+          "hit": 0,
+          "evasion": 0,
+          "penetration": 1,
+          "resistance": 0
+      },
+      "status": {
+          "body": 500,
+          "maxBody": 500,
+          "mind": 500,
+          "maxMind": 500,
+          "lust": 0,
+          "roleplaying": true,
+          "effects": []
+      }
   };
   
   const BASE_ITEM = {
-    id: 137, item_name: "Vinyl Leotard",
-    image_url: "https://battlemageserotica.com/game/assets/items/leotard_vinyl.png",
-    type: "equipment", singular: "a", group: 18, width: 2, height: 3,
+    id: 82, item_name: "Thong",
+    image_url: "https://battlemageserotica.com/game/assets/items/panties_thong.png",
+    type: "equipment", singular: "a", group: 18, width: 2, height: 2,
     color_variants: ["*"], accessory_variants: ["*"],
     slots: ["shirt", "undershirt"], types: ["equipment"], flags: [], stack: 1, nsfw: false
   };
@@ -368,6 +541,98 @@
       gui.DisplayMessage(out);
     }
   };
-  
-  console.log('SELFTF Ready - Use: SELFTF.enableWithStaticOwner()');
+
+  // ====================================================================
+  // OWNER_CAPTURE — two functions only:
+  //   OWNER_CAPTURE.enable()         — transform using STATIC_OWNER
+  //   OWNER_CAPTURE.captureAsStatic() — log paste-ready STATIC_OWNER from live character
+  // ====================================================================
+
+  function getAllEquipment(src) {
+    // gm.character.equipment is often [] — check every known location the game uses
+    const candidates = [
+      src?.equipment,
+      GAME_MANAGER.instance?.character?.equipment,
+      LOCATION.instance?.player?.equipment,
+      GAME_MANAGER.instance?.equipment?.items,
+      GAME_MANAGER.instance?.equipment,
+    ];
+    for (const c of candidates) {
+      if (Array.isArray(c) && c.length > 0) return c.slice();
+    }
+    // Last resort: walk all properties of gm looking for an array of item objects
+    try {
+      const gmInst = GAME_MANAGER.instance;
+      for (const key of Object.keys(gmInst)) {
+        const val = gmInst[key];
+        if (Array.isArray(val) && val.length > 0 && val[0]?.base !== undefined && val[0]?.id !== undefined) {
+          console.log('[OWNER_CAPTURE] Found equipment at gm.' + key);
+          return val.slice();
+        }
+      }
+    } catch (e) {}
+    return [];
+  }
+
+  function getLiveField(src, key) {
+    if (src?.[key] && src[key].length > 0) return src[key];
+    try {
+      const gmChar = GAME_MANAGER.instance?.character;
+      if (gmChar?.token === src?.token && gmChar?.[key]?.length > 0) return gmChar[key];
+    } catch (e) {}
+    return src?.[key] ?? [];
+  }
+
+  window.OWNER_CAPTURE = {
+    // Apply STATIC_OWNER directly and enable transformation
+    enable() {
+      return enableInanimateMode(STATIC_OWNER);
+    },
+
+    // Capture live character data and log a paste-ready STATIC_OWNER block to console
+    captureAsStatic() {
+      const src = gm.character;
+      if (!src) { gui.DisplayMessage('captureAsStatic: gm.character not available'); return; }
+      const obj = {
+        background:     src.background     ?? 0,
+        effects:        src.effects        ?? [],
+        physique:       src.physique       ?? [0, 0, 0],
+        skin:           src.skin           ?? [0, 0],
+        skin_color:     src.skin_color     ?? 0,
+        head:           src.head           ?? [0, 0, 0, 0, 0],
+        head_flags:     src.head_flags     ?? 0,
+        body:           src.body           ?? [0, 0, 0, 0],
+        height:         src.height         ?? 0,
+        body_flags:     src.body_flags     ?? 0,
+        hair:           src.hair           ?? [0, 0, 0, 0, 0, 0],
+        hair_flags:     src.hair_flags     ?? 0,
+        genitalia:      src.genitalia      ?? 0,
+        genitalia_size: src.genitalia_size ?? 0,
+        breasts:        src.breasts        ?? [0, 0, 0, 0],
+        training:       src.training       ?? [0, 0, 0],
+        lip_size:       src.lip_size       ?? 0,
+        makeup:         src.makeup         ?? [0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+        names:          src.names || src.username || 'Unknown',
+        nature:         src.nature || 'sexy',
+        token:          'selftf_self_proxy_owner',
+        username:       src.username || '',
+        username_color: src.username_color ?? null,
+        tier:           2,
+        sexuality:      src.sexuality ?? 0,
+        desires:        src.desires ?? {},
+        abilities:      getLiveField(src, 'abilities'),
+        cards:          getLiveField(src, 'cards'),
+        passives:       getLiveField(src, 'passives'),
+        equipment:      getAllEquipment(src),
+        filter: { absorption: true, animal: true, anthro: true, inanimate: true, monster: true, sissification: true, transgender: true },
+        stats:  Object.assign({ strength:10, dexterity:10, intelligence:10, willpower:10, body:0, mind:0, action:0, spell:0, hit:0, evasion:0, penetration:0, resistance:0 }, src.stats || {}),
+        status: { body: 500, maxBody: 500, mind: 500, maxMind: 500, lust: 0, roleplaying: true, effects: [] }
+      };
+      const snippet = '  const STATIC_OWNER = ' + JSON.stringify(obj, null, 4).replace(/\n/g, '\n  ') + ';';
+      console.log('══ COPY THIS → replace STATIC_OWNER in SELFTF_MASTER.js ══\n\n' + snippet + '\n\n══════════════════════════════════════════');
+      gui.DisplayMessage('Captured! Copy STATIC_OWNER block from DevTools console.');
+    }
+  };
+
+  console.log('SELFTF ready. OWNER_CAPTURE.enable() | OWNER_CAPTURE.captureAsStatic()');
 })();
