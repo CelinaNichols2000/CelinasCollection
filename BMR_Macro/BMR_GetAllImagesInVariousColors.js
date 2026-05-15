@@ -460,6 +460,20 @@
       text-decoration:none; align-self:flex-start;
     }
     .bmr-profile-link:hover { background:#6a3f80; color:#fff; }
+    /* Token lookup */
+    #bmr-token-wrap { display:flex; gap:4px; margin-top:8px; }
+    #bmr-token-input {
+      flex:1; min-width:0; padding:5px 8px; border-radius:6px;
+      border:1px solid #555; background:#0c1a30; color:#eee; font-size:11px;
+    }
+    #bmr-token-input:focus { border-color:#e94560; outline:none; }
+    #bmr-token-input::placeholder { color:#444; }
+    #bmr-token-btn {
+      background:#1a1a30; border:1px solid #e94560; color:#e94560;
+      padding:4px 8px; border-radius:6px; font-size:11px; cursor:pointer; white-space:nowrap;
+    }
+    #bmr-token-btn:hover { background:#e94560; color:#fff; }
+    #bmr-token-hint { font-size:10px; color:#444; margin-top:3px; }
   `;
   document.head.appendChild(style);
 
@@ -485,6 +499,11 @@
           <button class="bmr-api-btn" id="bmr-loc-btn">Scan Location Players</button>
           <button class="bmr-inanim-btn" id="bmr-inanim-btn">🧸 Find Inanimate Players</button>
           <div class="bmr-progress" id="bmr-progress"></div>
+          <div id="bmr-token-wrap">
+            <input id="bmr-token-input" placeholder="Paste character token…" type="text">
+            <button id="bmr-token-btn">Load Items</button>
+          </div>
+          <div id="bmr-token-hint">Token → load all their items</div>
         </div>
         <div id="bmr-brute-area">
           <label>🟣 Live auto-capture active — inanimate players are collected as you visit locations.</label>
@@ -964,6 +983,57 @@
   }
   installLiveHooks();
 
+  // ─── TOKEN LOOKUP ─────────────────────────────────────────────────────
+  // Opens MENU.Inspect for the token, then polls MENU.Inspect.character
+  // (same pattern used by replace_mychar_with_token.js — most reliable).
+  function inspectByToken(token) {
+    token = (token || '').trim();
+    if (!token) return;
+    statusEl.textContent = 'Fetching…';
+    detailEl.innerHTML = `<div style="padding:20px;color:#888;font-size:13px">Opening inspect for <span style="color:#e94560;font-family:monospace">${token.substring(0, 20)}</span>…</div>`;
+
+    try {
+      MENU.Inspect.Open(GUI.Position.Right, token);
+    } catch(e) {
+      statusEl.textContent = 'Error';
+      detailEl.innerHTML = `<div style="color:#e94560;padding:20px;font-size:13px">MENU.Inspect.Open failed: ${e.message}</div>`;
+      return;
+    }
+
+    const started = Date.now();
+    const TIMEOUT_MS = 10000;
+    const POLL_MS = 150;
+
+    const timer = setInterval(() => {
+      const char = MENU?.Inspect?.character;
+      if (char && char.token === token) {
+        clearInterval(timer);
+        processInspectCharacter(char);
+      } else if (Date.now() - started > TIMEOUT_MS) {
+        clearInterval(timer);
+        statusEl.textContent = 'Timeout';
+        detailEl.innerHTML = `<div style="color:#e94560;padding:20px;font-size:13px">No response after ${TIMEOUT_MS / 1000}s — token may be invalid or not reachable.</div>`;
+      }
+    }, POLL_MS);
+  }
+
+  function processInspectCharacter(char) {
+    // char is a proper Character object — same structure as location players
+    console.log('[BMR Token Lookup] character:', char);
+    const found = new Map();
+    extractCharItems(found, char);
+    harvestInanimateFromChar(char);
+    const items = Array.from(found.values());
+    const before = allItems.length;
+    if (items.length > 0) loadItems(items, true);
+    const added = allItems.length - before;
+    const name = char.names || char.username || char.token;
+    statusEl.textContent = added > 0 ? `+${added} from inspect` : 'No new items';
+    detailEl.innerHTML = added > 0
+      ? `<div style="padding:20px;color:#aaa;font-size:13px">Loaded <b style="color:#e94560">${added}</b> new item${added !== 1 ? 's' : ''} from <b>${name}</b> — check the list on the left.</div>`
+      : `<div style="padding:20px;color:#888;font-size:13px"><b>${name}</b> appears to have nothing equipped, or items were already loaded.<br><small style="color:#555">Character object logged to console.</small></div>`;
+  }
+
   // ── Find Inanimate Players button (quick snapshot of all currently known chars) ──
   document.getElementById('bmr-inanim-btn').addEventListener('click', () => {
     const btn = document.getElementById('bmr-inanim-btn');
@@ -1048,6 +1118,10 @@
     });
     listEl.appendChild(row);
   }
+
+  // ── Token lookup button / Enter key ──
+  document.getElementById('bmr-token-btn').addEventListener('click', () => inspectByToken(document.getElementById('bmr-token-input').value));
+  document.getElementById('bmr-token-input').addEventListener('keydown', e => { if (e.key === 'Enter') inspectByToken(document.getElementById('bmr-token-input').value); });
 
   // ── Lookup button / Enter key ──
   lookupBtn.addEventListener('click', () => lookupItemById(lookupInput.value));
