@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Image Picker</title>
+  <style>
+    :root {
+      --bg: #08080a;
+      --panel: #121217;
+      --panel2: #181820;
+      --line: #292933;
+      --text: #f4f4f5;
+      --muted: #9ca3af;
+      --neon: #b026ff;
+      --neon2: #d946ef;
+      --cyan: #06b6d4;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top, rgba(176, 38, 255, .25), transparent 430px),
+        radial-gradient(circle at bottom right, rgba(217, 70, 239, .10), transparent 520px),
+        var(--bg);
+      color: var(--text);
+      font-family: Inter, Segoe UI, Arial, sans-serif;
+      padding: 18px;
+    }
+
+    .app {
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+
+    .top {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+
+    .topTitle {
+      font-weight: 900;
+      letter-spacing: -.03em;
+      font-size: 18px;
+    }
+
+    .topSub {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 3px;
+    }
+
+    button {
+      background: linear-gradient(135deg, var(--neon), var(--neon2));
+      color: white;
+      border: 0;
+      border-radius: 13px;
+      padding: 11px 15px;
+      font-weight: 850;
+      cursor: pointer;
+      white-space: nowrap;
+      box-shadow: 0 0 24px rgba(176, 38, 255, .28);
+    }
+
+    button:hover { filter: brightness(1.1); }
+
+    #folderInput { display: none; }
+
+    .main {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 14px;
+    }
+
+    .box {
+      background: rgba(18, 18, 23, .94);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      min-height: 300px;
+      box-shadow: 0 28px 80px rgba(0, 0, 0, .35);
+    }
+
+    .head {
+      height: 54px;
+      padding: 0 14px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      background: rgba(255,255,255,.015);
+    }
+
+    .title {
+      font-weight: 900;
+      letter-spacing: -.02em;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .count {
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .folders {
+      padding: 10px;
+      max-height: calc(100vh - 110px);
+      overflow: auto;
+    }
+
+    .folder {
+      display: grid;
+      grid-template-columns: 30px 1fr auto;
+      gap: 9px;
+      align-items: center;
+      padding: 11px;
+      border-radius: 13px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      user-select: none;
+    }
+
+    .folder:hover { background: var(--panel2); }
+
+    .folder.active {
+      background: rgba(176, 38, 255, .18);
+      border-color: rgba(176, 38, 255, .55);
+      box-shadow: inset 0 0 22px rgba(176, 38, 255, .08);
+    }
+
+    .folderName {
+      font-weight: 800;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .muted {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .gridWrap {
+      max-height: calc(100vh - 110px);
+      overflow: auto;
+      padding: 16px;
+    }
+
+    .imageGrid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .imageCard {
+      aspect-ratio: 1 / 1;
+      border-radius: 20px;
+      overflow: hidden;
+      background: #050507;
+      cursor: pointer;
+      position: relative;
+      border: 2px solid rgba(176, 38, 255, .78);
+      box-shadow:
+        0 0 0 1px rgba(217, 70, 239, .22),
+        0 0 24px rgba(176, 38, 255, .22),
+        inset 0 0 22px rgba(176, 38, 255, .10);
+      transition: transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+    }
+
+    .imageCard:hover {
+      transform: translateY(-3px) scale(1.01);
+      border-color: rgba(217, 70, 239, 1);
+      box-shadow:
+        0 0 0 1px rgba(217, 70, 239, .5),
+        0 0 34px rgba(176, 38, 255, .42),
+        0 18px 42px rgba(0, 0, 0, .35);
+    }
+
+    .imageCard img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+
+    .empty {
+      padding: 42px 20px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .toast {
+      position: fixed;
+      left: 50%;
+      bottom: 22px;
+      transform: translateX(-50%) translateY(80px);
+      opacity: 0;
+      max-width: min(900px, calc(100vw - 28px));
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      background: #101014;
+      color: var(--text);
+      border: 1px solid rgba(176, 38, 255, .85);
+      border-radius: 15px;
+      padding: 13px 16px;
+      box-shadow: 0 0 38px rgba(176,38,255,.35), 0 24px 90px rgba(0,0,0,.58);
+      transition: .2s ease;
+      z-index: 20;
+    }
+
+    .toast.show {
+      transform: translateX(-50%) translateY(0);
+      opacity: 1;
+    }
+
+    @media (max-width: 1200px) {
+      .imageGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 850px) {
+      .top { align-items: stretch; flex-direction: column; }
+      .main { grid-template-columns: 1fr; }
+      .folders, .gridWrap { max-height: none; }
+      .imageGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 520px) {
+      body { padding: 10px; }
+      .imageGrid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <div class="top">
+      <div>
+        <div class="topTitle">Image Picker</div>
+        <div class="topSub">C:\Users\PC\OneDrive\Desktop\images</div>
+      </div>
+      <div>
+        <button id="chooseBtn">Ordner auswählen</button>
+        <input id="folderInput" type="file" webkitdirectory directory multiple />
+      </div>
+    </div>
+
+    <div class="main">
+      <div class="box">
+        <div class="head">
+          <div class="title">Ordner</div>
+          <div class="count" id="folderCount">0</div>
+        </div>
+        <div class="folders" id="folders">
+          <div class="empty">Ordner auswählen</div>
+        </div>
+      </div>
+
+      <div class="box">
+        <div class="head">
+          <div class="title" id="currentFolder">Kein Ordner gewählt</div>
+          <div class="count" id="imageCount">0 Bilder</div>
+        </div>
+        <div class="gridWrap" id="gridWrap">
+          <div class="empty">Noch keine Bilder geladen</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    const CLOUDFLARE_DOMAIN = "https://images.celinascollection.com";
+    const LOCAL_ROOT_FOLDER_NAME = "images";
+
+    const chooseBtn = document.getElementById("chooseBtn");
+    const folderInput = document.getElementById("folderInput");
+    const foldersEl = document.getElementById("folders");
+    const gridWrap = document.getElementById("gridWrap");
+    const currentFolderEl = document.getElementById("currentFolder");
+    const folderCountEl = document.getElementById("folderCount");
+    const imageCountEl = document.getElementById("imageCount");
+    const toast = document.getElementById("toast");
+
+    const IMAGE_EXTENSIONS = new Set(["jpg", "jpeg", "png", "gif", "webp", "avif", "bmp", "svg"]);
+
+    let folderMap = new Map();
+    let selectedFolder = null;
+    let toastTimer = null;
+
+    chooseBtn.addEventListener("click", () => folderInput.click());
+    folderInput.addEventListener("change", handleFolderPick);
+
+    function handleFolderPick(event) {
+      const files = Array.from(event.target.files || []);
+      folderMap = new Map();
+      selectedFolder = null;
+
+      for (const file of files) {
+        if (!isImage(file)) continue;
+
+        const browserPath = normalizePath(file.webkitRelativePath || file.name);
+        const bucketPath = makeBucketPath(browserPath);
+        if (!bucketPath) continue;
+
+        const parts = bucketPath.split("/");
+        const fileName = parts.pop() || file.name;
+        const folderName = parts.join("/") || "Root";
+
+        const item = {
+          file,
+          fileName,
+          folderName,
+          bucketPath,
+          previewUrl: URL.createObjectURL(file),
+          cloudflareUrl: CLOUDFLARE_DOMAIN + "/" + encodePath(bucketPath),
+        };
+
+        if (!folderMap.has(folderName)) folderMap.set(folderName, []);
+        folderMap.get(folderName).push(item);
+      }
+
+      for (const items of folderMap.values()) {
+        items.sort((a, b) => a.fileName.localeCompare(b.fileName, undefined, { numeric: true }));
+      }
+
+      renderFolders();
+
+      const firstFolder = [...folderMap.keys()].sort((a, b) => a.localeCompare(b, undefined, { numeric: true }))[0];
+      if (firstFolder) {
+        selectFolder(firstFolder);
+      } else {
+        currentFolderEl.textContent = "Keine Bilder gefunden";
+        imageCountEl.textContent = "0 Bilder";
+        gridWrap.innerHTML = `<div class="empty">Keine Bilder oder GIFs gefunden.</div>`;
+      }
+    }
+
+    function isImage(file) {
+      const ext = (file.name.split(".").pop() || "").toLowerCase();
+      return IMAGE_EXTENSIONS.has(ext) || (file.type && file.type.startsWith("image/"));
+    }
+
+    function normalizePath(path) {
+      return String(path || "").replaceAll("\\", "/").replace(/^\/+/, "");
+    }
+
+    function makeBucketPath(browserPath) {
+      const parts = normalizePath(browserPath).split("/").filter(Boolean);
+      if (parts[0] && parts[0].toLowerCase() === LOCAL_ROOT_FOLDER_NAME.toLowerCase()) {
+        return parts.slice(1).join("/");
+      }
+      return parts.join("/");
+    }
+
+    function encodePath(path) {
+      return path.split("/").map(encodeURIComponent).join("/");
+    }
+
+    function renderFolders() {
+      const folders = [...folderMap.keys()].sort((a, b) => a.localeCompare(b, undefined, { numeric: true }));
+      folderCountEl.textContent = String(folders.length);
+
+      if (!folders.length) {
+        foldersEl.innerHTML = `<div class="empty">Keine Ordner gefunden</div>`;
+        return;
+      }
+
+      foldersEl.innerHTML = "";
+
+      for (const folder of folders) {
+        const div = document.createElement("div");
+        div.className = "folder" + (folder === selectedFolder ? " active" : "");
+        div.innerHTML = `
+          <div>📁</div>
+          <div class="folderName">${escapeHtml(folder)}</div>
+          <div class="muted">${folderMap.get(folder).length}</div>
+        `;
+        div.addEventListener("click", () => selectFolder(folder));
+        foldersEl.appendChild(div);
+      }
+    }
+
+    function selectFolder(folder) {
+      selectedFolder = folder;
+      renderFolders();
+      renderGrid(folderMap.get(folder) || []);
+    }
+
+    function renderGrid(items) {
+      currentFolderEl.textContent = selectedFolder || "Kein Ordner gewählt";
+      imageCountEl.textContent = `${items.length} Bilder`;
+
+      if (!items.length) {
+        gridWrap.innerHTML = `<div class="empty">Dieser Ordner enthält keine Bilder</div>`;
+        return;
+      }
+
+      const grid = document.createElement("div");
+      grid.className = "imageGrid";
+
+      for (const item of items) {
+        const card = document.createElement("div");
+        card.className = "imageCard";
+        card.title = "Klicken = Link kopieren";
+        card.innerHTML = `<img src="${item.previewUrl}" alt="" loading="lazy">`;
+        card.addEventListener("click", () => copyLink(item.cloudflareUrl));
+        grid.appendChild(card);
+      }
+
+      gridWrap.innerHTML = "";
+      gridWrap.appendChild(grid);
+    }
+
+    async function copyLink(url) {
+      try {
+        await navigator.clipboard.writeText(url);
+      } catch (err) {
+        const textarea = document.createElement("textarea");
+        textarea.value = url;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        textarea.remove();
+      }
+      showToast("Bildlink kopiert");
+    }
+
+    function showToast(text) {
+      toast.textContent = text;
+      toast.classList.add("show");
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove("show"), 1500);
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+    }
+  </script>
+</body>
+</html>
