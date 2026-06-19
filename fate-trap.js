@@ -17,8 +17,12 @@
     'https://i.ibb.co/KcqZnPZR/image0-1.gif',
     'https://images.celinascollection.com/panties/sample_93e66ee1b62b790cb5bce5b5a1fced77.jpg',
     'https://i.ibb.co/FLgJmxFp/ezgif-com-optiwebp.webp',
-    'https://images.celinascollection.com/panties/gifcandy-panties-55.gif'
-  ];
+    'https://images.celinascollection.com/panties/gifcandy-panties-55.gif',
+    'https://images.celinascollection.com/panties/DASH_48014-ezgif.com-optiwebp.webp',
+    'https://images.celinascollection.com/panties/DASH_48012-ezgif.com-optiwebp.webp',
+    'https://images.celinascollection.com/panties/sample_40150f2308b9f40771cf14c57f9e3fc3.jpg',
+    'https://images.celinascollection.com/panties/panty-drop-take-off-undies.gif'
+];
 
   /* ── VOICE LINES ─────────────────────────────────── */
   var VOICE = [
@@ -63,22 +67,22 @@
     floor: {
       t: 'TRAMPLED & WATCHING', a: 'Stripped off. Tossed to the floor.',
       r: "She strips you off and tosses you to the floor like you're nothing. For two hours you lay there watching Celina and Valata wreck each other above you. Then Valata's foot comes down on your face on the way to the bathroom. She doesn't even feel it. Picks you up still damp and puts you right back on. 'Oh there you are~' she says. Like you're her keys~",
-      img: IMG[2], ms: 60 * 60 * 1000, lb: '+1 hour', pts: 20
+      img: IMG[7], ms: 60 * 60 * 1000, lb: '+1 hour', pts: 20
     },
     cum: {
       t: "CELINA'S LOAD", a: "Celina paints you with her futa cock.",
       r: "Celina stands over you with that massive futa cock and gives you the full load. Thick and warm and absolutely everywhere. Every thread. Valata picks you up afterward, still dripping. 'Good boy~' she says to neither of you specifically. Then puts you right back on without wiping anything off~",
-      img: IMG[3], ms: 2 * 60 * 60 * 1000, lb: '+2 hours', pts: 22
+      img: IMG[4], ms: 2 * 60 * 60 * 1000, lb: '+2 hours', pts: 22
     },
     beg: {
       t: 'BEGGING IN FABRIC', a: 'You squirm and try to form sounds.',
       r: "You tense every thread. The muffled something coming from your fabric doesn't form words anymore. It just sounds like need~ Valata feels you squirming, flexes her hips, laughs softly, and doesn't adjust you~",
-      img: IMG[1], ms: 5 * 60 * 1000, lb: '+5 min', pts: 6
+      img: IMG[5], ms: 5 * 60 * 1000, lb: '+5 min', pts: 6
     },
     escape: {
       t: 'ESCAPE ATTEMPT: FAILED', a: 'You strain everything. Nothing moves.',
       r: "You tense everything you have. You push. You pull. The elastic holds. The seams hold. Valata's ass holds. The only thing that changes is she feels you squirming and grinds down harder with a small pleased sound~ That's going to cost you a lot~",
-      img: IMG[0], ms: 3 * 60 * 60 * 1000, lb: '+3 hours \u2014 Nice Try~', pts: 8
+      img: IMG[6], ms: 3 * 60 * 60 * 1000, lb: '+3 hours \u2014 Nice Try~', pts: 8
     }
   };
 
