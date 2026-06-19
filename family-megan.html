@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Megan</title>
+    <link rel="icon" type="image/x-icon" href="celinaIcon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="item-detail.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        .back-button {
+            margin-left: auto !important;
+            margin-right: 5% !important;
+        }
+        nav ul { justify-content: flex-end !important; }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="back-button"><a href="index.html">Go Back</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="item-detail-section">
+        <div class="item-detail-container main-container">
+            <div class="item-image-column">
+                <div class="item-main-image-container">
+                    <img src="https://i.ibb.co/9knH4TjB/image-1-13.jpg" alt="Megan" class="item-detail-image" id="mainImg">
+                </div>
+                <div class="item-thumbnail-gallery">
+                    <div class="thumbnail active">
+                        <img src="https://i.ibb.co/9knH4TjB/image-1-13.jpg" alt="Megan 1">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://i.ibb.co/hxZv1b83/Chat-GPT-Image-12-juin-2026-13-32-21.png" alt="Megan 2">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://i.ibb.co/Mk83hW6k/Chat-GPT-Image-12-juin-2026-16-37-03.png" alt="Megan 3">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://i.ibb.co/SDxd5QWK/image-1-15.jpg" alt="Megan 4">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://i.ibb.co/RGqyTBVG/Chat-GPT-Image-15-juin-2026-06-38-40.png" alt="Megan 5">
+                    </div>
+                    <div class="thumbnail">
+                        <img src="https://i.ibb.co/4gwXSkhg/Chat-GPT-Image-15-juin-2026-06-34-11.png" alt="Megan 6">
+                    </div>
+                </div>
+            </div>
+
+            <div class="item-detail-content">
+                <div class="item-header">
+                    <h1 class="item-detail-name">Megan</h1>
+                    <div class="item-category-badge">My Bimbo Wifey ♥</div>
+                </div>
+
+                <div class="item-description-container">
+                    <h2 class="section-title">About Her</h2>
+                    <div class="item-detail-description">
+                        <p>
+                            Meet Megan~ My nasty brainless bimbo wifey and the only woman alive who matches my energy for being an absolute evil slutty disaster~ Together we are the most dangerous giggling pair of bitches you will ever make the mistake of stumbling into~ We ruin people for fun~ We ruin them together~ We make out right over whatever pathetic little object they turned into and don't feel a single thing about it~ This is our love language~
+                            <br><br>
+                            And yes before you ask, sometimes I end up as a skimpy little thong wedged so far up her ass she has to reach back to check I'm still there~ Her nasty asshole clenching around my face all day while she struts around not thinking about me ONCE~ Doesn't even check in~ Sits down and grinds harder~ That's love apparently~ And sometimes SHE gets too greedy and I just grab her and pull her straight into my fat tits until she's nothing but warm pressure and muffled screaming absorbed into my chest~ Bouncing around in there all day going absolutely nowhere~ We swap who's the object and who's the owner on a completely casual basis and we both think this is perfectly normal and also hilarious~
+                            <br><br>
+                            When we're both actually people at the same time though? Run~ Seriously~ Two bimbo witches with matching bad intentions and zero impulse control and a shared collection of losers who thought they were special~ She's the only one who gets to be as cruel as me~ We earned it~ We're perfect~ We're each other's~ And we will absolutely wreck you together and laugh about it in bed afterward~
+                            <br><br>
+                            So if you're reading this thinking you'd love to meet us both. Congratulations on volunteering~ You just applied to be our double-ended dildo~ Don't worry~ You'll be very very close to both of us at once~ Whether you like it or not~ ;3
+                            <br><br>
+                            <em>XOXO Celina &amp; Megan ♥♥</em>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="back-to-top">
+            <a href="#" id="back-to-top-btn">Back to Top</a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const mainImage = document.getElementById('mainImg');
+            thumbnails.forEach(function (thumb) {
+                thumb.addEventListener('click', function () {
+                    thumbnails.forEach(function (t) { t.classList.remove('active'); });
+                    thumb.classList.add('active');
+                    mainImage.src = thumb.querySelector('img').src;
+                });
+            });
+            const backToTopBtn = document.getElementById('back-to-top-btn');
+            backToTopBtn.addEventListener('click', function (e) {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>

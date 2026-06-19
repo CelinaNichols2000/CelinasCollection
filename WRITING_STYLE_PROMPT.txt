@@ -120,3 +120,4 @@ QUICK CHECKLIST before submitting writing:
 [ ] Tildes on the right lines?
 [ ] Does it end with a drop, not a fade?
 [ ] Is it ONE paragraph if it's an item bio?
+8

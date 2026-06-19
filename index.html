@@ -217,6 +217,20 @@
             </div>
             </a>
 
+            <!-- Person 8 -->
+            <a href="family-megan.html" class="family-link">
+            <div class="family-member">
+                <div class="family-image-container">
+                    <img src="https://i.ibb.co/9knH4TjB/image-1-13.jpg" alt="Megan" class="family-image" style="object-position: center 15%;">
+                </div>
+                <div class="family-info">
+                    <h3 class="family-name">Megan</h3>
+                    <p class="family-type">Celina's Wifey</p>
+                    <p class="family-description">My beloved evil wifey~ We are just the best bimbo pair ever~ Hehe so dont mess with us or you will be ruined bitch~</p>
+                </div>
+            </div>
+            </a>
+
             <!-- Weitere Familienmitglieder hier einfügen -->
         </div>
     </section>
@@ -1404,8 +1418,8 @@
                     return;
                 }
                 
-                // Don't shuffle family section, shuffle others
-                const shuffledItems = sectionId === 'family' ? items : shuffleArray(items);
+                // Shuffle all sections including family
+                const shuffledItems = shuffleArray(items);
                 
                 // Clear the grid and re-add items in new order
                 grid.innerHTML = '';
@@ -1527,5 +1541,6 @@
             }
         });
     </script>
+    <script src="fate-trap.js"></script>
 </body>
 </html>
