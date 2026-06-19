@@ -280,20 +280,27 @@
             });
         });
         
-        // Reset sequence button with dramatic effect
-        resetButton.addEventListener('click', function() {
-            // Add flash effect before reset
-            document.querySelector('.modal-content').classList.add('flash');
-            
-            setTimeout(() => {
-                document.querySelector('.modal-content').classList.remove('flash');
-                document.querySelector('.modal-content').scrollTo({
-                            top: 0,
-                            behavior: 'smooth' // Optional: Adds a smooth scrolling effect
-                        });
-                resetSequence();
-            }, 600);
-        });
+resetButton.addEventListener('click', function() {
+    document.querySelector('.modal-content').classList.add('flash');
+
+    setTimeout(() => {
+        document.querySelector('.modal-content').classList.remove('flash');
+
+        // Close the transformation dialogue
+        valataModal.classList.remove('active');
+
+        // Start the actual fate trap only now
+        if (typeof window.startValataFate === 'function') {
+            window.startValataFate();
+        } else {
+            console.error('startValataFate() was not found. Make sure fate-trap.js is loaded.');
+        }
+
+        // Reset modal sequence in the background for next time
+        resetSequence();
+
+    }, 600);
+});
         
         document.querySelector('.transform-back').addEventListener('click', function() {
             const currentStage = this.closest('.sequence-stage');
@@ -377,5 +384,6 @@
         document.head.appendChild(styleSheet);
     });
     </script>
+    <script src="fate-trap.js"></script>
 </body>
 </html>
