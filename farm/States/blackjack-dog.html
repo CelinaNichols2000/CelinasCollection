@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vesper's Collared Table Dog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <script>(function(){const s=JSON.parse(localStorage.getItem('farmState')||'{}');if(!(s.trappedUntil&&s.trappedUntil>Date.now())){localStorage.removeItem('farmState');window.location.href='../../farm.html';}})();</script>
+    <link rel="stylesheet" href="blackjack-state.css">
+    <style>body{--accent:#4a90e2;--accent-2:#6fc6ff;--state-bg:url("https://i.ibb.co/RT7GmD7d/d4.jpg");}</style>
+</head>
+<body>
+    <main class="state-shell">
+        <div class="timer" id="countdownTimer">--:--:--</div>
+        <section class="state-grid">
+            <div>
+                <div class="visual-panel"><img class="state-image" src="https://i.ibb.co/RT7GmD7d/d4.jpg" alt="Vesper's dog"></div>
+                <div class="memory-panel">
+                    <h2>Under The Table</h2>
+                    <div class="memory-text">
+                        <p>You shrank inside your clothes while Vesper held up the leash for the next player to admire. She did not drag you away. She kept you close.</p>
+                        <p>Now the underside of the blackjack table is your view, and every chip dropped near your paws reminds you why dogs should not gamble.</p>
+                        <p>She uses you as part of the show. Before a risky hand, she rests one heel on the leash and tells the player what you wagered, how confident you looked, and how quickly confidence turned into panting.</p>
+                        <p>Sometimes she drops a chip just to watch you nose it back. Sometimes she calls you by the amount you lost. Either way your tail wags before your pride can stop it, and Vesper notices every single time.</p>
+                    </div>
+                </div>
+            </div>
+            <aside class="control-panel">
+                <h1>Table Dog</h1>
+                <span class="badge">Blackjack Table Fate</span>
+                <div class="meter-head"><span>Obedience</span><span class="meter-value" id="meterValue">0%</span></div>
+                <div class="meter"><div class="meter-fill" id="meterFill"></div></div>
+                <div class="status-box" id="statusText">The leash is looped around Vesper's ankle. She only has to shift her foot to remind you who won, and your whole body answers before your thoughts can catch up.</div>
+                <div class="action-grid">
+                    <button class="state-btn" data-action-index="0">Paw At The Leash</button>
+                    <button class="state-btn" data-action-index="1">Bark On Command</button>
+                    <button class="state-btn" data-action-index="2">Fetch A Chip</button>
+                    <button class="state-btn" data-action-index="3">Beg For Praise</button>
+                </div>
+                <p class="release-note">When the timer expires, the collar releases. Until then, Vesper decides when good dogs sit.</p>
+            </aside>
+        </section>
+    </main>
+    <div class="flash" id="flash"><div class="flash-inner" id="flashText"></div></div>
+    <script>
+        window.BLACKJACK_STATE_CONFIG = {
+            key: "blackjackDog",
+            actions: [
+                { gain: 7, status: "You paw at the leash until Vesper pins it under one heel. The collar drags your muzzle down, your breath turns needy, and she asks if you are pulling because you want freedom or because you want everyone to watch you choke yourself for her.", flash: "<strong>Bad dog.</strong><br>The leash snaps tight, your tongue slips out, and Vesper laughs at how fast a losing player becomes a panting thing under the table." },
+                { gain: 12, status: "She snaps her fingers. You bark before you decide to. Bright, sharp, obedient. Vesper rubs your collar tag and tells the next player that your mouth used to make bets, but it is much cuter making dog noises.", flash: "<strong>Speak.</strong><br>You bark again. Your tail moves. The room sees it. Vesper rewards you with one slow scratch that makes your whole body melt." },
+                { gain: 16, status: "A chip falls near your paws. You nose it back to Vesper, humiliated by how natural fetch feels now. She presses the chip to your tongue for a second, then takes it away and calls you a good little return on investment.", flash: "<strong>Fetch pays better than pride.</strong><br>Your mouth waters. Your collar tag clinks. Vesper owns the chip, the leash, and the eager little body crawling between them, mindfucked into wanting praise." },
+                { gain: 22, status: "You sit up and beg. Vesper makes the next player stop and look before she gives you praise. Your chest burns, your tail wags, and you hate the hot little thrill of being displayed as her obedient loser.", flash: "<strong>Good table dog.</strong><br>Vesper's voice drops sweet and cruel. Stay. Beg. Wag. The command pounds through your emptying skull until obedience feels better than thinking." }
+            ],
+            completeText: "<strong>100% mindfucked.</strong><br>Cards mean nothing now. Commands mean everything. Vesper clips another day onto your leash because the dog-brain finally took.",
+            penaltyText: "The leash jerks tight. +24 hours crawling as Vesper's helpless table dog.",
+            penaltyBursts: [
+                "<strong>+24 HOURS</strong><br>LEASH LOCKED",
+                "<strong>100% MINDFUCKED</strong><br>GOOD TABLE DOG",
+                "<strong>FETCH. BEG. WAG.</strong><br>NO HUMAN SAY",
+                "<strong>VESPER'S COLLAR</strong><br>OWNER CONFIRMED",
+                "<strong>CRAWL LONGER</strong><br>THE HOUSE LAUGHS"
+            ]
+        };
+    </script>
+    <script src="blackjack-state.js"></script>
+</body>
+</html>

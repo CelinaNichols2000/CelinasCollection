@@ -12,17 +12,10 @@
     <!-- HEADER NAVIGATION -->
     <header class="farmhouse-header">
         <nav class="farmhouse-nav">
-            <button class="nav-btn nav-back" id="backToForest" title="Return to the forest">
-                <span class="nav-icon">&#8592;</span>
-                <span class="nav-text">Back to Forest</span>
-            </button>
-            <div class="nav-title-container">
-                <h1 class="nav-title">Celina's Farmhouse</h1>
-                <p class="nav-subtitle">Where secrets hide behind every door...</p>
-            </div>
-            <button class="nav-btn nav-menu" id="menuToggle" title="Open menu">
-                <span class="nav-icon">&#8592;</span>
-            </button>
+            <ul>
+                <li><a id="backToForest" href="../farm.html">Farm Map</a></li>
+                <li><a href="#mapView">Explore the Farmhouse</a></li>
+            </ul>
         </nav>
 
         <!-- MOBILE MENU -->
@@ -35,6 +28,22 @@
             </div>
         </div>
     </header>
+
+    <section class="farmhouse-intro">
+        <div class="farmhouse-intro-content">
+            <h1 class="farmhouse-intro-title">The Farmhouse</h1>
+            <p class="farmhouse-intro-text">
+                Warm windows glow from the old house at the edge of the farm, but the welcome is never as gentle as
+                it looks. Every room has its own keeper, every door opens into a different kind of trouble, and the
+                walls remember exactly who entered as a visitor and who left as something smaller, softer, or easier
+                to keep.
+            </p>
+            <p class="farmhouse-intro-note">
+                Choose a room from the map below. Some encounters tease, some test, and some quietly decide what
+                shape would suit you better.
+            </p>
+        </div>
+    </section>
 
     <!-- MAIN CONTENT -->
     <main class="farmhouse-main">
@@ -4102,18 +4111,14 @@ The research requires good health data. But you've been here two years and she s
             document.getElementById('closeInteraction').addEventListener('click', closeInteraction);
 
             // Menu
-            document.getElementById('menuToggle').addEventListener('click', () => {
+            const menuToggle = document.getElementById('menuToggle');
+            if (menuToggle) menuToggle.addEventListener('click', () => {
                 const menu = document.getElementById('mobileMenu');
                 menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
             });
 
             document.getElementById('menuClose').addEventListener('click', () => {
                 document.getElementById('mobileMenu').style.display = 'none';
-            });
-
-            // Back button
-            document.getElementById('backToForest').addEventListener('click', () => {
-                window.location.href = '../forest/forest.html';
             });
         }
 

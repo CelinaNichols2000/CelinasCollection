@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celina's Farm Blackjack</title>
+    <link rel="icon" type="image/x-icon" href="../celinaIcon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background:
+                linear-gradient(rgba(9, 6, 16, 0.72), rgba(9, 6, 16, 0.9)),
+                url("https://i.ibb.co/W42HhDXK/barn.jpg") center/cover fixed;
+            color: #fff;
+            font-family: "Poppins", sans-serif;
+        }
+
+        .farm-casino {
+            width: min(1180px, calc(100% - 28px));
+            margin: 0 auto;
+            padding: 28px 0 44px;
+        }
+
+        .topbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 14px;
+            margin-bottom: 22px;
+        }
+
+        .back-link,
+        button {
+            font: inherit;
+        }
+
+        .back-link {
+            color: #fff;
+            text-decoration: none;
+            border: 1px solid rgba(255,255,255,0.18);
+            background: rgba(0,0,0,0.44);
+            border-radius: 8px;
+            padding: 10px 14px;
+            transition: border-color 0.2s ease, background 0.2s ease;
+        }
+
+        .back-link:hover {
+            border-color: #ff65d9;
+            background: rgba(255,0,202,0.16);
+        }
+
+        .table-title {
+            text-align: right;
+        }
+
+        h1 {
+            margin: 0;
+            color: #ff4fd2;
+            font-family: "Orbitron", sans-serif;
+            font-size: clamp(2rem, 5vw, 4.2rem);
+            letter-spacing: 0;
+            text-shadow: 0 0 22px rgba(255, 0, 202, 0.72);
+        }
+
+        .subtitle {
+            margin: 8px 0 0;
+            color: #d8f8ee;
+            line-height: 1.5;
+        }
+
+        .casino-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 360px;
+            gap: 18px;
+            align-items: start;
+        }
+
+        .table-panel,
+        .ledger-panel,
+        .rules-panel {
+            border: 1px solid rgba(255,255,255,0.16);
+            background: rgba(12, 10, 18, 0.86);
+            box-shadow: 0 18px 50px rgba(0,0,0,0.38);
+            border-radius: 8px;
+        }
+
+        .table-panel {
+            padding: clamp(16px, 3vw, 28px);
+            min-height: 620px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        .dealer-stage {
+            display: grid;
+            grid-template-columns: 210px minmax(0, 1fr);
+            gap: 16px;
+            align-items: stretch;
+            border: 1px solid rgba(0, 255, 213, 0.22);
+            background: linear-gradient(135deg, rgba(0, 255, 213, 0.08), rgba(255, 0, 202, 0.1));
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .dealer-portrait {
+            position: relative;
+            min-height: 220px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.18);
+            background: #110716;
+        }
+
+        .dealer-portrait img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center top;
+        }
+
+        .dealer-tag {
+            position: absolute;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            padding: 8px 10px;
+            border-radius: 8px;
+            background: rgba(0,0,0,0.72);
+            border: 1px solid rgba(255,255,255,0.18);
+            color: #fff;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        .dealer-copy {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 10px;
+            min-width: 0;
+        }
+
+        .dealer-copy h2 {
+            margin: 0;
+            color: #aefbef;
+            font-family: "Orbitron", sans-serif;
+            font-size: clamp(1.25rem, 3vw, 2rem);
+        }
+
+        .dealer-copy p {
+            margin: 0;
+            color: #eadfff;
+            line-height: 1.55;
+        }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .stat {
+            border: 1px solid rgba(255, 0, 202, 0.22);
+            background: rgba(255, 0, 202, 0.08);
+            border-radius: 8px;
+            padding: 12px;
+            min-height: 74px;
+        }
+
+        .stat-label {
+            display: block;
+            color: #ffaceb;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .stat-value {
+            display: block;
+            margin-top: 6px;
+            color: #fff;
+            font-family: "Orbitron", sans-serif;
+            font-size: 1.45rem;
+        }
+
+        .curse-track {
+            height: 12px;
+            margin-top: 8px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.12);
+            overflow: hidden;
+        }
+
+        .curse-fill {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #00ffd5, #ffd166, #ff3b8e);
+            transition: width 0.3s ease;
+        }
+
+        .hand-zone {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+        }
+
+        .hand {
+            border: 1px solid rgba(255,255,255,0.14);
+            background: rgba(255,255,255,0.05);
+            border-radius: 8px;
+            padding: 14px;
+        }
+
+        .hand-head {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            align-items: center;
+            color: #aefbef;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .cards {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            min-height: 142px;
+            align-items: center;
+        }
+
+        .card {
+            width: 96px;
+            aspect-ratio: 2 / 3;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.08);
+            display: block;
+            box-shadow: 0 8px 22px rgba(0,0,0,0.28);
+            border: 1px solid rgba(255,255,255,0.26);
+            overflow: hidden;
+            transform: translateY(0);
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 28px rgba(0,0,0,0.36);
+        }
+
+        .card img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        .message-box {
+            min-height: 92px;
+            border-left: 4px solid #ff4fd2;
+            background: rgba(0,0,0,0.34);
+            border-radius: 8px;
+            padding: 14px 16px;
+            color: #f5e8ff;
+            line-height: 1.58;
+        }
+
+        .controls {
+            display: grid;
+            gap: 14px;
+        }
+
+        .wager-row,
+        .action-row {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .wager-btn,
+        .action-btn,
+        .reset-btn {
+            border: 1px solid rgba(255,255,255,0.16);
+            color: #fff;
+            background: rgba(255,255,255,0.08);
+            border-radius: 8px;
+            padding: 12px 16px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+        }
+
+        .wager-btn:hover,
+        .action-btn:hover,
+        .reset-btn:hover {
+            transform: translateY(-2px);
+            border-color: #ff65d9;
+            background: rgba(255,0,202,0.18);
+        }
+
+        .action-btn.primary {
+            background: linear-gradient(90deg, #ff00ca, #7d5fff);
+            box-shadow: 0 0 24px rgba(255,0,202,0.32);
+        }
+
+        button:disabled {
+            opacity: 0.42;
+            cursor: not-allowed;
+            transform: none !important;
+        }
+
+        .ledger-panel {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .panel-title {
+            margin: 0;
+            color: #ffaceb;
+            font-family: "Orbitron", sans-serif;
+            font-size: 1.15rem;
+        }
+
+        .claimed-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .claimed-card {
+            border: 1px solid rgba(255,255,255,0.14);
+            border-radius: 8px;
+            padding: 12px;
+            background: rgba(255,255,255,0.05);
+        }
+
+        .claimed-card.is-claimed {
+            border-color: rgba(0,255,213,0.45);
+            background: rgba(0,255,213,0.08);
+        }
+
+        .claimed-name {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            color: #fff;
+            font-weight: 700;
+        }
+
+        .claimed-form {
+            margin-top: 5px;
+            color: #c8fff8;
+            font-size: 0.9rem;
+        }
+
+        .claimed-action {
+            width: 100%;
+            margin-top: 10px;
+            border: 1px solid rgba(0,255,213,0.28);
+            border-radius: 8px;
+            padding: 9px 10px;
+            color: #fff;
+            background: rgba(0,255,213,0.12);
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .claimed-action:hover {
+            background: rgba(0,255,213,0.2);
+        }
+
+        .claimed-action:disabled {
+            background: rgba(255,255,255,0.08);
+        }
+
+        .reward-strip {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+        }
+
+        .reward-pill {
+            border: 1px solid rgba(0,255,213,0.2);
+            background: rgba(0,255,213,0.08);
+            border-radius: 8px;
+            padding: 10px;
+            color: #d8fff9;
+            font-size: 0.9rem;
+            line-height: 1.35;
+        }
+
+        .reward-pill strong {
+            display: block;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .rules-panel {
+            padding: 14px;
+            color: #d9d0df;
+            line-height: 1.55;
+        }
+
+        .rules-panel p {
+            margin: 8px 0 0;
+            font-size: 0.92rem;
+        }
+
+        .prize-shop {
+            border: 1px solid rgba(255, 0, 202, 0.22);
+            background: rgba(255, 0, 202, 0.08);
+            border-radius: 8px;
+            padding: 14px;
+            display: grid;
+            gap: 10px;
+        }
+
+        .shop-toggle {
+            width: 100%;
+            border: 1px solid rgba(255,255,255,0.16);
+            color: #fff;
+            background: rgba(0,0,0,0.26);
+            border-radius: 8px;
+            padding: 12px;
+            cursor: pointer;
+            font-weight: 800;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .shop-body {
+            display: none;
+            gap: 10px;
+        }
+
+        .prize-shop.open .shop-body {
+            display: grid;
+        }
+
+        .shop-item {
+            border: 1px solid rgba(255,255,255,0.14);
+            background: rgba(0,0,0,0.24);
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .shop-item h3 {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+            margin: 0 0 6px;
+            color: #fff;
+            font-size: 0.98rem;
+        }
+
+        .shop-item p {
+            margin: 0 0 10px;
+            color: #dccfea;
+            font-size: 0.9rem;
+            line-height: 1.45;
+        }
+
+        .shop-btn {
+            width: 100%;
+            border: 1px solid rgba(255,255,255,0.16);
+            color: #fff;
+            background: linear-gradient(90deg, rgba(255,0,202,0.55), rgba(0,199,170,0.4));
+            border-radius: 8px;
+            padding: 10px;
+            cursor: pointer;
+            font-weight: 700;
+        }
+
+        .shop-btn:hover {
+            filter: brightness(1.15);
+        }
+
+        .celina-trophy {
+            display: none;
+            border: 1px solid rgba(0,255,213,0.36);
+            border-radius: 8px;
+            padding: 12px;
+            background: rgba(0,255,213,0.1);
+            color: #e2fffb;
+            line-height: 1.5;
+        }
+
+        .celina-trophy.active {
+            display: block;
+        }
+
+        .trap-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 40;
+            display: none;
+            place-items: center;
+            padding: 18px;
+            background: rgba(0,0,0,0.88);
+        }
+
+        .trap-overlay.active { display: grid; }
+
+        .scene-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 45;
+            display: none;
+            place-items: center;
+            padding: 18px;
+            background: rgba(0,0,0,0.88);
+        }
+
+        .scene-overlay.active {
+            display: grid;
+        }
+
+        .scene-box {
+            width: min(760px, 100%);
+            max-height: 92vh;
+            overflow: auto;
+            border: 2px solid #00ffd5;
+            background: linear-gradient(145deg, #120519, #071a18);
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 50px rgba(0,255,213,0.36);
+        }
+
+        .scene-box img {
+            width: 100%;
+            max-height: 420px;
+            object-fit: contain;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.18);
+            background: #050509;
+        }
+
+        .scene-box h2 {
+            color: #ffaceb;
+            font-family: "Orbitron", sans-serif;
+            margin: 14px 0 8px;
+        }
+
+        .scene-box p {
+            color: #f1eaff;
+            line-height: 1.6;
+        }
+
+        .trap-box {
+            width: min(620px, 100%);
+            border: 2px solid #ff4fd2;
+            background: linear-gradient(145deg, #16051f, #071a16);
+            border-radius: 8px;
+            padding: 26px;
+            text-align: center;
+            box-shadow: 0 0 50px rgba(255,0,202,0.48);
+        }
+
+        .trap-image {
+            width: min(320px, 100%);
+            max-height: 340px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.18);
+            box-shadow: 0 12px 34px rgba(0,0,0,0.4);
+            margin-bottom: 16px;
+        }
+
+        .trap-box h2 {
+            margin: 0 0 12px;
+            color: #ff4fd2;
+            font-family: "Orbitron", sans-serif;
+        }
+
+        .trap-box p {
+            color: #f1eaff;
+            line-height: 1.65;
+            text-align: left;
+        }
+
+        @media (max-width: 860px) {
+            .casino-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .topbar {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .table-title {
+                text-align: left;
+            }
+
+            .status-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .dealer-stage {
+                grid-template-columns: 1fr;
+            }
+
+            .dealer-portrait {
+                min-height: 260px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .table-panel {
+                min-height: auto;
+            }
+
+            .card {
+                width: 70px;
+            }
+
+            .status-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .reward-strip {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="farm-casino">
+        <div class="topbar">
+            <a class="back-link" href="barn.html">Back to Barn</a>
+            <div class="table-title">
+                <h1>High Stakes Blackjack</h1>
+                <p class="subtitle">Win hands, expose the already-claimed losers, and keep the farm's curse from closing around your collar.</p>
+            </div>
+        </div>
+
+        <div class="casino-layout">
+            <section class="table-panel" aria-label="Blackjack table">
+                <div class="dealer-stage">
+                    <div class="dealer-portrait">
+                        <img src="https://images.celinascollection.com/website/sexydealer.jpg" alt="The farm blackjack dealer">
+                        <div class="dealer-tag">Vesper - House Dealer</div>
+                    </div>
+                    <div class="dealer-copy">
+                        <h2>Vesper Lustwood</h2>
+                        <p>Vesper runs Celina's side table: smooth shuffles, sweet smiles, and no mercy for visitors who think luck belongs to them.</p>
+                        <div class="reward-strip">
+                            <div class="reward-pill" id="peekStatus"><strong>Peek</strong>Inactive - spend Jun to reveal Vesper's hidden card for one round.</div>
+                            <div class="reward-pill" id="bustStatus"><strong>Bust Charm</strong>Inactive - spend Nix so your next bust loses no chips.</div>
+                            <div class="reward-pill" id="escapeStatus"><strong>Escape Charm</strong>Inactive - spend Pip to survive one table claim.</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="status-grid">
+                    <div class="stat">
+                        <span class="stat-label">Chips</span>
+                        <span class="stat-value" id="chipsValue">12</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Current Wager</span>
+                        <span class="stat-value" id="wagerValue">1</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Claimed</span>
+                        <span class="stat-value" id="claimedValue">0/6</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-label">Curse</span>
+                        <span class="stat-value" id="curseValue">0/10</span>
+                        <div class="curse-track"><div class="curse-fill" id="curseFill"></div></div>
+                    </div>
+                </div>
+
+                <div class="hand-zone">
+                    <div class="hand">
+                        <div class="hand-head">
+                            <span>Vesper's Hand</span>
+                            <span id="dealerTotal">?</span>
+                        </div>
+                        <div class="cards" id="dealerCards"></div>
+                    </div>
+
+                    <div class="hand">
+                        <div class="hand-head">
+                            <span>Your Hand</span>
+                            <span id="playerTotal">0</span>
+                        </div>
+                        <div class="cards" id="playerCards"></div>
+                    </div>
+                </div>
+
+                <div class="message-box" id="messageBox">
+                    Pick a wager and deal. Every lost chip fattens the curse. Every clean win reveals a claimed loser with a one-use table perk.
+                </div>
+
+                <div class="controls">
+                    <div class="wager-row" aria-label="Choose wager">
+                        <button class="wager-btn" data-wager="1">Wager 1</button>
+                        <button class="wager-btn" data-wager="2">Wager 2</button>
+                        <button class="wager-btn" data-wager="3">Wager 3</button>
+                        <button class="wager-btn" data-wager="all">All In</button>
+                    </div>
+                    <div class="action-row">
+                        <button class="action-btn primary" id="dealBtn">Deal</button>
+                        <button class="action-btn" id="hitBtn" disabled>Hit</button>
+                        <button class="action-btn" id="standBtn" disabled>Stand</button>
+                        <button class="action-btn" id="doubleBtn" disabled>Double</button>
+                        <button class="reset-btn" id="resetBtn">Reset Table</button>
+                    </div>
+                </div>
+            </section>
+
+            <aside class="ledger-panel">
+                <h2 class="panel-title">Claimed Losers</h2>
+                <div class="claimed-list" id="claimedList"></div>
+                <div class="prize-shop" id="prizeShop">
+                    <button class="shop-toggle" id="shopToggle" type="button">
+                        <span>Cash Out</span>
+                        <span id="shopToggleIcon">Show</span>
+                    </button>
+                    <div class="shop-body" id="shopBody">
+                        <div class="celina-trophy" id="celinaTrophy"></div>
+                        <div class="shop-item">
+                            <h3><span>Private Dealer Scene</span><span>25</span></h3>
+                            <p>Buy Vesper's attention between rounds. She drags you behind the velvet curtain and leaves the table jealous.</p>
+                            <button class="shop-btn" data-prize="private">Buy Scene</button>
+                        </div>
+                        <div class="shop-item">
+                            <h3><span>Collar Bribe</span><span>50</span></h3>
+                            <p>Pay Vesper to loosen the magic before it gets ideas. Your curse drops hard, but she remembers you paid.</p>
+                            <button class="shop-btn" data-prize="bribe">Buy Time</button>
+                        </div>
+                        <div class="shop-item">
+                            <h3><span>Celina Drink Spike</span><span>100</span></h3>
+                            <p>Vesper spikes Celina's drink and hands you the leash for one real day. Very expensive. Very worth it.</p>
+                            <button class="shop-btn" data-prize="celina">Claim Celina</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="rules-panel">
+                    <h2 class="panel-title">House Rules</h2>
+                    <p>Vesper stands on 17. Blackjack pays double. Pushes still let the collar tighten by one. Revealed losers can be spent for chips, curse relief, peeks, charms, and last chances. Big stacks can be cashed out for Vesper, protection, or one day of collared Celina.</p>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <div class="trap-overlay" id="trapOverlay" aria-hidden="true">
+        <div class="trap-box">
+            <img id="trapImage" class="trap-image" alt="">
+            <h2 id="trapTitle">The Table Claims You</h2>
+            <p id="trapText"></p>
+            <button class="action-btn primary" id="acceptTrapBtn">Accept the Farm's Verdict</button>
+        </div>
+    </div>
+
+    <div class="scene-overlay" id="privateSceneOverlay" aria-hidden="true">
+        <div class="scene-box">
+            <img src="https://images.celinascollection.com/getting_f_by_c/773630682.gif" alt="Private scene with Vesper">
+            <h2>Private Dealer Scene</h2>
+            <p>
+                Vesper closes the velvet curtain with one heel and spends your chips properly: pinning you down, riding the last smug thoughts out of your head, and whispering every losing hand back into your ear until the table outside feels very far away.
+            </p>
+            <p>
+                When she finally lets you crawl back, your curse is quieter, your chips are gone, and Vesper looks freshly amused by how easy you were to buy.
+            </p>
+            <button class="action-btn primary" id="closePrivateScene" type="button">Return to the Table</button>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            const farmState = JSON.parse(localStorage.getItem("farmState") || "{}");
+            if (farmState.trappedUntil && farmState.trappedUntil > Date.now()) {
+                window.location.href = getTrapRedirect(farmState.currentForm);
+                return;
+            }
+
+            const ledger = [
+                { name: "Marlo", form: "Stable donkey", note: "Lost three all-in hands and still called it luck.", reward: "Pack Mule", effect: "Gain 3 chips." },
+                { name: "Vera", form: "Prize cow", note: "Tried counting cards. Counts hay now.", reward: "Fresh Milk", effect: "Reduce curse by 3." },
+                { name: "Jun", form: "Collared dog", note: "Barked at the dealer after a push.", reward: "Sniff Tell", effect: "Peek at Vesper's hidden card this round." },
+                { name: "Nix", form: "Garden rabbit", note: "Kept asking for one more hand.", reward: "Lucky Foot", effect: "Your next bust loses no chips and adds only 1 curse." },
+                { name: "Orin", form: "Riding horse", note: "Folded at blackjack. Somehow.", reward: "Second Wind", effect: "Gain 2 chips and reduce curse by 1." },
+                { name: "Pip", form: "Tiny farm pet", note: "Won once, got smug, vanished under the table.", reward: "Slip Away", effect: "Survive one table claim with 5 chips and 6 curse." }
+            ];
+
+            const fates = [
+                {
+                    form: "blackjack_donkey",
+                    redirect: "States/blackjack-donkey.html",
+                    title: "Dealer's Braying Donkey",
+                    image: "https://i.ibb.co/CphZH3D1/cmsn-red-brays-by-wrenzephyr2-dcf53ur-414w-2x.png",
+                    text: "Your last chip rolls across the felt and taps Vesper's nail. She does not even look down. She just clicks a collar shut around your throat and lets the curse yank you off the chair.<br><br>Your boots split first. Toes crush together into hard little hooves while your pants tear down the seams, hips kicking wider, spine bowing, ears dragging long and stupid from your skull. You try to curse her, but the word breaks into a raw, humiliating bray.<br><br>Vesper laughs, swings one leg over your back, and rides you away from the table while the other losers clap. Every step makes your new tail flick and your empty head burn with the awful knowledge that you lost so badly she does not even need a saddle."
+                },
+                {
+                    form: "blackjack_cow",
+                    redirect: "States/blackjack-cow.html",
+                    title: "Prize Table Heifer",
+                    image: "https://i.ibb.co/sd6xgTPH/mecow.png",
+                    text: "The final chip spins, wobbles, and falls flat in front of Vesper. She pinches your chin, calls you a poor little cash cow, and presses a brass tag to your collar.<br><br>Heat pours down your chest. Buttons pop one after another as your body swells too heavy for human clothes, soft flesh pushing out, legs thickening, shoes bursting around spreading hooves. Your thoughts slow with every rip of fabric until the only thing left is the shameful weight of being inspected.<br><br>Vesper pats your flank, checks your tag, and leads you behind the barn for milking. She makes sure the table hears you moo before she closes the gate."
+                },
+                {
+                    form: "blackjack_dog",
+                    redirect: "States/blackjack-dog.html",
+                    title: "Vesper's Collared Table Dog",
+                    image: "https://i.ibb.co/RT7GmD7d/d4.jpg",
+                    text: "Your last chip rolls neatly into Vesper's palm. She whistles once. The sound drops you to your knees before you can pretend you chose it.<br><br>Your clothes hang loose as you shrink inside them, hands pawing uselessly through sleeves that are suddenly too long. A collar tightens, your nose pushes forward, and your clever excuses collapse into needy panting. Vesper tugs the leash just to watch you scramble out of the pile of fabric.<br><br>She makes you crawl beside her chair for the next game, chin lifted by the leash, tail wagging whenever she calls you a good little losing bitch."
+                },
+                {
+                    form: "blackjack_rabbit",
+                    redirect: "States/blackjack-rabbit.html",
+                    title: "Lucky Foot Rabbit",
+                    image: "https://i.ibb.co/zWCzBvcz/remove-comments.jpg",
+                    text: "The last chip slips away, and Vesper flips it across her knuckles like a tiny moon. Your heart starts hammering too fast. Your chair gets huge.<br><br>You shrink straight down into your clothes, drowning in cloth as your ears spear upward and soft fur races over your skin. Fingers curl into paws. Your voice becomes a panicked little squeak muffled under your own shirt.<br><br>Vesper fishes you out by the scruff, kisses your twitching nose, and jokes that at least part of you might bring luck to the next player. Then she carries you off to a hutch where losing rabbits learn exactly how useful they are."
+                },
+                {
+                    form: "blackjack_horse",
+                    redirect: "States/blackjack-horse.html",
+                    title: "House Riding Mare",
+                    image: "https://i.ibb.co/xSrBqdqy/Horse-2.jpg",
+                    text: "Vesper lets your final chip roll all the way to the table edge before catching it under her heel. A bridle blooms from the shadow of her shoe.<br><br>Your back arches hard. Clothes shred across widening shoulders and powerful hips as your hands slam down, fingers sealing into hooves. The room tilts, taller and crueler, while the bridle bites into your new muzzle and steals every proud word you were saving.<br><br>Vesper mounts you right there between the chairs, heels tapping your sides. She rides you out at a slow, humiliating trot so every player can see what happens to someone who thought they could beat her house."
+                },
+                {
+                    form: "blackjack_figurine",
+                    redirect: "States/blackjack-figurine.html",
+                    title: "Vesper's Shelf Prize",
+                    image: "https://i.ibb.co/fJFWmjw/cf-1.png",
+                    text: "The last chip lands against Vesper's lipstick-stained glass. She smiles like she has been waiting for this exact kind of pretty failure.<br><br>Your body locks mid-beg. Skin glosses over, joints freezing while your clothes tighten into painted-on decoration. You shrink onto the felt inch by inch, a tiny display piece with a horrified little face and a body posed for Vesper's amusement.<br><br>She sets you beside the dealer shoe and taps your head with one nail. Sometimes she uses you as a vulgar little toy between hands. Sometimes she leaves you as a cumcatching trophy where new players can see you. Either way, you are small, shiny, owned, and very good at reminding people to tip the dealer."
+                }
+            ];
+
+            const defaults = {
+                chips: 12,
+                curse: 0,
+                wager: 1,
+                claimed: [],
+                usedRewards: [],
+                wins: 0,
+                losses: 0,
+                peekDealer: false,
+                bustCharm: false,
+                escapeCharm: false,
+                trophyCashouts: 0,
+                privateScenes: 0,
+                celinaClaimUntil: 0
+            };
+            let save = JSON.parse(localStorage.getItem("farmBlackjack") || "{}");
+            let state = {
+                ...defaults,
+                ...save,
+                claimed: Array.isArray(save.claimed) ? save.claimed : [],
+                usedRewards: Array.isArray(save.usedRewards) ? save.usedRewards : []
+            };
+            let deck = [];
+            let player = [];
+            let dealer = [];
+            let roundActive = false;
+            let revealDealer = false;
+            let doubled = false;
+
+            const el = {
+                chips: document.getElementById("chipsValue"),
+                wager: document.getElementById("wagerValue"),
+                curse: document.getElementById("curseValue"),
+                curseFill: document.getElementById("curseFill"),
+                claimed: document.getElementById("claimedValue"),
+                dealerCards: document.getElementById("dealerCards"),
+                playerCards: document.getElementById("playerCards"),
+                dealerTotal: document.getElementById("dealerTotal"),
+                playerTotal: document.getElementById("playerTotal"),
+                message: document.getElementById("messageBox"),
+                deal: document.getElementById("dealBtn"),
+                hit: document.getElementById("hitBtn"),
+                stand: document.getElementById("standBtn"),
+                double: document.getElementById("doubleBtn"),
+                reset: document.getElementById("resetBtn"),
+                ledger: document.getElementById("claimedList"),
+                trapOverlay: document.getElementById("trapOverlay"),
+                trapImage: document.getElementById("trapImage"),
+                trapTitle: document.getElementById("trapTitle"),
+                trapText: document.getElementById("trapText"),
+                acceptTrap: document.getElementById("acceptTrapBtn"),
+                peekStatus: document.getElementById("peekStatus"),
+                bustStatus: document.getElementById("bustStatus"),
+                escapeStatus: document.getElementById("escapeStatus"),
+                celinaTrophy: document.getElementById("celinaTrophy"),
+                prizeShop: document.getElementById("prizeShop"),
+                shopToggle: document.getElementById("shopToggle"),
+                shopToggleIcon: document.getElementById("shopToggleIcon"),
+                privateSceneOverlay: document.getElementById("privateSceneOverlay"),
+                closePrivateScene: document.getElementById("closePrivateScene")
+            };
+
+            function getTrapRedirect(form) {
+                const map = {
+                    blackjack_donkey: "States/blackjack-donkey.html",
+                    blackjack_cow: "States/blackjack-cow.html",
+                    blackjack_dog: "States/blackjack-dog.html",
+                    blackjack_rabbit: "States/blackjack-rabbit.html",
+                    blackjack_horse: "States/blackjack-horse.html",
+                    blackjack_figurine: "States/blackjack-figurine.html",
+                    fairy_donkey: "States/forest-donkey.html",
+                    cow: "States/forest-cow.html",
+                    nami_dog: "States/nami-dog.html",
+                    druid_rabbit: "States/forest-rabbit.html",
+                    witch_horse: "States/forest-horse.html",
+                    nami_donkey: "States/nami-donkey.html",
+                    vesper_figurine: "States/transformation-trapped.html"
+                };
+                return map[form] || "States/transformation-trapped.html";
+            }
+
+            function persist() {
+                localStorage.setItem("farmBlackjack", JSON.stringify(state));
+            }
+
+            function makeDeck() {
+                const suits = ["H", "D", "C", "S"];
+                const ranks = ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"];
+                const fresh = [];
+                suits.forEach(suit => ranks.forEach(rank => fresh.push({ rank, suit })));
+                for (let i = fresh.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [fresh[i], fresh[j]] = [fresh[j], fresh[i]];
+                }
+                return fresh;
+            }
+
+            function cardValue(card) {
+                if (card.rank === "A") return 11;
+                if (["K", "Q", "J"].includes(card.rank)) return 10;
+                return parseInt(card.rank, 10);
+            }
+
+            function total(hand) {
+                let sum = hand.reduce((acc, card) => acc + cardValue(card), 0);
+                let aces = hand.filter(card => card.rank === "A").length;
+                while (sum > 21 && aces > 0) {
+                    sum -= 10;
+                    aces -= 1;
+                }
+                return sum;
+            }
+
+            function isBlackjack(hand) {
+                return hand.length === 2 && total(hand) === 21;
+            }
+
+            function draw() {
+                if (deck.length < 12) deck = makeDeck();
+                return deck.pop();
+            }
+
+            function cardImageUrl(card) {
+                const rankCodes = {
+                    A: "01",
+                    J: "C1J",
+                    Q: "C2Q",
+                    K: "C3K"
+                };
+                const code = rankCodes[card.rank] || String(card.rank).padStart(2, "0");
+                return `https://images.celinascollection.com/cards/${card.suit}${code}.jpg`;
+            }
+
+            function cardAlt(card) {
+                const suitNames = {
+                    C: "clubs",
+                    D: "diamonds",
+                    H: "hearts",
+                    S: "spades"
+                };
+                const rankNames = {
+                    A: "ace",
+                    J: "jack",
+                    Q: "queen",
+                    K: "king"
+                };
+                const rank = rankNames[card.rank] || card.rank;
+                return `${rank} of ${suitNames[card.suit]}`;
+            }
+
+            function renderCards(node, hand, hideFirst) {
+                node.innerHTML = "";
+                hand.forEach((card, index) => {
+                    const wrapper = document.createElement("div");
+                    const img = document.createElement("img");
+                    const hidden = hideFirst && index === 0 && !state.peekDealer;
+                    wrapper.className = "card";
+                    img.src = hidden ? "https://images.celinascollection.com/cards/zback.jpg" : cardImageUrl(card);
+                    img.alt = hidden ? "face-down card" : cardAlt(card);
+                    wrapper.title = img.alt;
+                    wrapper.appendChild(img);
+                    node.appendChild(wrapper);
+                });
+            }
+
+            function renderLedger() {
+                el.ledger.innerHTML = "";
+                ledger.forEach((entry, index) => {
+                    const claimed = state.claimed.includes(index);
+                    const used = state.usedRewards.includes(index);
+                    const card = document.createElement("div");
+                    card.className = `claimed-card${claimed ? " is-claimed" : ""}`;
+                    card.innerHTML = `
+                        <div class="claimed-name">
+                            <span>${claimed ? entry.name : "Unknown loser"}</span>
+                            <span>${claimed ? (used ? "Spent" : "Ready") : "Hidden"}</span>
+                        </div>
+                        <div class="claimed-form">${claimed ? entry.form : "Win a hand to reveal this slot."}</div>
+                        <div class="claimed-form">${claimed ? entry.note : ""}</div>
+                        <div class="claimed-form">${claimed ? `<strong>${entry.reward}:</strong> ${entry.effect}` : ""}</div>
+                    `;
+                    if (claimed) {
+                        const button = document.createElement("button");
+                        button.type = "button";
+                        button.className = "claimed-action";
+                        button.textContent = used ? "Reward spent" : `Use ${entry.reward}`;
+                        button.disabled = used;
+                        button.addEventListener("click", () => useReward(index));
+                        card.appendChild(button);
+                    }
+                    el.ledger.appendChild(card);
+                });
+            }
+
+            function formatRemaining(ms) {
+                const safe = Math.max(0, ms);
+                const hours = Math.floor(safe / 3600000);
+                const minutes = Math.floor((safe % 3600000) / 60000);
+                const seconds = Math.floor((safe % 60000) / 1000);
+                return `${String(hours).padStart(2, "0")}:${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+            }
+
+            function renderShop() {
+                const celinaRemaining = Math.max(0, (state.celinaClaimUntil || 0) - Date.now());
+                if (celinaRemaining > 0) {
+                    el.celinaTrophy.classList.add("active");
+                    el.celinaTrophy.innerHTML = `<strong>Celina Claimed:</strong> Vesper's spiked drink did its work. Celina is leashed as your spoiled little farm fox for ${formatRemaining(celinaRemaining)}.`;
+                } else {
+                    el.celinaTrophy.classList.remove("active");
+                    el.celinaTrophy.textContent = "";
+                    state.celinaClaimUntil = 0;
+                }
+
+                document.querySelectorAll(".shop-btn").forEach(button => {
+                    const cost = getPrizeCost(button.dataset.prize);
+                    const alreadyActive = button.dataset.prize === "celina" && celinaRemaining > 0;
+                    button.disabled = state.chips < cost || alreadyActive || roundActive;
+                });
+            }
+
+            function render() {
+                el.chips.textContent = state.chips;
+                el.wager.textContent = state.wager;
+                el.curse.textContent = `${state.curse}/10`;
+                el.curseFill.style.width = `${Math.min(100, state.curse * 10)}%`;
+                el.claimed.textContent = `${state.claimed.length}/${ledger.length}`;
+                renderCards(el.dealerCards, dealer, roundActive && !revealDealer);
+                renderCards(el.playerCards, player, false);
+                el.dealerTotal.textContent = roundActive && !revealDealer && dealer.length && !state.peekDealer ? "?" : total(dealer);
+                el.playerTotal.textContent = total(player);
+                el.deal.disabled = roundActive || state.chips <= 0;
+                el.hit.disabled = !roundActive;
+                el.stand.disabled = !roundActive;
+                el.double.disabled = !roundActive || doubled || state.chips < state.wager;
+                el.peekStatus.innerHTML = state.peekDealer
+                    ? "<strong>Peek</strong>Active - Vesper's hidden card is visible this round."
+                    : "<strong>Peek</strong>Inactive - spend Jun to reveal Vesper's hidden card for one round.";
+                el.bustStatus.innerHTML = state.bustCharm
+                    ? "<strong>Bust Charm</strong>Active - your next bust loses no chips and adds only 1 curse."
+                    : "<strong>Bust Charm</strong>Inactive - spend Nix so your next bust loses no chips.";
+                el.escapeStatus.innerHTML = state.escapeCharm
+                    ? "<strong>Escape Charm</strong>Active - your next table claim fails and you keep playing."
+                    : "<strong>Escape Charm</strong>Inactive - spend Pip to survive one table claim.";
+                document.querySelectorAll(".wager-btn").forEach(btn => btn.disabled = roundActive);
+                renderLedger();
+                renderShop();
+                persist();
+            }
+
+            function setMessage(text) {
+                el.message.innerHTML = text;
+            }
+
+            function setWager(value) {
+                if (roundActive) return;
+                state.wager = value === "all" ? Math.max(1, state.chips) : Math.min(parseInt(value, 10), state.chips);
+                render();
+            }
+
+            function getPrizeCost(prize) {
+                const costs = {
+                    private: 25,
+                    bribe: 50,
+                    celina: 100
+                };
+                return costs[prize] || 0;
+            }
+
+            function buyPrize(prize) {
+                if (roundActive) return;
+                const cost = getPrizeCost(prize);
+                if (state.chips < cost) {
+                    setMessage("Vesper taps the chip tray. Pretty wants are expensive. Win more first.");
+                    return;
+                }
+
+                state.chips -= cost;
+
+                if (prize === "private") {
+                    state.privateScenes += 1;
+                    state.curse = Math.max(0, state.curse - 2);
+                    setMessage("Vesper locks the table, takes your chips, and leads you behind the curtain by the collar. When you stumble back, your knees are weak, your mouth is ruined, and the dealer has that satisfied smile that says she got exactly what she paid herself for. Curse -2.");
+                    openPrivateScene();
+                } else if (prize === "bribe") {
+                    state.curse = Math.max(0, state.curse - 7);
+                    state.escapeCharm = true;
+                    setMessage("Vesper counts every chip slowly, then loosens the collar with two fingers. The curse retreats hard, but she clips a tiny emergency charm to your leash. Curse -7. One escape charm active.");
+                } else if (prize === "celina") {
+                    state.celinaClaimUntil = Date.now() + 24 * 60 * 60 * 1000;
+                    state.curse = Math.max(0, state.curse - 10);
+                    setMessage("Vesper pours Celina a glittering drink and smiles over the rim of the glass. Minutes later, Celina is flushed, dazed, collared, and trying very hard to pretend she is not leaning into the leash. You bought one real day with Celina as your spoiled little farm animal. Curse cleared.");
+                }
+
+                state.wager = Math.min(Math.max(1, state.wager), Math.max(1, state.chips));
+                render();
+            }
+
+            function openPrivateScene() {
+                el.privateSceneOverlay.classList.add("active");
+                el.privateSceneOverlay.setAttribute("aria-hidden", "false");
+            }
+
+            function closePrivateScene() {
+                el.privateSceneOverlay.classList.remove("active");
+                el.privateSceneOverlay.setAttribute("aria-hidden", "true");
+            }
+
+            function toggleShop() {
+                el.prizeShop.classList.toggle("open");
+                el.shopToggleIcon.textContent = el.prizeShop.classList.contains("open") ? "Hide" : "Show";
+            }
+
+            function deal() {
+                if (state.chips <= 0) return triggerTrap();
+                state.wager = Math.min(Math.max(1, state.wager), state.chips);
+                deck = deck.length ? deck : makeDeck();
+                player = [draw(), draw()];
+                dealer = [draw(), draw()];
+                roundActive = true;
+                revealDealer = false;
+                doubled = false;
+                setMessage("The cards slide out warm from Vesper's fingers. Hit, stand, or double before the collar starts getting ideas.");
+                render();
+
+                if (isBlackjack(player) || isBlackjack(dealer)) {
+                    finishRound();
+                }
+            }
+
+            function hit() {
+                if (!roundActive) return;
+                player.push(draw());
+                if (total(player) > 21) {
+                    finishRound();
+                } else {
+                    setMessage("Another card. The table purrs like it wanted you to ask.");
+                    render();
+                }
+            }
+
+            function stand() {
+                if (!roundActive) return;
+                finishRound();
+            }
+
+            function doubleDown() {
+                if (!roundActive || doubled || state.chips < state.wager) return;
+                state.wager *= 2;
+                doubled = true;
+                player.push(draw());
+                finishRound();
+            }
+
+            function claimNextLoser() {
+                const hidden = ledger.map((_, index) => index).filter(index => !state.claimed.includes(index));
+                if (!hidden.length) return;
+                const picked = hidden[Math.floor(Math.random() * hidden.length)];
+                state.claimed.push(picked);
+                return ledger[picked];
+            }
+
+            function useReward(index) {
+                if (!state.claimed.includes(index) || state.usedRewards.includes(index)) return;
+                const entry = ledger[index];
+                state.usedRewards.push(index);
+
+                if (entry.reward === "Pack Mule") {
+                    state.chips += 3;
+                    setMessage("Marlo hauls three stolen chips onto the table before Vesper can stop him.");
+                } else if (entry.reward === "Fresh Milk") {
+                    state.curse = Math.max(0, state.curse - 3);
+                    setMessage("Vera's warm little offering washes three marks of curse from your collar.");
+                } else if (entry.reward === "Sniff Tell") {
+                    state.peekDealer = true;
+                    setMessage("Jun noses Vesper's sleeve aside. Her hidden card is yours to see this round.");
+                } else if (entry.reward === "Lucky Foot") {
+                    state.bustCharm = true;
+                    setMessage("Nix leaves a lucky twitch in your palm. Your next bust will hurt much less.");
+                } else if (entry.reward === "Second Wind") {
+                    state.chips += 2;
+                    state.curse = Math.max(0, state.curse - 1);
+                    setMessage("Orin gives the table a hard shove. Two chips return, and the curse slips back by one.");
+                } else if (entry.reward === "Slip Away") {
+                    state.escapeCharm = true;
+                    setMessage("Pip vanishes under the felt. If the table claims you, that tiny sneak gets you one last chance.");
+                }
+
+                render();
+            }
+
+            function finishRound() {
+                revealDealer = true;
+                while (total(dealer) < 17 && total(player) <= 21) dealer.push(draw());
+
+                const p = total(player);
+                const d = total(dealer);
+                let message = "";
+                let revealed = null;
+
+                if (p > 21) {
+                    if (state.bustCharm) {
+                        state.bustCharm = false;
+                        state.curse += 1;
+                        message = "Bust, but Nix's lucky charm kicks under the table. No chips lost. Only one curse mark sticks.";
+                    } else {
+                        state.chips -= state.wager;
+                        state.curse += state.wager;
+                        state.losses += 1;
+                        message = "Bust. Vesper collects the wager and the curse bites deeper.";
+                    }
+                } else if (isBlackjack(player) && !isBlackjack(dealer)) {
+                    state.chips += state.wager * 2;
+                    state.curse = Math.max(0, state.curse - 2);
+                    state.wins += 1;
+                    revealed = claimNextLoser();
+                    message = "Blackjack. The collar loosens, and the win drags another claimed loser into your ledger.";
+                } else if (d > 21 || p > d) {
+                    state.chips += state.wager;
+                    state.curse = Math.max(0, state.curse - 1);
+                    state.wins += 1;
+                    revealed = claimNextLoser();
+                    message = "You win the hand. Vesper smiles like that only makes the next one funnier.";
+                } else if (p === d) {
+                    state.curse += 1;
+                    message = "Push. No chips move, but the table still takes a tiny taste.";
+                } else {
+                    state.chips -= state.wager;
+                    state.curse += state.wager;
+                    state.losses += 1;
+                    message = "Dealer wins. Your chip stack shrinks and the farm starts measuring you for a pen.";
+                }
+
+                state.chips = Math.max(0, state.chips);
+                state.wager = Math.min(Math.max(1, state.wager), Math.max(1, state.chips));
+                roundActive = false;
+                if (revealed) {
+                    message += `<br><strong>Unlocked:</strong> ${revealed.name} - ${revealed.reward}. ${revealed.effect}`;
+                }
+                if (state.claimed.length === ledger.length && state.trophyCashouts === 0) {
+                    state.trophyCashouts = 1;
+                    state.chips += 10;
+                    state.curse = Math.max(0, state.curse - 5);
+                    message += "<br><strong>Full ledger bonus:</strong> every claimed loser is exposed. Vesper pays out 10 chips and scrapes five curse marks off your collar.";
+                }
+                state.peekDealer = false;
+                setMessage(`${message}<br>Wins: ${state.wins}. Losses: ${state.losses}.`);
+                render();
+
+                if (state.chips <= 0 || state.curse >= 10) {
+                    setTimeout(triggerTrap, 700);
+                }
+            }
+
+            function triggerTrap() {
+                if (state.escapeCharm) {
+                    state.escapeCharm = false;
+                    state.chips = Math.max(state.chips, 5);
+                    state.curse = Math.min(state.curse, 6);
+                    setMessage("Pip slips out from under the felt and knocks the claiming seal crooked. You survive with 5 chips and 6 curse. Vesper looks annoyed. Delicious.");
+                    render();
+                    return;
+                }
+
+                const fate = fates[Math.floor(Math.random() * fates.length)];
+                el.trapImage.src = fate.image || "https://images.celinascollection.com/website/sexydealer.jpg";
+                el.trapImage.alt = fate.title;
+                el.trapTitle.textContent = fate.title;
+                el.trapText.innerHTML = fate.text;
+                el.trapOverlay.classList.add("active");
+                el.trapOverlay.setAttribute("aria-hidden", "false");
+                el.acceptTrap.onclick = function() {
+                    const duration = [15 * 60 * 1000, 2 * 60 * 60 * 1000, 8 * 60 * 60 * 1000, 24 * 60 * 60 * 1000][Math.floor(Math.random() * 4)];
+                    const current = JSON.parse(localStorage.getItem("farmState") || "{}");
+                    localStorage.setItem("farmState", JSON.stringify({
+                        ...current,
+                        trappedUntil: Date.now() + duration,
+                        currentForm: fate.form,
+                        trapSource: "blackjack",
+                        fateKey: fate.form
+                    }));
+                    localStorage.removeItem("farmBlackjack");
+                    window.location.href = fate.redirect;
+                };
+            }
+
+            function resetTable() {
+                state = { ...defaults, claimed: [], usedRewards: [] };
+                deck = makeDeck();
+                player = [];
+                dealer = [];
+                roundActive = false;
+                revealDealer = false;
+                doubled = false;
+                setMessage("Fresh table. Same dealer. Choose the size of your mistake.");
+                render();
+            }
+
+            document.querySelectorAll(".wager-btn").forEach(btn => {
+                btn.addEventListener("click", () => setWager(btn.dataset.wager));
+            });
+            document.querySelectorAll(".shop-btn").forEach(btn => {
+                btn.addEventListener("click", () => buyPrize(btn.dataset.prize));
+            });
+            el.shopToggle.addEventListener("click", toggleShop);
+            el.closePrivateScene.addEventListener("click", closePrivateScene);
+            el.privateSceneOverlay.addEventListener("click", (event) => {
+                if (event.target === el.privateSceneOverlay) closePrivateScene();
+            });
+            el.deal.addEventListener("click", deal);
+            el.hit.addEventListener("click", hit);
+            el.stand.addEventListener("click", stand);
+            el.double.addEventListener("click", doubleDown);
+            el.reset.addEventListener("click", resetTable);
+
+            deck = makeDeck();
+            render();
+            setInterval(renderShop, 1000);
+        })();
+    </script>
+</body>
+</html>

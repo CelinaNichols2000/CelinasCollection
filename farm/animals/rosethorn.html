@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rosethorn - Celina's Barn</title>
+    <link rel="icon" type="image/x-icon" href="../../celinaIcon.ico">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../item-detail.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../barn.html">Barn</a></li>
+                <li><a href="../barn.html#showcase">Show Animals</a></li>
+                <li><a href="../barn.html#blackjack">Blackjack</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="item-detail-section">
+        <div class="item-detail-container main-container">
+            <div class="item-image-column">
+                <div class="item-main-image-container">
+                    <img src="https://i.ibb.co/bRNDQq5j/horse2a.jpg" alt="Rosethorn the show horse" class="item-detail-image">
+                </div>
+                <div class="item-thumbnail-gallery">
+                    <div class="thumbnail active"><img src="https://i.ibb.co/bRNDQq5j/horse2a.jpg" alt="Rosethorn main view"></div>
+                    <div class="thumbnail"><img src="https://i.ibb.co/h18gRSsg/Stable.jpg" alt="Stable view"></div>
+                </div>
+            </div>
+
+            <div class="item-detail-content">
+                <div class="item-header">
+                    <h1 class="item-detail-name">Rosethorn</h1>
+                    <div class="item-category-badge">Show Horse</div>
+                </div>
+                <div class="item-description-container">
+                    <h2 class="section-title">Description</h2>
+                    <div class="item-detail-description">
+                        <p>Rosethorn is placed in the center stall beneath the best lanterns, groomed until every visitor understands that Celina's barn is a gallery as much as a pen.</p>
+                        <p>She is proud, glossy, and not fully broken yet, which makes her perfect for display. The ribbons waiting on the wall are less a reward and more a promise.</p>
+                        <p>This placeholder can later become a proper profile with a full show record, transformation scene, and gallery.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item-detail-container secondary-container">
+            <div class="item-props-column">
+                <div class="item-stats-container">
+                    <h2 class="section-title">Properties</h2>
+                    <div class="item-stats-grid">
+                        <div class="item-stat"><div class="stat-icon"></div><div class="stat-info"><span class="stat-name">Elegance</span><div class="stat-bar"><div class="stat-fill" style="width: 94%"></div></div></div></div>
+                        <div class="item-stat"><div class="stat-icon"></div><div class="stat-info"><span class="stat-name">Pride</span><div class="stat-bar"><div class="stat-fill" style="width: 78%"></div></div></div></div>
+                        <div class="item-stat"><div class="stat-icon"></div><div class="stat-info"><span class="stat-name">Display Value</span><div class="stat-bar"><div class="stat-fill" style="width: 96%"></div></div></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="item-effect-column">
+                <div class="item-special-effect">
+                    <h2 class="section-title">Barn Role</h2>
+                    <div class="effect-container">
+                        <div class="effect-image"><img src="https://i.ibb.co/bRNDQq5j/horse2a.jpg" alt="Rosethorn role"></div>
+                        <div class="effect-description">
+                            <h3 class="effect-title">Center Stall Trophy</h3>
+                            <p>Rosethorn exists to be admired, trained, and displayed until even her pride looks like part of Celina's design.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const mainImage = document.querySelector('.item-detail-image');
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    mainImage.src = this.querySelector('img').src;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

@@ -108,6 +108,33 @@
     }
     // Also grab the inanimate item the character is trapped in (if any)
     if (char.item) grabItemIntoMap(found, char.item);
+
+    // Token inspect sometimes returns richer containers than equipment.
+    // Walk only item-like public fields returned by the server for that token.
+    ['inventory', 'items', 'trade', 'stash', 'loot'].forEach(key => extractItemsDeep(found, char[key]));
+  }
+
+  function extractItemsDeep(found, value, seen = new Set(), depth = 0) {
+    if (!value || depth > 5) return;
+    if (typeof value === 'object') {
+      if (seen.has(value)) return;
+      seen.add(value);
+    }
+
+    grabItemIntoMap(found, value);
+
+    if (Array.isArray(value)) {
+      value.forEach(entry => extractItemsDeep(found, entry, seen, depth + 1));
+      return;
+    }
+
+    if (typeof value !== 'object') return;
+
+    ['items', 'worn', 'equipment', 'inventory', 'trade', 'stash', 'loot', 'base', 'item'].forEach(key => {
+      if (value[key] !== undefined) extractItemsDeep(found, value[key], seen, depth + 1);
+    });
+
+    if (value.character?.item) extractItemsDeep(found, value.character.item, seen, depth + 1);
   }
 
   // Harvest base items from all characters currently visible at your location.
@@ -460,6 +487,22 @@
       text-decoration:none; align-self:flex-start;
     }
     .bmr-profile-link:hover { background:#6a3f80; color:#fff; }
+    .bmr-intel-card {
+      border:1px solid #26334d; background:#09111f; border-radius:6px;
+      padding:12px; display:flex; flex-direction:column; gap:8px;
+    }
+    .bmr-intel-card h3 { margin:0; color:#e94560; font-size:17px; }
+    .bmr-intel-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:6px 12px; }
+    .bmr-intel-note { font-size:11px; color:#777; line-height:1.45; }
+    .bmr-intel-bio {
+      max-height:170px; overflow:auto; padding:8px; border-radius:4px;
+      background:#050914; border:1px solid #17223a; color:#aaa;
+      font-size:12px; line-height:1.45; white-space:pre-wrap;
+    }
+    .bmr-danger-tag {
+      color:#ff83c7; border:1px solid #6a3f80; padding:2px 5px;
+      border-radius:3px; font-size:10px;
+    }
     /* Token lookup */
     #bmr-token-wrap { display:flex; gap:4px; margin-top:8px; }
     #bmr-token-input {
@@ -474,6 +517,24 @@
     }
     #bmr-token-btn:hover { background:#e94560; color:#fff; }
     #bmr-token-hint { font-size:10px; color:#444; margin-top:3px; }
+    #bmr-token-batch {
+      width:100%; min-height:58px; margin-top:6px; box-sizing:border-box;
+      resize:vertical; padding:6px 8px; border-radius:6px; border:1px solid #333;
+      background:#050914; color:#ddd; font-size:11px; line-height:1.35;
+    }
+    #bmr-token-batch:focus { border-color:#e94560; outline:none; }
+    #bmr-batch-btn {
+      background:#1a1a30; border:1px solid #4080e0; color:#8bb8ff;
+      padding:5px 8px; border-radius:6px; font-size:11px; cursor:pointer;
+      margin-top:4px; width:100%; box-sizing:border-box;
+    }
+    #bmr-batch-btn:hover { background:#184078; color:#fff; }
+    .bmr-batch-table { width:100%; border-collapse:collapse; font-size:11px; }
+    .bmr-batch-table th, .bmr-batch-table td {
+      border-bottom:1px solid #17223a; padding:5px; text-align:left; vertical-align:top;
+    }
+    .bmr-batch-table th { color:#e94560; font-weight:600; }
+    #bmr-loc-btn, #bmr-inanim-btn, #bmr-brute-area { display:none !important; }
   `;
   document.head.appendChild(style);
 
@@ -496,19 +557,23 @@
       <div id="bmr-fitbox-list">
         <div id="bmr-scan-area">
           <button class="bmr-scan-btn" id="bmr-scan-btn">Deep Scan (1–3000)</button>
-          <button class="bmr-api-btn" id="bmr-loc-btn">Scan Location Players</button>
-          <button class="bmr-inanim-btn" id="bmr-inanim-btn">🧸 Find Inanimate Players</button>
+          <button class="bmr-api-btn" id="bmr-loc-btn" type="button">Scan Location Players</button>
+          <button class="bmr-inanim-btn" id="bmr-inanim-btn" type="button">Find Inanimate Players</button>
           <div class="bmr-progress" id="bmr-progress"></div>
           <div id="bmr-token-wrap">
             <input id="bmr-token-input" placeholder="Paste character token…" type="text">
-            <button id="bmr-token-btn">Load Items</button>
+            <button id="bmr-token-btn">Inspect</button>
           </div>
-          <div id="bmr-token-hint">Token → load all their items</div>
+          <div id="bmr-token-hint">Token → profile, bio, gear, inanimate hints</div>
+          <textarea id="bmr-token-batch" placeholder="Paste multiple known tokens here...">8635c99f94ab518c2c9cc127f259ba4865f23738
+9c89981df9aafcc16c3fd06553772dc070d17398
+3845e6a155f7141dcee15498742bf776b3c30f69</textarea>
+          <button id="bmr-batch-btn" type="button">Inspect Token List</button>
         </div>
         <div id="bmr-brute-area">
-          <label>🟣 Live auto-capture active — inanimate players are collected as you visit locations.</label>
-          <button class="bmr-brute-btn" id="bmr-brute-btn">🧸 Snapshot Current Location</button>
-          <div id="bmr-brute-status">Walk around the game and inanimate players will appear here automatically.</div>
+          <label>Token-only mode active.</label>
+          <button class="bmr-brute-btn" id="bmr-brute-btn" type="button">Snapshot Current Location</button>
+          <div id="bmr-brute-status">Location capture disabled.</div>
         </div>
       </div>
       <div id="bmr-fitbox-detail">
@@ -528,6 +593,7 @@
 
   let allItems  = [];
   let activeRow = null;
+  const inspectCache = new Map();
 
   // Stored inanimate instance results: array of { baseItem, instanceId, variantColor, fullItem }
   let inanimateResults = [];
@@ -864,19 +930,47 @@
     }
   }
 
-  // (fetchItemCatalog removed — game has no public item-list endpoint;
-  //  use discoverItemsFromLocation for live character data instead)
+  // Token-only mode: start empty and only add data from a pasted token inspect.
+  loadItems([]);
+  statusEl.textContent = 'Paste token';
+  detailEl.innerHTML = `<div style="color:#555;font-size:13px;padding:20px;">Paste a known character token and press Inspect.</div>`;
 
-  // ── Inventory-based discovery (fast, runs immediately) ──
-  const inventoryItems = discoverItemsFromInventory();
-  loadItems(inventoryItems.length > 0 ? inventoryItems : []);
-  if (inventoryItems.length === 0) statusEl.textContent = 'No items — use Scan / Deep Scan';
+  function rememberInspectData(token, data) {
+    if (!token || !data) return;
+    const current = inspectCache.get(token) || [];
+    current.push(data);
+    inspectCache.set(token, current.slice(-20));
+  }
 
-  // ── Also auto-grab items from all characters currently visible at your location ──
-  try {
-    const locItems = discoverItemsFromLocation();
-    if (locItems.length > 0) loadItems(locItems, true);
-  } catch(e) {}
+  function installInspectCaptureHooks() {
+    if (window.__BMR_FITBOX_INSPECT_CAPTURED) return;
+    window.__BMR_FITBOX_INSPECT_CAPTURED = true;
+
+    try {
+      if (MENU?.Inspect?.Update) {
+        const originalUpdate = MENU.Inspect.Update.bind(MENU.Inspect);
+        MENU.Inspect.Update = function(data) {
+          try {
+            const token = data?.token || data?.character?.token || MENU?.Inspect?.character?.token;
+            rememberInspectData(token, data);
+            if (data?.character?.token) rememberInspectData(data.character.token, data.character);
+          } catch(e) {}
+          return originalUpdate(data);
+        };
+      }
+    } catch(e) {}
+
+    try {
+      if (MENU?.Inspect?.Redraw) {
+        const originalRedraw = MENU.Inspect.Redraw.bind(MENU.Inspect);
+        MENU.Inspect.Redraw = function(token, ...args) {
+          try { rememberInspectData(token, MENU?.Inspect?.character); } catch(e) {}
+          return originalRedraw(token, ...args);
+        };
+      }
+    } catch(e) {}
+  }
+  installInspectCaptureHooks();
 
   // ── Hook GetBaseItem to passively accumulate items as the game accesses them ──
   try {
@@ -981,22 +1075,24 @@
       };
     } catch(e) {}
   }
-  installLiveHooks();
+  // Token-only mode: do not hook LOCATION/SCENE and do not auto-capture nearby players.
 
   // ─── TOKEN LOOKUP ─────────────────────────────────────────────────────
   // Opens MENU.Inspect for the token, then polls MENU.Inspect.character
   // (same pattern used by replace_mychar_with_token.js — most reliable).
-  function inspectByToken(token) {
+  async function inspectByToken(token) {
     token = (token || '').trim();
     if (!token) return;
+    const publicProfilePromise = fetchPublicProfile(token);
     statusEl.textContent = 'Fetching…';
     detailEl.innerHTML = `<div style="padding:20px;color:#888;font-size:13px">Opening inspect for <span style="color:#e94560;font-family:monospace">${token.substring(0, 20)}</span>…</div>`;
 
     try {
-      MENU.Inspect.Open(GUI.Position.Right, token);
+      requestInspectToken(token);
     } catch(e) {
-      statusEl.textContent = 'Error';
-      detailEl.innerHTML = `<div style="color:#e94560;padding:20px;font-size:13px">MENU.Inspect.Open failed: ${e.message}</div>`;
+      const publicProfile = await publicProfilePromise;
+      statusEl.textContent = publicProfile ? 'Profile only' : 'Error';
+      detailEl.innerHTML = renderTokenIntel(null, token, 0, publicProfile, `MENU.Inspect.Open failed: ${e.message}`);
       return;
     }
 
@@ -1008,16 +1104,19 @@
       const char = MENU?.Inspect?.character;
       if (char && char.token === token) {
         clearInterval(timer);
-        processInspectCharacter(char);
+        processInspectCharacter(char, publicProfilePromise);
       } else if (Date.now() - started > TIMEOUT_MS) {
         clearInterval(timer);
-        statusEl.textContent = 'Timeout';
-        detailEl.innerHTML = `<div style="color:#e94560;padding:20px;font-size:13px">No response after ${TIMEOUT_MS / 1000}s — token may be invalid or not reachable.</div>`;
+        publicProfilePromise.then(publicProfile => {
+          statusEl.textContent = publicProfile ? 'Profile only' : 'Timeout';
+          detailEl.innerHTML = renderTokenIntel(null, token, 0, publicProfile, `No inspect response after ${TIMEOUT_MS / 1000}s. Token may be invalid, private, or not reachable through Inspect.`);
+          bindCopy();
+        });
       }
     }, POLL_MS);
   }
 
-  function processInspectCharacter(char) {
+  async function processInspectCharacter(char, publicProfilePromise, renderSingle = true) {
     // char is a proper Character object — same structure as location players
     console.log('[BMR Token Lookup] character:', char);
     const found = new Map();
@@ -1032,10 +1131,352 @@
     detailEl.innerHTML = added > 0
       ? `<div style="padding:20px;color:#aaa;font-size:13px">Loaded <b style="color:#e94560">${added}</b> new item${added !== 1 ? 's' : ''} from <b>${name}</b> — check the list on the left.</div>`
       : `<div style="padding:20px;color:#888;font-size:13px"><b>${name}</b> appears to have nothing equipped, or items were already loaded.<br><small style="color:#555">Character object logged to console.</small></div>`;
+    const publicProfile = await publicProfilePromise;
+    if (renderSingle) {
+      statusEl.textContent = added > 0 ? `+${added} from inspect` : 'Token intel';
+      detailEl.innerHTML = renderTokenIntel(char, char.token, added, publicProfile);
+      bindCopy();
+    }
+    return makeTokenSummary(char, char.token, added, publicProfile, null);
+  }
+
+  function requestInspectToken(token) {
+    let requested = false;
+    try {
+      MENU?.Inspect?.Open?.(GUI.Position.Right, token);
+      requested = true;
+    } catch(e) {}
+    try {
+      GAME_MANAGER?.instance?.Send?.({ menu: { refresh: 'inspect', token } });
+      requested = true;
+    } catch(e) {}
+    try {
+      window.BMRWs?.send?.({ menu: { refresh: 'inspect', token } });
+      requested = true;
+    } catch(e) {}
+    if (!requested) throw new Error('No inspect request method available');
   }
 
   // ── Find Inanimate Players button (quick snapshot of all currently known chars) ──
+  function escapeHTML(value) {
+    return String(value ?? '').replace(/[&<>"']/g, ch => ({
+      '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+    }[ch]));
+  }
+
+  function shortToken(token) {
+    token = token || '';
+    return token ? token.substring(0, 24) + (token.length > 24 ? '...' : '') : '-';
+  }
+
+  function getCharName(char) {
+    return char?.names || [char?.first_name, char?.last_name].filter(Boolean).join(' ') || char?.name || char?.username || 'Unknown';
+  }
+
+  function getProfileURL(token) {
+    return token ? `https://battlemageserotica.com/character/${encodeURIComponent(token)}` : null;
+  }
+
+  function getEquippedItems(char) {
+    const eq = char?.equipment;
+    if (Array.isArray(eq)) return eq.filter(Boolean);
+    if (Array.isArray(eq?.items)) return eq.items.filter(Boolean);
+    return [];
+  }
+
+  function getSelfInanimateInfo(char) {
+    const item = char?.item;
+    if (!item?.character?.id_token) return null;
+    return {
+      itemName: item.base?.item_name || item.item_name || item.character?.name || 'Unknown item',
+      instanceId: item.id || '-',
+      permanent: Boolean(item.character?.permanent),
+      sealed: Boolean(item.character?.sealed)
+    };
+  }
+
+  function getCarriedInanimateInfo(char) {
+    return getEquippedItems(char).filter(item => item?.character?.id_token).map(item => ({
+      itemName: item.base?.item_name || item.item_name || item.character?.name || 'Unknown item',
+      instanceId: item.id || '-',
+      characterName: item.character?.name || item.character?.names || item.character?.username || 'Unknown',
+      permanent: Boolean(item.character?.permanent),
+      sealed: Boolean(item.character?.sealed)
+    }));
+  }
+
+  function getReturnedContainerSummary(char) {
+    if (!char) return '-';
+    return ['inventory', 'items', 'trade', 'stash', 'loot'].map(key => {
+      const value = char[key];
+      if (!value) return null;
+      if (Array.isArray(value)) return `${key}:${value.length}`;
+      if (Array.isArray(value.items)) return `${key}:${value.items.length}`;
+      if (typeof value === 'object') return `${key}:object`;
+      return null;
+    }).filter(Boolean).join(', ') || 'none returned';
+  }
+
+  function collectInanimateItems(source, seen = new Set(), results = []) {
+    if (!source || typeof source !== 'object') return results;
+    if (seen.has(source)) return results;
+    seen.add(source);
+
+    const item = source;
+    if (item.character?.id_token && (item.base?.image_url || item.image_url || item.base?.item_name || item.item_name)) {
+      const instanceId = item.id || item.instanceId || item.item_id || `token-${item.character.id_token}`;
+      if (!results.some(entry => entry.instanceId === instanceId && entry.characterToken === item.character.id_token)) {
+        results.push({
+          instanceId,
+          baseItem: item.base || item,
+          fullItem: item,
+          itemName: item.base?.item_name || item.item_name || item.character?.name || 'Unknown item',
+          imageUrl: item.base?.image_url || item.image_url || '',
+          characterName: item.character?.name || item.character?.names || item.character?.username || 'Unknown',
+          characterToken: item.character.id_token,
+          permanent: Boolean(item.character?.permanent),
+          sealed: Boolean(item.character?.sealed),
+          nature: item.character?.nature || ''
+        });
+      }
+    }
+
+    if (source.item) collectInanimateItems(source.item, seen, results);
+    if (source.character?.item) collectInanimateItems(source.character.item, seen, results);
+    if (source.equipment) collectInanimateItems(source.equipment, seen, results);
+    if (source.inventory) collectInanimateItems(source.inventory, seen, results);
+    if (source.items) collectInanimateItems(source.items, seen, results);
+    if (source.trade) collectInanimateItems(source.trade, seen, results);
+    if (source.stash) collectInanimateItems(source.stash, seen, results);
+    if (source.loot) collectInanimateItems(source.loot, seen, results);
+
+    if (Array.isArray(source)) {
+      source.forEach(entry => collectInanimateItems(entry, seen, results));
+    } else {
+      Object.keys(source).forEach(key => {
+        const value = source[key];
+        if (value && typeof value === 'object') collectInanimateItems(value, seen, results);
+      });
+    }
+
+    return results;
+  }
+
+  function getTokenInspectPayloads(token, char, publicProfile) {
+    const payloads = [];
+    if (char) payloads.push(char);
+    (inspectCache.get(token) || []).forEach(entry => entry && payloads.push(entry));
+    if (publicProfile?.rawData) payloads.push(publicProfile.rawData);
+    return payloads;
+  }
+
+  async function fetchPublicProfile(token) {
+    const url = `/character/${encodeURIComponent(token)}`;
+    try {
+      const res = await fetch(url, { credentials: 'include' });
+      if (!res.ok) return null;
+      const html = await res.text();
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      doc.querySelectorAll('script, style, noscript').forEach(el => el.remove());
+      const title = (doc.querySelector('title')?.textContent || '').replace(/\s+/g, ' ').trim();
+      const meta = doc.querySelector('meta[name="description"], meta[property="og:description"]')?.getAttribute('content') || '';
+      const rawData = [];
+      doc.querySelectorAll('script[type="application/json"], script:not([src])').forEach(script => {
+        const text = (script.textContent || '').trim();
+        if (!text || text.length > 250000) return;
+        try { rawData.push(JSON.parse(text)); } catch(e) {}
+      });
+      const bio = Array.from(doc.querySelectorAll('[class*="bio" i], [id*="bio" i], [class*="description" i], [id*="description" i], article, main'))
+        .map(el => (el.textContent || '').replace(/\s+/g, ' ').trim())
+        .filter(text => text.length > 40)
+        .sort((a, b) => b.length - a.length)[0] || '';
+      return { url: location.origin + url, title, description: meta.trim(), bio: (bio || meta || '').slice(0, 1200), rawData };
+    } catch(e) {
+      return null;
+    }
+  }
+
+  function renderTokenIntel(char, token, added, publicProfile, warning) {
+    const profileUrl = getProfileURL(token);
+    const selfItem = getSelfInanimateInfo(char);
+    const carried = char ? getCarriedInanimateInfo(char) : [];
+    const inanimateItems = getTokenInspectPayloads(token, char, publicProfile)
+      .flatMap(payload => collectInanimateItems(payload))
+      .filter((item, index, arr) => arr.findIndex(other => other.instanceId === item.instanceId && other.characterToken === item.characterToken) === index);
+    const equipCount = char ? getEquippedItems(char).length : 0;
+    const containers = getReturnedContainerSummary(char);
+    const name = getCharName(char) || publicProfile?.title || token;
+    const tags = [];
+    if (selfItem) tags.push('<span class="bmr-danger-tag">Currently inanimate</span>');
+    if (carried.length) tags.push(`<span class="bmr-danger-tag">Carries ${carried.length} inanimate</span>`);
+    if (char?.item && !selfItem) tags.push('<span class="bmr-danger-tag">Has item-form data</span>');
+
+    const selfHtml = selfItem ? `<div class="bmr-intel-note"><b style="color:#ff83c7">Inanimate form:</b> ${escapeHTML(selfItem.itemName)} (#${escapeHTML(selfItem.instanceId)})${selfItem.permanent ? ' permanent' : ''}${selfItem.sealed ? ' sealed' : ''}</div>` : '';
+    const carriedHtml = carried.length ? `<div class="bmr-intel-note"><b style="color:#ff83c7">Trapped characters in equipment:</b><br>${carried.map(item => `${escapeHTML(item.characterName)} inside ${escapeHTML(item.itemName)} (#${escapeHTML(item.instanceId)})`).join('<br>')}</div>` : '';
+    const foundHtml = inanimateItems.length ? `<div class="bmr-intel-note"><b style="color:#ff83c7">Inanimate items found:</b><br>${inanimateItems.map(item => `${escapeHTML(item.characterName)} inside ${escapeHTML(item.itemName)} (#${escapeHTML(item.instanceId)})${item.permanent ? ' permanent' : ''}${item.sealed ? ' sealed' : ''}`).join('<br>')}</div>` : `<div class="bmr-intel-note">No inanimate items were returned for this token.</div>`;
+    const bioText = publicProfile?.bio || publicProfile?.description || '';
+    const profileNote = publicProfile
+      ? `<div class="bmr-intel-bio">${escapeHTML(bioText || 'Profile opened, but no obvious bio text was found in the public page markup.')}</div>`
+      : `<div class="bmr-intel-note">Public profile HTML was not readable from this page. Use Open Profile for the normal BMR profile view.</div>`;
+
+    return `<div class="bmr-intel-card">
+      <h3>${escapeHTML(name)}</h3>
+      <div style="display:flex;gap:6px;flex-wrap:wrap">${tags.join('')}</div>
+      <div class="bmr-intel-grid">
+        <div class="bmr-row"><span class="bmr-label">Username:</span> <b>${escapeHTML(char?.username || '-')}</b></div>
+        <div class="bmr-row"><span class="bmr-label">Nature:</span> ${escapeHTML(char?.nature || '-')}</div>
+        <div class="bmr-row"><span class="bmr-label">Token:</span> <span style="font-family:monospace;color:#777">${escapeHTML(shortToken(token))}</span></div>
+        <div class="bmr-row"><span class="bmr-label">Equipped:</span> ${equipCount}</div>
+        <div class="bmr-row"><span class="bmr-label">Inanimate found:</span> ${inanimateItems.length}</div>
+        <div class="bmr-row"><span class="bmr-label">Base items added:</span> ${added}</div>
+        <div class="bmr-row"><span class="bmr-label">Containers:</span> ${escapeHTML(containers)}</div>
+        <div class="bmr-row"><span class="bmr-label">Inspect:</span> ${char ? 'loaded' : 'not loaded'}</div>
+      </div>
+      ${warning ? `<div class="bmr-intel-note" style="color:#e94560">${escapeHTML(warning)}</div>` : ''}
+      ${selfHtml}
+      ${carriedHtml}
+      ${foundHtml}
+      <div style="display:flex;gap:8px;flex-wrap:wrap">
+        ${profileUrl ? `<a href="${profileUrl}" target="_blank" rel="noopener" class="bmr-profile-link">Open Profile</a>` : ''}
+        <button class="bmr-copy" data-copy="${escapeHTML(token)}">Copy Token</button>
+      </div>
+      ${profileNote}
+      <div class="bmr-intel-note">Character object is logged in the console. This only uses inspect/profile data returned to your client.</div>
+    </div>`;
+  }
+
+  function makeTokenSummary(char, token, added, publicProfile, warning) {
+    const selfItem = getSelfInanimateInfo(char);
+    const carried = char ? getCarriedInanimateInfo(char) : [];
+    const inanimateItems = getTokenInspectPayloads(token, char, publicProfile)
+      .flatMap(payload => collectInanimateItems(payload))
+      .filter((item, index, arr) => arr.findIndex(other => other.instanceId === item.instanceId && other.characterToken === item.characterToken) === index);
+    return {
+      token,
+      name: getCharName(char) || publicProfile?.title || token,
+      username: char?.username || '',
+      nature: char?.nature || '',
+      containers: getReturnedContainerSummary(char),
+      equipped: char ? getEquippedItems(char).length : 0,
+      added: added || 0,
+      inspectLoaded: Boolean(char),
+      profileLoaded: Boolean(publicProfile),
+      inanimate: Boolean(selfItem),
+      inanimateForm: selfItem?.itemName || '',
+      carriedInanimate: carried.length,
+      inanimateItems,
+      inanimateCount: inanimateItems.length,
+      profileUrl: getProfileURL(token),
+      warning: warning || ''
+    };
+  }
+
+  function parseTokenList(text) {
+    const matches = String(text || '').match(/[a-f0-9]{32,80}/ig) || [];
+    return Array.from(new Set(matches.map(t => t.toLowerCase())));
+  }
+
+  function waitForInspectCharacter(token, timeoutMs = 10000, pollMs = 150) {
+    return new Promise(resolve => {
+      const started = Date.now();
+      const timer = setInterval(() => {
+        const char = MENU?.Inspect?.character;
+        if (char && char.token === token) {
+          clearInterval(timer);
+          resolve(char);
+        } else if ((inspectCache.get(token) || []).some(entry => entry?.token === token || entry?.character?.token === token)) {
+          clearInterval(timer);
+          const entries = inspectCache.get(token) || [];
+          const best = entries.find(entry => entry?.character?.token === token)?.character || entries.find(entry => entry?.token === token) || null;
+          resolve(best);
+        } else if (Date.now() - started > timeoutMs) {
+          clearInterval(timer);
+          resolve(null);
+        }
+      }, pollMs);
+    });
+  }
+
+  async function inspectTokenForBatch(token) {
+    token = (token || '').trim();
+    const publicProfilePromise = fetchPublicProfile(token);
+    try {
+      requestInspectToken(token);
+    } catch(e) {
+      const publicProfile = await publicProfilePromise;
+      return makeTokenSummary(null, token, 0, publicProfile, `Inspect failed: ${e.message}`);
+    }
+
+    const char = await waitForInspectCharacter(token);
+    if (char) return processInspectCharacter(char, publicProfilePromise, false);
+
+    const publicProfile = await publicProfilePromise;
+    return makeTokenSummary(null, token, 0, publicProfile, 'Inspect timeout');
+  }
+
+  function renderBatchResults(results, current = 0, total = results.length) {
+    const rows = results.flatMap(result => {
+      if (!result.inanimateItems?.length) {
+        return [`<tr>
+          <td><a href="${result.profileUrl}" target="_blank" rel="noopener" class="bmr-profile-link">Profile</a></td>
+          <td><b>${escapeHTML(result.name)}</b><br><span style="color:#777">${escapeHTML(result.username || result.nature || '')}</span></td>
+          <td style="color:#777">None returned</td>
+          <td>${escapeHTML(result.containers)}</td>
+          <td style="font-family:monospace;color:#777">${escapeHTML(shortToken(result.token))}</td>
+        </tr>`];
+      }
+      return result.inanimateItems.map(item => `<tr>
+        <td><a href="${result.profileUrl}" target="_blank" rel="noopener" class="bmr-profile-link">Profile</a></td>
+        <td><b>${escapeHTML(result.name)}</b><br><span style="color:#777">${escapeHTML(result.username || result.nature || '')}</span></td>
+        <td><span class="bmr-danger-tag">${escapeHTML(item.characterName)}</span><br>${escapeHTML(item.itemName)} #${escapeHTML(item.instanceId)}${item.permanent ? ' permanent' : ''}${item.sealed ? ' sealed' : ''}</td>
+        <td>${escapeHTML(result.containers)}</td>
+        <td style="font-family:monospace;color:#777">${escapeHTML(shortToken(result.token))}</td>
+      </tr>`);
+    }).join('');
+
+    detailEl.innerHTML = `<div class="bmr-intel-card">
+      <h3>Inanimate Token Batch</h3>
+      <div class="bmr-intel-note">Checked ${current}/${total}. Showing only inanimate items returned by inspect/profile data.</div>
+      <table class="bmr-batch-table">
+        <thead><tr><th></th><th>Profile</th><th>Inanimate Item</th><th>Returned</th><th>Token</th></tr></thead>
+        <tbody>${rows || '<tr><td colspan="5" style="color:#777">Waiting...</td></tr>'}</tbody>
+      </table>
+    </div>`;
+  }
+
+  async function inspectTokenBatch() {
+    const textarea = document.getElementById('bmr-token-batch');
+    const btn = document.getElementById('bmr-batch-btn');
+    const tokens = parseTokenList(textarea.value);
+    if (!tokens.length) {
+      progressEl.textContent = 'Paste one or more known tokens first.';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Inspecting...';
+    const results = [];
+    renderBatchResults(results, 0, tokens.length);
+
+    for (let i = 0; i < tokens.length; i++) {
+      statusEl.textContent = `Token ${i + 1}/${tokens.length}`;
+      progressEl.textContent = `Inspecting ${shortToken(tokens[i])}`;
+      const result = await inspectTokenForBatch(tokens[i]);
+      results.push(result);
+      renderBatchResults(results, i + 1, tokens.length);
+      bindCopy();
+      await new Promise(resolve => setTimeout(resolve, 150));
+    }
+
+    progressEl.textContent = `Done. ${results.length} token${results.length !== 1 ? 's' : ''} checked.`;
+    statusEl.textContent = 'Batch done';
+    btn.disabled = false;
+    btn.textContent = 'Inspect Token List';
+  }
+
   document.getElementById('bmr-inanim-btn').addEventListener('click', () => {
+    progressEl.textContent = 'Location capture is disabled in token-only mode.';
+    return;
     const btn = document.getElementById('bmr-inanim-btn');
     btn.disabled = true;
     // Also harvest from all currently visible chars before showing
@@ -1062,6 +1503,8 @@
     }, 30);
   });
   document.getElementById('bmr-loc-btn').addEventListener('click', () => {
+    progressEl.textContent = 'Location scan is disabled in token-only mode.';
+    return;
     const btn = document.getElementById('bmr-loc-btn');
     btn.disabled = true;
     progressEl.textContent = 'Scanning characters at current location…';
@@ -1076,6 +1519,8 @@
 
   // ── Snapshot Current Location button ──
   document.getElementById('bmr-brute-btn').addEventListener('click', () => {
+    document.getElementById('bmr-brute-status').textContent = 'Location capture is disabled in token-only mode.';
+    return;
     const bStatus = document.getElementById('bmr-brute-status');
     // Harvest everything visible RIGHT NOW
     const chars = new Set();
@@ -1122,6 +1567,7 @@
   // ── Token lookup button / Enter key ──
   document.getElementById('bmr-token-btn').addEventListener('click', () => inspectByToken(document.getElementById('bmr-token-input').value));
   document.getElementById('bmr-token-input').addEventListener('keydown', e => { if (e.key === 'Enter') inspectByToken(document.getElementById('bmr-token-input').value); });
+  document.getElementById('bmr-batch-btn').addEventListener('click', inspectTokenBatch);
 
   // ── Lookup button / Enter key ──
   lookupBtn.addEventListener('click', () => lookupItemById(lookupInput.value));

@@ -14,7 +14,7 @@ const farmData = {
             image: "https://i.ibb.co/N6x330cW/farm-entrance.jpg",
             text: "A weathered iron gate stands before you, its hinges creaking softly in the night. Pale shapes flicker in the shadows beyond. Do you dare to enter the farm through this gate?",
             choices: [
-              { text: "Enter the farm", next: "/farm/farmGate.html" },
+              { text: "Enter the farm", next: "farm/farmGate.html" },
               { text: "Step back", next: "end" }
             ]
           },
@@ -34,7 +34,7 @@ const farmData = {
             image: "https://i.ibb.co/h18gRSsg/Stable.jpg",
             text: "An ancient timber stable leans against the hill. The scent of hay and the faint sound of hooves drift through the air. Will you step inside and see what awaits?",
             choices: [
-              { text: "Enter the stables", next: "/farm/stables.html" },
+              { text: "Enter the stables", next: "farm/stables.html" },
               { text: "Step back", next: "end" }
             ]
           }
@@ -54,7 +54,7 @@ const farmData = {
             image: "https://i.ibb.co/5XhNVcnJ/farmhouse.webp",
             text: "The farmhouse glows warmly in the fading light, and shadows flicker behind its windows. A sense of comfort mixed with mystery draws you near. Do you enter the house?",
             choices: [
-              { text: "Enter the farmhouse", next: "/farm/farmhouse.html" },
+              { text: "Enter the farmhouse", next: "farm/farmhouse.html" },
               { text: "Keep walking", next: "end" }
             ]
           }
@@ -74,7 +74,7 @@ const farmData = {
             image: "https://i.ibb.co/W42HhDXK/barn.jpg",
             text: "A rickety old barn creaks on the hillside. The rustle of hay and soft lowing of unseen animals echo faintly. Do you venture inside to explore?",
             choices: [
-              { text: "Enter the barn", next: "/farm/barn.html" },
+              { text: "Enter the barn", next: "farm/barn.html" },
               { text: "Step back", next: "end" }
             ]
           }
@@ -128,11 +128,13 @@ function openEncounter(enc) {
     const el = document.createElement("div");
     el.className = "stage";
     el.innerHTML = `
-      <h3>${stage.title}</h3>
       <img src="${stage.image}" alt="">
-      <p>${stage.text}</p>
-      <div class="choice-buttons">
-        ${stage.choices.map(c => `<button>${c.text}</button>`).join("")}
+      <div class="stage-content">
+        <h3>${stage.title}</h3>
+        <p>${stage.text}</p>
+        <div class="choice-buttons">
+          ${stage.choices.map(c => `<button>${c.text}</button>`).join("")}
+        </div>
       </div>
     `;
     container.appendChild(el);
@@ -164,11 +166,11 @@ function closeModal() {
 document.addEventListener("DOMContentLoaded", () => {
   renderLocations();
   qs(".farm-close").addEventListener("click", closeModal);
-  qs("#startFarm").addEventListener("click", () => renderLocations());
-  qs("#randomEncounter").addEventListener("click", () => {
+  qs("#startFarm")?.addEventListener("click", () => renderLocations());
+  qs("#randomEncounter")?.addEventListener("click", () => {
     const keys = Object.keys(farmData);
     const loc = keys[Math.floor(Math.random()*keys.length)];
     openEncounter(farmData[loc].encounters[0]);
   });
-  qs("#resetFarm").addEventListener("click", () => renderLocations());
+  qs("#resetFarm")?.addEventListener("click", () => renderLocations());
 });
