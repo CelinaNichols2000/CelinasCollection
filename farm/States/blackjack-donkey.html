@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vesper's Braying Debt Donkey</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <script>(function(){const s=JSON.parse(localStorage.getItem('farmState')||'{}');if(!(s.trappedUntil&&s.trappedUntil>Date.now())){localStorage.removeItem('farmState');window.location.href='../../farm.html';}})();</script>
+    <link rel="stylesheet" href="blackjack-state.css">
+    <style>body{--accent:#ff69b4;--accent-2:#ffd166;--state-bg:url("https://i.ibb.co/CphZH3D1/cmsn-red-brays-by-wrenzephyr2-dcf53ur-414w-2x.png");}</style>
+</head>
+<body>
+    <main class="state-shell">
+        <div class="timer" id="countdownTimer">--:--:--</div>
+        <section class="state-grid">
+            <div>
+                <div class="visual-panel"><img class="state-image" src="https://i.ibb.co/CphZH3D1/cmsn-red-brays-by-wrenzephyr2-dcf53ur-414w-2x.png" alt="Vesper's donkey"></div>
+                <div class="memory-panel">
+                    <h2>The Last Chip</h2>
+                    <div class="memory-text">
+                        <p>Your last chip did not even make a satisfying sound. It rolled to Vesper, kissed her nail, and became the price tag on your new collar.</p>
+                        <p>Now every bray reminds you of the table laughing while your clothes tore away and Vesper mounted your back like the house had just won a saddle with ears.</p>
+                        <p>She keeps replaying the hand out loud while brushing your mane: how you doubled down, how your face changed when the card ruined you, how your knees hit the floor before the curse had even finished deciding what kind of beast you deserved to be.</p>
+                        <p>The worst part is how proud your body gets when she calls you useful. Your tail flicks, your ears twitch, and that empty donkey heat crawls up your spine while Vesper tells new players that you used to talk so confidently.</p>
+                    </div>
+                </div>
+            </div>
+            <aside class="control-panel">
+                <h1>Debt Donkey</h1>
+                <span class="badge">Blackjack Table Fate</span>
+                <div class="meter-head"><span>Stable Shame</span><span class="meter-value" id="meterValue">0%</span></div>
+                <div class="meter"><div class="meter-fill" id="meterFill"></div></div>
+                <div class="status-box" id="statusText">Vesper's bridle still smells faintly of cards and lipstick. The bit rests on your tongue every time you think about asking for mercy, and the table's laughter keeps echoing in the big stupid ears she gave you.</div>
+                <div class="action-grid">
+                    <button class="state-btn" data-action-index="0">Fight The Bridle</button>
+                    <button class="state-btn" data-action-index="1">Bray For Vesper</button>
+                    <button class="state-btn" data-action-index="2">Carry Her Weight</button>
+                    <button class="state-btn" data-action-index="3">Accept The Saddle</button>
+                </div>
+                <p class="release-note">When the timer expires, the collar releases. Until then, the house owns your hooves.</p>
+            </aside>
+        </section>
+    </main>
+    <div class="flash" id="flash"><div class="flash-inner" id="flashText"></div></div>
+    <script>
+        window.BLACKJACK_STATE_CONFIG = {
+            key: "blackjackDonkey",
+            actions: [
+                { gain: 7, status: "You yank against the bridle until the bit grinds against your tongue. Vesper laughs, grabs one long ear, and twists just enough to make your whole stupid donkey body shudder. Your protest comes out as a loud, cracked bray, and the shame of it shoots hot through your belly.", flash: "<strong>Vesper:</strong> There it is. Not a gambler. Not a person. Just a noisy little debt beast with a mouth made for braying when I pull." },
+                { gain: 12, status: "You bray on command and your new throat vibrates with the awful, animal sound. Vesper strokes down your neck, then lower, enjoying how your hips twitch and your tail flicks when she praises you like livestock. You hate that your body gets hot for it. You hate that she notices.", flash: "<strong>Good donkey.</strong><br>Your ears droop, your cock twitches uselessly under you, and Vesper makes sure every player hears how eagerly the loser answers now." },
+                { gain: 16, status: "She climbs onto your back without asking. Her thighs squeeze your sides, her heel digs in, and your hooves start moving before your mind can catch up. The bridle pulls your head high while Vesper rides you in a slow circle around the table, narrating every bad choice that made you hers.", flash: "<strong>Ride of shame.</strong><br>Vesper rocks her hips against your back and calls you a dumb, throbbing little mount. Not a player. Not a person. Just a mindfucked beast getting paraded for losing." },
+                { gain: 22, status: "You lower yourself for the saddle. No struggle, no clever words, just a shivering beast offering its back. Vesper tightens the straps slowly, cruelly, letting your humiliation soak in. When she calls you house property, something warm and ruined in your skull accepts it.", flash: "<strong>House property.</strong><br>The saddle fits. The bit fits. Vesper fits on your back. Your brain degenerates around the command to carry, obey, and bray." }
+            ],
+            completeText: "<strong>100% mindfucked.</strong><br>Your thoughts flatten into rhythm: step, bray, carry, obey. Vesper laughs and locks another day onto the collar because the dumb debt donkey finally broke properly.",
+            penaltyText: "The bridle burns pink-hot. +24 hours as Vesper's helpless braying payout.",
+            penaltyBursts: [
+                "<strong>+24 HOURS</strong><br>BRIDLE LOCKED",
+                "<strong>100% MINDFUCKED</strong><br>DUMB DEBT DONKEY",
+                "<strong>SADDLE SEALED</strong><br>NO MORE PLAYER",
+                "<strong>VESPER RIDES</strong><br>YOU CARRY",
+                "<strong>BRAY FOR THE HOUSE</strong><br>HEE-HAW, LOSER"
+            ]
+        };
+    </script>
+    <script src="blackjack-state.js"></script>
+</body>
+</html>

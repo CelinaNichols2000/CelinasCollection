@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velvet - Celina's Barn</title>
+    <link rel="icon" type="image/x-icon" href="../../celinaIcon.ico">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../item-detail.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../barn.html">Barn</a></li>
+                <li><a href="../barn.html#showcase">Show Animals</a></li>
+                <li><a href="../barn.html#blackjack">Blackjack</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="item-detail-section">
+        <div class="item-detail-container main-container">
+            <div class="item-image-column">
+                <div class="item-main-image-container">
+                    <img src="https://i.ibb.co/6b6cK8q/dog1.jpg" alt="Velvet the barn dog" class="item-detail-image">
+                </div>
+                <div class="item-thumbnail-gallery">
+                    <div class="thumbnail active"><img src="https://i.ibb.co/6b6cK8q/dog1.jpg" alt="Velvet main view"></div>
+                    <div class="thumbnail"><img src="https://i.ibb.co/Z12mwjCN/d14.jpg" alt="Velvet stable view"></div>
+                </div>
+            </div>
+
+            <div class="item-detail-content">
+                <div class="item-header">
+                    <h1 class="item-detail-name">Velvet</h1>
+                    <div class="item-category-badge">Show Dog</div>
+                </div>
+                <div class="item-description-container">
+                    <h2 class="section-title">Description</h2>
+                    <div class="item-detail-description">
+                        <p>Velvet is one of the first animals visitors notice when they enter the barn. She is kept close to the front rail, brushed soft, collared neatly, and trained to perk up whenever footsteps cross the straw.</p>
+                        <p>She used to be far too proud for simple obedience. Now she waits for attention with bright eyes, wagging whenever someone reads her name plate and realizes the barn does not only keep ordinary livestock.</p>
+                        <p>This is placeholder lore for now, ready to become a full animal profile once the barn collection is filled in properly.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item-detail-container secondary-container">
+            <div class="item-props-column">
+                <div class="item-stats-container">
+                    <h2 class="section-title">Properties</h2>
+                    <div class="item-stats-grid">
+                        <div class="item-stat"><div class="stat-icon"></div><div class="stat-info"><span class="stat-name">Obedience</span><div class="stat-bar"><div class="stat-fill" style="width: 86%"></div></div></div></div>
+                        <div class="item-stat"><div class="stat-icon"></div><div class="stat-info"><span class="stat-name">Cuteness</span><div class="stat-bar"><div class="stat-fill" style="width: 92%"></div></div></div></div>
+                        <div class="item-stat"><div class="stat-icon"></div><div class="stat-info"><span class="stat-name">Show Value</span><div class="stat-bar"><div class="stat-fill" style="width: 74%"></div></div></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="item-effect-column">
+                <div class="item-special-effect">
+                    <h2 class="section-title">Barn Role</h2>
+                    <div class="effect-container">
+                        <div class="effect-image"><img src="https://i.ibb.co/6b6cK8q/dog1.jpg" alt="Velvet role"></div>
+                        <div class="effect-description">
+                            <h3 class="effect-title">Front Pen Favorite</h3>
+                            <p>Velvet is made to greet visitors and show exactly what the barn can do to someone who needs a leash more than an opinion.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const mainImage = document.querySelector('.item-detail-image');
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    mainImage.src = this.querySelector('img').src;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

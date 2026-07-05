@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vesper's House Riding Mare</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <script>(function(){const s=JSON.parse(localStorage.getItem('farmState')||'{}');if(!(s.trappedUntil&&s.trappedUntil>Date.now())){localStorage.removeItem('farmState');window.location.href='../../farm.html';}})();</script>
+    <link rel="stylesheet" href="blackjack-state.css">
+    <style>body{--accent:#8f5cff;--accent-2:#ffb347;--state-bg:url("https://i.ibb.co/xSrBqdqy/Horse-2.jpg");}</style>
+</head>
+<body>
+    <main class="state-shell">
+        <div class="timer" id="countdownTimer">--:--:--</div>
+        <section class="state-grid">
+            <div>
+                <div class="visual-panel"><img class="state-image" src="https://i.ibb.co/xSrBqdqy/Horse-2.jpg" alt="Vesper's horse"></div>
+                <div class="memory-panel">
+                    <h2>Ridden Out</h2>
+                    <div class="memory-text">
+                        <p>Vesper caught your final chip under her heel and turned the shadow of her shoe into a bridle. You learned quickly that the house does not call a carriage.</p>
+                        <p>She mounted you between the chairs and rode you slowly past every player who had watched you lose. Your new hooves clicked out the rhythm of your humiliation.</p>
+                        <p>She still wears the same smile when she climbs onto your back: calm, polished, utterly certain you will move when she asks. You hate how quickly your body learned the pressure of her thighs and the little command hidden in each tap of her heel.</p>
+                        <p>The table remembers you as the mount. Not the player, not the challenger, not the almost-winner. Just Vesper's gorgeous losing ride, bridled and displayed whenever the house wants to show what a bad bet looks like with four legs.</p>
+                    </div>
+                </div>
+            </div>
+            <aside class="control-panel">
+                <h1>House Mare</h1>
+                <span class="badge">Blackjack Table Fate</span>
+                <div class="meter-head"><span>Bridle Training</span><span class="meter-value" id="meterValue">0%</span></div>
+                <div class="meter"><div class="meter-fill" id="meterFill"></div></div>
+                <div class="status-box" id="statusText">The bridle keeps your head high. Vesper likes her mounts displayed properly, especially when former gamblers are still aware enough to blush through the reins.</div>
+                <div class="action-grid">
+                    <button class="state-btn" data-action-index="0">Toss Your Head</button>
+                    <button class="state-btn" data-action-index="1">Prance In Place</button>
+                    <button class="state-btn" data-action-index="2">Kneel For Mounting</button>
+                    <button class="state-btn" data-action-index="3">Carry The Dealer</button>
+                </div>
+                <p class="release-note">When the timer expires, the collar releases. Until then, Vesper rides the house winnings.</p>
+            </aside>
+        </section>
+    </main>
+    <div class="flash" id="flash"><div class="flash-inner" id="flashText"></div></div>
+    <script>
+        window.BLACKJACK_STATE_CONFIG = {
+            key: "blackjackHorse",
+            actions: [
+                { gain: 7, status: "You toss your head, trying to make the bridle look less final. The reins snap you back before the defiance can become convincing. Vesper praises your posture, then tells the table that proud mounts always break prettier.", flash: "<strong>Pretty posture, losing mount.</strong><br>The bit grinds against your tongue. Your neck arches. Vesper made humiliation look elegant on you." },
+                { gain: 12, status: "Your hooves prance without permission, clicking a nervous rhythm into the floor. Vesper applauds and calls it better than your betting. The sound travels through your legs like shame with a pulse.", flash: "<strong>Click. Step. Shame.</strong><br>Every hoofbeat counts the chips you lost. Vesper keeps time with one teasing tap of her heel." },
+                { gain: 16, status: "You bend your legs and kneel. Vesper mounts slowly, letting her weight settle over your back like a verdict. Her thighs squeeze, the bridle tightens, and your powerful body goes hot with the awful need to carry her well.", flash: "<strong>The dealer takes her seat.</strong><br>Her hips press down. Your body answers. The house does not need a saddle when the loser kneels so nicely, helpless and degenerating under the rider." },
+                { gain: 22, status: "You carry her exactly where she points you. The bridle feels less like punishment and more like instruction. That realization makes you whicker into the bit while Vesper strokes your neck and calls you her gorgeous losing ride.", flash: "<strong>House mare. Dealer ridden.</strong><br>Your cock throbs uselessly, your hooves obey, and Vesper rides the last of your pride out of the room." }
+            ],
+            completeText: "<strong>100% mindfucked.</strong><br>You remember cards only as square things humans hold. You carry winners now. Vesper adds a full day because the riding mare finally stopped pretending it was anything else.",
+            penaltyText: "The bridle flashes. +24 hours under Vesper's heels as her helpless house mare.",
+            penaltyBursts: [
+                "<strong>+24 HOURS</strong><br>BRIDLE RESEALED",
+                "<strong>100% MINDFUCKED</strong><br>HOUSE MARE",
+                "<strong>VESPER MOUNTS</strong><br>YOU MOVE",
+                "<strong>RIDDEN LONGER</strong><br>NO PROTEST LEFT",
+                "<strong>HOOVES OBEY</strong><br>PRIDE TRAMPLED"
+            ]
+        };
+    </script>
+    <script src="blackjack-state.js"></script>
+</body>
+</html>

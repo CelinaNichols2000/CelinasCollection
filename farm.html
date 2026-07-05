@@ -12,7 +12,7 @@
   <section class="farm-section">
     <div class="farm-overlay">
       <h1 class="farm-title">Celinas Enchanted Farm</h1>
-      <p class="farm-text">Of course the tricky foxo Celina doesnt just collect toys and clothes there~ She has a little farm of her own, just to show of her lifestock and get some fresh ingredients for breakfast~</p>
+      <p class="farm-text">Past the gate, Celina's land opens into lantern-lit paths, old fences, warm barns, and places where careless visitors slowly learn what they are really worth. The farm is pretty from a distance, but every building has a purpose, every keeper has a favorite method, and every lost guest may end up displayed, trained, milked, ridden, or kept.</p>
 
       <div class="farm-actions">
       <!-- <button id="startFarm" class="farm-btn">🌾 Start</button>
@@ -47,10 +47,18 @@
             // IMMEDIATELY redirect to transformation page
             const formMap = {
                 'foxfire_mistress': 'farm/States/forest-panties.html',
+                'foxfire_panties': 'farm/States/forest-panties.html',
                 'living_grove': 'farm/States/forest-artifact.html', 
-                'hungry_moss': 'farm/States/forest-frog.html'
+                'hungry_moss': 'farm/States/forest-frog.html',
+                'cow': 'farm/States/forest-cow.html',
+                'fairy_donkey': 'farm/States/forest-donkey.html',
+                'druid_rabbit': 'farm/States/forest-rabbit.html',
+                'witch_horse': 'farm/States/forest-horse.html',
+                'nami_dog': 'farm/States/nami-dog.html',
+                'nami_donkey': 'farm/States/nami-donkey.html',
+                'vesper_figurine': 'farm/States/transformation-trapped.html'
             };
-            const transformPage = formMap[state.currentForm] || 'generic-trapped.html';
+            const transformPage = formMap[state.currentForm] || 'farm/States/transformation-trapped.html';
             window.location.href = transformPage;
         }
     })();

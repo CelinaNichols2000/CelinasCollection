@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vesper's Prize Table Heifer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <script>(function(){const s=JSON.parse(localStorage.getItem('farmState')||'{}');if(!(s.trappedUntil&&s.trappedUntil>Date.now())){localStorage.removeItem('farmState');window.location.href='../../farm.html';}})();</script>
+    <link rel="stylesheet" href="blackjack-state.css">
+    <style>body{--accent:#d2691e;--accent-2:#90ee90;--state-bg:url("https://i.ibb.co/sd6xgTPH/mecow.png");}</style>
+</head>
+<body>
+    <main class="state-shell">
+        <div class="timer" id="countdownTimer">--:--:--</div>
+        <section class="state-grid">
+            <div>
+                <div class="visual-panel"><img class="state-image" src="https://i.ibb.co/sd6xgTPH/mecow.png" alt="Vesper's cow"></div>
+                <div class="memory-panel">
+                    <h2>Tagged By The House</h2>
+                    <div class="memory-text">
+                        <p>The chip stopped spinning. Vesper pressed a brass tag to your collar, and your body answered like livestock paperwork had always been stronger than your will.</p>
+                        <p>She led you away heavy, exposed, and mooing for the table that watched your last bits of pride get milked out with your debt.</p>
+                        <p>Your clothes are still somewhere near the chair, split and useless. Vesper said she might frame them beside the shoe as proof that even a cocky little gambler can become farm profit when the house squeezes hard enough.</p>
+                        <p>She likes to tap your tag before handling you, reading the number as if it is your real name now. Each little clink makes your cheeks burn and your body soften, heavy and obedient, waiting for her hands to decide what you are worth today.</p>
+                    </div>
+                </div>
+            </div>
+            <aside class="control-panel">
+                <h1>Prize Heifer</h1>
+                <span class="badge">Blackjack Table Fate</span>
+                <div class="meter-head"><span>Livestock Compliance</span><span class="meter-value" id="meterValue">0%</span></div>
+                <div class="meter"><div class="meter-fill" id="meterFill"></div></div>
+                <div class="status-box" id="statusText">The tag swings from your collar. Every time it clicks, you remember Vesper calling you a cash cow and proving it while the whole table watched your body swell into something profitable.</div>
+                <div class="action-grid">
+                    <button class="state-btn" data-action-index="0">Stamp Hooves</button>
+                    <button class="state-btn" data-action-index="1">Moo For The Table</button>
+                    <button class="state-btn" data-action-index="2">Lean Into The Milking</button>
+                    <button class="state-btn" data-action-index="3">Show Your Tag</button>
+                </div>
+                <p class="release-note">When the timer expires, the collar releases. Until then, Vesper's tag says exactly what you are.</p>
+            </aside>
+        </section>
+    </main>
+    <div class="flash" id="flash"><div class="flash-inner" id="flashText"></div></div>
+    <script>
+        window.BLACKJACK_STATE_CONFIG = {
+            key: "blackjackCow",
+            actions: [
+                { gain: 7, status: "You stamp until your hooves ache, but the brass tag keeps swinging from your collar: VESPER'S PAYOUT. She reads it aloud, slow and nasty, then cups your muzzle and asks if the poor little cash cow wants to appeal with another moo.", flash: "<strong>Hooves do not argue.</strong><br>Your body is too heavy, too warm, too obviously hers. Vesper flicks your tag and your whole chest burns with shame." },
+                { gain: 12, status: "A helpless moo rolls up from deep inside you. Vesper makes you do it again, louder, until your throat vibrates and your face burns. She tells the table your voice finally matches your value: soft, dumb, and profitable.", flash: "<strong>Moooo for the house.</strong><br>The sound echoes back from the barn while Vesper smiles like she is milking dignity straight out of your mouth." },
+                { gain: 16, status: "You lean into her handling before you can stop yourself. Her hands are confident, cruel, and practiced, sliding over your heavy body while she comments on how nicely losing filled you out. The shame is hot enough to make your knees weaken.", flash: "<strong>Good livestock gives returns.</strong><br>Vesper's fingers press in, your tag clinks, and your body answers like a needy farm thing getting mindfucked out of every old human habit." },
+                { gain: 22, status: "You lower your head so the brass tag catches the light. Vesper calls you her best little payout and pats your flank. A warm, dumb pulse of pride blooms in your chest, worse than the insult because it feels true.", flash: "<strong>Prize heifer.</strong><br>Your clothes are gone, your chips are gone, and Vesper owns the soft, throbbing, useful thing left behind. Degenerated. Tagged. Profitable." }
+            ],
+            completeText: "<strong>100% mindfucked.</strong><br>Numbers, cards, pride - all gone. Tag, stall, Vesper - all that matters. The heifer-brain settles in thick and warm while the collar adds another day.",
+            penaltyText: "Your brass tag flashes. +24 hours as Vesper's helpless prize heifer.",
+            penaltyBursts: [
+                "<strong>+24 HOURS</strong><br>TAG EXTENDED",
+                "<strong>100% MINDFUCKED</strong><br>PRIZE HEIFER",
+                "<strong>CASH COW LOCKED</strong><br>PROFITABLE LOSER",
+                "<strong>MOO FOR VESPER</strong><br>THE TABLE HEARS",
+                "<strong>LIVESTOCK BRAIN</strong><br>HUMAN PRIDE GONE"
+            ]
+        };
+    </script>
+    <script src="blackjack-state.js"></script>
+</body>
+</html>

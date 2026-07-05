@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brindle - Celina's Barn</title>
+    <link rel="icon" type="image/x-icon" href="../../celinaIcon.ico">
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../item-detail.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="../barn.html">Barn</a></li>
+                <li><a href="../barn.html#showcase">Show Animals</a></li>
+                <li><a href="../barn.html#blackjack">Blackjack</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="item-detail-section">
+        <div class="item-detail-container main-container">
+            <div class="item-image-column">
+                <div class="item-main-image-container">
+                    <img src="https://i.ibb.co/M5pC99VS/cmsn-red-brays-by-wrenzephyr2-dcf53ur-414w-2wx.png" alt="Brindle the donkey" class="item-detail-image">
+                </div>
+                <div class="item-thumbnail-gallery">
+                    <div class="thumbnail active"><img src="https://i.ibb.co/M5pC99VS/cmsn-red-brays-by-wrenzephyr2-dcf53ur-414w-2wx.png" alt="Brindle main view"></div>
+                    <div class="thumbnail"><img src="https://i.ibb.co/N6x330cW/farm-entrance.jpg" alt="Barn yard view"></div>
+                </div>
+            </div>
+
+            <div class="item-detail-content">
+                <div class="item-header">
+                    <h1 class="item-detail-name">Brindle</h1>
+                    <div class="item-category-badge">Pack Donkey</div>
+                </div>
+                <div class="item-description-container">
+                    <h2 class="section-title">Description</h2>
+                    <div class="item-detail-description">
+                        <p>Brindle is the barn's stubborn placeholder prize, kept near the hayloft where everyone can see the result of mouthing off after the magic has already won.</p>
+                        <p>He still carries himself like he is above the whole arrangement, but the baskets, tack, and little brass name plate tell a different story. The barn has a way of making usefulness stick.</p>
+                        <p>This page is ready for a fuller transformation story, gallery, and unlock hook later.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="item-detail-container secondary-container">
+            <div class="item-props-column">
+                <div class="item-stats-container">
+                    <h2 class="section-title">Properties</h2>
+                    <div class="item-stats-grid">
+                        <div class="item-stat"><div class="stat-icon"></div><div class="stat-info"><span class="stat-name">Stubbornness</span><div class="stat-bar"><div class="stat-fill" style="width: 90%"></div></div></div></div>
+                        <div class="item-stat"><div class="stat-icon"></div><div class="stat-info"><span class="stat-name">Work Value</span><div class="stat-bar"><div class="stat-fill" style="width: 82%"></div></div></div></div>
+                        <div class="item-stat"><div class="stat-icon"></div><div class="stat-info"><span class="stat-name">Training Progress</span><div class="stat-bar"><div class="stat-fill" style="width: 58%"></div></div></div></div>
+                    </div>
+                </div>
+            </div>
+            <div class="item-effect-column">
+                <div class="item-special-effect">
+                    <h2 class="section-title">Barn Role</h2>
+                    <div class="effect-container">
+                        <div class="effect-image"><img src="https://i.ibb.co/M5pC99VS/cmsn-red-brays-by-wrenzephyr2-dcf53ur-414w-2wx.png" alt="Brindle role"></div>
+                        <div class="effect-description">
+                            <h3 class="effect-title">Hayloft Hauler</h3>
+                            <p>Brindle carries supplies, wears his tack neatly, and serves as a very visible reminder that attitude can be repurposed.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            const mainImage = document.querySelector('.item-detail-image');
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    mainImage.src = this.querySelector('img').src;
+                });
+            });
+        });
+    </script>
+</body>
+</html>

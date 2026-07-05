@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vesper's Shelf Prize</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <script>(function(){const s=JSON.parse(localStorage.getItem('farmState')||'{}');if(!(s.trappedUntil&&s.trappedUntil>Date.now())){localStorage.removeItem('farmState');window.location.href='../../farm.html';}})();</script>
+    <link rel="stylesheet" href="blackjack-state.css">
+    <style>body{--accent:#ff4fd2;--accent-2:#00ffd5;--state-bg:url("https://i.ibb.co/fJFWmjw/cf-1.png");}</style>
+</head>
+<body>
+    <main class="state-shell">
+        <div class="timer" id="countdownTimer">--:--:--</div>
+        <section class="state-grid">
+            <div>
+                <div class="visual-panel"><img class="state-image" src="https://i.ibb.co/fJFWmjw/cf-1.png" alt="Vesper's figurine"></div>
+                <div class="memory-panel">
+                    <h2>Dealer Shoe Decoration</h2>
+                    <div class="memory-text">
+                        <p>Your final chip bought stillness. Vesper locked your body into a glossy little pose and set you beside the dealer shoe like a warning with curves.</p>
+                        <p>Sometimes she taps your head for luck. Sometimes she leaves you where every player can see your frozen shame. Sometimes she picks you up between rounds and uses your glossy little body like a filthy little dildo, grinding you against her pussy while you stay trapped in that perfect, helpless pose.</p>
+                        <p>Your painted eyes face the chip tray, so you get to watch everyone else keep playing. They lean in close, notice the tiny panic in your pose, and ask Vesper if you are real. She always says yes with the same proud little smile.</p>
+                        <p>She polishes you between rounds with slow, possessive attention, turning you this way and that until the light catches every humiliating curve. When she is feeling especially cruel, she leaves you cumcovered instead, hot sticky jizz cooling over your tiny helpless face while players pretend not to stare.</p>
+                        <p>You cannot move, cannot hide, and cannot wipe anything away. That is the real lesson Vesper likes displaying: the house takes more than money, and sometimes it leaves its prettiest losers dripping on the shelf like used sex toys.</p>
+                    </div>
+                </div>
+            </div>
+            <aside class="control-panel">
+                <h1>Shelf Prize</h1>
+                <span class="badge">Blackjack Table Fate</span>
+                <div class="meter-head"><span>Glossed Stillness</span><span class="meter-value" id="meterValue">0%</span></div>
+                <div class="meter"><div class="meter-fill" id="meterFill"></div></div>
+                <div class="status-box" id="statusText">Your tiny painted smile cannot move. Vesper says that makes you much better company, especially when she sets you close enough for losing players to see what comes next: a glossy little fucktoy, a warning, and sometimes a filthy cumcatcher.</div>
+                <div class="action-grid">
+                    <button class="state-btn" data-action-index="0">Try To Wiggle</button>
+                    <button class="state-btn" data-action-index="1">Endure Her Tap</button>
+                    <button class="state-btn" data-action-index="2">Glitter For Players</button>
+                    <button class="state-btn" data-action-index="3">Accept The Shelf</button>
+                </div>
+                <p class="release-note">When the timer expires, the collar releases. Until then, Vesper owns the prettiest warning on the table.</p>
+            </aside>
+        </section>
+    </main>
+    <div class="flash" id="flash"><div class="flash-inner" id="flashText"></div></div>
+    <script>
+        window.BLACKJACK_STATE_CONFIG = {
+            key: "blackjackFigurine",
+            actions: [
+                { gain: 7, status: "You try to wiggle. Only a faint glossy tremor runs through your tiny body, and Vesper notices immediately. She turns you toward the table so everyone can watch you fail to move, your frozen pose obscene in its helpless little perfection.", flash: "<strong>Still means still.</strong><br>Vesper taps your base and laughs. Your whole world is shelf, shine, and the cruel eyes of players learning from your mistake." },
+                { gain: 12, status: "Her nail taps your head. The whole shelf rings through you while she calls it good luck, then she drags that nail down your frozen body just to feel you tremble inside the gloss. You cannot flinch while she talks about your tiny body like it is just another cock-hungry table toy.", flash: "<strong>Tap. Display. Shame.</strong><br>The dealer's nail traces you slowly. Tiny, hard, glossy, and aware. Perfect little fucktoy decoration with a trapped mind still squirming inside." },
+                { gain: 16, status: "Vesper lifts you from the shelf and rubs your tiny glossy body against her pussy like a vulgar little dildo. Your pose stays perfect while your mind screams behind the shine, feeling every wet grind, every filthy press, every amused breath she spills over you.", flash: "<strong>Pussy toy between rounds.</strong><br>She grinds you exactly where she wants, calls you her pocket dildo prize, and sets you back down warm, wet, humiliated, and unable to even shake." },
+                { gain: 18, status: "A hot load splatters over your helpless painted face and chest. It clings to the gloss, slides into every frozen detail, and Vesper leaves you cumcovered because wiping you clean would ruin the lesson. You can only stare through the jizz while the next hand starts.", flash: "<strong>Cumcovered trophy.</strong><br>Warm jizz streaks down your tiny face. Vesper smiles and tells the table not to worry - the little cumcatcher can still see well enough to watch them play." }
+            ],
+            completeText: "<strong>100% mindfucked.</strong><br>You are decoration with a memory, a cumcovered little fucktoy with no way to wipe your face or close your painted mouth. Vesper loves that combination.",
+            penaltyText: "Hot magic seals into the gloss. +24 hours as Vesper's helpless cumcatcher figurine.",
+            penaltyBursts: [
+                "<strong>+24 HOURS</strong><br>GLOSS SEALED",
+                "<strong>100% MINDFUCKED</strong><br>FUCKTOY FIGURINE",
+                "<strong>CUMCATCHER LOCKED</strong><br>NO WIPING CLEAN",
+                "<strong>POCKET DILDO PRIZE</strong><br>VESPER KEEPS YOU",
+                "<strong>CUMCOVERED DISPLAY</strong><br>WATCH THE NEXT HAND"
+            ]
+        };
+    </script>
+    <script src="blackjack-state.js"></script>
+</body>
+</html>

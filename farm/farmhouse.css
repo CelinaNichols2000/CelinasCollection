@@ -1,9 +1,12 @@
 /* FARMHOUSE STYLING — aligned with site design system */
 * { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 html, body { width: 100%; height: 100%; overflow: auto; }
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #0D0D0D 0%, #1a0033 100%);
+    background:
+        linear-gradient(rgba(8, 2, 16, 0.72), rgba(12, 0, 22, 0.86)),
+        url("https://i.ibb.co/5XhNVcnJ/farmhouse.webp") center/cover fixed;
     color: #fff;
     line-height: 1.6;
 }
@@ -30,39 +33,46 @@ body::before {
     z-index: 1000;
     box-shadow: 0 4px 20px rgba(255, 0, 202, 0.15);
 }
-.farmhouse-nav { max-width: 1400px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; gap: 20px; }
-.nav-title-container { flex: 1; text-align: center; }
-.nav-title {
-    font-size: 28px;
-    font-weight: 700;
-    color: #FF00CA;
-    text-shadow: 0 0 20px rgba(255, 0, 202, 0.7);
-    letter-spacing: 2px;
-    text-transform: uppercase;
+.farmhouse-nav {
+    max-width: 1400px;
+    margin: 0 auto;
 }
-.nav-subtitle { font-size: 12px; color: #ffa6ec; opacity: 0.8; font-style: italic; margin-top: 4px; }
-.nav-btn {
-    background: linear-gradient(90deg, #FF00CA, #a600ff);
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 50px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: 600;
+.farmhouse-nav ul {
+    list-style: none;
     display: flex;
+    justify-content: center;
     align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(255, 0, 202, 0.4);
-    font-family: 'Poppins', sans-serif;
+    gap: 40px;
+    margin: 0;
+    padding: 15px 20px;
 }
-.nav-btn:hover {
-    transform: translateY(-2px) scale(1.05);
-    box-shadow: 0 6px 25px rgba(255, 0, 202, 0.7);
-    filter: brightness(1.1);
+.farmhouse-nav a {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    transition: color 0.3s ease;
 }
-.nav-menu { display: none; }
+.farmhouse-nav a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0%;
+    height: 2px;
+    background: linear-gradient(90deg, #ff00ca, #a600ff);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+.farmhouse-nav a:hover {
+    color: #ff00ca;
+}
+.farmhouse-nav a:hover::after {
+    width: 100%;
+}
 
 /* MOBILE MENU */
 .mobile-menu { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.95); z-index: 999; display: flex; align-items: center; justify-content: center; }
@@ -110,13 +120,62 @@ body::before {
 
 /* MAIN */
 .farmhouse-main { max-width: 1400px; margin: 0 auto; padding: 20px; }
+.farmhouse-intro {
+    position: relative;
+    min-height: 76vh;
+    display: flex;
+    align-items: flex-end;
+    padding: clamp(120px, 16vw, 220px) clamp(22px, 5vw, 70px) 64px;
+    margin: 0;
+    background: linear-gradient(90deg, rgba(8, 0, 16, 0.62), rgba(8, 0, 16, 0.24), rgba(8, 0, 16, 0.66));
+    border-bottom: 2px solid rgba(255, 0, 202, 0.35);
+    overflow: hidden;
+}
+.farmhouse-intro::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 18% 36%, rgba(255, 0, 202, 0.2), transparent 34%),
+        radial-gradient(circle at 76% 70%, rgba(166, 0, 255, 0.16), transparent 32%);
+    pointer-events: none;
+}
+.farmhouse-intro-content {
+    position: relative;
+    z-index: 1;
+    max-width: 860px;
+}
+.farmhouse-intro-title {
+    margin: 0;
+    color: #FF00CA;
+    font-size: clamp(3rem, 7vw, 5.8rem);
+    line-height: 0.95;
+    text-transform: uppercase;
+    text-shadow: 0 0 28px rgba(255, 0, 202, 0.7);
+    letter-spacing: 0;
+}
+.farmhouse-intro-text {
+    margin: 24px 0 0;
+    max-width: 760px;
+    color: #f0dff8;
+    font-size: clamp(1rem, 2vw, 1.18rem);
+    line-height: 1.75;
+    font-weight: 600;
+}
+.farmhouse-intro-note {
+    margin-top: 18px;
+    max-width: 700px;
+    color: #ffa6ec;
+    line-height: 1.65;
+    font-style: italic;
+}
 .map-view { animation: fadeIn 0.5s ease; }
 .map-container {
-    background: rgba(10, 0, 20, 0.6);
+    background: rgba(10, 0, 20, 0.68);
     border: 1px solid rgba(255, 0, 202, 0.2);
     border-radius: 20px;
     padding: 30px;
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(8px);
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
     position: relative;
     overflow: hidden;
@@ -561,17 +620,18 @@ body::before {
 @media (max-width: 1024px) {
     .interaction-container { grid-template-columns: 1fr; }
     .character-panel { min-height: 400px; }
-    .nav-text { display: none; }
-    .nav-title { font-size: 20px; }
-    .nav-subtitle { display: none; }
     .map-title::before, .map-title::after { display: none; }
+    .farmhouse-intro { min-height: 64vh; }
 }
 @media (max-width: 768px) {
-    .farmhouse-nav { padding: 12px 15px; }
-    .nav-btn { padding: 8px 15px; font-size: 12px; }
-    .nav-menu { display: flex; }
-    .nav-text { display: none; }
-    .nav-title { font-size: 18px; }
+    .farmhouse-nav ul {
+        gap: 22px;
+        padding: 14px 15px;
+        flex-wrap: wrap;
+    }
+    .farmhouse-nav a {
+        font-size: 13px;
+    }
     .locations-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
     .map-header { margin-bottom: 25px; }
     .map-title { font-size: 1.8rem; }
@@ -581,9 +641,22 @@ body::before {
     .character-image { width: 150px; height: 350px; }
     .choices-container { grid-template-columns: 1fr; }
     .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .farmhouse-intro {
+        min-height: 62vh;
+        padding: 96px 22px 46px;
+    }
+    .farmhouse-intro-text,
+    .farmhouse-intro-note {
+        font-size: 0.98rem;
+    }
 }
 @media (max-width: 480px) {
     .farmhouse-main { padding: 10px; }
+    .farmhouse-intro {
+        min-height: 62vh;
+        padding: 78px 18px 34px;
+    }
+    .farmhouse-intro-title { font-size: 2.6rem; }
     .map-container { padding: 15px; }
     .map-title { font-size: 1.4rem; }
     .locations-grid { grid-template-columns: 1fr; gap: 14px; }

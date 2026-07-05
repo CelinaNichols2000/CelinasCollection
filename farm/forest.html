@@ -11,12 +11,20 @@
 
     <style>
         /* Forest page + challenge system styling */
+        body {
+            background:
+                linear-gradient(rgba(3, 10, 12, 0.72), rgba(8, 0, 18, 0.92)),
+                url("https://i.ibb.co/Q2QPxrW/6a4a77b0af43267a4a268ce587e5752c.jpg") center/cover fixed;
+        }
+
         .forest-section {
             min-height: 100vh;     /* fallback */
             min-height: 100svh;    /* stable on mobile when browser UI shows */
             min-height: 100dvh;    /* dynamic (best on modern mobile) */
-            padding: 60px 20px 80px;
-            background: radial-gradient(circle at top, #14303f 0%, #050509 60%);
+            padding: 90px 20px 80px;
+            background:
+                radial-gradient(circle at 22% 18%, rgba(0, 255, 213, 0.14), transparent 32%),
+                linear-gradient(90deg, rgba(4, 13, 14, 0.8), rgba(8, 0, 18, 0.46), rgba(8, 0, 18, 0.82));
             color: #fff;
             display: flex;
             flex-direction: column;
@@ -24,19 +32,24 @@
             text-align: center;
         }
 
-        .forest-title { font-family: "Poppins", sans-serif; font-size: 36px; letter-spacing: 2px; text-transform: uppercase; color: #FF00CA; text-shadow: 0 0 15px rgba(255, 0, 202, 0.7); margin-bottom: 10px; }
-        .forest-subtitle { max-width: 700px; font-size: 16px; color: #cccccc; margin-bottom: 40px; line-height: 1.6; }
-        .forest-layout { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 30px; width: 100%; max-width: 1100px; }
+        .forest-title { font-family: "Poppins", sans-serif; font-size: clamp(3rem, 8vw, 6rem); line-height: 0.95; letter-spacing: 0; text-transform: uppercase; color: #FF00CA; text-shadow: 0 0 28px rgba(255, 0, 202, 0.7); margin: 0 0 18px; }
+        .forest-subtitle { max-width: 820px; font-size: clamp(1rem, 2vw, 1.18rem); color: #f0dff8; margin: 0 0 46px; line-height: 1.75; font-weight: 600; }
+        .forest-layout { display: flex; flex-wrap: wrap; justify-content: center; align-items: stretch; gap: 30px; width: 100%; max-width: 1120px; }
         .forest-image-wrapper { flex: 1 1 320px; max-width: 480px; display: flex; justify-content: center; }
-        .forest-main-image { width: 100%; max-width: 460px; max-height: 480px; border-radius: 15px; object-fit: cover; box-shadow: 0 0 25px rgba(0, 0, 0, 0.8), 0 0 25px rgba(0, 255, 180, 0.4); border: 2px solid rgba(0, 255, 180, 0.5); }
-        .forest-controls { flex: 1 1 320px; max-width: 480px; display: flex; flex-direction: column; align-items: center; gap: 25px; }
-        .forest-lore-box { background: rgba(10, 10, 15, 0.9); border-radius: 12px; padding: 20px 18px; border: 1px solid rgba(255, 0, 202, 0.5); box-shadow: 0 0 18px rgba(255, 0, 202, 0.4); text-align: left; max-width: 100%; }
-        .forest-lore-title { font-size: 18px; font-weight: 600; color: #ff6fdf; margin-bottom: 8px; }
-        .forest-lore-text { font-size: 14px; color: #dddddd; line-height: 1.6; }
-        .forest-wander-button { font-family: "Poppins", sans-serif; font-size: 20px; font-weight: 600; padding: 14px 32px; background: linear-gradient(135deg, #FF00CA, #00ffd5); color: #fff; border: none; border-radius: 32px; cursor: pointer; box-shadow: 0 0 20px rgba(255, 0, 202, 0.6); text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s ease; }
-        .forest-wander-button:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 0 26px rgba(255, 0, 202, 0.9); filter: brightness(1.1); }
+        .forest-main-image { width: 100%; min-height: 100%; max-width: 460px; max-height: 520px; border-radius: 8px; object-fit: cover; box-shadow: 0 24px 70px rgba(0, 0, 0, 0.58), 0 0 26px rgba(0, 255, 180, 0.2); border: 1px solid rgba(0, 255, 180, 0.28); }
+        .forest-controls { flex: 1 1 340px; max-width: 520px; display: flex; flex-direction: column; align-items: stretch; gap: 18px; }
+        .forest-lore-box { background: rgba(7, 9, 16, 0.72); border-radius: 8px; padding: 24px; border: 1px solid rgba(255, 0, 202, 0.28); box-shadow: 0 24px 70px rgba(0,0,0,0.46), 0 0 28px rgba(255,0,202,0.12); text-align: left; max-width: 100%; backdrop-filter: blur(6px); }
+        .forest-lore-title { font-size: 20px; font-weight: 700; color: #ff6fdf; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .forest-lore-text { font-size: 15px; color: #f0dff8; line-height: 1.7; }
+        .forest-progress { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+        .forest-stat { background: rgba(10, 0, 20, 0.66); border: 1px solid rgba(255, 0, 202, 0.2); border-radius: 8px; padding: 14px 12px; text-align: left; }
+        .forest-stat span { display: block; color: #cc9ec9; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .forest-stat strong { display: block; color: #fff; margin-top: 4px; font-size: 1rem; }
+        .forest-wander-button { font-family: "Poppins", sans-serif; font-size: 17px; font-weight: 700; padding: 14px 24px; background: linear-gradient(135deg, #FF00CA, #00ffd5); color: #fff; border: none; border-radius: 999px; cursor: pointer; box-shadow: 0 0 20px rgba(255, 0, 202, 0.42); text-transform: uppercase; letter-spacing: 1px; transition: all 0.2s ease; }
+        .forest-wander-button:hover { transform: translateY(-3px); box-shadow: 0 0 28px rgba(255, 0, 202, 0.7); filter: brightness(1.08); }
         .forest-wander-button:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
-        .forest-info-text { font-size: 13px; color: #aaaaaa; max-width: 420px; text-align: center; line-height: 1.5; }
+        .forest-info-text { font-size: 13px; color: #d5c8d8; text-align: center; line-height: 1.5; }
+        .forest-log { min-height: 22px; color: #ffa6ec; font-size: 13px; text-align: center; }
 
         /* Challenge state overlay */
         .challenge-trapped { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.95); display: none; flex-direction: column; justify-content: center; align-items: center; z-index: 3000; color: #fff; text-align: center; }
@@ -47,23 +60,26 @@
 
         /* Modal - main encounter */
         body.modal-open { overflow: hidden; overscroll-behavior: none;}
-        .forest-modal-backdrop { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.8); display: none; justify-content: center; align-items: center; z-index: 2000; padding: 12px; }
+        .forest-modal-backdrop { position: fixed; inset: 0; background: rgba(0, 0, 0, 0.76); backdrop-filter: blur(10px); display: none; justify-content: center; align-items: center; z-index: 2000; padding: 12px; }
         .forest-modal-backdrop.active { display: flex; }
         /* Desktop/tablet modal: constrained size so it feels less massive */
-        .forest-modal { background: #151522; border-radius: 12px; max-width: 760px; width: 92%; max-height: 86vh; max-height: 86svh; max-height: 86dvh; overflow: hidden;  box-shadow: 0 8px 30px rgba(0,0,0,0.45); border: 1px solid rgba(255, 0, 202, 0.12); display: flex; flex-direction: row; flex-wrap: nowrap; }
-        .forest-modal-image-wrapper { flex: 0 0 280px; min-height: 180px; background: radial-gradient(circle at top, #2b4157, #080811); display: flex; align-items: center; justify-content: center; padding: 14px; border-right: 1px solid rgba(255, 0, 202, 0.08); }
-        .forest-modal-image { width: 100%; max-width: 240px; max-height: 240px; object-fit: cover; border-radius: 10px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5); border: 1px solid rgba(0, 255, 180, 0.18); }
-        .forest-modal-content { flex: 1 1 auto; padding: 18px; display: flex; flex-direction: column; gap: 10px; overflow: auto; -webkit-overflow-scrolling: touch; }
+        .forest-modal { background: rgba(13, 9, 22, 0.96); border-radius: 12px; max-width: 860px; width: min(92vw, 860px); max-height: 86vh; max-height: 86svh; max-height: 86dvh; overflow: hidden;  box-shadow: 0 24px 70px rgba(0,0,0,0.6), 0 0 34px rgba(255,0,202,0.16); border: 1px solid rgba(255, 0, 202, 0.24); display: flex; flex-direction: row; flex-wrap: nowrap; }
+        .forest-modal-image-wrapper { flex: 0 0 320px; min-height: 360px; background: radial-gradient(circle at top, rgba(0,255,213,0.12), #080811); display: flex; align-items: stretch; justify-content: center; padding: 0; border-right: 1px solid rgba(255, 0, 202, 0.12); }
+        .forest-modal-image { width: 100%; max-width: none; max-height: none; object-fit: cover; border-radius: 0; box-shadow: none; border: 0; }
+        .forest-modal-content { flex: 1 1 auto; padding: clamp(20px, 4vw, 34px); display: flex; flex-direction: column; gap: 12px; overflow: auto; -webkit-overflow-scrolling: touch; }
         .forest-modal-header { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
         .forest-modal-title { font-size: 20px; color: #FF00CA; font-family: "Poppins", sans-serif; }
         .forest-modal-tag { padding: 4px 10px; border-radius: 999px; background: rgba(0, 255, 180, 0.06); border: 1px solid rgba(0, 255, 180, 0.12); font-size: 11px; color: #aafff2; text-transform: uppercase; letter-spacing: 1px; white-space: nowrap; }
-        .forest-modal-body { font-size: 14px; color: #dddddd; line-height: 1.6; margin-top: 4px; }
+        .forest-modal-body { font-size: 15px; color: #f0dff8; line-height: 1.7; margin-top: 4px; }
         .forest-modal-body em { color: #ff9ae5; }
         /* Choices: size to content and wrap so buttons don't force full-width */
         .forest-modal-choices { margin-top: 14px; display: flex; flex-direction: column; gap: 10px; align-items: center; }
-        .forest-modal-choice { box-sizing: border-box; width: 88%; font-family: "Poppins", sans-serif; font-size: 15px; padding: 10px 14px; border-radius: 8px; border: 1px solid rgba(255, 0, 202, 0.18); background: rgba(255, 0, 202, 0.06); color: #ffffff; cursor: pointer; transition: all 0.12s ease; text-align: center; display: block; white-space: normal; word-wrap: break-word; }
-        .forest-modal-choice:hover { background: rgba(255, 0, 202, 0.12); transform: none; box-shadow: 0 6px 18px rgba(0,0,0,0.35); }
+        .forest-modal-choice { box-sizing: border-box; width: 88%; font-family: "Poppins", sans-serif; font-size: 15px; padding: 12px 16px; border-radius: 999px; border: 1px solid rgba(255, 0, 202, 0.32); background: rgba(255, 0, 202, 0.08); color: #ffffff; cursor: pointer; transition: all 0.16s ease; text-align: center; display: block; white-space: normal; word-wrap: break-word; }
+        .forest-modal-choice:hover { background: rgba(255, 0, 202, 0.2); transform: translateY(-2px); box-shadow: 0 10px 26px rgba(0,0,0,0.35); }
+        .forest-modal-choice.secondary { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.14); color: #d9d2dd; }
         .forest-modal-choice > strong { display: inline-block; max-width: 100%; white-space: normal; }
+        .forest-modal-result { margin-top: 10px; padding: 14px; border-radius: 8px; background: rgba(255, 0, 202, 0.08); border: 1px solid rgba(255, 0, 202, 0.2); color: #f0dff8; }
+        .forest-result-note { font-size: 13px; line-height: 1.6; color: #ffa6ec; text-align: center; }
         .forest-modal-close { border: none; background: transparent; color: #cccccc; font-size: 22px; cursor: pointer; padding: 4px; line-height: 1; }
 
         @media (max-width: 900px) {
@@ -87,8 +103,9 @@
                 align-items: stretch;
             }
             .forest-modal-inner { overflow: auto; -webkit-overflow-scrolling: touch; max-height: 65vh; }
-            .forest-modal-image-wrapper {width: 100%; flex-basis: auto; padding: 8px; border-right: none; border-bottom: 1px solid rgba(255,0,202,0.04); min-height: 0px; display:flex; align-items:center; justify-content:center;}
-            .forest-modal-image { max-width: 100%; max-width: 320px; max-height: 18svh; object-fit: cover; border-radius: 8px; }
+            .forest-progress { grid-template-columns: 1fr; }
+            .forest-modal-image-wrapper {width: 100%; flex-basis: auto; padding: 0; border-right: none; border-bottom: 1px solid rgba(255,0,202,0.08); min-height: 0px; display:flex; align-items:center; justify-content:center;}
+            .forest-modal-image { max-width: 100%; max-height: 22svh; object-fit: cover; border-radius: 0; }
             .forest-modal-content { padding: 12px; gap: 10px; flex: 1 1 auto; overflow: auto; -webkit-overflow-scrolling: touch;}
             .forest-modal-header { position: sticky; top: 0; padding-top:6px; z-index:20; }
             .forest-modal-title { font-size: 18px; }
@@ -100,9 +117,9 @@
             .forest-modal-close { font-size: 26px; padding: 6px; position: absolute; right: 10px; top: 8px; z-index:30; }
         }
         /* Header/nav fixes to prevent clipping (About -> 'out' issue) */
-        header nav ul { display:flex; gap:12px; align-items:center; margin:0; padding:8px 12px; list-style:none; }
+        header nav ul { display:flex; justify-content:center; gap:32px; align-items:center; margin:0; padding:15px 12px; list-style:none; }
         header nav ul li { margin:0; }
-        header nav ul li a { display:inline-block; padding:6px 8px; white-space:nowrap; color:inherit; text-decoration:none; font-weight:600; }
+        header nav ul li a { display:inline-block; padding:0; white-space:nowrap; color:#fff; text-decoration:none; font-weight:600; }
         @media (max-width:600px){
             header nav ul { overflow:auto; -webkit-overflow-scrolling:touch; gap:8px; }
             header nav ul li a { font-size:14px; }
@@ -113,10 +130,10 @@
 <header>
     <nav>
         <ul>
-            <li><a href="index.html#about">About Me</a></li>
-            <li><a href="index.html#family">Family</a></li>
-            <li><a href="index.html#items">Items</a></li>
-            <li><a href="index.html#onaholes">Onaholes</a></li>
+            <li><a href="../farm.html">Farm Map</a></li>
+            <li><a href="farmGate.html">Farm Gate</a></li>
+            <li><a href="farmhouse.html">Farmhouse</a></li>
+            <li><a href="barn.html">Barn</a></li>
         </ul>
     </nav>
 </header>
@@ -125,8 +142,8 @@
 <section class="forest-section" id="mainForest">
     <h1 class="forest-title">Enchanted Forest</h1>
     <p class="forest-subtitle">
-        A deep, shimmering forest where kitsune magic twists paths, memories and bodies alike. 
-        Each step off the trail might lead to a new naughty fate.
+        A deep, shimmering stretch of Celina's land where foxfire hangs between the trees, old charms tug at careless
+        thoughts, and every pretty path seems to know exactly what kind of fate would fit you best.
     </p>
 
     <div class="forest-layout">
@@ -138,14 +155,31 @@
             <div class="forest-lore-box">
                 <div class="forest-lore-title">Whispers Between The Trees</div>
                 <div class="forest-lore-text">
-                    The forest loves to toy with wanderers. Fail its challenges, and you'll live as its plaything - 
-                    from minutes to weeks, tracked by real time. Only the strong escape unchanged.
+                    The forest is playful, but it is not fair. Each wander pulls you toward one of its keepers,
+                    traps, or little rituals. Some meetings let you slip away. Others mark you, change you, and send
+                    you straight into one of the farm's dedicated state pages.
+                </div>
+            </div>
+
+            <div class="forest-progress" aria-label="Forest trail status">
+                <div class="forest-stat">
+                    <span>Trail</span>
+                    <strong id="forestTrailCount">0 steps</strong>
+                </div>
+                <div class="forest-stat">
+                    <span>Known Fates</span>
+                    <strong id="forestRemainingCount">5 hidden</strong>
+                </div>
+                <div class="forest-stat">
+                    <span>Mood</span>
+                    <strong id="forestMood">Watching</strong>
                 </div>
             </div>
 
             <button id="wanderButton" class="forest-wander-button">
                 Wander through the forest
             </button>
+            <div id="forestLog" class="forest-log">The leaves shift, waiting for your first mistake.</div>
         </div>
     </div>
 </section>
@@ -154,7 +188,7 @@
 <div id="forestModalBackdrop" class="forest-modal-backdrop" aria-hidden="true">
     <div class="forest-modal" role="dialog">
         <div class="forest-modal-image-wrapper">
-            <img id="forestEncounterImage" src="https://via.placeholder.com/360x360?text=Encounter" alt="" class="forest-modal-image">
+            <img id="forestEncounterImage" src="https://i.ibb.co/Q2QPxrW/6a4a77b0af43267a4a268ce587e5752c.jpg" alt="" class="forest-modal-image">
         </div>
         <div class="forest-modal-content">
             <div class="forest-modal-header">
@@ -184,13 +218,13 @@
                 return;
             }
             const formMap = {
-                'foxfire_panties': 'States/forest-panties.html', //yes
-                'witch_horse': 'States/forest-horse.html',      //yes
+                'foxfire_panties': 'States/forest-panties.html',
+                'witch_horse': 'States/forest-horse.html',
                 'druid_rabbit': 'States/forest-rabbit.html',
-                'cow': 'States/forest-cow.html',            //yes
-                'fairy_donkey': 'States/forest-donkey.html'     //yes
+                'cow': 'States/forest-cow.html',
+                'fairy_donkey': 'States/forest-donkey.html'
             };
-            const transformPage = formMap[state.currentForm] || 'generic-trapped.html';
+            const transformPage = formMap[state.currentForm] || 'States/transformation-trapped.html';
             window.location.href = transformPage;
         }
     })();
@@ -211,7 +245,7 @@
                     ]
                 },
                 seduce: {
-                    body: `She smiles, closing distance. Her hand brushes your shoulder and heat crawls under your skin. She leans close and whispers something fragrant.`,
+                    body: `She smiles, closing distance. One claw brushes your shoulder and foxfire crawls beneath your skin like warm thread. "Careful," she murmurs. "Flirting with a kitsune means offering her something to keep."`,
                     image: "https://i.ibb.co/Nn6DLLgj/kitsune1.webp",
                     choices: [
                         { label: "Return her kiss", nextEnding: "panties" },
@@ -220,8 +254,8 @@
                 }
             },
             endings: {
-                panties: { title: "Melted into Panties", acceptLabel: "Become Her Velvet Panties", body: `A warm ripple overtakes you; your flesh relaxes and flattens until you're a soft panel of silk and lace. You sense everything, muffled and intimate... a permanent, intimate garment for her nights.`, image: "https://i.ibb.co/j95jx3db/celina-panty-spell.jpg", trapForm: "foxfire_panties", trapRedirect: "States/forest-panties.html" },
-                escape: { title: "Narrow Escape", acceptLabel: "Return To The Trail", body: `https://i.ibb.co/GvBgtFRy/3de2ec55-6230-4128-871d-bcc0484c63ba.png`, trapForm: null }
+                panties: { title: "Folded Into Silk", acceptLabel: "Accept The Foxfire Mark", body: `A warm ripple overtakes you. Your outline softens, thins, and folds into enchanted silk while her laughter rings through the trees. The forest files your name away under property returned to its owner.`, image: "https://i.ibb.co/j95jx3db/celina-panty-spell.jpg", trapForm: "foxfire_panties", trapRedirect: "States/forest-panties.html" },
+                escape: { title: "Narrow Escape", acceptLabel: "Return To The Trail", body: `You break eye contact just in time. Foxfire snaps shut where you stood, and the kitsune's amused sigh follows you back to the trail.`, image: "https://i.ibb.co/GvBgtFRy/3de2ec55-6230-4128-871d-bcc0484c63ba.png", trapForm: null }
             }
         },
         {
@@ -231,14 +265,14 @@
             image: "https://i.ibb.co/5gnWK6ZX/5c3ca6eb-e6c4-414e-ab61-bd49af38446a.png",
             stages: {
                 start: {
-                    body: `You step beside an old, mossy trough and — before you can react — a cold collar rockets from the ground and slams around your throat. It jerks you to the dirt; pressure sings along your spine as the first shift begins.`,
+                    body: `You step beside an old, mossy trough and - before you can react - a cold collar snaps up from the ground and locks around your throat. It pulls you down hard enough to make the whole clearing tilt.`,
                     image: "https://i.ibb.co/5gnWK6ZX/5c3ca6eb-e6c4-414e-ab61-bd49af38446a.png",
                     choices: [
                         { label: "Struggle against the collar", next: "half_change" },
                     ]
                 },
                 half_change: {
-                    body: `You pull and wrench, but the collar only tightens. Your limbs thicken and your posture shifts; a warm, slow calm settles into part of your mind. You're not yourself — but not wholly gone either.`,
+                    body: `You pull and wrench, but the collar only tightens. Your limbs feel heavier, your posture lower, and a slow, warm calm settles at the edge of your thoughts. You are not yourself - but not wholly gone either.`,
                     image: "https://i.ibb.co/1tw2DcLF/victem10.png",
                     choices: [
                         { label: "Struggle again with all your strength", nextEnding: "escape" },
@@ -254,11 +288,11 @@
         {
             id: "fairy_donkey",
             title: "Fairy's Dumb Donkey",
-            tag: "Mind Drain • Breeding",
+            tag: "Glamour Trick",
             image: "https://i.ibb.co/ZzbBrXtH/Ellie-Gotti-Fairy.jpg",
             stages: {
                 start: {
-                    body: `A mischievous fairy flutters down, no bigger than your hand. She circles you, giggling. "You're so *serious*! So *smart*! Ugh, boring~" She taps your forehead with a wand that smells like honeysuckle and lust. "Let's fix that!"`,
+                    body: `A mischievous fairy flutters down, no bigger than your hand. She circles you, giggling. "You're so serious. So careful. So boring." Her wand taps your forehead with a tiny chime. "Let's make you easier to manage."`,
                     image: "https://i.ibb.co/ZzbBrXtH/Ellie-Gotti-Fairy.jpg",
                     choices: [
                         { label: "Swat her away", next: "anger" },
@@ -266,7 +300,7 @@
                     ]
                 },
                 anger: {
-                    body: `She pouts, dodging your hand. "Rude! Okay, no more *asking*." She snaps her fingers and warmth floods your skull. Your thoughts... slow. Simplify. *Feels good*. She grins. "Better already!"`,
+                    body: `She pouts, dodging your hand. "Rude. Fine, no more asking." She snaps her fingers and warmth floods your skull. Your thoughts slow, simplify, and drift toward the soft grass underfoot.`,
                     image: "https://i.ibb.co/ZzbBrXtH/Ellie-Gotti-Fairy.jpg",
                     choices: [
                         { label: "Shake your head to clear it", nextEnding: "escape" },
@@ -274,7 +308,7 @@
                     ]
                 },
                 curious: {
-                    body: `"Oh good, you're *interested*!" She boops your nose. Your ears tingle and stretch. "See, I need a big, dumb, *horny* donkey to play with. And you're just *so* perfect for it..." Your groin throbs as she trails sparkles down your chest.`,
+                    body: `"Oh good, you're interested." She boops your nose. Your ears tingle and stretch. "See, I need a stubborn little pack animal, and you are already standing so nicely." Sparkles trail down your chest like reins looking for a buckle.`,
                     image: "https://i.ibb.co/tMtPN6Sy/victem10.png",
                     choices: [
                         { label: "Back away before it's too late", nextEnding: "escape" },
@@ -285,8 +319,8 @@
             endings: {
                 donkey: {
                     title: "Fairy's Breeding Donkey",
-                    acceptLabel: "Embrace The Simplicity",
-                    body: `Your spine cracks and curves as you drop onto thickening limbs. Fur sprouts—coarse and grey—across your expanding body. Your cock swells enormous between hind legs, already dripping. The fairy claps her hands. "Perfect! Now you don't have to *think*—just breed and bray and be my good, dumb stud~" Your mind clouds with overwhelming *need*. She floats beneath you, stroking your massive shaft, and all you can do is buck and grunt and *obey*, drowning in animal lust and her delighted giggles.`,
+                    acceptLabel: "Accept The Fairy's Halter",
+                    body: `Your spine bows, your hands harden, and grey fur spreads over your changing body. The fairy claps as a tiny halter glitters into place. "Perfect. Strong, simple, and mine to lead." The last clever thoughts scatter like leaves.`,
                     image: "https://i.ibb.co/CphZH3D1/cmsn-red-brays-by-wrenzephyr2-dcf53ur-414w-2x.png",
                     trapForm: "fairy_donkey",
                     trapRedirect: "States/forest-donkey.html"
@@ -303,7 +337,7 @@
         {
             id: "witch_horse",
             title: "Witch Coven's Mount",
-            tag: "Service Animal • Humiliation",
+            tag: "Coven Service",
             image: "https://i.ibb.co/yFKvmCRY/jingyu-wen-mag16x-20.jpg",
             stages: {
                 start: {
@@ -334,7 +368,7 @@
                 horse: {
                     title: "Coven's Riding Mare",
                     acceptLabel: "Accept Your Bridle",
-                    body: `Heat floods your limbs as they stretch and thicken. Your hands harden into hooves, your spine lengthens, and a cascade of coarse hair sprouts down your neck. The witch grins with delight as you sink onto all fours...no, all *fours hooves*. A bridle slips over your muzzle. You whinny helplessly as she mounts your back, her thighs clamping around your ribs. "Good girl," she purrs, and you trot obediently into the forest, mind already simplifying into obedience and the mindless pleasure of being *ridden*.`,
+                    body: `Heat floods your limbs as they stretch and thicken. Your hands harden into hooves, your spine lengthens, and a bridle slips over your new muzzle with a soft click. The witch settles onto your back. "Good," she says, and your hooves answer before your thoughts can.`,
                     image: "https://i.ibb.co/xSrBqdqy/Horse-2.jpg",
                     trapForm: "witch_horse",
                     trapRedirect: "States/forest-horse.html"
@@ -342,7 +376,7 @@
                 escape: {
                     title: "Narrow Escape",
                     acceptLabel: "Flee Into The Underbrush",
-                    body: `You wrench free and bolt into the thorns. The witchs laughter echoes behind you, but they dont follow. Your heart hammers as you collapse on safe ground, still human...barely.`,
+                    body: `You wrench free and bolt into the thorns. The witch's laughter echoes behind you, but the coven does not follow. Your heart hammers as you collapse on safe ground, still human... barely.`,
                     image: "https://i.ibb.co/23wcKhVq/aed58760-33ee-48a7-8617-518df1ebf67f.png",
                     trapForm: null
                 }
@@ -351,7 +385,7 @@
         {
             id: "druid_rabbit",
             title: "Druid's Fertile Pet",
-            tag: "Breeding Stock • Infantilization",
+            tag: "Soft Grove",
             image: "https://i.ibb.co/KcRNFncN/8e478510-c2f8-4cab-80fc-6b664548200e.png",
             stages: {
                 start: {
@@ -374,7 +408,7 @@
                 rabbit: {
                     title: "Garden Breeding Bunny",
                     acceptLabel: "Become Her Pet",
-                    body: `Your body compresses, limbs shrinking into soft paws. White fur blooms across shrinking skin. Your nose twitches—whiskers sprouting. The druid lifts you gently into her lap, now a small, trembling rabbit. "There we go... my new Snowdrop." She strokes your ears and you *melt*, mind simplifying into pure comfort and *need*. She carries you to a hutch where a virile buck waits. "Now, little one... it's time to fill my garden with babies~" He mounts you immediately, and all you can do is squirm and squeak as instinct drowns thought, breeding and being bred endlessly in her enchanted garden.`,
+                    body: `Your body compresses into soft paws and white fur. Your nose twitches as the druid lifts you into her lap. "There we go... my new Snowdrop." The hutch smells of straw, flowers, and warm safety. Thinking feels less important than being held.`,
                     image: "https://i.ibb.co/zWCzBvcz/remove-comments.jpg",
                     trapForm: "druid_rabbit",
                     trapRedirect: "States/forest-rabbit.html"
@@ -382,7 +416,7 @@
                 escape: {
                     title: "Gentle Farewell",
                     acceptLabel: "Leave The Grove",
-                    body: `You pull back, apologizing. She smiles sadly but doesn't stop you. As you leave, you swear you hear phantom *thump-thump-thumping* in your chest—the echo of a rabbit's frantic heartbeat.`,
+                    body: `You pull back, apologizing. She smiles sadly but does not stop you. As you leave, you swear you hear phantom thump-thump-thumping in your chest - the echo of a rabbit's frantic heartbeat.`,
                     image: "https://i.ibb.co/dw0NQBSh/f9f24d50-4aaf-4814-af21-e4bff2cbcffc.png",
                     trapForm: null
                 }
@@ -410,10 +444,38 @@
     const encounterBody = document.getElementById('forestEncounterBody');
     const encounterChoices = document.getElementById('forestEncounterChoices');
     const encounterImage = document.getElementById('forestEncounterImage');
+    const trailCount = document.getElementById('forestTrailCount');
+    const remainingCount = document.getElementById('forestRemainingCount');
+    const forestMood = document.getElementById('forestMood');
+    const forestLog = document.getElementById('forestLog');
 
     // === MAIN LOOP ===
+    function normalizeState() {
+        if (!Array.isArray(gameState.remainingEncounters)) {
+            gameState.remainingEncounters = [...forestEncounters.map(e => e.id)];
+        }
+        if (!gameState.playerStats) {
+            gameState.playerStats = { str: 5, dex: 5, int: 5, cha: 5, con: 5 };
+        }
+        if (!Number.isFinite(gameState.forestSteps)) {
+            gameState.forestSteps = 0;
+        }
+    }
+
     function saveState() {
+        normalizeState();
         localStorage.setItem('farmState', JSON.stringify(gameState));
+    }
+
+    function updateForestStatus(message, mood) {
+        normalizeState();
+        if (trailCount) trailCount.textContent = `${gameState.forestSteps} ${gameState.forestSteps === 1 ? 'step' : 'steps'}`;
+        if (remainingCount) {
+            const found = forestEncounters.length - gameState.remainingEncounters.length;
+            remainingCount.textContent = `${found}/${forestEncounters.length} found`;
+        }
+        if (forestMood && mood) forestMood.textContent = mood;
+        if (forestLog && message) forestLog.textContent = message;
     }
 
 function checkTrappedState() {
@@ -426,13 +488,12 @@ function checkTrappedState() {
         // Redirect to dedicated transformation page
         const formMap = {
             'foxfire_panties': 'States/forest-panties.html',
-            'foxfire_collar': 'States/forest-collar.html',
-            'grove_doll': 'States/forest-artifact.html',
-            'grove_fleshlight': 'States/forest-artifact.html',
-            'hog_cow': 'States/forest-cow.html',
-            'hog_pig': 'States/forest-pig.html'
+            'cow': 'States/forest-cow.html',
+            'fairy_donkey': 'States/forest-donkey.html',
+            'witch_horse': 'States/forest-horse.html',
+            'druid_rabbit': 'States/forest-rabbit.html'
         };
-        window.location.href = formMap[gameState.currentForm] || 'generic-trapped.html';
+        window.location.href = formMap[gameState.currentForm] || 'States/transformation-trapped.html';
         return true;
     }
     return false;
@@ -442,12 +503,16 @@ function checkTrappedState() {
     }
 
     function pickRandomEncounter() {
+        normalizeState();
         if (gameState.remainingEncounters.length === 0) {
             gameState.remainingEncounters = [...forestEncounters.map(e => e.id)];
         }
         const idx = Math.floor(Math.random() * gameState.remainingEncounters.length);
         const id = gameState.remainingEncounters.splice(idx, 1)[0];
-        return forestEncounters.find(e => e.id === id);
+        const encounter = forestEncounters.find(e => e.id === id);
+        saveState();
+        updateForestStatus(`The trail bends toward ${encounter.title}.`, encounter.tag);
+        return encounter;
     }
     // Render a stage for the current encounter
     function renderStage(stageId) {
@@ -459,6 +524,7 @@ function checkTrappedState() {
         // update title/tag remain encounter-level
         encounterTitle.textContent = enc.title;
         encounterTag.textContent = enc.tag;
+        updateForestStatus(`You have stepped into ${enc.title}. Choose carefully.`, enc.tag);
         // update body and image from stage
         encounterBody.innerHTML = stage.body || '';
         if (stage.image) { encounterImage.src = stage.image; encounterImage.alt = enc.title; }
@@ -522,7 +588,7 @@ function checkTrappedState() {
         encounterBody.innerHTML = ending.body || '';
         if (ending.image) { encounterImage.src = ending.image; encounterImage.alt = ending.title || enc.title; }
 
-        // show result area with Accept Fate and Close
+        // show result actions without repeating the story text
         let resultEl = document.getElementById('forestEncounterResult');
         if (!resultEl) {
             resultEl = document.createElement('div');
@@ -531,16 +597,21 @@ function checkTrappedState() {
             document.querySelector('.forest-modal-content').appendChild(resultEl);
         }
         resultEl.style.display = 'block';
-        resultEl.innerHTML = `<div><strong>${ending.title}</strong><div style="margin-top:8px;">${ending.body}</div></div>`;
+        resultEl.innerHTML = '';
 
-        // Create a single large Accept button styled like the other choices
+        const resultNote = document.createElement('div');
+        resultNote.className = 'forest-result-note';
+        resultNote.textContent = ending.trapForm
+            ? 'The magic is ready to seal this fate and move you to its dedicated state page.'
+            : 'The path is open again, but the forest will remember that choice.';
+        resultEl.appendChild(resultNote);
+
         const accept = document.createElement('button');
         accept.type = 'button';
         accept.className = 'forest-modal-choice';
         // Use the scenario-specific accept label when available
-        const label = ending.acceptLabel || (`Accept Fate — ${ending.title}`);
+        const label = ending.acceptLabel || (`Accept Fate - ${ending.title}`);
         accept.innerHTML = `<strong>${label}</strong>`;
-        // ensure it's visually separated
         const wrap = document.createElement('div'); wrap.style.marginTop = '12px'; wrap.style.display = 'flex'; wrap.style.justifyContent = 'center'; wrap.appendChild(accept);
         resultEl.appendChild(wrap);
 
@@ -550,19 +621,25 @@ function checkTrappedState() {
                 gameState.trappedUntil = Date.now() + getRandomDuration();
                 gameState.currentForm = ending.trapForm || enc.id;
                 saveState();
+                updateForestStatus(`${ending.title} takes hold.`, 'Sealed');
                 if (ending.trapRedirect) { window.location.href = ending.trapRedirect; return; }
             }
+            updateForestStatus(`${ending.title}. The trail opens again.`, 'Restless');
             closeModal();
         }
 
         accept.addEventListener('click', applyEnding);
-        // expose current ending apply handler for backdrop/escape
-        backdrop._pendingApply = applyEnding;
+        if (ending.trapForm) {
+            backdrop._pendingApply = applyEnding;
+        } else {
+            try{ delete backdrop._pendingApply }catch(e){}
+        }
     }
 
     // === EVENT HANDLERS ===
     wanderButton.onclick = () => {
         checkTrappedState(); // Will redirect if needed
+        gameState.forestSteps += 1;
         const encounter = pickRandomEncounter();
         openEncounter(encounter);
     };
@@ -586,8 +663,10 @@ function checkTrappedState() {
 
     // === INIT ===
     window.addEventListener('load', () => {
+        normalizeState();
         checkTrappedState();
         saveState();
+        updateForestStatus('The leaves shift, waiting for your next mistake.', 'Watching');
     });
 </script>
 </body>

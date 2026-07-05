@@ -746,7 +746,7 @@ nav ul li a:hover::after {
 .collection-image img {
     width: 65%;
     max-width: 1000px;
-    max-height: 750px;
+    max-height: 950px;
     object-fit: cover;        
     border-radius: 18px;
     box-shadow: 0 8px 35px rgba(255, 0, 202, 0.35);
@@ -930,6 +930,8 @@ nav ul li a:hover::after {
 .farm-button-container {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
 }
 
 .farm-button {
@@ -952,6 +954,15 @@ nav ul li a:hover::after {
 .farm-button:hover {
     transform: scale(1.07);
     box-shadow: 0 0 35px rgba(255, 0, 202, 0.8);
+}
+
+.farm-button-secondary {
+    background: linear-gradient(90deg, #00c7aa, #5f6fff);
+    box-shadow: 0 0 20px rgba(0, 255, 213, 0.35);
+}
+
+.farm-button-secondary:hover {
+    box-shadow: 0 0 35px rgba(0, 255, 213, 0.65);
 }
 
 

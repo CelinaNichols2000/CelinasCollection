@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vesper's Lucky Foot Rabbit</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <script>(function(){const s=JSON.parse(localStorage.getItem('farmState')||'{}');if(!(s.trappedUntil&&s.trappedUntil>Date.now())){localStorage.removeItem('farmState');window.location.href='../../farm.html';}})();</script>
+    <link rel="stylesheet" href="blackjack-state.css">
+    <style>body{--accent:#ffb6c1;--accent-2:#00ffd5;--state-bg:url("https://i.ibb.co/zWCzBvcz/remove-comments.jpg");}</style>
+</head>
+<body>
+    <main class="state-shell">
+        <div class="timer" id="countdownTimer">--:--:--</div>
+        <section class="state-grid">
+            <div>
+                <div class="visual-panel"><img class="state-image" src="https://i.ibb.co/zWCzBvcz/remove-comments.jpg" alt="Vesper's rabbit"></div>
+                <div class="memory-panel">
+                    <h2>Pulled From Your Clothes</h2>
+                    <div class="memory-text">
+                        <p>The table grew huge as the curse shrank you down. Vesper dug through your fallen clothes like she was looking for spare change and found you instead.</p>
+                        <p>Now you are soft, twitching, and carried by the scruff whenever she wants to show off the lucky thing that used to think it could play cards.</p>
+                        <p>She keeps your old lucky chip beside the tray, polished and useless. Every time someone asks about it, Vesper lifts you up and explains that luck did not save its owner from becoming something small enough to fit in her palm.</p>
+                        <p>Your ears react to everything: the snap of cards, the clink of chips, the sweet cruel sound of her voice. Vesper calls it adorable. You call it humiliating, at least until your thoughts scatter into soft frightened little hops.</p>
+                    </div>
+                </div>
+            </div>
+            <aside class="control-panel">
+                <h1>Lucky Rabbit</h1>
+                <span class="badge">Blackjack Table Fate</span>
+                <div class="meter-head"><span>Prey Panic</span><span class="meter-value" id="meterValue">0%</span></div>
+                <div class="meter"><div class="meter-fill" id="meterFill"></div></div>
+                <div class="status-box" id="statusText">Vesper keeps you in a velvet-lined chip tray. Every shuffle makes your ears twitch, and every player gets to see how tiny your losing streak made you.</div>
+                <div class="action-grid">
+                    <button class="state-btn" data-action-index="0">Kick The Tray</button>
+                    <button class="state-btn" data-action-index="1">Twitch For Luck</button>
+                    <button class="state-btn" data-action-index="2">Hide In The Felt</button>
+                    <button class="state-btn" data-action-index="3">Accept The Scruff</button>
+                </div>
+                <p class="release-note">When the timer expires, the collar releases. Until then, Vesper keeps her lucky rabbit close.</p>
+            </aside>
+        </section>
+    </main>
+    <div class="flash" id="flash"><div class="flash-inner" id="flashText"></div></div>
+    <script>
+        window.BLACKJACK_STATE_CONFIG = {
+            key: "blackjackRabbit",
+            actions: [
+                { gain: 7, status: "You kick the chip tray with tiny frantic paws. Vesper lifts it just enough to make you slide helplessly back into place, then calls your panic adorable. Your old clothes are still folded beside her shoe, huge and useless.", flash: "<strong>Tiny tantrum.</strong><br>Your whole body fits in the tray that used to hold your bet. Vesper says the downgrade suits you." },
+                { gain: 12, status: "Your foot twitches. Vesper rubs it before dealing, slow and mocking, and the whole table jokes about borrowing you for luck. Your heart hammers so hard your soft little body shakes in her palm.", flash: "<strong>Lucky little loser.</strong><br>She strokes your foot, your ears flatten, and everyone learns that your last useful part is a charm for better gamblers." },
+                { gain: 16, status: "You bury your nose in the felt. It smells like cards, perfume, and every hand you lost. Vesper turns you around so your frightened little face points outward, making sure hiding becomes another display.", flash: "<strong>No hiding from the house.</strong><br>Soft fur, twitching nose, tiny paws. Vesper made you small enough for shame to fill every inch and weak enough to be handled however she likes." },
+                { gain: 22, status: "You go limp when she lifts you by the scruff. Being handled is less frightening than being dropped, and Vesper coos like your surrender is the cutest payout of the night. Your body melts into prey-still obedience.", flash: "<strong>Scruffed, shown, owned.</strong><br>Vesper kisses your twitching nose and tells the table you are much sweeter now that you cannot talk back, only tremble." }
+            ],
+            completeText: "<strong>100% mindfucked.</strong><br>Soft body. Fast heart. No cards. No choice. Your prey-brain locks in, and Vesper buys herself another day of watching you twitch.",
+            penaltyText: "Your tiny heart hammers. +24 hours as Vesper's helpless lucky rabbit.",
+            penaltyBursts: [
+                "<strong>+24 HOURS</strong><br>HUTCH TIME ADDED",
+                "<strong>100% MINDFUCKED</strong><br>PREY BRAIN LOCKED",
+                "<strong>TINY LOSER</strong><br>PALM-SIZED PAYOUT",
+                "<strong>LUCKY FOOT CLAIMED</strong><br>VESPER KEEPS IT",
+                "<strong>TWITCH AND TREMBLE</strong><br>NO HIDING"
+            ]
+        };
+    </script>
+    <script src="blackjack-state.js"></script>
+</body>
+</html>
