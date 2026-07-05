@@ -438,6 +438,7 @@ nav ul li a:hover::after {
     font-size: 3.2rem;  /* etwas kleiner = eleganter */
     background: linear-gradient(90deg, #ff00ca, #9d4dff);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     text-transform: uppercase;
     margin-bottom: 15px;
