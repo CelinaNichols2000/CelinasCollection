@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>My Fate - Celina Asshugger Permanent Thong</title>
+  <link rel="icon" type="image/x-icon" href="../celinaIcon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --deep:#05000d;--mid:#180228;
+      --r:#ff2266;--p:#ff4ba0;--pk:#ffb3df;
+      --t:#ff69b4;--tl:#ff85c8;--gold:#ffd24d;
+      --border:rgba(255,75,160,0.18);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Poppins',sans-serif;min-height:100vh;background:var(--deep);color:#fff;overflow-x:hidden}
+    .bg{
+      position:fixed;inset:0;z-index:0;pointer-events:none;
+      background:
+        radial-gradient(ellipse 900px 480px at 75% 15%,rgba(255,34,102,0.12),transparent),
+        radial-gradient(ellipse 700px 500px at 15% 85%,rgba(255,105,180,0.09),transparent),
+        linear-gradient(155deg,var(--mid) 0%,#07001c 55%,var(--deep) 100%);
+    }
+    .bg::after{content:'';position:absolute;inset:0;
+      background:repeating-linear-gradient(0deg,transparent,transparent 59px,rgba(255,34,102,0.014) 60px),
+                 repeating-linear-gradient(90deg,transparent,transparent 59px,rgba(255,34,102,0.014) 60px);}
+    @keyframes orbF{0%,100%{transform:translate(0,0)}40%{transform:translate(26px,-38px)}70%{transform:translate(-16px,22px)}}
+    .orb{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0;animation:orbF 20s ease-in-out infinite}
+    .orb1{width:480px;height:480px;background:radial-gradient(var(--r),transparent);top:-120px;right:-90px;opacity:0.13}
+    .orb2{width:380px;height:380px;background:radial-gradient(#ff69b4,transparent);bottom:-90px;left:-110px;opacity:0.10;animation-delay:-9s}
+
+    .wrap{position:relative;z-index:1;max-width:1260px;margin:0 auto;padding:22px 18px 60px;display:flex;flex-direction:column;gap:22px}
+    .topbar{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+    .timer-bar{
+      flex:1;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;
+      background:linear-gradient(90deg,rgba(255,34,102,0.06),rgba(255,105,180,0.04));
+      border:1px solid var(--border);border-radius:14px;padding:13px 22px;backdrop-filter:blur(14px);
+    }
+    .t-label{font-size:0.78rem;letter-spacing:2px;color:#ff88bb;text-transform:uppercase;font-weight:600;white-space:nowrap}
+    #countdown{
+      font-family:'Orbitron',monospace;font-size:clamp(1.15rem,3vw,1.8rem);font-weight:700;
+      white-space:nowrap;letter-spacing:2px;line-height:1;color:transparent;
+      background:linear-gradient(90deg,#ff5599,#ffccee,#ff85c8);-webkit-background-clip:text;background-clip:text;
+    }
+    .main-grid{display:grid;grid-template-columns:1fr 400px;gap:22px;align-items:start}
+    .lc,.rc{display:flex;flex-direction:column;gap:16px}
+    .img-wrap{
+      border-radius:20px;overflow:hidden;border:2px solid var(--border);
+      box-shadow:0 20px 70px rgba(255,20,100,0.14);background:#080012;position:relative;
+    }
+    .img-wrap img{
+      width:100%;height:560px;object-fit:cover;display:block;
+      transition:transform 0.7s cubic-bezier(.2,.9,.2,1),filter 0.4s;
+    }
+    .img-wrap.flush img{filter:saturate(1.35) hue-rotate(5deg)}
+    .img-wrap.desperate img{filter:saturate(1.7) hue-rotate(12deg) brightness(1.06)}
+    .img-wrap.broken img{filter:saturate(2.15) hue-rotate(18deg) brightness(1.12)}
+    .img-wrap.squirming img{animation:squirmAnim 0.32s ease-in-out infinite alternate;filter:saturate(2.4) brightness(1.16)}
+    @keyframes squirmAnim{0%{transform:scale(1.01) rotate(-0.45deg)}100%{transform:scale(1.045) rotate(0.45deg)}}
+    body.mindbroken .card{border-color:rgba(255,34,102,0.42);box-shadow:0 8px 36px rgba(0,0,0,0.45),0 0 22px rgba(255,34,102,0.13)}
+    body.mindbroken .timer-bar{border-color:rgba(255,210,77,0.42);box-shadow:0 0 22px rgba(255,210,77,0.12)}
+    .img-badge{
+      position:absolute;top:14px;left:14px;background:rgba(0,0,0,0.62);backdrop-filter:blur(6px);
+      border:1px solid rgba(255,75,160,0.35);border-radius:999px;padding:5px 14px;
+      font-size:0.7rem;font-weight:800;letter-spacing:2px;color:#ffaad6;text-transform:uppercase;
+    }
+    .img-caption{
+      position:absolute;left:14px;right:14px;bottom:14px;padding:10px 13px;border-radius:12px;
+      background:rgba(0,0,0,0.64);border:1px solid rgba(255,75,160,0.24);
+      color:#ffd4ee;font-size:0.84rem;font-style:italic;line-height:1.45;
+    }
+    .card{
+      background:linear-gradient(160deg,rgba(255,75,160,0.04),rgba(0,0,0,0.55));
+      border:1px solid var(--border);border-radius:18px;padding:20px 18px;
+      backdrop-filter:blur(8px);box-shadow:0 8px 36px rgba(0,0,0,0.45);
+    }
+    .card-ttl{font-family:'Orbitron',sans-serif;font-size:0.75rem;color:#ff88bb;letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
+    h1.ptitle{
+      font-family:'Orbitron',sans-serif;font-size:clamp(1.25rem,2.8vw,1.75rem);
+      color:transparent;background:linear-gradient(90deg,#ff2266,#ff4ba0,#ffb3df,#ff85c8);
+      -webkit-background-clip:text;background-clip:text;letter-spacing:1px;line-height:1.3;margin-bottom:5px;
+    }
+    .sub{color:#ffd4ee;font-size:0.9rem;line-height:1.55;margin-bottom:12px}
+    .spill{
+      display:inline-flex;align-items:center;gap:6px;
+      background:linear-gradient(90deg,rgba(255,34,102,0.14),rgba(255,75,160,0.06));
+      border:1px solid rgba(255,34,102,0.35);border-radius:999px;
+      padding:5px 14px;font-size:0.78rem;font-weight:800;color:#ff9ec8;letter-spacing:0.5px;margin-bottom:14px;
+    }
+    .spill-dot{width:7px;height:7px;border-radius:50%;background:var(--r);animation:blink 1.4s ease-in-out infinite}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+
+    .meter-wrap{display:flex;flex-direction:column;gap:7px}
+    .meter-top{display:flex;justify-content:space-between;align-items:center}
+    .m-lbl{font-size:0.76rem;color:#ff88bb;letter-spacing:1px;font-weight:700;text-transform:uppercase}
+    #mPct{font-family:'Orbitron',sans-serif;font-size:1.05rem;font-weight:700;color:transparent;background:linear-gradient(90deg,#ff4488,#ff85c8);-webkit-background-clip:text;background-clip:text}
+    .m-bar{width:100%;height:18px;background:rgba(0,0,0,0.55);border-radius:999px;overflow:hidden;border:1px solid rgba(255,75,160,0.2)}
+    #mFill{height:100%;width:0%;border-radius:999px;background:linear-gradient(90deg,#ff2266,#ff5aa0,#ff99cc);transition:width 0.45s cubic-bezier(.2,.9,.2,1);box-shadow:0 0 16px rgba(255,34,102,0.55)}
+    .m-stages{display:flex;justify-content:space-between;margin-top:3px;font-size:0.68rem;color:rgba(255,160,200,0.45);letter-spacing:0.3px}
+
+    #celinaVoice{border-radius:14px;padding:13px 16px;font-size:0.88rem;line-height:1.6;border-left:3px solid var(--r);transition:all 0.35s ease;background:rgba(255,34,102,0.07);color:#ffd0e0}
+    #celinaVoice::before{content:'Celina:';display:block;font-size:0.66rem;letter-spacing:2px;font-weight:800;text-transform:uppercase;margin-bottom:5px;opacity:0.62}
+    .voice-txt{font-style:italic}
+
+    .brow{display:grid;gap:9px}
+    .brow.c2{grid-template-columns:1fr 1fr}
+    .brow.c3{grid-template-columns:1fr 1fr 1fr}
+    .btn{
+      font-family:'Poppins',sans-serif;font-size:0.78rem;font-weight:800;padding:12px 8px;
+      border-radius:12px;border:none;cursor:pointer;letter-spacing:0.3px;text-transform:uppercase;
+      transition:all 0.22s cubic-bezier(.2,.9,.2,1);position:relative;overflow:hidden;
+    }
+    .btn:hover{transform:translateY(-2px) scale(1.035);filter:brightness(1.15)}
+    .btn:active{transform:scale(0.97)}
+    .btn::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,0.12),transparent);pointer-events:none}
+    .b-red{background:linear-gradient(135deg,#ff2266,#ff6699);color:#fff;box-shadow:0 5px 18px rgba(255,34,102,0.4)}
+    .b-pink{background:linear-gradient(135deg,#ff5aa0,#ffaad6);color:#1a0010;box-shadow:0 5px 18px rgba(255,80,150,0.35)}
+    .b-teal{background:linear-gradient(135deg,#ff2d7a,#ff69b4);color:#fff;box-shadow:0 5px 18px rgba(255,45,122,0.4)}
+    .b-purp{background:linear-gradient(135deg,#9933ff,#cc66ff);color:#fff;box-shadow:0 5px 18px rgba(153,51,255,0.35)}
+    .b-gold{background:linear-gradient(135deg,#ffd24d,#ff9900);color:#1a0000;box-shadow:0 5px 18px rgba(255,180,0,0.35)}
+    .b-dark{background:linear-gradient(135deg,#330022,#550033);color:#ffaad6;border:1px solid rgba(255,75,160,0.25)}
+    .b-exit{background:linear-gradient(90deg,#eee,#ffddff);color:#220015;font-size:0.78rem;padding:9px}
+
+    .thumb-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+    .thumb-grid button{border:1px solid rgba(255,75,160,0.24);background:#080012;border-radius:10px;overflow:hidden;cursor:pointer;padding:0;min-height:74px}
+    .thumb-grid img{width:100%;height:84px;object-fit:cover;display:block;transition:transform 0.25s ease}
+    .thumb-grid button:hover img{transform:scale(1.08)}
+
+    .slist{display:flex;flex-direction:column;gap:10px}
+    .sfrag{border-radius:16px;overflow:hidden;border:1px solid rgba(255,75,160,0.2);background:linear-gradient(160deg,rgba(18,0,35,0.95),rgba(6,0,15,0.97));transition:box-shadow 0.3s}
+    .sfrag:hover{box-shadow:0 6px 28px rgba(255,34,102,0.12)}
+    .sfrag[data-s="0"] .strig{border-left:3px solid #ff88b0}
+    .sfrag[data-s="1"] .strig{border-left:3px solid #ff3377}
+    .sfrag[data-s="2"] .strig{border-left:3px solid #cc00cc}
+    .sfrag[data-s="3"] .strig{border-left:3px solid #ff69b4}
+    .sfrag[data-s="4"] .strig{border-left:3px solid var(--gold)}
+    .strig{padding:14px 18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(90deg,rgba(255,34,102,0.08),rgba(255,105,180,0.04));transition:background 0.25s;user-select:none}
+    .strig:hover{background:linear-gradient(90deg,rgba(255,34,102,0.16),rgba(255,105,180,0.08))}
+    .strig-lbl{font-weight:800;font-size:0.93rem;color:#ffd4ee;display:flex;align-items:center;gap:8px}
+    .sbadge{display:inline-block;padding:2px 9px;border-radius:999px;font-size:0.68rem;font-weight:800;letter-spacing:0.5px;background:rgba(255,120,170,0.2);color:#ffaacc;border:1px solid rgba(255,120,170,0.35)}
+    .sarrow{font-size:0.9rem;color:#ff88bb;transition:transform 0.3s;flex-shrink:0}
+    .sfrag.open .sarrow{transform:rotate(180deg)}
+    .sbody{display:none;padding:0 18px 18px;animation:sSlide 0.3s ease;border-top:1px solid rgba(255,75,160,0.1)}
+    .sfrag.open .sbody{display:block}
+    @keyframes sSlide{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+    .s-narr{font-size:0.9rem;line-height:1.75;color:#ffe0f0;margin-top:14px}
+    .s-narr p{margin-bottom:12px}
+    .s-narr em{color:#ff99cc;font-weight:700}
+    .s-narr strong{color:#ffd24d;font-weight:800}
+    .s-cel{margin-top:10px;padding:11px 14px;border-radius:12px;font-size:0.84rem;font-style:italic;line-height:1.6;background:rgba(255,75,160,0.08);border:1px solid rgba(255,75,160,0.25);color:#ffd0e8}
+    .s-cel img{width:100%;max-height:360px;object-fit:contain;border-radius:10px;margin-bottom:10px;background:#080012;border:1px solid rgba(255,75,160,0.18)}
+
+    .pop-over{position:fixed;inset:0;z-index:99990;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at 50%,rgba(200,0,60,0.28),rgba(0,0,0,0.92));opacity:0;pointer-events:none;transition:opacity 0.18s ease}
+    .pop-over.on{opacity:1;pointer-events:auto}
+    .pop-box{max-width:680px;width:92%;background:linear-gradient(135deg,#280010,#0e0020);border:2px solid rgba(255,0,70,0.55);box-shadow:0 0 55px rgba(255,0,80,0.45),inset 0 0 25px rgba(255,0,40,0.06);border-radius:20px;overflow:hidden}
+    .pop-head{display:grid;grid-template-columns:150px 1fr}
+    .pop-img{min-height:170px;background-size:cover;background-position:center}
+    .pop-side{padding:18px 20px;display:flex;flex-direction:column;justify-content:center;gap:8px}
+    .pop-ttl{font-family:'Orbitron',sans-serif;font-size:0.88rem;font-weight:900;color:#ff3366;letter-spacing:2px;text-transform:uppercase;text-shadow:0 0 10px rgba(255,0,80,0.7)}
+    .pop-action{font-size:0.86rem;font-weight:700;color:#ffadd6;border-left:2px solid rgba(255,75,160,0.4);padding-left:10px;font-style:italic;line-height:1.5}
+    .pop-react{font-size:0.92rem;line-height:1.65;color:#ffdde8;font-weight:600;text-shadow:0 0 4px rgba(255,0,100,0.35);border-top:1px solid rgba(255,34,102,0.15);padding-top:8px;margin-top:2px}
+    .pop-foot{padding:12px 18px;display:flex;justify-content:flex-end;border-top:1px solid rgba(255,34,102,0.15)}
+    .toast{position:fixed;bottom:22px;right:22px;z-index:9998;background:linear-gradient(135deg,#280018,#0e0022);border:1px solid rgba(255,75,160,0.4);border-radius:12px;padding:11px 18px;font-size:0.86rem;color:#ffd4ee;max-width:300px;box-shadow:0 8px 30px rgba(0,0,0,0.55);transform:translateY(70px);opacity:0;transition:all 0.3s cubic-bezier(.2,.9,.2,1)}
+    .toast.on{transform:translateY(0);opacity:1}
+    .break-card{
+      border-color:rgba(255,210,77,0.38);
+      background:linear-gradient(135deg,rgba(255,210,77,0.08),rgba(255,34,102,0.08),rgba(0,0,0,0.52));
+    }
+    .break-card p{color:#ffe0f0;font-size:0.88rem;line-height:1.65;margin-bottom:10px}
+    .break-line{
+      padding:10px 12px;border-radius:12px;background:rgba(0,0,0,0.38);
+      border:1px solid rgba(255,75,160,0.24);color:#ffd24d;font-weight:800;font-style:italic;
+    }
+    .mb-over{
+      position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;
+      opacity:0;pointer-events:none;transition:opacity 0.45s ease;overflow:hidden;
+      background:radial-gradient(ellipse at 50%,rgba(255,34,102,0.35),rgba(0,0,0,0.93));
+    }
+    .mb-over.on{opacity:1;pointer-events:auto}
+    .mb-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:blur(18px) saturate(2.4);opacity:0.28}
+    .mb-content{position:relative;z-index:2;text-align:center;max-width:840px;width:92%;padding:30px 24px}
+    .mb-phase{font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:#ff9ec8;margin-bottom:12px;font-weight:800}
+    .mb-msg{
+      font-family:'Orbitron',sans-serif;font-size:clamp(1.9rem,5.7vw,3.8rem);font-weight:900;
+      color:transparent;background:linear-gradient(90deg,#ff2266,#ff88cc,#ffd24d);
+      -webkit-background-clip:text;background-clip:text;line-height:1.12;text-transform:uppercase;
+      text-shadow:0 0 28px rgba(255,34,102,0.28);
+    }
+    .mb-sub{font-size:1rem;line-height:1.65;color:#ffe0ee;margin:14px auto 0;max-width:640px}
+    .mb-cel{
+      margin:16px auto 0;padding:13px 18px;max-width:620px;border-radius:14px;
+      background:rgba(0,0,0,0.58);border:1px solid rgba(255,75,160,0.4);
+      color:#ffccee;font-style:italic;font-weight:700;line-height:1.6;
+    }
+    .mb-close{margin-top:22px;background:linear-gradient(90deg,#ff2266,#ff88cc);color:#fff;font-weight:900;border:none;cursor:pointer;padding:13px 34px;border-radius:999px;font-size:0.9rem;letter-spacing:1px;text-transform:uppercase}
+    .burst{position:absolute;font-family:'Orbitron',sans-serif;font-weight:900;text-transform:uppercase;letter-spacing:1px;padding:7px 13px;border-radius:10px;background:rgba(0,0,0,0.65);animation:burstAnim 2.5s ease-out forwards;pointer-events:none}
+    @keyframes burstAnim{0%{opacity:0;transform:scale(0.4) rotate(var(--rot))}15%{opacity:1;transform:scale(1.08) rotate(var(--rot))}78%{opacity:1}100%{opacity:0;transform:scale(1.25) rotate(var(--rot)) translateY(-45px)}}
+
+    @media(max-width:900px){
+      .main-grid{grid-template-columns:1fr}
+      .rc{order:-1}
+      .img-wrap img{height:380px}
+    }
+    @media(max-width:520px){
+      .pop-head{grid-template-columns:1fr}
+      .pop-img{min-height:180px}
+      .brow.c3,.brow.c2{grid-template-columns:1fr}
+      .thumb-grid{grid-template-columns:repeat(2,1fr)}
+      #countdown{font-size:1.1rem}
+    }
+  </style>
+</head>
+<body>
+<div class="bg"></div>
+<div class="orb orb1"></div><div class="orb orb2"></div>
+
+<div class="wrap">
+  <div class="topbar">
+    <div class="timer-bar">
+      <span class="t-label">Celina will hug Mei's ass as her thong for</span>
+      <div id="countdown">Permanent</div>
+    </div>
+  </div>
+
+  <div class="main-grid">
+    <div class="lc">
+      <div class="img-wrap" id="imgWrap">
+        <img id="mainImg" src="https://i.postimg.cc/Njx4nxY0/Celina.jpg" alt="Celina Asshugger Permanent Thong">
+        <div class="img-badge" id="stageBadge">Freshly Claimed</div>
+        <div class="img-caption" id="imgCaption">Celina's new view: no hands, no magic, no bratty mouth worth listening to. Just lace pulled tight under Mei.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-ttl">Open the Record</div>
+        <div class="slist">
+          <div class="sfrag open" data-s="0">
+            <div class="strig">
+              <span class="strig-lbl"><span class="sbadge">I</span> Looking For Celina?</span>
+              <span class="sarrow">v</span>
+            </div>
+            <div class="sbody">
+              <div class="s-narr">
+                <p>Looking for someone~? Perhaps that bratty bitch Celina~? Oh, there's a whole fucking story how that happened...you know her little collection of toys~? The bitch thought that she could add me to it as her little fucksleeve...look how that turned out, mhm~? She didn't think that I'd have clones...which every strong mage has. To be fair, she was mine the moment she decided to make me a rubber toy~</p>
+              </div>
+              <div class="s-cel">Celina really thought she had a toy. Cute~ The moment Mei smiled back, that little victory started turning into a thong-shaped future.</div>
+            </div>
+          </div>
+
+          <div class="sfrag" data-s="1">
+            <div class="strig">
+              <span class="strig-lbl"><span class="sbadge">II</span> The Win She Was Allowed To Enjoy</span>
+              <span class="sarrow">v</span>
+            </div>
+            <div class="sbody">
+              <div class="s-narr">
+                <p>I let her enjoy the 'win' for a bit...she played with that lifeless toy like it mattered, saying all kinds of dirty things as if someone's still in there. Then, one day, I simply came to her, wearing nothing but her wife, smiling at my future panty.</p>
+                <p>The face she made as I stripped her off her magic was...priceless. She didn't even try to fight as I walked forward, pushing her down onto that bed, my hand around her throat like I gave a fuck...you know us, kitsune, I simply wanted to play...but I didn't expect the show that came next~!</p>
+                <p>That's right. The bitch started simply stoking herself, playing with her own body. Was I involved, you ask~? I merely removed her control...she let her true desires show while I sat back on top of her, enjoying the display of mindless heat and pleasure. I knew that she was a desperate little bitch, but this?~ A delightful gift before she changed~</p>
+              </div>
+              <div class="s-cel">All that smug little attitude, and underneath it? A needy bitch stroking herself while Mei watched, already slipping into the shape she deserved.</div>
+            </div>
+          </div>
+
+          <div class="sfrag" data-s="2">
+            <div class="strig">
+              <span class="strig-lbl"><span class="sbadge">III</span> Fabric And Release</span>
+              <span class="sarrow">v</span>
+            </div>
+            <div class="sbody">
+              <div class="s-narr">
+                <p>I didn't give her much time. The moment she started losing it, my hands moved, weaving a rather simple spell, but one that made her into what she was supposed to be all along. Her skin turned to fabric in mere seconds...then, her hands gave in, soon followed by her legs, falling limply on the mattress before disappearing completely.</p>
+                <p>As she shrunk, I made sure to please that needy pussy of her, trapping her in that endless loop of pleasure until she was <em>begging</em> for release. And that's what I gave her...that's <em>all</em> she got now, besides being wrapped around my ass and pressed against my snatch, of course. She knew what would happen before it did, in fact...I let her peek into the future, just a bit...yet, she didn't fight. She accepted it, as she <em>should have</em>.</p>
+              </div>
+              <div class="s-cel">Celina saw the future and still did nothing. That was the sweetest part: she knew she'd end up digging into Mei's ass, soaked and speechless, and she still let it happen.</div>
+            </div>
+          </div>
+
+          <div class="sfrag" data-s="3">
+            <div class="strig">
+              <span class="strig-lbl"><span class="sbadge">IV</span> Worn With Megan</span>
+              <span class="sarrow">v</span>
+            </div>
+            <div class="sbody">
+              <div class="s-narr">
+                <p>She's my favourite now...she and Megan. The two complete eachother perfectly...bra, hugging my breasts, and thong, digging into my ass. She's <em>worn</em> by me, <em>used</em> by me, <em>soaked</em> in my juices when I'm too lazy to take her off and play with myself...and when she's too ruined, I simply toss her aside, letting her lie on the floor like the pathetic piece of fabric she is, because that's all she ever wanted to be.</p>
+                <p>Not human. <em>Never a kitsune</em>. Just my pathetic, beautiful thong, meant only for making my ass look bigger and sexier for my wife~</p>
+              </div>
+              <div class="s-cel"><img src="https://images.celinascollection.com/panties/73727d396c946e421dc21a862e026adc.jpeg" alt="Drenched thong">Too drenched to act proud, too ruined to pretend she is anything but Mei's favourite little ass-hugging strip of fabric.</div>
+            </div>
+          </div>
+
+          <div class="sfrag" data-s="4">
+            <div class="strig">
+              <span class="strig-lbl"><span class="sbadge">*</span> The Final Purpose</span>
+              <span class="sarrow">v</span>
+            </div>
+            <div class="sbody">
+              <div class="s-narr">
+                <p style="color:#ffd24d;font-style:italic"><strong>You wanted a toy...well, you got something better. A purpose. A chance to be useful. And by the looks of it, you're embracing it fully~</strong></p>
+                <p style="margin-top:12px">Your mistress, <strong>https://battlemageserotica.com/character/c9633647d2c457756d71bb9462dd60fd56262965</strong></p>
+              </div>
+              <div class="s-cel">Permanent means Celina does not get a dramatic escape. Permanent means Mei pulls her on, ruins her, tosses her down, then wears her again because that is all she is good for now.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-ttl">Extra Tease Records</div>
+        <div class="slist">
+          <div class="sfrag" data-s="1">
+            <div class="strig">
+              <span class="strig-lbl"><span class="sbadge">A</span> She's Still Trying To Say Something?</span>
+              <span class="sarrow">v</span>
+            </div>
+            <div class="sbody">
+              <div class="s-cel"><img src="https://i.ibb.co/k6MXqJsg/Meisilencethong.gif" alt="Celina silenced thong">"Stay silent for me~" Every needy little protest Celina tries to make just rubs uselessly through the fabric.</div>
+            </div>
+          </div>
+          <div class="sfrag" data-s="3">
+            <div class="strig">
+              <span class="strig-lbl"><span class="sbadge">B</span> Hugging My Ass For A Long While</span>
+              <span class="sarrow">v</span>
+            </div>
+            <div class="sbody">
+              <div class="s-cel"><img src="https://i.ibb.co/DfXsHWws/Meisealedthong.gif" alt="Celina sealed thong">Sealed, stretched, and fitted for Mei's ass. No body to run with, no mouth to beg with, just fabric that knows how to cling.</div>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rc">
+      <div class="card">
+        <h1 class="ptitle">Celina<br>Asshugger Thong</h1>
+        <div class="sub">The brat who wanted a toy got broken into one instead. Celina is Mei's permanent thong now: yanked up her ass, soaked through, shut up, and kept there until she forgets being anything else.</div>
+        <div class="spill"><span class="spill-dot"></span> Permanent. Forever. Mei's.</div>
+
+        <div class="meter-wrap">
+          <div class="meter-top">
+            <span class="m-lbl">Thong Obedience</span>
+            <span id="mPct">0%</span>
+          </div>
+          <div class="m-bar"><div id="mFill"></div></div>
+          <div class="m-stages"><span>Bratty</span><span>Needy</span><span>Drenched</span><span>Owned</span></div>
+        </div>
+
+        <div id="celinaVoice" style="margin-top:14px">
+          <div class="voice-txt" id="voiceTxt">"Mmph...I'm not just Mei's thong...fuck, I can still think...I can still be more than this..."</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-ttl">What does Mei do to Celina?</div>
+        <div class="brow c2" style="margin-bottom:9px">
+          <button class="btn b-red" onclick="act('wear')">Pull Her On</button>
+          <button class="btn b-pink" onclick="act('stretch')">Yank Her Tight</button>
+        </div>
+        <div class="brow c2" style="margin-bottom:9px">
+          <button class="btn b-purp" onclick="act('rub')">Rub Through Her</button>
+          <button class="btn b-teal" onclick="act('pov')">Trap Her POV</button>
+        </div>
+        <div class="brow c3" style="margin-bottom:9px">
+          <button class="btn b-gold" onclick="act('soak')">Soak Her</button>
+          <button class="btn b-dark" onclick="act('mock')">Call Her Purpose</button>
+          <button class="btn b-pink" onclick="act('seal')">Seal Her</button>
+        </div>
+        <div class="brow c2">
+          <button class="btn b-red" onclick="act('silent')">Silence Her</button>
+          <button class="btn b-purp" onclick="act('show')">Show Her Off</button>
+        </div>
+      </div>
+
+      <div class="card break-card">
+        <div class="card-ttl">100% Mindbreak Scene</div>
+        <p>This is the end state: Celina stops pretending there is a person left to rescue. No clever spell, no bratty comeback, no heroic little escape. Just Mei's ruined thong begging to stay pulled tight.</p>
+        <div class="break-line">At 100%, Celina breaks into one thought: wear me, use me, ruin me, keep me.</div>
+        <div class="brow" style="margin-top:12px">
+          <button class="btn b-gold" onclick="forceMindBreak()">Force 100% Break</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-ttl">Image Set</div>
+        <div class="thumb-grid" id="thumbGrid"></div>
+      </div>
+
+      <div class="card">
+        <div class="brow">
+          <button class="btn b-exit" onclick="exitFatePage()">Exit Fate Page</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="pop-over" id="popOver">
+  <div class="pop-box" id="popBox">
+    <div class="pop-head">
+      <div class="pop-img" id="popImg"></div>
+      <div class="pop-side">
+        <div class="pop-ttl" id="popTtl">-</div>
+        <div class="pop-action" id="popAct">-</div>
+        <div class="pop-react" id="popReact">-</div>
+      </div>
+    </div>
+    <div class="pop-foot">
+      <button class="btn b-teal" style="padding:8px 20px;font-size:0.82rem" onclick="closePop()">Done</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<div class="mb-over" id="mbOver">
+  <div class="mb-bg" id="mbBg"></div>
+  <div class="mb-content">
+    <div class="mb-phase" id="mbPhase">100% MINDBREAK</div>
+    <div class="mb-msg" id="mbMsg">CELINA BREAKS</div>
+    <div class="mb-sub" id="mbSub">The last bratty thought gets crushed flat under Mei's ass.</div>
+    <div class="mb-cel" id="mbCel">"...no more Celina...just Mei's thong...pull me tighter..."</div>
+    <button class="mb-close" id="mbClose" onclick="closeMindBreak()">Keep Wearing Her</button>
+  </div>
+</div>
+
+<script>
+const imgPool = [
+  {url:'https://i.postimg.cc/Njx4nxY0/Celina.jpg', label:'Lace bra', cap:"The girl who thought she could own Mei, right before she became something Mei could actually wear."},
+  {url:'https://i.postimg.cc/9fCq63b9/celina-(1).jpg', label:"Before the fall", cap:"Still looking like a person. Cute, considering how neatly she ended up as Mei's thong."},
+  {url:'https://images.celinascollection.com/panties/73727d396c946e421dc21a862e026adc.jpeg', label:'Drenched', cap:"Celina after Mei is done with her: soaked, ruined, and still useful enough to pull back on later."},
+  {url:'https://images.celinascollection.com/panties/52246115.gif', label:'Stretched', cap:"Yanked high and tight, forced to hug Mei's ass like that was the only spell she ever needed to know."},
+  {url:'https://images.celinascollection.com/panties/DASH_48012-ezgif.com-optiwebp.webp', label:'Trapped POV', cap:"Celina's whole world reduced to heat, pressure, and Mei using her through the fabric."},
+  {url:'https://images.celinascollection.com/panties/panties%20rub%20gif.gif', label:'Rubbed', cap:"Every rub grinds the lesson deeper: good thongs do not talk, they get wet."},
+  {url:'https://images.celinascollection.com/panties/pantygif.webp', label:'Ass tease', cap:"Shown off exactly where she belongs, making Mei's ass look better by suffering prettily against it."},
+  {url:'https://i.ibb.co/k6MXqJsg/Meisilencethong.gif', label:'Silenced', cap:"Celina tries to speak, and all Mei gets is a cute little twitch from her thong."},
+  {url:'https://i.ibb.co/DfXsHWws/Meisealedthong.gif', label:'Sealed', cap:"No slipping off the role. No unfolding back. Celina is sealed as Mei's ass-hugging lace."}
+];
+
+const acts = {
+  wear:{gain:12,img:0,ttl:'Mei Pulls Celina On', action:'Mei grabs her ruined little thong and drags her right up where she belongs, tight against her ass.', react:'"Mmph...fuck, no, not again...it is too warm, too tight...why am I already clinging?"'},
+  stretch:{gain:13,img:3,ttl:'Yanked Up Tight', action:'Mei yanks until Celina bites in, high and mean, every thread forced to worship that ass.', react:'"Ahh...fuck, stop pulling me like that...I feel every curve...I hate that I fit so perfectly..."'},
+  rub:{gain:14,img:5,ttl:'Rubbed Through Celina', action:'Mei rubs right through her, using Celina as the filthy wet layer between fingers and heat.', react:'"...please...that is going through all of me...rub me harder, use me harder, make me stop thinking..."'},
+  pov:{gain:12,img:4,ttl:'Trapped In The View', action:'Mei pins Celina in the view and makes her watch herself get used from the exact spot she cannot escape.', react:'"Do not make me watch this...fuck, I know what I am...I know I am your thong...I know..."'},
+  soak:{gain:16,img:2,ttl:'Drenched And Ruined', action:'Mei ruins her until Celina is soaked through, stained, limp, and still desperate to be kept on.', react:'"...I am soaked...I am fucking ruined...please do not throw me away, I can still hug your ass, I can still be good..."'},
+  mock:{gain:10,img:6,ttl:'Called Her Purpose', action:'Mei shifts her hips and tells Celina the truth: not a kitsune, not a mage, just an ass-hugging thong.', react:'"Say it again...no, shut up, fuck, say it again...I am Mei\'s thong...I am Mei\'s ass-hugging thong..."'},
+  seal:{gain:15,img:8,ttl:'Sealed As Thong', action:'Mei locks the spell down hard until Celina feels her last way back snap shut under the fabric.', react:'"...sealed...fuck, I felt it close...please, Mei, I will stay tight, I will stay soaked, I will stay yours..."'},
+  silent:{gain:13,img:7,ttl:'Made Silent', action:'Mei shuts the brat up properly, leaving only twitching lace where Celina used to run her mouth.', react:'"Mmph...mmnnh...please...I will be quiet, I will be good, just keep wearing me, just do not stop..."'},
+  show:{gain:11,img:1,ttl:'Shown What She Lost', action:'Mei flashes Celina the face she used to have, then reminds her she is hotter now as underwear.', react:'"...that was me...I had a body...but I look better under you, don\'t I? Fuck...I do...I do..."'}
+};
+
+let lvl = 0;
+let currentImg = 0;
+let mindBreakRunning = false;
+
+function setImage(index){
+  currentImg = index;
+  const item = imgPool[index];
+  document.getElementById('mainImg').src = item.url;
+  document.getElementById('mainImg').alt = item.label;
+  document.getElementById('imgCaption').textContent = item.cap;
+  document.getElementById('popImg').style.backgroundImage = `url('${item.url}')`;
+}
+
+function setMeter(n){
+  lvl = Math.max(0, Math.min(100, n));
+  document.getElementById('mPct').textContent = `${lvl}%`;
+  document.getElementById('mFill').style.width = `${lvl}%`;
+  const wrap = document.getElementById('imgWrap');
+  const badge = document.getElementById('stageBadge');
+  wrap.classList.remove('flush','desperate','broken');
+  if(lvl >= 75){
+    wrap.classList.add('broken');
+    badge.textContent = 'Owned Forever';
+    document.getElementById('voiceTxt').textContent = '"...just lace...just Mei\'s...please keep wearing me, please ruin me again, please make me useful..."';
+  } else if(lvl >= 50){
+    wrap.classList.add('desperate');
+    badge.textContent = 'Drenched';
+    document.getElementById('voiceTxt').textContent = '"...I cannot stop feeling it...I cannot stop clinging to your ass...fuck, I need to be tighter..."';
+  } else if(lvl >= 25){
+    wrap.classList.add('flush');
+    badge.textContent = 'Needy Lace';
+    document.getElementById('voiceTxt').textContent = '"...it is too tight...too warm...why am I holding on like I want to stay there? Why am I getting wet?"';
+  } else {
+    badge.textContent = 'Freshly Claimed';
+    document.getElementById('voiceTxt').textContent = '"Mmph...I am not just Mei\'s thong...fuck, I can still think...I can still be more than this..."';
+  }
+  if(lvl >= 100 && !mindBreakRunning) triggerMindBreak();
+}
+
+function act(type){
+  const d = acts[type];
+  const willBreak = Math.min(100, lvl + d.gain) >= 100 && !mindBreakRunning;
+  setMeter(lvl + d.gain);
+  if(willBreak) return;
+  setImage(d.img);
+  document.getElementById('popTtl').textContent = d.ttl;
+  document.getElementById('popAct').textContent = d.action;
+  document.getElementById('popReact').textContent = d.react;
+  document.getElementById('popOver').classList.add('on');
+  showToast(d.ttl);
+}
+
+function closePop(){
+  document.getElementById('popOver').classList.remove('on');
+}
+
+function exitFatePage(){
+  sessionStorage.setItem('skipBeingMeisThongRedirect', 'true');
+  location.href = '../index.html';
+}
+
+function showToast(msg){
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('on');
+  setTimeout(()=>t.classList.remove('on'),2600);
+}
+
+const mbPhases = [
+  {
+    msg:'CELINA SNAPS',
+    sub:'The last little bit of pride folds in half and gets dragged up tight. She is not fighting the thong shape anymore; she is leaking into it.',
+    cel:'"...fuck...I feel it...my head is going dumb...Mei, please, pull me tighter before I remember how to be a person..."',
+    img:3
+  },
+  {
+    msg:'NO MAGE LEFT',
+    sub:'Magic, name, body, mouth: all useless. The only thing that matters is being wet, tight, and exactly where Mei wants her.',
+    cel:'"...not a mage...not Celina...just your thong...your nasty little ass-hugger...please use me..."',
+    img:5
+  },
+  {
+    msg:'PERMANENT THONG',
+    sub:'The spell seals down. Celina feels the door back to herself shut and gets needy about the lock.',
+    cel:'"...sealed...good...fuck, good...do not let me out, Mei...if I beg to be human, ignore me..."',
+    img:8
+  },
+  {
+    msg:'MIND: WORN OUT',
+    sub:'There is only heat, pressure, wet fabric, and Mei. Celina breaks into something simpler and dirtier.',
+    cel:'"...wear me...soak me...throw me down...pick me back up...I am yours forever..."',
+    img:2
+  }
+];
+let mbIdx = 0;
+let mbTimer = null;
+let mbResetTimer = null;
+let mbCanClose = false;
+
+function forceMindBreak(){
+  setMeter(100);
+}
+
+function triggerMindBreak(){
+  mindBreakRunning = true;
+  mbIdx = 0;
+  mbCanClose = false;
+  clearTimeout(mbResetTimer);
+  document.getElementById('popOver').classList.remove('on');
+  document.body.classList.add('mindbroken');
+  document.getElementById('imgWrap').classList.add('squirming');
+  document.getElementById('mbOver').classList.add('on');
+  nextMindBreakPhase();
+}
+
+function nextMindBreakPhase(){
+  if(mbIdx >= mbPhases.length){
+    document.getElementById('mbPhase').textContent = '100% COMPLETE';
+    document.getElementById('mbMsg').textContent = 'MEI OWNS THE THONG';
+    document.getElementById('mbSub').textContent = 'Celina is finished pretending. She is permanent, soaked, silent, and exactly where Mei keeps her.';
+    document.getElementById('mbCel').textContent = '"...I am Mei\'s thong...forever...no release...no way back...just use me..."';
+    document.getElementById('mbBg').style.backgroundImage = `url('${imgPool[2].url}')`;
+    mbCanClose = true;
+    mbResetTimer = setTimeout(closeMindBreak, 12000);
+    spawnBursts();
+    return;
+  }
+  const phase = mbPhases[mbIdx];
+  document.getElementById('mbPhase').textContent = `PHASE ${mbIdx + 1} / ${mbPhases.length}`;
+  document.getElementById('mbMsg').textContent = phase.msg;
+  document.getElementById('mbSub').textContent = phase.sub;
+  document.getElementById('mbCel').textContent = phase.cel;
+  document.getElementById('mbBg').style.backgroundImage = `url('${imgPool[phase.img].url}')`;
+  setImage(phase.img);
+  spawnBursts();
+  mbIdx++;
+  clearTimeout(mbTimer);
+  mbTimer = setTimeout(nextMindBreakPhase, 2700);
+}
+
+function closeMindBreak(){
+  const overlay = document.getElementById('mbOver');
+  if(!overlay.classList.contains('on')) return;
+  clearTimeout(mbTimer);
+  clearTimeout(mbResetTimer);
+  overlay.classList.remove('on');
+  document.body.classList.remove('mindbroken');
+  document.getElementById('imgWrap').classList.remove('squirming','flush','desperate','broken');
+  mindBreakRunning = false;
+  mbCanClose = false;
+  mbIdx = 0;
+  setImage(0);
+  setMeter(0);
+  showToast('Reset. Celina is back to pretending she is not already Mei\'s thong.');
+}
+
+function spawnBursts(){
+  const words = ['NO RELEASE',"MEI'S THONG",'ASSHUGGER','MIND BROKEN','STAY WET','PERMANENT','OWNED'];
+  const colors = ['#ff2266','#ff88cc','#ffd24d','#cc66ff'];
+  const root = document.getElementById('mbOver');
+  for(let i=0;i<5;i++){
+    const b = document.createElement('div');
+    b.className = 'burst';
+    b.textContent = words[Math.floor(Math.random()*words.length)];
+    const color = colors[Math.floor(Math.random()*colors.length)];
+    b.style.cssText = `left:${8+Math.random()*78}%;top:${12+Math.random()*68}%;color:${color};border:1px solid ${color};box-shadow:0 0 18px ${color}66;--rot:${Math.random()*34-17}deg`;
+    root.appendChild(b);
+    setTimeout(()=>b.remove(),2600);
+  }
+}
+
+document.querySelectorAll('.strig').forEach(trigger=>{
+  trigger.addEventListener('click',()=>{
+    const frag = trigger.closest('.sfrag');
+    frag.classList.toggle('open');
+  });
+});
+
+document.getElementById('popOver').addEventListener('click',e=>{
+  if(e.target === document.getElementById('popOver')) closePop();
+});
+
+document.getElementById('mbOver').addEventListener('click',e=>{
+  if(mbCanClose && e.target === document.getElementById('mbOver')) closeMindBreak();
+});
+
+document.addEventListener('keydown',e=>{
+  if(e.key === 'Escape'){
+    closePop();
+    closeMindBreak();
+  }
+});
+
+const thumbGrid = document.getElementById('thumbGrid');
+imgPool.forEach((item,index)=>{
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.title = item.label;
+  btn.innerHTML = `<img src="${item.url}" alt="${item.label}">`;
+  btn.addEventListener('click',()=>setImage(index));
+  thumbGrid.appendChild(btn);
+});
+
+function updateCountdown(){
+  document.getElementById('countdown').textContent = 'Forever | Permanent | No Release';
+}
+updateCountdown();
+setImage(0);
+setMeter(0);
+</script>
+</body>
+</html>

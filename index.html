@@ -1403,12 +1403,15 @@
             function showWebsite() {
                 // Check if humiliationActive flag is set and this is first visit in session
                 try {
+                    const skipBeingMeisThongRedirect = sessionStorage.getItem('skipBeingMeisThongRedirect') === 'true';
+                    if (skipBeingMeisThongRedirect) {
+                        sessionStorage.removeItem('skipBeingMeisThongRedirect');
+                    }
                     if (localStorage.getItem('humiliationActive') === null) {
                         localStorage.setItem('humiliationActive', 'true');
                     }
-                    if (localStorage.getItem('humiliationActive') === 'true' && sessionStorage.getItem('myFateRedirected') !== 'true') {
-                        sessionStorage.setItem('myFateRedirected', 'true');
-                        window.location.href = 'MyFate.html';
+                    if (localStorage.getItem('humiliationActive') === 'true' && !skipBeingMeisThongRedirect) {
+                        window.location.href = 'myFates/BeingMeisThong.html';
                         return;
                     }
                 } catch(e) {}
@@ -1578,6 +1581,5 @@
             }
         });
     </script>
-    <script src="fate-trap.js"></script>
 </body>
 </html>
