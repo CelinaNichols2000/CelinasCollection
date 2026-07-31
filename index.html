@@ -1401,19 +1401,11 @@
             }
 
             function showWebsite() {
-                // Check if humiliationActive flag is set and this is first visit in session
+                // Clear legacy fate state; the normal index bio is now the default view.
                 try {
-                    const skipBeingMeisThongRedirect = sessionStorage.getItem('skipBeingMeisThongRedirect') === 'true';
-                    if (skipBeingMeisThongRedirect) {
-                        sessionStorage.removeItem('skipBeingMeisThongRedirect');
-                    }
-                    if (localStorage.getItem('humiliationActive') === null) {
-                        localStorage.setItem('humiliationActive', 'true');
-                    }
-                    if (localStorage.getItem('humiliationActive') === 'true' && !skipBeingMeisThongRedirect) {
-                        window.location.href = 'myFates/BeingMeisThong.html';
-                        return;
-                    }
+                    localStorage.removeItem('humiliationActive');
+                    localStorage.removeItem('beingMeisThongRedirected');
+                    sessionStorage.removeItem('skipBeingMeisThongRedirect');
                 } catch(e) {}
 
                 if (modal) modal.style.display = 'none';
