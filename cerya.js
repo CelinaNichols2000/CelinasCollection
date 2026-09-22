@@ -4,6 +4,8 @@
     const HOUR = 60 * 60 * 1000;
     const CURSE_MIN = 5 * HOUR;
     const CURSE_MAX = 7 * 24 * HOUR;
+    // Cloudflare Worker URL that serves the shared, site-wide vote counts (see cerya-votes-worker/).
+    const VOTES_API = 'https://cerya-votes.celinavotes.workers.dev/votes';
     const PORTRAIT = 'https://images.celinascollection.com/sucking_c/cf31d5d7e1baa776754093b20b64db76.jpeg';
     const $ = id => document.getElementById(id);
     // Each scene accepts an optional image URL (or gallery[] to auto-cycle); omission keeps the last portrait.
@@ -161,6 +163,37 @@
         $('popup-text').textContent = pick.text;
         $('action-popup').hidden = false;
     }
+    // Site-wide counts fetched from the Worker; null until the first successful fetch, then it wins over local-only numbers.
+    let globalCounts = null;
+    function renderCounts() {
+        if (globalCounts) {
+            $('count-cerya').textContent = String(globalCounts.cerya ?? 0);
+            $('count-celina').textContent = String(globalCounts.celina ?? 0);
+        } else {
+            $('count-cerya').textContent = state.vote === 'cerya' ? '1' : '0';
+            $('count-celina').textContent = state.vote === 'celina' ? '1' : '0';
+        }
+    }
+    async function refreshGlobalCounts() {
+        try {
+            const res = await fetch(VOTES_API, { method: 'GET' });
+            if (!res.ok) throw new Error('bad response');
+            globalCounts = await res.json();
+            renderCounts();
+        } catch { /* API unreachable; keep showing local-only counts */ }
+    }
+    async function submitVote(vote, previousVote) {
+        try {
+            const res = await fetch(VOTES_API, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ vote, previousVote })
+            });
+            if (!res.ok) throw new Error('bad response');
+            globalCounts = await res.json();
+            renderCounts();
+        } catch { /* API unreachable; local vote still recorded for this visitor */ }
+    }
     function updateStatus() {
         const cooldown = state.vote ? Math.max(0, state.changedAt + HOUR - Date.now()) : 0;
         document.querySelectorAll('[data-vote]').forEach(button => {
@@ -168,8 +201,7 @@
             button.setAttribute('aria-pressed', String(selected));
             button.disabled = selected || cooldown > 0;
         });
-        $('count-cerya').textContent = state.vote === 'cerya' ? '1' : '0';
-        $('count-celina').textContent = state.vote === 'celina' ? '1' : '0';
+        renderCounts();
         const outcome = $('bio-outcome');
         if (state.vote && state.seen[state.vote]) {
             outcome.hidden = false;
@@ -275,10 +307,12 @@
         // Refresh before voting so an already-open tab observes the stored cooldown.
         if (persistent) state = read();
         if (state.vote === button.dataset.vote || (state.vote && Date.now() < state.changedAt + HOUR)) { render(); return; }
+        const previousVote = state.vote;
         state.vote = button.dataset.vote;
         state.changedAt = Date.now();
         state.view = 'ending'; state.step = 0;
         save(); render(true);
+        submitVote(state.vote, previousVote);
     }));
     $('challenge').addEventListener('click', () => {
         if (persistent) state = read();
@@ -314,4 +348,5 @@
     document.addEventListener('visibilitychange', () => { if (!document.hidden) { if (persistent) state = read(); render(); } });
     setInterval(updateStatus, 1000);
     render();
+    refreshGlobalCounts();
 })();

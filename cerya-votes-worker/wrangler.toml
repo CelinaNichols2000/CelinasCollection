@@ -1,0 +1,9 @@
+name = "cerya-votes"
+main = "worker.js"
+compatibility_date = "2026-09-22"
+
+# After running `wrangler kv namespace create CERYA_VOTES`,
+# paste the returned id below (and preview_id if you use `wrangler dev`).
+[[kv_namespaces]]
+binding = "CERYA_VOTES"
+id = "9f3c2dce12994c3987a54d0978725137"
