@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#171319">
+    <title>Cerya Loveborn | Celina's Family</title>
+    <link rel="icon" href="celinaIcon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="family-detail.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="cerya.css">
+    <script src="cerya.js" defer></script>
+</head>
+<body>
+    <header>
+        <nav aria-label="Family navigation">
+            <ul><li class="back-button"><a href="index.html#family">Go Back</a></li></ul>
+        </nav>
+    </header>
+    <main>
+        <div id="page-intro" class="title-line"><div><p class="eyebrow">MY EAGER MISTRESS~</p><h1>Cerya Loveborn</h1></div><button id="profile-link" type="button">Profile</button></div>
+        <p id="storage-notice" class="notice" role="status" hidden></p>
+        <section id="encounter" aria-labelledby="scene-title">
+            <div class="scene-layout">
+                <figure class="portrait-stage">
+                    <div class="portrait-frame">
+                        <img id="scene-image" src="https://images.celinascollection.com/sucking_c/cf31d5d7e1baa776754093b20b64db76.jpeg" alt="Celina pinned beneath Cerya" width="1487" height="1800">
+                    </div>
+                </figure>
+                <div class="dialogue-stage">
+                    <div class="chapter-progress"><span id="scene-number"></span><progress id="scene-progress" max="6" value="1" aria-label="Encounter progress"></progress></div>
+                    <h2 id="scene-title" tabindex="-1"></h2>
+                    <div id="dialogue" aria-live="polite"></div>
+                    <div class="scene-actions"><button id="previous" class="icon-button" title="Previous scene" aria-label="Previous scene" type="button">&#8592;</button><button id="next" class="primary" type="button">Continue <span aria-hidden="true">&#8594;</span></button></div>
+                    <div id="story-choice" hidden><h3>Whose side are you on?</h3><div class="choice-actions"><button data-vote="cerya" type="button">Tell Cerya</button><button data-vote="celina" type="button">Keep Celina's secret</button></div></div>
+                </div>
+            </div>
+        </section>
+        <section id="profile" aria-labelledby="profile-title" hidden>
+            <div class="member-detail-section">
+              <div class="member-detail-container">
+                <figure class="member-image-container"><img src="https://images.celinascollection.com/website/cccfa14a8e52d9dcdb8103992f70c51e.jpg" alt="Cerya Loveborn" class="member-detail-image" width="1487" height="1800"></figure>
+                <div class="member-detail-content">
+                    <div class="member-detail-header"><h1 id="profile-title" class="member-detail-name" tabindex="-1">Cerya Loveborn</h1><div class="member-role-badge">My Eager Mistress</div></div>
+                    <div class="member-detail-description">
+                    <p><em>squirms, still a little dazed</em><br>Mmmmf~ Cerya Loveborn. My mistress. The woman who can railroad me into a drooling, cross-eyed mess and still find time to mock me for it between thrusts. That smirk of hers! She knows exactly how badly she wrecks me, and she absolutely loves it.</p>
+                    <p><strong>She calls me her favorite toy.</strong> I call her insufferable~ every single "punishment" ends with her looking far too pleased with herself, and me somewhere on the floor trying to remember my own name. One day the tables turn. <em>One day.</em></p>
+                    <p>Nghhh~ but between the collars, the cockrings, and the absolutely devastating mindbreak sessions... I'd be lying if I said some small bratty part of me doesn't want more~ <em>Don't tell her I said that.</em> She'll never let me live it down.</p>
+                    <p id="bio-outcome" class="signature" hidden></p>
+                    <p class="signature">A little rivalry. A little ruin. Always another round~<br>Your wonderfully wrecked Celina</p>
+                    <p class="bio-votes">Cerya <strong id="count-cerya">0</strong> &middot; Celina <strong id="count-celina">0</strong></p>
+                    </div>
+                </div>
+              </div>
+            </div>
+            <section class="discover-more-section"><h2>One more little encounter?</h2><p>She thinks she already knows how this ends. Let's surprise her~</p><button id="replay" class="primary" type="button">Visit Cerya again <span aria-hidden="true">&#8594;</span></button></section>
+            <section class="vote-band"><div class="choice-actions"><button data-vote="cerya" type="button">Tell Cerya</button><button data-vote="celina" type="button">Keep Celina's secret</button></div></section>
+        </section>
+        <div id="curse" class="trap-overlay" hidden>
+            <header class="trap-nav">
+                <nav aria-label="Family navigation">
+                    <ul><li class="back-button"><a href="index.html#family">Go Back</a></li></ul>
+                </nav>
+            </header>
+            <div class="trap-center">
+                <div class="trap-inner">
+                    <div class="trap-image-wrap"><img id="curse-image" alt=""></div>
+                    <div class="trap-panel">
+                        <p class="eyebrow" id="curse-eyebrow"></p>
+                        <h2 id="curse-title"></h2>
+                        <p id="curse-copy"></p>
+                        <time id="countdown" aria-label="Time remaining">00:00:00</time>
+                        <p id="curse-feedback" role="status"></p>
+                        <div class="choice-actions curse-actions-bra" id="curse-actions-bra" hidden>
+                            <button id="act-squirm" type="button">Squirm 😩</button>
+                            <button id="act-moan" type="button">Moan 🥵</button>
+                            <button id="act-worship" type="button">Worship 💕</button>
+                            <button id="act-beg" type="button">Beg for Mercy 🙏</button>
+                        </div>
+                        <div class="choice-actions curse-actions-simple" id="curse-actions-simple">
+                            <button id="challenge" type="button">Challenge the spell (+1 min)</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="action-popup" class="action-popup-overlay" hidden>
+                <div class="action-popup-card">
+                    <button id="popup-close" class="popup-close" type="button" aria-label="Close">&times;</button>
+                    <div id="popup-image" class="popup-image"></div>
+                    <p id="popup-title" class="popup-title"></p>
+                    <p id="popup-text" class="popup-text"></p>
+                </div>
+            </div>
+        </div>
+        <noscript><p class="notice">The encounter needs JavaScript. Cerya Loveborn is Celina's mistress and magical rival. <a href="index.html#family">Return to the family.</a></p></noscript>
+    </main>
+</body>
+</html>
