@@ -16,7 +16,7 @@
   var IMG = [
     'https://i.ibb.co/KcqZnPZR/image0-1.gif',
     'https://images.celinascollection.com/panties/sample_93e66ee1b62b790cb5bce5b5a1fced77.jpg',
-    'https://i.ibb.co/FLgJmxFp/ezgif-com-optiwebp.webp',
+    'https://images.celinascollection.com/panties/in-da-club-scaled.webp',
     'https://images.celinascollection.com/panties/gifcandy-panties-55.gif',
     'https://images.celinascollection.com/panties/DASH_48014-ezgif.com-optiwebp.webp',
     'https://images.celinascollection.com/panties/DASH_48012-ezgif.com-optiwebp.webp',

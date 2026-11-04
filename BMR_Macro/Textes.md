@@ -245,10 +245,10 @@ https://i.ibb.co/n8ZXQNK1/imagess0.gif
 
 ***I bring the plug closer, letting the cold metal tip kiss your rim. You clench instinctively and I moan*** Ohhhhh fuck yes. I felt that. You are so reactive now. Every little touch makes you spasm like a needy whore ***I press the tip against you…against what used to be your face…and slowly start to push. Your flesh resists at first, clenching tight, but Im patient. I work it in slow circles, stretching you millimeter by millimeter*** Come on... open up for me. You dont get to say no anymore. You are just a hole now. Holes exist to be filled*** I push harder and feel you start to give way, your rim stretching around the widening plug*** Thats it... feel yourself spreading. Feel what its like to be used for your only purpose.
 
-https://i.ibb.co/cc84wcNb/4dnlj20yr9de1.gif
+https://images.celinascollection.com/buttPlug/4dnlj20yr9de1.gif
 
 ***The plug slides deeper and I can literally feel your consciousness screaming…not in pain, but in overwhelming sensation. Every nerve you are now is being stretched, filled, stimulated beyond anything you've ever experienced as a human*** Mmmm... you are taking it so well~ ***I push it all the way in until the base nestles snugly between my cheeks, sealing you around it*** How does that feel? Being stuffed full? I bet you cant even think straight anymore. Just pure, desperate need ***I stand up and walk around the room, feeling you clench and pulse around the plug with every step. Im gonna sleep now~ And you are going to feel me sweat, feel every movement and you are going to stay stretched around this plug the entire time, twitching and desperate, knowing you are nothing but my asshole now!!
-https://i.ibb.co/TBNrWh7n/ass-ezgif-com-gif-to-webp-converter.webp
+https://images.celinascollection.com/buttPlug/ass-ezgif.com-gif-to-webp-converter.webp
 
 
 [table]{n e}{c c c}[tbody]{[hr]}{[h4]{[color]{dr}{Worn}}}{[hr]}
@@ -3577,7 +3577,7 @@ https://i.ibb.co/LD6X7z3V/mindcontroll.gif
 
 
 ***Ich halt deinen Kopf, reib dich fester, zwing dich zu knutschen, zu saugen, bis du völlig weg bist. Dein Körper glüht, du quiekst, dann dieses herrliche nasse Schluuuuurp… fuck ja… und plopp, weg bist du. Verschluckt, eingesaugt, direkt in meine linke Titte. Meine Brust zuckt, wird fetter, schwerer, meine Nippel stehn, mein ganzer Körper zittert. Ich grinse, pack mir sofort die neue dicke Brust, kneif rein, zieh am Nippel wo du drin bist. Deine kleinen Zuckungen da drin treiben mich irre.*** ooohhh du süßes Tittchen~ hör ich dich wimmern? fühlst du es wenn ich so kneife, hä? mhhh wie du dich windest, meine kleine Bratze, du gehörst mir jetzt~ 
-https://i.ibb.co/XQp5t1k/b20.gif
+https://images.celinascollection.com/boobs/bt22.gif
 
 
 ***Ich zieh meinen BH wieder drüber, der spannt so eng dass meine fetten Titten fast platzen. Du wobbelst, eingeklemmt, jede Bewegung quetscht dich, reibt dich wund und geil. Ich hör dein Winseln, dein Sabbern, du kannst nicht fliehen, nur zucken wie meine private Vibration. Ich lache, massiere meine Möpse durch den engen Stoff, mal grob, mal langsam, jedes Mal spür ich wie du tiefer bebend reagierst. Mein Schritt ist schon klatschnass, meine Fotze läuft, ich reibe meine Schenkel hart gegeneinander während ich meine Möpse knete, quetsche, dich völlig als mein Spielzeug benutze.***
@@ -3719,7 +3719,7 @@ The wearer will be unable to resist any commands by the person who put it on the
 
 [tbody]{[image]{https://i.ibb.co/FXx2zJX/cc4.png}{}{120px}}{{e36778eb22235ed616f278aff1b3a4cd8d16d741﻿}}{Candle}{When you inhale their sweet smoke, your soul will separate from your body~}{[image]{https://i.ibb.co/9s2Zdw9/s.png}{}{120px}}
 
-[tbody]{[image]{https://i.ibb.co/CtrXDH5/cb.png}{}{120px}}{{da921ff62890a17dd4d4da2407183bfb0caff25b﻿}}{Bra}{Increases the weares boobs size a lot while being rubbed over the cups.}{[image]{https://i.ibb.co/8ry8kZz/cb.webp}{}{120px}}
+[tbody]{[image]{https://images.celinascollection.com/bra/beautiful-big-female-breasts-black-260nw-362203148-fotor-20241018152812.png}{}{120px}}{{da921ff62890a17dd4d4da2407183bfb0caff25b﻿}}{Bra}{Increases the weares boobs size a lot while being rubbed over the cups.}{[image]{https://i.ibb.co/8ry8kZz/cb.webp}{}{120px}}
 
 [tbody]{[image]{https://i.ibb.co/2WZVs0d/ct.png}{}{120px}}{{e44687c824e17338f886287853acd2def7bed539﻿}}{Tails}{Increased intelligence and expertise in the production of artifacts or special items.}{[image]{https://i.ibb.co/BfMWfS4/ci.png}{}{120px}}
 
@@ -3729,7 +3729,7 @@ The wearer will be unable to resist any commands by the person who put it on the
 
 [tbody]{[image]{https://i.ibb.co/Nn0tMgJ/cf.png}{}{120px}}{{c20522a8b54c8c92d2b5bf1f79445bb2157eb0e4﻿}}{Figurine}{When you toutch her boobs you will get absorbed into them permanently.}{[image]{https://i.ibb.co/rmY09XW/ct.png}{}{120px}}
 
-[tbody]{[image]{https://i.ibb.co/bzQvcLC/ct2.png}{}{120px}}{{46f4284362327d6fa1dd2a63c1bfd14ccd313861﻿}}{Ass Tattoo}{She just looks hot on my big sexy booty cheeks ;3 I can sometimes hear her moans.}{[image]{https://i.ibb.co/88ys5mT/ct3.png}{}{120px}}
+[tbody]{[image]{https://images.celinascollection.com/website/ct2.png}{}{120px}}{{46f4284362327d6fa1dd2a63c1bfd14ccd313861﻿}}{Ass Tattoo}{She just looks hot on my big sexy booty cheeks ;3 I can sometimes hear her moans.}{[image]{https://i.ibb.co/88ys5mT/ct3.png}{}{120px}}
 
 [tbody]{[image]{https://i.ibb.co/p0LhT7n/t.png}{}{120px}}{{71437d1044c4ddc3c33135434b466838fef12768﻿}}{Thong}{Cutie that make just the hottest thong ;3}{[image]{https://i.ibb.co/fnjQrgg/s.webp}{}{120px}}
 
@@ -4359,7 +4359,7 @@ The wearer will be unable to resist any commands by the person who put it on the
 
 [tbody]{[image]{https://i.ibb.co/FXx2zJX/cc4.png}{}{120px}}{{e36778eb22235ed616f278aff1b3a4cd8d16d741﻿}}{Candle}{When you inhale their sweet smoke, your soul will separate from your body~}{[image]{https://i.ibb.co/9s2Zdw9/s.png}{}{120px}}
 
-[tbody]{[image]{https://i.ibb.co/CtrXDH5/cb.png}{}{120px}}{{da921ff62890a17dd4d4da2407183bfb0caff25b﻿}}{Bra}{Increases the weares boobs size a lot while being rubbed over the cups.}{[image]{https://i.ibb.co/8ry8kZz/cb.webp}{}{120px}}
+[tbody]{[image]{https://images.celinascollection.com/bra/beautiful-big-female-breasts-black-260nw-362203148-fotor-20241018152812.png}{}{120px}}{{da921ff62890a17dd4d4da2407183bfb0caff25b﻿}}{Bra}{Increases the weares boobs size a lot while being rubbed over the cups.}{[image]{https://i.ibb.co/8ry8kZz/cb.webp}{}{120px}}
 
 [tbody]{[image]{https://i.ibb.co/2WZVs0d/ct.png}{}{120px}}{{e44687c824e17338f886287853acd2def7bed539﻿}}{Tails}{Increased intelligence and expertise in the production of artifacts or special items.}{[image]{https://i.ibb.co/BfMWfS4/ci.png}{}{120px}}
 
@@ -4369,7 +4369,7 @@ The wearer will be unable to resist any commands by the person who put it on the
 
 [tbody]{[image]{https://i.ibb.co/Nn0tMgJ/cf.png}{}{120px}}{{c20522a8b54c8c92d2b5bf1f79445bb2157eb0e4﻿}}{Figurine}{When you toutch her boobs you will get absorbed into them permanently.}{[image]{https://i.ibb.co/rmY09XW/ct.png}{}{120px}}
 
-[tbody]{[image]{https://i.ibb.co/bzQvcLC/ct2.png}{}{120px}}{{46f4284362327d6fa1dd2a63c1bfd14ccd313861﻿}}{Ass Tattoo}{She just looks hot on my big sexy booty cheeks ;3 I can sometimes hear her moans.}{[image]{https://i.ibb.co/88ys5mT/ct3.png}{}{120px}}
+[tbody]{[image]{https://images.celinascollection.com/website/ct2.png}{}{120px}}{{46f4284362327d6fa1dd2a63c1bfd14ccd313861﻿}}{Ass Tattoo}{She just looks hot on my big sexy booty cheeks ;3 I can sometimes hear her moans.}{[image]{https://i.ibb.co/88ys5mT/ct3.png}{}{120px}}
 
 [tbody]{[image]{https://i.ibb.co/p0LhT7n/t.png}{}{120px}}{{71437d1044c4ddc3c33135434b466838fef12768﻿}}{Thong}{Cutie that make just the hottest thong ;3}{[image]{https://i.ibb.co/fnjQrgg/s.webp}{}{120px}}
 
@@ -4956,11 +4956,11 @@ BMR NEWEST BIO
 [image]{https://i.ibb.co/hccMJwj/c1.png}{}{7%} **Condom: {45c3469bb0c529b2b330c248d812c5d4a63b8a35﻿} Ability:** When touched, you want to server her cock or be part of it there <3  [image]{https://i.ibb.co/80WBTXC/cu.webp}{}{15%}
 [image]{https://i.ibb.co/B3ghQcR/cc2.png}{}{9.4%} **Chair: {3a5dd542df4ea8b9eef0c5135d18e06e4c45fb56﻿} Ability:** When your not the owner and sit on this chair it will change you into cute panties [image]{https://i.ibb.co/v3PKsm6/cp.png}{}{9%}
 [image]{https://i.ibb.co/FXx2zJX/cc4.png}{}{6%}      **Candle: {e36778eb22235ed616f278aff1b3a4cd8d16d741﻿} Ability:** When you inhale their sweet smoke, your soul will separate from your body~
-[image]{https://i.ibb.co/CtrXDH5/cb.png}{}{8%} **Bra: {da921ff62890a17dd4d4da2407183bfb0caff25b﻿} Ability:** Increases the weares boobs size a lot while being rubbed over the cups       [image]{https://i.ibb.co/8ry8kZz/cb.webp}{}{14%}
+[image]{https://images.celinascollection.com/bra/beautiful-big-female-breasts-black-260nw-362203148-fotor-20241018152812.png}{}{8%} **Bra: {da921ff62890a17dd4d4da2407183bfb0caff25b﻿} Ability:** Increases the weares boobs size a lot while being rubbed over the cups       [image]{https://i.ibb.co/8ry8kZz/cb.webp}{}{14%}
 [image]{https://i.ibb.co/2WZVs0d/ct.png}{}{8%} **Tails: {e44687c824e17338f886287853acd2def7bed539﻿} Ability:** Increased intelligence and expertise in the production of artifacts or special items   [image]{https://i.ibb.co/BfMWfS4/ci.png}{}{9%}
 [image]{https://i.ibb.co/p3FcgWd/cb1.webp}{}{8.5%} **Boots: {430fed9fd004e502ed238286ac9d40199b25367e﻿} Ability:** When she steps on you, you shrink to the size of a bug under her boot.                    [image]{https://i.ibb.co/HTw9FVt/s.png}{}{9%}
 [image]{https://i.ibb.co/Nn0tMgJ/cf.png}{}{7%} **Figurine: {c20522a8b54c8c92d2b5bf1f79445bb2157eb0e4﻿}** **Ability:** When you toutch her boobs you will get absorbed into them permanently   [image]{https://i.ibb.co/rmY09XW/ct.png}{}{12.2%}
-[image]{https://i.ibb.co/bzQvcLC/ct2.png}{}{8%} **Ass Tattoo: {46f4284362327d6fa1dd2a63c1bfd14ccd313861﻿} Ability:** She just looks hot on my big sexy booty cheeks ;3 I can sometimes hear her moans  [image]{https://i.ibb.co/88ys5mT/ct3.png}{}{10%}
+[image]{https://images.celinascollection.com/website/ct2.png}{}{8%} **Ass Tattoo: {46f4284362327d6fa1dd2a63c1bfd14ccd313861﻿} Ability:** She just looks hot on my big sexy booty cheeks ;3 I can sometimes hear her moans  [image]{https://i.ibb.co/88ys5mT/ct3.png}{}{10%}
 [image]{https://i.ibb.co/bJ1mb2N/cp.png}{}{12%}**Pussy: {f16f27cee0f58edbe8849ad9c0ccecfeb73126b3﻿} Ability:** When you push a cock into her it will be stuck and your magic gets soaked~ [image]{https://i.ibb.co/fkfJTxX/cp1.png}{}{10%}
 [image]{https://i.ibb.co/9c11g3L/cc3.png}{}{7%} **Cock: {d5963c3e83494a0d609e07f960532257dbbd06cf﻿} Ability:** Onahole Transformation. Whoever gets fucked by her gets turned into an onahole!   [image]{https://i.ibb.co/khwdYVW/co.png}{}{12%}
 [image]{https://i.ibb.co/WkKKkBC/cs.png}{}{11.5%} **Soap Dispenser: {d152f8202d0824fda7a131c04fa9b684cbbca961﻿}** **Ability:** When you use her lovely soap you will turn into a cheap blow doll     [image]{https://i.ibb.co/JHmGBYC/cd.png}{}{8.5%}
@@ -5446,7 +5446,7 @@ tList=[
         "<img src='https://i.ibb.co/QXPkm14/R-14.gif' style='width:25%;height:25%;'></img>",
         "<img src='https://i.ibb.co/QrFrj1m/tumblr-pioe5s-PRMw1vryvdno10-640.gif' style='width:50%;height:50%;'></img>",
         "<img src='https://i.ibb.co/qnnLGP0/tumblr-4e6ec95df7351103c097712a3d3e2d97-6006049d-400.gif' style='width:50%;height:50%;'></img>",
-        "<img src='https://i.ibb.co/bzxHCxw/R-13.gif' style='width:50%;height:50%;'></img>",
+        "<img src='https://images.celinascollection.com/ass/R%20(13).gif' style='width:50%;height:50%;'></img>",
         "<img src='https://i.ibb.co/10dcLVn/R-4.gif' style='width:50%;height:50%;'></img>",
         "<img src='https://i.ibb.co/mq1VnTV/R-5.gif' style='width:50%;height:50%;'></img>",
         "<img src='https://i.ibb.co/DLm8f9H/R-6.gif' style='width:50%;height:50%;'></img>",
@@ -6165,7 +6165,7 @@ You are mine now, little face toy *I whisper, voice low and ragged with lust.* Y
 
 
 [table]{noborder}{left}
-[tbody]{[image]{https://i.ibb.co/bzxHCxw/R-13.gif
+[tbody]{[image]{https://images.celinascollection.com/ass/R%20(13).gif
 }{}{250px}}{[h6]{[i]{*** Booty Enthrall ***}}
 Under the "Booty Enthrall" curse, the afflicted are entranced by voluptuous buttocks, compelled to kneel and worship with adoration and kisses. Resistance is futile against its seductive pull, leaving them powerless to resist the allure of the divine rear.
 }
@@ -6225,7 +6225,7 @@ Celinas Mommy BIO:
 [hr]
 [table]{noborder}{left}
 [tbody]{[image]{https://i.ibb.co/nMN1H1cs/b.webp}{}{250px}}{[h5]{{0931c2ebdf909525b32517ada5e9257e35dd2eff﻿}}}
-[tbody]{[image]{https://i.ibb.co/XQp5t1k/b20.gif}{}{250px}}{[h5]{{a870e1b9fe746fe51b03a7b361557f456e8d22cd﻿}}}
+[tbody]{[image]{https://images.celinascollection.com/boobs/bt22.gif}{}{250px}}{[h5]{{a870e1b9fe746fe51b03a7b361557f456e8d22cd﻿}}}
 [hr]
 [table]{noborder}{left}
 [tbody]{[image]{https://i.ibb.co/CKqxnJFG/s.webp}{}{250px}}{[h5]{{b4391f62b3214ad1c15c2d8187fb93d97e82eb57﻿}}People absorbed into her ass with the skirt: 0}
