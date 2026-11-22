@@ -259,6 +259,7 @@
       </div>
       <div>
         <button id="chooseBtn">Ordner einmal freigeben</button>
+        <button id="resetBtn" type="button">Ordner neu auswählen</button>
       </div>
     </div>
 
@@ -295,6 +296,7 @@
     const HANDLE_KEY = "images-directory";
 
     const chooseBtn = document.getElementById("chooseBtn");
+    const resetBtn = document.getElementById("resetBtn");
     const foldersEl = document.getElementById("folders");
     const gridWrap = document.getElementById("gridWrap");
     const currentFolderEl = document.getElementById("currentFolder");
@@ -310,8 +312,14 @@
     let selectedFolder = null;
     let toastTimer = null;
     let jumpTimer = null;
+    let savedHandle = null;
+    let pickerStarted = false;
 
     chooseBtn.addEventListener("click", openImagesDirectory);
+    resetBtn.addEventListener("click", () => {
+      savedHandle = null;
+      openImagesDirectory();
+    });
     document.addEventListener("keydown", handleSidebarLetterJump);
 
     restoreImagesDirectory();
@@ -320,48 +328,67 @@
       if (!("showDirectoryPicker" in window)) {
         showFolderMessage("Dieser Browser kann Ordner nicht dauerhaft speichern. Bitte Chrome oder Edge verwenden.");
         chooseBtn.disabled = true;
+        resetBtn.disabled = true;
         return;
       }
 
       try {
         const handle = await readSavedHandle();
+        if (pickerStarted) return;
+        savedHandle = handle;
         if (!handle) {
           showFolderMessage("Beim ersten Mal den Ordner C:\\Users\\PC\\OneDrive\\Desktop\\images freigeben.");
           return;
         }
 
         const permission = await handle.queryPermission({ mode: "read" });
+        if (pickerStarted) return;
         if (permission === "granted") {
+          showFolderMessage("Bilder werden geladen...");
           await loadDirectory(handle);
         } else {
           chooseBtn.textContent = "Zugriff bestätigen";
           showFolderMessage("Einmal klicken, um den gespeicherten Bilderordner wieder freizugeben.");
         }
       } catch (err) {
-        showFolderMessage("Der gespeicherte Bilderordner konnte nicht geladen werden.");
+        if (pickerStarted) return;
+        showFolderMessage("Der gespeicherte Bilderordner konnte nicht geladen werden. Bitte den Ordner erneut auswählen.");
       }
     }
 
     async function openImagesDirectory() {
+      pickerStarted = true;
       try {
-        let handle = await readSavedHandle();
-
+        // Browser permission prompts must be started directly from the click.
+        let handle = savedHandle;
         if (handle) {
           const permission = await handle.requestPermission({ mode: "read" });
-          if (permission !== "granted") return;
+          if (permission !== "granted") {
+            showFolderMessage("Zugriff verweigert. Bitte den Bilderordner erneut freigeben.");
+            savedHandle = null;
+            return;
+          }
         } else {
           handle = await window.showDirectoryPicker({ id: "image-links-folder", mode: "read" });
           if (handle.name.toLocaleLowerCase() !== LOCAL_ROOT_FOLDER_NAME) {
             showToast(`Bitte nur den Ordner "${LOCAL_ROOT_FOLDER_NAME}" auswählen`);
             return;
           }
-          await saveHandle(handle);
+          savedHandle = handle;
+          // Loading still works if the browser cannot persist the handle.
+          saveHandle(handle).catch(err => console.warn("Ordner konnte nicht gespeichert werden:", err));
         }
 
+        showFolderMessage("Bilder werden geladen...");
         await loadDirectory(handle);
         showToast("Bilder neu geladen");
       } catch (err) {
-        if (err?.name !== "AbortError") showToast("Bilderordner konnte nicht geöffnet werden");
+        if (err?.name !== "AbortError") {
+          console.error("Bilderordner konnte nicht geöffnet werden:", err);
+          savedHandle = null;
+          showFolderMessage("Bilderordner konnte nicht geöffnet werden. Bitte erneut auswählen.");
+          showToast("Bilderordner konnte nicht geöffnet werden");
+        }
       }
     }
 
@@ -410,6 +437,8 @@
         request.onupgradeneeded = () => request.result.createObjectStore(HANDLE_STORE_NAME);
         request.onsuccess = () => resolve(request.result);
         request.onerror = () => reject(request.error);
+        request.onblocked = () => reject(new Error("IndexedDB is blocked"));
+        setTimeout(() => reject(new Error("IndexedDB timed out")), 5000);
       });
     }
 
