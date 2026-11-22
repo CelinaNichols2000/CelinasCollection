@@ -1,11 +1,11 @@
 let images = [
   "https://images.celinascollection.com/victems/victem4.png",
   "https://images.celinascollection.com/victems/victem9.png",
-  "https://images.celinascollection.com/victems/victem7%20(2).png",
+  "https://images.celinascollection.com/victems/victem7.png",
   "https://images.celinascollection.com/victems/victem6.png",
   "https://images.celinascollection.com/victems/victem10.png",
   "https://images.celinascollection.com/victems/victem5.png",
-  "https://images.celinascollection.com/victems/victem2-1%20(2).png",
+  "https://images.celinascollection.com/victems/victem2-1.png",
   "https://images.celinascollection.com/victems/victem3.png",
   "https://images.celinascollection.com/victems/victem8-1.png",
   "https://images.celinascollection.com/victems/victem10-2.png",
