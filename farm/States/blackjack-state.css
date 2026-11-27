@@ -4,7 +4,7 @@ body {
     min-height: 100vh;
     background:
         linear-gradient(rgba(8, 4, 13, 0.76), rgba(8, 4, 13, 0.94)),
-        var(--state-bg, url("https://i.ibb.co/W42HhDXK/barn.jpg")) center/cover fixed;
+        var(--state-bg, url("https://images.celinascollection.com/website/haunted-farm-night-stockcake.jpg")) center/cover fixed;
     color: #fff;
     font-family: "Poppins", sans-serif;
     overflow-x: hidden;

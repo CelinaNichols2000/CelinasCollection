@@ -517,6 +517,7 @@
 
         function getTrapRedirect(state) {
             if (!state || !state.trappedUntil || state.trappedUntil <= Date.now()) return null;
+            if (state.trapSource === 'blackjack-hex') return 'States/blackjack-hex.html';
             if (state.currentForm && state.currentForm.startsWith('stables-')) {
                 return `States/${state.currentForm}.html`;
             }

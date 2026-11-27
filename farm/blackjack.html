@@ -14,7 +14,7 @@
             min-height: 100vh;
             background:
                 linear-gradient(rgba(9, 6, 16, 0.72), rgba(9, 6, 16, 0.9)),
-                url("https://i.ibb.co/W42HhDXK/barn.jpg") center/cover fixed;
+                url("https://images.celinascollection.com/website/haunted-farm-night-stockcake.jpg") center/cover fixed;
             color: #fff;
             font-family: "Poppins", sans-serif;
         }
@@ -61,7 +61,7 @@
             margin: 0;
             color: #ff4fd2;
             font-family: "Orbitron", sans-serif;
-            font-size: clamp(2rem, 5vw, 4.2rem);
+            font-size: clamp(2rem, 5vw, 3.6rem);
             letter-spacing: 0;
             text-shadow: 0 0 22px rgba(255, 0, 202, 0.72);
         }
@@ -93,7 +93,7 @@
             min-height: 620px;
             display: flex;
             flex-direction: column;
-            gap: 18px;
+            gap: 14px;
         }
 
         .dealer-stage {
@@ -109,7 +109,7 @@
 
         .dealer-portrait {
             position: relative;
-            min-height: 220px;
+            min-height: 190px;
             border-radius: 8px;
             overflow: hidden;
             border: 1px solid rgba(255,255,255,0.18);
@@ -117,6 +117,8 @@
         }
 
         .dealer-portrait img {
+            position: absolute;
+            inset: 0;
             width: 100%;
             height: 100%;
             display: block;
@@ -231,12 +233,13 @@
             display: flex;
             gap: 12px;
             flex-wrap: wrap;
-            min-height: 142px;
+            min-height: 132px;
             align-items: center;
         }
 
         .card {
-            width: 96px;
+            position: relative;
+            width: 88px;
             aspect-ratio: 2 / 3;
             border-radius: 8px;
             background: rgba(255,255,255,0.08);
@@ -259,6 +262,41 @@
             display: block;
             object-fit: cover;
         }
+
+        .card-index {
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+            min-height: 31px;
+            padding: 1px 5px;
+            border: 1px solid #c7ac90;
+            border-radius: 4px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.45);
+            background: #fff5e7;
+            color: #211525;
+            font: 800 1.25rem/1 system-ui, sans-serif;
+        }
+
+        .card-index.red { color: #a91a42; }
+        .card-index .suit { font-size: 1rem; }
+
+        .card-fallback {
+            display: grid;
+            height: 100%;
+            place-content: center;
+            text-align: center;
+            background: #faf0e8;
+            color: #241624;
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .card-fallback.red { color: #a91a52; }
+        .card-fallback.face-down { background: #38234d; color: #fff; }
 
         .message-box {
             min-height: 92px;
@@ -304,6 +342,11 @@
             background: rgba(255,0,202,0.18);
         }
 
+        .wager-btn[aria-pressed="true"] {
+            border-color: #ffaceb;
+            background: rgba(255, 0, 202, 0.24);
+        }
+
         .action-btn.primary {
             background: linear-gradient(90deg, #ff00ca, #7d5fff);
             box-shadow: 0 0 24px rgba(255,0,202,0.32);
@@ -320,6 +363,119 @@
             display: flex;
             flex-direction: column;
             gap: 14px;
+        }
+
+        .casino-sidebar {
+            display: grid;
+            gap: 18px;
+            min-width: 0;
+        }
+
+        .dare-panel {
+            border-color: rgba(255, 172, 235, 0.38);
+            background: linear-gradient(145deg, #29142c, #100e18 70%);
+            scroll-margin-top: 16px;
+        }
+
+        .dare-link {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 4px 12px;
+            padding: 10px 14px;
+            border: 1px solid rgba(255, 172, 235, 0.38);
+            border-radius: 8px;
+            background: rgba(255, 0, 202, 0.1);
+            color: #ffcaef;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .dare-link:hover { border-color: #ffaceb; }
+        .dare-link span:last-child { color: #fff; font-size: 0.875rem; }
+
+        .dare-intro,
+        .dare-card p,
+        .stamp-book p {
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .dare-intro { color: #ffcaef; }
+        .dare-reset, .stamp-book p { color: #e0cce5; font-size: 0.875rem; }
+
+        .dare-list, .dare-card {
+            display: grid;
+            gap: 8px;
+        }
+
+        .dare-card {
+            padding: 12px;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 8px;
+            background: rgba(0,0,0,0.25);
+        }
+
+        .dare-card.is-ready { border-color: #ed8cce; }
+        .dare-card.is-claimed { border-color: rgba(0,255,213,0.35); }
+        .dare-card h3 { margin: 0; font-size: 1rem; }
+        .dare-card p { color: #eadfff; font-size: 0.875rem; }
+
+        .dare-progress {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: #eadfff;
+            font-size: 0.875rem;
+        }
+
+        .dare-progress progress { width: 100%; height: 10px; accent-color: #ef7fcf; }
+        .dare-progress span { flex: none; }
+        .dare-card .claimed-action { margin-top: 0; }
+
+        .stamp-book {
+            padding-top: 12px;
+            border-top: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .stamp-book summary { color: #ffcaef; cursor: pointer; font-weight: 700; }
+        .stamp-book p { margin-top: 8px; }
+
+        .stamp-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 6px;
+            margin: 10px 0 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .stamp-list li {
+            padding: 6px 8px;
+            border: 1px dashed rgba(255,255,255,0.3);
+            border-radius: 6px;
+            color: #e0cce5;
+            font-size: 0.875rem;
+        }
+
+        .stamp-list .earned {
+            border: 1px solid rgba(0,255,213,0.35);
+            background: rgba(0,255,213,0.09);
+            color: #dcfff8;
+        }
+
+        .dare-feedback { margin: 0; color: #b8ffed; font-size: 0.875rem; }
+        .dare-feedback:empty { display: none; }
+
+        .table-return {
+            justify-self: start;
+            color: #ffcaef;
+            text-underline-offset: 3px;
+        }
+
+        @media (min-width: 861px) {
+            .dare-link, .table-return { display: none; }
         }
 
         .panel-title {
@@ -384,6 +540,13 @@
             display: grid;
             grid-template-columns: repeat(3, minmax(0, 1fr));
             gap: 10px;
+            margin-top: 10px;
+        }
+
+        .table-perks summary {
+            color: #c8fff8;
+            cursor: pointer;
+            font-weight: 700;
         }
 
         .reward-pill {
@@ -555,8 +718,85 @@
             line-height: 1.6;
         }
 
+        .scene-box.encounter-box {
+            width: min(800px, 100%);
+            padding: 0;
+            border-color: var(--guest-accent);
+            background: #211323;
+            box-shadow: 0 18px 65px rgba(0,0,0,0.6);
+            overscroll-behavior: contain;
+        }
+
+        .encounter-content {
+            display: grid;
+            grid-template-columns: minmax(180px, 36%) minmax(0, 1fr);
+        }
+
+        .encounter-box img {
+            height: 100%;
+            min-height: 280px;
+            max-height: none;
+            object-fit: cover;
+            border: 0;
+            border-radius: 0;
+        }
+
+        [data-stage="transform"] .encounter-box img { object-fit: contain; }
+        .encounter-copy { padding: clamp(18px, 4vw, 32px); }
+        .encounter-copy h2 { margin: 0 0 12px; color: var(--guest-accent); font-size: clamp(1.4rem, 3vw, 2rem); }
+        .encounter-copy p { margin: 0; }
+        .encounter-copy .encounter-cost { margin-top: 12px; color: var(--guest-accent); font-weight: 700; }
+        .encounter-copy .encounter-preview { margin-bottom: 8px; color: #aefbef; font-size: 0.875rem; }
+        .encounter-actions { display: grid; gap: 8px; margin-top: 18px; }
+        .encounter-actions .action-btn { text-align: left; }
+        .encounter-actions .action-btn:focus-visible { outline: 2px solid var(--guest-accent); outline-offset: 2px; }
+        [data-stage="transform"] .encounter-box { animation: encounter-snap 320ms ease-out; }
+
+        @keyframes encounter-snap {
+            from { transform: scale(0.97); opacity: 0.65; }
+        }
+
+        .encounter-debug {
+            padding-top: 10px;
+            border-top: 1px solid rgba(255,255,255,0.14);
+            color: #eadfff;
+            font-size: 0.875rem;
+        }
+
+        .encounter-debug > label { display: flex; align-items: center; gap: 8px; width: fit-content; cursor: pointer; }
+        .encounter-debug input { width: 16px; height: 16px; accent-color: #ff4fd2; }
+        .debug-controls:not([hidden]) { display: grid; gap: 8px; max-width: 380px; margin-top: 10px; }
+
+        .debug-controls select {
+            appearance: none;
+            width: 100%;
+            padding: 9px 32px 9px 10px;
+            border: 1px solid rgba(255,255,255,0.24);
+            border-radius: 8px;
+            background:
+                linear-gradient(45deg, transparent 50%, #ffcaef 50%) right 15px center / 5px 5px no-repeat,
+                linear-gradient(135deg, #ffcaef 50%, transparent 50%) right 10px center / 5px 5px no-repeat,
+                #25182c;
+            color: #fff;
+            color-scheme: dark;
+            font: inherit;
+        }
+
+        .debug-controls .action-btn { justify-self: start; padding: 8px 12px; }
+
+        @media (max-width: 600px) {
+            .encounter-content { grid-template-columns: 1fr; }
+            .encounter-box img { height: clamp(115px, 37vw, 180px); min-height: 0; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            [data-stage="transform"] .encounter-box { animation: none; }
+        }
+
         .trap-box {
             width: min(620px, 100%);
+            max-height: 100%;
+            overflow: auto;
             border: 2px solid #ff4fd2;
             background: linear-gradient(145deg, #16051f, #071a16);
             border-radius: 8px;
@@ -587,6 +827,10 @@
             text-align: left;
         }
 
+        @media (min-width: 1060px), (min-width: 650px) and (max-width: 860px) {
+            .hand-zone { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+        }
+
         @media (max-width: 860px) {
             .casino-layout {
                 grid-template-columns: 1fr;
@@ -610,7 +854,7 @@
             }
 
             .dealer-portrait {
-                min-height: 260px;
+                min-height: 200px;
             }
         }
 
@@ -620,11 +864,7 @@
             }
 
             .card {
-                width: 70px;
-            }
-
-            .status-grid {
-                grid-template-columns: 1fr;
+                width: 77px;
             }
 
             .reward-strip {
@@ -639,7 +879,7 @@
             <a class="back-link" href="barn.html">Back to Barn</a>
             <div class="table-title">
                 <h1>High Stakes Blackjack</h1>
-                <p class="subtitle">Win hands, expose the already-claimed losers, and keep the farm's curse from closing around your collar.</p>
+                <p class="subtitle">“Sit down, trouble. Let's see if you're as good with your hands as you think.”</p>
             </div>
         </div>
 
@@ -652,14 +892,11 @@
                     </div>
                     <div class="dealer-copy">
                         <h2>Vesper Lustwood</h2>
-                        <p>Vesper runs Celina's side table: smooth shuffles, sweet smiles, and no mercy for visitors who think luck belongs to them.</p>
-                        <div class="reward-strip">
-                            <div class="reward-pill" id="peekStatus"><strong>Peek</strong>Inactive - spend Jun to reveal Vesper's hidden card for one round.</div>
-                            <div class="reward-pill" id="bustStatus"><strong>Bust Charm</strong>Inactive - spend Nix so your next bust loses no chips.</div>
-                            <div class="reward-pill" id="escapeStatus"><strong>Escape Charm</strong>Inactive - spend Pip to survive one table claim.</div>
-                        </div>
+                        <p>“Eyes up, flirt. I saw you staring. Put a chip down and earn a second look.”</p>
                     </div>
                 </div>
+
+                <a class="dare-link" href="#dailyDares"><span>Vesper's Daily Dares</span><span id="dareShortcut">0/2 claimed</span></a>
 
                 <div class="status-grid">
                     <div class="stat">
@@ -699,11 +936,7 @@
                     </div>
                 </div>
 
-                <div class="message-box" id="messageBox">
-                    Pick a wager and deal. Every lost chip fattens the curse. Every clean win reveals a claimed loser with a one-use table perk.
-                </div>
-
-                <div class="controls">
+                <div class="controls" id="tableControls" tabindex="-1">
                     <div class="wager-row" aria-label="Choose wager">
                         <button class="wager-btn" data-wager="1">Wager 1</button>
                         <button class="wager-btn" data-wager="2">Wager 2</button>
@@ -715,16 +948,53 @@
                         <button class="action-btn" id="hitBtn" disabled>Hit</button>
                         <button class="action-btn" id="standBtn" disabled>Stand</button>
                         <button class="action-btn" id="doubleBtn" disabled>Double</button>
-                        <button class="reset-btn" id="resetBtn">Reset Table</button>
+                        <button class="reset-btn" id="resetBtn">New Run</button>
+                    </div>
+                </div>
+
+                <div class="message-box" id="messageBox" role="status" aria-atomic="true"></div>
+
+                <details class="table-perks">
+                    <summary id="perkSummary">Table Perks</summary>
+                    <div class="reward-strip">
+                        <div class="reward-pill" id="peekStatus"></div>
+                        <div class="reward-pill" id="bustStatus"></div>
+                        <div class="reward-pill" id="escapeStatus"></div>
+                    </div>
+                </details>
+                <div class="encounter-debug" id="encounterDebug">
+                    <label><input type="checkbox" id="debugToggle" aria-controls="debugControls" autocomplete="off"> Encounter debug</label>
+                    <div class="debug-controls" id="debugControls" hidden>
+                        <label for="debugGuest">Encounter to test</label>
+                        <select id="debugGuest"></select>
+                        <button class="action-btn" id="debugLaunch" type="button">Preview encounter</button>
                     </div>
                 </div>
             </section>
 
-            <aside class="ledger-panel">
-                <h2 class="panel-title">Claimed Losers</h2>
+            <aside class="casino-sidebar">
+              <section class="ledger-panel dare-panel" id="dailyDares" aria-labelledby="dareTitle" tabindex="-1">
+                <h2 class="panel-title" id="dareTitle">Vesper's Daily Dares</h2>
+                <div>
+                    <p class="dare-intro">“Two dares. Go on, show off.”</p>
+                    <span class="dare-reset">New dares at midnight, local time.</span>
+                </div>
+                <div class="dare-list" id="dareList"></div>
+                <p class="dare-feedback" id="dareFeedback" role="status" tabindex="-1"></p>
+                <details class="stamp-book">
+                    <summary id="stampSummary">Stamp Book</summary>
+                    <p>Earn a stamp the first time you collect each dare. Six make you Vesper's House Favorite and unlock one free Peek a day.</p>
+                    <p>Fill all eight and Vesper tips you 3 extra chips whenever you collect both dares in a day.</p>
+                    <ul class="stamp-list" id="stampList"></ul>
+                </details>
+                <button class="claimed-action" id="favorBtn" type="button" hidden>Use today's free Peek</button>
+                <a class="table-return" href="#tableControls">Back to the hand</a>
+              </section>
+              <section class="ledger-panel" aria-labelledby="ledgerTitle">
+                <h2 class="panel-title" id="ledgerTitle">Claimed Losers</h2>
                 <div class="claimed-list" id="claimedList"></div>
                 <div class="prize-shop" id="prizeShop">
-                    <button class="shop-toggle" id="shopToggle" type="button">
+                    <button class="shop-toggle" id="shopToggle" type="button" aria-controls="shopBody" aria-expanded="false">
                         <span>Cash Out</span>
                         <span id="shopToggleIcon">Show</span>
                     </button>
@@ -749,13 +1019,15 @@
                 </div>
                 <div class="rules-panel">
                     <h2 class="panel-title">House Rules</h2>
-                    <p>Vesper stands on 17. Blackjack pays double. Pushes still let the collar tighten by one. Revealed losers can be spent for chips, curse relief, peeks, charms, and last chances. Big stacks can be cashed out for Vesper, protection, or one day of collared Celina.</p>
+                    <p>Vesper stands on 17. A two-card 21 beats any other 21 and pays double. You can double on your first move if you have enough chips to cover twice the bet. Pushes add one curse. Finish a hand with 10 curse or zero chips and the table claims you.</p>
+                    <p>Chips, curse, and ledger rewards reset with a new run. Today's dares, earned stamps, and active Celina rewards carry over.</p>
                 </div>
+              </section>
             </aside>
         </div>
     </main>
 
-    <div class="trap-overlay" id="trapOverlay" aria-hidden="true">
+    <div class="trap-overlay" id="trapOverlay" role="dialog" aria-modal="true" aria-labelledby="trapTitle" aria-hidden="true">
         <div class="trap-box">
             <img id="trapImage" class="trap-image" alt="">
             <h2 id="trapTitle">The Table Claims You</h2>
@@ -764,10 +1036,10 @@
         </div>
     </div>
 
-    <div class="scene-overlay" id="privateSceneOverlay" aria-hidden="true">
+    <div class="scene-overlay" id="privateSceneOverlay" role="dialog" aria-modal="true" aria-labelledby="privateSceneTitle" aria-hidden="true">
         <div class="scene-box">
             <img src="https://images.celinascollection.com/getting_f_by_c/773630682.gif" alt="Private scene with Vesper">
-            <h2>Private Dealer Scene</h2>
+            <h2 id="privateSceneTitle">Private Dealer Scene</h2>
             <p>
                 Vesper closes the velvet curtain with one heel and spends your chips properly: pinning you down, riding the last smug thoughts out of your head, and whispering every losing hand back into your ear until the table outside feels very far away.
             </p>
@@ -778,9 +1050,26 @@
         </div>
     </div>
 
+    <div class="scene-overlay" id="tableEncounter" role="dialog" aria-modal="true" aria-labelledby="encounterTitle" aria-hidden="true">
+        <div class="scene-box encounter-box">
+            <div class="encounter-content">
+                <img id="encounterArt" alt="">
+                <div class="encounter-copy">
+                    <p class="encounter-preview" id="encounterPreview" hidden>Debug preview · 12-chip test stack</p>
+                    <h2 id="encounterTitle" tabindex="-1"></h2>
+                    <p id="encounterStory"></p>
+                    <p class="encounter-cost" id="encounterCost" hidden></p>
+                    <div class="encounter-actions" id="encounterActions"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="blackjack-dares.js"></script>
+    <script src="blackjack-encounters.js"></script>
     <script>
         (function() {
-            const farmState = JSON.parse(localStorage.getItem("farmState") || "{}");
+            const farmState = readSave(localStorage.getItem("farmState"));
             if (farmState.trappedUntil && farmState.trappedUntil > Date.now()) {
                 window.location.href = getTrapRedirect(farmState.currentForm);
                 return;
@@ -849,27 +1138,30 @@
                 wins: 0,
                 losses: 0,
                 peekDealer: false,
+                dailyPeekArmed: false,
                 bustCharm: false,
                 escapeCharm: false,
                 trophyCashouts: 0,
                 privateScenes: 0,
-                celinaClaimUntil: 0
+                celinaClaimUntil: 0,
+                pendingFate: null,
+                message: "“Bet something, pretty thing. I can't tease you over an empty table.” Win hands to unlock one-use perks, or play for today's dares."
             };
-            let save = JSON.parse(localStorage.getItem("farmBlackjack") || "{}");
-            let state = {
-                ...defaults,
-                ...save,
-                claimed: Array.isArray(save.claimed) ? save.claimed : [],
-                usedRewards: Array.isArray(save.usedRewards) ? save.usedRewards : []
-            };
-            let deck = [];
-            let player = [];
-            let dealer = [];
-            let roundActive = false;
-            let revealDealer = false;
-            let doubled = false;
+            const saveKey = "farmBlackjack";
+            const debugPreference = "farmBlackjackEncounterDebug";
+            let savedSnapshot;
+            let state;
+            let deck;
+            let player;
+            let dealer;
+            let roundActive;
+            let displayedDay;
+            let privateSceneTrigger;
+            let debugEncounter = null;
+            restore(localStorage.getItem(saveKey));
 
             const el = {
+                table: document.querySelector(".farm-casino"),
                 chips: document.getElementById("chipsValue"),
                 wager: document.getElementById("wagerValue"),
                 curse: document.getElementById("curseValue"),
@@ -891,6 +1183,7 @@
                 trapTitle: document.getElementById("trapTitle"),
                 trapText: document.getElementById("trapText"),
                 acceptTrap: document.getElementById("acceptTrapBtn"),
+                perkSummary: document.getElementById("perkSummary"),
                 peekStatus: document.getElementById("peekStatus"),
                 bustStatus: document.getElementById("bustStatus"),
                 escapeStatus: document.getElementById("escapeStatus"),
@@ -899,10 +1192,28 @@
                 shopToggle: document.getElementById("shopToggle"),
                 shopToggleIcon: document.getElementById("shopToggleIcon"),
                 privateSceneOverlay: document.getElementById("privateSceneOverlay"),
-                closePrivateScene: document.getElementById("closePrivateScene")
+                closePrivateScene: document.getElementById("closePrivateScene"),
+                dareShortcut: document.getElementById("dareShortcut"),
+                dareList: document.getElementById("dareList"),
+                dareFeedback: document.getElementById("dareFeedback"),
+                stampSummary: document.getElementById("stampSummary"),
+                stampList: document.getElementById("stampList"),
+                favor: document.getElementById("favorBtn"),
+                encounter: document.getElementById("tableEncounter"),
+                encounterArt: document.getElementById("encounterArt"),
+                encounterTitle: document.getElementById("encounterTitle"),
+                encounterStory: document.getElementById("encounterStory"),
+                encounterCost: document.getElementById("encounterCost"),
+                encounterActions: document.getElementById("encounterActions"),
+                encounterPreview: document.getElementById("encounterPreview"),
+                debugToggle: document.getElementById("debugToggle"),
+                debugControls: document.getElementById("debugControls"),
+                debugGuest: document.getElementById("debugGuest"),
+                debugLaunch: document.getElementById("debugLaunch")
             };
 
             function getTrapRedirect(form) {
+                if (form?.startsWith("blackjack-hex-")) return "States/blackjack-hex.html";
                 const map = {
                     blackjack_donkey: "States/blackjack-donkey.html",
                     blackjack_cow: "States/blackjack-cow.html",
@@ -921,8 +1232,67 @@
                 return map[form] || "States/transformation-trapped.html";
             }
 
-            function persist() {
-                localStorage.setItem("farmBlackjack", JSON.stringify(state));
+            function readSave(raw) {
+                try {
+                    return JSON.parse(raw) || {};
+                } catch {
+                    return {};
+                }
+            }
+
+            function restore(raw) {
+                const { shoe, hand, ...save } = readSave(raw);
+                savedSnapshot = raw;
+                state = {
+                    ...defaults,
+                    ...save,
+                    claimed: Array.isArray(save.claimed) ? save.claimed : [],
+                    usedRewards: Array.isArray(save.usedRewards) ? save.usedRewards : [],
+                    dares: save.dares || { stamps: [], daily: null, lastPeekDay: null },
+                    encounters: blackjackEncounters.restore(save.encounters)
+                };
+                deck = shoe || [];
+                player = hand?.player || [];
+                dealer = hand?.dealer || [];
+                roundActive = Boolean(hand?.active);
+                blackjackEncounters.release(state);
+            }
+
+            function syncTable(raw) {
+                const trap = readSave(localStorage.getItem("farmState"));
+                if (trap.trappedUntil > Date.now()) {
+                    window.location.href = getTrapRedirect(trap.currentForm);
+                    return true;
+                }
+                if (raw === savedSnapshot) return false;
+                debugEncounter = null;
+                restore(raw);
+                if (!enterHexFate()) render();
+                return true;
+            }
+
+            function currentView() {
+                if (state.pendingFate !== null) return "trap";
+                if (state.encounters.scene || debugEncounter) return "encounter";
+                return "table";
+            }
+
+            function tableAction(action, view = "table") {
+                const apply = () => {
+                    // A click from an older view must not apply to a hand advanced in another tab.
+                    if (syncTable(localStorage.getItem(saveKey))) return;
+                    if (currentView() !== view) return;
+                    const nextPage = action();
+                    const raw = JSON.stringify({ ...state, shoe: deck, hand: { player, dealer, active: roundActive } });
+                    if (raw !== savedSnapshot) {
+                        localStorage.setItem(saveKey, raw);
+                        savedSnapshot = raw;
+                    }
+                    if (nextPage) window.location.href = nextPage;
+                    else if (!enterHexFate()) render();
+                };
+                if (navigator.locks) navigator.locks.request(saveKey, apply);
+                else apply();
             }
 
             function makeDeck() {
@@ -958,7 +1328,7 @@
             }
 
             function draw() {
-                if (deck.length < 12) deck = makeDeck();
+                if (!deck.length) deck = makeDeck();
                 return deck.pop();
             }
 
@@ -991,16 +1361,42 @@
             }
 
             function renderCards(node, hand, hideFirst) {
-                node.innerHTML = "";
+                const faceDown = hideFirst && !state.peekDealer;
+                const signature = JSON.stringify([hand, faceDown]);
+                if (node.dataset.hand === signature) return;
+                node.dataset.hand = signature;
+                node.replaceChildren();
+                const suits = { H: "♥", D: "♦", C: "♣", S: "♠" };
                 hand.forEach((card, index) => {
                     const wrapper = document.createElement("div");
                     const img = document.createElement("img");
-                    const hidden = hideFirst && index === 0 && !state.peekDealer;
+                    const hidden = faceDown && index === 0;
+                    const red = card.suit === "H" || card.suit === "D";
+                    const label = hidden ? "face-down card" : cardAlt(card);
                     wrapper.className = "card";
+                    wrapper.title = label;
+                    wrapper.setAttribute("role", "img");
+                    wrapper.setAttribute("aria-label", label);
+                    img.alt = "";
+                    img.addEventListener("error", () => {
+                        const face = document.createElement("span");
+                        face.className = `card-fallback${hidden ? " face-down" : red ? " red" : ""}`;
+                        face.textContent = hidden ? "✦" : suits[card.suit];
+                        img.replaceWith(face);
+                    }, { once: true });
                     img.src = hidden ? "https://images.celinascollection.com/cards/zback.jpg" : cardImageUrl(card);
-                    img.alt = hidden ? "face-down card" : cardAlt(card);
-                    wrapper.title = img.alt;
                     wrapper.appendChild(img);
+                    if (!hidden) {
+                        const rank = document.createElement("span");
+                        const suit = document.createElement("span");
+                        rank.className = red ? "card-index red" : "card-index";
+                        rank.setAttribute("aria-hidden", "true");
+                        rank.textContent = card.rank;
+                        suit.className = "suit";
+                        suit.textContent = suits[card.suit];
+                        rank.appendChild(suit);
+                        wrapper.appendChild(rank);
+                    }
                     node.appendChild(wrapper);
                 });
             }
@@ -1025,9 +1421,10 @@
                         const button = document.createElement("button");
                         button.type = "button";
                         button.className = "claimed-action";
-                        button.textContent = used ? "Reward spent" : `Use ${entry.reward}`;
-                        button.disabled = used;
-                        button.addEventListener("click", () => useReward(index));
+                        const active = rewardAlreadyActive(index);
+                        button.textContent = used ? "Reward spent" : active ? "Already active" : `Use ${entry.reward}`;
+                        button.disabled = used || active;
+                        button.addEventListener("click", () => tableAction(() => useReward(index)));
                         card.appendChild(button);
                     }
                     el.ledger.appendChild(card);
@@ -1050,30 +1447,106 @@
                 } else {
                     el.celinaTrophy.classList.remove("active");
                     el.celinaTrophy.textContent = "";
-                    state.celinaClaimUntil = 0;
                 }
 
                 document.querySelectorAll(".shop-btn").forEach(button => {
                     const cost = getPrizeCost(button.dataset.prize);
                     const alreadyActive = button.dataset.prize === "celina" && celinaRemaining > 0;
-                    button.disabled = state.chips < cost || alreadyActive || roundActive;
+                    button.disabled = state.chips < cost || alreadyActive || roundActive || state.pendingFate !== null;
                 });
             }
 
+            function renderDares() {
+                const { day, progress, dares } = blackjackDares.today(state.dares);
+                displayedDay = day;
+                const focusedDare = document.activeElement?.dataset.dare;
+                let readyCount = 0;
+                el.dareList.innerHTML = dares.map(dare => {
+                    const count = progress.counts[dare.id] || 0;
+                    const claimed = progress.claimed.includes(dare.id);
+                    const ready = !claimed && count >= dare.target;
+                    if (ready) readyCount += 1;
+                    const status = claimed ? " is-claimed" : ready ? " is-ready" : "";
+                    return `
+                        <div class="dare-card${status}">
+                            <h3>${dare.name}</h3>
+                            <p>${dare.goal}</p>
+                            <div class="dare-progress">
+                                <progress value="${count}" max="${dare.target}" aria-label="${dare.name} progress"></progress>
+                                <span>${count}/${dare.target}</span>
+                            </div>
+                            <button class="claimed-action" type="button" data-dare="${dare.id}" ${ready ? "" : "disabled"}>
+                                ${claimed ? "Collected" : `Collect +${dare.chips} chips`}
+                            </button>
+                        </div>
+                    `;
+                }).join("");
+                el.dareShortcut.textContent = readyCount ? `${readyCount} ready to collect` : `${progress.claimed.length}/${dares.length} claimed`;
+                const feedback = progress.feedback || "";
+                if (el.dareFeedback.textContent !== feedback) el.dareFeedback.textContent = feedback;
+                if (focusedDare) {
+                    const button = el.dareList.querySelector(`[data-dare="${focusedDare}"]:enabled`);
+                    const target = button || (feedback ? el.dareFeedback : document.getElementById("dailyDares"));
+                    target.focus({ preventScroll: true });
+                }
+
+                const { stamps, favoriteThreshold } = blackjackDares;
+                const earned = state.dares.stamps;
+                const favorite = earned.length >= favoriteThreshold;
+                el.stampSummary.textContent = `${favorite ? "House Favorite" : "Stamp Book"} · ${earned.length}/${stamps.length}`;
+                el.stampList.innerHTML = stamps.map(stamp => {
+                    const hasStamp = earned.includes(stamp.id);
+                    return `<li${hasStamp ? ' class="earned"' : ""}>${stamp.name} <span aria-label="${hasStamp ? "earned" : "unearned"}">${hasStamp ? "✓" : "○"}</span></li>`;
+                }).join("");
+                const used = state.dares.lastPeekDay === day;
+                el.favor.hidden = !favorite;
+                el.favor.disabled = used || state.peekDealer;
+                el.favor.textContent = used ? "Today's free Peek used" : state.peekDealer ? "Peek already active" : "Use today's free Peek";
+            }
+
+            function collectDare(id) {
+                const reward = blackjackDares.claim(state.dares, id);
+                if (!reward) return;
+                state.chips += reward.dare.chips + reward.tip;
+                const lines = [`+${reward.dare.chips} chips. “${reward.dare.line}”`];
+                if (reward.newStamp) lines.push(`New stamp: ${reward.dare.name}.`);
+                if (reward.promoted) lines.push("House Favorite unlocked. Vesper owes you a Peek every day.");
+                if (reward.completedBook) lines.push("Stamp book complete. Vesper tips you when you collect both dares.");
+                if (reward.tip) lines.push(`Full book tip: +${reward.tip} chips.`);
+                state.dares.daily.feedback = lines.join(" ");
+            }
+
+            function useDailyPeek() {
+                const { day, progress } = blackjackDares.today(state.dares);
+                if (state.dares.stamps.length < blackjackDares.favoriteThreshold || state.dares.lastPeekDay === day || state.peekDealer) return;
+                state.dares.lastPeekDay = day;
+                state.dares.daily = progress;
+                progress.feedback = roundActive ? "“Go ahead, favorite. Look.” Vesper's card is face up." : "“I'll show you mine on the next deal, favorite.” Peek armed.";
+                state.peekDealer = true;
+                state.dailyPeekArmed = true;
+            }
+
+            function canDouble() {
+                return roundActive && player.length === 2 && state.chips >= state.wager * 2;
+            }
+
             function render() {
+                const focusedControl = document.activeElement;
                 el.chips.textContent = state.chips;
                 el.wager.textContent = state.wager;
                 el.curse.textContent = `${state.curse}/10`;
                 el.curseFill.style.width = `${Math.min(100, state.curse * 10)}%`;
                 el.claimed.textContent = `${state.claimed.length}/${ledger.length}`;
-                renderCards(el.dealerCards, dealer, roundActive && !revealDealer);
+                renderCards(el.dealerCards, dealer, roundActive);
                 renderCards(el.playerCards, player, false);
-                el.dealerTotal.textContent = roundActive && !revealDealer && dealer.length && !state.peekDealer ? "?" : total(dealer);
+                el.dealerTotal.textContent = roundActive && !state.peekDealer ? "?" : total(dealer);
                 el.playerTotal.textContent = total(player);
-                el.deal.disabled = roundActive || state.chips <= 0;
+                el.deal.disabled = roundActive || state.chips <= 0 || state.pendingFate !== null;
                 el.hit.disabled = !roundActive;
                 el.stand.disabled = !roundActive;
-                el.double.disabled = !roundActive || doubled || state.chips < state.wager;
+                el.double.disabled = !canDouble();
+                el.reset.disabled = roundActive || state.pendingFate !== null;
+                if (el.message.innerHTML !== state.message) el.message.innerHTML = state.message;
                 el.peekStatus.innerHTML = state.peekDealer
                     ? "<strong>Peek</strong>Active - Vesper's hidden card is visible this round."
                     : "<strong>Peek</strong>Inactive - spend Jun to reveal Vesper's hidden card for one round.";
@@ -1083,20 +1556,31 @@
                 el.escapeStatus.innerHTML = state.escapeCharm
                     ? "<strong>Escape Charm</strong>Active - your next table claim fails and you keep playing."
                     : "<strong>Escape Charm</strong>Inactive - spend Pip to survive one table claim.";
-                document.querySelectorAll(".wager-btn").forEach(btn => btn.disabled = roundActive);
+                const activePerks = [state.peekDealer, state.bustCharm, state.escapeCharm].filter(Boolean).length;
+                el.perkSummary.textContent = activePerks ? `Table Perks · ${activePerks} active` : "Table Perks";
+                document.querySelectorAll(".wager-btn").forEach(btn => {
+                    const value = btn.dataset.wager;
+                    btn.disabled = roundActive || state.pendingFate !== null || (value !== "all" && Number(value) > state.chips);
+                    btn.setAttribute("aria-pressed", value === "all" ? state.wager > 3 : Number(value) === state.wager);
+                });
                 renderLedger();
                 renderShop();
-                persist();
+                renderDares();
+                renderTrap();
+                renderEncounter();
+                if (currentView() === "table" && focusedControl?.disabled && focusedControl.closest(".action-row")) {
+                    const next = roundActive ? el.hit : el.deal.disabled ? el.reset : el.deal;
+                    next.focus({ preventScroll: true });
+                }
             }
 
             function setMessage(text) {
-                el.message.innerHTML = text;
+                state.message = text;
             }
 
             function setWager(value) {
                 if (roundActive) return;
                 state.wager = value === "all" ? Math.max(1, state.chips) : Math.min(parseInt(value, 10), state.chips);
-                render();
             }
 
             function getPrizeCost(prize) {
@@ -1111,6 +1595,7 @@
             function buyPrize(prize) {
                 if (roundActive) return;
                 const cost = getPrizeCost(prize);
+                if (!cost || (prize === "celina" && state.celinaClaimUntil > Date.now())) return;
                 if (state.chips < cost) {
                     setMessage("Vesper taps the chip tray. Pretty wants are expensive. Win more first.");
                     return;
@@ -1134,38 +1619,48 @@
                 }
 
                 state.wager = Math.min(Math.max(1, state.wager), Math.max(1, state.chips));
-                render();
             }
 
             function openPrivateScene() {
+                privateSceneTrigger = document.activeElement;
                 el.privateSceneOverlay.classList.add("active");
                 el.privateSceneOverlay.setAttribute("aria-hidden", "false");
+                el.table.inert = true;
+                el.closePrivateScene.focus();
             }
 
             function closePrivateScene() {
                 el.privateSceneOverlay.classList.remove("active");
                 el.privateSceneOverlay.setAttribute("aria-hidden", "true");
+                el.table.inert = false;
+                const target = privateSceneTrigger?.disabled ? el.shopToggle : privateSceneTrigger;
+                target?.focus();
             }
 
             function toggleShop() {
-                el.prizeShop.classList.toggle("open");
-                el.shopToggleIcon.textContent = el.prizeShop.classList.contains("open") ? "Hide" : "Show";
+                const open = el.prizeShop.classList.toggle("open");
+                el.shopToggle.setAttribute("aria-expanded", open);
+                el.shopToggleIcon.textContent = open ? "Hide" : "Show";
             }
 
             function deal() {
-                if (state.chips <= 0) return triggerTrap();
+                if (roundActive || state.chips <= 0) return;
                 state.wager = Math.min(Math.max(1, state.wager), state.chips);
-                deck = deck.length ? deck : makeDeck();
+                if (deck.length < 16) deck = makeDeck();
                 player = [draw(), draw()];
                 dealer = [draw(), draw()];
                 roundActive = true;
-                revealDealer = false;
-                doubled = false;
-                setMessage("The cards slide out warm from Vesper's fingers. Hit, stand, or double before the collar starts getting ideas.");
-                render();
-
                 if (isBlackjack(player) || isBlackjack(dealer)) {
-                    finishRound();
+                    finishRound("deal");
+                } else {
+                    const favorite = state.dares.stamps.length >= blackjackDares.favoriteThreshold;
+                    if (state.wager >= 3) {
+                        setMessage("“Oh, big bet. Now I'm looking. Don't get shy on me.”");
+                    } else if (state.curse >= 7) {
+                        setMessage("“Feel that collar? That's your cue to quit blushing and play your damn hand.”");
+                    } else {
+                        setMessage(favorite ? "“Your move, favorite. Come on. Impress me again.”" : "“Your move, gorgeous. Hit, stand, or double if you're feeling cocky.”");
+                    }
                 }
             }
 
@@ -1173,24 +1668,21 @@
                 if (!roundActive) return;
                 player.push(draw());
                 if (total(player) > 21) {
-                    finishRound();
+                    finishRound("hit");
                 } else {
-                    setMessage("Another card. The table purrs like it wanted you to ask.");
-                    render();
+                    setMessage(total(player) === 21 ? "“Twenty-one. Hold it right there, show-off.”" : "“You just had to ask for more. Yeah, I noticed.”");
                 }
             }
 
             function stand() {
                 if (!roundActive) return;
-                finishRound();
+                finishRound("stand");
             }
 
             function doubleDown() {
-                if (!roundActive || doubled || state.chips < state.wager) return;
-                state.wager *= 2;
-                doubled = true;
+                if (!canDouble()) return;
                 player.push(draw());
-                finishRound();
+                finishRound("double", state.wager * 2);
             }
 
             function claimNextLoser() {
@@ -1201,8 +1693,13 @@
                 return ledger[picked];
             }
 
+            function rewardAlreadyActive(index) {
+                return (index === 2 && state.peekDealer) || (index === 3 && state.bustCharm) || (index === 5 && state.escapeCharm);
+            }
+
             function useReward(index) {
                 if (!state.claimed.includes(index) || state.usedRewards.includes(index)) return;
+                if (rewardAlreadyActive(index)) return;
                 const entry = ledger[index];
                 state.usedRewards.push(index);
 
@@ -1226,137 +1723,325 @@
                     state.escapeCharm = true;
                     setMessage("Pip vanishes under the felt. If the table claims you, that tiny sneak gets you one last chance.");
                 }
-
-                render();
             }
 
-            function finishRound() {
-                revealDealer = true;
-                while (total(dealer) < 17 && total(player) <= 21) dealer.push(draw());
-
+            function finishRound(action, wager = state.wager) {
                 const p = total(player);
+                const playerBlackjack = isBlackjack(player);
+                const dealerBlackjack = isBlackjack(dealer);
+                if (!playerBlackjack && !dealerBlackjack && p <= 21) {
+                    while (total(dealer) < 17) dealer.push(draw());
+                }
                 const d = total(dealer);
-                let message = "";
-                let revealed = null;
+                const won = p <= 21 && !dealerBlackjack && (playerBlackjack || d > 21 || p > d);
+                const push = p === d && playerBlackjack === dealerBlackjack;
+                const lines = [];
 
-                if (p > 21) {
-                    if (state.bustCharm) {
+                if (won) {
+                    const payout = playerBlackjack ? wager * 2 : wager;
+                    state.chips += payout;
+                    state.curse = Math.max(0, state.curse - (playerBlackjack ? 2 : 1));
+                    state.wins += 1;
+                    lines.push(playerBlackjack
+                        ? `Blackjack. +${payout} chips. “Oh, that was hot. Do it twice and I'll be impressed.”`
+                        : `You win. +${payout} chips. “Cute grin. Wanna see if I can wipe it off?”`);
+                    const revealed = claimNextLoser();
+                    if (revealed) lines.push(`<strong>Unlocked:</strong> ${revealed.name} · ${revealed.reward}. ${revealed.effect}`);
+                } else if (push) {
+                    state.curse += 1;
+                    lines.push("Push. +1 curse. “I'll let you keep the chips. The blush is mine.”");
+                } else {
+                    state.losses += 1;
+                    if (p > 21 && state.bustCharm) {
                         state.bustCharm = false;
                         state.curse += 1;
-                        message = "Bust, but Nix's lucky charm kicks under the table. No chips lost. Only one curse mark sticks.";
+                        lines.push("Bust. Nix saves your chips. +1 curse. “Lucky little thing. That charm's spent.”");
                     } else {
-                        state.chips -= state.wager;
-                        state.curse += state.wager;
-                        state.losses += 1;
-                        message = "Bust. Vesper collects the wager and the curse bites deeper.";
+                        state.chips -= wager;
+                        state.curse += wager;
+                        lines.push(p > 21
+                            ? `Bust. −${wager} chips. “Greedy looks good on you. Expensive, though.”`
+                            : `Vesper wins. −${wager} chips. “Mine. The chips, babe. Where'd your mind go?”`);
                     }
-                } else if (isBlackjack(player) && !isBlackjack(dealer)) {
-                    state.chips += state.wager * 2;
-                    state.curse = Math.max(0, state.curse - 2);
-                    state.wins += 1;
-                    revealed = claimNextLoser();
-                    message = "Blackjack. The collar loosens, and the win drags another claimed loser into your ledger.";
-                } else if (d > 21 || p > d) {
-                    state.chips += state.wager;
-                    state.curse = Math.max(0, state.curse - 1);
-                    state.wins += 1;
-                    revealed = claimNextLoser();
-                    message = "You win the hand. Vesper smiles like that only makes the next one funnier.";
-                } else if (p === d) {
-                    state.curse += 1;
-                    message = "Push. No chips move, but the table still takes a tiny taste.";
-                } else {
-                    state.chips -= state.wager;
-                    state.curse += state.wager;
-                    state.losses += 1;
-                    message = "Dealer wins. Your chip stack shrinks and the farm starts measuring you for a pen.";
                 }
 
-                state.chips = Math.max(0, state.chips);
-                state.wager = Math.min(Math.max(1, state.wager), Math.max(1, state.chips));
-                roundActive = false;
-                if (revealed) {
-                    message += `<br><strong>Unlocked:</strong> ${revealed.name} - ${revealed.reward}. ${revealed.effect}`;
-                }
                 if (state.claimed.length === ledger.length && state.trophyCashouts === 0) {
                     state.trophyCashouts = 1;
                     state.chips += 10;
                     state.curse = Math.max(0, state.curse - 5);
-                    message += "<br><strong>Full ledger bonus:</strong> every claimed loser is exposed. Vesper pays out 10 chips and scrapes five curse marks off your collar.";
+                    lines.push("<strong>Full ledger bonus:</strong> +10 chips and −5 curse. “You really wanted the whole set, huh?”");
                 }
+                blackjackDares.recordHand(state.dares, {
+                    action, wager, total: p, won, blackjack: playerBlackjack, dealerBust: d > 21,
+                    hit: player.length > 2 && action !== "double"
+                });
+                roundActive = false;
                 state.peekDealer = false;
-                setMessage(`${message}<br>Wins: ${state.wins}. Losses: ${state.losses}.`);
-                render();
-
-                if (state.chips <= 0 || state.curse >= 10) {
-                    setTimeout(triggerTrap, 700);
+                state.dailyPeekArmed = false;
+                resolveClaim(lines);
+                if (state.pendingFate === null) {
+                    blackjackEncounters.ambush(state.encounters, won);
                 }
+                state.wager = Math.min(state.wager, Math.max(1, state.chips));
+                lines.push(`Wins: ${state.wins} · Losses: ${state.losses}`);
+                setMessage(lines.join("<br>"));
             }
 
-            function triggerTrap() {
+            function resolveClaim(lines) {
+                if (state.chips > 0 && state.curse < 10) return;
                 if (state.escapeCharm) {
                     state.escapeCharm = false;
                     state.chips = Math.max(state.chips, 5);
                     state.curse = Math.min(state.curse, 6);
-                    setMessage("Pip slips out from under the felt and knocks the claiming seal crooked. You survive with 5 chips and 6 curse. Vesper looks annoyed. Delicious.");
-                    render();
+                    lines.push(`Escape Charm spent. You're still in with ${state.chips} chips and ${state.curse} curse. “Dammit. Fine. One more.”`);
                     return;
                 }
+                state.pendingFate = Math.floor(Math.random() * fates.length);
+            }
 
-                const fate = fates[Math.floor(Math.random() * fates.length)];
-                el.trapImage.src = fate.image || "https://images.celinascollection.com/website/sexydealer.jpg";
-                el.trapImage.alt = fate.title;
-                el.trapTitle.textContent = fate.title;
-                el.trapText.innerHTML = fate.text;
-                el.trapOverlay.classList.add("active");
-                el.trapOverlay.setAttribute("aria-hidden", "false");
-                el.acceptTrap.onclick = function() {
-                    const duration = [15 * 60 * 1000, 2 * 60 * 60 * 1000, 8 * 60 * 60 * 1000, 24 * 60 * 60 * 1000][Math.floor(Math.random() * 4)];
-                    const current = JSON.parse(localStorage.getItem("farmState") || "{}");
-                    localStorage.setItem("farmState", JSON.stringify({
-                        ...current,
-                        trappedUntil: Date.now() + duration,
-                        currentForm: fate.form,
-                        trapSource: "blackjack",
-                        fateKey: fate.form
-                    }));
-                    localStorage.removeItem("farmBlackjack");
-                    window.location.href = fate.redirect;
-                };
+            function renderTrap() {
+                const fate = fates[state.pendingFate];
+                const active = Boolean(fate);
+                const wasActive = el.trapOverlay.classList.contains("active");
+                if (active) {
+                    if (el.privateSceneOverlay.classList.contains("active")) closePrivateScene();
+                    if (el.trapTitle.textContent !== fate.title) {
+                        el.trapImage.src = fate.image;
+                        el.trapImage.alt = fate.title;
+                        el.trapTitle.textContent = fate.title;
+                        el.trapText.innerHTML = fate.text;
+                    }
+                }
+                el.trapOverlay.classList.toggle("active", active);
+                el.trapOverlay.setAttribute("aria-hidden", !active);
+                el.table.inert = currentView() !== "table" || el.privateSceneOverlay.classList.contains("active");
+                if (active && !wasActive) el.acceptTrap.focus();
+            }
+
+            function acceptTrap() {
+                const fate = fates[state.pendingFate];
+                if (!fate) return;
+                const duration = [15, 120, 480, 1440][Math.floor(Math.random() * 4)] * 60 * 1000;
+                const current = readSave(localStorage.getItem("farmState"));
+                localStorage.setItem("farmState", JSON.stringify({
+                    ...current,
+                    trappedUntil: Date.now() + duration,
+                    currentForm: fate.form,
+                    trapSource: "blackjack",
+                    fateKey: fate.form
+                }));
+                resetTable();
+                return fate.redirect;
             }
 
             function resetTable() {
-                state = { ...defaults, claimed: [], usedRewards: [] };
-                deck = makeDeck();
+                const { dares, encounters, celinaClaimUntil, dailyPeekArmed } = state;
+                state = { ...defaults, claimed: [], usedRewards: [], dares, encounters, celinaClaimUntil, dailyPeekArmed, peekDealer: dailyPeekArmed };
+                deck = [];
                 player = [];
                 dealer = [];
                 roundActive = false;
-                revealDealer = false;
-                doubled = false;
-                setMessage("Fresh table. Same dealer. Choose the size of your mistake.");
+                setMessage("“Back for more? Good. I was getting bored.” Fresh run. Pick a wager.");
+            }
+
+            function newRun() {
+                if (roundActive || !window.confirm("Start a new run with 12 chips? This resets your chips, curse, and ledger rewards.")) return;
+                resetTable();
+            }
+
+            function renderEncounter() {
+                const scene = (debugEncounter || state).encounters.scene;
+                const active = currentView() === "encounter";
+                const wasActive = el.encounter.classList.contains("active");
+                el.encounter.classList.toggle("active", active);
+                el.encounter.setAttribute("aria-hidden", !active);
+                if (!active) {
+                    if (wasActive && currentView() === "table") el.deal.focus({ preventScroll: true });
+                    return;
+                }
+                if (el.privateSceneOverlay.classList.contains("active")) {
+                    closePrivateScene();
+                    el.table.inert = true;
+                }
+
+                const guest = blackjackEncounters.guestForScene(scene);
+                const portrait = guest.portrait || ["website/haunted-farm-night-stockcake.jpg", "The barn outside the blackjack table"];
+                const presentation = {
+                    approach: [guest.entrance, guest.intro, portrait],
+                    transform: [guest.title, guest.arrival, guest.revealArt || guest.art[0]],
+                    human: ["Still human", guest.escape, portrait]
+                };
+                const [title, story, [path, alt]] = presentation[scene.stage];
+                const art = blackjackEncounters.imageUrl(path);
+                const previewMode = String(Boolean(debugEncounter));
+                const changed = !wasActive || el.encounter.dataset.guest !== guest.id ||
+                    el.encounter.dataset.stage !== scene.stage || el.encounter.dataset.preview !== previewMode;
+                el.encounter.dataset.guest = guest.id;
+                el.encounter.dataset.stage = scene.stage;
+                el.encounter.dataset.preview = previewMode;
+                el.encounterPreview.hidden = !debugEncounter;
+                el.encounter.style.setProperty("--guest-accent", guest.color);
+                el.encounterTitle.textContent = title;
+                el.encounterStory.textContent = story;
+                el.encounterArt.alt = alt;
+                if (el.encounterArt.getAttribute("src") !== art) el.encounterArt.src = art;
+                el.encounterCost.hidden = !(scene.lost > 0);
+                el.encounterCost.textContent = scene.lost === 1 ? "1 chip taken" : `${scene.lost} chips taken`;
+
+                if (changed) {
+                    const buttons = blackjackEncounters.choicesFor(guest, scene.stage).map((choice, index) => {
+                        const button = document.createElement("button");
+                        button.type = "button";
+                        button.className = "action-btn";
+                        button.dataset.choice = index;
+                        button.dataset.stage = scene.stage;
+                        button.textContent = choice.label;
+                        return button;
+                    });
+                    if (debugEncounter) {
+                        const exit = document.createElement("button");
+                        exit.type = "button";
+                        exit.className = "action-btn";
+                        exit.textContent = "End preview";
+                        exit.addEventListener("click", closeDebugEncounter);
+                        buttons.push(exit);
+                    }
+                    el.encounterActions.replaceChildren(...buttons);
+                    el.encounter.querySelector(".scene-box").scrollTop = 0;
+                    el.encounterTitle.focus({ preventScroll: true });
+                }
+            }
+
+            function showDebugControls() {
+                el.debugToggle.checked = localStorage.getItem(debugPreference) === "on";
+                el.debugControls.hidden = !el.debugToggle.checked;
+            }
+
+            function closeDebugEncounter() {
+                debugEncounter = null;
                 render();
+                el.debugLaunch.focus({ preventScroll: true });
+            }
+
+            function advanceDebugEncounter(stage, choice) {
+                blackjackEncounters.advance(debugEncounter, stage, choice);
+                const { fate, scene } = debugEncounter.encounters;
+                if (fate) {
+                    sessionStorage.setItem(blackjackEncounters.previewKey, JSON.stringify({
+                        trapSource: "blackjack-hex",
+                        trappedUntil: fate.until,
+                        hex: fate
+                    }));
+                    closeDebugEncounter();
+                    window.location.href = "States/blackjack-hex.html?preview=1";
+                } else if (!scene) {
+                    closeDebugEncounter();
+                } else {
+                    render();
+                }
+            }
+
+            function enterHexFate() {
+                const fate = state.encounters.fate;
+                if (!fate) return false;
+                const current = readSave(localStorage.getItem("farmState"));
+                if (current.trappedUntil > Date.now()) {
+                    window.location.replace(getTrapRedirect(current.currentForm));
+                    return true;
+                }
+                localStorage.setItem("farmState", JSON.stringify({
+                    ...current,
+                    trappedUntil: fate.until,
+                    currentForm: "blackjack-hex-" + fate.guest,
+                    trapSource: "blackjack-hex",
+                    fateKey: fate.guest,
+                    hex: fate
+                }));
+                window.location.replace("States/blackjack-hex.html");
+                return true;
+            }
+
+            function refreshTime() {
+                if (blackjackDares.today(state.dares).day !== displayedDay) renderDares();
+                renderShop();
             }
 
             document.querySelectorAll(".wager-btn").forEach(btn => {
-                btn.addEventListener("click", () => setWager(btn.dataset.wager));
+                btn.addEventListener("click", () => tableAction(() => setWager(btn.dataset.wager)));
             });
             document.querySelectorAll(".shop-btn").forEach(btn => {
-                btn.addEventListener("click", () => buyPrize(btn.dataset.prize));
+                btn.addEventListener("click", () => tableAction(() => buyPrize(btn.dataset.prize)));
             });
             el.shopToggle.addEventListener("click", toggleShop);
             el.closePrivateScene.addEventListener("click", closePrivateScene);
             el.privateSceneOverlay.addEventListener("click", (event) => {
                 if (event.target === el.privateSceneOverlay) closePrivateScene();
             });
-            el.deal.addEventListener("click", deal);
-            el.hit.addEventListener("click", hit);
-            el.stand.addEventListener("click", stand);
-            el.double.addEventListener("click", doubleDown);
-            el.reset.addEventListener("click", resetTable);
-
-            deck = makeDeck();
-            render();
-            setInterval(renderShop, 1000);
+            el.privateSceneOverlay.addEventListener("keydown", event => {
+                if (event.key === "Escape") closePrivateScene();
+            });
+            el.deal.addEventListener("click", () => tableAction(deal));
+            el.hit.addEventListener("click", () => tableAction(hit));
+            el.stand.addEventListener("click", () => tableAction(stand));
+            el.double.addEventListener("click", () => tableAction(doubleDown));
+            el.reset.addEventListener("click", () => tableAction(newRun));
+            el.acceptTrap.addEventListener("click", () => tableAction(acceptTrap, "trap"));
+            el.dareList.addEventListener("click", event => {
+                const button = event.target.closest("[data-dare]");
+                if (button) tableAction(() => collectDare(button.dataset.dare));
+            });
+            el.favor.addEventListener("click", () => tableAction(useDailyPeek));
+            el.debugGuest.replaceChildren(...blackjackEncounters.guestOptions()
+                .sort((first, second) => first.title.localeCompare(second.title))
+                .map(({ id, title }) => new Option(title, id)));
+            showDebugControls();
+            el.debugToggle.addEventListener("change", () => {
+                if (el.debugToggle.checked) localStorage.setItem(debugPreference, "on");
+                else localStorage.removeItem(debugPreference);
+                showDebugControls();
+            });
+            el.debugLaunch.addEventListener("click", () => {
+                if (!el.debugToggle.checked || currentView() !== "table" || syncTable(localStorage.getItem(saveKey))) return;
+                const scene = { guest: el.debugGuest.value, stage: "approach" };
+                if (!blackjackEncounters.guestForScene(scene)) return;
+                debugEncounter = { chips: 12, wager: 1, encounters: blackjackEncounters.restore({ scene }) };
+                render();
+            });
+            el.encounterActions.addEventListener("click", event => {
+                const button = event.target.closest("button[data-choice]");
+                if (!button) return;
+                const { stage, choice } = button.dataset;
+                if (debugEncounter) advanceDebugEncounter(stage, Number(choice));
+                else tableAction(() => blackjackEncounters.advance(state, stage, Number(choice)), "encounter");
+            });
+            el.encounter.addEventListener("keydown", event => {
+                if (event.key === "Escape" && debugEncounter) {
+                    closeDebugEncounter();
+                    return;
+                }
+                if (event.key !== "Tab") return;
+                const first = el.encounterActions.firstElementChild;
+                const last = el.encounterActions.lastElementChild;
+                const focused = document.activeElement;
+                if (event.shiftKey && (focused === first || focused === el.encounterTitle)) {
+                    event.preventDefault();
+                    last.focus();
+                } else if (!event.shiftKey && focused === last) {
+                    event.preventDefault();
+                    first.focus();
+                }
+            });
+            window.addEventListener("storage", event => {
+                if (event.key === debugPreference || event.key === null) showDebugControls();
+                if (event.key === saveKey || event.key === "farmState" || event.key === null) {
+                    syncTable(localStorage.getItem(saveKey));
+                }
+            });
+            window.addEventListener("pageshow", () => syncTable(localStorage.getItem(saveKey)));
+            if (!enterHexFate()) {
+                render();
+                setInterval(refreshTime, 1000);
+            }
         })();
     </script>
 </body>

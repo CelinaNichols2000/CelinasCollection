@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack Fate</title>
+    <link rel="icon" href="../../celinaIcon.ico">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="blackjack-state.css">
+    <style>
+        .fate-header { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px; margin-bottom: 20px; }
+        .fate-header h1 { margin-top: 4px; color: var(--accent); font: 700 clamp(1.5rem, 4vw, 2.8rem)/1.2 Orbitron, sans-serif; }
+        .fate-location { color: #edddef; }
+        .fate-time { text-align: center; }
+        .fate-time .timer { margin: 0; font-size: clamp(1.4rem, 4vw, 2.4rem); letter-spacing: 0; font-variant-numeric: tabular-nums; }
+        .fate-time span:first-child { font-size: 0.875rem; color: #edddef; }
+        .hex-fate-grid { grid-template-areas: "visual controls" "story controls"; row-gap: 16px; }
+        .hex-fate-art { grid-area: visual; display: grid; overflow: hidden; }
+        .hex-fate-art img { min-height: 0; height: clamp(230px, 45vw, 465px); }
+        .hex-fate-views { display: flex; flex-wrap: wrap; gap: 8px; padding: 12px; }
+        .hex-fate-views button { padding: 8px 12px; font-size: 0.875rem; }
+        .hex-fate-views button[aria-pressed="true"] { border-color: var(--accent); background: rgba(255,255,255,0.14); }
+        .hex-fate-controls { grid-area: controls; }
+        .hex-fate-story { grid-area: story; margin: 0; }
+        .hex-fate-controls h2 { margin-bottom: 12px; font: 700 1.2rem Orbitron, sans-serif; color: var(--accent); }
+        .claim-detail { margin-bottom: 16px; color: #eadfff; }
+        .form-phase { margin-top: 8px; color: var(--accent); font-weight: 700; }
+        .settled-form { margin-top: 14px; border-top: 1px solid var(--accent); padding-top: 12px; color: #f1eaff; }
+        .settled-form:empty { display: none; }
+        .hex-fate-controls .state-btn:disabled { opacity: 0.5; cursor: default; }
+        .fate-return { margin-top: 12px; width: 100%; border-color: var(--accent); }
+        @media (max-width: 900px) {
+            .hex-fate-grid { grid-template-areas: "visual" "controls" "story"; }
+        }
+    </style>
+    <script src="../blackjack-encounters.js" defer></script>
+    <script src="blackjack-hex.js" defer></script>
+</head>
+<body>
+    <main class="state-shell" id="hexFate" hidden>
+        <header class="fate-header">
+            <div>
+                <p class="fate-location" id="fateLocation"></p>
+                <h1 id="fateTitle"></h1>
+            </div>
+            <div class="fate-time">
+                <span>Spell lifts in</span>
+                <p class="timer" id="fateTimer" role="timer"></p>
+            </div>
+        </header>
+        <div class="state-grid hex-fate-grid">
+            <figure class="visual-panel hex-fate-art">
+                <img class="state-image" id="fateArt" alt="">
+                <figcaption class="hex-fate-views" id="fateViews"></figcaption>
+            </figure>
+            <section class="control-panel hex-fate-controls" aria-labelledby="controlTitle">
+                <h2 id="controlTitle">Under the Hex</h2>
+                <p class="claim-detail" id="fateChips"></p>
+                <div class="meter-head"><span id="meterLabel"></span><span class="meter-value" id="meterValue"></span></div>
+                <div class="meter" id="fateMeter" role="progressbar" aria-labelledby="meterLabel" aria-valuemin="0" aria-valuemax="100">
+                    <div class="meter-fill" id="fateFill"></div>
+                </div>
+                <p class="form-phase" id="fatePhase"></p>
+                <p class="status-box" id="fateStatus" role="status"></p>
+                <div class="action-grid" id="fateActions"></div>
+                <p class="settled-form" id="fateComplete" role="status"></p>
+                <p class="release-note" id="releaseNote">The spell holds until the timer runs out.</p>
+                <button class="state-btn fate-return" id="fateReturn" type="button" hidden>Return to blackjack</button>
+            </section>
+            <section class="memory-panel hex-fate-story" aria-labelledby="storyTitle">
+                <h2 id="storyTitle">What Happened</h2>
+                <div class="memory-text"><p id="fateArrival"></p><p id="fateMemory"></p></div>
+            </section>
+        </div>
+    </main>
+</body>
+</html>

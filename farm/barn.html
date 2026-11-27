@@ -4,6 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Celina's Barn</title>
+    <script>
+        (function() {
+            function returnToHex() {
+                try {
+                    const state = JSON.parse(localStorage.getItem('farmState'));
+                    if (state?.trapSource === 'blackjack-hex' && state.trappedUntil > Date.now()) {
+                        window.location.replace('States/blackjack-hex.html');
+                    }
+                } catch {
+                    return;
+                }
+            }
+            returnToHex();
+            window.addEventListener('pageshow', returnToHex);
+        })();
+    </script>
     <link rel="icon" type="image/x-icon" href="../celinaIcon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -15,7 +31,7 @@
             font-family: "Poppins", sans-serif;
             background:
                 linear-gradient(rgba(8, 2, 16, 0.72), rgba(12, 0, 22, 0.96)),
-                url("https://i.ibb.co/W42HhDXK/barn.jpg") center/cover fixed;
+                url("https://images.celinascollection.com/website/haunted-farm-night-stockcake.jpg") center/cover fixed;
         }
 
         a { color: inherit; }
@@ -535,33 +551,18 @@
             <div class="section-inner barn-feature">
                 <div class="feature-copy">
                     <h2>Vesper's Side Table</h2>
-                    <p>
-                        <br>
-                        The blackjack table is no longer sitting loose on the farm map. It belongs here, tucked behind
-                        the animal showcase where the lanterns get lower, the chip tray gleams, and the barn's claimed
-                        residents become part warning sign and part prize display.
-                    </p>
-                    <p>
-                        Vesper keeps the rules simple: win hands, earn chips, reveal the ledger, and peek at the poor
-                        souls already marked by the house. Lose too hard and the table does not just take your wager:
-                        it chooses a new place for you in the barn, as a pet, a show animal, or one of Celina's useful
-                        belongings. The game can stay here as a contained feature while the wider farm connection waits
-                        until it is fully finished.
-                    </p>
+                    <p>“Pull up a chair, hot stuff. Bet a chip and give me something to look at.”</p>
+                    <p>Win hands to unlock the house ledger and its perks. Run out of chips in a hand or let the curse hit ten, and Vesper picks your fate.</p>
                     <div class="feature-list">
-                        <br>
-                        <div><strong>Win:</strong> collect chips, reveal claimed losers, and buy your way deeper into Vesper's private little game.</div>
-                        <div><strong>Lose:</strong> the barn marks you, reshapes you, and files you away as something Celina can keep or show off.</div>
+                        <div><strong>Two new dares at midnight.</strong> Play for chips and collect stamps.</div>
+                        <div><strong>Six stamps make you House Favorite.</strong> Vesper lets you peek at her hidden card once a day.</div>
                     </div>
                 </div>
 
                 <aside class="feature-panel">
                     <div class="table-card">
                         <h3>High Stakes Blackjack</h3>
-                        <p>
-                            The cards are warm, the dealer is smiling, and the animals know better than to make noise
-                            when someone new sits down.
-                        </p>
+                        <p>“Back again? Cute. Show me what you learned.”</p>
                         <a class="barn-button cyan" href="blackjack.html">Join the table</a>
                     </div>
                 </aside>

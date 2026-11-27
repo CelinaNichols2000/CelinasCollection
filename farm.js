@@ -4,14 +4,14 @@ const qs  = (s, r=document) => r.querySelector(s);
 const farmData = {
   entry: {
     name: "Farm Gate",
-    image: "https://i.ibb.co/N6x330cW/farm-entrance.jpg",
+    image: "https://images.celinascollection.com/website/enchanting-gothic-entrance-to-a-mysterious-garden-free-photo.jpg",
     description: "A weathered iron gate marks the edge of the farm, its hinges groaning low at night, and sometimes you can glimpse pale shapes moving beyond the posts.",
     encounters: [
       {
         stages: [
           {
             title: "Entrance to the Farm",
-            image: "https://i.ibb.co/N6x330cW/farm-entrance.jpg",
+            image: "https://images.celinascollection.com/website/enchanting-gothic-entrance-to-a-mysterious-garden-free-photo.jpg",
             text: "A weathered iron gate stands before you, its hinges creaking softly in the night. Pale shapes flicker in the shadows beyond. Do you dare to enter the farm through this gate?",
             choices: [
               { text: "Enter the farm", next: "farm/farmGate.html" },
@@ -24,14 +24,14 @@ const farmData = {
   },
   stable: {
     name: "Stables",
-    image: "https://i.ibb.co/h18gRSsg/Stable.jpg",
+    image: "https://images.celinascollection.com/website/Stable.jpg",
     description: "An ancient timber stable leans against the hill, its doors creaking softly in the wind, and sometimes you can hear the whisper of hooves in the shadows.",
     encounters: [
       {
         stages: [
           {
             title: "Entrance to the Stables",
-            image: "https://i.ibb.co/h18gRSsg/Stable.jpg",
+            image: "https://images.celinascollection.com/website/Stable.jpg",
             text: "An ancient timber stable leans against the hill. The scent of hay and the faint sound of hooves drift through the air. Will you step inside and see what awaits?",
             choices: [
               { text: "Enter the stables", next: "farm/stables.html" },
@@ -44,14 +44,14 @@ const farmData = {
   },
   farmhouse: {
     name: "Farmhouse",
-    image: "https://i.ibb.co/5XhNVcnJ/farmhouse.webp",
+    image: "https://images.celinascollection.com/website/769vdnL16n9rhM9lTKOA--1--5t9pc.webp",
     description: "A huge old farmhouse stands by the roadside, its windows glowing faintly in the dusk, and sometimes you can catch a shadow slipping behind the curtains.",
     encounters: [
       {
         stages: [
           {
             title: "Entrance to the Farmhouse",
-            image: "https://i.ibb.co/5XhNVcnJ/farmhouse.webp",
+            image: "https://images.celinascollection.com/website/769vdnL16n9rhM9lTKOA--1--5t9pc.webp",
             text: "The farmhouse glows warmly in the fading light, and shadows flicker behind its windows. A sense of comfort mixed with mystery draws you near. Do you enter the house?",
             choices: [
               { text: "Enter the farmhouse", next: "farm/farmhouse.html" },
@@ -64,14 +64,14 @@ const farmData = {
   },
   barn: {
     name: "Barn",
-    image: "https://i.ibb.co/W42HhDXK/barn.jpg",
+    image: "https://images.celinascollection.com/website/haunted-farm-night-stockcake.jpg",
     description: "A rickety old barn leans precariously on the hillside, its doors creaking in the wind, and sometimes you can hear the rustle of hay and the soft lowing of unseen animals.",
     encounters: [
       {
         stages: [
           {
             title: "Entrance to the Barn",
-            image: "https://i.ibb.co/W42HhDXK/barn.jpg",
+            image: "https://images.celinascollection.com/website/haunted-farm-night-stockcake.jpg",
             text: "A rickety old barn creaks on the hillside. The rustle of hay and soft lowing of unseen animals echo faintly. Do you venture inside to explore?",
             choices: [
               { text: "Enter the barn", next: "farm/barn.html" },

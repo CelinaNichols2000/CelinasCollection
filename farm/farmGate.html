@@ -20,7 +20,7 @@
             body {
                 background:
                     linear-gradient(rgba(8, 2, 16, 0.72), rgba(12, 0, 22, 0.86)),
-                    url("https://i.ibb.co/N6x330cW/farm-entrance.jpg") center/cover fixed !important;
+                    url("https://images.celinascollection.com/website/enchanting-gothic-entrance-to-a-mysterious-garden-free-photo.jpg") center/cover fixed !important;
             }
             
             /* Prevent valata.css from overriding Nami's image container */
@@ -479,6 +479,10 @@
     (function() {
         const state = JSON.parse(localStorage.getItem('farmState') || '{}');
         if (state.trappedUntil && state.trappedUntil > Date.now()) {
+            if (state.trapSource === 'blackjack-hex') {
+                window.location.replace('States/blackjack-hex.html');
+                return;
+            }
             // IMMEDIATELY redirect to transformation page
             const formMap = {
                 'foxfire_panties': 'States/forest-panties.html', //yes

@@ -13,12 +13,6 @@
     <div class="farm-overlay">
       <h1 class="farm-title">Celinas Enchanted Farm</h1>
       <p class="farm-text">Past the gate, Celina's land opens into lantern-lit paths, old fences, warm barns, and places where careless visitors slowly learn what they are really worth. The farm is pretty from a distance, but every building has a purpose, every keeper has a favorite method, and every lost guest may end up displayed, trained, milked, ridden, or kept.</p>
-
-      <div class="farm-actions">
-      <!-- <button id="startFarm" class="farm-btn">🌾 Start</button>
-        <button id="randomEncounter" class="farm-btn">🎲 Zufall</button>
-        <button id="resetFarm" class="farm-btn">🔄 Reset</button>--> 
-      </div>
     </div>
   </section>
 
@@ -44,6 +38,10 @@
     (function() {
         const state = JSON.parse(localStorage.getItem('farmState') || '{}');
         if (state.trappedUntil && state.trappedUntil > Date.now()) {
+            if (state.trapSource === 'blackjack-hex') {
+                window.location.replace('farm/States/blackjack-hex.html');
+                return;
+            }
             // IMMEDIATELY redirect to transformation page
             const formMap = {
                 'foxfire_mistress': 'farm/States/forest-panties.html',

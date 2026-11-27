@@ -212,6 +212,10 @@
     (function() {
         const state = JSON.parse(localStorage.getItem('farmState') || '{}');
         if (state.trappedUntil && state.trappedUntil > Date.now()) {
+            if (state.trapSource === 'blackjack-hex') {
+                window.location.replace('States/blackjack-hex.html');
+                return;
+            }
             // IMMEDIATELY redirect to transformation page
             if (state.currentForm && state.currentForm.startsWith('farmhouse-')) {
                 window.location.href = `States/${state.currentForm}.html`;
